@@ -69,4 +69,64 @@ class OneTestToRuleThemAll {
 	void testNonControllable() {
 		
 	}
+	
+	@Test
+	void testOsprey() {
+		
+	}
+	
+	@Test
+	void testQuiz() {
+		
+	}
+	
+	@Test
+	void testSelectionModel() {
+		
+	}
+	
+	@Test
+	void testSelectionView() {
+		
+	}
+	
+	@Test
+	void testSideScrollModel() {
+		
+	}
+	
+	@Test
+	void testSideScrollView() {
+		
+	}
+	
+	@Test
+	void testStick() {
+		
+	}
+	
+	@Test
+	void testTopDownModel() {
+		
+	}
+	
+	@Test
+	void testTopDownView() {
+		
+	}
+	
+	@Test
+	void testTrash() {
+		
+	}
+	
+	@Test
+	void testType() {
+		
+	}
+	
+	@Test
+	void testView() {
+		
+	}
 }
