@@ -1,10 +1,33 @@
 package GameFiles;
+import java.io.File;
+
 import javax.swing.JButton;
 /**
  * represents the quiz at the end of each game 
  *
  */
 public class Quiz extends Controllable {
+	/**
+	 * @param y
+	 * @param x
+	 * @param imgPose
+	 * @param width
+	 * @param height
+	 * @param xMin
+	 * @param xMax
+	 * @param yMin
+	 * @param yMax
+	 * @param speed
+	 * @param answer
+	 * @param bad
+	 * @param question
+	 * 
+	 * a constructor that takes values for all fields as input parameters
+	 */
+	public Quiz(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, 
+			int yMax, int speed, JButton answer, JButton bad, String question) {
+		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, speed);
+	}
 	/**
 	 * button that will allow the user to select the correct answer
 	 */

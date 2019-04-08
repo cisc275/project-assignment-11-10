@@ -52,13 +52,11 @@ public class GameObject {
 	 * @param xMax
 	 * @param yMin
 	 * @param yMaxa
-	 * @return GameObject
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
-	public GameObject GameObject(int y, int x, File imgPose, int width, int height, int xMin, 
-			int xMax, int yMin, int yMaxa) {
-		return null;
+	public GameObject(int y, int x, File imgPose, int width, int height, int xMin, 
+			int xMax, int yMin, int yMax) {
 	}
 
 	/**
