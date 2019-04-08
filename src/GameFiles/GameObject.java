@@ -41,7 +41,26 @@ public class GameObject {
 	 * maximum y coordinate for this gameObject
 	 */
 	private int yMax; 
-	
+
+	/**
+	 * @param y
+	 * @param x
+	 * @param imgPose
+	 * @param width
+	 * @param height
+	 * @param xMin
+	 * @param xMax
+	 * @param yMin
+	 * @param yMaxa
+	 * @return GameObject
+	 * 
+	 * a constructor that takes values for all fields as input parameters
+	 */
+	public GameObject GameObject(int y, int x, File imgPose, int width, int height, int xMin, 
+			int xMax, int yMin, int yMaxa) {
+		return null;
+	}
+
 	/**
 	 * 
 	 * @param a
@@ -53,7 +72,7 @@ public class GameObject {
 	 * 
 	 */
 	public boolean collidesWith(GameObject a) {
-		 
+
 		return true;
 	}
 	/**
