@@ -1,7 +1,7 @@
 package GameFiles;
 import java.util.ArrayList;
 
-import javax.swing.JButton;
+
 /**
  * all logic for the side scroll game
  *
@@ -16,10 +16,21 @@ public class SideScrollModel extends Model {
 	private Trash trash2;
 	private Trash trash3;
 	private Osprey osprey;
-	private int currY;
-	private boolean isDiving = false;
+	
+	public SideScrollModel(Fish fish, Trash trash1, Trash trash2, Trash trash3, Osprey osprey) {
+		this.fish = fish;
+		this.trash1 = trash1;
+		this.trash2 = trash2;
+		this.trash3 = trash3;
+		this.osprey = osprey;
+	}
+	
+	
+	
 	
 	public void advanceWorld() {
+		osprey.setX(osprey.getX() + osprey.getxSpeed());
+		osprey.setY(osprey.getY() + osprey.getySpeed());
 		fish.setX(fish.getX()-1);
 		trash1.setX(trash1.getX() -1);
 		trash2.setX(trash2.getX() -1);
@@ -39,9 +50,9 @@ public class SideScrollModel extends Model {
 		if (osprey.getY() >= 550) {
 			osprey.speed = -50;
 		}
-		if ((osprey.getY() == currY) && (osprey.getisDiving() == true)) {
+		if ((osprey.getY() == osprey.getcurrY()) && (osprey.getisDiving() == true)) {
 			osprey.setySpeed(0);
-			osprey.setisDiving(!isDiving);
+			osprey.setisDiving(!osprey.getisDiving());
 		}
 	}
 	
@@ -64,7 +75,7 @@ public class SideScrollModel extends Model {
 	}
 	
 	public static void main(String[] args) {
-		Controller controller = new Controller();
+		Controller controller = new Controller("osp");
 		controller.start();
 		
 	}
