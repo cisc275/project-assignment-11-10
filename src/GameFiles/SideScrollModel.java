@@ -35,7 +35,6 @@ public class SideScrollModel extends Model {
 	
 	
 	
-	
 	public void advanceWorld() {
 		osprey.setX(osprey.getX() + osprey.getxSpeed());
 		osprey.setY(osprey.getY() + osprey.getySpeed());
