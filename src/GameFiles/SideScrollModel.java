@@ -17,6 +17,7 @@ public class SideScrollModel extends Model {
 	private Trash trash3;
 	private Osprey osprey;
 	
+	
 	public SideScrollModel(Fish fish, Trash trash1, Trash trash2, Trash trash3, Osprey osprey) {
 		this.fish = fish;
 		this.trash1 = trash1;
