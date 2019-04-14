@@ -66,7 +66,6 @@ public class SideScrollView extends View{
     }
     
     private class DrawPanel extends JPanel {
-    	//int picNum = 0;
 
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
