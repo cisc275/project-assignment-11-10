@@ -23,5 +23,4 @@ public class View extends JFrame {
 	public void setGame(ArrayList<GameObject> game) {
 		this.game = game;
 	}
-	
 }
