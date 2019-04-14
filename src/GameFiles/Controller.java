@@ -14,8 +14,10 @@ import javax.swing.Timer;
 
 
 public class Controller implements ActionListener, KeyListener{
-	Model model;
-	View view;
+	TopDownModel m1;
+	SideScrollModel m2;
+	TopDownView v1;
+	SideScrollView v2;
 	boolean isOsp;
 	private Action drawAction;
 	private Timer time;
@@ -24,25 +26,18 @@ public class Controller implements ActionListener, KeyListener{
 
 	public Controller(String a) {
 		if(a == "cr") {
-			model = new TopDownModel(800,500,1000,1000);
-			view = new TopDownView();
-			view.addKeyListener(this);
-			drawAction = new AbstractAction() {
-				public void actionPerformed(ActionEvent e) {
-					view.drawPanel.repaint();
-				}
-			};
+			m1 = new TopDownModel(800,500,1000,1000);
+			v1 = new TopDownView();
+			v1.addKeyListener(this);
+			//m1.advanceWorld();
 			isOsp = false;
 		}
 		else if(a == "osp") {
-			model = new SideScrollModel();
-			view = new SideScrollView();
-			view.addKeyListener(this);
-			drawAction = new AbstractAction() {
-				public void actionPerformed(ActionEvent e) {
-					view.drawPanel.repaint();
-				}
-			};
+			m2 = new SideScrollModel(null, null, null, null, null);
+			v2 = new SideScrollView();
+			v2.addKeyListener(this);
+			v2.updateView(null);
+			m2.advanceWorld();
 			isOsp = true;
 		}
 
@@ -68,13 +63,16 @@ public class Controller implements ActionListener, KeyListener{
 		//		}
 		//		model1.setVel(xvel, yvel);
 		//		System.out.println(xvel+":"+yvel);
-		if((e.getKeyCode() == 38) && (model.isDiving == false)) { //up arrow key
-			yIncr = -5;
+		
+		if((e.getKeyCode() == 38) && (isOsp == true)) { //up arrow key
+			if(model.game.osprey.getisDiving()) {
+				model.osprey.setySpeed(-5);
+			}
 		}
-		else if((e.getKeyCode() == 40) && (isDiving == false)) { //down arrow key
-			yIncr = 5;
+		else if((e.getKeyCode() == 40) && (isOsp == true)) { //down arrow key
+			model.osprey.setySpeed(5);
 		}
-		else if ((e.getKeyCode() == 32) && (isDiving == false)) {
+		else if ((e.getKeyCode() == 32) && (isOsp == true)) {
 			System.out.println("space");
 			isDiving = true;
 			yIncr = 50;
