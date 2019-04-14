@@ -1,4 +1,5 @@
 package GameFiles;
+import java.awt.image.BufferedImage;
 import java.io.File;
 /**
  * Super class for every object in the game  
@@ -58,12 +59,7 @@ public class GameObject {
 	public GameObject(int y, int x, File imgPose, int width, int height, int xMin, 
 			int xMax, int yMin, int yMax) {
 	}
-	
-	public GameObject() {
-		
-	}
-	
-	
+
 	/**
 	 * 
 	 * @param a
@@ -89,130 +85,8 @@ public class GameObject {
 	public void collisions() {
 
 	}
-
-	/**
-	 * @return the y
-	 */
-	public int getY() {
-		return y;
-	}
-
-	/**
-	 * @param y the y to set
-	 */
-	public void setY(int y) {
-		this.y = y;
-	}
-
-	/**
-	 * @return the x
-	 */
-	public int getX() {
-		return x;
-	}
-
-	/**
-	 * @param x the x to set
-	 */
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	/**
-	 * @return the imgPose
-	 */
-	public File getImgPose() {
-		return imgPose;
-	}
-
-	/**
-	 * @param imgPose the imgPose to set
-	 */
-	public void setImgPose(File imgPose) {
-		this.imgPose = imgPose;
-	}
-
-	/**
-	 * @return the width
-	 */
-	public int getWidth() {
-		return width;
-	}
-
-	/**
-	 * @param width the width to set
-	 */
-	public void setWidth(int width) {
-		this.width = width;
-	}
-
-	/**
-	 * @return the height
-	 */
-	public int getHeight() {
-		return height;
-	}
-
-	/**
-	 * @param height the height to set
-	 */
-	public void setHeight(int height) {
-		this.height = height;
-	}
-
-	/**
-	 * @return the xMin
-	 */
-	public int getxMin() {
-		return xMin;
-	}
-
-	/**
-	 * @param xMin the xMin to set
-	 */
-	public void setxMin(int xMin) {
-		this.xMin = xMin;
-	}
-
-	/**
-	 * @return the xMax
-	 */
-	public int getxMax() {
-		return xMax;
-	}
-
-	/**
-	 * @param xMax the xMax to set
-	 */
-	public void setxMax(int xMax) {
-		this.xMax = xMax;
-	}
-
-	/**
-	 * @return the yMin
-	 */
-	public int getyMin() {
-		return yMin;
-	}
-
-	/**
-	 * @param yMin the yMin to set
-	 */
-	public void setyMin(int yMin) {
-		this.yMin = yMin;
-	}
-
-	/**
-	 * @return the yMax
-	 */
-	public int getyMax() {
-		return yMax;
-	}
-
-	/**
-	 * @param yMax the yMax to set
-	 */
-	public void setyMax(int yMax) {
-		this.yMax = yMax;
+	
+	public BufferedImage getImage() {
+		return null;
 	}
 }

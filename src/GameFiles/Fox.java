@@ -1,6 +1,10 @@
 package GameFiles;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 /**
  * represents the Fox object in the clapperrail game 
@@ -36,5 +40,15 @@ public class Fox extends Controllable {
 	public boolean birdVisible() {
 		
 		return false;
+	}
+	public BufferedImage getImg() {
+		BufferedImage buffImg;
+		try {
+    		buffImg = ImageIO.read(new File(System.getProperty("user.dir").replace("\\","/")+"/imgs/fox.png"));
+    		return buffImg;
+		} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+		return null;
 	}
 }

@@ -1,6 +1,10 @@
 package GameFiles;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 /**
  * represents the bush(es) that the clapperrail can use to hide
@@ -24,6 +28,16 @@ public class Bush extends NonControllable {
 	public Bush(int y, int x, File imgPose, int width, int height,
 			int xMin, int xMax, int yMin, int yMax) {
 		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax);
+	}
+	public BufferedImage gtImage() {
+		BufferedImage buffImg;
+		try {
+    		buffImg = ImageIO.read(new File(System.getProperty("user.dir").replace("\\","/")+"/imgs/bush.png"));
+    		return buffImg;
+		} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+		return null;
 	}
 
 }

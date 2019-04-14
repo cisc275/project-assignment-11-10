@@ -1,6 +1,10 @@
 package GameFiles;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 /**
  * represents the clapperrail for the side scroll game 
@@ -37,4 +41,15 @@ public class ClapperRail extends Bird {
 	 * describes if the bird has a stick
 	 */
 	boolean carryStick; 
+	
+	public BufferedImage getImg() {
+		BufferedImage buffImg;
+		try {
+    		buffImg = ImageIO.read(new File(System.getProperty("user.dir").replace("\\","/")+"/imgs/cr.png"));
+    		return buffImg;
+		} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+		return null;
+	}
 }
