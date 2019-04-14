@@ -16,14 +16,21 @@ public class SideScrollModel extends Model {
 	private Trash trash2;
 	private Trash trash3;
 	private Osprey osprey;
+	private ArrayList<GameObject> gol;
 	
 	
-	public SideScrollModel(Fish fish, Trash trash1, Trash trash2, Trash trash3, Osprey osprey) {
+	public SideScrollModel(Fish fish, Trash trash1, Trash trash2, Trash trash3, Osprey osprey, ArrayList<GameObject> gol) {
 		this.fish = fish;
 		this.trash1 = trash1;
 		this.trash2 = trash2;
 		this.trash3 = trash3;
 		this.osprey = osprey;
+		this.gol = gol;
+		gol.add(fish);
+		gol.add(trash1);
+		gol.add(trash2);
+		gol.add(trash3);
+		gol.add(osprey);
 	}
 	
 	
@@ -77,8 +84,7 @@ public class SideScrollModel extends Model {
 	
 	public static void main(String[] args) {
 		Controller controller = new Controller("osp");
-		controller.start();
-		
+		controller.start();	
 	}
 	
 }
