@@ -3,12 +3,16 @@ package GameFiles;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 //import GameFiles.ClapperRailMain.DrawPanel;
@@ -42,7 +46,20 @@ import javax.swing.JPanel;
 
 public class SideScrollView extends View{
     DrawPanel drawPanel = new DrawPanel();
-    
+    Action drawAction;
+
+    public SideScrollView(){
+    	drawAction = new AbstractAction(){
+    		public void actionPerformed(ActionEvent e){
+    			drawPanel.repaint();
+    		}
+    	};
+    	add(drawPanel);
+    	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	setSize(frameSize, frameSize);
+    	setVisible(true);
+    	pack();
+    }
     
     public void update(ArrayList<GameObject> g) {
     	game = g;

@@ -2,6 +2,7 @@ package GameFiles;
 
 import java.util.ArrayList;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -10,7 +11,7 @@ import javax.swing.JPanel;
  */
 
 
-public class View extends JPanel {
+public class View extends JFrame {
 
 	ArrayList<GameObject> game;
 	int frameSize = 800;
