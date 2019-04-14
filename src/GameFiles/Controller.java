@@ -127,60 +127,60 @@ public class Controller implements ActionListener, KeyListener{
 		drawAction = new AbstractAction(){
 			public void actionPerformed(ActionEvent e){
 				//increment the x and y coordinates, alter direction if necessary
-				model.updateLocation();
+				m2.advanceWorld();
 
 				//update the view
-				view.update(model.getX(), model.getY());
+				v2.updateView(m2.gol);
 			}
 		};
 		time = new Timer(50, drawAction);
 	}
 	public void update() {
-		model1.updateLocation();
-		view1.update(model1.getX(), model1.getY());
+		m2.advanceWorld();
+		v2.updateView(m2.gol);
 	}
-	public static void main(String[] args) {
+//	public static void main(String[] args) {
+//
+//		EventQueue.invokeLater(new Runnable(){
+//			public void run(){
+//				Controller cont = new Controller(null);
+//				Timer t = new Timer(cont.drawDelay, cont.drawAction);
+//				t.start();
+//			}
+//		});
+//	}
 
-		EventQueue.invokeLater(new Runnable(){
-			public void run(){
-				Controller cont = new Controller();
-				Timer t = new Timer(cont.drawDelay, cont.drawAction);
-				t.start();
-			}
-		});
-	}
-
-	public TopDownModel getModel1() {
-		return model;
-	}
-
-	public void setModel1(TopDownModel model1) {
-		this.model = model1;
-	}
-
-	public TopDownView getView1() {
-		return view;
-	}
-
-	public void setView1(TopDownView view1) {
-		this.view1 = view1;
-	}
-
-	public Action getDrawAction() {
-		return drawAction;
-	}
-
-	public void setDrawAction(Action drawAction) {
-		this.drawAction = drawAction;
-	}
-
-	public Timer getTime() {
-		return time;
-	}
-
-	public void setTime(Timer time) {
-		this.time = time;
-	}
+//	public TopDownModel getModel1() {
+//		return model;
+//	}
+//
+//	public void setModel1(TopDownModel model1) {
+//		this.model = model1;
+//	}
+//
+//	public TopDownView getView1() {
+//		return view;
+//	}
+//
+//	public void setView1(TopDownView view1) {
+//		this.view1 = view1;
+//	}
+//
+//	public Action getDrawAction() {
+//		return drawAction;
+//	}
+//
+//	public void setDrawAction(Action drawAction) {
+//		this.drawAction = drawAction;
+//	}
+//
+//	public Timer getTime() {
+//		return time;
+//	}
+//
+//	public void setTime(Timer time) {
+//		this.time = time;
+//	}
 
 	public Set<Integer> getPressed() {
 		return pressed;
