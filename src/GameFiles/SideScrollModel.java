@@ -85,5 +85,77 @@ public class SideScrollModel extends Model {
 		Controller controller = new Controller("osp");
 		controller.start();	
 	}
+
+
+
+	public Fish getFish() {
+		return fish;
+	}
+
+
+
+	public void setFish(Fish fish) {
+		this.fish = fish;
+	}
+
+
+
+	public Trash getTrash1() {
+		return trash1;
+	}
+
+
+
+	public void setTrash1(Trash trash1) {
+		this.trash1 = trash1;
+	}
+
+
+
+	public Trash getTrash2() {
+		return trash2;
+	}
+
+
+
+	public void setTrash2(Trash trash2) {
+		this.trash2 = trash2;
+	}
+
+
+
+	public Trash getTrash3() {
+		return trash3;
+	}
+
+
+
+	public void setTrash3(Trash trash3) {
+		this.trash3 = trash3;
+	}
+
+
+
+	public Osprey getOsprey() {
+		return osprey;
+	}
+
+
+
+	public void setOsprey(Osprey osprey) {
+		this.osprey = osprey;
+	}
+
+
+
+	public ArrayList<GameObject> getGol() {
+		return gol;
+	}
+
+
+
+	public void setGol(ArrayList<GameObject> gol) {
+		this.gol = gol;
+	}
 	
 }
