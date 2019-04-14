@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 public class View extends JPanel {
 
 	ArrayList<GameObject> game;
+	int frameSize = 800;
 
 	public ArrayList<GameObject> getGame() {
 		return game;

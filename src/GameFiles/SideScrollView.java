@@ -43,6 +43,7 @@ import javax.swing.JPanel;
 public class SideScrollView extends View{
     DrawPanel drawPanel = new DrawPanel();
     
+    
     public void update(ArrayList<GameObject> g) {
     	game = g;
     }
@@ -54,52 +55,14 @@ public class SideScrollView extends View{
 			super.paintComponent(g);
 			g.setColor(Color.gray);
 			
-	    	g.drawImage(bird, xloc+=xIncr, yloc+=yIncr, Color.gray, this);
-	    	g.drawImage(fish,fish_xloc, fish_yloc, Color.gray, this);
-	    	g.drawImage(trash, trash1_xloc, trash1_yloc, Color.gray, this);
-	    	g.drawImage(trash, trash2_xloc, trash2_yloc, Color.gray, this);
-	    	g.drawImage(trash, trash3_xloc, trash3_yloc, Color.gray, this);
-	    	
 	    	for (GameObject thing : game) {
-	    		
+		    	g.drawImage(thing.getImage(),thing.getX() ,thing.getY() , Color.gray, this);
 	    	}
 		}
 
 		public Dimension getPreferredSize() {
-			return new Dimension(frameStartSize, frameStartSize);
+			return new Dimension(frameSize, frameSize);
 		}
 	}
-	private BufferedImage createImage(){
-    	BufferedImage bufferedImage;
-    	try {
-    		bufferedImage = ImageIO.read(new File("red_square.png"));
-    		return bufferedImage;
-    	} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-    	return null;
-    }
 	
-	private BufferedImage createImage2(){
-		BufferedImage bufferedImage;
-		//System.out.println("i am running");
-    	try {
-    		bufferedImage = ImageIO.read(new File("blue_square.png"));
-    		return bufferedImage;
-    	} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-    	return null;
-	}
-	private BufferedImage createImage3(){
-		BufferedImage bufferedImage;
-		//System.out.println("i am running");
-    	try {
-    		bufferedImage = ImageIO.read(new File("green_square.png"));
-    		return bufferedImage;
-    	} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-    	return null;
-	}
 }
