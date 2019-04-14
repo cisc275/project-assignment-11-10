@@ -1,5 +1,10 @@
 package GameFiles;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 
 
 /**
@@ -8,9 +13,7 @@ import java.util.ArrayList;
  */
 public class SideScrollModel extends Model {
 		
-	/**
-	 * a list of the buttons in our game
-	 */
+	
 	private Fish fish;
 	private Trash trash1;
 	private Trash trash2;
@@ -23,6 +26,11 @@ public class SideScrollModel extends Model {
 		this.trash2 = trash2;
 		this.trash3 = trash3;
 		this.osprey = osprey;
+		osprey.setImgPose(createImage());
+		fish.setImgPose(createImage2());
+		trash1.setImgPose(createImage3());
+		trash2.setImgPose(createImage3());
+		trash3.setImgPose(createImage3());
 	}
 	
 	
@@ -78,6 +86,40 @@ public class SideScrollModel extends Model {
 		Controller controller = new Controller("osp");
 		controller.start();
 		
+	}
+	
+	private BufferedImage createImage(){
+    	BufferedImage bufferedImage;
+    	try {
+    		bufferedImage = ImageIO.read(new File("red_square.png"));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
+    }
+	
+	private BufferedImage createImage2(){
+		BufferedImage bufferedImage;
+		//System.out.println("i am running");
+    	try {
+    		bufferedImage = ImageIO.read(new File("blue_square.png"));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
+	}
+	private BufferedImage createImage3(){
+		BufferedImage bufferedImage;
+		//System.out.println("i am running");
+    	try {
+    		bufferedImage = ImageIO.read(new File("green_square.png"));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
 	}
 	
 }

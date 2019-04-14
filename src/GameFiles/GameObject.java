@@ -17,7 +17,7 @@ public class GameObject {
 	/**
 	 * image that will represent the gameObject on screen
 	 */
-	private File imgPose; 
+	private BufferedImage imgPose; 
 	/**
 	 * width of the gameObject on screen
 	 */
@@ -100,9 +100,7 @@ public class GameObject {
 
 	}
 	
-	public BufferedImage getImage() {
-		return null;
-	}
+	
 
 	public int getY() {
 		return y;
@@ -120,11 +118,11 @@ public class GameObject {
 		this.x = x;
 	}
 
-	public File getImgPose() {
+	public BufferedImage getImgPose() {
 		return imgPose;
 	}
 
-	public void setImgPose(File imgPose) {
+	public void setImgPose(BufferedImage imgPose) {
 		this.imgPose = imgPose;
 	}
 

@@ -24,7 +24,6 @@ public class OspreyMain extends JFrame {
     BufferedImage bird; 
     BufferedImage fox; 
     BufferedImage bush1; 
-
     BufferedImage fox_hold; //holds copy of fox to bring it back when outside of collision range
 	int xloc = 100;
     int yloc = 100;
