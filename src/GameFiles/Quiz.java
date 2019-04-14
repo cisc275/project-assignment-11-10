@@ -39,5 +39,23 @@ public class Quiz extends Controllable {
 	/**
 	 * string that will contain the question being asked during the quiz
 	 */
-	String question; 
+	String question;
+	public JButton getAnswer() {
+		return answer;
+	}
+	public void setAnswer(JButton answer) {
+		this.answer = answer;
+	}
+	public JButton getBad() {
+		return bad;
+	}
+	public void setBad(JButton bad) {
+		this.bad = bad;
+	}
+	public String getQuestion() {
+		return question;
+	}
+	public void setQuestion(String question) {
+		this.question = question;
+	} 
 }

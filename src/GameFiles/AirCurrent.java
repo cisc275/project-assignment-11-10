@@ -38,4 +38,24 @@ public class AirCurrent extends Collectable {
 			int yMax, int id, int benefit, String direction, boolean onScreen) {
 		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, id, benefit);
 	}
+
+
+	public String getDirection() {
+		return direction;
+	}
+
+
+	public void setDirection(String direction) {
+		this.direction = direction;
+	}
+
+
+	public boolean isOnScreen() {
+		return onScreen;
+	}
+
+
+	public void setOnScreen(boolean onScreen) {
+		this.onScreen = onScreen;
+	}
 }

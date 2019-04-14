@@ -40,6 +40,24 @@ public class Stick extends Collectable{
 	/**
 	 * whether or not a stick is currently on screen
 	 */
-	static boolean onScreen; 
+	static boolean onScreen;
+	public static int getCount() {
+		return count;
+	}
+	public static void setCount(int count) {
+		Stick.count = count;
+	}
+	public static boolean isHolding() {
+		return holding;
+	}
+	public static void setHolding(boolean holding) {
+		Stick.holding = holding;
+	}
+	public static boolean isOnScreen() {
+		return onScreen;
+	}
+	public static void setOnScreen(boolean onScreen) {
+		Stick.onScreen = onScreen;
+	} 
 	
 }

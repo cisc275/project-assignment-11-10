@@ -34,4 +34,11 @@ public class SideScrollModel extends Model {
 	public static void main(String[] args) {
 		
 	}
+	public ArrayList<JButton> getButtons() {
+		return buttons;
+	}
+	public void setButtons(ArrayList<JButton> buttons) {
+		this.buttons = buttons;
+	}
+	
 }

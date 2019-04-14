@@ -16,8 +16,8 @@ class OneTestToRuleThemAll {
 	void testSideScrollModel() {
 		SideScrollModel scm = new SideScrollModel();
 		ArrayList<GameObject> go = new ArrayList<GameObject>();
-		go.add(new Osprey());
-		gp.add(new Fish());
+		go.add(new Osprey(0, 0, null, 0, 0, 0, 0, 0, 0, 0, null));
+		gp.add(new Fish(0, 0, null, 0, 0, 0, 0, 0, 0, 0, 0, 0));
 		int oldx1 = scm.getGame().get(0).getX();
 		int oldy1 = scm.getGame().get(0).getY();
 		int oldx2 = scm.getGame().get(1).getX();

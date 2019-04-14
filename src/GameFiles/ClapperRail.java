@@ -52,4 +52,20 @@ public class ClapperRail extends Bird {
     	}
 		return null;
 	}
+
+	public boolean isHidden() {
+		return hidden;
+	}
+
+	public void setHidden(boolean hidden) {
+		this.hidden = hidden;
+	}
+
+	public boolean isCarryStick() {
+		return carryStick;
+	}
+
+	public void setCarryStick(boolean carryStick) {
+		this.carryStick = carryStick;
+	}
 }

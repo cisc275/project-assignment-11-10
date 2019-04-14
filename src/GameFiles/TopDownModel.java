@@ -49,4 +49,52 @@ public class TopDownModel extends Model {
 	public int getY() {
 		return yloc;
 	}
+	public int getXloc() {
+		return xloc;
+	}
+	public void setXloc(int xloc) {
+		this.xloc = xloc;
+	}
+	public int getYloc() {
+		return yloc;
+	}
+	public void setYloc(int yloc) {
+		this.yloc = yloc;
+	}
+	public int getxChg() {
+		return xChg;
+	}
+	public void setxChg(int xChg) {
+		this.xChg = xChg;
+	}
+	public int getyChg() {
+		return yChg;
+	}
+	public void setyChg(int yChg) {
+		this.yChg = yChg;
+	}
+	public int getImgWidth() {
+		return imgWidth;
+	}
+	public void setImgWidth(int imgWidth) {
+		this.imgWidth = imgWidth;
+	}
+	public int getImgHeight() {
+		return imgHeight;
+	}
+	public void setImgHeight(int imgHeight) {
+		this.imgHeight = imgHeight;
+	}
+	public int getFrameWidth() {
+		return frameWidth;
+	}
+	public void setFrameWidth(int frameWidth) {
+		this.frameWidth = frameWidth;
+	}
+	public int getFrameHeight() {
+		return frameHeight;
+	}
+	public void setFrameHeight(int frameHeight) {
+		this.frameHeight = frameHeight;
+	}
 }

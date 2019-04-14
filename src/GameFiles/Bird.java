@@ -32,5 +32,13 @@ public class Bird extends Controllable{
 			int yMin, int yMax, int speed, Type type) {
 		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, speed);
 	}
+
+	public Type getType() {
+		return type;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
+	}
 	
 }

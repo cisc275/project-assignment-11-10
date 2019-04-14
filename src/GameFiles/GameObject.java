@@ -59,6 +59,10 @@ public class GameObject {
 	public GameObject(int y, int x, File imgPose, int width, int height, int xMin, 
 			int xMax, int yMin, int yMax) {
 	}
+	
+	public GameObject() {
+		
+	}
 
 	/**
 	 * 
@@ -88,5 +92,77 @@ public class GameObject {
 	
 	public BufferedImage getImage() {
 		return null;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public File getImgPose() {
+		return imgPose;
+	}
+
+	public void setImgPose(File imgPose) {
+		this.imgPose = imgPose;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+	public int getxMin() {
+		return xMin;
+	}
+
+	public void setxMin(int xMin) {
+		this.xMin = xMin;
+	}
+
+	public int getxMax() {
+		return xMax;
+	}
+
+	public void setxMax(int xMax) {
+		this.xMax = xMax;
+	}
+
+	public int getyMin() {
+		return yMin;
+	}
+
+	public void setyMin(int yMin) {
+		this.yMin = yMin;
+	}
+
+	public int getyMax() {
+		return yMax;
+	}
+
+	public void setyMax(int yMax) {
+		this.yMax = yMax;
 	}
 }

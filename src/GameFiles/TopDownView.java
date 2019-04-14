@@ -84,4 +84,103 @@ public class TopDownView extends JPanel{
 			return new Dimension(1000,1000);
 		}
 	}
+	public int getPicNum() {
+		return picNum;
+	}
+	public void setPicNum(int picNum) {
+		this.picNum = picNum;
+	}
+	public int getFrameWidth() {
+		return frameWidth;
+	}
+	public void setFrameWidth(int frameWidth) {
+		this.frameWidth = frameWidth;
+	}
+	public int getFrameHeight() {
+		return frameHeight;
+	}
+	public void setFrameHeight(int frameHeight) {
+		this.frameHeight = frameHeight;
+	}
+	public int getCrWidth() {
+		return crWidth;
+	}
+	public void setCrWidth(int crWidth) {
+		this.crWidth = crWidth;
+	}
+	public int getCrHeight() {
+		return crHeight;
+	}
+	public void setCrHeight(int crHeight) {
+		this.crHeight = crHeight;
+	}
+	public BufferedImage getFoxPic() {
+		return foxPic;
+	}
+	public void setFoxPic(BufferedImage foxPic) {
+		this.foxPic = foxPic;
+	}
+	public BufferedImage getCrPic() {
+		return crPic;
+	}
+	public void setCrPic(BufferedImage crPic) {
+		this.crPic = crPic;
+	}
+	public BufferedImage getBushPic() {
+		return bushPic;
+	}
+	public void setBushPic(BufferedImage bushPic) {
+		this.bushPic = bushPic;
+	}
+	public BufferedImage getFox_hold() {
+		return fox_hold;
+	}
+	public void setFox_hold(BufferedImage fox_hold) {
+		this.fox_hold = fox_hold;
+	}
+	public JFrame getFrame() {
+		return frame;
+	}
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+	public ClapperRail getCr() {
+		return cr;
+	}
+	public void setCr(ClapperRail cr) {
+		this.cr = cr;
+	}
+	public Bush getBush() {
+		return bush;
+	}
+	public void setBush(Bush bush) {
+		this.bush = bush;
+	}
+	public Fox getFox() {
+		return fox;
+	}
+	public void setFox(Fox fox) {
+		this.fox = fox;
+	}
+	public int getCrX() {
+		return crX;
+	}
+	public void setCrX(int crX) {
+		this.crX = crX;
+	}
+	public int getCrY() {
+		return crY;
+	}
+	public void setCrY(int crY) {
+		this.crY = crY;
+	}
+	public DrawPanel getDrawPanel() {
+		return drawPanel;
+	}
+	public void setDrawPanel(DrawPanel drawPanel) {
+		this.drawPanel = drawPanel;
+	}
+	public int getFrameCount() {
+		return frameCount;
+	}
 }

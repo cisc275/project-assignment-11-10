@@ -40,4 +40,12 @@ public class Controllable extends GameObject {
 			int xMax, int yMin, int yMax, int speed) {
 		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax);
 	}
+
+	public int getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
 }

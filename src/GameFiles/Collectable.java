@@ -34,5 +34,21 @@ public class Collectable extends GameObject {
 			int xMax, int yMin, int yMax, int id, int benefit) {
 		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax);
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getBenefit() {
+		return benefit;
+	}
+
+	public void setBenefit(int benefit) {
+		this.benefit = benefit;
+	}
 	
 }

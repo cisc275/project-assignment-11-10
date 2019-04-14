@@ -31,5 +31,13 @@ public class Fish extends Collectable {
 	/**
 	 * determines the amount of boost this fish will give the bird
 	 */
-	int type; 
+	int type;
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	} 
 }

@@ -30,5 +30,19 @@ public class Trash extends Collectable {
 	/**
 	 * describes what trash has been collected to decide the level of severity to the bird
 	 */
-	int type; 
+	int type;
+
+	/**
+	 * @return the type
+	 */
+	public int getType() {
+		return type;
+	}
+
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(int type) {
+		this.type = type;
+	} 
 }

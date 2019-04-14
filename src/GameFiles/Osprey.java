@@ -26,7 +26,7 @@ public class Osprey extends Bird {
 			Type type) {
 		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, speed, type);
 	}
-
+	
 	/**
 	 * this method will be called whenever the user presses the dive button
 	 * at which point the bird will dive into the water and possibly collect 

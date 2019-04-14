@@ -111,4 +111,44 @@ public class Controller implements ActionListener, KeyListener{
 		});
 	}
 
+	public TopDownModel getModel1() {
+		return model1;
+	}
+
+	public void setModel1(TopDownModel model1) {
+		this.model1 = model1;
+	}
+
+	public TopDownView getView1() {
+		return view1;
+	}
+
+	public void setView1(TopDownView view1) {
+		this.view1 = view1;
+	}
+
+	public Action getDrawAction() {
+		return drawAction;
+	}
+
+	public void setDrawAction(Action drawAction) {
+		this.drawAction = drawAction;
+	}
+
+	public Timer getTime() {
+		return time;
+	}
+
+	public void setTime(Timer time) {
+		this.time = time;
+	}
+
+	public Set<Integer> getPressed() {
+		return pressed;
+	}
+
+	public int getDrawDelay() {
+		return drawDelay;
+	}
+
 }
