@@ -40,8 +40,8 @@ public class SideScrollModel extends Model {
 			osprey.speed = -50;
 		}
 		if ((osprey.getY() == currY) && (osprey.getisDiving() == true)) {
-			osprey.speed = 0;
-			osprey.
+			osprey.setySpeed(0);
+			osprey.setisDiving(!isDiving);
 		}
 	}
 	

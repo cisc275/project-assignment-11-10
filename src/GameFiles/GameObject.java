@@ -64,7 +64,7 @@ public class GameObject {
 	 * @param isDiving
 	 * @param currY
 	 * @param xSpeed
-	 * 
+	 * @param ySpeed
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
