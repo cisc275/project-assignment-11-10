@@ -15,7 +15,7 @@ import javax.swing.JPanel;
  * Top down view for clapperrail
  *
  */
-public class TopDownView extends JPanel{
+public class TopDownView extends View{
 	final int frameCount = 10;
 	int picNum = 0;
 	int frameWidth = 800;

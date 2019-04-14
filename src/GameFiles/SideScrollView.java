@@ -53,41 +53,6 @@ public class SideScrollView extends View{
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			g.setColor(Color.gray);
-			/*
-			fish_xloc-=1;
-			trash1_xloc-=1;
-			trash2_xloc-=1;
-			trash3_xloc-=1;
-			if((fish_xloc + 134) <= 0) {
-				fish_xloc = 800;
-			}
-			if((trash1_xloc + 134) <= 0) {
-				trash1_xloc = 800;
-			}
-			if((trash2_xloc + 134) <= 0) {
-				trash2_xloc = 800;
-			}
-			if((trash3_xloc + 134) <= 0) {
-				trash3_xloc = 800;
-			}
-			if (yloc >= 550) {
-				yIncr = -50;
-			}
-			if ((yloc == currY) && (isDiving == true)) {
-				yIncr = 0;
-				isDiving = !isDiving;
-			}
-	    	//picNum = (picNum + 1);
-			//WILL BE USED FOR DIVE 
-			/*
-			if(((xloc >= 380)&&(xloc <= 420))&&((yloc >= 380)&&(yloc <= 420))) {
-				//System.out.println("collision");
-				fox = null;
-			}
-			else if ((fox == null)&&(!(((xloc >= 380)&&(xloc <= 420))&&((yloc >= 380)&&(yloc <= 420))))) {
-				fox = fox_hold;
-			}
-			*/
 			
 	    	g.drawImage(bird, xloc+=xIncr, yloc+=yIncr, Color.gray, this);
 	    	g.drawImage(fish,fish_xloc, fish_yloc, Color.gray, this);
@@ -95,7 +60,9 @@ public class SideScrollView extends View{
 	    	g.drawImage(trash, trash2_xloc, trash2_yloc, Color.gray, this);
 	    	g.drawImage(trash, trash3_xloc, trash3_yloc, Color.gray, this);
 	    	
-	    	for (GameObject thing :)
+	    	for (GameObject thing : game) {
+	    		
+	    	}
 		}
 
 		public Dimension getPreferredSize() {
