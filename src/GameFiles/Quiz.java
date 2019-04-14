@@ -1,6 +1,5 @@
 package GameFiles;
 import java.io.File;
-
 import javax.swing.JButton;
 /**
  * represents the quiz at the end of each game 
