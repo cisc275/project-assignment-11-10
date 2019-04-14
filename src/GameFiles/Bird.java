@@ -27,10 +27,12 @@ public class Bird extends Controllable{
 	 * @param type
 	 * 
 	 * a constructor that takes values for all fields as input parameters
+	 * @param isDiving 
+	 * @param currY 
 	 */
 	public Bird(int y, int x, File imgPose, int width, int height, int xMin, int xMax, 
-			int yMin, int yMax, int speed, Type type) {
-		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, speed);
+			int yMin, int yMax,Type type, boolean isDiving, int currY, int xSpeed, int ySpeed) {
+		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, isDiving, currY, xSpeed, ySpeed);
 	}
 
 	public Type getType() {

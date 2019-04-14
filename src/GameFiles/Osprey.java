@@ -22,9 +22,9 @@ public class Osprey extends Bird {
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
-	public Osprey(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, int yMax, int speed,
-			Type type) {
-		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, speed, type);
+	public Osprey(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, int yMax, 
+			Type type, boolean isDiving, int currY, int xSpeed, int ySpeed){
+		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, type, isDiving, currY, xSpeed, ySpeed);
 	}
 	
 	/**

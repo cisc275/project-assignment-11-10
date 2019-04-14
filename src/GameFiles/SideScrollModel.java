@@ -39,13 +39,13 @@ public class SideScrollModel extends Model {
 		if (osprey.getY() >= 550) {
 			osprey.speed = -50;
 		}
-		if ((osprey.getY() == currY) && (isDiving == true)) {
+		if ((osprey.getY() == currY) && (osprey.isDiving() == true)) {
 			osprey.speed = 0;
-			isDiving = !isDiving;
+			osprey.
 		}
 	}
 	
-	ArrayList<JButton> buttons; 
+	
 	
 	/**
 	 * 
@@ -64,13 +64,9 @@ public class SideScrollModel extends Model {
 	}
 	
 	public static void main(String[] args) {
+		Controller controller = new Controller();
+		controller.start();
 		
-	}
-	public ArrayList<JButton> getButtons() {
-		return buttons;
-	}
-	public void setButtons(ArrayList<JButton> buttons) {
-		this.buttons = buttons;
 	}
 	
 }

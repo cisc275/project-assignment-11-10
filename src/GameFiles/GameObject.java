@@ -42,6 +42,14 @@ public class GameObject {
 	 * maximum y coordinate for this gameObject
 	 */
 	private int yMax; 
+	
+	private boolean isDiving;
+	
+	private int currY;
+	
+	private int xSpeed;
+	
+	private int ySpeed;
 
 	/**
 	 * @param y
@@ -53,16 +61,18 @@ public class GameObject {
 	 * @param xMax
 	 * @param yMin
 	 * @param yMaxa
+	 * @param isDiving
+	 * @param currY
+	 * @param xSpeed
+	 * @param ySpeed
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
 	public GameObject(int y, int x, File imgPose, int width, int height, int xMin, 
-			int xMax, int yMin, int yMax) {
+			int xMax, int yMin, int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed) {
 	}
 	
-	public GameObject() {
-		
-	}
+	
 
 	/**
 	 * 
@@ -165,4 +175,38 @@ public class GameObject {
 	public void setyMax(int yMax) {
 		this.yMax = yMax;
 	}
+	
+	public void setisDiving(boolean isDiving) {
+		this.isDiving = isDiving;
+	}
+	
+	public boolean getisDiving() {
+		return isDiving;
+	}
+	
+	public void setcurrY(int currY) {
+		this.currY = currY;
+	}
+	
+	public int getcurrY() {
+		return currY;
+		
+	}
+	public void setxSpeed(int xSpeed) {
+		this.xSpeed = xSpeed;
+	}
+	
+	public int getxSpeed() {
+		return xSpeed;
+	}
+	
+	public void setySpeed(int ySpeed) {
+		this.ySpeed = ySpeed;
+	}
+	
+	public int getySpeed() {
+		return ySpeed;
+	}
+	
+	
 }
