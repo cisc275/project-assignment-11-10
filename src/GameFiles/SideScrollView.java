@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
@@ -42,7 +43,9 @@ import javax.swing.JPanel;
 public class SideScrollView extends View{
     DrawPanel drawPanel = new DrawPanel();
     
-    public void update() {}
+    public void update(ArrayList<GameObject> g) {
+    	game = g;
+    }
     
     private class DrawPanel extends JPanel {
     	//int picNum = 0;
