@@ -25,7 +25,7 @@ public class Osprey extends Bird {
 	public Osprey(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, int yMax, 
 			Type type, boolean isDiving, int currY, int xSpeed, int ySpeed){
 		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, type, isDiving, currY, xSpeed, ySpeed);
-	}
+}
 	
 	/**
 	 * this method will be called whenever the user presses the dive button
