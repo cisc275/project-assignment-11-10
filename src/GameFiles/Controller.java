@@ -16,13 +16,14 @@ import javax.swing.Timer;
 public class Controller implements ActionListener, KeyListener{
 	Model model;
 	View view;
+	boolean isOsp;
 	private Action drawAction;
 	private Timer time;
 	private final Set<Integer> pressed = new HashSet<>();
 	final int drawDelay = 30;
 
-	public Controller(int a) {
-		if(a == 0) {
+	public Controller(String a) {
+		if(a == "cr") {
 			model = new TopDownModel(800,500,1000,1000);
 			view = new TopDownView();
 			view.addKeyListener(this);
@@ -31,8 +32,9 @@ public class Controller implements ActionListener, KeyListener{
 					view.drawPanel.repaint();
 				}
 			};
+			isOsp = false;
 		}
-		else if(a == 1) {
+		else if(a == "osp") {
 			model = new SideScrollModel();
 			view = new SideScrollView();
 			view.addKeyListener(this);
@@ -41,6 +43,7 @@ public class Controller implements ActionListener, KeyListener{
 					view.drawPanel.repaint();
 				}
 			};
+			isOsp = true;
 		}
 
 	}
@@ -116,10 +119,10 @@ public class Controller implements ActionListener, KeyListener{
 		drawAction = new AbstractAction(){
 			public void actionPerformed(ActionEvent e){
 				//increment the x and y coordinates, alter direction if necessary
-				model1.updateLocation();
+				model.updateLocation();
 
 				//update the view
-				view1.update(model1.getX(), model1.getY());
+				view.update(model.getX(), model.getY());
 			}
 		};
 		time = new Timer(50, drawAction);
@@ -140,15 +143,15 @@ public class Controller implements ActionListener, KeyListener{
 	}
 
 	public TopDownModel getModel1() {
-		return model1;
+		return model;
 	}
 
 	public void setModel1(TopDownModel model1) {
-		this.model1 = model1;
+		this.model = model1;
 	}
 
 	public TopDownView getView1() {
-		return view1;
+		return view;
 	}
 
 	public void setView1(TopDownView view1) {
