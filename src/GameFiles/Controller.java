@@ -92,21 +92,24 @@ public class Controller implements ActionListener, KeyListener{
 	@Override
 	public synchronized void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		pressed.remove(e.getKeyCode());
-		int xvel=0;
-		int yvel=0;
-		for(Integer code: pressed) {
-			if(code.equals(KeyEvent.VK_UP))
-				yvel-=1;
-			if(code.equals(KeyEvent.VK_DOWN))
-				yvel+=1;
-			if(code.equals(KeyEvent.VK_LEFT))
-				xvel-=1;
-			if(code.equals(KeyEvent.VK_RIGHT))
-				xvel+=1;
+//		pressed.remove(e.getKeyCode());
+//		int xvel=0;
+//		int yvel=0;
+//		for(Integer code: pressed) {
+//			if(code.equals(KeyEvent.VK_UP))
+//				yvel-=1;
+//			if(code.equals(KeyEvent.VK_DOWN))
+//				yvel+=1;
+//			if(code.equals(KeyEvent.VK_LEFT))
+//				xvel-=1;
+//			if(code.equals(KeyEvent.VK_RIGHT))
+//				xvel+=1;
+//		}
+		Osprey o = m2.getOsprey();
+		if(o.getisDiving() == false) {
+			o.setxSpeed(0);
+			o.setySpeed(0);
 		}
-		model1.setVel(xvel, yvel);
-		System.out.println(xvel+":"+yvel);
 	}
 
 	@Override
