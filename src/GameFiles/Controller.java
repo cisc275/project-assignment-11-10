@@ -69,12 +69,12 @@ public class Controller implements ActionListener, KeyListener{
 		//		System.out.println(xvel+":"+yvel);
 
 		if((e.getKeyCode() == 38) && (isOsp == true)) { //up arrow key
-			if(model.game.osprey.getisDiving()) {
-				model.osprey.setySpeed(-5);
+			if(m2.game.osprey.getisDiving()) {
+				m2.osprey.setySpeed(-5);
 			}
 		}
 		else if((e.getKeyCode() == 40) && (isOsp == true)) { //down arrow key
-			model.osprey.setySpeed(5);
+			m2.osprey.setySpeed(5);
 		}
 		else if ((e.getKeyCode() == 32) && (isOsp == true)) {
 			System.out.println("space");
