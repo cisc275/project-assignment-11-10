@@ -33,10 +33,14 @@ public class Controller implements ActionListener, KeyListener{
 			isOsp = false;
 		}
 		else if(a == "osp") {
-			m2 = new SideScrollModel(null, null, null, null, null);
+			m2 = new SideScrollModel(new Fish(800, 800, null, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay),
+					new Trash(drawDelay, drawDelay, null, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay), 
+					new Trash(drawDelay, drawDelay, null, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay), 
+					new Trash(drawDelay, drawDelay, null, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay),
+					new Osprey(200, 200, null, 0, 0, 0, 0, 0, 0, null, false, 200, 0, 0));
 			v2 = new SideScrollView();
 			v2.addKeyListener(this);
-			v2.updateView(null);
+			v2.updateView(m2.gol);
 			m2.advanceWorld();
 			isOsp = true;
 		}
@@ -63,7 +67,7 @@ public class Controller implements ActionListener, KeyListener{
 		//		}
 		//		model1.setVel(xvel, yvel);
 		//		System.out.println(xvel+":"+yvel);
-		
+
 		if((e.getKeyCode() == 38) && (isOsp == true)) { //up arrow key
 			if(model.game.osprey.getisDiving()) {
 				model.osprey.setySpeed(-5);
