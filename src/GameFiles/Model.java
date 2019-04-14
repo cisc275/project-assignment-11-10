@@ -6,6 +6,11 @@ public class Model {
 	 * a list of the objects in our game
 	 */
 	ArrayList<GameObject> game;
+	
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
 
 	public ArrayList<GameObject> getGame() {
 		return game;
