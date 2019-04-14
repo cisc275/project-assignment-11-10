@@ -1,5 +1,4 @@
-package test;
-
+package GameFiles;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -18,17 +17,29 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 
-public class Test extends JFrame {
-	
-    BufferedImage bird; 
-    BufferedImage fox; 
-    BufferedImage bush1; 
+public class ClapperRailMain extends JFrame {
+	BufferedImage bird; 
+    BufferedImage fish; //blue
+    BufferedImage trash;//green 
 
-    BufferedImage fox_hold; //holds copy of fox to bring it back when outside of collision range
-	int xloc = 100;
-    int yloc = 100;
+    //BufferedImage fox_hold; //holds copy of fox to bring it back when outside of collision range
+    int currY;
+	int xloc = 200;
+    int yloc = 200;
     int xIncr = 0;
     int yIncr = 0;
+    boolean isDiving = false;
+    
+    int fish_xloc = 700;
+    int trash1_xloc = 300;
+    int trash2_xloc = 500;
+    int trash3_xloc = 100;
+    
+    int fish_yloc = 550;
+    int trash1_yloc = 550;
+    int trash2_yloc = 550;
+    int trash3_yloc = 550;
+    
     final int picSize = 500; //don't think this will be necessary
     final int frameStartSize = 800;
     final int drawDelay = 30; //msec (don't know if this necessary)
@@ -36,7 +47,7 @@ public class Test extends JFrame {
     DrawPanel drawPanel = new DrawPanel();
     Action drawAction;
     
-    public Test() {
+    public ClapperRailMain() {
     	drawAction = new AbstractAction(){
     		public void actionPerformed(ActionEvent e){
     			drawPanel.repaint();
@@ -54,18 +65,30 @@ public class Test extends JFrame {
 
     		public void keyPressed(KeyEvent e) {
     			//System.out.println("pressed");
+    			//SHOULDNT BE NEEDED
+    			/*
     			if(e.getKeyCode() == 39) { //right arrow key
     				//System.out.println("right arrow key has been pressed");
     				xIncr = 5;
     			}
+    			*/
+    			/*
     			else if(e.getKeyCode() == 37) { //left arrow key
     				xIncr = -5;
     			}
-    			else if(e.getKeyCode() == 38) { //up arrow key
+    			*/
+    			if((e.getKeyCode() == 38) && (isDiving == false)) { //up arrow key
     				yIncr = -5;
     			}
-    			else if(e.getKeyCode() == 40) { //down arrow key
+    			else if((e.getKeyCode() == 40) && (isDiving == false)) { //down arrow key
     				yIncr = 5;
+    			}
+    			else if ((e.getKeyCode() == 32) && (isDiving == false)) {
+    				System.out.println("space");
+    				isDiving = true;
+    				yIncr = 50;
+    				currY = yloc;
+    				yloc += yIncr;
     			}
     		}
 
@@ -73,14 +96,16 @@ public class Test extends JFrame {
     			//System.out.println("released");
     			//System.out.println(xloc + " by " + yloc);
     			xIncr = 0;
-    			yIncr = 0;
+    			if (!isDiving) {
+        			yIncr = 0;
+    			}
     		}
     	});
     	add(drawPanel);
     	bird = createImage();
-    	fox = createImage2();
-    	fox_hold = createImage2();
-    	bush1 = createImage3();
+    	fish = createImage2();
+    	//fox_hold = createImage2();
+    	trash = createImage3();
 
     	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	setSize(frameStartSize, frameStartSize);
@@ -95,7 +120,32 @@ public class Test extends JFrame {
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			g.setColor(Color.gray);
+			fish_xloc-=1;
+			trash1_xloc-=1;
+			trash2_xloc-=1;
+			trash3_xloc-=1;
+			if((fish_xloc + 134) <= 0) {
+				fish_xloc = 800;
+			}
+			if((trash1_xloc + 134) <= 0) {
+				trash1_xloc = 800;
+			}
+			if((trash2_xloc + 134) <= 0) {
+				trash2_xloc = 800;
+			}
+			if((trash3_xloc + 134) <= 0) {
+				trash3_xloc = 800;
+			}
+			if (yloc >= 550) {
+				yIncr = -50;
+			}
+			if ((yloc == currY) && (isDiving == true)) {
+				yIncr = 0;
+				isDiving = !isDiving;
+			}
 	    	//picNum = (picNum + 1);
+			//WILL BE USED FOR DIVE 
+			/*
 			if(((xloc >= 380)&&(xloc <= 420))&&((yloc >= 380)&&(yloc <= 420))) {
 				//System.out.println("collision");
 				fox = null;
@@ -103,11 +153,12 @@ public class Test extends JFrame {
 			else if ((fox == null)&&(!(((xloc >= 380)&&(xloc <= 420))&&((yloc >= 380)&&(yloc <= 420))))) {
 				fox = fox_hold;
 			}
+			*/
 	    	g.drawImage(bird, xloc+=xIncr, yloc+=yIncr, Color.gray, this);
-	    	g.drawImage(fox, 400, 400, Color.gray, this);
-	    	g.drawImage(bush1, 150, 450, Color.gray, this);
-	    	g.drawImage(bush1, 200, 200, Color.gray, this);
-	    	g.drawImage(bush1, 600, 600, Color.gray, this);
+	    	g.drawImage(fish,fish_xloc, fish_yloc, Color.gray, this);
+	    	g.drawImage(trash, trash1_xloc, trash1_yloc, Color.gray, this);
+	    	g.drawImage(trash, trash2_xloc, trash2_yloc, Color.gray, this);
+	    	g.drawImage(trash, trash3_xloc, trash3_yloc, Color.gray, this);
 
 		}
 
@@ -120,7 +171,7 @@ public class Test extends JFrame {
     	
 		EventQueue.invokeLater(new Runnable(){
 			public void run(){
-				Test test = new Test();
+				ClapperRailMain test = new ClapperRailMain();
 				Timer t = new Timer(test.drawDelay, test.drawAction);
 				t.start();
 			}
@@ -162,3 +213,5 @@ public class Test extends JFrame {
     	return null;
 	}
 }
+
+
