@@ -23,7 +23,7 @@ public class NonControllable extends GameObject {
 	 */
 	public NonControllable(int y, int x, File imgPose, int width, int height,
 			int xMin, int xMax, int yMin, int yMax) {
-		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax);
+		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, yMax, yMax);
 	}
 
 }

@@ -29,8 +29,8 @@ public class ClapperRail extends Bird {
 	 * a constructor that takes values for all fields as input parameters
 	 */
 	public ClapperRail(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, 
-			int yMax, int speed, Type type, boolean hidden, boolean carryStick) {
-		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, speed, type);
+			int yMax, int xspeed, int yspeed, Type type, boolean hidden, boolean carryStick) {
+		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, type, xspeed, yspeed);
 	}
 	
 	/**

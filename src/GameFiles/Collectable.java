@@ -32,7 +32,7 @@ public class Collectable extends GameObject {
 	 */
 	public Collectable(int y, int x, File imgPose, int width, int height, int xMin, 
 			int xMax, int yMin, int yMax, int id, int benefit) {
-		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax);
+		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, benefit, benefit);
 	}
 
 	public int getId() {

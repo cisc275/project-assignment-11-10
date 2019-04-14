@@ -25,7 +25,7 @@ public class Quiz extends Controllable {
 	 */
 	public Quiz(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, 
 			int yMax, int speed, JButton answer, JButton bad, String question) {
-		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, speed);
+		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, speed, speed);
 	}
 	/**
 	 * button that will allow the user to select the correct answer

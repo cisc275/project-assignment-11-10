@@ -69,20 +69,20 @@ public class Controller implements ActionListener, KeyListener{
 		//		System.out.println(xvel+":"+yvel);
 
 		if((e.getKeyCode() == 38) && (isOsp == true)) { //up arrow key
-			if(m2.getOsprey().getisDiving() == false) {
+			if(m2.getOsprey().isDiving() == false) {
 				m2.getOsprey().setySpeed(-5);
 			}
 		}
 		else if((e.getKeyCode() == 40) && (isOsp == true)) { //down arrow key
-			if(m2.getOsprey().getisDiving() == false) {
+			if(m2.getOsprey().isDiving() == false) {
 				m2.getOsprey().setySpeed(5);
 			}
 		}
 		else if ((e.getKeyCode() == 32) && (isOsp == true)) {
-			if(m2.getOsprey().getisDiving() == false) {
-				m2.getOsprey().setisDiving(true);
+			if(m2.getOsprey().isDiving() == false) {
+				m2.getOsprey().setDiving(true);
 				m2.getOsprey().setySpeed(50);
-				m2.getOsprey().setcurrY(m2.getOsprey().getY());
+				m2.getOsprey().setCurrY(m2.getOsprey().getY());
 				m2.getOsprey().setY(m2.getOsprey().getY() + m2.getOsprey().getySpeed());
 			}
 		}
@@ -106,7 +106,7 @@ public class Controller implements ActionListener, KeyListener{
 //				xvel+=1;
 //		}
 		Osprey o = m2.getOsprey();
-		if(o.getisDiving() == false) {
+		if(o.isDiving() == false) {
 			o.setxSpeed(0);
 			o.setySpeed(0);
 		}
