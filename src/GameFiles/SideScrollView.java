@@ -1,6 +1,7 @@
 package GameFiles;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -21,14 +22,9 @@ import javax.swing.JPanel;
 
 public class SideScrollView extends View{
     DrawPanel drawPanel = new DrawPanel();
-    Action drawAction;
+    //Action drawAction;
 
     public SideScrollView(){
-    	drawAction = new AbstractAction(){
-    		public void actionPerformed(ActionEvent e){
-    			drawPanel.repaint();
-    		}
-    	};
     	add(drawPanel);
     	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	setSize(frameSize, frameSize);
@@ -38,6 +34,7 @@ public class SideScrollView extends View{
     
     public void updateView(ArrayList<GameObject> g) {
     	game = g;
+    	drawPanel.repaint();
     }
     
     private class DrawPanel extends JPanel {

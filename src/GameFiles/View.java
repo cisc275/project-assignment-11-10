@@ -1,5 +1,6 @@
 package GameFiles;
 
+import java.awt.Component;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -23,4 +24,6 @@ public class View extends JFrame {
 	public void setGame(ArrayList<GameObject> game) {
 		this.game = game;
 	}
+
+	
 }
