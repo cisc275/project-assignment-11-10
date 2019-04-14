@@ -30,9 +30,11 @@ public class TopDownView extends View{
     	pack();
 	}
 	
-	public void updateView(ArrayList<GameObject> g) {}
+	public void updateView(ArrayList<GameObject> g) {
+		game = g; //may need to be a for each loop
+		drawPanel.repaint();
+	}
 	private class DrawPanel extends JPanel {
-    	//int picNum = 0;
 
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
