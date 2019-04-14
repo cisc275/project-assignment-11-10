@@ -16,6 +16,7 @@ public class SideScrollModel extends Model {
 	private Trash trash2;
 	private Trash trash3;
 	private Osprey osprey;
+	ArrayList<GameObject> gol;
 	
 	
 	
@@ -25,7 +26,6 @@ public class SideScrollModel extends Model {
 		this.trash2 = trash2;
 		this.trash3 = trash3;
 		this.osprey = osprey;
-		ArrayList<GameObject> gol = new ArrayList<GameObject>();
 		gol.add(fish);
 		gol.add(trash1);
 		gol.add(trash2);
