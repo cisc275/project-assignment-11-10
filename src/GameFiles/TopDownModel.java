@@ -61,10 +61,18 @@ public class TopDownModel extends Model {
     			((g.get(0).getY() >= (g.get(1).getY()-20))&&((g.get(0).getY() <= (g.get(1).getY()+20))))){
     		return true;
     	}
+    	if (((g.get(0).getX() >= (g.get(3).getX()-20))&&((g.get(0).getX() <= (g.get(3).getX()+20))))&&
+    			((g.get(0).getY() >= (g.get(3).getY()-20))&&((g.get(0).getY() <= (g.get(3).getY()+20))))){
+    		return true;
+    	}
+	
+    	
     	else {
     		return false;
     	}
     }
+    
+  
 	/**
 	 * 
 	 * @param args
@@ -107,6 +115,18 @@ public class TopDownModel extends Model {
 		//System.out.println("i am running");
     	try {
     		bufferedImage = ImageIO.read(new File("green_square.png"));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
+	}
+	
+	public BufferedImage createImage4(){
+		BufferedImage bufferedImage;
+		//System.out.println("i am running");
+    	try {
+    		bufferedImage = ImageIO.read(new File("brown_square.png"));
     		return bufferedImage;
     	} catch (IOException e) {
     		e.printStackTrace();

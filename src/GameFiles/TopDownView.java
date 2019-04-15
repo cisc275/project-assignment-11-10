@@ -23,6 +23,7 @@ public class TopDownView extends View{
     DrawPanel drawPanel = new DrawPanel();
     ArrayList<GameObject> game;
     BufferedImage backUp;
+    BufferedImage backUp2;
     JFrame frame;
 	
 	public TopDownView(ArrayList<GameObject> g) {
@@ -31,6 +32,7 @@ public class TopDownView extends View{
 		//frame.getContentPane().add(this);
 		game = g;
 		backUp = g.get(1).getImage();
+		backUp2 = g.get(3).getImage();
     	frame.add(drawPanel);
     	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	frame.setSize(frameSize, frameSize);
@@ -43,10 +45,24 @@ public class TopDownView extends View{
 		//System.out.println("updateView is existing");
 		game = g; //may need to be a for each loop
 		if(collision) {
-			g.get(1).setImage(null);
+			if (((g.get(0).getX() >= (g.get(1).getX()-20))&&((g.get(0).getX() <= (g.get(1).getX()+20))))&&
+	    			((g.get(0).getY() >= (g.get(1).getY()-20))&&
+	    					((g.get(0).getY() <= (g.get(1).getY()+20))))){
+								g.get(1).setImage(null);
+			}
+			
+			if (((g.get(0).getX() >= (g.get(3).getX()-20))&&((g.get(0).getX() <= (g.get(3).getX()+20))))&&
+	    			((g.get(0).getY() >= (g.get(3).getY()-20))&&((g.get(0).getY() <= (g.get(3).getY()+20))))){
+	    		g.get(3).setImage(null);
+	    	}
+		
 		}
 		else if ((g.get(1).getImage() == null)&& (!collision)) {
 			g.get(1).setImage(backUp);
+		}
+		
+		else if (g.get(0).getY() == 20) {
+			g.get(3).setImage(backUp2);
 		}
 		for (GameObject thing : g) {
 			//System.out.print(thing);
