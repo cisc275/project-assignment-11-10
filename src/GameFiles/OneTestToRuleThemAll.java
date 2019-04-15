@@ -11,7 +11,7 @@ class OneTestToRuleThemAll {
 	void testSelectionModel() {
 		
 	}
-	
+	/*
 	@Test
 	void testSideScrollModel() {
 		SideScrollModel scm = new SideScrollModel();
@@ -54,4 +54,5 @@ class OneTestToRuleThemAll {
 	void testTopDownView() {
 		
 	}
+	*/
 }

@@ -73,11 +73,11 @@ public class SideScrollModel extends Model {
 		
 		
 	}
-	
+	/*
 	public static void main(String[] args) {
-		Controller controller = new Controller("osp");
-		controller.start();
+		//Controller controller = new Controller("osp");
+		//controller.start();
 		
 	}
-	
+	*/
 }

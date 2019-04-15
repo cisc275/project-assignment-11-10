@@ -6,14 +6,15 @@ import java.io.File;
  *
  */
 public class GameObject {
+	protected BufferedImage img;
 	/**
 	 * y coordinate for this gameObject on screen
 	 */
-	private int y;
+	protected int y;
 	/**
 	 * x coordinate for this gameObject on screen
 	 */
-	private int x; 
+	protected int x; 
 	/**
 	 * image that will represent the gameObject on screen
 	 */
@@ -72,7 +73,11 @@ public class GameObject {
 			int xMax, int yMin, int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed) {
 	}
 	
-	
+	public GameObject(BufferedImage pic, int xloc, int yloc) {
+		img = pic;
+		x = xloc;
+		y = yloc;
+	}
 
 	/**
 	 * 
@@ -101,7 +106,10 @@ public class GameObject {
 	}
 	
 	public BufferedImage getImage() {
-		return null;
+		if (img != null) {
+			//System.out.println("GameObject doesn't hold the answers");
+		}
+		return img;
 	}
 
 	public int getY() {

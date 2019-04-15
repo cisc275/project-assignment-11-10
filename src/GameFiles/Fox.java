@@ -26,8 +26,14 @@ public class Fox extends Controllable {
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
-	public Fox(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, int yMax, int speed) {
-		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, speed);
+	
+	/*
+	 public Controllable(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, 
+			int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed) {
+	 */
+	public Fox(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, int yMax,
+			boolean isDiving, int currY, int xSpeed, int ySpeed) {
+		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, isDiving, currY,xSpeed,ySpeed);
 	}
 
 	/**
