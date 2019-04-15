@@ -26,7 +26,7 @@ public class SideScrollModel extends Model {
 	private int birdSpeed;
 	
 	public SideScrollModel() {
-		worldXSpeed = -1;
+		worldXSpeed = -10;
 		birdSpeed = 5;
 	}
 	
@@ -34,27 +34,15 @@ public class SideScrollModel extends Model {
 	public void advanceWorld(ArrayList<GameObject> g) {
 		g.get(1).setX(g.get(1).getX()+worldXSpeed);
 		g.get(2).setX(g.get(2).getX()+worldXSpeed);
-		/*
-		if((fish.getX() + 134) <= 0) {
-			fish.setX(800);
+		
+		if((g.get(1).getX() + 134) <= 0) {
+			g.get(1).setX(800);
 		}
-		if((trash1.getX() + 134) <= 0) {
-			trash1.setX(800);
+		if((g.get(2).getX() + 134) <= 0) {
+			g.get(2).setX(800);
 		}
-		if((trash2.getX() + 134) <= 0) {
-			trash2.setX(800);
-		}
-		if((trash3.getX() + 134) <= 0) {
-			trash3.setX(800);
-		}
-		if (osprey.getY() >= 550) {
-			osprey.speed = -50;
-		}
-		if ((osprey.getY() == osprey.getcurrY()) && (osprey.getisDiving() == true)) {
-			osprey.setySpeed(0);
-			osprey.setisDiving(!osprey.getisDiving());
-		}
-		*/
+		
+		
 	}
 	
 	public void advanceBird(ArrayList<GameObject> g, int yDirec) {

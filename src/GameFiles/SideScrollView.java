@@ -59,4 +59,9 @@ public class SideScrollView extends View{
     public void addKeyListener(Controller controller) {
 		frame.addKeyListener(controller);
 	}
+    /*
+    public void addActionListener(Controller controller) {
+    	frame.addActionListener(controller);
+    }
+    */
 }

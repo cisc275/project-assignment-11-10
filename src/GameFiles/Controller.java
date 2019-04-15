@@ -54,6 +54,7 @@ public class Controller implements KeyListener{
 			sideScrollView = new SideScrollView(game);
 			sideScrollView.addKeyListener(this);
 			
+			
 		}
 		//topDownView.addActionListener(this);
 		//game = new ArrayList<GameObject>();
@@ -86,6 +87,7 @@ public class Controller implements KeyListener{
     	};
     	
     	time = new Timer(50, drawAction);
+    	time.start();
 	}
 /*
 	private void addKeyListener(KeyListener keyListener) {
