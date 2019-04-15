@@ -80,7 +80,7 @@ public class Controller implements KeyListener{
 	public void sideScrollStart() {
 		drawAction = new AbstractAction(){
     		public void actionPerformed(ActionEvent e){
-    			System.out.println("im performing actions");
+    			//System.out.println("im performing actions");
     			sideScrollModel.advanceWorld(game);
     			sideScrollView.updateView(game);
     		}
@@ -144,6 +144,14 @@ public class Controller implements KeyListener{
 				sideScrollView.updateView(game);
 			}
 		}
+		/*
+		else if (e.getKeyCode() == 32) {
+			if (selected.equals("sideScroll")){
+				sideScrollModel.dive(game);
+				sideScrollView.updateView(game);
+			}
+		}
+		*/
 	}
 
 	@Override

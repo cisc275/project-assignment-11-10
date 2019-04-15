@@ -24,10 +24,14 @@ public class SideScrollModel extends Model {
 	
 	private int worldXSpeed;
 	private int birdSpeed;
+	public boolean isDiving;
+	private int currY;
 	
 	public SideScrollModel() {
 		worldXSpeed = -10;
 		birdSpeed = 5;
+		isDiving = false;
+		
 	}
 	
 	
@@ -46,9 +50,17 @@ public class SideScrollModel extends Model {
 	}
 	
 	public void advanceBird(ArrayList<GameObject> g, int yDirec) {
-		g.get(0).setY(g.get(0).getY()+yDirec);
+			g.get(0).setY(g.get(0).getY()+yDirec);
 	}
-	
+	/*
+	public void dive(ArrayList<GameObject> g) {
+		if(!isDiving) {
+			System.out.println("am i here?");
+			currY = g.get(0).getY();
+			advanceBird(game,50);
+		}
+	}
+	*/
 	
 	/**
 	 * 
