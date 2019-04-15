@@ -46,7 +46,7 @@ public class Controller implements KeyListener{
 			topDownView = new TopDownView(game);
 			topDownView.addKeyListener(this);
 
-		}
+    }
 		else if(selected.equals("sideScroll")) {
 			game = new ArrayList<GameObject>();
 			sideScrollModel = new SideScrollModel();
@@ -56,8 +56,7 @@ public class Controller implements KeyListener{
 			game.add(new GameObject(sideScrollModel.createImage4(), 400, 50));
 			sideScrollView = new SideScrollView(game);
 			sideScrollView.addKeyListener(this);
-			
-			
+
 		}
 		//topDownView.addActionListener(this);
 		//game = new ArrayList<GameObject>();
@@ -93,12 +92,7 @@ public class Controller implements KeyListener{
     	time = new Timer(50, drawAction);
     	time.start();
 	}
-/*
-	private void addKeyListener(KeyListener keyListener) {
-		// TODO Auto-generated method stub
-		
-	}
-*/
+
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
@@ -108,6 +102,7 @@ public class Controller implements KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
+<
 		//System.out.println("pressed");
 		if(e.getKeyCode() == 39) { //right arrow key
 			if(selected.equals("topDown")) {

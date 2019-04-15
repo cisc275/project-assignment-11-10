@@ -44,9 +44,9 @@ public class GameObject {
 	 */
 	private int yMax; 
 	
-	private boolean isDiving;
+	//private boolean isDiving;
 	
-	private int currY;
+	//private int currY;
 	
 	private int xSpeed;
 	
@@ -70,7 +70,7 @@ public class GameObject {
 	 * a constructor that takes values for all fields as input parameters
 	 */
 	public GameObject(int y, int x, File imgPose, int width, int height, int xMin, 
-			int xMax, int yMin, int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed) {
+			int xMax, int yMin, int yMax, int xSpeed, int ySpeed) {
 	}
 	
 	public GameObject(BufferedImage pic, int xloc, int yloc) {
@@ -187,22 +187,22 @@ public class GameObject {
 		this.yMax = yMax;
 	}
 	
-	public void setisDiving(boolean isDiving) {
-		this.isDiving = isDiving;
-	}
-	
-	public boolean getisDiving() {
-		return isDiving;
-	}
-	
-	public void setcurrY(int currY) {
-		this.currY = currY;
-	}
-	
-	public int getcurrY() {
-		return currY;
+//	public void setisDiving(boolean isDiving) {
+//		this.isDiving = isDiving;
+//	}
+//	
+//	public boolean getisDiving() {
+//		return isDiving;
+//	}
+//	
+//	public void setcurrY(int currY) {
+//		this.currY = currY;
+//	}
+//	
+//	public int getcurrY() {
+//		return currY;
 		
-	}
+//	}
 	public void setxSpeed(int xSpeed) {
 		this.xSpeed = xSpeed;
 	}

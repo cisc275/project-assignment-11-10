@@ -22,9 +22,13 @@ public class Osprey extends Bird {
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
+	
+	private boolean isDiving = false;
+	private int currY;
+	
 	public Osprey(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, int yMax, 
 			Type type, boolean isDiving, int currY, int xSpeed, int ySpeed){
-		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, type, isDiving, currY, xSpeed, ySpeed);}
+		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, type, xSpeed, ySpeed);}
 	
 	/**
 	 * this method will be called whenever the user presses the dive button
@@ -33,5 +37,21 @@ public class Osprey extends Bird {
 	 */
 	public void dive() {
 		
+	}
+
+	public boolean isDiving() {
+		return isDiving;
+	}
+
+	public void setDiving(boolean isDiving) {
+		this.isDiving = isDiving;
+	}
+
+	public int getCurrY() {
+		return currY;
+	}
+
+	public void setCurrY(int currY) {
+		this.currY = currY;
 	}
 }
