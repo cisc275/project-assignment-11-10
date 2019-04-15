@@ -51,8 +51,8 @@ public class Controller implements KeyListener{
 		drawAction = new AbstractAction(){
     		public void actionPerformed(ActionEvent e){
     			System.out.println("im performing actions");
-    			topDownModel.updateLocation();
-    			topDownView.updateView(topDownModel.game);
+    			topDownModel.updateLocation(game);
+    			topDownView.updateView(game);
     		}
     	};
     	
@@ -75,8 +75,9 @@ public class Controller implements KeyListener{
 		// TODO Auto-generated method stub
 		System.out.println("pressed");
 		if(e.getKeyCode() == 39) { //right arrow key
-			System.out.println("right arrow key has been pressed");
-			//xIncr = 5;
+			topDownModel.setxChg(5);
+			topDownModel.updateLocation(game);
+			topDownView.updateView(game);
 		}
 		else if(e.getKeyCode() == 37) { //left arrow key
 			//xIncr = -5;

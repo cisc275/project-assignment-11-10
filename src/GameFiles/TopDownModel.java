@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
 /**
  * Model clapperrail game
  *
@@ -34,16 +35,25 @@ public class TopDownModel extends Model {
     	yChg = 12*yvel;
     	System.out.println();
     }
-    public void updateLocation() {
+    public void updateLocation(ArrayList<GameObject> g) {
+    	/*
     	if(xloc+xChg > (imgWidth - frameWidth) || xloc+xChg < 0) {
+    		System.out.println("WHY");
         	xChg = 0;
         	
         }
         if(yloc+yChg > (imgHeight - frameHeight) || yloc+yChg < 0) {
         	yChg = 0;
         }
-        xloc+=xChg;
-        yloc+=yChg;
+        */
+        //xloc+=xChg;
+        //yloc+=yChg;
+        g.get(0).setX(g.get(0).getX()+xChg);
+        g.get(0).setY(g.get(0).getY()+yChg);
+        System.out.println("updateLocation is using these:");
+        System.out.println(xChg);
+        System.out.println(yChg);
+        System.out.println();
     }
 	/**
 	 * 

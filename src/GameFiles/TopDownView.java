@@ -57,10 +57,8 @@ public class TopDownView extends View{
 			//System.out.println(game.get(0));
 			
 			for(GameObject thing : game) {
-				//System.out.println("im in the for loop");
-				if(thing.getImage() == null) {
-					//System.out.println("well it IS null");
-				}
+				System.out.println("x that paintComponent sees:");
+				System.out.println(thing.getX());
 		    	g.drawImage(thing.getImage(),thing.getX() ,thing.getY() , Color.gray, this);
 			}
 			
