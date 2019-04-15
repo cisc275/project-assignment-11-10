@@ -4,190 +4,163 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
-
 import javax.swing.Action;
 import javax.swing.Timer;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.KeyEvent;
+//import java.awt.event.KeyListener;
 
 
-public class Controller implements ActionListener, KeyListener{
-	TopDownModel m1;
-	SideScrollModel m2;
-	TopDownView v1;
-	SideScrollView v2;
-	boolean isOsp;
-	private Action drawAction;
+public class Controller implements KeyListener{
+	
+	private TopDownModel topDownModel;
+	private TopDownView topDownView;
+	private SideScrollModel sideScrollModel;
+	private SideScrollView sideScrollView;
 	private Timer time;
-	private final Set<Integer> pressed = new HashSet<>();
-	final int drawDelay = 30;
+	private Action drawAction;
+	boolean collision;
+	String selected;
+	ArrayList<GameObject> game;
 
-	public Controller(String a) {
-		if(a == "cr") {
-			m1 = new TopDownModel(800,500,1000,1000);
-			v1 = new TopDownView();
-			v1.addKeyListener(this);
-			//m1.advanceWorld();
-			isOsp = false;
-		}
-		else if(a == "osp") {
-			m2 = new SideScrollModel(new Fish(800, 800, null, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay),
-					new Trash(drawDelay, drawDelay, null, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay), 
-					new Trash(drawDelay, drawDelay, null, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay), 
-					new Trash(drawDelay, drawDelay, null, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay, drawDelay),
-					new Osprey(200, 200, null, 0, 0, 0, 0, 0, 0, null, false, 200, 0, 0));
-			v2 = new SideScrollView();
-			v2.addKeyListener(this);
-			v2.updateView(m2.gol);
-			m2.advanceWorld();
-			isOsp = true;
-		}
+	
+	public Controller(String selection) {
+		selected = selection;
+		if(selected.equals("topDown")) {
+			game = new ArrayList<GameObject>();
+			topDownModel = new TopDownModel(10,10,10,10);
+			game.add(new GameObject(topDownModel.createImage(),100,100));
+			game.add(new GameObject(topDownModel.createImage2(),400,400));
+			game.add(new GameObject(topDownModel.createImage3(),200,200));
+			game.add(new GameObject(topDownModel.createImage4(), 500, 550));
+			game.add(new GameObject(topDownModel.createImage4(), 0, -60));
+			topDownView = new TopDownView(game);
+			topDownView.addKeyListener(this);
 
+    }
+		else if(selected.equals("sideScroll")) {
+			game = new ArrayList<GameObject>();
+			sideScrollModel = new SideScrollModel();
+			game.add(new GameObject(sideScrollModel.createImage(),200,200));
+			game.add(new GameObject(sideScrollModel.createImage2(),300,550));
+			game.add(new GameObject(sideScrollModel.createImage3(),500,550));
+			game.add(new GameObject(sideScrollModel.createImage4(), 400, 50));
+			sideScrollView = new SideScrollView(game);
+			sideScrollView.addKeyListener(this);
+
+		}
+		//topDownView.addActionListener(this);
+		//game = new ArrayList<GameObject>();
+		//game.add(new GameObject(pic,100,100));
+		//System.out.println("DID IT DO ANYTHING DIFFERENT????????????????????");
+		//game.add(new GameObject(topDownModel.createImage2(),400,400));
+		//System.out.println("HOW ABOUT NOW?????????????????");
+		//game.add(new GameObject(topDownModel.createImage3(),200,200));
 	}
-
-
-
-	@Override
-	public synchronized void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		//		int xvel=0;
-		//		int yvel=0;
-		//		pressed.add(e.getKeyCode());
-		//		for(Integer code: pressed) {
-		//			if(code.equals(KeyEvent.VK_UP))
-		//				yvel-=1;
-		//			if(code.equals(KeyEvent.VK_DOWN))
-		//				yvel+=1;
-		//			if(code.equals(KeyEvent.VK_LEFT))
-		//				xvel-=1;
-		//			if(code.equals(KeyEvent.VK_RIGHT))
-		//				xvel+=1;
-		//		}
-		//		model1.setVel(xvel, yvel);
-		//		System.out.println(xvel+":"+yvel);
-
-		if((e.getKeyCode() == 38) && (isOsp == true)) { //up arrow key
-			if(m2.getOsprey().isDiving() == false) {
-				m2.getOsprey().setySpeed(-5);
-			}
-		}
-		else if((e.getKeyCode() == 40) && (isOsp == true)) { //down arrow key
-			if(m2.getOsprey().isDiving() == false) {
-				m2.getOsprey().setySpeed(5);
-			}
-		}
-		else if ((e.getKeyCode() == 32) && (isOsp == true)) {
-			if(m2.getOsprey().isDiving() == false) {
-				m2.getOsprey().setDiving(true);
-				m2.getOsprey().setySpeed(50);
-				m2.getOsprey().setCurrY(m2.getOsprey().getY());
-				m2.getOsprey().setY(m2.getOsprey().getY() + m2.getOsprey().getySpeed());
-			}
-		}
-
+	
+	public void topDownStart() {
+		//System.out.println("topDownStart is starting");
+		drawAction = new AbstractAction(){
+    		public void actionPerformed(ActionEvent e){
+    			System.out.println("im performing actions");
+    			collision = topDownModel.updateLocation(game);
+    			topDownView.updateView(game,collision);
+    		}
+    	};
+    	
+    	time = new Timer(50, drawAction);
+    	time.start();
 	}
-
-	@Override
-	public synchronized void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-//		pressed.remove(e.getKeyCode());
-//		int xvel=0;
-//		int yvel=0;
-//		for(Integer code: pressed) {
-//			if(code.equals(KeyEvent.VK_UP))
-//				yvel-=1;
-//			if(code.equals(KeyEvent.VK_DOWN))
-//				yvel+=1;
-//			if(code.equals(KeyEvent.VK_LEFT))
-//				xvel-=1;
-//			if(code.equals(KeyEvent.VK_RIGHT))
-//				xvel+=1;
-//		}
-		Osprey o = m2.getOsprey();
-		if(o.isDiving() == false) {
-			o.setxSpeed(0);
-			o.setySpeed(0);
-		}
+	public void sideScrollStart() {
+		drawAction = new AbstractAction(){
+    		public void actionPerformed(ActionEvent e){
+    			//System.out.println("im performing actions");
+    			sideScrollModel.advanceWorld(game);
+    			sideScrollView.updateView(game);
+    		}
+    	};
+    	
+    	time = new Timer(50, drawAction);
+    	time.start();
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-
-	}
-	public void start(){
-		drawAction = new AbstractAction(){
-			public void actionPerformed(ActionEvent e){
-				//increment the x and y coordinates, alter direction if necessary
-				m2.advanceWorld();
-
-				//update the view
-				v2.updateView(m2.gol);
+<
+		//System.out.println("pressed");
+		if(e.getKeyCode() == 39) { //right arrow key
+			if(selected.equals("topDown")) {
+				topDownModel.setxChg(5);
+				collision = topDownModel.updateLocation(game);
+				topDownView.updateView(game,collision);
 			}
-		};
-		time = new Timer(50, drawAction);
-	}
-	public void update() {
-		m2.advanceWorld();
-		v2.updateView(m2.gol);
-	}
-//	public static void main(String[] args) {
-//
-//		EventQueue.invokeLater(new Runnable(){
-//			public void run(){
-//				Controller cont = new Controller(null);
-//				Timer t = new Timer(cont.drawDelay, cont.drawAction);
-//				t.start();
-//			}
-//		});
-//	}
-
-//	public TopDownModel getModel1() {
-//		return model;
-//	}
-//
-//	public void setModel1(TopDownModel model1) {
-//		this.model = model1;
-//	}
-//
-//	public TopDownView getView1() {
-//		return view;
-//	}
-//
-//	public void setView1(TopDownView view1) {
-//		this.view1 = view1;
-//	}
-//
-//	public Action getDrawAction() {
-//		return drawAction;
-//	}
-//
-//	public void setDrawAction(Action drawAction) {
-//		this.drawAction = drawAction;
-//	}
-//
-//	public Timer getTime() {
-//		return time;
-//	}
-//
-//	public void setTime(Timer time) {
-//		this.time = time;
-//	}
-
-	public Set<Integer> getPressed() {
-		return pressed;
+		}
+		else if(e.getKeyCode() == 37) { //left arrow key
+			//xIncr = -5;
+			if(selected.equals("topDown")) {
+				topDownModel.setxChg(-5);
+				collision = topDownModel.updateLocation(game);
+				topDownView.updateView(game,collision);
+			}
+		}
+		else if(e.getKeyCode() == 38) { //up arrow key
+			//yIncr = -5;
+			if(selected.equals("topDown")) {
+				topDownModel.setyChg(-5);
+				collision = topDownModel.updateLocation(game);
+				topDownView.updateView(game,collision);
+			}
+			else if(selected.equals("sideScroll")) {
+				sideScrollModel.advanceBird(game, -5);
+				sideScrollView.updateView(game);
+			}
+		}
+		else if(e.getKeyCode() == 40) { //down arrow key
+			//yIncr = 5;
+			if(selected.equals("topDown")) {
+				topDownModel.setyChg(5);
+				collision = topDownModel.updateLocation(game);
+				topDownView.updateView(game,collision);
+			}
+			else if(selected.equals("sideScroll")) {
+				sideScrollModel.advanceBird(game, 5);
+				sideScrollView.updateView(game);
+			}
+		}
+		/*
+		else if (e.getKeyCode() == 32) {
+			if (selected.equals("sideScroll")){
+				sideScrollModel.dive(game);
+				sideScrollView.updateView(game);
+			}
+		}
+		*/
 	}
 
-	public int getDrawDelay() {
-		return drawDelay;
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		if(selected.equals("topDown")) {
+			topDownModel.setxChg(0);
+			topDownModel.setyChg(0);
+		}
 	}
-
+	
+	
 }

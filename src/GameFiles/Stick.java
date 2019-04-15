@@ -25,9 +25,16 @@ public class Stick extends Collectable{
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
+	/*
+	 (int y, int x, File imgPose, int width, int height, int xMin, 
+			int xMax, int yMin, int yMax, int id, int benefit, boolean isDiving, int currY, int xSpeed,
+			int ySpeed) {
+	 */
 	public Stick(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, int yMax, int id,
-			int benefit, int count, boolean holding, boolean onScreen) {
-		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, id, benefit);
+			int benefit, boolean isDiving, int currY, int xSpeed,
+			int ySpeed, int count, boolean holding, boolean onScreen) {
+		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, id, benefit, isDiving, currY, xSpeed,
+				ySpeed);
 	}
 	/**
 	 * the number of sticks the that have been collected

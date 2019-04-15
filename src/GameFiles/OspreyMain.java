@@ -44,7 +44,7 @@ public class OspreyMain extends JFrame {
     		}
     	};
     	this.addKeyListener(new KeyListener() {
-    		Timer time;
+    		//Timer time;
 
     		
     		public void keyTyped(KeyEvent e) {

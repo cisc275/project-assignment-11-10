@@ -22,14 +22,17 @@ import javax.swing.JPanel;
 
 public class SideScrollView extends View{
     DrawPanel drawPanel = new DrawPanel();
-    //Action drawAction;
-
-    public SideScrollView(){
-    	add(drawPanel);
-    	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    	setSize(frameSize, frameSize);
-    	setVisible(true);
-    	pack();
+    ArrayList<GameObject> game;
+    JFrame frame;
+    
+    public SideScrollView(ArrayList<GameObject> g){
+		frame = new JFrame();
+		game = g;
+    	frame.add(drawPanel);
+    	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	frame.setSize(frameSize, frameSize);
+    	frame.setVisible(true);
+    	//pack();
     }
     
     public void updateView(ArrayList<GameObject> g) {
@@ -53,4 +56,12 @@ public class SideScrollView extends View{
 		}
 	}
 	
+    public void addKeyListener(Controller controller) {
+		frame.addKeyListener(controller);
+	}
+    /*
+    public void addActionListener(Controller controller) {
+    	frame.addActionListener(controller);
+    }
+    */
 }

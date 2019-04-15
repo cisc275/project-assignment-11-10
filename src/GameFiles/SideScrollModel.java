@@ -1,5 +1,10 @@
 package GameFiles;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 
 
 /**
@@ -16,54 +21,50 @@ public class SideScrollModel extends Model {
 	private Trash trash2;
 	private Trash trash3;
 	private Osprey osprey;
-	ArrayList<GameObject> gol;
 	
+	private int worldXSpeed;
+	private int birdSpeed;
+	public boolean isDiving;
+	private int currY;
 	
-	
-	public SideScrollModel(Fish fish, Trash trash1, Trash trash2, Trash trash3, Osprey osprey) {
-		this.fish = fish;
-		this.trash1 = trash1;
-		this.trash2 = trash2;
-		this.trash3 = trash3;
-		this.osprey = osprey;
-		gol.add(fish);
-		gol.add(trash1);
-		gol.add(trash2);
-		gol.add(trash3);
-		gol.add(osprey);
+	public SideScrollModel() {
+		worldXSpeed = -10;
+		birdSpeed = 5;
+		isDiving = false;
+		
 	}
 	
 	
-	
-	public void advanceWorld() {
-		osprey.setX(osprey.getX() + osprey.getxSpeed());
-		osprey.setY(osprey.getY() + osprey.getySpeed());
-		fish.setX(fish.getX()-1);
-		trash1.setX(trash1.getX() -1);
-		trash2.setX(trash2.getX() -1);
-		trash3.setX(trash3.getX() -1);
-		if((fish.getX() + 134) <= 0) {
-			fish.setX(800);
+	public void advanceWorld(ArrayList<GameObject> g) {
+		g.get(1).setX(g.get(1).getX()+worldXSpeed);
+		g.get(2).setX(g.get(2).getX()+worldXSpeed);
+		g.get(3).setX(g.get(3).getX()+worldXSpeed);
+		
+		if((g.get(1).getX() + 134) <= 0) {
+			g.get(1).setX(800);
 		}
-		if((trash1.getX() + 134) <= 0) {
-			trash1.setX(800);
+		if((g.get(2).getX() + 134) <= 0) {
+			g.get(2).setX(800);
 		}
-		if((trash2.getX() + 134) <= 0) {
-			trash2.setX(800);
+		if((g.get(3).getX() + 134) <= 0) {
+			g.get(3).setX(800);
 		}
-		if((trash3.getX() + 134) <= 0) {
-			trash3.setX(800);
-		}
-		if (osprey.getY() >= 550) {
-			osprey.speed = -50;
-		}
-		if ((osprey.getY() == osprey.getcurrY()) && (osprey.getisDiving() == true)) {
-			osprey.setySpeed(0);
-			osprey.setisDiving(!osprey.getisDiving());
-		}
+		
+		
 	}
 	
-	
+	public void advanceBird(ArrayList<GameObject> g, int yDirec) {
+			g.get(0).setY(g.get(0).getY()+birdSpeed*yDirec);
+	}
+	/*
+	public void dive(ArrayList<GameObject> g) {
+		if(!isDiving) {
+			System.out.println("am i here?");
+			currY = g.get(0).getY();
+			advanceBird(game,50);
+		}
+	}
+	*/
 	
 	/**
 	 * 
@@ -82,80 +83,55 @@ public class SideScrollModel extends Model {
 	}
 	
 	public static void main(String[] args) {
-		Controller controller = new Controller("osp");
-		controller.start();	
+		Controller controller = new Controller("sideScroll");
+		controller.sideScrollStart();
+		
 	}
-
-
-
-	public Fish getFish() {
-		return fish;
+	
+	public BufferedImage createImage(){
+    	BufferedImage bufferedImage;
+    	try {
+    		bufferedImage = ImageIO.read(new File("red_square.png"));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
+    }
+	
+	public BufferedImage createImage2(){
+		BufferedImage bufferedImage;
+		//System.out.println("i am running");
+    	try {
+    		bufferedImage = ImageIO.read(new File("blue_square.png"));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
 	}
-
-
-
-	public void setFish(Fish fish) {
-		this.fish = fish;
+	public BufferedImage createImage3(){
+		BufferedImage bufferedImage;
+		//System.out.println("i am running");
+    	try {
+    		bufferedImage = ImageIO.read(new File("green_square.png"));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
 	}
-
-
-
-	public Trash getTrash1() {
-		return trash1;
-	}
-
-
-
-	public void setTrash1(Trash trash1) {
-		this.trash1 = trash1;
-	}
-
-
-
-	public Trash getTrash2() {
-		return trash2;
-	}
-
-
-
-	public void setTrash2(Trash trash2) {
-		this.trash2 = trash2;
-	}
-
-
-
-	public Trash getTrash3() {
-		return trash3;
-	}
-
-
-
-	public void setTrash3(Trash trash3) {
-		this.trash3 = trash3;
-	}
-
-
-
-	public Osprey getOsprey() {
-		return osprey;
-	}
-
-
-
-	public void setOsprey(Osprey osprey) {
-		this.osprey = osprey;
-	}
-
-
-
-	public ArrayList<GameObject> getGol() {
-		return gol;
-	}
-
-
-
-	public void setGol(ArrayList<GameObject> gol) {
-		this.gol = gol;
+	
+	public BufferedImage createImage4(){
+		BufferedImage bufferedImage;
+		//System.out.println("i am running");
+    	try {
+    		bufferedImage = ImageIO.read(new File("brown_square.png"));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
 	}
 	
 }
