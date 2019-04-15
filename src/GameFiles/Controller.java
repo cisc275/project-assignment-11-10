@@ -81,19 +81,29 @@ public class Controller implements KeyListener{
 		}
 		else if(e.getKeyCode() == 37) { //left arrow key
 			//xIncr = -5;
+			topDownModel.setxChg(-5);
+			topDownModel.updateLocation(game);
+			topDownView.updateView(game);
 		}
 		else if(e.getKeyCode() == 38) { //up arrow key
 			//yIncr = -5;
+			topDownModel.setyChg(-5);
+			topDownModel.updateLocation(game);
+			topDownView.updateView(game);
 		}
 		else if(e.getKeyCode() == 40) { //down arrow key
 			//yIncr = 5;
+			topDownModel.setyChg(5);
+			topDownModel.updateLocation(game);
+			topDownView.updateView(game);
 		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+		topDownModel.setxChg(0);
+		topDownModel.setyChg(0);
 	}
 	
 	

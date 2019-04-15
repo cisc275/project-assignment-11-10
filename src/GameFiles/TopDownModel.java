@@ -50,10 +50,10 @@ public class TopDownModel extends Model {
         //yloc+=yChg;
         g.get(0).setX(g.get(0).getX()+xChg);
         g.get(0).setY(g.get(0).getY()+yChg);
-        System.out.println("updateLocation is using these:");
-        System.out.println(xChg);
-        System.out.println(yChg);
-        System.out.println();
+        //System.out.println("updateLocation is using these:");
+        //System.out.println(xChg);
+        //System.out.println(yChg);
+        //System.out.println();
     }
 	/**
 	 * 
