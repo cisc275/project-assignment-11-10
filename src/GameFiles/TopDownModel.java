@@ -16,6 +16,7 @@ public class TopDownModel extends Model {
 	private Bush bush3;
 	private ClapperRail cl;
 	private Fox foxhold;
+	ArrayList<GameObject> gol;
 	
 	public TopDownModel(Fox fox, Bush bush1, Bush bush2, Bush bush3, ClapperRail cl, Fox foxhold) {
 		this.fox = fox;
@@ -30,6 +31,12 @@ public class TopDownModel extends Model {
 		bush1.setImgPose(createImage3());
 		bush2.setImgPose(createImage3());
 		bush3.setImgPose(createImage3());
+		gol.add(fox);
+		gol.add(bush1);
+		gol.add(bush2);
+		gol.add(bush3);
+		gol.add(cl);
+		gol.add(foxhold);
 	}
 	
 	

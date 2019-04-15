@@ -19,6 +19,7 @@ public class SideScrollModel extends Model {
 	private Trash trash2;
 	private Trash trash3;
 	private Osprey osprey;
+	ArrayList<GameObject> gol;
 	
 	public SideScrollModel(Fish fish, Trash trash1, Trash trash2, Trash trash3, Osprey osprey) {
 		this.fish = fish;
@@ -31,6 +32,11 @@ public class SideScrollModel extends Model {
 		trash1.setImgPose(createImage3());
 		trash2.setImgPose(createImage3());
 		trash3.setImgPose(createImage3());
+		gol.add(fish);
+		gol.add(trash1);
+		gol.add(trash2);
+		gol.add(trash3);
+		gol.add(osprey);
 	}
 	
 	
