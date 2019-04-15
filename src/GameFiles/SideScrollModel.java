@@ -54,7 +54,7 @@ public class SideScrollModel extends Model {
 	}
 	
 	public void advanceBird(ArrayList<GameObject> g, int yDirec) {
-			g.get(0).setY(g.get(0).getY()+yDirec);
+			g.get(0).setY(g.get(0).getY()+birdSpeed*yDirec);
 	}
 	/*
 	public void dive(ArrayList<GameObject> g) {
