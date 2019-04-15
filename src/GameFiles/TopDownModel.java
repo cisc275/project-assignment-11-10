@@ -4,60 +4,122 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import java.util.Random;
+
 import javax.imageio.ImageIO;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
 /**
  * Model clapperrail game
  *
  */
 public class TopDownModel extends Model {
-	private Fox fox;
-	private Bush bush1;
-	private Bush bush2;
-	private Bush bush3;
-	private ClapperRail cl;
-	private Fox foxhold;
-	ArrayList<GameObject> gol;
-	
-	public TopDownModel(Fox fox, Bush bush1, Bush bush2, Bush bush3, ClapperRail cl, Fox foxhold) {
-		this.fox = fox;
-		this.bush1 = bush1;
-		this.bush2 = bush2;
-		this.bush3 = bush3;
-		this.cl = cl;
-		this.foxhold = foxhold;
-		fox.setImgPose(createImage2());
-		fox.setImgPose(createImage2());
-		cl.setImgPose(createImage());
-		bush1.setImgPose(createImage3());
-		bush2.setImgPose(createImage3());
-		bush3.setImgPose(createImage3());
-		gol.add(fox);
-		gol.add(bush1);
-		gol.add(bush2);
-		gol.add(bush3);
-		gol.add(cl);
-		gol.add(foxhold);
-	}
-	
-	
-	
-	
-	public void advanceWorld() {
-		cl.setX(cl.getX() + cl.getxSpeed());
-		cl.setY(cl.getY() + cl.getySpeed());
-		if(((cl.getX() >= 380)&&(cl.getX() <= 420)) && 
-				((cl.getY() >= 380)&&(cl.getY() <= 420))) {
-			fox = null;
+	int xloc = 0;
+    int yloc = 0;
+    int xChg = 0;
+    int yChg = 0;
+    int imgWidth = 0;
+    int imgHeight = 0;
+    int frameWidth = 0;
+    int frameHeight = 0;
+    int count = 0;
+    
+	//ArrayList<GameObject> game;
+    
+    public int foxxDirection() {
+    	Random rand = new Random();
+    	return rand.nextInt(5);
+    }
+    
+    public int foxyDirection() {
+    	Random rand = new Random();
+    	return rand.nextInt(5);
+    }
+
+    
+    public TopDownModel(int x, int y, int imgW, int imgH) {
+    	imgWidth = x;
+		imgHeight = y;
+		frameWidth = imgW;
+		frameHeight = imgH;
+		//game = new ArrayList<GameObject>();
+		//game.add(new GameObject(createImage(),100,100));
+    }
+    public void setVel(int xvel, int yvel) {
+    	xChg = 12*xvel;
+    	yChg = 12*yvel;
+    	System.out.println();
+    }
+    public boolean updateLocation(ArrayList<GameObject> g) {
+    	/*
+    	if(xloc+xChg > (imgWidth - frameWidth) || xloc+xChg < 0) {
+    		System.out.println("WHY");
+        	xChg = 0;
+        	
+        }
+        if(yloc+yChg > (imgHeight - frameHeight) || yloc+yChg < 0) {
+        	yChg = 0;
+        }
+        */
+        //xloc+=xChg;
+        //yloc+=yChg;
+        g.get(0).setX(g.get(0).getX()+xChg);
+        g.get(0).setY(g.get(0).getY()+yChg);
+        
+        
+        if((g.get(1).getX() + 134) <= 0) {
+			g.get(1).setX(800);
 		}
-		else if ((fox == null)&&(!(((cl.getX() >= 380)&&(cl.getX() <= 420))&&
-				((cl.getY() >= 380)&&(cl.getY() <= 420))))) {
-			fox = foxhold;
+		if((g.get(1).getY() + 134) <= 0) {
+			g.get(1).setY(800);
+		}
+		if((g.get(1).getX() + 134) >= 800) {
+			g.get(1).setX(0);
+		}
+		if((g.get(1).getY() + 134) >= 800) {
+			g.get(1).setY(0);
 		}
 		
-	}
+		if (count >= 100) {
+        g.get(1).setX(g.get(1).getX()-foxxDirection());
+        g.get(1).setY(g.get(1).getY()-foxyDirection());
+        count++;
+		}
+		if (count >= 300) {
+	        g.get(1).setX(g.get(1).getX()+foxxDirection());
+	        g.get(1).setY(g.get(1).getY()+foxyDirection());
+	        count = 0;
+			}
+		else if (count < 100) {g.get(1).setX(g.get(1).getX()+foxxDirection());
+        	g.get(1).setY(g.get(1).getY()+foxyDirection());
+        	count++;
+		}
+		
+		
+		
+		
+  
+        //System.out.println("updateLocation is using these:");
+        //System.out.println(xChg);
+        //System.out.println(yChg);
+        //System.out.println();
+        return collision(g);
+    }
+    public boolean collision(ArrayList<GameObject> g) {
+    	if (((g.get(0).getX() >= (g.get(1).getX()-20))&&((g.get(0).getX() <= (g.get(1).getX()+20))))&&
+    			((g.get(0).getY() >= (g.get(1).getY()-20))&&((g.get(0).getY() <= (g.get(1).getY()+20))))){
+    		return true;
+    	}
+    	if (((g.get(0).getX() >= (g.get(3).getX()-20))&&((g.get(0).getX() <= (g.get(3).getX()+20))))&&
+    			((g.get(0).getY() >= (g.get(3).getY()-20))&&((g.get(0).getY() <= (g.get(3).getY()+20))))){
+    		return true;
+    	}
 	
-	
-	
+    	
+    	else {
+    		return false;
+    	}
+    }
+   
 	/**
 	 * 
 	 * this method will contain the logic for moving the background image
@@ -111,9 +173,59 @@ public class TopDownModel extends Model {
 
 	
 	public static void main(String[] args) {
-		Controller controller = new Controller("cr");
-		controller.start();
-		
+		Controller theControl = new Controller("topDown");
+		theControl.topDownStart();
+	}
+	public BufferedImage createImage(){
+		//System.out.println("Start of createImage");
+    	BufferedImage bufferedImage;
+    	//System.out.println("Im about to try");
+    	try {
+    		//System.out.println("im trying");
+    		bufferedImage = ImageIO.read(new File("red_square.png"));
+    		
+    		//System.out.println("I succeded");
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		//System.out.println("im being caught");
+    		e.printStackTrace();
+    	}
+    	return null;
+    }
+	
+	public BufferedImage createImage2(){
+		BufferedImage bufferedImage;
+		//System.out.println("i am running");
+    	try {
+    		bufferedImage = ImageIO.read(new File("blue_square.png"));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
+	}
+	public BufferedImage createImage3(){
+		BufferedImage bufferedImage;
+		//System.out.println("i am running");
+    	try {
+    		bufferedImage = ImageIO.read(new File("green_square.png"));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
+	}
+	
+	public BufferedImage createImage4(){
+		BufferedImage bufferedImage;
+		//System.out.println("i am running");
+    	try {
+    		bufferedImage = ImageIO.read(new File("brown_square.png"));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
 	}
 	
 }

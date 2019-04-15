@@ -21,32 +21,88 @@ import javax.swing.JPanel;
  */
 public class TopDownView extends View{
     DrawPanel drawPanel = new DrawPanel();
+    ArrayList<GameObject> game;
+    BufferedImage backUp;
+    BufferedImage backUp2;
+    JFrame frame;
 	
-	public TopDownView() {
-    	add(drawPanel);
-    	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    	setSize(frameSize, frameSize);
-    	setVisible(true);
-    	pack();
+	public TopDownView(ArrayList<GameObject> g) {
+		//System.out.println("starting topDownView");
+		frame = new JFrame();
+		//frame.getContentPane().add(this);
+		game = g;
+		backUp = g.get(1).getImage();
+		backUp2 = g.get(3).getImage();
+    	frame.add(drawPanel);
+    	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	frame.setSize(frameSize, frameSize);
+    	frame.setVisible(true);
+    	//pack();
+    	//System.out.println("leaving topDownView()");
 	}
 	
-	public void updateView(ArrayList<GameObject> g) {
+	public void updateView(ArrayList<GameObject> g,boolean collision) {
+		//System.out.println("updateView is existing");
 		game = g; //may need to be a for each loop
+		if(collision) {
+			if (((g.get(0).getX() >= (g.get(1).getX()-20))&&((g.get(0).getX() <= (g.get(1).getX()+20))))&&
+	    			((g.get(0).getY() >= (g.get(1).getY()-20))&&
+	    					((g.get(0).getY() <= (g.get(1).getY()+20))))){
+								g.get(1).setImage(null);
+			}
+			
+			if (((g.get(0).getX() >= (g.get(3).getX()-20))&&((g.get(0).getX() <= (g.get(3).getX()+20))))&&
+	    			((g.get(0).getY() >= (g.get(3).getY()-20))&&((g.get(0).getY() <= (g.get(3).getY()+20))))){
+	    		g.get(3).setImage(null);
+	    	}
+		
+		}
+		else if ((g.get(1).getImage() == null)&& (!collision)) {
+			g.get(1).setImage(backUp);
+		}
+		
+		else if (g.get(0).getY() < 20 & g.get(0).getX() < 150) {
+			g.get(3).setImage(backUp2);
+		}
+		for (GameObject thing : g) {
+			//System.out.print(thing);
+		}
+		for (GameObject otherThing : game) {
+			//System.out.println(otherThing);
+		}
 		drawPanel.repaint();
 	}
+	
 	private class DrawPanel extends JPanel {
 
 		protected void paintComponent(Graphics g) {
+			//System.out.println("ahhh good old paintComponent");
 			super.paintComponent(g);
 			g.setColor(Color.gray);
+			//System.out.println(game.get(0));
 			
 			for(GameObject thing : game) {
-		    	g.drawImage(thing.getImgPose(),thing.getX() ,thing.getY() , Color.gray, this);
+				//System.out.println("x that paintComponent sees:");
+				//System.out.println(thing.getX());
+		    	g.drawImage(thing.getImage(),thing.getX() ,thing.getY() , Color.gray, this);
 			}
+			
+			//System.out.println("so like do i leave paintComponent?");
 		}
 
 		public Dimension getPreferredSize() {
 			return new Dimension(frameSize, frameSize);
 		}
 	}
+
+	/*
+	public void addActionListener(Controller controller) {
+		btn.addActionListener(controller);
+	}
+*/
+	//adds controller as key listener
+	public void addKeyListener(Controller controller) {
+		frame.addKeyListener(controller);
+	}
+	
 }
