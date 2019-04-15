@@ -11,7 +11,6 @@ import javax.imageio.ImageIO;
  *
  */
 public class Fox extends Controllable {
-	
 	/**
 	 * @param y
 	 * @param x
