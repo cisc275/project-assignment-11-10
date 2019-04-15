@@ -41,7 +41,7 @@ public class Controller implements KeyListener{
 			game.add(new GameObject(topDownModel.createImage(),100,100));
 			game.add(new GameObject(topDownModel.createImage2(),400,400));
 			game.add(new GameObject(topDownModel.createImage3(),200,200));
-			game.add(new GameObject(topDownModel.createImage4(), 100, 500));
+			game.add(new GameObject(topDownModel.createImage4(), 500, 550));
 			game.add(new GameObject(topDownModel.createImage4(), 0, -60));
 			topDownView = new TopDownView(game);
 			topDownView.addKeyListener(this);
@@ -79,6 +79,7 @@ public class Controller implements KeyListener{
     	};
     	
     	time = new Timer(50, drawAction);
+    	time.start();
 	}
 	public void sideScrollStart() {
 		drawAction = new AbstractAction(){

@@ -61,7 +61,7 @@ public class TopDownView extends View{
 			g.get(1).setImage(backUp);
 		}
 		
-		else if (g.get(0).getY() == 20) {
+		else if (g.get(0).getY() < 20 & g.get(0).getX() < 150) {
 			g.get(3).setImage(backUp2);
 		}
 		for (GameObject thing : g) {

@@ -3,6 +3,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
@@ -19,7 +20,19 @@ public class TopDownModel extends Model {
     int imgHeight = 0;
     int frameWidth = 0;
     int frameHeight = 0;
+    int count = 0;
+    
 	//ArrayList<GameObject> game;
+    
+    public int foxxDirection() {
+    	Random rand = new Random();
+    	return rand.nextInt(5);
+    }
+    
+    public int foxyDirection() {
+    	Random rand = new Random();
+    	return rand.nextInt(5);
+    }
 
     
     public TopDownModel(int x, int y, int imgW, int imgH) {
@@ -50,6 +63,40 @@ public class TopDownModel extends Model {
         //yloc+=yChg;
         g.get(0).setX(g.get(0).getX()+xChg);
         g.get(0).setY(g.get(0).getY()+yChg);
+        
+        
+        if((g.get(1).getX() + 134) <= 0) {
+			g.get(1).setX(800);
+		}
+		if((g.get(1).getY() + 134) <= 0) {
+			g.get(1).setY(800);
+		}
+		if((g.get(1).getX() + 134) >= 800) {
+			g.get(1).setX(0);
+		}
+		if((g.get(1).getY() + 134) >= 800) {
+			g.get(1).setY(0);
+		}
+		
+		if (count >= 100) {
+        g.get(1).setX(g.get(1).getX()-foxxDirection());
+        g.get(1).setY(g.get(1).getY()-foxyDirection());
+        count++;
+		}
+		if (count >= 300) {
+	        g.get(1).setX(g.get(1).getX()+foxxDirection());
+	        g.get(1).setY(g.get(1).getY()+foxyDirection());
+	        count = 0;
+			}
+		else if (count < 100) {g.get(1).setX(g.get(1).getX()+foxxDirection());
+        	g.get(1).setY(g.get(1).getY()+foxyDirection());
+        	count++;
+		}
+		
+		
+		
+		
+  
         //System.out.println("updateLocation is using these:");
         //System.out.println(xChg);
         //System.out.println(yChg);
