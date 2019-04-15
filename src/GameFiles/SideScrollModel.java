@@ -13,19 +13,19 @@ import javax.imageio.ImageIO;
  */
 public class SideScrollModel extends Model {
 		
-	
+	/**
+	 * a list of the buttons in our game
+	 */
 	private Fish fish;
 	private Trash trash1;
 	private Trash trash2;
 	private Trash trash3;
 	private Osprey osprey;
-	ArrayList<GameObject> gol;
 	
 	private int worldXSpeed;
 	private int birdSpeed;
 	public boolean isDiving;
 	private int currY;
-
 	
 	public SideScrollModel() {
 		worldXSpeed = -10;
@@ -88,7 +88,6 @@ public class SideScrollModel extends Model {
 		
 	}
 	
-
 	public BufferedImage createImage(){
     	BufferedImage bufferedImage;
     	try {
@@ -111,9 +110,7 @@ public class SideScrollModel extends Model {
     	}
     	return null;
 	}
-  
 	public BufferedImage createImage3(){
-
 		BufferedImage bufferedImage;
 		//System.out.println("i am running");
     	try {

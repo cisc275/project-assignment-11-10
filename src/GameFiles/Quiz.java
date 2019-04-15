@@ -1,4 +1,3 @@
-
 package GameFiles;
 import java.io.File;
 import javax.swing.JButton;

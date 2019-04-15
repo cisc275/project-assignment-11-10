@@ -3,7 +3,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-
 import java.util.Random;
 
 import javax.imageio.ImageIO;
@@ -119,59 +118,13 @@ public class TopDownModel extends Model {
     		return false;
     	}
     }
-   
+    
+  
 	/**
 	 * 
-	 * this method will contain the logic for moving the background image
-	 * to create the illusion that the foreground images are moving
+	 * @param args
+	 * runs the top down
 	 */
-	
-	/**
-	 *  
-	 * this method will contain the logic for advancing the icon on 
-	 * the minimap to show progress during the birds migration
-	 */
-	public void miniMap() {
-		
-		
-	}
-	
-	private BufferedImage createImage(){
-    	BufferedImage bufferedImage;
-    	try {
-    		bufferedImage = ImageIO.read(new File("red_square.png"));
-    		return bufferedImage;
-    	} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-    	return null;
-    }
-	
-	private BufferedImage createImage2(){
-		BufferedImage bufferedImage;
-		//System.out.println("i am running");
-    	try {
-    		bufferedImage = ImageIO.read(new File("blue_square.png"));
-    		return bufferedImage;
-    	} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-    	return null;
-	}
-	private BufferedImage createImage3(){
-		BufferedImage bufferedImage;
-		//System.out.println("i am running");
-    	try {
-    		bufferedImage = ImageIO.read(new File("green_square.png"));
-    		return bufferedImage;
-    	} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-    	return null;
-	}
-
-
-	
 	public static void main(String[] args) {
 		Controller theControl = new Controller("topDown");
 		theControl.topDownStart();
@@ -227,5 +180,58 @@ public class TopDownModel extends Model {
     	}
     	return null;
 	}
-	
+	public int getX() {
+		return xloc;
+	}
+	public int getY() {
+		return yloc;
+	}
+	public int getXloc() {
+		return xloc;
+	}
+	public void setXloc(int xloc) {
+		this.xloc = xloc;
+	}
+	public int getYloc() {
+		return yloc;
+	}
+	public void setYloc(int yloc) {
+		this.yloc = yloc;
+	}
+	public int getxChg() {
+		return xChg;
+	}
+	public void setxChg(int xChg) {
+		this.xChg = xChg;
+	}
+	public int getyChg() {
+		return yChg;
+	}
+	public void setyChg(int yChg) {
+		this.yChg = yChg;
+	}
+	public int getImgWidth() {
+		return imgWidth;
+	}
+	public void setImgWidth(int imgWidth) {
+		this.imgWidth = imgWidth;
+	}
+	public int getImgHeight() {
+		return imgHeight;
+	}
+	public void setImgHeight(int imgHeight) {
+		this.imgHeight = imgHeight;
+	}
+	public int getFrameWidth() {
+		return frameWidth;
+	}
+	public void setFrameWidth(int frameWidth) {
+		this.frameWidth = frameWidth;
+	}
+	public int getFrameHeight() {
+		return frameHeight;
+	}
+	public void setFrameHeight(int frameHeight) {
+		this.frameHeight = frameHeight;
+	}
 }

@@ -34,8 +34,8 @@ public class Bird extends Controllable{
 
 	
 	public Bird(int y, int x, File imgPose, int width, int height, int xMin, int xMax, 
-			int yMin, int yMax,Type type, int xSpeed, int ySpeed) {
-		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, xSpeed, ySpeed);
+			int yMin, int yMax,Type type, boolean isDiving, int currY, int xSpeed, int ySpeed) {
+		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, isDiving, currY, xSpeed, ySpeed);
 		}
 
 	public Type getType() {
