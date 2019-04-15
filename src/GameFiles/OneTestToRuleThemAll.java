@@ -48,6 +48,10 @@ class OneTestToRuleThemAll {
 		tdm.setGame(go);
 		tdm.collision(go);
 		tdm.update();
+		tdm.getFrameHeight();
+		tdm.getFrameWidth();
+		tdm.getGame();
+		tdm.getImgHeight();
 		
 		assertNotEquals(oldx1,tdm.getGame().get(0).getX());
 		assertNotEquals(oldy1,tdm.getGame().get(0).getY());
