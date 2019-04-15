@@ -34,6 +34,7 @@ public class ClapperRail extends Bird {
 			int yMax, int speed, Type type, boolean hidden, boolean carryStick, boolean isDiving,
 			int currY, int xSpeed, int ySpeed) {
 		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, type, isDiving, currY, xSpeed, ySpeed);
+
 	}
 	
 	/**
