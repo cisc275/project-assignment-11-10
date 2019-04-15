@@ -38,12 +38,16 @@ public class SideScrollModel extends Model {
 	public void advanceWorld(ArrayList<GameObject> g) {
 		g.get(1).setX(g.get(1).getX()+worldXSpeed);
 		g.get(2).setX(g.get(2).getX()+worldXSpeed);
+		g.get(3).setX(g.get(3).getX()+worldXSpeed);
 		
 		if((g.get(1).getX() + 134) <= 0) {
 			g.get(1).setX(800);
 		}
 		if((g.get(2).getX() + 134) <= 0) {
 			g.get(2).setX(800);
+		}
+		if((g.get(3).getX() + 134) <= 0) {
+			g.get(3).setX(800);
 		}
 		
 		
@@ -111,6 +115,18 @@ public class SideScrollModel extends Model {
 		//System.out.println("i am running");
     	try {
     		bufferedImage = ImageIO.read(new File("green_square.png"));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
+	}
+	
+	public BufferedImage createImage4(){
+		BufferedImage bufferedImage;
+		//System.out.println("i am running");
+    	try {
+    		bufferedImage = ImageIO.read(new File("brown_square.png"));
     		return bufferedImage;
     	} catch (IOException e) {
     		e.printStackTrace();

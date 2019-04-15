@@ -53,6 +53,7 @@ public class Controller implements KeyListener{
 			game.add(new GameObject(sideScrollModel.createImage(),200,200));
 			game.add(new GameObject(sideScrollModel.createImage2(),300,550));
 			game.add(new GameObject(sideScrollModel.createImage3(),500,550));
+			game.add(new GameObject(sideScrollModel.createImage4(), 400, 50));
 			sideScrollView = new SideScrollView(game);
 			sideScrollView.addKeyListener(this);
 			
