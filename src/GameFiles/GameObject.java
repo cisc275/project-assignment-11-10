@@ -111,6 +111,9 @@ public class GameObject {
 		}
 		return img;
 	}
+	public void setImage(BufferedImage pic) {
+		this.img = pic;
+	}
 
 	public int getY() {
 		return y;

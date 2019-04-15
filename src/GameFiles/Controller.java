@@ -26,6 +26,7 @@ public class Controller implements KeyListener{
 	private TopDownView topDownView;
 	private Timer time;
 	private Action drawAction;
+	boolean collision;
 	ArrayList<GameObject> game;
 
 	
@@ -51,8 +52,8 @@ public class Controller implements KeyListener{
 		drawAction = new AbstractAction(){
     		public void actionPerformed(ActionEvent e){
     			System.out.println("im performing actions");
-    			topDownModel.updateLocation(game);
-    			topDownView.updateView(game);
+    			collision = topDownModel.updateLocation(game);
+    			topDownView.updateView(game,collision);
     		}
     	};
     	
@@ -76,26 +77,26 @@ public class Controller implements KeyListener{
 		System.out.println("pressed");
 		if(e.getKeyCode() == 39) { //right arrow key
 			topDownModel.setxChg(5);
-			topDownModel.updateLocation(game);
-			topDownView.updateView(game);
+			collision = topDownModel.updateLocation(game);
+			topDownView.updateView(game,collision);
 		}
 		else if(e.getKeyCode() == 37) { //left arrow key
 			//xIncr = -5;
 			topDownModel.setxChg(-5);
-			topDownModel.updateLocation(game);
-			topDownView.updateView(game);
+			collision = topDownModel.updateLocation(game);
+			topDownView.updateView(game,collision);
 		}
 		else if(e.getKeyCode() == 38) { //up arrow key
 			//yIncr = -5;
 			topDownModel.setyChg(-5);
-			topDownModel.updateLocation(game);
-			topDownView.updateView(game);
+			collision = topDownModel.updateLocation(game);
+			topDownView.updateView(game,collision);
 		}
 		else if(e.getKeyCode() == 40) { //down arrow key
 			//yIncr = 5;
 			topDownModel.setyChg(5);
-			topDownModel.updateLocation(game);
-			topDownView.updateView(game);
+			collision = topDownModel.updateLocation(game);
+			topDownView.updateView(game,collision);
 		}
 	}
 

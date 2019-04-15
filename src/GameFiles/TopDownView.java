@@ -22,6 +22,7 @@ import javax.swing.JPanel;
 public class TopDownView extends View{
     DrawPanel drawPanel = new DrawPanel();
     ArrayList<GameObject> game;
+    BufferedImage backUp;
     JFrame frame;
 	
 	public TopDownView(ArrayList<GameObject> g) {
@@ -29,6 +30,7 @@ public class TopDownView extends View{
 		frame = new JFrame();
 		//frame.getContentPane().add(this);
 		game = g;
+		backUp = g.get(1).getImage();
     	frame.add(drawPanel);
     	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	frame.setSize(frameSize, frameSize);
@@ -37,9 +39,15 @@ public class TopDownView extends View{
     	//System.out.println("leaving topDownView()");
 	}
 	
-	public void updateView(ArrayList<GameObject> g) {
+	public void updateView(ArrayList<GameObject> g,boolean collision) {
 		//System.out.println("updateView is existing");
 		game = g; //may need to be a for each loop
+		if(collision) {
+			g.get(1).setImage(null);
+		}
+		else if ((g.get(1).getImage() == null)&& (!collision)) {
+			g.get(1).setImage(backUp);
+		}
 		for (GameObject thing : g) {
 			//System.out.print(thing);
 		}
@@ -48,6 +56,7 @@ public class TopDownView extends View{
 		}
 		drawPanel.repaint();
 	}
+	
 	private class DrawPanel extends JPanel {
 
 		protected void paintComponent(Graphics g) {

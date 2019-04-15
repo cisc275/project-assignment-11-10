@@ -35,7 +35,7 @@ public class TopDownModel extends Model {
     	yChg = 12*yvel;
     	System.out.println();
     }
-    public void updateLocation(ArrayList<GameObject> g) {
+    public boolean updateLocation(ArrayList<GameObject> g) {
     	/*
     	if(xloc+xChg > (imgWidth - frameWidth) || xloc+xChg < 0) {
     		System.out.println("WHY");
@@ -54,6 +54,16 @@ public class TopDownModel extends Model {
         //System.out.println(xChg);
         //System.out.println(yChg);
         //System.out.println();
+        return collision(g);
+    }
+    public boolean collision(ArrayList<GameObject> g) {
+    	if (((g.get(0).getX() >= (g.get(1).getX()-20))&&((g.get(0).getX() <= (g.get(1).getX()+20))))&&
+    			((g.get(0).getY() >= (g.get(1).getY()-20))&&((g.get(0).getY() <= (g.get(1).getY()+20))))){
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
     }
 	/**
 	 * 
