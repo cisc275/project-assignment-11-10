@@ -15,12 +15,12 @@ import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.Timer;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.KeyEvent;
+//import java.awt.event.KeyListener;
 
 
-public class Controller {
+public class Controller implements KeyListener{
 	
 	private TopDownModel topDownModel;
 	private TopDownView topDownView;
@@ -37,7 +37,7 @@ public class Controller {
 		game.add(new GameObject(topDownModel.createImage3(),200,200));
 		topDownView = new TopDownView(game);
 		//topDownView.addActionListener(this);
-		//topDownView.addKeyListener(this);
+		topDownView.addKeyListener(this);
 		//game = new ArrayList<GameObject>();
 		//game.add(new GameObject(pic,100,100));
 		//System.out.println("DID IT DO ANYTHING DIFFERENT????????????????????");
@@ -47,7 +47,7 @@ public class Controller {
 	}
 	
 	public void topDownStart() {
-		System.out.println("topDownStart is starting");
+		//System.out.println("topDownStart is starting");
 		drawAction = new AbstractAction(){
     		public void actionPerformed(ActionEvent e){
     			System.out.println("im performing actions");
@@ -55,7 +55,44 @@ public class Controller {
     			topDownView.updateView(topDownModel.game);
     		}
     	};
+    	
     	time = new Timer(50, drawAction);
+	}
+/*
+	private void addKeyListener(KeyListener keyListener) {
+		// TODO Auto-generated method stub
+		
+	}
+*/
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("pressed");
+		if(e.getKeyCode() == 39) { //right arrow key
+			System.out.println("right arrow key has been pressed");
+			//xIncr = 5;
+		}
+		else if(e.getKeyCode() == 37) { //left arrow key
+			//xIncr = -5;
+		}
+		else if(e.getKeyCode() == 38) { //up arrow key
+			//yIncr = -5;
+		}
+		else if(e.getKeyCode() == 40) { //down arrow key
+			//yIncr = 5;
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

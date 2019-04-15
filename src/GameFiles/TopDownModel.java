@@ -55,16 +55,14 @@ public class TopDownModel extends Model {
 		theControl.topDownStart();
 	}
 	public BufferedImage createImage(){
-		System.out.println("Start of createImage");
+		//System.out.println("Start of createImage");
     	BufferedImage bufferedImage;
-    	System.out.println("Im about to try");
+    	//System.out.println("Im about to try");
     	try {
-    		System.out.println("im trying");
+    		//System.out.println("im trying");
     		bufferedImage = ImageIO.read(new File("red_square.png"));
-    		if (bufferedImage != null) {
-    			System.out.println("im hella confused");
-    		}
-    		System.out.println("I succeded");
+    		
+    		//System.out.println("I succeded");
     		return bufferedImage;
     	} catch (IOException e) {
     		//System.out.println("im being caught");
@@ -75,7 +73,7 @@ public class TopDownModel extends Model {
 	
 	public BufferedImage createImage2(){
 		BufferedImage bufferedImage;
-		System.out.println("i am running");
+		//System.out.println("i am running");
     	try {
     		bufferedImage = ImageIO.read(new File("blue_square.png"));
     		return bufferedImage;

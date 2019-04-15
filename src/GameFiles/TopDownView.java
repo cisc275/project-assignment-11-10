@@ -22,16 +22,18 @@ import javax.swing.JPanel;
 public class TopDownView extends View{
     DrawPanel drawPanel = new DrawPanel();
     ArrayList<GameObject> game;
-    //JFrame frame = new JFrame();
+    JFrame frame;
 	
 	public TopDownView(ArrayList<GameObject> g) {
 		//System.out.println("starting topDownView");
+		frame = new JFrame();
+		//frame.getContentPane().add(this);
 		game = g;
-    	add(drawPanel);
-    	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    	setSize(frameSize, frameSize);
-    	setVisible(true);
-    	pack();
+    	frame.add(drawPanel);
+    	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	frame.setSize(frameSize, frameSize);
+    	frame.setVisible(true);
+    	//pack();
     	//System.out.println("leaving topDownView()");
 	}
 	
@@ -69,14 +71,15 @@ public class TopDownView extends View{
 			return new Dimension(frameSize, frameSize);
 		}
 	}
+
 	/*
 	public void addActionListener(Controller controller) {
 		btn.addActionListener(controller);
 	}
-
+*/
 	//adds controller as key listener
 	public void addKeyListener(Controller controller) {
 		frame.addKeyListener(controller);
 	}
-	*/
+	
 }
