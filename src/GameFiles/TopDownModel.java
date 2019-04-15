@@ -71,7 +71,7 @@ public class TopDownModel extends Model {
 	 * runs the top down
 	 */
 	public static void main(String[] args) {
-		Controller theControl = new Controller();
+		Controller theControl = new Controller("topDown");
 		theControl.topDownStart();
 	}
 	public BufferedImage createImage(){

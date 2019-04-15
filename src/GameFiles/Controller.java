@@ -24,21 +24,38 @@ public class Controller implements KeyListener{
 	
 	private TopDownModel topDownModel;
 	private TopDownView topDownView;
+	private SideScrollModel sideScrollModel;
+	private SideScrollView sideScrollView;
 	private Timer time;
 	private Action drawAction;
 	boolean collision;
+	String selected;
 	ArrayList<GameObject> game;
 
 	
-	public Controller() {
-		game = new ArrayList<GameObject>();
-		topDownModel = new TopDownModel(10,10,10,10);
-		game.add(new GameObject(topDownModel.createImage(),100,100));
-		game.add(new GameObject(topDownModel.createImage2(),400,400));
-		game.add(new GameObject(topDownModel.createImage3(),200,200));
-		topDownView = new TopDownView(game);
+	public Controller(String selection) {
+		selected = selection;
+		if(selected.equals("topDown")) {
+			game = new ArrayList<GameObject>();
+			topDownModel = new TopDownModel(10,10,10,10);
+			game.add(new GameObject(topDownModel.createImage(),100,100));
+			game.add(new GameObject(topDownModel.createImage2(),400,400));
+			game.add(new GameObject(topDownModel.createImage3(),200,200));
+			topDownView = new TopDownView(game);
+			topDownView.addKeyListener(this);
+
+		}
+		else if(selected.equals("sideScroll")) {
+			game = new ArrayList<GameObject>();
+			sideScrollModel = new SideScrollModel();
+			game.add(new GameObject(sideScrollModel.createImage(),200,200));
+			game.add(new GameObject(sideScrollModel.createImage2(),300,550));
+			game.add(new GameObject(sideScrollModel.createImage3(),500,550));
+			sideScrollView = new SideScrollView(game);
+			sideScrollView.addKeyListener(this);
+			
+		}
 		//topDownView.addActionListener(this);
-		topDownView.addKeyListener(this);
 		//game = new ArrayList<GameObject>();
 		//game.add(new GameObject(pic,100,100));
 		//System.out.println("DID IT DO ANYTHING DIFFERENT????????????????????");
@@ -59,6 +76,17 @@ public class Controller implements KeyListener{
     	
     	time = new Timer(50, drawAction);
 	}
+	public void sideScrollStart() {
+		drawAction = new AbstractAction(){
+    		public void actionPerformed(ActionEvent e){
+    			System.out.println("im performing actions");
+    			sideScrollModel.advanceWorld(game);
+    			sideScrollView.updateView(game);
+    		}
+    	};
+    	
+    	time = new Timer(50, drawAction);
+	}
 /*
 	private void addKeyListener(KeyListener keyListener) {
 		// TODO Auto-generated method stub
@@ -74,37 +102,55 @@ public class Controller implements KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println("pressed");
+		//System.out.println("pressed");
 		if(e.getKeyCode() == 39) { //right arrow key
-			topDownModel.setxChg(5);
-			collision = topDownModel.updateLocation(game);
-			topDownView.updateView(game,collision);
+			if(selected.equals("topDown")) {
+				topDownModel.setxChg(5);
+				collision = topDownModel.updateLocation(game);
+				topDownView.updateView(game,collision);
+			}
 		}
 		else if(e.getKeyCode() == 37) { //left arrow key
 			//xIncr = -5;
-			topDownModel.setxChg(-5);
-			collision = topDownModel.updateLocation(game);
-			topDownView.updateView(game,collision);
+			if(selected.equals("topDown")) {
+				topDownModel.setxChg(-5);
+				collision = topDownModel.updateLocation(game);
+				topDownView.updateView(game,collision);
+			}
 		}
 		else if(e.getKeyCode() == 38) { //up arrow key
 			//yIncr = -5;
-			topDownModel.setyChg(-5);
-			collision = topDownModel.updateLocation(game);
-			topDownView.updateView(game,collision);
+			if(selected.equals("topDown")) {
+				topDownModel.setyChg(-5);
+				collision = topDownModel.updateLocation(game);
+				topDownView.updateView(game,collision);
+			}
+			else if(selected.equals("sideScroll")) {
+				sideScrollModel.advanceBird(game, -5);
+				sideScrollView.updateView(game);
+			}
 		}
 		else if(e.getKeyCode() == 40) { //down arrow key
 			//yIncr = 5;
-			topDownModel.setyChg(5);
-			collision = topDownModel.updateLocation(game);
-			topDownView.updateView(game,collision);
+			if(selected.equals("topDown")) {
+				topDownModel.setyChg(5);
+				collision = topDownModel.updateLocation(game);
+				topDownView.updateView(game,collision);
+			}
+			else if(selected.equals("sideScroll")) {
+				sideScrollModel.advanceBird(game, 5);
+				sideScrollView.updateView(game);
+			}
 		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		topDownModel.setxChg(0);
-		topDownModel.setyChg(0);
+		if(selected.equals("topDown")) {
+			topDownModel.setxChg(0);
+			topDownModel.setyChg(0);
+		}
 	}
 	
 	
