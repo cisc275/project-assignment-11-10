@@ -47,7 +47,7 @@ public class SideScrollView extends View{
 			g.setColor(Color.gray);
 			
 	    	for (GameObject thing : game) {
-		    	g.drawImage(thing.getImage(),thing.getX() ,thing.getY() , Color.gray, this);
+		    	g.drawImage(thing.getImgPose(),thing.getX() ,thing.getY() , Color.gray, this);
 	    	}
 		}
 
