@@ -9,22 +9,23 @@ class OneTestToRuleThemAll {
 	
 	@Test
 	void testSelectionModel() {
-		
+		assertTrue(true);
 	}
 	
 	@Test
 	void testSideScrollModel() {
 		SideScrollModel scm = new SideScrollModel();
 		ArrayList<GameObject> go = new ArrayList<GameObject>();
-		go.add(new Osprey(0, 0, null, 0, 0, 0, 0, 0, 0, null, false, 0, 0, 0));
+		Osprey os = new Osprey(0, 0, null, 0, 0, 0, 0, 0, 0, null, false, 0, 0, 0);
+		go.add(os);
 		go.add(new Fish(0, 0, null, 0, 0, 0, 0, 0, 0, 0, 0, false, 0, 0, 0, 0));
 		scm.setGame(go);
 		int oldx1 = scm.getGame().get(0).getX();
 		int oldy1 = scm.getGame().get(0).getY();
 		int oldx2 = scm.getGame().get(1).getX();
 		int oldy2 = scm.getGame().get(1).getY();
-
-
+		scm.advanceWorld(scm.getGame());
+		scm.advanceBird(scm.getGame(), 4);
 		assertNotEquals(oldx1,scm.getGame().get(0).getX());
 		assertNotEquals(oldy1,scm.getGame().get(0).getY());	
 		assertNotEquals(oldx2,scm.getGame().get(1).getX());
