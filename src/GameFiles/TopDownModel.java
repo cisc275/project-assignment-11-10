@@ -104,21 +104,18 @@ public class TopDownModel extends Model {
         //System.out.println();
         return collision(g);
     }
-    public boolean collision(ArrayList<GameObject> g) {
-    	if (((g.get(0).getX() >= (g.get(1).getX()-20))&&((g.get(0).getX() <= (g.get(1).getX()+20))))&&
-    			((g.get(0).getY() >= (g.get(1).getY()-20))&&((g.get(0).getY() <= (g.get(1).getY()+20))))){
-    		return true;
-    	}
-    	if (((g.get(0).getX() >= (g.get(3).getX()-20))&&((g.get(0).getX() <= (g.get(3).getX()+20))))&&
-    			((g.get(0).getY() >= (g.get(3).getY()-20))&&((g.get(0).getY() <= (g.get(3).getY()+20))))){
-    		return true;
-    	}
-	
-    	
-    	else {
-    		return false;
-    	}
-    }
+    public boolean collision(ArrayList<GameObject> gme) {
+    	ArrayList<GameObject> safeToRemove = gme.clone();
+    	GameObject tested = safeToRemove.get(0);
+    	safeToRemove.remove(tested);
+    	for (GameObject go : g) {
+		if (((g.getX() >= (tested.getX()-20))&&((g.getX() <= (tested.getX()+20))))&&
+			((ggetY() >= (tested.getY()-20))&&((g.getY() <= (tested.getY()+20))))) return true;
+	    	tested = safeToRemove.get(0);
+		safeToRemove.remove(tested);
+	}
+	    return false;
+    }	
     
   
 	/**
