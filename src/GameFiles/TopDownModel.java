@@ -105,12 +105,13 @@ public class TopDownModel extends Model {
         return collision(g);
     }
     public boolean collision(ArrayList<GameObject> gme) {
-    	ArrayList<GameObject> safeToRemove = gme.clone();
+    	@SuppressWarnings("unchecked")
+		ArrayList<GameObject> safeToRemove = (ArrayList<GameObject>) gme.clone();
     	GameObject tested = safeToRemove.get(0);
     	safeToRemove.remove(tested);
-    	for (GameObject go : g) {
+    	for (GameObject g : safeToRemove) {
 		if (((g.getX() >= (tested.getX()-20))&&((g.getX() <= (tested.getX()+20))))&&
-			((ggetY() >= (tested.getY()-20))&&((g.getY() <= (tested.getY()+20))))) return true;
+			((g.getY() >= (tested.getY()-20))&&((g.getY() <= (tested.getY()+20))))) return true;
 	    	tested = safeToRemove.get(0);
 		safeToRemove.remove(tested);
 	}
