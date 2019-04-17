@@ -6,6 +6,7 @@ import java.io.File;
  *
  */
 public class GameObject {
+	String cd = System.getProperty("user.dir").replace("\\","/");
 	protected BufferedImage img;
 	/**
 	 * y coordinate for this gameObject on screen

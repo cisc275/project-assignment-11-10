@@ -33,6 +33,12 @@ public class Fox extends Controllable {
 	public Fox(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, int yMax,
 			boolean isDiving, int currY, int xSpeed, int ySpeed) {
 		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, isDiving, currY,xSpeed,ySpeed);
+		
+		try {
+    		this.img = ImageIO.read(new File(cd+"/imgs/fox.png"));
+		} catch (IOException e) {
+    		e.printStackTrace();
+    	}
 	}
 
 	/**
@@ -47,13 +53,7 @@ public class Fox extends Controllable {
 		return false;
 	}
 	public BufferedImage getImg() {
-		BufferedImage buffImg;
-		try {
-    		buffImg = ImageIO.read(new File(System.getProperty("user.dir").replace("\\","/")+"/imgs/fox.png"));
-    		return buffImg;
-		} catch (IOException e) {
-    		e.printStackTrace();
-    	}
+		
 		return null;
 	}
 }
