@@ -50,5 +50,12 @@ public class Bird extends Controllable{
 	public void setType(Type type) {
 		this.type = type;
 	}
+	public int getBirdSpeed() {
+		return birdSpeed;
+	}
+	public void setBirdSpeed(int birdSpeed) {
+		this.birdSpeed = birdSpeed;
+	}
+	
 	
 }
