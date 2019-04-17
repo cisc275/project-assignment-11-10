@@ -5,7 +5,7 @@ import java.io.File;
 /**
  * super class for both bird objects
  */
-public class Bird extends Controllable{
+public class Bird extends Controllable implements Moveable{
 	
 
 	/**
@@ -42,6 +42,8 @@ public class Bird extends Controllable{
 		super(x,y,width,height);
 		birdSpeed = 10;
 	}
+	
+	public void move() {}
 
 	public Type getType() {
 		return type;

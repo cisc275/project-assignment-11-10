@@ -42,4 +42,7 @@ public class Osprey extends Bird {
 	public void dive() {
 		
 	}
+	public void move() {
+		
+	}
 }
