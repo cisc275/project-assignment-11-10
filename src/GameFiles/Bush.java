@@ -39,7 +39,7 @@ public class Bush extends NonControllable {
 	public BufferedImage gtImage() {
 		BufferedImage buffImg;
 		try {
-    		buffImg = ImageIO.read(new File(System.getProperty("user.dir").replace("\\","/")+"/imgs/bush.png"));
+    		buffImg = ImageIO.read(new File("bush.png"));
     		return buffImg;
 		} catch (IOException e) {
     		e.printStackTrace();

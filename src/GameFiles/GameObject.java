@@ -1,4 +1,5 @@
 package GameFiles;
+import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 import java.io.File;
 /**
@@ -7,7 +8,7 @@ import java.io.File;
  */
 public class GameObject {
 	String imgFileName;
-	
+	Polygon hitBox;
 	protected BufferedImage img;
 	/**
 	 * y coordinate for this gameObject on screen

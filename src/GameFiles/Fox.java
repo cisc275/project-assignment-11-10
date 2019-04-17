@@ -13,7 +13,7 @@ import javax.imageio.ImageIO;
  *
  */
 public class Fox extends Controllable {
-	static String fileName="/imgs/fox.png";
+	static String fileName="fox.png";
 	/**
 	 * @param y
 	 * @param x
