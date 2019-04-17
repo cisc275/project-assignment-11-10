@@ -40,13 +40,13 @@ public class SideScrollModel extends Model {
 		g.get(2).setX(g.get(2).getX()+worldXSpeed);
 		g.get(3).setX(g.get(3).getX()+worldXSpeed);
 		
-		if((g.get(1).getX() + 134) <= 0) {
+		if((g.get(1).getX()) <= 0) {
 			g.get(1).setX(800);
 		}
-		if((g.get(2).getX() + 134) <= 0) {
+		if((g.get(2).getX()) <= 0) {
 			g.get(2).setX(800);
 		}
-		if((g.get(3).getX() + 134) <= 0) {
+		if((g.get(3).getX()) <= 0) {
 			g.get(3).setX(800);
 		}
 		

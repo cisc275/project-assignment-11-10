@@ -27,10 +27,13 @@ public class Quiz extends Controllable {
 	 * (int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, 
 			int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed) {
 	 */
-	public Quiz(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, 
-			int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed, 
-			JButton answer, JButton bad, String question) {
-		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, isDiving, currY, xSpeed, ySpeed);
+//	public Quiz(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, 
+//			int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed, 
+//			JButton answer, JButton bad, String question) {
+//		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, isDiving, currY, xSpeed, ySpeed);
+//	}
+	public Quiz(int x, int y, int width, int height) {
+		super(x,y,width,height);
 	}
 	/**
 	 * button that will allow the user to select the correct answer

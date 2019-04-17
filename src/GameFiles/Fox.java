@@ -1,5 +1,7 @@
 package GameFiles;
 
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -11,6 +13,7 @@ import javax.imageio.ImageIO;
  *
  */
 public class Fox extends Controllable {
+	static String fileName="/imgs/fox.png";
 	/**
 	 * @param y
 	 * @param x
@@ -30,12 +33,11 @@ public class Fox extends Controllable {
 	 public Controllable(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, 
 			int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed) {
 	 */
-	public Fox(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, int yMax,
-			boolean isDiving, int currY, int xSpeed, int ySpeed) {
-		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, isDiving, currY,xSpeed,ySpeed);
+	public Fox(int x, int y, int width, int height) {
+		super(x,y,width,height);
 		
 		try {
-    		this.img = ImageIO.read(new File(cd+"/imgs/fox.png"));
+    		this.img = ImageIO.read(new File(fileName));
 		} catch (IOException e) {
     		e.printStackTrace();
     	}
@@ -52,8 +54,12 @@ public class Fox extends Controllable {
 		
 		return false;
 	}
-	public BufferedImage getImg() {
-		
-		return null;
+	private BufferedImage getImg(){
+	    BufferedImage resizedImg = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TRANSLUCENT);
+	    Graphics2D g2 = resizedImg.createGraphics();
+	    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+	    g2.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), null);
+	    g2.dispose();
+	    return resizedImg;
 	}
 }

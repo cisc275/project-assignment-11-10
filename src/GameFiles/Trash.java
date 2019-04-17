@@ -23,11 +23,14 @@ public class Trash extends Collectable {
 	 * a constructor that takes values for all fields as input parameters
 	 */
 	
-	public Trash(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, int yMax, int id,
-			int benefit, boolean isDiving, int currY, int xSpeed,
-			int ySpeed, int type) {
-		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, id, benefit, isDiving, currY, xSpeed,
-				ySpeed);
+//	public Trash(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, int yMax, int id,
+//			int benefit, boolean isDiving, int currY, int xSpeed,
+//			int ySpeed, int type) {
+//		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, id, benefit, isDiving, currY, xSpeed,
+//				ySpeed);
+//	}
+	public Trash(int x, int y, int width, int height) {
+		super(x,y,width,height);
 	}
 
 	/**

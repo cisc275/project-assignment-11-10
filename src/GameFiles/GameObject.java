@@ -6,7 +6,8 @@ import java.io.File;
  *
  */
 public class GameObject {
-	String cd = System.getProperty("user.dir").replace("\\","/");
+	String imgFileName;
+	
 	protected BufferedImage img;
 	/**
 	 * y coordinate for this gameObject on screen
@@ -70,8 +71,14 @@ public class GameObject {
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
-	public GameObject(int y, int x, File imgPose, int width, int height, int xMin, 
-			int xMax, int yMin, int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed) {
+//	public GameObject(int y, int x, File imgPose, int width, int height, int xMin, 
+//			int xMax, int yMin, int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed) {
+//	}
+	public GameObject(int x, int y, int width, int height) {
+		this.x = x;
+		this.y = y;
+		this.width = width;
+		this.height = height;
 	}
 	
 	public GameObject(BufferedImage pic, int xloc, int yloc) {

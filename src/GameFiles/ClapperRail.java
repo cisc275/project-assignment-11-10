@@ -30,10 +30,13 @@ public class ClapperRail extends Bird {
 	 */
 	
 	
-	public ClapperRail(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, 
-			int yMax, int speed, Type type, boolean hidden, boolean carryStick, boolean isDiving,
-			int currY, int xSpeed, int ySpeed) {
-		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, type, isDiving, currY, xSpeed, ySpeed);
+//	public ClapperRail(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, 
+//			int yMax, int speed, Type type, boolean hidden, boolean carryStick, boolean isDiving,
+//			int currY, int xSpeed, int ySpeed) {
+//		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, type, isDiving, currY, xSpeed, ySpeed);
+//	}
+	public ClapperRail(int x, int y, int width, int height) {
+		super(x,y,width,height);
 	}
 	
 	/**

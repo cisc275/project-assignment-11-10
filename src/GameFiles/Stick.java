@@ -30,11 +30,14 @@ public class Stick extends Collectable{
 			int xMax, int yMin, int yMax, int id, int benefit, boolean isDiving, int currY, int xSpeed,
 			int ySpeed) {
 	 */
-	public Stick(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, int yMax, int id,
-			int benefit, boolean isDiving, int currY, int xSpeed,
-			int ySpeed, int count, boolean holding, boolean onScreen) {
-		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, id, benefit, isDiving, currY, xSpeed,
-				ySpeed);
+//	public Stick(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, int yMax, int id,
+//			int benefit, boolean isDiving, int currY, int xSpeed,
+//			int ySpeed, int count, boolean holding, boolean onScreen) {
+//		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, id, benefit, isDiving, currY, xSpeed,
+//				ySpeed);
+//	}
+	public Stick(int x, int y, int width, int height) {
+		super(x,y,width,height);
 	}
 	/**
 	 * the number of sticks the that have been collected
