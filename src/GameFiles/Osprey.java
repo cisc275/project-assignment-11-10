@@ -7,6 +7,9 @@ import java.io.File;
  *
  */
 public class Osprey extends Bird {
+
+	public boolean isDiving;
+	private int currY;
 	/**
 	 * @param y
 	 * @param x
@@ -27,6 +30,8 @@ public class Osprey extends Bird {
 //		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, type, isDiving, currY, xSpeed, ySpeed);}
 	public Osprey(int x, int y, int width, int height) {
 		super(x,y,width,height);
+		currY = y;
+		this.isDiving = false;
 	}
 	
 	/**

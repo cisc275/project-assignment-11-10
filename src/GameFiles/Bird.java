@@ -12,6 +12,7 @@ public class Bird extends Controllable{
 	 * describes which bird has been selected
 	 */
 	Type type; 
+	private int birdSpeed;
 	
 	/**
 	 * @param y
@@ -39,6 +40,7 @@ public class Bird extends Controllable{
 //		}
 	public Bird(int x, int y, int width, int height) {
 		super(x,y,width,height);
+		birdSpeed = 10;
 	}
 
 	public Type getType() {

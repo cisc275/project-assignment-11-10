@@ -23,14 +23,9 @@ public class SideScrollModel extends Model {
 	private Osprey osprey;
 	
 	private int worldXSpeed;
-	private int birdSpeed;
-	public boolean isDiving;
-	private int currY;
 	
 	public SideScrollModel() {
 		worldXSpeed = -10;
-		birdSpeed = 5;
-		isDiving = false;
 		
 	}
 	
@@ -78,8 +73,6 @@ public class SideScrollModel extends Model {
 	 * the minimap to show progress during the birds migration
 	 */
 	public void miniMap() {
-		
-		
 	}
 	
 	public static void main(String[] args) {
