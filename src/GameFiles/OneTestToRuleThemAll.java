@@ -16,7 +16,13 @@ class OneTestToRuleThemAll {
 
 	@Test
 	void testSelectionModel() {
-		assertTrue(true);
+		SelectionModel sm = new SelectionModel();
+		sm.whatGame("scroll");
+		assertTrue(sm.scroll);
+		assertFalse(sm.td);
+		sm.whatGame("td");
+		assertTrue(sm.td);
+		assertFalse(sm.scroll);
 	}
 	
 	@Test
