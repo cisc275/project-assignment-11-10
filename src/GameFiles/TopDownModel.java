@@ -179,12 +179,7 @@ public class TopDownModel extends Model {
     	}
     	return null;
 	}
-	public int getX() {
-		return xloc;
-	}
-	public int getY() {
-		return yloc;
-	}
+	
 	public int getXloc() {
 		return xloc;
 	}

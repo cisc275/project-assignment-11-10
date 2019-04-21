@@ -47,7 +47,7 @@ public class ClapperRail extends Bird {
 	 * describes if the bird has a stick
 	 */
 	boolean carryStick; 
-	
+	/*
 	public BufferedImage getImg() {
 		BufferedImage buffImg;
 		try {
@@ -58,7 +58,10 @@ public class ClapperRail extends Bird {
     	}
 		return null;
 	}
-
+*/
+	public void move() {
+		x = x + 10;
+	}
 	public boolean isHidden() {
 		return hidden;
 	}

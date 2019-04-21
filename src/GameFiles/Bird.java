@@ -43,7 +43,9 @@ public class Bird extends Controllable implements Moveable{
 		birdSpeed = 10;
 	}
 	
-	public void move() {}
+	public void move() {
+		x = x + birdSpeed; 
+	}
 
 	public Type getType() {
 		return type;

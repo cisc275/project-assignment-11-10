@@ -12,6 +12,8 @@ import org.junit.jupiter.api.Test;
 
 class OneTestToRuleThemAll {
 	
+	
+
 	@Test
 	void testSelectionModel() {
 		assertTrue(true);
@@ -96,11 +98,158 @@ class OneTestToRuleThemAll {
 		tdm.getFrameWidth();
 		tdm.getGame();
 		tdm.getImgHeight();
+		tdm.setVel(2, 2);
+		tdm.updateLocation(go);
+		tdm.getImgWidth();
 		
-		assertEquals(oldx1,tdm.getGame().get(0).getX());
-		assertEquals(oldy1,tdm.getGame().get(0).getY());
-		assertEquals(oldx2,tdm.getGame().get(1).getX());
-		assertEquals(oldy2,tdm.getGame().get(1).getY());
+		
+		
+		assertNotEquals(oldx1,tdm.getGame().get(0).getX());
+		assertNotEquals(oldy1,tdm.getGame().get(0).getY());
+		assertNotEquals(oldx2,tdm.getGame().get(1).getX());
+		assertNotEquals(oldy2,tdm.getGame().get(1).getY());
+		assertNotNull(tdm.createImage());
+		assertNotEquals(10, tdm.foxxDirection());
+		assertNotEquals(-1, tdm.foxyDirection());
+		assertNotNull(tdm.createImage());
+		assertNotNull(tdm.createImage2());
+		assertNotNull(tdm.createImage3());
+		assertNotNull(tdm.createImage4());
+		assertEquals(24, tdm.xChg);
+		assertEquals(24, tdm.yChg);
+		assertFalse(tdm.updateLocation(go));
+		assertEquals(24, tdm.getxChg());
+		assertEquals(0, tdm.getFrameHeight());
+		assertEquals(0, tdm.getFrameWidth());
+		assertEquals(24, tdm.getyChg());
+		assertEquals(0, tdm.getImgWidth());
+		assertEquals(0, tdm.getYloc());
+		assertEquals(0, tdm.getXloc());
+		
+		
+		tdm.setFrameHeight(0);
+		assertEquals(0, tdm.getFrameHeight());
+		tdm.setFrameWidth(20);
+		assertEquals(20, tdm.getFrameWidth());
+		tdm.setGame(go);
+		assertNotNull(go);
+		tdm.setImgHeight(10);
+		assertEquals(10, tdm.getImgHeight());
+		tdm.setImgWidth(10);
+		assertEquals(10, tdm.getImgWidth());
+		tdm.setVel(2, 2);
+		assertEquals(24, tdm.getxChg());
+		assertEquals(24, tdm.getyChg());
+		tdm.setxChg(0);
+		assertEquals(0, tdm.getxChg());
+		tdm.setyChg(0);
+		assertEquals(0, tdm.getyChg());
+		tdm.setYloc(0);
+		assertEquals(0, tdm.getYloc());
+		tdm.setXloc(0);
+		assertEquals(0, tdm.getXloc());
+		
+			
+	}
+	@Test
+	void TestAirCurrent() {
+		AirCurrent ac = new AirCurrent(0, 0, 0, 0);
+		ac.setBenefit(0);
+		ac.setDirection("east");
+		ac.setOnScreen(true);
+		
+		assertEquals(ac.getDirection(), "east");
+		assertEquals(ac.isOnScreen(), true);
+		
+	}
+	
+	@Test
+	void TestBird() {
+		Bird bird = new Bird(0, 0, 0, 0);
+		Type Direction = null;
+		bird.move();
+		bird.setType(Direction);
+		bird.setBirdSpeed(10);
+		
+		assertEquals(10, bird.getBirdSpeed());
+		assertNotEquals(bird.x, 0);
+		assertEquals(bird.y, 0);
+		assertEquals(bird.getType(), Direction);
+	}
+	
+	@Test
+	void TestBush() {
+		Bush bush = new Bush(0, 0, 0, 0);
+		assertNotNull(bush.gtImage());
+	}
+	
+	@Test
+	void TestClapperRail() {
+		ClapperRail cr = new ClapperRail(0, 0, 0, 0);
+		cr.move();
+		cr.setCarryStick(true);
+		cr.setHidden(true);
+		cr.setcurrY(0);
+		cr.setHeight(0);
+		cr.setisDiving(false);
+		cr.setSpeed(5);
+		cr.setWidth(0);
+		cr.setX(0);
+		cr.setxMax(100);
+		cr.setyMax(100);
+		cr.setxMin(0);
+		cr.setxSpeed(100);
+		cr.setY(0);
+		cr.setySpeed(100);
+		cr.setyMin(0);
+		
+		assertTrue(cr.isCarryStick());
+		assertTrue(cr.isHidden());
+		assertEquals(0, cr.getcurrY());
+		assertEquals(0, cr.getHeight());
+		assertFalse(cr.getisDiving());
+		assertEquals(5, cr.getSpeed());
+		assertEquals(0, cr.getWidth());
+		assertEquals(0, cr.getX());
+		assertEquals(100, cr.getxMax());
+		assertEquals(100, cr.getyMax());
+		assertEquals(0, cr.getxMin());
+		assertEquals(100, cr.getxSpeed());
+		assertEquals(0, cr.getY());
+		assertEquals(100, cr.getySpeed());
+		assertEquals(0, cr.getyMin());
+		
+	}
+	
+	@Test
+	void TestCollectable() {
+		Collectable coll = new Collectable(0, 0, 0, 0);
+		coll.setId(0);
+		coll.setBenefit(1);
+		assertEquals(0, coll.getId());
+		assertEquals(1, coll.getBenefit());
+	}
+	
+	@Test
+	void TestController() {
+		Controller con = new Controller("topDown");
+		Controller cont = new Controller("sideScroll");
+		assertEquals(con.selected, "topDown");
+		assertEquals(cont.selected, "sideScroll");
+	}
+	
+	@Test 
+	void TestStick() {
+		Stick.setOnScreen(true);
+		Stick.setHolding(true);
+		Stick.setCount(100);
+		
+		assertEquals(100, Stick.getCount());
+		assertTrue(Stick.isHolding());
+		assertTrue(Stick.isOnScreen());
+		
+			
+		
 	}
 	
 	@Test
