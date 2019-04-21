@@ -89,6 +89,45 @@ public class GameObject {
 	}
 
 	/**
+	 * @param imgFileName
+	 * @param hitBox
+	 * @param img
+	 * @param y
+	 * @param x
+	 * @param imgPose
+	 * @param width
+	 * @param height
+	 * @param xMin
+	 * @param xMax
+	 * @param yMin
+	 * @param yMax
+	 * @param isDiving
+	 * @param currY
+	 * @param xSpeed
+	 * @param ySpeed
+	 */
+	public GameObject(String imgFileName, Polygon hitBox, BufferedImage img, int y, int x, File imgPose, int width,
+			int height, int xMin, int xMax, int yMin, int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed) {
+		super();
+		this.imgFileName = imgFileName;
+		this.hitBox = hitBox;
+		this.img = img;
+		this.y = y;
+		this.x = x;
+		this.imgPose = imgPose;
+		this.width = width;
+		this.height = height;
+		this.xMin = xMin;
+		this.xMax = xMax;
+		this.yMin = yMin;
+		this.yMax = yMax;
+		this.isDiving = isDiving;
+		this.currY = currY;
+		this.xSpeed = xSpeed;
+		this.ySpeed = ySpeed;
+	}
+
+	/**
 	 * 
 	 * @param a
 	 * @return true if there's a collision false otherwise
@@ -116,7 +155,7 @@ public class GameObject {
 	
 	public BufferedImage getImage() {
 		if (img != null) {
-			//System.out.println("GameObject doesn't hold the answers");
+			System.out.println("GameObject doesn't hold the answers");
 		}
 		return img;
 	}
