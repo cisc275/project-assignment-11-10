@@ -284,7 +284,13 @@ class OneTestToRuleThemAll {
 		
 	}
 	
-	
+	@Test
+	void testType() {
+		Type t = Type.FOX;
+		
+		assertEquals("Fox", t.toString());
+		assertTrue(t == Type.FOX);
+	}
 	
 	@Test
 	void testTopDownView() {
