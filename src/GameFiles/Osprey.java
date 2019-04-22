@@ -7,7 +7,8 @@ import java.io.File;
  *
  */
 public class Osprey extends Bird {
-
+	
+	private int DIVINGSPEED = 50;
 	public boolean isDiving;
 	private int currY;
 	/**
@@ -32,7 +33,6 @@ public class Osprey extends Bird {
 		super(x,y,width,height);
 		currY = y;
 		this.isDiving = false;
-		this.setType(Type.OSPREY);
 	}
 	
 	/**
@@ -41,9 +41,14 @@ public class Osprey extends Bird {
 	 * fish or trash. the logic for this action will be contained here.
 	 */
 	public void dive() {
-		
+		this.setisDiving(true);
+		this.setcurrY(this.getY());
+		this.setySpeed(DIVINGSPEED);
+		this.setY(this.getY()+ this.getySpeed());
+	
 	}
 	public void move() {
-		
+		this.setX(this.getX());
+		this.setY(this.getY()+ this.getySpeed());
 	}
 }
