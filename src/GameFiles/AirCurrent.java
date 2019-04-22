@@ -43,6 +43,7 @@ public class AirCurrent extends Collectable {
 //	}
 	public AirCurrent(int x, int y, int width, int height) {
 		super(x,y,width,height);
+		this.setType(Type.AIRCURRENT);
 	}
 
 

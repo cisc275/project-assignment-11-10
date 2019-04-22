@@ -31,24 +31,7 @@ public class Trash extends Collectable {
 //	}
 	public Trash(int x, int y, int width, int height) {
 		super(x,y,width,height);
+		this.setType(Type.TRASH);
 	}
 
-	/**
-	 * describes what trash has been collected to decide the level of severity to the bird
-	 */
-	int type;
-
-	/**
-	 * @return the type
-	 */
-	public int getType() {
-		return type;
-	}
-
-	/**
-	 * @param type the type to set
-	 */
-	public void setType(int type) {
-		this.type = type;
-	} 
 }
