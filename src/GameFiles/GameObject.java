@@ -55,7 +55,7 @@ public class GameObject {
 	
 	private int ySpeed;
 	
-	private Type type;
+	Type type;
 
 	/**
 	 * @param y
