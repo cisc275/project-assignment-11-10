@@ -102,21 +102,22 @@ public class TopDownModel extends Model {
         //System.out.println(xChg);
         //System.out.println(yChg);
         //System.out.println();
-        return collision(g);
+        //return collision(g);
+		return false;
     }
-    public boolean collision(ArrayList<GameObject> gme) {
-    	@SuppressWarnings("unchecked")
-		ArrayList<GameObject> safeToRemove = (ArrayList<GameObject>) gme.clone();
-    	GameObject tested = safeToRemove.get(0);
-    	safeToRemove.remove(tested);
-    	for (GameObject g : safeToRemove) {
-		if (((g.getX() >= (tested.getX()-20))&&((g.getX() <= (tested.getX()+20))))&&
-			((g.getY() >= (tested.getY()-20))&&((g.getY() <= (tested.getY()+20))))) return true;
-	    	tested = safeToRemove.get(0);
-		safeToRemove.remove(tested);
-	}
-	    return false;
-    }	
+//    public boolean collision(ArrayList<GameObject> gme) {
+//    	@SuppressWarnings("unchecked")
+//		ArrayList<GameObject> safeToRemove = (ArrayList<GameObject>) gme.clone();
+//    	GameObject tested = safeToRemove.get(0);
+//    	safeToRemove.remove(tested);
+//    	for (GameObject g : (ArrayList<GameObject>)safeToRemove.clone()) {
+//		if (((g.getX() >= (tested.getX()-20))&&((g.getX() <= (tested.getX()+20))))&&
+//			((g.getY() >= (tested.getY()-20))&&((g.getY() <= (tested.getY()+20))))) return true;
+//	    	tested = safeToRemove.get(0);
+//		safeToRemove.remove(tested);
+//	}
+//	    return false;
+//    }	
     
   
 	/**
