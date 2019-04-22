@@ -59,6 +59,9 @@ public class Controller implements KeyListener{
 			
 			
 		}
+		for(GameObject g:game) {
+			System.out.println(g);
+		}
 		//topDownView.addActionListener(this);
 		//game = new ArrayList<GameObject>();
 		//game.add(new GameObject(pic,100,100));

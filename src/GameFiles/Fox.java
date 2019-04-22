@@ -45,6 +45,7 @@ public class Fox extends Controllable {
 
 	public Fox(BufferedImage createImage2, int i, int j) {
 		super(createImage2, i, j);
+		this.setType(Type.FOX);
 		// TODO Auto-generated constructor stub
 	}
 
