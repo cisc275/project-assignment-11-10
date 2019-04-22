@@ -266,6 +266,62 @@ public class GameObject {
 	public int getySpeed() {
 		return ySpeed;
 	}
+
+	/**
+	 * @return the imgFileName
+	 */
+	public String getImgFileName() {
+		return imgFileName;
+	}
+
+	/**
+	 * @param imgFileName the imgFileName to set
+	 */
+	public void setImgFileName(String imgFileName) {
+		this.imgFileName = imgFileName;
+	}
+
+	/**
+	 * @return the hitBox
+	 */
+	public Polygon getHitBox() {
+		return hitBox;
+	}
+
+	/**
+	 * @param hitBox the hitBox to set
+	 */
+	public void setHitBox(Polygon hitBox) {
+		this.hitBox = hitBox;
+	}
+
+	/**
+	 * @return the isDiving
+	 */
+	public boolean isDiving() {
+		return isDiving;
+	}
+
+	/**
+	 * @param isDiving the isDiving to set
+	 */
+	public void setDiving(boolean isDiving) {
+		this.isDiving = isDiving;
+	}
+
+	/**
+	 * @return the currY
+	 */
+	public int getCurrY() {
+		return currY;
+	}
+
+	/**
+	 * @param currY the currY to set
+	 */
+	public void setCurrY(int currY) {
+		this.currY = currY;
+	}
 	
 	
 }
