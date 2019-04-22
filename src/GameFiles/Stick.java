@@ -1,5 +1,6 @@
 package GameFiles;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 /**
@@ -39,6 +40,10 @@ public class Stick extends Collectable{
 	public Stick(int x, int y, int width, int height) {
 		super(x,y,width,height);
 		this.setType(Type.STICK);
+	}
+	public Stick(BufferedImage createImage3, int i, int j) {
+		super(createImage3, i, j);
+		// TODO Auto-generated constructor stub
 	}
 	/**
 	 * the number of sticks the that have been collected

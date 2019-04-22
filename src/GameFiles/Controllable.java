@@ -1,5 +1,6 @@
 package GameFiles;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 /**
@@ -44,6 +45,11 @@ public class Controllable extends GameObject {
 //		}
 	public Controllable(int x, int y, int width, int height) {
 		super(x,y,width,height);
+	}
+
+	public Controllable(BufferedImage createImage, int i, int j) {
+		// TODO Auto-generated constructor stub
+		super(createImage, i, j);
 	}
 
 	public int getSpeed() {

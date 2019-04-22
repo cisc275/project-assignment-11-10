@@ -37,6 +37,10 @@ public class Bush extends NonControllable {
 		super(x,y,width,height);
 		this.setType(Type.BUSH);
 	}
+	public Bush(BufferedImage createImage4, int i, int j) {
+		super(createImage4, i, j);
+		// TODO Auto-generated constructor stub
+	}
 	public BufferedImage gtImage() {
 		BufferedImage buffImg;
 		try {

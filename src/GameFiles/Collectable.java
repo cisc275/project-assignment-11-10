@@ -1,5 +1,6 @@
 package GameFiles;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 /**
@@ -38,6 +39,11 @@ public class Collectable extends GameObject {
 //	}
 	public Collectable(int x, int y, int width, int height) {
 		super(x,y,width,height);
+	}
+
+	public Collectable(BufferedImage createImage3, int i, int j) {
+		// TODO Auto-generated constructor stub
+		super(createImage3, i, j);
 	}
 
 	public int getId() {

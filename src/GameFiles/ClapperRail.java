@@ -40,6 +40,11 @@ public class ClapperRail extends Bird {
 		this.setType(Type.CLAPPERRAIL);
 	}
 	
+	public ClapperRail(BufferedImage createImage, int i, int j) {
+		super(createImage, i, j);
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * describes if the bird's coordinates matches with that of a bush on screen
 	 */

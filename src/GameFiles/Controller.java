@@ -38,11 +38,11 @@ public class Controller implements KeyListener{
 		if(selected.equals("topDown")) {
 			game = new ArrayList<GameObject>();
 			topDownModel = new TopDownModel(10,10,10,10);
-			game.add(new GameObject(topDownModel.createImage(),100,100));
-			game.add(new GameObject(topDownModel.createImage2(),400,400));
-			game.add(new GameObject(topDownModel.createImage3(),200,200));
-			game.add(new GameObject(topDownModel.createImage4(), 500, 550));
-			game.add(new GameObject(topDownModel.createImage4(), 0, -60));
+			game.add(new ClapperRail(topDownModel.createImage(),100,100));
+			game.add(new Fox(topDownModel.createImage2(),400,400));
+			game.add(new Stick(topDownModel.createImage3(),200,200));
+			game.add(new Bush(topDownModel.createImage4(), 500, 550));
+			game.add(new Bush(topDownModel.createImage4(), 0, -60));
 			topDownView = new TopDownView(game);
 			topDownView.addKeyListener(this);
 
@@ -112,24 +112,24 @@ public class Controller implements KeyListener{
 		if(e.getKeyCode() == 39) { //right arrow key
 			if(selected.equals("topDown")) {
 				topDownModel.setxChg(5);
-				collision = topDownModel.updateLocation(game);
-				topDownView.updateView(game,collision);
+				//collision = topDownModel.updateLocation(game);
+				//topDownView.updateView(game,collision);
 			}
 		}
 		else if(e.getKeyCode() == 37) { //left arrow key
 			//xIncr = -5;
 			if(selected.equals("topDown")) {
 				topDownModel.setxChg(-5);
-				collision = topDownModel.updateLocation(game);
-				topDownView.updateView(game,collision);
+				//collision = topDownModel.updateLocation(game);
+				//topDownView.updateView(game,collision);
 			}
 		}
 		else if(e.getKeyCode() == 38) { //up arrow key
 			//yIncr = -5;
 			if(selected.equals("topDown")) {
 				topDownModel.setyChg(-5);
-				collision = topDownModel.updateLocation(game);
-				topDownView.updateView(game,collision);
+				//collision = topDownModel.updateLocation(game);
+				//topDownView.updateView(game,collision);
 			}
 			else if(selected.equals("sideScroll")) {
 				sideScrollModel.advanceBird(game, -5);
@@ -140,8 +140,8 @@ public class Controller implements KeyListener{
 			//yIncr = 5;
 			if(selected.equals("topDown")) {
 				topDownModel.setyChg(5);
-				collision = topDownModel.updateLocation(game);
-				topDownView.updateView(game,collision);
+				//collision = topDownModel.updateLocation(game);
+				//topDownView.updateView(game,collision);
 			}
 			else if(selected.equals("sideScroll")) {
 				sideScrollModel.advanceBird(game, 5);

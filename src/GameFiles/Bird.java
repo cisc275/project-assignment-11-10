@@ -1,5 +1,6 @@
 package GameFiles;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 /**
@@ -43,6 +44,11 @@ public class Bird extends Controllable implements Moveable{
 		birdSpeed = 10;
 	}
 	
+	public Bird(BufferedImage createImage, int i, int j) {
+		// TODO Auto-generated constructor stub
+		super(createImage, i, j);
+	}
+
 	public void move() {
 		x = x + birdSpeed; 
 	}

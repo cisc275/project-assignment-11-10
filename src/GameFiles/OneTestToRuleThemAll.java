@@ -115,7 +115,7 @@ class OneTestToRuleThemAll {
 		go.add(new Bush(1000, 1000, 0, 0));
 		tdm.setGame(go);
 		tdm.setGame(go);
-		tdm.collision(go);
+		//tdm.collision(go);
 		int oldx1 = tdm.getGame().get(0).getX();
 		int oldy1 = tdm.getGame().get(0).getY();
 		int oldx2 = tdm.getGame().get(1).getX();

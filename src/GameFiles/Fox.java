@@ -43,6 +43,11 @@ public class Fox extends Controllable {
     	}
 	}
 
+	public Fox(BufferedImage createImage2, int i, int j) {
+		super(createImage2, i, j);
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * @param None
 	 * @return true if the bird is visible false otherwise
