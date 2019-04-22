@@ -35,7 +35,7 @@ public class Fox extends Controllable {
 	 */
 	public Fox(int x, int y, int width, int height) {
 		super(x,y,width,height);
-		
+		this.setType(Type.FOX);
 		try {
     		this.img = ImageIO.read(new File(fileName));
 		} catch (IOException e) {

@@ -38,6 +38,7 @@ public class Stick extends Collectable{
 //	}
 	public Stick(int x, int y, int width, int height) {
 		super(x,y,width,height);
+		this.setType(Type.STICK);
 	}
 	/**
 	 * the number of sticks the that have been collected

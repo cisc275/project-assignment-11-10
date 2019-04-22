@@ -32,6 +32,7 @@ public class Osprey extends Bird {
 		super(x,y,width,height);
 		currY = y;
 		this.isDiving = false;
+		this.setType(Type.OSPREY);
 	}
 	
 	/**
