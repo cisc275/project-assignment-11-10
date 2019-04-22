@@ -55,7 +55,7 @@ public class GameObject {
 	
 	private int ySpeed;
 	
-	Type type;
+	private Type type;
 
 	/**
 	 * @param y
@@ -153,6 +153,11 @@ public class GameObject {
 	 */
 	public void collisions() {
 
+	}
+	
+	@Override
+	public String toString() {
+		return null;
 	}
 	
 	public BufferedImage getImage() {
@@ -323,6 +328,20 @@ public class GameObject {
 	 */
 	public void setCurrY(int currY) {
 		this.currY = currY;
+	}
+
+	/**
+	 * @return the type
+	 */
+	public Type getType() {
+		return type;
+	}
+
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(Type type) {
+		this.type = type;
 	}
 	
 	
