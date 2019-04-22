@@ -4,16 +4,44 @@ package GameFiles;
  *
  */
 public enum Type {
+	AIRCURRENT,
+	BUSH,
+	CLAPPERRAIL,
+	FISH,
+	FOX,
+	INVISIBLEWALL,
 	OSPREY,
-	CLAPPERRAIL;
+	STICK,
+	TRASH;
 	
 	/**
 	 * @return String
 	 * 
 	 * this method will be used to print out the name of the type of bird 
 	 */
-	public  String toString() {
-		return null;
+	public String toString() {
+		switch (this) {
+		case AIRCURRENT:
+			return "Air Currnet";
+		case BUSH:
+			return "Bush";
+		case CLAPPERRAIL:
+			return "Clapper Rail";
+		case FISH:
+			return "Fish";
+		case FOX:
+			return "Fox";
+		case INVISIBLEWALL:
+			return "Invisible Wall";
+		case OSPREY:
+			return "Osprey";
+		case STICK:
+			return "Stick";
+		case TRASH:
+			return "Trash";
+		default:
+			return "Not a valid enum";
+		}
 	}
 	/**
 	 * @param String
@@ -22,6 +50,27 @@ public enum Type {
 	 * this method will return the enumerated type
 	 */
 	public Type getType(String s) {
-		return null;
+		switch (s) {
+		case "Air Currnet":
+			return AIRCURRENT;
+		case "Bush":
+			return BUSH;
+		case "Clapper Rail":
+			return CLAPPERRAIL;
+		case "Fish":
+			return FISH;
+		case "Fox":
+			return FOX;
+		case "Invisible Wall":
+			return INVISIBLEWALL;
+		case "Osprey":
+			return OSPREY;
+		case "Stick":
+			return STICK;
+		case "Trash":
+			return TRASH;
+		default:
+			return null;
+		}
 	}
 }
