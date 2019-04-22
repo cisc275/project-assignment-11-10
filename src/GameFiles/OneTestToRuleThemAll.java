@@ -1,6 +1,7 @@
 package GameFiles;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +13,27 @@ import org.junit.jupiter.api.Test;
 
 class OneTestToRuleThemAll {
 	
-	
+	@Test
+	void testGameObject() {
+		GameObject go = new GameObject(null, null, null, 0, 0, null, 0, 0, 0, 0, 0, 0, false, 0, 0, 0);	
+
+		assertEquals(null,go.getImgFileName());
+		assertEquals(null, go.getHitBox());
+		assertEquals(null, go.getImage());
+		assertEquals(0, go.getY());
+		assertEquals(0, go.getX());
+		assertEquals(null, go.getImgPose());
+		assertEquals(0, go.getWidth());
+		assertEquals(0, go.getHeight());
+		assertEquals(0, go.getxMin());
+		assertEquals(0, go.getxMax());
+		assertEquals(0, go.getyMin());
+		assertEquals(0, go.getyMax());
+		assertEquals(false, go.isDiving());
+		assertEquals(0, go.getcurrY());
+		assertEquals(0, go.getxSpeed());
+		assertEquals(0, go.getySpeed());
+	}
 
 	@Test
 	void testSelectionModel() {
@@ -176,6 +197,7 @@ class OneTestToRuleThemAll {
 		bird.move();
 		bird.setType(Direction);
 		bird.setBirdSpeed(10);
+		bird.move();
 		
 		assertEquals(10, bird.getBirdSpeed());
 		assertNotEquals(bird.x, 0);
@@ -208,6 +230,10 @@ class OneTestToRuleThemAll {
 		cr.setY(0);
 		cr.setySpeed(100);
 		cr.setyMin(0);
+		cr.setImgPose(cr.getImgPose());
+		cr.setImage(cr.getImage());
+		cr.collidesWith(cr);
+		cr.collisions();
 		
 		assertTrue(cr.isCarryStick());
 		assertTrue(cr.isHidden());
@@ -257,6 +283,8 @@ class OneTestToRuleThemAll {
 			
 		
 	}
+	
+	
 	
 	@Test
 	void testTopDownView() {
