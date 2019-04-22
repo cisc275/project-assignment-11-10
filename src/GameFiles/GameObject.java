@@ -157,7 +157,7 @@ public class GameObject {
 	
 	@Override
 	public String toString() {
-		return null;
+		return type.toString() + ", X pos: " + this.x + ", Y pos: " + this.currY;
 	}
 	
 	public BufferedImage getImage() {
