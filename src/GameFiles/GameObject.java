@@ -82,12 +82,14 @@ public class GameObject {
 		this.y = y;
 		this.width = width;
 		this.height = height;
+		type = Type.GAMEOBJECT;
 	}
 	
 	public GameObject(BufferedImage pic, int xloc, int yloc) {
 		img = pic;
 		x = xloc;
 		y = yloc;
+		type = Type.GAMEOBJECT;
 	}
 
 	/**
@@ -127,6 +129,7 @@ public class GameObject {
 		this.currY = currY;
 		this.xSpeed = xSpeed;
 		this.ySpeed = ySpeed;
+		type = Type.GAMEOBJECT;
 	}
 
 	/**

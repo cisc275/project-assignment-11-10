@@ -9,6 +9,7 @@ public enum Type {
 	CLAPPERRAIL,
 	FISH,
 	FOX,
+	GAMEOBJECT,
 	INVISIBLEWALL,
 	OSPREY,
 	STICK,
@@ -31,6 +32,8 @@ public enum Type {
 			return "Fish";
 		case FOX:
 			return "Fox";
+		case GAMEOBJECT:
+			return "GameObject";
 		case INVISIBLEWALL:
 			return "Invisible Wall";
 		case OSPREY:
@@ -61,6 +64,8 @@ public enum Type {
 			return FISH;
 		case "Fox":
 			return FOX;
+		case "GameObject":
+			return GAMEOBJECT;
 		case "Invisible Wall":
 			return INVISIBLEWALL;
 		case "Osprey":
