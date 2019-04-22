@@ -235,6 +235,8 @@ class OneTestToRuleThemAll {
 		cr.collidesWith(cr);
 		cr.collisions();
 		
+//		System.out.println(cr);
+		
 		assertTrue(cr.isCarryStick());
 		assertTrue(cr.isHidden());
 		assertEquals(0, cr.getcurrY());
