@@ -25,6 +25,7 @@ public class Model {
 		for(int i = 0; i < arr.size(); i++) {
 			if(arr.get(i).type.equals(Type.CLAPPERRAIL) || arr.get(i).type.equals(Type.OSPREY) || arr.get(i).type.equals(Type.FOX)) {
 				for(int j = i+1; j < arr.size(); j++) {
+					System.out.println("Collision found between " + i + " and " + j);
 					arr.get(i).collidesWith(arr.get(j));
 				}
 			}
