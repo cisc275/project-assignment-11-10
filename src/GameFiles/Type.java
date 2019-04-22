@@ -22,7 +22,7 @@ public enum Type {
 	public String toString() {
 		switch (this) {
 		case AIRCURRENT:
-			return "Air Currnet";
+			return "Air Current";
 		case BUSH:
 			return "Bush";
 		case CLAPPERRAIL:
@@ -51,7 +51,7 @@ public enum Type {
 	 */
 	public Type getType(String s) {
 		switch (s) {
-		case "Air Currnet":
+		case "Air Current":
 			return AIRCURRENT;
 		case "Bush":
 			return BUSH;
