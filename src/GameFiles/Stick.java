@@ -41,9 +41,9 @@ public class Stick extends Collectable{
 		super(x,y,width,height);
 		this.setType(Type.STICK);
 	}
-	public Stick(BufferedImage createImage3, int i, int j) {
-		super(createImage3, i, j);
-		// TODO Auto-generated constructor stub
+	public Stick(BufferedImage pic, int xloc, int yloc) {
+		super(pic,xloc,yloc);
+		this.setType(Type.STICK);
 	}
 	/**
 	 * the number of sticks the that have been collected

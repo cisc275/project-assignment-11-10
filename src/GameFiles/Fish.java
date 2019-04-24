@@ -1,5 +1,6 @@
 package GameFiles;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 /**
@@ -36,6 +37,10 @@ public class Fish extends Collectable {
 
 	public Fish(int x, int y, int width, int height) {
 		super(x,y,width,height);
+		this.setType(Type.FISH);
+	}
+	public Fish(BufferedImage pic, int xloc, int yloc) {
+		super(pic,xloc,yloc);
 		this.setType(Type.FISH);
 	}
 

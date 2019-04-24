@@ -1,5 +1,6 @@
 package GameFiles;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 /**
@@ -33,6 +34,11 @@ public class Osprey extends Bird {
 		super(x,y,width,height);
 		currY = y;
 		this.isDiving = false;
+		this.setType(Type.OSPREY);
+	}
+	public Osprey(BufferedImage pic, int xloc, int yloc) {
+		super(pic,xloc,yloc);
+		this.setType(Type.OSPREY);
 	}
 	
 	/**

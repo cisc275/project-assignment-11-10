@@ -1,5 +1,6 @@
 package GameFiles;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 /**
@@ -31,6 +32,10 @@ public class Trash extends Collectable {
 //	}
 	public Trash(int x, int y, int width, int height) {
 		super(x,y,width,height);
+		this.setType(Type.TRASH);
+	}
+	public Trash(BufferedImage pic, int xloc, int yloc) {
+		super(pic,xloc,yloc);
 		this.setType(Type.TRASH);
 	}
 

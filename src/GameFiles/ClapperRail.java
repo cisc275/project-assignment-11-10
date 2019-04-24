@@ -40,9 +40,9 @@ public class ClapperRail extends Bird {
 		this.setType(Type.CLAPPERRAIL);
 	}
 	
-	public ClapperRail(BufferedImage createImage, int i, int j) {
-		super(createImage, i, j);
-		// TODO Auto-generated constructor stub
+	public ClapperRail(BufferedImage pic, int xloc, int yloc) {
+		super(pic,xloc,yloc);
+		this.setType(Type.CLAPPERRAIL);
 	}
 
 	/**
