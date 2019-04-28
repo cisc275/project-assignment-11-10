@@ -75,7 +75,7 @@ public class Controller implements KeyListener{
 		//System.out.println("topDownStart is starting");
 		drawAction = new AbstractAction(){
     		public void actionPerformed(ActionEvent e){
-    			System.out.println("im performing actions");
+    			//System.out.println("im performing actions");
     			collision = topDownModel.updateLocation(game);
     			topDownView.updateView(game,collision);
     		}

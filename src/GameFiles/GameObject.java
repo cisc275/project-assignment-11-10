@@ -10,8 +10,8 @@ import javax.imageio.ImageIO;
  *
  */
 public class GameObject {
-	String imgFileName;
-	Polygon hitBox;
+	protected String imgFileName;
+	protected Polygon hitBox;
 	protected BufferedImage img;
 	/**
 	 * y coordinate for this gameObject on screen
@@ -179,7 +179,7 @@ public class GameObject {
 	
 	@Override
 	public String toString() {
-		return this.type.toString() + ", X pos: " + this.x + ", Y pos: " + this.currY;
+		return this.type.toString() + ", X pos: " + this.x + ", Y pos: " + this.y;
 	}
 	
 	public BufferedImage createImage(File path) {
@@ -199,7 +199,7 @@ public class GameObject {
 	
 	public BufferedImage getImage() {
 		if (img != null) {
-			System.out.println("GameObject doesn't hold the answers");
+			//System.out.println("GameObject doesn't hold the answers");
 		}
 		return img;
 	}

@@ -23,6 +23,12 @@ public class TopDownModel extends Model {
 
     int count = 0;
     
+    final int LEFT_BOUND = 0;
+    final int BOUND_OFFSET = 134;
+    final int RIGHT_BOUND = 800;
+    final int VELOCITY_MULTIPLYER = 12;
+    final int CLOCK_TICK_CHECK = 100;
+    
 	//ArrayList<GameObject> game;
     
     public int foxxDirection() {
@@ -45,8 +51,8 @@ public class TopDownModel extends Model {
 		game = new ArrayList<GameObject>();
     }
     public void setVel(int xvel, int yvel) {
-    	xChg = 12*xvel;
-    	yChg = 12*yvel;
+    	xChg = VELOCITY_MULTIPLYER*xvel;
+    	yChg = VELOCITY_MULTIPLYER*yvel;
     	System.out.println();
     }
     public boolean updateLocation(ArrayList<GameObject> g) {
@@ -64,34 +70,37 @@ public class TopDownModel extends Model {
         //yloc+=yChg;
         g.get(0).setX(g.get(0).getX()+xChg);
         g.get(0).setY(g.get(0).getY()+yChg);
+        g.get(0).getHitBox().translate(xChg, yChg);;
         
-        
-        if((g.get(1).getX() + 134) <= 0) {
-			g.get(1).setX(800);
+        if((g.get(1).getX() + BOUND_OFFSET) <= LEFT_BOUND) {
+			g.get(1).setX(RIGHT_BOUND);
 		}
-		if((g.get(1).getY() + 134) <= 0) {
-			g.get(1).setY(800);
+		if((g.get(1).getY() + BOUND_OFFSET) <= LEFT_BOUND) {
+			g.get(1).setY(RIGHT_BOUND);
 		}
-		if((g.get(1).getX() + 134) >= 800) {
-			g.get(1).setX(0);
+		if((g.get(1).getX() + BOUND_OFFSET) >= RIGHT_BOUND) {
+			g.get(1).setX(LEFT_BOUND);
 		}
-		if((g.get(1).getY() + 134) >= 800) {
-			g.get(1).setY(0);
+		if((g.get(1).getY() + BOUND_OFFSET) >= RIGHT_BOUND) {
+			g.get(1).setY(LEFT_BOUND);
 		}
 		
-		if (count >= 100) {
+		if (count >= CLOCK_TICK_CHECK) {
         g.get(1).setX(g.get(1).getX()-foxxDirection());
         g.get(1).setY(g.get(1).getY()-foxyDirection());
+        g.get(1).getHitBox().translate(-foxxDirection(), -foxyDirection());
         count++;
 		}
-		if (count >= 300) {
+		if (count >= 3*CLOCK_TICK_CHECK) {
 	        g.get(1).setX(g.get(1).getX()+foxxDirection());
 	        g.get(1).setY(g.get(1).getY()+foxyDirection());
 	        count = 0;
+	        g.get(1).getHitBox().translate(foxxDirection(), foxyDirection());
 			}
-		else if (count < 100) {g.get(1).setX(g.get(1).getX()+foxxDirection());
+		else if (count < CLOCK_TICK_CHECK) {g.get(1).setX(g.get(1).getX()+foxxDirection());
         	g.get(1).setY(g.get(1).getY()+foxyDirection());
         	count++;
+        	g.get(1).getHitBox().translate(foxxDirection(), foxyDirection());
 		}
 		
 		
@@ -102,22 +111,23 @@ public class TopDownModel extends Model {
         //System.out.println(xChg);
         //System.out.println(yChg);
         //System.out.println();
-        //return collision(g);
+        this.collision(g);
 		return false;
     }
-//    public boolean collision(ArrayList<GameObject> gme) {
-//    	@SuppressWarnings("unchecked")
-//		ArrayList<GameObject> safeToRemove = (ArrayList<GameObject>) gme.clone();
-//    	GameObject tested = safeToRemove.get(0);
-//    	safeToRemove.remove(tested);
-//    	for (GameObject g : (ArrayList<GameObject>)safeToRemove.clone()) {
-//		if (((g.getX() >= (tested.getX()-20))&&((g.getX() <= (tested.getX()+20))))&&
-//			((g.getY() >= (tested.getY()-20))&&((g.getY() <= (tested.getY()+20))))) return true;
-//	    	tested = safeToRemove.get(0);
-//		safeToRemove.remove(tested);
-//	}
-//	    return false;
-//    }	
+    public boolean collision(ArrayList<GameObject> gme) {
+    	for (int k = 0; k < gme.size(); k ++) {
+    		if (count % 1 == 0 && (gme.get(k).getType() == Type.FOX)) System.out.println(gme.get(k) + " vs Polygon " + gme.get(k).getHitBox().getBounds2D());
+    		for (int j = 0; j < gme.size(); j ++) {
+    			if (k != j) { //Entering the dodgy bit.
+    				if (k > j && gme.get(k).getHitBox().intersects(gme.get(j).getHitBox().getBounds2D())) {
+    					System.out.println("Collision found between " + k + " and " + j);
+    				}
+    			} //Exiting the dogey bit
+    		}
+    		
+    	}
+	    return false;
+    }	
     
   
 	/**
