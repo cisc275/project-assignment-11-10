@@ -41,6 +41,10 @@ public class Bush extends NonControllable {
 		super(pic,xloc,yloc);
 		this.setType(Type.BUSH);
 	}
+	public Bush(String string, int i, int j) {
+		super(string,i,j);
+		this.setType(Type.BUSH);
+	}
 	public BufferedImage gtImage() {
 		BufferedImage buffImg;
 		try {

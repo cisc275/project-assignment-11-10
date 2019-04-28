@@ -49,6 +49,10 @@ public class Bird extends Controllable implements Moveable{
 		super(createImage, i, j);
 	}
 
+	public Bird(String string, int i, int j) {
+		super(string,i,j);
+	}
+
 	public void move() {
 		x = x + birdSpeed; 
 	}

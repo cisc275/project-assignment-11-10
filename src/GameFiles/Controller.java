@@ -38,11 +38,11 @@ public class Controller implements KeyListener{
 		if(selected.equals("topDown")) {
 			game = new ArrayList<GameObject>();
 			topDownModel = new TopDownModel(10,10,10,10);
-			game.add(new ClapperRail(topDownModel.createImage(),100,100));
-			game.add(new Fox(topDownModel.createImage2(),400,400));
-			game.add(new Stick(topDownModel.createImage3(),200,200));
-			game.add(new Bush(topDownModel.createImage4(), 500, 550));
-			game.add(new Bush(topDownModel.createImage4(), 0, -60));
+			game.add(new ClapperRail("cr.png",100,100));
+			game.add(new Fox("fox.png",400,400));
+			game.add(new Stick("brown_square.png",200,200));
+			game.add(new Bush("bush.png", 500, 550));
+			game.add(new Bush("bush.png", 0, -60));
 			topDownView = new TopDownView(game);
 			topDownView.addKeyListener(this);
 

@@ -45,6 +45,10 @@ public class Stick extends Collectable{
 		super(pic,xloc,yloc);
 		this.setType(Type.STICK);
 	}
+	public Stick(String string, int i, int j) {
+		super(string,i,j);
+		this.setType(Type.FOX);
+	}
 	/**
 	 * the number of sticks the that have been collected
 	 */

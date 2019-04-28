@@ -52,6 +52,10 @@ public class Controllable extends GameObject {
 		super(createImage, i, j);
 	}
 
+	public Controllable(String string, int i, int j) {
+		super(string,i,j);
+	}
+
 	public int getSpeed() {
 		return speed;
 	}

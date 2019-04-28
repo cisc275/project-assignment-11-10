@@ -49,6 +49,11 @@ public class Fox extends Controllable {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Fox(String string, int i, int j) {
+		super(string,i,j);
+		this.setType(Type.FOX);
+	}
+
 	/**
 	 * @param None
 	 * @return true if the bird is visible false otherwise

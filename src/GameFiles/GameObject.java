@@ -2,6 +2,9 @@ package GameFiles;
 import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 /**
  * Super class for every object in the game  
  *
@@ -82,6 +85,9 @@ public class GameObject {
 		this.y = y;
 		this.width = width;
 		this.height = height;
+		int xs[] = {x, x, x+width, x+width};
+		int ys[] = {y, y+height, y, y+height};
+		this.hitBox = new Polygon(xs, ys, 4);
 		type = Type.GAMEOBJECT;
 	}
 	
@@ -89,6 +95,19 @@ public class GameObject {
 		img = pic;
 		x = xloc;
 		y = yloc;
+		int xs[] = {xloc, xloc, xloc+img.getWidth(), xloc+img.getWidth()};
+		int ys[] = {yloc, yloc+img.getHeight(), yloc, yloc+img.getHeight()};
+		this.hitBox = new Polygon(xs, ys, 4);
+		type = Type.GAMEOBJECT;
+	}
+	
+	public GameObject(String path, int xloc, int yloc) {
+		img = createImage(new File(path));
+		x = xloc;
+		y = yloc;
+		int xs[] = {xloc, xloc, xloc+img.getWidth(), xloc+img.getWidth()};
+		int ys[] = {yloc, yloc+img.getHeight(), yloc, yloc+img.getHeight()};
+		this.hitBox = new Polygon(xs, ys, 4);
 		type = Type.GAMEOBJECT;
 	}
 
@@ -161,6 +180,21 @@ public class GameObject {
 	@Override
 	public String toString() {
 		return this.type.toString() + ", X pos: " + this.x + ", Y pos: " + this.currY;
+	}
+	
+	public BufferedImage createImage(File path) {
+		BufferedImage g;
+		try {
+    		//System.out.println("im trying");
+    		g = ImageIO.read(path);
+    		
+    		//System.out.println("I succeded");
+    		return g;
+    	} catch (IOException e) {
+    		//System.out.println("im being caught");
+    		e.printStackTrace();
+    	}
+		return null;
 	}
 	
 	public BufferedImage getImage() {

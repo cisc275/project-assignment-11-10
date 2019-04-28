@@ -36,4 +36,8 @@ public class NonControllable extends GameObject {
 		// TODO Auto-generated constructor stub
 	}
 
+	public NonControllable(String string, int i, int j) {
+		super(string,i,j);
+	}
+
 }

@@ -46,6 +46,10 @@ public class Collectable extends GameObject {
 		super(createImage3, i, j);
 	}
 
+	public Collectable(String string, int i, int j) {
+		super(string,i,j);
+	}
+
 	public int getId() {
 		return id;
 	}

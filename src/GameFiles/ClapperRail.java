@@ -45,6 +45,11 @@ public class ClapperRail extends Bird {
 		this.setType(Type.CLAPPERRAIL);
 	}
 
+	public ClapperRail(String string, int i, int j) {
+		super(string,i,j);
+		this.setType(Type.CLAPPERRAIL);
+	}
+
 	/**
 	 * describes if the bird's coordinates matches with that of a bush on screen
 	 */
