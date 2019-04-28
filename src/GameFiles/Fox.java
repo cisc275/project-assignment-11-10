@@ -53,6 +53,11 @@ public class Fox extends Controllable {
 		super(string,i,j);
 		this.setType(Type.FOX);
 	}
+	
+	public Fox(int i, int j) {
+		super("fox.png",i,j);
+		this.setType(Type.FOX);
+	}
 
 	/**
 	 * @param None

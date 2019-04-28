@@ -49,6 +49,10 @@ public class Stick extends Collectable{
 		super(string,i,j);
 		this.setType(Type.FOX);
 	}
+	public Stick(int i, int j) {
+		super("stick.png",i,j);
+		this.setType(Type.FOX);
+	}
 	/**
 	 * the number of sticks the that have been collected
 	 */
