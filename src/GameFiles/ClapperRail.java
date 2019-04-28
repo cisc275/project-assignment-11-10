@@ -11,30 +11,18 @@ import javax.imageio.ImageIO;
  *
  */
 public class ClapperRail extends Bird {
+
 	/**
-	 * @param y
-	 * @param x
-	 * @param imgPose
-	 * @param width
-	 * @param height
-	 * @param xMin
-	 * @param xMax
-	 * @param yMin
-	 * @param yMax
-	 * @param speed
-	 * @param type
-	 * @param hidden
-	 * @param carryStick
-	 * 
-	 * a constructor that takes values for all fields as input parameters
+	 * describes if the bird's coordinates matches with that of a bush on screen
 	 */
+	boolean hidden; 
+	/**
+	 * describes if the bird has a stick
+	 */
+	boolean carryStick; 
 	
+	final private int MOVE_AMOUNT = 10;
 	
-//	public ClapperRail(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, 
-//			int yMax, int speed, Type type, boolean hidden, boolean carryStick, boolean isDiving,
-//			int currY, int xSpeed, int ySpeed) {
-//		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, type, isDiving, currY, xSpeed, ySpeed);
-//	}
 	public ClapperRail(int x, int y, int width, int height) {
 		super(x,y,width,height);
 		this.setType(Type.CLAPPERRAIL);
@@ -54,28 +42,9 @@ public class ClapperRail extends Bird {
 		super("cr.png",i,j);
 		this.setType(Type.CLAPPERRAIL);
 	}
-	/**
-	 * describes if the bird's coordinates matches with that of a bush on screen
-	 */
-	boolean hidden; 
-	/**
-	 * describes if the bird has a stick
-	 */
-	boolean carryStick; 
-	/*
-	public BufferedImage getImg() {
-		BufferedImage buffImg;
-		try {
-    		buffImg = ImageIO.read(new File(System.getProperty("user.dir").replace("\\","/")+"/imgs/cr.png"));
-    		return buffImg;
-		} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-		return null;
-	}
-*/
+  
 	public void move() {
-		x = x + 10;
+		x = x + MOVE_AMOUNT;
 	}
 	public boolean isHidden() {
 		return hidden;

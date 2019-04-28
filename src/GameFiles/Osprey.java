@@ -9,7 +9,7 @@ import java.io.File;
  */
 public class Osprey extends Bird {
 	
-	private int DIVINGSPEED = 50;
+	private int DIVING_SPEED = 50;
 	public boolean isDiving;
 	private int currY;
 	/**
@@ -49,7 +49,7 @@ public class Osprey extends Bird {
 	public void dive() {
 		this.setisDiving(true);
 		this.setcurrY(this.getY());
-		this.setySpeed(DIVINGSPEED);
+		this.setySpeed(DIVING_SPEED);
 		this.setY(this.getY()+ this.getySpeed());
 	
 	}

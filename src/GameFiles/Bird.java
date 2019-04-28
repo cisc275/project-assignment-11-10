@@ -13,6 +13,8 @@ public class Bird extends Controllable implements Moveable{
 	 * describes which bird has been selected
 	 */
 	Type type; 
+	
+	final private int INIT_BIRD_SPEED = 10;
 	private int birdSpeed;
 	
 	/**
@@ -41,7 +43,7 @@ public class Bird extends Controllable implements Moveable{
 //		}
 	public Bird(int x, int y, int width, int height) {
 		super(x,y,width,height);
-		birdSpeed = 10;
+		birdSpeed = INIT_BIRD_SPEED;
 	}
 	
 	public Bird(BufferedImage createImage, int i, int j) {

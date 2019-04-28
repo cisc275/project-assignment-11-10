@@ -87,7 +87,8 @@ public class GameObject {
 		this.height = height;
 		int xs[] = {x, x, x+width, x+width};
 		int ys[] = {y, y+height, y, y+height};
-		this.hitBox = new Polygon(xs, ys, 4);
+		assert(xs.length == ys.length);
+		this.hitBox = new Polygon(xs, ys, xs.length);
 		type = Type.GAMEOBJECT;
 	}
 	
@@ -97,7 +98,8 @@ public class GameObject {
 		y = yloc;
 		int xs[] = {xloc, xloc, xloc+img.getWidth(), xloc+img.getWidth()};
 		int ys[] = {yloc, yloc+img.getHeight(), yloc, yloc+img.getHeight()};
-		this.hitBox = new Polygon(xs, ys, 4);
+		assert(xs.length == ys.length);
+		this.hitBox = new Polygon(xs, ys, xs.length);
 		type = Type.GAMEOBJECT;
 	}
 	
@@ -107,7 +109,8 @@ public class GameObject {
 		y = yloc;
 		int xs[] = {xloc, xloc, xloc+img.getWidth(), xloc+img.getWidth()};
 		int ys[] = {yloc, yloc+img.getHeight(), yloc, yloc+img.getHeight()};
-		this.hitBox = new Polygon(xs, ys, 4);
+		assert(xs.length == ys.length);
+		this.hitBox = new Polygon(xs, ys, xs.length);
 		type = Type.GAMEOBJECT;
 	}
 

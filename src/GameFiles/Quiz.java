@@ -7,6 +7,19 @@ import javax.swing.JButton;
  */
 public class Quiz extends Controllable {
 	/**
+	 * button that will allow the user to select the correct answer
+	 */
+	JButton answer; 
+	/**
+	 * button that will allow the user to select incorrect answer(s)
+	 */
+	JButton bad; 
+	/**
+	 * string that will contain the question being asked during the quiz
+	 */
+	String question;
+	
+	/**
 	 * @param y
 	 * @param x
 	 * @param imgPose
@@ -35,18 +48,7 @@ public class Quiz extends Controllable {
 	public Quiz(int x, int y, int width, int height) {
 		super(x,y,width,height);
 	}
-	/**
-	 * button that will allow the user to select the correct answer
-	 */
-	JButton answer; 
-	/**
-	 * button that will allow the user to select incorrect answer(s)
-	 */
-	JButton bad; 
-	/**
-	 * string that will contain the question being asked during the quiz
-	 */
-	String question;
+	
 	public JButton getAnswer() {
 		return answer;
 	}
