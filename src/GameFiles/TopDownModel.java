@@ -116,10 +116,10 @@ public class TopDownModel extends Model {
     }
     public boolean collision(ArrayList<GameObject> gme) {
     	for (int k = 0; k < gme.size(); k ++) {
-    		if (count % 1 == 0 && (gme.get(k).getType() == Type.FOX)) System.out.println(gme.get(k) + " vs Polygon " + gme.get(k).getHitBox().getBounds2D());
-    		for (int j = 0; j < gme.size(); j ++) {
+    		//if (count % 1 == 0 && (gme.get(k).getType() == Type.FOX)) System.out.println(gme.get(k) + " vs Polygon " + gme.get(k).getHitBox().getBounds2D());
+    		for (int j = k + 1; j < gme.size(); j ++) {
     			if (k != j) { //Entering the dodgy bit.
-    				if (k > j && gme.get(k).getHitBox().intersects(gme.get(j).getHitBox().getBounds2D())) {
+    				if (gme.get(k).getHitBox().intersects(gme.get(j).getHitBox().getBounds2D())) {
     					System.out.println("Collision found between " + k + " and " + j);
     				}
     			} //Exiting the dogey bit
