@@ -31,6 +31,8 @@ public class Controller implements KeyListener{
 	boolean collision;
 	String selected;
 	ArrayList<GameObject> game;
+	
+//fghjkl;
 
 	
 	public Controller(String selection) {
