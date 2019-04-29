@@ -12,10 +12,10 @@ import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
  *
  */
 public class TopDownModel extends Model {
-	int xloc = 0;
-    int yloc = 0;
-    int xChg = 0;
-    int yChg = 0;
+	//int xloc = 0;
+   // int yloc = 0;
+//    int xChg = 0;
+//    int yChg = 0;
     int imgWidth = 0;
     int imgHeight = 0;
     int frameWidth = 0;
@@ -70,7 +70,7 @@ public class TopDownModel extends Model {
         //yloc+=yChg;
         g.get(0).setX(g.get(0).getX()+xChg);
         g.get(0).setY(g.get(0).getY()+yChg);
-        g.get(0).getHitBox().translate(xChg, yChg);;
+        g.get(0).getHitBox().translate(xChg, yChg);
         
         if((g.get(1).getX() + BOUND_OFFSET) <= LEFT_BOUND) {
 			g.get(1).setX(RIGHT_BOUND);
@@ -191,18 +191,18 @@ public class TopDownModel extends Model {
     	return null;
 	}
 	
-	public int getXloc() {
-		return xloc;
-	}
-	public void setXloc(int xloc) {
-		this.xloc = xloc;
-	}
-	public int getYloc() {
-		return yloc;
-	}
-	public void setYloc(int yloc) {
-		this.yloc = yloc;
-	}
+//	public int getXloc() {
+//		return xloc;
+//	}
+//	public void setXloc(int xloc) {
+//		this.xloc = xloc;
+//	}
+//	public int getYloc() {
+//		return yloc;
+//	}
+//	public void setYloc(int yloc) {
+//		this.yloc = yloc;
+//	}
 	public int getxChg() {
 		return xChg;
 	}

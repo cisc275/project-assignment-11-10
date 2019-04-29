@@ -12,7 +12,8 @@ public class Controllable extends GameObject {
 	/**
 	 * speed of object being controlled 
 	 */
-	int speed; 
+	int xSpeed; 
+	int ySpeed;
 	/**
 	 * 
 	 * this method will be defined in subclasses, and will contain the 
@@ -56,11 +57,32 @@ public class Controllable extends GameObject {
 		super(string,i,j);
 	}
 
-	public int getSpeed() {
-		return speed;
+	/**
+	 * @return the xSpeed
+	 */
+	public int getxSpeed() {
+		return xSpeed;
 	}
 
-	public void setSpeed(int speed) {
-		this.speed = speed;
+	/**
+	 * @param xSpeed the xSpeed to set
+	 */
+	public void setxSpeed(int xSpeed) {
+		this.xSpeed = xSpeed;
 	}
+
+	/**
+	 * @return the ySpeed
+	 */
+	public int getySpeed() {
+		return ySpeed;
+	}
+
+	/**
+	 * @param ySpeed the ySpeed to set
+	 */
+	public void setySpeed(int ySpeed) {
+		this.ySpeed = ySpeed;
+	}
+
 }
