@@ -3,6 +3,7 @@ package GameFiles;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
@@ -60,5 +61,11 @@ public class ClapperRail extends Bird {
 
 	public void setCarryStick(boolean carryStick) {
 		this.carryStick = carryStick;
+	}
+	@Override
+	public void collision(ArrayList<GameObject> gameObjects) {
+		for(GameObject g: gameObjects) {
+			
+		}
 	}
 }

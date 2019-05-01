@@ -5,6 +5,7 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 /**
@@ -108,9 +109,7 @@ public class GameObject {
 	 * or not there has been a collision
 	 * 
 	 */
-	public boolean collidesWith(GameObject a) {
-		return this.hitbox.getBounds2D().intersects(a.hitbox.getBounds2D());
-	}
+	public boolean collidesWith(GameObject a) {return false;}
 	/**
 	 * 
 	 * parameters: None
@@ -119,9 +118,7 @@ public class GameObject {
 	 *  this method will be defined in subclasses so that each object knows
 	 *  how to handle a collision in the even collidesWith returns true.
 	 */
-	public void collisions() {
-
-	}
+	public void collision(ArrayList<GameObject> gameObjects) {}
 	
 	@Override
 	public String toString() {
