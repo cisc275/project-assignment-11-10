@@ -16,20 +16,29 @@ public class TopDownModel extends Model {
     ClapperRail cr = new ClapperRail("cr.png",100,100);
     Fox f = new Fox("fox.png",400,400);
 
-    int count = 0;
+    int count = 0; // used to check clock
     
     final int LEFT_BOUND = 0;
     final int BOUND_OFFSET = 134;
     final int RIGHT_BOUND = 800;
-    final int VELOCITY_MULTIPLYER = 12;
     final int CLOCK_TICK_CHECK = 100;
     
-    
+    /**
+     * 
+     * @return a random integer from 1 to 5
+     * calculates a random integer for the foxes movement on the x axis
+     */
     public int foxxDirection() {
     	Random rand = new Random();
     	return rand.nextInt(5);
     }
     
+    
+    /**
+     * 
+     * @return a random integer from 1 to 5
+     * calculates a random integer for the foxes movement on the y axis
+     */
     public int foxyDirection() {
     	Random rand = new Random();
     	return rand.nextInt(5);
@@ -100,6 +109,8 @@ public class TopDownModel extends Model {
     }
     
     
+    
+    
     /**
      * 
      * @param an array list of GameObjects
@@ -120,6 +131,8 @@ public class TopDownModel extends Model {
     		
     	}
     }	
+    
+    
     
   
 	/**
@@ -142,36 +155,47 @@ public class TopDownModel extends Model {
 	 * each version returns a different color square
 	 */
 	public BufferedImage createImage(){
-		//System.out.println("Start of createImage");
     	BufferedImage bufferedImage;
-    	//System.out.println("Im about to try");
     	try {
-    		//System.out.println("im trying");
     		bufferedImage = ImageIO.read(new File("red_square.png"));
-    		
-    		//System.out.println("I succeded");
     		return bufferedImage;
+    		
     	} catch (IOException e) {
-    		//System.out.println("im being caught");
     		e.printStackTrace();
+    		
     	}
     	return null;
     }
 	
+	
+	/**
+	 * 
+	 * @return a buffered Image
+	 * creates buffered images for the various objects
+	 * each version returns a different color square
+	 */
 	public BufferedImage createImage2(){
 		BufferedImage bufferedImage;
-		//System.out.println("i am running");
     	try {
     		bufferedImage = ImageIO.read(new File("blue_square.png"));
     		return bufferedImage;
+    		
     	} catch (IOException e) {
     		e.printStackTrace();
+    		
     	}
     	return null;
 	}
+	
+	
+	/**
+	 * 
+	 * @return a buffered Image
+	 * creates buffered images for the various objects
+	 * each version returns a different color square
+	 */
 	public BufferedImage createImage3(){
 		BufferedImage bufferedImage;
-		//System.out.println("i am running");
     	try {
     		bufferedImage = ImageIO.read(new File("green_square.png"));
     		return bufferedImage;
@@ -181,9 +205,15 @@ public class TopDownModel extends Model {
     	return null;
 	}
 	
+	
+	/**
+	 * 
+	 * @return a buffered Image
+	 * creates buffered images for the various objects
+	 * each version returns a different color square
+	 */
 	public BufferedImage createImage4(){
 		BufferedImage bufferedImage;
-		//System.out.println("i am running");
     	try {
     		bufferedImage = ImageIO.read(new File("brown_square.png"));
     		return bufferedImage;
