@@ -70,12 +70,5 @@ public class Fox extends Controllable {
 		
 		return false;
 	}
-	private BufferedImage getImg(){
-	    BufferedImage resizedImg = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TRANSLUCENT);
-	    Graphics2D g2 = resizedImg.createGraphics();
-	    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-	    g2.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), null);
-	    g2.dispose();
-	    return resizedImg;
-	}
+	
 }

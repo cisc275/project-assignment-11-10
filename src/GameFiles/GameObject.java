@@ -1,5 +1,7 @@
 package GameFiles;
+import java.awt.Graphics2D;
 import java.awt.Polygon;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -205,6 +207,18 @@ public class GameObject {
 			//System.out.println("GameObject doesn't hold the answers");
 		}
 		return img;
+	}
+	/**used to scale the assigned buffered image to the width and height of the object
+	 * @return buffered image that is the same size ass the object
+	 * @author andrew thompson
+	 */
+	public BufferedImage getScaledImg(){
+	    BufferedImage resizedImg = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TRANSLUCENT);
+	    Graphics2D g2 = resizedImg.createGraphics();
+	    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+	    g2.drawImage(this.getImage(), 0, 0, this.getWidth(), this.getHeight(), null);
+	    g2.dispose();
+	    return resizedImg;
 	}
 	public void setImage(BufferedImage pic) {
 		this.img = pic;
