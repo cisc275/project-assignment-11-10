@@ -18,8 +18,8 @@ public class TopDownModel extends Model {
 //    int yChg = 0;
   //  int imgWidth = 0;
   //  int imgHeight = 0;
-    int frameWidth = 0;
-    int frameHeight = 0;
+   // int frameWidth = 0;
+    //int frameHeight = 0;
     ClapperRail cr = new ClapperRail("cr.png",100,100);
     Fox f = new Fox("fox.png",400,400);
 
@@ -45,12 +45,15 @@ public class TopDownModel extends Model {
 
 
     
-    public TopDownModel(int imgW, int imgH) {
+    public TopDownModel() {
     	//imgWidth = x;
 		//imgHeight = y;
-		frameWidth = imgW;
-		frameHeight = imgH;
+		//frameWidth = imgW;
+		//frameHeight = imgH;
 		game = new ArrayList<GameObject>();
+		game.add(cr);
+		game.add(f);
+		
     }
     /*
     public void setVel(int xvel, int yvel) {
@@ -215,16 +218,10 @@ public class TopDownModel extends Model {
 	 * } public int getImgHeight() { return imgHeight; } public void
 	 * setImgHeight(int imgHeight) { this.imgHeight = imgHeight; }
 	 */
-	public int getFrameWidth() {
-		return frameWidth;
-	}
-	public void setFrameWidth(int frameWidth) {
-		this.frameWidth = frameWidth;
-	}
-	public int getFrameHeight() {
-		return frameHeight;
-	}
-	public void setFrameHeight(int frameHeight) {
-		this.frameHeight = frameHeight;
-	}
+	/*
+	 * public int getFrameWidth() { return frameWidth; } public void
+	 * setFrameWidth(int frameWidth) { this.frameWidth = frameWidth; } public int
+	 * getFrameHeight() { return frameHeight; } public void setFrameHeight(int
+	 * frameHeight) { this.frameHeight = frameHeight; }
+	 */
 }

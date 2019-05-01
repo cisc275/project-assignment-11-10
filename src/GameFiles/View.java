@@ -17,13 +17,10 @@ public class View extends JFrame {
 	ArrayList<GameObject> game;
 	int frameSize = 800;
 
-	public ArrayList<GameObject> getGame() {
-		return game;
-	}
-
-	public void setGame(ArrayList<GameObject> game) {
-		this.game = game;
-	}
-
+	/*
+	 * public ArrayList<GameObject> getGame() { return game; }
+	 * 
+	 * public void setGame(ArrayList<GameObject> game) { this.game = game; }
+	 */
 	
 }

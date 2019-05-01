@@ -39,9 +39,9 @@ public class Controller implements KeyListener{
 		selected = selection;
 		if(selected.equals("topDown")) {
 			game = new ArrayList<GameObject>();
-			topDownModel = new TopDownModel(10,10,10,10);
-			game.add(new ClapperRail("cr.png",100,100));
-			game.add(new Fox("fox.png",400,400));
+			topDownModel = new TopDownModel();
+			game.add(topDownModel.cr);
+			game.add(topDownModel.f);
 			game.add(new Stick("brown_square.png",200,200));
 			game.add(new Bush("bush.png", 500, 550));
 			game.add(new Bush("bush.png", 0, -60));
@@ -79,7 +79,7 @@ public class Controller implements KeyListener{
     		public void actionPerformed(ActionEvent e){
     			//System.out.println("im performing actions");
     			collision = topDownModel.updateLocation(game);
-    			topDownView.updateView(game,collision);
+    			topDownView.updateView(game);
     		}
     	};
     	
@@ -116,7 +116,7 @@ public class Controller implements KeyListener{
 		//System.out.println("pressed");
 		if(e.getKeyCode() == 39) { //right arrow key
 			if(selected.equals("topDown")) {
-				topDownModel.setxChg(5);
+				topDownModel.cr.setxSpeed(5);
 				//collision = topDownModel.updateLocation(game);
 				//topDownView.updateView(game,collision);
 			}
@@ -124,7 +124,7 @@ public class Controller implements KeyListener{
 		else if(e.getKeyCode() == 37) { //left arrow key
 			//xIncr = -5;
 			if(selected.equals("topDown")) {
-				topDownModel.setxChg(-5);
+				topDownModel.cr.setxSpeed(-5);
 				//collision = topDownModel.updateLocation(game);
 				//topDownView.updateView(game,collision);
 			}
@@ -132,7 +132,7 @@ public class Controller implements KeyListener{
 		else if(e.getKeyCode() == 38) { //up arrow key
 			//yIncr = -5;
 			if(selected.equals("topDown")) {
-				topDownModel.setyChg(-5);
+				topDownModel.cr.setySpeed(-5);
 				//collision = topDownModel.updateLocation(game);
 				//topDownView.updateView(game,collision);
 			}
@@ -144,7 +144,7 @@ public class Controller implements KeyListener{
 		else if(e.getKeyCode() == 40) { //down arrow key
 			//yIncr = 5;
 			if(selected.equals("topDown")) {
-				topDownModel.setyChg(5);
+				topDownModel.cr.setySpeed(5);
 				//collision = topDownModel.updateLocation(game);
 				//topDownView.updateView(game,collision);
 			}
@@ -167,8 +167,8 @@ public class Controller implements KeyListener{
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 		if(selected.equals("topDown")) {
-			topDownModel.setxChg(0);
-			topDownModel.setyChg(0);
+			topDownModel.cr.setxSpeed(0);
+			topDownModel.cr.setySpeed(0);
 		}
 	}
 	
