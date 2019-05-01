@@ -62,7 +62,7 @@ public class TopDownModel extends Model {
     	System.out.println();
     }
     */
-    public boolean updateLocation(ArrayList<GameObject> g) {
+    public void updateLocation(ArrayList<GameObject> g) {
     	/*
     	if(xloc+xChg > (imgWidth - frameWidth) || xloc+xChg < 0) {
     		System.out.println("WHY");
@@ -119,7 +119,7 @@ public class TopDownModel extends Model {
         //System.out.println(yChg);
         //System.out.println();
         this.collision(g);
-		return false;
+		//return false;
     }
     public boolean collision(ArrayList<GameObject> gme) {
     	for (int k = 0; k < gme.size(); k ++) {
