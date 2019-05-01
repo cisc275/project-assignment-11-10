@@ -39,7 +39,7 @@ public class Controller implements KeyListener{
 			game = new ArrayList<GameObject>();
 			topDownModel = new TopDownModel(10,10,10,10);
 			game.add(new ClapperRail("cr.png",100,100));
-			game.add(new Fox("fox.png",400,400));
+			game.add(new Fox(400,400,10,40));
 			game.add(new Stick("brown_square.png",200,200));
 			game.add(new Bush("bush.png", 500, 550));
 			game.add(new Bush("bush.png", 0, -60));

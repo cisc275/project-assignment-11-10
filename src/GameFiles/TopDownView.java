@@ -31,7 +31,7 @@ public class TopDownView extends View{
 		frame = new JFrame();
 		//frame.getContentPane().add(this);
 		game = g;
-		backUp = g.get(1).getImage();
+		backUp = g.get(1).getScaledImg();
 		backUp2 = g.get(3).getImage();
     	frame.add(drawPanel);
     	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -84,7 +84,12 @@ public class TopDownView extends View{
 			for(GameObject thing : game) {
 				//System.out.println("x that paintComponent sees:");
 				//System.out.println(thing.getX());
-		    	g.drawImage(thing.getImage(),thing.getX() ,thing.getY() , Color.gray, this);
+				if(thing instanceof Fox) {
+					g.drawImage(thing.getScaledImg(),thing.getX() ,thing.getY() , Color.gray, this);
+				}
+				else {
+					g.drawImage(thing.getImage(),thing.getX() ,thing.getY() , Color.gray, this);
+				}
 			}
 			
 			//System.out.println("so like do i leave paintComponent?");
