@@ -78,8 +78,10 @@ public class Controller implements KeyListener{
 		drawAction = new AbstractAction(){
     		public void actionPerformed(ActionEvent e){
     			//System.out.println("im performing actions");
-    			collision = topDownModel.updateLocation(game);
+    			//collision = topDownModel.updateLocation(game);
+    			topDownModel.updateLocation(game);
     			topDownView.updateView(game);
+    			
     		}
     	};
     	
