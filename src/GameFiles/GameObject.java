@@ -33,11 +33,11 @@ public class GameObject {
 	/**
 	 * width of the gameObject on screen
 	 */
-	private int width; 
+	protected int width; 
 	/**
 	 * height of the gameObject on screen
 	 */
-	private int height;
+	protected int height;
 	/**
 	 * minimum x coordinate for this gameObject
 	 */
@@ -109,7 +109,12 @@ public class GameObject {
 	 * or not there has been a collision
 	 * 
 	 */
-	public boolean collidesWith(GameObject a) {return false;}
+	
+	public void move() {};
+	
+	public boolean collidesWith(GameObject a) {
+		return this.hitbox.getBounds2D().intersects(a.hitbox.getBounds2D());
+		}
 	/**
 	 * 
 	 * parameters: None
@@ -120,11 +125,15 @@ public class GameObject {
 	 */
 	public void collision(ArrayList<GameObject> gameObjects) {}
 	
+	public void handleCollision(GameObject g) {
+		
+	}
+	/*
 	@Override
 	public String toString() {
 		return this.type.toString() + ", X pos: " + this.x + ", Y pos: " + this.y;
 	}
-	
+	*/
 	public BufferedImage createImage(File path) {
 		BufferedImage g;
 		try {
@@ -246,6 +255,16 @@ public class GameObject {
 	public void setType(Type type) {
 		this.type = type;
 	}
-	
+
+
+
+
+	public void handleCollision(Osprey o) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+ 	
 	
 }

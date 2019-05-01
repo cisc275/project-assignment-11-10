@@ -1,7 +1,15 @@
 package GameFiles;
 
+import java.awt.Polygon;
+
+
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
+
 
 /**
  * represents the osprey in the top down view game 
@@ -9,13 +17,15 @@ import java.io.File;
  */
 public class Osprey extends Bird {
 	
-	private int DIVING_SPEED = 50;
-	public boolean isDiving;
-	private int currY;
+	static double xSpeed;
+	int ySpeed;
+	int currY;
+	boolean isDiving;
+	final double AC = 0.2;
+	final int DIVESPEED = 50;
 	/**
 	 * @param y
 	 * @param x
-	 * @param imgPose
 	 * @param width
 	 * @param height
 	 * @param xMin
@@ -27,34 +37,75 @@ public class Osprey extends Bird {
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
-//	public Osprey(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, int yMax, 
-//			Type type, boolean isDiving, int currY, int xSpeed, int ySpeed){
-//		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, type, isDiving, currY, xSpeed, ySpeed);}
-	public Osprey(int x, int y, int width, int height) {
-		super(x,y,width,height);
-		currY = y;
-		this.isDiving = false;
+
+	public Osprey(int x, int y, int width, int height, Polygon hitbox, BufferedImage img, double xSpeed, 
+			int ySpeed, boolean isDiving) {
+		super(x, y, width, height, hitbox, img);
+		this.img = createImage();
+		Osprey.xSpeed = xSpeed;
+		this.ySpeed = ySpeed;
+		this.isDiving = isDiving;
 		this.setType(Type.OSPREY);
 	}
-	public Osprey(BufferedImage pic, int xloc, int yloc) {
-		super(pic,xloc,yloc);
-		this.setType(Type.OSPREY);
+
+	public static double getXSpeed() {
+		return Osprey.xSpeed;
+	}
+
+	public void setXSpeed(double xSpeed) {
+		Osprey.xSpeed = xSpeed;
 	}
 	
+	public void setYSpeed(int ySpeed) {
+		this.ySpeed = ySpeed;
+	}
 	/**
 	 * this method will be called whenever the user presses the dive button
 	 * at which point the bird will dive into the water and possibly collect 
 	 * fish or trash. the logic for this action will be contained here.
 	 */
 	public void dive() {
-		this.setisDiving(true);
-		this.setcurrY(this.getY());
-		this.setySpeed(DIVING_SPEED);
-		this.setY(this.getY()+ this.getySpeed());
+		this.isDiving = !this.isDiving;
+		this.ySpeed = DIVESPEED;
+		this.currY = this.hitbox.ypoints[0];
+		this.hitbox.translate(0, this.ySpeed);
+		}
 	
-	}
+	@Override
 	public void move() {
-		this.setX(this.getX());
-		this.setY(this.getY()+ this.getySpeed());
+		this.hitbox.translate(0, this.ySpeed);
+		if (this.hitbox.ypoints[0] >= 600) {
+			this.ySpeed = -DIVESPEED;
+		}
+		if ((this.hitbox.ypoints[0] == this.currY) && (this.isDiving == true)) {
+			this.ySpeed = 0;
+			this.isDiving = !this.isDiving;
+			
+		}
 	}
+	
+	@Override
+	public void collision(ArrayList<GameObject> g) {
+		for (GameObject a : g) {
+			if (this.collidesWith(a)){
+				a.handleCollision(this);
+			}
+		}		
+	}
+	
+	public void handleCollision(Osprey o) {
+	}
+	
+	
+	private BufferedImage createImage(){
+		BufferedImage bufferedImage;
+		try {
+			bufferedImage = ImageIO.read(new File("red_square.png"));
+			return bufferedImage;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }
