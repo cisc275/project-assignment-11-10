@@ -16,10 +16,12 @@ public class TopDownModel extends Model {
    // int yloc = 0;
 //    int xChg = 0;
 //    int yChg = 0;
-    int imgWidth = 0;
-    int imgHeight = 0;
+  //  int imgWidth = 0;
+  //  int imgHeight = 0;
     int frameWidth = 0;
     int frameHeight = 0;
+    ClapperRail cr = new ClapperRail("cr.png",100,100);
+    Fox f = new Fox("fox.png",400,400);
 
     int count = 0;
     
@@ -43,18 +45,20 @@ public class TopDownModel extends Model {
 
 
     
-    public TopDownModel(int x, int y, int imgW, int imgH) {
-    	imgWidth = x;
-		imgHeight = y;
+    public TopDownModel(int imgW, int imgH) {
+    	//imgWidth = x;
+		//imgHeight = y;
 		frameWidth = imgW;
 		frameHeight = imgH;
 		game = new ArrayList<GameObject>();
     }
+    /*
     public void setVel(int xvel, int yvel) {
     	xChg = VELOCITY_MULTIPLYER*xvel;
     	yChg = VELOCITY_MULTIPLYER*yvel;
     	System.out.println();
     }
+    */
     public boolean updateLocation(ArrayList<GameObject> g) {
     	/*
     	if(xloc+xChg > (imgWidth - frameWidth) || xloc+xChg < 0) {
@@ -68,39 +72,39 @@ public class TopDownModel extends Model {
         */
         //xloc+=xChg;
         //yloc+=yChg;
-        g.get(0).setX(g.get(0).getX()+xChg);
-        g.get(0).setY(g.get(0).getY()+yChg);
-        g.get(0).getHitBox().translate(xChg, yChg);
+        cr.setX(cr.getX()+cr.getxSpeed());
+        cr.setY(cr.getY()+cr.getySpeed());
+        cr.getHitBox().translate(cr.getxSpeed(), cr.getySpeed());
         
-        if((g.get(1).getX() + BOUND_OFFSET) <= LEFT_BOUND) {
-			g.get(1).setX(RIGHT_BOUND);
+        if((f.getX() + BOUND_OFFSET) <= LEFT_BOUND) {
+			f.setX(RIGHT_BOUND);
 		}
-		if((g.get(1).getY() + BOUND_OFFSET) <= LEFT_BOUND) {
-			g.get(1).setY(RIGHT_BOUND);
+		if((f.getY() + BOUND_OFFSET) <= LEFT_BOUND) {
+			f.setY(RIGHT_BOUND);
 		}
-		if((g.get(1).getX() + BOUND_OFFSET) >= RIGHT_BOUND) {
-			g.get(1).setX(LEFT_BOUND);
+		if((f.getX() + BOUND_OFFSET) >= RIGHT_BOUND) {
+			f.setX(LEFT_BOUND);
 		}
-		if((g.get(1).getY() + BOUND_OFFSET) >= RIGHT_BOUND) {
-			g.get(1).setY(LEFT_BOUND);
+		if((f.getY() + BOUND_OFFSET) >= RIGHT_BOUND) {
+			f.setY(LEFT_BOUND);
 		}
 		
 		if (count >= CLOCK_TICK_CHECK) {
-        g.get(1).setX(g.get(1).getX()-foxxDirection());
-        g.get(1).setY(g.get(1).getY()-foxyDirection());
-        g.get(1).getHitBox().translate(-foxxDirection(), -foxyDirection());
+        f.setX(f.getX()-foxxDirection());
+        f.setY(f.getY()-foxyDirection());
+        f.getHitBox().translate(-foxxDirection(), -foxyDirection());
         count++;
 		}
 		if (count >= 3*CLOCK_TICK_CHECK) {
-	        g.get(1).setX(g.get(1).getX()+foxxDirection());
-	        g.get(1).setY(g.get(1).getY()+foxyDirection());
+	        f.setX(f.getX()+foxxDirection());
+	        f.setY(f.getY()+foxyDirection());
 	        count = 0;
-	        g.get(1).getHitBox().translate(foxxDirection(), foxyDirection());
+	        f.getHitBox().translate(foxxDirection(), foxyDirection());
 			}
-		else if (count < CLOCK_TICK_CHECK) {g.get(1).setX(g.get(1).getX()+foxxDirection());
-        	g.get(1).setY(g.get(1).getY()+foxyDirection());
+		else if (count < CLOCK_TICK_CHECK) {f.setX(f.getX()+foxxDirection());
+        	f.setY(f.getY()+foxyDirection());
         	count++;
-        	g.get(1).getHitBox().translate(foxxDirection(), foxyDirection());
+        	f.getHitBox().translate(foxxDirection(), foxyDirection());
 		}
 		
 		
@@ -203,30 +207,14 @@ public class TopDownModel extends Model {
 //	public void setYloc(int yloc) {
 //		this.yloc = yloc;
 //	}
-	public int getxChg() {
-		return xChg;
-	}
-	public void setxChg(int xChg) {
-		this.xChg = xChg;
-	}
-	public int getyChg() {
-		return yChg;
-	}
-	public void setyChg(int yChg) {
-		this.yChg = yChg;
-	}
-	public int getImgWidth() {
-		return imgWidth;
-	}
-	public void setImgWidth(int imgWidth) {
-		this.imgWidth = imgWidth;
-	}
-	public int getImgHeight() {
-		return imgHeight;
-	}
-	public void setImgHeight(int imgHeight) {
-		this.imgHeight = imgHeight;
-	}
+	/*
+	 * public int getxChg() { return xChg; } public void setxChg(int xChg) {
+	 * this.xChg = xChg; } public int getyChg() { return yChg; } public void
+	 * setyChg(int yChg) { this.yChg = yChg; } public int getImgWidth() { return
+	 * imgWidth; } public void setImgWidth(int imgWidth) { this.imgWidth = imgWidth;
+	 * } public int getImgHeight() { return imgHeight; } public void
+	 * setImgHeight(int imgHeight) { this.imgHeight = imgHeight; }
+	 */
 	public int getFrameWidth() {
 		return frameWidth;
 	}
