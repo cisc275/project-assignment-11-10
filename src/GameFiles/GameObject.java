@@ -13,8 +13,10 @@ import javax.imageio.ImageIO;
  */
 public class GameObject {
 	protected String imgFileName;
-	protected Polygon hitBox;
+	protected Polygon hitbox;
 	protected BufferedImage img;
+	
+	
 	/**
 	 * y coordinate for this gameObject on screen
 	 */
@@ -38,27 +40,7 @@ public class GameObject {
 	/**
 	 * minimum x coordinate for this gameObject
 	 */
-	private int xMin; 
-	/**
-	 * maximum x coordinate for this gameObject
-	 */
-	private int xMax; 
-	/**
-	 * minimum y coordinate for this gameObject
-	 */
-	private int yMin;
-	/**
-	 * maximum y coordinate for this gameObject
-	 */
-	private int yMax; 
 	
-	private boolean isDiving;
-	
-	private int currY;
-	
-	private int xSpeed;
-	
-	private int ySpeed;
 	
 	private Type type;
 
@@ -79,42 +61,22 @@ public class GameObject {
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
-//	public GameObject(int y, int x, File imgPose, int width, int height, int xMin, 
-//			int xMax, int yMin, int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed) {
-//	}
-	public GameObject(int x, int y, int width, int height) {
+
+	public GameObject(int x, int y, int width, int height, Polygon hitbox, BufferedImage img) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
-		int xs[] = {x, x, x+width, x+width};
-		int ys[] = {y, y+height, y, y+height};
-		assert(xs.length == ys.length);
-		this.hitBox = new Polygon(xs, ys, xs.length);
-		type = Type.GAMEOBJECT;
+		this.hitbox = hitbox;
+		this.img = img;
+		this.hitbox.addPoint(x, y);
+		this.hitbox.addPoint(x, y + height);
+		this.hitbox.addPoint(x + width, y + height);
+		this.hitbox.addPoint(x + width, y);
 	}
 	
-	public GameObject(BufferedImage pic, int xloc, int yloc) {
-		img = pic;
-		x = xloc;
-		y = yloc;
-		int xs[] = {xloc, xloc, xloc+img.getWidth(), xloc+img.getWidth()};
-		int ys[] = {yloc, yloc+img.getHeight(), yloc, yloc+img.getHeight()};
-		assert(xs.length == ys.length);
-		this.hitBox = new Polygon(xs, ys, xs.length);
-		type = Type.GAMEOBJECT;
-	}
 	
-	public GameObject(String path, int xloc, int yloc) {
-		img = createImage(new File(path));
-		x = xloc;
-		y = yloc;
-		int xs[] = {xloc, xloc, xloc+img.getWidth(), xloc+img.getWidth()};
-		int ys[] = {yloc, yloc+img.getHeight(), yloc, yloc+img.getHeight()};
-		assert(xs.length == ys.length);
-		this.hitBox = new Polygon(xs, ys, xs.length);
-		type = Type.GAMEOBJECT;
-	}
+	
 
 	/**
 	 * @param imgFileName
@@ -134,27 +96,7 @@ public class GameObject {
 	 * @param xSpeed
 	 * @param ySpeed
 	 */
-	public GameObject(String imgFileName, Polygon hitBox, BufferedImage img, int y, int x, File imgPose, int width,
-			int height, int xMin, int xMax, int yMin, int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed) {
-		super();
-		this.imgFileName = imgFileName;
-		this.hitBox = hitBox;
-		this.img = img;
-		this.y = y;
-		this.x = x;
-		this.imgPose = imgPose;
-		this.width = width;
-		this.height = height;
-		this.xMin = xMin;
-		this.xMax = xMax;
-		this.yMin = yMin;
-		this.yMax = yMax;
-		this.isDiving = isDiving;
-		this.currY = currY;
-		this.xSpeed = xSpeed;
-		this.ySpeed = ySpeed;
-		type = Type.GAMEOBJECT;
-	}
+	
 
 	/**
 	 * 
@@ -167,8 +109,7 @@ public class GameObject {
 	 * 
 	 */
 	public boolean collidesWith(GameObject a) {
-
-		return true;
+		return this.hitbox.getBounds2D().intersects(a.hitbox.getBounds2D());
 	}
 	/**
 	 * 
@@ -264,69 +205,7 @@ public class GameObject {
 		this.height = height;
 	}
 
-	public int getxMin() {
-		return xMin;
-	}
-
-	public void setxMin(int xMin) {
-		this.xMin = xMin;
-	}
-
-	public int getxMax() {
-		return xMax;
-	}
-
-	public void setxMax(int xMax) {
-		this.xMax = xMax;
-	}
-
-	public int getyMin() {
-		return yMin;
-	}
-
-	public void setyMin(int yMin) {
-		this.yMin = yMin;
-	}
-
-	public int getyMax() {
-		return yMax;
-	}
-
-	public void setyMax(int yMax) {
-		this.yMax = yMax;
-	}
 	
-	public void setisDiving(boolean isDiving) {
-		this.isDiving = isDiving;
-	}
-	
-	public boolean getisDiving() {
-		return isDiving;
-	}
-	
-	public void setcurrY(int currY) {
-		this.currY = currY;
-	}
-	
-	public int getcurrY() {
-		return currY;
-		
-	}
-	public void setxSpeed(int xSpeed) {
-		this.xSpeed = xSpeed;
-	}
-	
-	public int getxSpeed() {
-		return xSpeed;
-	}
-	
-	public void setySpeed(int ySpeed) {
-		this.ySpeed = ySpeed;
-	}
-	
-	public int getySpeed() {
-		return ySpeed;
-	}
 
 	/**
 	 * @return the imgFileName
@@ -346,44 +225,17 @@ public class GameObject {
 	 * @return the hitBox
 	 */
 	public Polygon getHitBox() {
-		return hitBox;
+		return hitbox;
 	}
 
 	/**
 	 * @param hitBox the hitBox to set
 	 */
-	public void setHitBox(Polygon hitBox) {
-		this.hitBox = hitBox;
+	public void setHitBox(Polygon hitbox) {
+		this.hitbox = hitbox;
 	}
 
-	/**
-	 * @return the isDiving
-	 */
-	public boolean isDiving() {
-		return isDiving;
-	}
-
-	/**
-	 * @param isDiving the isDiving to set
-	 */
-	public void setDiving(boolean isDiving) {
-		this.isDiving = isDiving;
-	}
-
-	/**
-	 * @return the currY
-	 */
-	public int getCurrY() {
-		return currY;
-	}
-
-	/**
-	 * @param currY the currY to set
-	 */
-	public void setCurrY(int currY) {
-		this.currY = currY;
-	}
-
+	
 	/**
 	 * @return the type
 	 */
