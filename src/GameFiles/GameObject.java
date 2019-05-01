@@ -120,6 +120,8 @@ public class GameObject {
 	 */
 	public void collision(ArrayList<GameObject> gameObjects) {}
 	
+	public void handleCollision(GameObject go) {}
+	
 	@Override
 	public String toString() {
 		return this.type.toString() + ", X pos: " + this.x + ", Y pos: " + this.y;

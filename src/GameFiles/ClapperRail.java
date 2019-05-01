@@ -62,10 +62,28 @@ public class ClapperRail extends Bird {
 	public void setCarryStick(boolean carryStick) {
 		this.carryStick = carryStick;
 	}
+	
+	public void handleCollision(Stick stick) {
+		System.out.println("handling collision with stick");
+	}
+	public void handleCollision(Bush bush) {
+		System.out.println("handling collision with bush");
+	}
+	public void handleCollision(Fish fish) {
+		System.out.println("handling collision with ");
+	}
+	
+	
+	/**
+	 * @param takes an ArrayList of GameObject and checks each object (not itself) for collisions
+	 * @author andrew thompson
+	 */
 	@Override
 	public void collision(ArrayList<GameObject> gameObjects) {
 		for(GameObject g: gameObjects) {
-			
+			if(!this.equals(g) && this.collidesWith(g)) {
+				g.handleCollision(this);
+			}
 		}
 	}
 }

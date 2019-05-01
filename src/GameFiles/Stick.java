@@ -53,6 +53,9 @@ public class Stick extends Collectable{
 		super("stick.png",i,j);
 		this.setType(Type.FOX);
 	}
+	public void handleCollision(ClapperRail cr) {
+		cr.handleCollision(this);
+	}
 	/**
 	 * the number of sticks the that have been collected
 	 */
