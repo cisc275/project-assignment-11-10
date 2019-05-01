@@ -12,14 +12,7 @@ import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
  *
  */
 public class TopDownModel extends Model {
-	//int xloc = 0;
-   // int yloc = 0;
-//    int xChg = 0;
-//    int yChg = 0;
-  //  int imgWidth = 0;
-  //  int imgHeight = 0;
-   // int frameWidth = 0;
-    //int frameHeight = 0;
+
     ClapperRail cr = new ClapperRail("cr.png",100,100);
     Fox f = new Fox("fox.png",400,400);
 
@@ -31,7 +24,6 @@ public class TopDownModel extends Model {
     final int VELOCITY_MULTIPLYER = 12;
     final int CLOCK_TICK_CHECK = 100;
     
-	//ArrayList<GameObject> game;
     
     public int foxxDirection() {
     	Random rand = new Random();
@@ -46,23 +38,19 @@ public class TopDownModel extends Model {
 
     
     public TopDownModel() {
-    	//imgWidth = x;
-		//imgHeight = y;
-		//frameWidth = imgW;
-		//frameHeight = imgH;
 		game = new ArrayList<GameObject>();
 		game.add(cr);
 		game.add(f);
 		
     }
-    /*
-    public void setVel(int xvel, int yvel) {
-    	xChg = VELOCITY_MULTIPLYER*xvel;
-    	yChg = VELOCITY_MULTIPLYER*yvel;
-    	System.out.println();
-    }
-    */
+
+    /**
+     * 
+     * @param array list of GameObjects
+     * updates the location of all moving objects and then calls the collision method
+     */
     public void updateLocation(ArrayList<GameObject> g) {
+    	// needs update with polygon (contains method)
     	/*
     	if(xloc+xChg > (imgWidth - frameWidth) || xloc+xChg < 0) {
     		System.out.println("WHY");
@@ -73,8 +61,6 @@ public class TopDownModel extends Model {
         	yChg = 0;
         }
         */
-        //xloc+=xChg;
-        //yloc+=yChg;
         cr.setX(cr.getX()+cr.getxSpeed());
         cr.setY(cr.getY()+cr.getySpeed());
         cr.getHitBox().translate(cr.getxSpeed(), cr.getySpeed());
@@ -109,19 +95,19 @@ public class TopDownModel extends Model {
         	count++;
         	f.getHitBox().translate(foxxDirection(), foxyDirection());
 		}
-		
-		
-		
-		
-  
-        //System.out.println("updateLocation is using these:");
-        //System.out.println(xChg);
-        //System.out.println(yChg);
-        //System.out.println();
+
         this.collision(g);
-		//return false;
     }
-    public boolean collision(ArrayList<GameObject> gme) {
+    
+    
+    /**
+     * 
+     * @param an array list of GameObjects
+     * 
+     * checks all Game objects against all others in the game, calls polymorphic collision expressions 
+     * when there is an intersection (not implemented yet)
+     */
+    public void collision(ArrayList<GameObject> gme) {
     	for (int k = 0; k < gme.size(); k ++) {
     		//if (count % 1 == 0 && (gme.get(k).getType() == Type.FOX)) System.out.println(gme.get(k) + " vs Polygon " + gme.get(k).getHitBox().getBounds2D());
     		for (int j = k + 1; j < gme.size(); j ++) {
@@ -133,7 +119,6 @@ public class TopDownModel extends Model {
     		}
     		
     	}
-	    return false;
     }	
     
   
@@ -146,6 +131,16 @@ public class TopDownModel extends Model {
 		Controller theControl = new Controller("topDown");
 		theControl.topDownStart();
 	}
+	
+	
+	
+	
+	/**
+	 * 
+	 * @return a buffered Image
+	 * creates buffered images for the various objects
+	 * each version returns a different color square
+	 */
 	public BufferedImage createImage(){
 		//System.out.println("Start of createImage");
     	BufferedImage bufferedImage;
@@ -198,30 +193,5 @@ public class TopDownModel extends Model {
     	return null;
 	}
 	
-//	public int getXloc() {
-//		return xloc;
-//	}
-//	public void setXloc(int xloc) {
-//		this.xloc = xloc;
-//	}
-//	public int getYloc() {
-//		return yloc;
-//	}
-//	public void setYloc(int yloc) {
-//		this.yloc = yloc;
-//	}
-	/*
-	 * public int getxChg() { return xChg; } public void setxChg(int xChg) {
-	 * this.xChg = xChg; } public int getyChg() { return yChg; } public void
-	 * setyChg(int yChg) { this.yChg = yChg; } public int getImgWidth() { return
-	 * imgWidth; } public void setImgWidth(int imgWidth) { this.imgWidth = imgWidth;
-	 * } public int getImgHeight() { return imgHeight; } public void
-	 * setImgHeight(int imgHeight) { this.imgHeight = imgHeight; }
-	 */
-	/*
-	 * public int getFrameWidth() { return frameWidth; } public void
-	 * setFrameWidth(int frameWidth) { this.frameWidth = frameWidth; } public int
-	 * getFrameHeight() { return frameHeight; } public void setFrameHeight(int
-	 * frameHeight) { this.frameHeight = frameHeight; }
-	 */
+
 }
