@@ -15,9 +15,7 @@ import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.Timer;
-//import java.awt.event.ActionEvent;
-//import java.awt.event.KeyEvent;
-//import java.awt.event.KeyListener;
+
 
 
 public class Controller implements KeyListener{
@@ -32,9 +30,13 @@ public class Controller implements KeyListener{
 	String selected;
 	ArrayList<GameObject> game;
 	
-//fghjkl;
 
-	
+
+	/**
+	 * 
+	 * @param String
+	 * constructor for controller. Creates a different controller depending on which game is selected
+	 */
 	public Controller(String selection) {
 		selected = selection;
 		if(selected.equals("topDown")) {
@@ -64,34 +66,32 @@ public class Controller implements KeyListener{
 		for(GameObject g:game) {
 			System.out.println(g);
 		}
-		//topDownView.addActionListener(this);
-		//game = new ArrayList<GameObject>();
-		//game.add(new GameObject(pic,100,100));
-		//System.out.println("DID IT DO ANYTHING DIFFERENT????????????????????");
-		//game.add(new GameObject(topDownModel.createImage2(),400,400));
-		//System.out.println("HOW ABOUT NOW?????????????????");
-		//game.add(new GameObject(topDownModel.createImage3(),200,200));
+		
 	}
 	
+	
+	/**
+	 * starts timers and actions for topDown
+	 */
 	public void topDownStart() {
-		//System.out.println("topDownStart is starting");
 		drawAction = new AbstractAction(){
     		public void actionPerformed(ActionEvent e){
-    			//System.out.println("im performing actions");
-    			//collision = topDownModel.updateLocation(game);
     			topDownModel.updateLocation(game);
     			topDownView.updateView(game);
-    			
     		}
     	};
     	
     	time = new Timer(50, drawAction);
     	time.start();
 	}
+	
+	
+	/**
+	 * starts timers and actions for sideScroll
+	 */
 	public void sideScrollStart() {
 		drawAction = new AbstractAction(){
     		public void actionPerformed(ActionEvent e){
-    			//System.out.println("im performing actions");
     			sideScrollModel.advanceWorld(game);
     			sideScrollView.updateView(game);
     		}
@@ -100,43 +100,35 @@ public class Controller implements KeyListener{
     	time = new Timer(50, drawAction);
     	time.start();
 	}
-/*
-	private void addKeyListener(KeyListener keyListener) {
-		// TODO Auto-generated method stub
-		
-	}
-*/
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 
+	
+	
+	@Override
+	public void keyTyped(KeyEvent e) {}
+
+	
+	/**
+	 * @param KeyEvent
+	 * performs actions based on key input
+	 */
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		//System.out.println("pressed");
+		
 		if(e.getKeyCode() == 39) { //right arrow key
 			if(selected.equals("topDown")) {
-				topDownModel.cr.setxSpeed(5);
-				//collision = topDownModel.updateLocation(game);
-				//topDownView.updateView(game,collision);
+				topDownModel.cr.setxSpeed(topDownModel.cr.getMOVE_AMOUNT());
 			}
 		}
 		else if(e.getKeyCode() == 37) { //left arrow key
 			//xIncr = -5;
 			if(selected.equals("topDown")) {
-				topDownModel.cr.setxSpeed(-5);
-				//collision = topDownModel.updateLocation(game);
-				//topDownView.updateView(game,collision);
+				topDownModel.cr.setxSpeed(-topDownModel.cr.getMOVE_AMOUNT());
 			}
 		}
 		else if(e.getKeyCode() == 38) { //up arrow key
 			//yIncr = -5;
 			if(selected.equals("topDown")) {
-				topDownModel.cr.setySpeed(-5);
-				//collision = topDownModel.updateLocation(game);
-				//topDownView.updateView(game,collision);
+				topDownModel.cr.setySpeed(-topDownModel.cr.getMOVE_AMOUNT());
 			}
 			else if(selected.equals("sideScroll")) {
 				sideScrollModel.advanceBird(game, -5);
@@ -144,11 +136,8 @@ public class Controller implements KeyListener{
 			}
 		}
 		else if(e.getKeyCode() == 40) { //down arrow key
-			//yIncr = 5;
 			if(selected.equals("topDown")) {
-				topDownModel.cr.setySpeed(5);
-				//collision = topDownModel.updateLocation(game);
-				//topDownView.updateView(game,collision);
+				topDownModel.cr.setySpeed(topDownModel.cr.getMOVE_AMOUNT());
 			}
 			else if(selected.equals("sideScroll")) {
 				sideScrollModel.advanceBird(game, 5);
@@ -167,7 +156,6 @@ public class Controller implements KeyListener{
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
 		if(selected.equals("topDown")) {
 			topDownModel.cr.setxSpeed(0);
 			topDownModel.cr.setySpeed(0);

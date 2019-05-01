@@ -61,4 +61,11 @@ public class ClapperRail extends Bird {
 	public void setCarryStick(boolean carryStick) {
 		this.carryStick = carryStick;
 	}
+
+	/**
+	 * @return the mOVE_AMOUNT
+	 */
+	public int getMOVE_AMOUNT() {
+		return MOVE_AMOUNT;
+	}
 }
