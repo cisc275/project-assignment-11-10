@@ -186,6 +186,7 @@ public class Controller implements KeyListener{
 			topDownModel.setyChg(0);
 		}
 	}
+
 	
 	
 }
