@@ -1,5 +1,6 @@
 package GameFiles;
 
+import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -33,20 +34,8 @@ public class Bush extends NonControllable {
 //			int xMin, int xMax, int yMin, int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed) {
 //		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, isDiving, currY, xSpeed, ySpeed);
 //	}
-	public Bush(int x, int y, int width, int height) {
-		super(x,y,width,height);
-		this.setType(Type.BUSH);
-	}
-	public Bush(BufferedImage pic, int xloc, int yloc) {
-		super(pic,xloc,yloc);
-		this.setType(Type.BUSH);
-	}
-	public Bush(String string, int i, int j) {
-		super(string,i,j);
-		this.setType(Type.BUSH);
-	}
-	public Bush(int i, int j) {
-		super("bush.png",i,j);
+	public Bush(int x, int y, int width, int height,Polygon hitbox, BufferedImage img) {
+		super(x,y,width,height, hitbox, img);
 		this.setType(Type.BUSH);
 	}
 	/**
