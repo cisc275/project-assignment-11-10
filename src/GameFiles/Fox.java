@@ -15,6 +15,10 @@ import javax.imageio.ImageIO;
  */
 public class Fox extends Controllable {
 	static String fileName="fox.png";
+	double xSpeed;
+	double ySpeed;
+	double speed;
+	ClapperRail c;
 	/**
 	 * @param y
 	 * @param x
@@ -34,16 +38,38 @@ public class Fox extends Controllable {
 	 public Controllable(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, 
 			int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed) {
 	 */
-	public Fox(int x, int y, int width, int height, Polygon hitbox, BufferedImage img) {
+	public Fox(int x, int y, int width, int height, Polygon hitbox, BufferedImage img, 
+			double xSpeed, double ySpeed, ClapperRail c) {
 		super(x,y,width,height,hitbox, img);
 		this.setType(Type.FOX);
+		this.xSpeed = xSpeed;
+		this.ySpeed = ySpeed;
+		this.c = c;
 		try {
     		this.img = ImageIO.read(new File(fileName));
 		} catch (IOException e) {
     		e.printStackTrace();
     	}
 	}
+	
+	public double distance() {
+		int x = this.x - c.hitbox.xpoints[0];
+		int y = this.y - c.hitbox.ypoints[0];
+		return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+	}
 
+	@Override
+	public void move() {
+		this.xSpeed = ((c.hitbox.xpoints[0] - this.x) * 
+				(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());
+		this.ySpeed = ((c.hitbox.ypoints[0] - this.y) * 
+				(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());
+		
+		this.hitbox.translate((int) this.xSpeed, (int) this.ySpeed);
+		
+
+	}
+	
 	/**
 	 * @param None
 	 * @return true if the bird is visible false otherwise

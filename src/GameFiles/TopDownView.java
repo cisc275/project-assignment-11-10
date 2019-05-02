@@ -41,10 +41,10 @@ public class TopDownView extends View{
     	//System.out.println("leaving topDownView()");
 	}
 	
-	public void updateView(ArrayList<GameObject> g,boolean collision) {
+	public void updateView(ArrayList<GameObject> g) {
 		//System.out.println("updateView is existing");
 		game = g; //may need to be a for each loop
-		if(collision) {
+		
 			if (((g.get(0).getX() >= (g.get(1).getX()-20))&&((g.get(0).getX() <= (g.get(1).getX()+20))))&&
 	    			((g.get(0).getY() >= (g.get(1).getY()-20))&&
 	    					((g.get(0).getY() <= (g.get(1).getY()+20))))){
@@ -56,20 +56,15 @@ public class TopDownView extends View{
 	    		g.get(3).setImage(null);
 	    	}
 		
-		}
-		else if ((g.get(1).getImage() == null)&& (!collision)) {
+		
+		else if (g.get(1).getImage() == null) {
 			g.get(1).setImage(backUp);
 		}
 		
 		else if (g.get(0).getY() < 20 & g.get(0).getX() < 150) {
 			g.get(3).setImage(backUp2);
 		}
-		for (GameObject thing : g) {
-			//System.out.print(thing);
-		}
-		for (GameObject otherThing : game) {
-			//System.out.println(otherThing);
-		}
+		
 		drawPanel.repaint();
 	}
 	
@@ -85,10 +80,10 @@ public class TopDownView extends View{
 				//System.out.println("x that paintComponent sees:");
 				//System.out.println(thing.getX());
 				if(thing instanceof Fox) {
-					g.drawImage(thing.getScaledImg(),thing.getX() ,thing.getY() , Color.gray, this);
+					g.drawImage(thing.getScaledImg(),thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0] , Color.gray, this);
 				}
 				else {
-					g.drawImage(thing.getImage(),thing.getX() ,thing.getY() , Color.gray, this);
+					g.drawImage(thing.getImage(),thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0] , Color.gray, this);
 				}
 			}
 			

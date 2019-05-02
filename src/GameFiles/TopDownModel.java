@@ -20,6 +20,7 @@ public class TopDownModel extends Model {
     int imgHeight = 0;
     int frameWidth = 0;
     int frameHeight = 0;
+    Fox f;
 
     int count = 0;
     
@@ -55,7 +56,14 @@ public class TopDownModel extends Model {
     	yChg = VELOCITY_MULTIPLYER*yvel;
     	System.out.println();
     }
-    public boolean updateLocation(ArrayList<GameObject> g) {
+    public void updateLocation(ArrayList<GameObject> g) {
+    	for (GameObject a : g) {
+			a.move();
+			a.collision(g);
+		}
+		
+    	
+    	/*
     	/*
     	if(xloc+xChg > (imgWidth - frameWidth) || xloc+xChg < 0) {
     		System.out.println("WHY");
@@ -65,7 +73,7 @@ public class TopDownModel extends Model {
         if(yloc+yChg > (imgHeight - frameHeight) || yloc+yChg < 0) {
         	yChg = 0;
         }
-        */
+        
         //xloc+=xChg;
         //yloc+=yChg;
         g.get(0).setX(g.get(0).getX()+xChg);
@@ -113,6 +121,7 @@ public class TopDownModel extends Model {
         //System.out.println();
         this.collision(g);
 		return false;
+		*/
     }
     public boolean collision(ArrayList<GameObject> gme) {
     	System.out.println(gme);

@@ -23,16 +23,24 @@ public class ClapperRail extends Bird {
 	 */
 	boolean carryStick; 
 	
+	int xSpeed;
+	int ySpeed;
+	
+	
 	final private int MOVE_AMOUNT = 10;
 	
-	public ClapperRail(int x, int y, int width, int height, Polygon hitbox, BufferedImage img) {
+	public ClapperRail(int x, int y, int width, int height, Polygon hitbox, BufferedImage img, 
+			int xSpeed, int ySpeed) {
 		super(x,y,width,height,hitbox,img);
+		this.xSpeed = xSpeed;
+		this.ySpeed = ySpeed;
 		this.setType(Type.CLAPPERRAIL);
 	}
 	
   
 	public void move() {
-		x = x + MOVE_AMOUNT;
+		this.hitbox.translate(this.xSpeed, this.ySpeed);
+		
 	}
 	public boolean isHidden() {
 		return hidden;
