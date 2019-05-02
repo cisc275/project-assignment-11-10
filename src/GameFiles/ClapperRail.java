@@ -57,10 +57,10 @@ public class ClapperRail extends Bird {
 		System.out.println("handling collision with bush");
 	}
 	public void handleCollision(Fish fish) {
-		System.out.println("handling collision with ");
+		System.out.println("handling collision with fish");
 	}
 	public void handleCollision(Fox fox) {
-		System.out.println("handling collision with ");
+		System.out.println("handling collision with fox");
 	}
 	
 	
@@ -71,7 +71,7 @@ public class ClapperRail extends Bird {
 	@Override
 	public void collision(ArrayList<GameObject> gameObjects) {
 		for(GameObject g: gameObjects) {
-			
+			g.handleCollision(this);
 		}
 	}
 }
