@@ -55,11 +55,13 @@ public class Controller implements KeyListener{
 			Trash t = new Trash(850, 650, 50, 50, new Polygon(), null,  -4);
 			Fish f = new Fish(800, 650, 50, 50, new Polygon(), null, -10);
 			AirCurrent a = new AirCurrent(900, 150, 50, 50, new Polygon(), null, -3);
+			Mate m = new Mate(1000, 200, 50, 50, new Polygon(), null, -1, false);
 			game = new ArrayList<GameObject>();
 			game.add(o);
 			game.add(f);
 			game.add(t);
 			game.add(a);
+			game.add(m);
 			
 			sideScrollModel = new SideScrollModel();
 			

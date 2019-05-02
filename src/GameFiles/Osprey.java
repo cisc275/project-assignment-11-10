@@ -23,6 +23,7 @@ public class Osprey extends Bird {
 	boolean isDiving;
 	final double AC = 1;
 	final int DIVESPEED = 50;
+	static int distance;
 	/**
 	 * @param y
 	 * @param x
@@ -45,6 +46,7 @@ public class Osprey extends Bird {
 		Osprey.xSpeed = xSpeed;
 		this.ySpeed = ySpeed;
 		this.isDiving = isDiving;
+		distance = 0;
 		this.setType(Type.OSPREY);
 	}
 
@@ -74,6 +76,8 @@ public class Osprey extends Bird {
 	@Override
 	public void move() {
 		this.hitbox.translate(0, this.ySpeed);
+		distance -= Osprey.xSpeed; 
+		System.out.println(distance);
 		if (this.hitbox.ypoints[0] >= 600) {
 			this.ySpeed = -DIVESPEED;
 		}

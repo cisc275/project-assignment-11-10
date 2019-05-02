@@ -28,6 +28,7 @@ public class SideScrollView extends View{
     Background backOne;
     Background backTwo;
     BufferedImage back;
+    BufferedImage youWin;
     
     public SideScrollView(ArrayList<GameObject> g, Background backOne, Background backTwo){
 		frame = new JFrame();
@@ -39,6 +40,7 @@ public class SideScrollView extends View{
     	pack();
     	this.backOne = backOne;
     	this.backTwo = backTwo;
+    	youWin = createImage();
     }
     
     public void updateView(ArrayList<GameObject> g) {
@@ -49,9 +51,23 @@ public class SideScrollView extends View{
     	
     }
     
+	
+	private BufferedImage createImage(){
+		BufferedImage bufferedImage;
+		//System.out.println("i am running");
+    	try {
+    		bufferedImage = ImageIO.read(new File("Winner.png"));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
+	}
+    
     private class DrawPanel extends JPanel {
 
 		protected void paintComponent(Graphics g) {
+			if (Mate.caughtUp == false) {
 			super.paintComponent(g);
 			g.setColor(Color.gray);
 			Graphics2D twoD = (Graphics2D)g;
@@ -66,6 +82,13 @@ public class SideScrollView extends View{
 	    		g.setClip(thing.hitbox);
 		    	g.drawImage(thing.getImage(),thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], Color.gray, this);
 	    	}
+		}
+			else {
+				super.paintComponent(g);
+				g.setColor(Color.gray);
+				g.drawImage(youWin, 0, 0, this);
+				
+			}
 		}
 
 		public Dimension getPreferredSize() {
