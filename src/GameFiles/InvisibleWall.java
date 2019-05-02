@@ -1,5 +1,7 @@
 package GameFiles;
 
+import java.awt.Polygon;
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 /**
@@ -25,8 +27,8 @@ public class InvisibleWall extends NonControllable {
 //			int xMin, int xMax, int yMin, int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed) {
 //		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, isDiving, currY, xSpeed, ySpeed);
 //	}
-	public InvisibleWall(int x, int y, int width, int height) {
-		super(x,y,width,height);
+	public InvisibleWall(int x, int y, int width, int height, Polygon hitbox, BufferedImage img) {
+		super(x,y,width,height,hitbox,img);
 	}
 
 }
