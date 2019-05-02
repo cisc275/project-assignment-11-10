@@ -19,6 +19,7 @@ public class Fox extends Controllable {
 	double ySpeed;
 	double speed;
 	ClapperRail c;
+	
 	/**
 	 * @param y
 	 * @param x
@@ -53,19 +54,27 @@ public class Fox extends Controllable {
 	}
 	
 	public double distance() {
-		int x = this.x - c.hitbox.xpoints[0];
-		int y = this.y - c.hitbox.ypoints[0];
-		return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+		
+			int xDistance = this.hitbox.xpoints[0] - c.hitbox.xpoints[0];
+		
+		
+		int	yDistance = this.hitbox.ypoints[0] - c.hitbox.ypoints[0];
+		
+		
+		return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+	
+		
 	}
 
 	@Override
 	public void move() {
-		this.xSpeed = ((c.hitbox.xpoints[0] - this.x) * 
+		this.xSpeed = ((c.hitbox.xpoints[0] - this.hitbox.xpoints[0]) * 
 				(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());
-		this.ySpeed = ((c.hitbox.ypoints[0] - this.y) * 
+		this.ySpeed = ((c.hitbox.ypoints[0] - this.hitbox.ypoints[0]) * 
 				(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());
 		
 		this.hitbox.translate((int) this.xSpeed, (int) this.ySpeed);
+
 		
 
 	}

@@ -40,9 +40,9 @@ public class Controller implements KeyListener{
 		if(selected.equals("topDown")) {
 			game = new ArrayList<GameObject>();
 			topDownModel = new TopDownModel(10,10,10,10);
-			c = new ClapperRail(700,100,100,300,new Polygon(),topDownModel.createImage2(), 0, 0);
+			c = new ClapperRail(400,200,100,300,new Polygon(),topDownModel.createImage2(), 0, 0);
 			game.add(c);
-			game.add(new Fox(400,400,100,300,new Polygon(),topDownModel.createImage2(), 3, 3, c));
+			game.add(new Fox(200,200,100,300,new Polygon(),topDownModel.createImage2(), 3, 3, c));
 			game.add(new Stick(200,200,100,300,new Polygon(),topDownModel.createImage2(),5));
 			game.add(new Bush(500, 550,100,300,new Polygon(),topDownModel.createImage2()));
 			game.add(new Bush(0, -60,100,300,new Polygon(),topDownModel.createImage2()));
@@ -127,14 +127,14 @@ public class Controller implements KeyListener{
 		//System.out.println("pressed");
 		if(e.getKeyCode() == 39) { //right arrow key
 			if(selected.equals("topDown")) {
-				c.xSpeed = 5;
+				c.xSpeed = 10;
 			
 			}
 		}
 		else if(e.getKeyCode() == 37) { //left arrow key
 			//xIncr = -5;
 			if(selected.equals("topDown")) {
-				c.xSpeed = -5;
+				c.xSpeed = -10;
 				//collision = topDownModel.updateLocation(game);
 				//topDownView.updateView(game,collision);
 			}
@@ -142,7 +142,7 @@ public class Controller implements KeyListener{
 		else if(e.getKeyCode() == 38) { //up arrow key
 			//yIncr = -5;
 			if(selected.equals("topDown")) {
-				c.ySpeed = -5;
+				c.ySpeed = -10;
 				
 				//collision = topDownModel.updateLocation(game);
 				//topDownView.updateView(game,collision);
@@ -158,7 +158,7 @@ public class Controller implements KeyListener{
 		else if(e.getKeyCode() == 40) { //down arrow key
 			//yIncr = 5;
 			if(selected.equals("topDown")) {
-				c.ySpeed = 5;
+				c.ySpeed = 10;
 				//collision = topDownModel.updateLocation(game);
 				//topDownView.updateView(game,collision);
 			}

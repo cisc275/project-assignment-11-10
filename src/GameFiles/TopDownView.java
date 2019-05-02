@@ -74,6 +74,7 @@ public class TopDownView extends View{
 			//System.out.println("ahhh good old paintComponent");
 			super.paintComponent(g);
 			g.setColor(Color.gray);
+			
 			//System.out.println(game.get(0));
 			
 			for(GameObject thing : game) {
