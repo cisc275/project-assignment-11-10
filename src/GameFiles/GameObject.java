@@ -77,8 +77,6 @@ public class GameObject {
 	}
 	
 	
-	
-
 	/**
 	 * @param imgFileName
 	 * @param hitBox
