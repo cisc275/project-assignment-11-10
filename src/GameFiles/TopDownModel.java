@@ -152,57 +152,7 @@ public class TopDownModel extends Model {
 		Controller theControl = new Controller("topDown");
 		theControl.topDownStart();
 	}
-	public BufferedImage createImage(){
-		//System.out.println("Start of createImage");
-    	BufferedImage bufferedImage;
-    	//System.out.println("Im about to try");
-    	try {
-    		//System.out.println("im trying");
-    		bufferedImage = ImageIO.read(new File("red_square.png"));
-    		
-    		//System.out.println("I succeded");
-    		return bufferedImage;
-    	} catch (IOException e) {
-    		//System.out.println("im being caught");
-    		e.printStackTrace();
-    	}
-    	return null;
-    }
 	
-	public BufferedImage createImage2(){
-		BufferedImage bufferedImage;
-		//System.out.println("i am running");
-    	try {
-    		bufferedImage = ImageIO.read(new File("blue_square.png"));
-    		return bufferedImage;
-    	} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-    	return null;
-	}
-	public BufferedImage createImage3(){
-		BufferedImage bufferedImage;
-		//System.out.println("i am running");
-    	try {
-    		bufferedImage = ImageIO.read(new File("green_square.png"));
-    		return bufferedImage;
-    	} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-    	return null;
-	}
-	
-	public BufferedImage createImage4(){
-		BufferedImage bufferedImage;
-		//System.out.println("i am running");
-    	try {
-    		bufferedImage = ImageIO.read(new File("brown_square.png"));
-    		return bufferedImage;
-    	} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-    	return null;
-	}
 	
 	public int getXloc() {
 		return xloc;
