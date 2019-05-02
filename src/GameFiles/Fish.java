@@ -71,6 +71,7 @@ public class Fish extends Collectable {
 		}
 			else {};
 		}
+	
 	private BufferedImage createImage(){
 		BufferedImage bufferedImage;
 		//System.out.println("i am running");

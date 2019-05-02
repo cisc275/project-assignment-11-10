@@ -1,6 +1,7 @@
 package GameFiles;
 
 import java.awt.Polygon;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +13,7 @@ import javax.imageio.ImageIO;
  *
  */
 public class AirCurrent extends Collectable {
-	private static final double AC = 0.2;
+	private static final int AC = 1;
 	/**
 	 * used to determine if the aircurrent will speed up or slow down the bird
 	 */
@@ -41,12 +42,6 @@ public class AirCurrent extends Collectable {
 	 * a constructor that takes values for all fields as input parameters
 	 */
 	
-//	public AirCurrent(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, 
-//			int yMax, int id, int benefit, boolean isDiving, int currY, int xSpeed, int ySpeed,
-//			String direction, boolean onScreen) {
-//		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, id, benefit, isDiving, currY, xSpeed,
-//				ySpeed);
-//	}
 	public AirCurrent(int x, int y, int width, int height, Polygon hitbox, BufferedImage img, int xSpeed) {
 		super(x,y,width,height, hitbox, img, xSpeed);
 		this.img = createImage();
@@ -67,7 +62,15 @@ public class AirCurrent extends Collectable {
 	
 	@Override
 	public void handleCollision(Osprey o) {
+		this.hitbox.reset();
+		this.hitbox.addPoint(x, y);
+		this.hitbox.addPoint(x, y + height);
+		this.hitbox.addPoint(x + width, y + height);
+		this.hitbox.addPoint(x + width, y);
+		if (Osprey.xSpeed <= -2) {
 		o.setXSpeed(Osprey.getXSpeed() + AC);
+		}
+		else {};
 	}
 	
 	

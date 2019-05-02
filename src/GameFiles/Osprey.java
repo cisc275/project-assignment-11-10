@@ -21,7 +21,7 @@ public class Osprey extends Bird {
 	int ySpeed;
 	int currY;
 	boolean isDiving;
-	final double AC = 0.2;
+	final double AC = 1;
 	final int DIVESPEED = 50;
 	/**
 	 * @param y
@@ -78,10 +78,17 @@ public class Osprey extends Bird {
 			this.ySpeed = -DIVESPEED;
 		}
 		if ((this.hitbox.ypoints[0] == this.currY) && (this.isDiving == true)) {
-			this.ySpeed = 0;
 			this.isDiving = !this.isDiving;
+			this.ySpeed = 0;
+		}
+		if ((this.hitbox.ypoints[0] == 480) && (this.isDiving == false)) {
+			this.ySpeed = 0;
 			
 		}
+		if ((this.hitbox.ypoints[0] == 0)) {
+			this.ySpeed = 0;
+		}
+		
 	}
 	
 	@Override

@@ -39,10 +39,7 @@ public class Controllable extends GameObject {
 	 * @param isDiving 
 	 * @param currY 
 	 */
-//	public Controllable(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, 
-//			int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed) {
-//		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, isDiving, currY, xSpeed, ySpeed);
-//		}
+
 	public Controllable(int x, int y, int width, int height, Polygon hitbox, BufferedImage img) {
 		super(x,y,width,height, hitbox, img);
 	}

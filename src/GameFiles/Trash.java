@@ -1,18 +1,20 @@
 package GameFiles;
 
 import java.awt.Polygon;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+
 /**
  * represents trash that user can collect
  */
 public class Trash extends Collectable {
 	
-	final double AC = 0.2;
+	final static int AC = 1;
 	/**
 	 * @param y
 	 * @param x
@@ -51,7 +53,15 @@ public class Trash extends Collectable {
 	
 	@Override
 	public void handleCollision(Osprey o) {
+		this.hitbox.reset();
+		this.hitbox.addPoint(x, y);
+		this.hitbox.addPoint(x, y + height);
+		this.hitbox.addPoint(x + width, y + height);
+		this.hitbox.addPoint(x + width, y);
+		if (Osprey.xSpeed <= -2) {
 		o.setXSpeed(Osprey.getXSpeed() + AC);
+		}
+		else {};
 	}
 	
 	private BufferedImage createImage(){
