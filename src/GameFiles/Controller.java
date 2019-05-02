@@ -28,7 +28,7 @@ public class Controller implements KeyListener{
 	String selected;
 	ArrayList<GameObject> game;
 	Osprey o;
-	ClapperRail c;
+	//ClapperRail c;
 
 	
 	public Controller(String selection) {
@@ -36,8 +36,8 @@ public class Controller implements KeyListener{
 		if(selected.equals("topDown")) {
 			game = new ArrayList<GameObject>();
 			model = new TopDownModel();
-			c = ((TopDownModel)model).cr;
-			game.add(c);
+			//c = ((TopDownModel)model).cr;
+			game.add(((TopDownModel)model).cr);
 			game.add(((TopDownModel)model).f);
 			game.add(new Stick(200,200,100,300,new Polygon(),model.createImage2(),5));
 			game.add(new Bush(500, 550,100,300,new Polygon(),model.createImage2()));
@@ -71,20 +71,17 @@ public class Controller implements KeyListener{
 		for(GameObject g:game) {
 			System.out.println(g);
 		}
-		//topDownView.addActionListener(this);
-		//game = new ArrayList<GameObject>();
-		//game.add(new GameObject(pic,100,100));
-		//System.out.println("DID IT DO ANYTHING DIFFERENT????????????????????");
-		//game.add(new GameObject(topDownModel.createImage2(),400,400));
-		//System.out.println("HOW ABOUT NOW?????????????????");
-		//game.add(new GameObject(topDownModel.createImage3(),200,200));
 	}
 	
+	
+	
+	
+	/**
+	 * starts timers and actions for topDown
+	 */
 	public void topDownStart() {
-		//System.out.println("topDownStart is starting");
 		drawAction = new AbstractAction(){
     		public void actionPerformed(ActionEvent e){
-    			//System.out.println("im performing actions");
     			model.updateLocation(game);
     			view.updateView(game);
     		}
@@ -93,10 +90,16 @@ public class Controller implements KeyListener{
     	time = new Timer(50, drawAction);
     	time.start();
 	}
+	
+	
+	
+	
+	/**
+	 * starts timers and actions for sideScroll
+	 */
 	public void sideScrollStart() {
 		drawAction = new AbstractAction(){
     		public void actionPerformed(ActionEvent e){
-    			//System.out.println("im performing actions");
     			model.advanceWorld(game);
     			view.updateView(game);
     		}
@@ -105,43 +108,30 @@ public class Controller implements KeyListener{
     	time = new Timer(50, drawAction);
     	time.start();
 	}
-/*
-	private void addKeyListener(KeyListener keyListener) {
-		// TODO Auto-generated method stub
-		
-	}
-*/
+
+	
+	
+	
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		//System.out.println("pressed");
 		if(e.getKeyCode() == 39) { //right arrow key
 			if(selected.equals("topDown")) {
-				c.xSpeed = 10;
-			
+				((TopDownModel)model).cr.setxSpeed(((TopDownModel)model).cr.getMOVE_AMOUNT());
 			}
 		}
 		else if(e.getKeyCode() == 37) { //left arrow key
-			//xIncr = -5;
 			if(selected.equals("topDown")) {
-				c.xSpeed = -10;
-				//collision = topDownModel.updateLocation(game);
-				//topDownView.updateView(game,collision);
+				((TopDownModel)model).cr.setxSpeed(-((TopDownModel)model).cr.getMOVE_AMOUNT());
 			}
 		}
 		else if(e.getKeyCode() == 38) { //up arrow key
-			//yIncr = -5;
 			if(selected.equals("topDown")) {
-				c.ySpeed = -10;
-				
-				//collision = topDownModel.updateLocation(game);
-				//topDownView.updateView(game,collision);
+				((TopDownModel)model).cr.setySpeed(-((TopDownModel)model).cr.getMOVE_AMOUNT());
 			}
 			else if(selected.equals("sideScroll")) {
 				if ((o.hitbox.xpoints[0] == 0) ||  (o.hitbox.xpoints[0] == 450))
@@ -152,11 +142,8 @@ public class Controller implements KeyListener{
 		}
 		}
 		else if(e.getKeyCode() == 40) { //down arrow key
-			//yIncr = 5;
 			if(selected.equals("topDown")) {
-				c.ySpeed = 10;
-				//collision = topDownModel.updateLocation(game);
-				//topDownView.updateView(game,collision);
+				((TopDownModel)model).cr.setySpeed(((TopDownModel)model).cr.getMOVE_AMOUNT());
 			}
 			else if(selected.equals("sideScroll"))  {
 				if ((o.hitbox.xpoints[0] == 0) ||  (o.hitbox.xpoints[0] == 450))
@@ -180,9 +167,8 @@ public class Controller implements KeyListener{
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 		if(selected.equals("topDown")) {
-			c.xSpeed = 0;
-			c.ySpeed = 0;
-			
+			((TopDownModel)model).cr.setxSpeed(0);
+			((TopDownModel)model).cr.setySpeed(0);
 		}
 	}
 
