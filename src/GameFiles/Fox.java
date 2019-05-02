@@ -70,5 +70,12 @@ public class Fox extends Controllable {
 		
 		return false;
 	}
-	
+	/**
+	 * calls ClapperRail handleCollision passing in this
+	 * @param cr
+	 * @author andrew thompson
+	 */
+	public void handleCollision(ClapperRail cr) {
+		cr.handleCollision(this);
+	}
 }

@@ -49,7 +49,16 @@ public class Bush extends NonControllable {
 		super("bush.png",i,j);
 		this.setType(Type.BUSH);
 	}
-	public BufferedImage gtImage() {
+	/**
+	 * calls ClapperRail handleCollision passing in this
+	 * @param cr
+	 * @author andrew thompson
+	 */
+	public void handleCollision(ClapperRail cr) {
+		cr.handleCollision(this);
+	}
+	
+	public BufferedImage getImage() {
 		BufferedImage buffImg;
 		try {
     		buffImg = ImageIO.read(new File("bush.png"));

@@ -53,6 +53,11 @@ public class Stick extends Collectable{
 		super("stick.png",i,j);
 		this.setType(Type.FOX);
 	}
+	/**
+	 * calls ClapperRail handleCollision passing in this
+	 * @param cr
+	 * @author andrew thompson
+	 */
 	public void handleCollision(ClapperRail cr) {
 		cr.handleCollision(this);
 	}

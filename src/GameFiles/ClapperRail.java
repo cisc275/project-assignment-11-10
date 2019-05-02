@@ -72,6 +72,9 @@ public class ClapperRail extends Bird {
 	public void handleCollision(Fish fish) {
 		System.out.println("handling collision with ");
 	}
+	public void handleCollision(Fox fox) {
+		System.out.println("handling collision with ");
+	}
 	
 	
 	/**
