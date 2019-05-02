@@ -128,12 +128,6 @@ public class GameObject {
 	public void handleCollision(GameObject g) {
 		
 	}
-	/*
-	@Override
-	public String toString() {
-		return this.type.toString() + ", X pos: " + this.x + ", Y pos: " + this.y;
-	}
-	*/
 	public BufferedImage createImage(File path) {
 		BufferedImage g;
 		try {
