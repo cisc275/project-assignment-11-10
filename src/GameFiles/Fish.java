@@ -61,13 +61,13 @@ public class Fish extends Collectable {
 	
 	@Override
 	public void handleCollision(Osprey o) {
-		if (Osprey.xSpeed <= -2) {
+		this.hitbox.reset();
+		this.hitbox.addPoint(x, y);
+		this.hitbox.addPoint(x, y + height);
+		this.hitbox.addPoint(x + width, y + height);
+		this.hitbox.addPoint(x + width, y);
+		if (Osprey.xSpeed >= -10) {
 			o.setXSpeed(Osprey.getXSpeed() - AC);
-			this.hitbox.reset();
-			this.hitbox.addPoint(x, y);
-			this.hitbox.addPoint(x, y + height);
-			this.hitbox.addPoint(x + width, y + height);
-			this.hitbox.addPoint(x + width, y);
 		}
 			else {};
 		}
