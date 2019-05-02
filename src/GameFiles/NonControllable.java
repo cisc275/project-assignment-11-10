@@ -1,5 +1,6 @@
 package GameFiles;
 
+import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -27,17 +28,8 @@ public class NonControllable extends GameObject {
 //			int xMin, int xMax, int yMin, int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed) {
 //		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, isDiving, currY, xSpeed, ySpeed);
 //	}
-	public NonControllable(int x, int y, int width, int height) {
-		super(x,y,width,height);
-	}
-
-	public NonControllable(BufferedImage createImage4, int i, int j) {
-		super(createImage4, i, j);
-		// TODO Auto-generated constructor stub
-	}
-
-	public NonControllable(String string, int i, int j) {
-		super(string,i,j);
+	public NonControllable(int x, int y, int width, int height,Polygon hitbox, BufferedImage img) {
+		super(x,y,width,height,hitbox,img);
 	}
 
 }
