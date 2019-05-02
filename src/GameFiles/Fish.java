@@ -48,7 +48,6 @@ public class Fish extends Collectable {
 			this.hitbox.addPoint(x + width, y);
 		}
 	}
-<<<<<<< HEAD
 	/**
 	 * calls ClapperRail handleCollision passing in this
 	 * @param cr
@@ -58,7 +57,6 @@ public class Fish extends Collectable {
 		cr.handleCollision(this);
 	}
 
-=======
 	
 	
 	@Override
@@ -77,5 +75,4 @@ public class Fish extends Collectable {
     	}
     	return null;
 	}
->>>>>>> branch 'master' of https://github.com/cisc275/project-assignment-11-10
 }
