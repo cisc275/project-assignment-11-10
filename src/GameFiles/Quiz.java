@@ -1,4 +1,6 @@
 package GameFiles;
+import java.awt.Polygon;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.swing.JButton;
 /**
@@ -45,8 +47,8 @@ public class Quiz extends Controllable {
 //			JButton answer, JButton bad, String question) {
 //		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, isDiving, currY, xSpeed, ySpeed);
 //	}
-	public Quiz(int x, int y, int width, int height) {
-		super(x,y,width,height);
+	public Quiz(int x, int y, int width, int height,Polygon hitbox, BufferedImage img) {
+		super(x,y,width,height, hitbox, img);
 	}
 	
 	public JButton getAnswer() {
