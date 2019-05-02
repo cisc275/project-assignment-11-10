@@ -115,6 +115,10 @@ public class TopDownModel extends Model {
 		return false;
     }
     public boolean collision(ArrayList<GameObject> gme) {
+    	System.out.println(gme);
+    	for(GameObject g: gme) {
+    		g.collision(gme);
+    	}
     	for (int k = 0; k < gme.size(); k ++) {
     		//if (count % 1 == 0 && (gme.get(k).getType() == Type.FOX)) System.out.println(gme.get(k) + " vs Polygon " + gme.get(k).getHitBox().getBounds2D());
     		for (int j = k + 1; j < gme.size(); j ++) {
