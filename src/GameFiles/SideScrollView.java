@@ -61,8 +61,6 @@ public class SideScrollView extends View{
 		    backTwo.draw(buffer);
 		    twoD.drawImage(back, null, 0, 0);
 			
-		    System.out.println(Osprey.xSpeed);
-			
 		
 	    	for (GameObject thing : game) {
 	    		g.setClip(thing.hitbox);

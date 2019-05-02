@@ -144,8 +144,12 @@ public class Controller implements KeyListener{
 				//topDownView.updateView(game,collision);
 			}
 			else if(selected.equals("sideScroll")) {
+				if ((o.hitbox.xpoints[0] == 0) ||  (o.hitbox.xpoints[0] == 450))
+				 o.setYSpeed(0);
+				else {
 				o.setYSpeed(-5);
 			}
+		}
 		}
 		else if(e.getKeyCode() == 40) { //down arrow key
 			//yIncr = 5;
@@ -154,22 +158,23 @@ public class Controller implements KeyListener{
 				//collision = topDownModel.updateLocation(game);
 				//topDownView.updateView(game,collision);
 			}
-			else if(selected.equals("sideScroll")) {
-				o.setYSpeed(5);
-			//	sideScrollModel.advanceWorld(game);
-				// sideScrollView.updateView(game);
+			else if(selected.equals("sideScroll"))  {
+				if ((o.hitbox.xpoints[0] == 0) ||  (o.hitbox.xpoints[0] == 450))
+					 o.setYSpeed(0);
+					else {
+					o.setYSpeed(5);
+				}
 			}
 		}
 		
 		else if (e.getKeyCode() == 32) {
 			if (selected.equals("sideScroll")){
 				o.dive();
-		//		sideScrollModel.advanceWorld(game);
-			//	sideScrollView.updateView(game);
 			}
-		}
+
 		
 	}
+	}	
 
 	@Override
 	public void keyReleased(KeyEvent e) {
