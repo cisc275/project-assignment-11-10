@@ -22,10 +22,12 @@ import javax.swing.Timer;
 
 public class Controller implements KeyListener{
 	
-	private TopDownModel topDownModel;
-	private TopDownView topDownView;
-	private SideScrollModel sideScrollModel;
-	private SideScrollView sideScrollView;
+//	private TopDownModel topDownModel;
+//	private TopDownView topDownView;
+//	private SideScrollModel sideScrollModel;
+//	private SideScrollView sideScrollView;
+	private Model model;
+	private View view;
 	private Timer time;
 	private Action drawAction;
 	boolean collision;
@@ -39,15 +41,15 @@ public class Controller implements KeyListener{
 		selected = selection;
 		if(selected.equals("topDown")) {
 			game = new ArrayList<GameObject>();
-			topDownModel = new TopDownModel(10,10,10,10);
-			c = new ClapperRail(400,200,100,300,new Polygon(),topDownModel.createImage2(), 0, 0);
+			model = new TopDownModel(10,10,10,10);
+			c = new ClapperRail(400,200,100,300,new Polygon(),model.createImage2(), 0, 0);
 			game.add(c);
-			game.add(new Fox(200,200,100,300,new Polygon(),topDownModel.createImage2(), 3, 3, c));
-			game.add(new Stick(200,200,100,300,new Polygon(),topDownModel.createImage2(),5));
-			game.add(new Bush(500, 550,100,300,new Polygon(),topDownModel.createImage2()));
-			game.add(new Bush(0, -60,100,300,new Polygon(),topDownModel.createImage2()));
-			topDownView = new TopDownView(game);
-			topDownView.addKeyListener(this);
+			game.add(new Fox(200,200,100,300,new Polygon(),model.createImage2(), 3, 3, c));
+			game.add(new Stick(200,200,100,300,new Polygon(),model.createImage2(),5));
+			game.add(new Bush(500, 550,100,300,new Polygon(),model.createImage2()));
+			game.add(new Bush(0, -60,100,300,new Polygon(),model.createImage2()));
+			view = new TopDownView(game);
+			view.addKeyListener(this);
 
 		}
 		else if(selected.equals("sideScroll")) {
@@ -65,10 +67,10 @@ public class Controller implements KeyListener{
 			game.add(a);
 			game.add(m);
 			
-			sideScrollModel = new SideScrollModel();
+			model = new SideScrollModel();
 			
-			sideScrollView = new SideScrollView(game, backOne, backTwo);
-			sideScrollView.addKeyListener(this);
+			view = new SideScrollView(game, backOne, backTwo);
+			view.addKeyListener(this);
 			
 			
 		}
@@ -89,8 +91,8 @@ public class Controller implements KeyListener{
 		drawAction = new AbstractAction(){
     		public void actionPerformed(ActionEvent e){
     			//System.out.println("im performing actions");
-    			topDownModel.updateLocation(game);
-    			topDownView.updateView(game);
+    			model.updateLocation(game);
+    			view.updateView(game);
     		}
     	};
     	
@@ -101,8 +103,8 @@ public class Controller implements KeyListener{
 		drawAction = new AbstractAction(){
     		public void actionPerformed(ActionEvent e){
     			//System.out.println("im performing actions");
-    			sideScrollModel.advanceWorld(game);
-    			sideScrollView.updateView(game);
+    			model.advanceWorld(game);
+    			view.updateView(game);
     		}
     	};
     	

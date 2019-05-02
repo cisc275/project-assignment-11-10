@@ -12,8 +12,11 @@ public class Model {
 	 */
 	ArrayList<GameObject> game;
 	
-	public void update() {
+	public void updateLocation(ArrayList<GameObject> game) {
 		// TODO Auto-generated method stub
+		
+	}
+	public void advanceWorld(ArrayList<GameObject> game) {
 		
 	}
 

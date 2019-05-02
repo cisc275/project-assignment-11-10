@@ -24,6 +24,10 @@ public class View extends JFrame {
 	public void setGame(ArrayList<GameObject> game) {
 		this.game = game;
 	}
+	public void updateView(ArrayList<GameObject> game) {
+		
+	}
+	public void addKeyListener(Controller c) {}
 
 	
 }
