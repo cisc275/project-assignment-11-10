@@ -13,7 +13,7 @@ import javax.imageio.ImageIO;
  */
 public class Fish extends Collectable {
 	
-	final double AC = 0.2;
+	final int AC = 1;
 	
 	/**
 	 * @param y
@@ -61,9 +61,16 @@ public class Fish extends Collectable {
 	
 	@Override
 	public void handleCollision(Osprey o) {
-		o.setXSpeed(Osprey.getXSpeed() - AC);
-	}
-	
+		if (Osprey.xSpeed <= -2) {
+			o.setXSpeed(Osprey.getXSpeed() - AC);
+			this.hitbox.reset();
+			this.hitbox.addPoint(x, y);
+			this.hitbox.addPoint(x, y + height);
+			this.hitbox.addPoint(x + width, y + height);
+			this.hitbox.addPoint(x + width, y);
+		}
+			else {};
+		}
 	private BufferedImage createImage(){
 		BufferedImage bufferedImage;
 		//System.out.println("i am running");
