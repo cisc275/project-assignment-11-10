@@ -21,16 +21,10 @@ import javax.swing.Timer;
 
 
 public class Controller implements KeyListener{
-	
-//	private TopDownModel topDownModel;
-//	private TopDownView topDownView;
-//	private SideScrollModel sideScrollModel;
-//	private SideScrollView sideScrollView;
 	private Model model;
 	private View view;
 	private Timer time;
 	private Action drawAction;
-	boolean collision;
 	String selected;
 	ArrayList<GameObject> game;
 	Osprey o;
@@ -41,10 +35,10 @@ public class Controller implements KeyListener{
 		selected = selection;
 		if(selected.equals("topDown")) {
 			game = new ArrayList<GameObject>();
-			model = new TopDownModel(10,10,10,10);
-			c = new ClapperRail(400,200,100,300,new Polygon(),model.createImage2(), 0, 0);
+			model = new TopDownModel();
+			c = ((TopDownModel)model).cr;
 			game.add(c);
-			game.add(new Fox(200,200,100,300,new Polygon(),model.createImage2(), 3, 3, c));
+			game.add(((TopDownModel)model).f);
 			game.add(new Stick(200,200,100,300,new Polygon(),model.createImage2(),5));
 			game.add(new Bush(500, 550,100,300,new Polygon(),model.createImage2()));
 			game.add(new Bush(0, -60,100,300,new Polygon(),model.createImage2()));

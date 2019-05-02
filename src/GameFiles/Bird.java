@@ -16,6 +16,7 @@ public class Bird extends Controllable{
 	Type type; 
 	
 	final private int INIT_BIRD_SPEED = 10;
+	final private int MOVE_AMOUNT = 10;
 	private int birdSpeed;
 	
 	/**
@@ -64,6 +65,14 @@ public class Bird extends Controllable{
 	}
 	public void setBirdSpeed(int birdSpeed) {
 		this.birdSpeed = birdSpeed;
+	}
+
+
+	/**
+	 * @return the mOVE_AMOUNT
+	 */
+	public int getMOVE_AMOUNT() {
+		return MOVE_AMOUNT;
 	}
 	
 	

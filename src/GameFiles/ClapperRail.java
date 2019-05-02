@@ -82,4 +82,36 @@ public class ClapperRail extends Bird {
 			g.handleCollision(this);
 		}
 	}
+
+
+	/**
+	 * @return the xSpeed
+	 */
+	public int getxSpeed() {
+		return xSpeed;
+	}
+
+
+	/**
+	 * @param xSpeed the xSpeed to set
+	 */
+	public void setxSpeed(int xSpeed) {
+		this.xSpeed = xSpeed;
+	}
+
+
+	/**
+	 * @return the ySpeed
+	 */
+	public int getySpeed() {
+		return ySpeed;
+	}
+
+
+	/**
+	 * @param ySpeed the ySpeed to set
+	 */
+	public void setySpeed(int ySpeed) {
+		this.ySpeed = ySpeed;
+	}
 }
