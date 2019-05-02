@@ -1,6 +1,7 @@
 package GameFiles;
 
 import java.awt.Graphics2D;
+import java.awt.Polygon;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -33,30 +34,14 @@ public class Fox extends Controllable {
 	 public Controllable(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, 
 			int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed) {
 	 */
-	public Fox(int x, int y, int width, int height) {
-		super(x,y,width,height);
+	public Fox(int x, int y, int width, int height, Polygon hitbox, BufferedImage img) {
+		super(x,y,width,height,hitbox, img);
 		this.setType(Type.FOX);
 		try {
     		this.img = ImageIO.read(new File(fileName));
 		} catch (IOException e) {
     		e.printStackTrace();
     	}
-	}
-
-	public Fox(BufferedImage createImage2, int i, int j) {
-		super(createImage2, i, j);
-		this.setType(Type.FOX);
-		// TODO Auto-generated constructor stub
-	}
-
-	public Fox(String string, int i, int j) {
-		super(string,i,j);
-		this.setType(Type.FOX);
-	}
-	
-	public Fox(int i, int j) {
-		super("fox.png",i,j);
-		this.setType(Type.FOX);
 	}
 
 	/**

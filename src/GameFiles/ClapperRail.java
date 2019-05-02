@@ -1,5 +1,6 @@
 package GameFiles;
 
+import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -24,25 +25,11 @@ public class ClapperRail extends Bird {
 	
 	final private int MOVE_AMOUNT = 10;
 	
-	public ClapperRail(int x, int y, int width, int height) {
-		super(x,y,width,height);
+	public ClapperRail(int x, int y, int width, int height, Polygon hitbox, BufferedImage img) {
+		super(x,y,width,height,hitbox,img);
 		this.setType(Type.CLAPPERRAIL);
 	}
 	
-	public ClapperRail(BufferedImage pic, int xloc, int yloc) {
-		super(pic,xloc,yloc);
-		this.setType(Type.CLAPPERRAIL);
-	}
-
-	public ClapperRail(String string, int i, int j) {
-		super(string,i,j);
-		this.setType(Type.CLAPPERRAIL);
-	}
-
-	public ClapperRail(int i, int j) {
-		super("cr.png",i,j);
-		this.setType(Type.CLAPPERRAIL);
-	}
   
 	public void move() {
 		x = x + MOVE_AMOUNT;
@@ -84,9 +71,7 @@ public class ClapperRail extends Bird {
 	@Override
 	public void collision(ArrayList<GameObject> gameObjects) {
 		for(GameObject g: gameObjects) {
-			if(!this.equals(g) && this.collidesWith(g)) {
-				g.handleCollision(this);
-			}
+			
 		}
 	}
 }

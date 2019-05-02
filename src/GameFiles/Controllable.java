@@ -1,5 +1,6 @@
 package GameFiles;
 
+import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -11,17 +12,14 @@ public class Controllable extends GameObject {
 	
 	/**
 	 * speed of object being controlled 
-	 */
-	int speed; 
+	 */ 
 	/**
 	 * 
 	 * this method will be defined in subclasses, and will contain the 
 	 * logic needed for the objects movement on screen.
 	 * the speed will be used to increment the x and y coordinates as needed
 	 */
-	public void move() {
-		
-	}
+	
 	
 	/**
 	 * @param y
@@ -29,6 +27,8 @@ public class Controllable extends GameObject {
 	 * @param imgPose
 	 * @param width
 	 * @param height
+	 * @param hitbox 
+	 * @param img 
 	 * @param xMin
 	 * @param xMax
 	 * @param yMin
@@ -43,24 +43,10 @@ public class Controllable extends GameObject {
 //			int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed) {
 //		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, isDiving, currY, xSpeed, ySpeed);
 //		}
-	public Controllable(int x, int y, int width, int height) {
-		super(x,y,width,height);
+	public Controllable(int x, int y, int width, int height, Polygon hitbox, BufferedImage img) {
+		super(x,y,width,height, hitbox, img);
 	}
 
-	public Controllable(BufferedImage createImage, int i, int j) {
-		// TODO Auto-generated constructor stub
-		super(createImage, i, j);
-	}
+	
 
-	public Controllable(String string, int i, int j) {
-		super(string,i,j);
-	}
-
-	public int getSpeed() {
-		return speed;
-	}
-
-	public void setSpeed(int speed) {
-		this.speed = speed;
-	}
 }

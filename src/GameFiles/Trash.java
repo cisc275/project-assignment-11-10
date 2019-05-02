@@ -1,12 +1,18 @@
 package GameFiles;
 
+import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 /**
  * represents trash that user can collect
  */
 public class Trash extends Collectable {
+	
+	final double AC = 0.2;
 	/**
 	 * @param y
 	 * @param x
@@ -24,19 +30,41 @@ public class Trash extends Collectable {
 	 * a constructor that takes values for all fields as input parameters
 	 */
 	
-//	public Trash(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, int yMax, int id,
-//			int benefit, boolean isDiving, int currY, int xSpeed,
-//			int ySpeed, int type) {
-//		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, id, benefit, isDiving, currY, xSpeed,
-//				ySpeed);
-//	}
-	public Trash(int x, int y, int width, int height) {
-		super(x,y,width,height);
+	public Trash(int x, int y, int width, int height, Polygon hitbox, BufferedImage img, int xSpeed) {
+		super(x,y,width,height, hitbox, img, xSpeed);
+		this.img = createImage();
 		this.setType(Type.TRASH);
 	}
-	public Trash(BufferedImage pic, int xloc, int yloc) {
-		super(pic,xloc,yloc);
-		this.setType(Type.TRASH);
+	
+	public void move() {
+		this.hitbox.translate(this.xSpeed, 0);
+		if((this.hitbox.xpoints[3] <= 0)) {
+			this.hitbox.reset();
+			this.hitbox.addPoint(x, y);
+			this.hitbox.addPoint(x, y + height);
+			this.hitbox.addPoint(x + width, y + height);
+			this.hitbox.addPoint(x + width, y);
+			System.out.println(this.hitbox.getBounds());
+				
+		}
+	}
+	
+	@Override
+	public void handleCollision(Osprey o) {
+		o.setXSpeed(Osprey.getXSpeed() + AC);
+	}
+	
+	private BufferedImage createImage(){
+		BufferedImage bufferedImage;
+		//System.out.println("i am running");
+    	try {
+    		bufferedImage = ImageIO.read(new File("green_square.png"));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
 	}
 
+	
 }

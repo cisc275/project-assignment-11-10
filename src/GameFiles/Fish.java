@@ -1,13 +1,20 @@
 package GameFiles;
 
+import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 /**
  * represents fish that will give both birds a boost
  *
  */
 public class Fish extends Collectable {
+	
+	final double AC = 0.2;
+	
 	/**
 	 * @param y
 	 * @param x
@@ -24,25 +31,24 @@ public class Fish extends Collectable {
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
-	/*
-	 (int y, int x, File imgPose, int width, int height, int xMin, 
-			int xMax, int yMin, int yMax, int id, int benefit, boolean isDiving, int currY, int xSpeed,
-			int ySpeed) {
-	 */
-//	public Fish(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, int yMax, 
-//			int id, int benefit, boolean isDiving, int currY, int xSpeed, int ySpeed, int type) {
-//		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, id, benefit, isDiving, currY, xSpeed,
-//				ySpeed);
-//	}
 
-	public Fish(int x, int y, int width, int height) {
-		super(x,y,width,height);
+	public Fish(int x, int y, int width, int height, Polygon hitbox, BufferedImage img, int xSpeed) {
+		super(x,y,width,height, hitbox, img, xSpeed);
+		this.img = createImage();
 		this.setType(Type.FISH);
 	}
-	public Fish(BufferedImage pic, int xloc, int yloc) {
-		super(pic,xloc,yloc);
-		this.setType(Type.FISH);
+	
+	public void move() {
+		this.hitbox.translate(this.xSpeed, 0);
+		if((this.hitbox.xpoints[3] <= 0)) {
+			this.hitbox.reset();
+			this.hitbox.addPoint(x, y);
+			this.hitbox.addPoint(x, y + height);
+			this.hitbox.addPoint(x + width, y + height);
+			this.hitbox.addPoint(x + width, y);
+		}
 	}
+<<<<<<< HEAD
 	/**
 	 * calls ClapperRail handleCollision passing in this
 	 * @param cr
@@ -52,4 +58,24 @@ public class Fish extends Collectable {
 		cr.handleCollision(this);
 	}
 
+=======
+	
+	
+	@Override
+	public void handleCollision(Osprey o) {
+		o.setXSpeed(Osprey.getXSpeed() - AC);
+	}
+	
+	private BufferedImage createImage(){
+		BufferedImage bufferedImage;
+		//System.out.println("i am running");
+    	try {
+    		bufferedImage = ImageIO.read(new File("blue_square.png"));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
+	}
+>>>>>>> branch 'master' of https://github.com/cisc275/project-assignment-11-10
 }

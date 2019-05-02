@@ -1,5 +1,6 @@
 package GameFiles;
 
+import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -37,21 +38,9 @@ public class Stick extends Collectable{
 //		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, id, benefit, isDiving, currY, xSpeed,
 //				ySpeed);
 //	}
-	public Stick(int x, int y, int width, int height) {
-		super(x,y,width,height);
+	public Stick(int x, int y, int width, int height, Polygon hitbox, BufferedImage img, int speed) {
+		super(x,y,width,height, hitbox, img, speed);
 		this.setType(Type.STICK);
-	}
-	public Stick(BufferedImage pic, int xloc, int yloc) {
-		super(pic,xloc,yloc);
-		this.setType(Type.STICK);
-	}
-	public Stick(String string, int i, int j) {
-		super(string,i,j);
-		this.setType(Type.FOX);
-	}
-	public Stick(int i, int j) {
-		super("stick.png",i,j);
-		this.setType(Type.FOX);
 	}
 	/**
 	 * calls ClapperRail handleCollision passing in this

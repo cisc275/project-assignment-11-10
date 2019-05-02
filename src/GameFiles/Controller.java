@@ -1,5 +1,7 @@
 package GameFiles;
 import java.awt.EventQueue;
+
+import java.awt.Polygon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -15,9 +17,7 @@ import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.Timer;
-//import java.awt.event.ActionEvent;
-//import java.awt.event.KeyEvent;
-//import java.awt.event.KeyListener;
+
 
 
 public class Controller implements KeyListener{
@@ -31,6 +31,7 @@ public class Controller implements KeyListener{
 	boolean collision;
 	String selected;
 	ArrayList<GameObject> game;
+	Osprey o;
 
 	
 	public Controller(String selection) {
@@ -48,13 +49,21 @@ public class Controller implements KeyListener{
 
 		}
 		else if(selected.equals("sideScroll")) {
+			Background backOne = new Background();
+			Background backTwo = new Background(backOne.getImageWidth(), 0);
+			o = new Osprey(100, 100, 50, 50, new Polygon(), null, -5, 0, false);
+			Trash t = new Trash(850, 650, 50, 50, new Polygon(), null,  -4);
+			Fish f = new Fish(800, 650, 50, 50, new Polygon(), null, -10);
+			AirCurrent a = new AirCurrent(900, 150, 50, 50, new Polygon(), null, -3);
 			game = new ArrayList<GameObject>();
+			game.add(o);
+			game.add(f);
+			game.add(t);
+			game.add(a);
+			
 			sideScrollModel = new SideScrollModel();
-			game.add(new GameObject(sideScrollModel.createImage(),200,200));
-			game.add(new GameObject(sideScrollModel.createImage2(),300,550));
-			game.add(new GameObject(sideScrollModel.createImage3(),500,550));
-			game.add(new GameObject(sideScrollModel.createImage4(), 400, 50));
-			sideScrollView = new SideScrollView(game);
+			
+			sideScrollView = new SideScrollView(game, backOne, backTwo);
 			sideScrollView.addKeyListener(this);
 			
 			
@@ -135,8 +144,7 @@ public class Controller implements KeyListener{
 				//topDownView.updateView(game,collision);
 			}
 			else if(selected.equals("sideScroll")) {
-				sideScrollModel.advanceBird(game, -5);
-				sideScrollView.updateView(game);
+				o.setYSpeed(-5);
 			}
 		}
 		else if(e.getKeyCode() == 40) { //down arrow key
@@ -147,18 +155,20 @@ public class Controller implements KeyListener{
 				//topDownView.updateView(game,collision);
 			}
 			else if(selected.equals("sideScroll")) {
-				sideScrollModel.advanceBird(game, 5);
-				sideScrollView.updateView(game);
+				o.setYSpeed(5);
+			//	sideScrollModel.advanceWorld(game);
+				// sideScrollView.updateView(game);
 			}
 		}
-		/*
+		
 		else if (e.getKeyCode() == 32) {
 			if (selected.equals("sideScroll")){
-				sideScrollModel.dive(game);
-				sideScrollView.updateView(game);
+				o.dive();
+		//		sideScrollModel.advanceWorld(game);
+			//	sideScrollView.updateView(game);
 			}
 		}
-		*/
+		
 	}
 
 	@Override

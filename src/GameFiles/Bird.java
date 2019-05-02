@@ -1,12 +1,13 @@
 package GameFiles;
 
+import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
 /**
  * super class for both bird objects
  */
-public class Bird extends Controllable implements Moveable{
+public class Bird extends Controllable{
 	
 
 	/**
@@ -41,20 +42,12 @@ public class Bird extends Controllable implements Moveable{
 //			int yMin, int yMax,Type type, boolean isDiving, int currY, int xSpeed, int ySpeed) {
 //		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, isDiving, currY, xSpeed, ySpeed);
 //		}
-	public Bird(int x, int y, int width, int height) {
-		super(x,y,width,height);
+	public Bird(int x, int y, int width, int height, Polygon hitbox, BufferedImage img) {
+		super(x,y,width, height, hitbox, img);
 		birdSpeed = INIT_BIRD_SPEED;
 	}
 	
-	public Bird(BufferedImage createImage, int i, int j) {
-		// TODO Auto-generated constructor stub
-		super(createImage, i, j);
-	}
-
-	public Bird(String string, int i, int j) {
-		super(string,i,j);
-	}
-
+	
 	public void move() {
 		x = x + birdSpeed; 
 	}
