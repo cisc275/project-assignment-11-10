@@ -29,6 +29,19 @@ public class ClapperRail extends Bird {
 	
 	final private int MOVE_AMOUNT = 10;
 	
+	/**
+	 * @param y
+	 * @param x
+	 * @param width
+	 * @param height
+	 * @param hitbox
+	 * @param img
+	 * @param xSpeed
+	 * @param ySpeed
+	 * 
+	 * a constructor that takes values for all fields as input parameters
+	 */
+	
 	public ClapperRail(int x, int y, int width, int height, Polygon hitbox, BufferedImage img, 
 			int xSpeed, int ySpeed) {
 		super(x,y,width,height,hitbox,img);
@@ -37,6 +50,11 @@ public class ClapperRail extends Bird {
 		this.setType(Type.CLAPPERRAIL);
 	}
 	
+	/**
+	 * moves clapperrail according to x and y speed
+	 * @param g
+	 * @author tim Mazzarelli
+	 */
   
 	public void move() {
 		this.hitbox.translate(this.xSpeed, this.ySpeed);
@@ -44,15 +62,8 @@ public class ClapperRail extends Bird {
 	
 	
 	
-	public boolean isHidden(Bush b) {
-		if (this.collidesWith(b)) {
-			hidden = true;
-		}
-		else hidden = false;
-		return hidden;
-	}
-
 	public void setHidden(boolean hidden) {
+		
 		this.hidden = hidden;
 	}
 
@@ -65,7 +76,13 @@ public class ClapperRail extends Bird {
 	}
 	
 	
-	public void handleCollision(Fox fox) {
+	/**
+	 * handles collision with fox f 
+	 * @param f
+	 * @author tim Mazzarelli
+	 */
+	
+	public void handleCollision(Fox f) {
 		this.hitbox.reset();
 		this.hitbox.addPoint(x, y);
 		this.hitbox.addPoint(x, y + height);
@@ -89,7 +106,6 @@ public class ClapperRail extends Bird {
 		}		
 	}
 	
-
 	/**
 	 * @return the xSpeed
 	 */

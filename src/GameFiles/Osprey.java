@@ -61,10 +61,12 @@ public class Osprey extends Bird {
 	public void setYSpeed(int ySpeed) {
 		this.ySpeed = ySpeed;
 	}
+	
 	/**
 	 * this method will be called whenever the user presses the dive button
 	 * at which point the bird will dive into the water and possibly collect 
 	 * fish or trash. the logic for this action will be contained here.
+	 * @author tim Mazzarelli
 	 */
 	public void dive() {
 		this.isDiving = !this.isDiving;
@@ -72,6 +74,12 @@ public class Osprey extends Bird {
 		this.currY = this.hitbox.ypoints[0];
 		this.hitbox.translate(0, this.ySpeed);
 		}
+	
+	/**
+	 * moves the osprey according to location and ySpeed determined by key inputs
+	 * @param g
+	 * @author tim Mazzarelli
+	 */
 	
 	@Override
 	public void move() {
@@ -95,6 +103,12 @@ public class Osprey extends Bird {
 		
 	}
 	
+	/**
+	 * checks for collision in ArrayList of gameobjects and sends to handle accordingly
+	 * @param g
+	 * @author tim Mazzarelli
+	 */
+	
 	@Override
 	public void collision(ArrayList<GameObject> g) {
 		for (GameObject a : g) {
@@ -102,9 +116,6 @@ public class Osprey extends Bird {
 				a.handleCollision(this);
 			}
 		}		
-	}
-	
-	public void handleCollision(Osprey o) {
 	}
 	
 	

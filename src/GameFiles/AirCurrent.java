@@ -14,30 +14,18 @@ import javax.imageio.ImageIO;
  */
 public class AirCurrent extends Collectable {
 	private static final int AC = 1;
-	/**
-	 * used to determine if the aircurrent will speed up or slow down the bird
-	 */
-	String direction; 
-	/**
-	 * describes if there is an aircurrent currently on screen
-	 */
-	boolean onScreen; 
+	 
 	
 	
 	/**
 	 * @param y
 	 * @param x
-	 * @param imgPose
 	 * @param width
 	 * @param height
-	 * @param xMin
-	 * @param xMax
-	 * @param yMin
-	 * @param yMax
-	 * @param id
-	 * @param benefit
-	 * @param direction
-	 * @param onScreen
+	 * @param hitbox
+	 * @param img
+	 * @param xSpeed
+	 
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
@@ -47,6 +35,12 @@ public class AirCurrent extends Collectable {
 		this.img = createImage();
 		this.setType(Type.AIRCURRENT);
 	}
+	
+	/**
+	 * moves aircurrent according to it's xSpeed and loops it back around if it goes
+	 * off screen
+	 * @author tim Mazzarelli
+	 */
 	
 	public void move() {
 		this.hitbox.translate(this.xSpeed, 0);
@@ -59,6 +53,12 @@ public class AirCurrent extends Collectable {
 			
 		}
 	}
+	
+	/**
+	 * handles collision with osprey
+	 * @param o
+	 * @author tim Mazzarelli
+	 */
 	
 	@Override
 	public void handleCollision(Osprey o) {
@@ -87,24 +87,6 @@ public class AirCurrent extends Collectable {
 	}
 
 	
-
-	public String getDirection() {
-		return direction;
-	}
-
-
-	public void setDirection(String direction) {
-		this.direction = direction;
-	}
-
-
-	public boolean isOnScreen() {
-		return onScreen;
-	}
-
-
-	public void setOnScreen(boolean onScreen) {
-		this.onScreen = onScreen;
-	}
+	
 }
 

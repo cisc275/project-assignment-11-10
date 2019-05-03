@@ -17,13 +17,10 @@ public class Bush extends NonControllable {
 	/**
 	 * @param y
 	 * @param x
-	 * @param imgPose
 	 * @param width
 	 * @param height
-	 * @param xMin
-	 * @param xMax
-	 * @param yMin
-	 * @param yMax
+	 * @param hitbox
+	 * @param img
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
@@ -32,6 +29,7 @@ public class Bush extends NonControllable {
 		super(x,y,width,height, hitbox, img);
 		this.setType(Type.BUSH);
 	}
+	
 	/**
 	 * calls ClapperRail handleCollision passing in this
 	 * @param cr
@@ -42,15 +40,25 @@ public class Bush extends NonControllable {
 		cr.hidden = true;
 	}
 	
+	
+	/**
+	 * handles collision with fox (prevents it from entering
+	 * @param f
+	 * @author Tim 
+	 */
+	
 	@Override
 	public void handleCollision(Fox f) {
 		f.xSpeed = -f.xSpeed;
 		f.ySpeed = -f.ySpeed;
-		System.out.println(f.xSpeed);
-		System.out.println(f.ySpeed);
+		
 		
 	}
 	
+	/**
+	 * creates bush image
+	 * 
+	 */
 	
 	public BufferedImage getImage() {
 		BufferedImage buffImg;

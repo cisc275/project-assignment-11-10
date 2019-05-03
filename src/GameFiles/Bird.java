@@ -21,19 +21,10 @@ public class Bird extends Controllable{
 	/**
 	 * @param y
 	 * @param x
-	 * @param imgPose
 	 * @param width
 	 * @param height
-	 * @param xMin
-	 * @param xMax
-	 * @param yMin
-	 * @param yMax
-	 * @param speed
-	 * @param type
-	 * 
-	 * a constructor that takes values for all fields as input parameters
-	 * @param isDiving 
-	 * @param currY 
+	 * @param hitbox
+	 * @param img
 	 */
 	
 

@@ -10,25 +10,23 @@ import java.io.File;
  */
 public class Controllable extends GameObject {
 	
+
 	
 	/**
 	 * @param y
 	 * @param x
-	 * @param imgPose
 	 * @param width
 	 * @param height
 	 * @param hitbox 
 	 * @param img 
-	 * @param xMin
-	 * @param xMax
-	 * @param yMin
-	 * @param yMax
-	 * @param speed
-	 
-	 */
+		
+		
+		Constructor for controllable object
+	 */ 
 
 	public Controllable(int x, int y, int width, int height, Polygon hitbox, BufferedImage img) {
 		super(x,y,width,height, hitbox, img);
+		
 	}
 
 	
