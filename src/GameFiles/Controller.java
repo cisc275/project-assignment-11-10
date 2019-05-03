@@ -28,8 +28,7 @@ public class Controller implements KeyListener, ActionListener{
 	String selected;
 	ArrayList<GameObject> game;
 	Osprey o;
-	boolean cr = false;
-	boolean os = false;
+	
 	
 	public Controller(String selection) {
 		
