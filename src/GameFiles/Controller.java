@@ -47,8 +47,8 @@ public class Controller implements KeyListener, ActionListener{
 			//c = ((TopDownModel)model).cr;
 			game.add(((TopDownModel)model).cr);
 			game.add(((TopDownModel)model).f);
-			game.add(new Stick(800,800,100,100,new Polygon(),model.createImage4(),5));
-			game.add(new Bush(500, 550,200,200,new Polygon(),model.createImage2()));
+			game.add(new Stick(300,300,100,100,new Polygon(),model.createImage4(), 0, 0));
+			game.add(new Bush(500, 550,100,100,new Polygon(),model.createImage2()));
 			game.add(new Bush(0, -60,100,100,new Polygon(),model.createImage2()));
 			view = new TopDownView(game);
 			view.addKeyListener(this);

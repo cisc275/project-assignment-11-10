@@ -19,24 +19,26 @@ public class Osprey extends Bird {
 	
 	static double xSpeed;
 	int ySpeed;
+	// for storing y before diving
 	int currY;
 	boolean isDiving;
 	final double AC = 1;
 	final int DIVESPEED = 50;
 	static int distance;
+	
 	/**
 	 * @param y
 	 * @param x
 	 * @param width
 	 * @param height
-	 * @param xMin
-	 * @param xMax
-	 * @param yMin
-	 * @param yMax
-	 * @param speed
-	 * @param type
+	 * @param hitbox
+	 * @param img
+	 * @param xSpeed
+	 * @param ySpeed
+	 * @param isDiving
+	 * @param currY
 	 * 
-	 * a constructor that takes values for all fields as input parameters
+	 * a constructor that takes values for all fields except currY as input parameters
 	 */
 
 	public Osprey(int x, int y, int width, int height, Polygon hitbox, BufferedImage img, double xSpeed, 
@@ -118,7 +120,7 @@ public class Osprey extends Bird {
 		}		
 	}
 	
-	
+	// creates image for Osprey
 	private BufferedImage createImage(){
 		BufferedImage bufferedImage;
 		try {
