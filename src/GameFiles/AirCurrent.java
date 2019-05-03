@@ -56,7 +56,7 @@ public class AirCurrent extends Collectable {
 			this.hitbox.addPoint(x, y + height);
 			this.hitbox.addPoint(x + width, y + height);
 			this.hitbox.addPoint(x + width, y);
-			System.out.println(this.hitbox.getBounds());
+			
 		}
 	}
 	

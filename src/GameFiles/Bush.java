@@ -12,6 +12,7 @@ import javax.imageio.ImageIO;
  *
  */
 public class Bush extends NonControllable {
+	
 
 	/**
 	 * @param y
@@ -26,14 +27,7 @@ public class Bush extends NonControllable {
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
-	/*
-	 (int y, int x, File imgPose, int width, int height,
-	int xMin, int xMax, int yMin, int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed)
-	 */
-//	public Bush(int y, int x, File imgPose, int width, int height,
-//			int xMin, int xMax, int yMin, int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed) {
-//		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, isDiving, currY, xSpeed, ySpeed);
-//	}
+	
 	public Bush(int x, int y, int width, int height,Polygon hitbox, BufferedImage img) {
 		super(x,y,width,height, hitbox, img);
 		this.setType(Type.BUSH);
@@ -43,9 +37,18 @@ public class Bush extends NonControllable {
 	 * @param cr
 	 * @author andrew thompson
 	 */
+	@Override
 	public void handleCollision(ClapperRail cr) {
-		cr.handleCollision(this);
+		cr.hidden = true;
 	}
+	
+	@Override
+	public void handleCollision(Fox f) {
+		f.xSpeed = -f.xSpeed;
+		f.ySpeed = - f.ySpeed;
+		
+	}
+	
 	
 	public BufferedImage getImage() {
 		BufferedImage buffImg;

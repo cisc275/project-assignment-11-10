@@ -257,6 +257,18 @@ public class GameObject {
 	}
 
 
+	public void handleCollision(ClapperRail cr) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void handleCollision(Fox f) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
  	
 	
 }

@@ -17,7 +17,7 @@ public class ClapperRail extends Bird {
 	/**
 	 * describes if the bird's coordinates matches with that of a bush on screen
 	 */
-	boolean hidden; 
+	boolean hidden = false; 
 	/**
 	 * describes if the bird has a stick
 	 */
@@ -40,9 +40,15 @@ public class ClapperRail extends Bird {
   
 	public void move() {
 		this.hitbox.translate(this.xSpeed, this.ySpeed);
-		
 	}
-	public boolean isHidden() {
+	
+	
+	
+	public boolean isHidden(Bush b) {
+		if (this.collidesWith(b)) {
+			hidden = true;
+		}
+		else hidden = false;
 		return hidden;
 	}
 
@@ -58,17 +64,14 @@ public class ClapperRail extends Bird {
 		this.carryStick = carryStick;
 	}
 	
-	public void handleCollision(Stick stick) {
-		System.out.println("handling collision with stick");
-	}
-	public void handleCollision(Bush bush) {
-		System.out.println("handling collision with bush");
-	}
-	public void handleCollision(Fish fish) {
-		System.out.println("handling collision with fish");
-	}
+	
 	public void handleCollision(Fox fox) {
-		System.out.println("handling collision with fox");
+		this.hitbox.reset();
+		this.hitbox.addPoint(x, y);
+		this.hitbox.addPoint(x, y + height);
+		this.hitbox.addPoint(x + width, y + height);
+		this.hitbox.addPoint(x + width, y);
+	
 	}
 	
 	
@@ -77,12 +80,15 @@ public class ClapperRail extends Bird {
 	 * @author andrew thompson
 	 */
 	@Override
-	public void collision(ArrayList<GameObject> gameObjects) {
-		for(GameObject g: gameObjects) {
-			g.handleCollision(this);
-		}
+	public void collision(ArrayList<GameObject> g) {
+		for (GameObject a : g) {
+			if (this.collidesWith(a)){
+				a.handleCollision(this);
+			
+			}
+		}		
 	}
-
+	
 
 	/**
 	 * @return the xSpeed

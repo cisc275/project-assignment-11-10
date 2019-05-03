@@ -26,14 +26,13 @@ public class TopDownModel extends Model {
    
     
     public TopDownModel() {
-    	cr = new ClapperRail(400,200,100,300,new Polygon(),super.createImage2(), 0, 0);
-    	f = new Fox(200,200,100,300,new Polygon(), super.createImage2(), 3, 3, cr);
+    	cr = new ClapperRail(400,200,100,100,new Polygon(),super.createImage(), 0, 0);
+    	f = new Fox(200,200,100,100,new Polygon(), super.createImage2(), 3, 3, cr);
 		game = new ArrayList<GameObject>();
 		game.add(cr);
 		game.add(f);
 		
     }
-    
     
     
     /**
@@ -44,7 +43,8 @@ public class TopDownModel extends Model {
     public void updateLocation(ArrayList<GameObject> g) {
     	for (GameObject a : g) {
 			a.move();
-			a.collision(g);
+			a.collision(g);		
+			
 		}
     }
     
@@ -56,12 +56,7 @@ public class TopDownModel extends Model {
      * checks all Game objects against all others in the game, calls polymorphic collision expressions 
      * when there is an intersection (not implemented yet)
      */
-    public void collision(ArrayList<GameObject> gme) {
-    	System.out.println(gme);
-    	for(GameObject g: gme) {
-    		g.collision(gme);
-    	}
-    }
+    
     
   
     /**

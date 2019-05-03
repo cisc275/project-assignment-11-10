@@ -57,19 +57,26 @@ public class TopDownView extends View{
 			super.paintComponent(g);
 			g.setColor(Color.gray);
 			
-			
+			for (GameObject hing : game) {
+				g.drawPolygon(hing.hitbox);
+			//	g.setClip(hing.hitbox);
+			//	g.drawImage(hing.getImage(),hing.hitbox.xpoints[0] ,hing.hitbox.ypoints[0] , Color.gray, this);
+			}
+	/*		
 			for(GameObject thing : game) {
 				if(thing instanceof Fox) {
 					g.drawImage(thing.getScaledImg(),thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0] , Color.gray, this);
 				}
 				else {
+					g.setClip(thing.hitbox);
 					g.drawImage(thing.getImage(),thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0] , Color.gray, this);
 				}
 			}	
 		}
 
-		
-		public Dimension getPreferredSize() {
+		*/
+		}
+			public Dimension getPreferredSize() {
 			return new Dimension(frameSize, frameSize);
 		}
 	}

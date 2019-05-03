@@ -6,6 +6,7 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
@@ -55,7 +56,7 @@ public class Fox extends Controllable {
 	
 	public double distance() {
 		
-			int xDistance = this.hitbox.xpoints[0] - c.hitbox.xpoints[0];
+		int xDistance = this.hitbox.xpoints[0] - c.hitbox.xpoints[0];
 		
 		
 		int	yDistance = this.hitbox.ypoints[0] - c.hitbox.ypoints[0];
@@ -65,6 +66,27 @@ public class Fox extends Controllable {
 	
 		
 	}
+	
+	@Override
+	public void collision(ArrayList<GameObject> g) {
+		for (GameObject a : g) {
+			if (this.collidesWith(a)){
+				a.handleCollision(this);
+
+			}
+		}		
+	}
+	
+	public void handleCollision(ClapperRail c) {
+		c.hitbox.reset();
+		c.hitbox.addPoint(x, y);
+		c.hitbox.addPoint(x, y + height);
+		c.hitbox.addPoint(x + width, y + height);
+		c.hitbox.addPoint(x + width, y);
+	
+	}
+	
+	
 
 	@Override
 	public void move() {
@@ -95,7 +117,5 @@ public class Fox extends Controllable {
 	 * @param cr
 	 * @author andrew thompson
 	 */
-	public void handleCollision(ClapperRail cr) {
-		cr.handleCollision(this);
-	}
+	
 }
