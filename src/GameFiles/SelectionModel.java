@@ -9,9 +9,6 @@ public class SelectionModel extends Model {
 	boolean scroll = false;
 	boolean td = false;
 	
-	public SelectionModel() {
-		
-	}
 	
 	
 	public static void main(String[] args) {

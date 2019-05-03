@@ -74,6 +74,7 @@ public class Controller implements KeyListener, ActionListener{
 			
 			view = new SideScrollView(game, backOne, backTwo);
 			view.addKeyListener(this);
+			this.sideScrollStart();
 			
 		}
 	}
@@ -113,16 +114,14 @@ public class Controller implements KeyListener, ActionListener{
 	@Override 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == SelectionView.clapperRail) {
-			Controller c = new Controller("topDown");
+			new Controller("topDown");
 		}
 		else {
-        	Controller c = new Controller("sideScroll");
-			c.sideScrollStart();
+        	new Controller("sideScroll");
 			
         }
 		
 	}
-	
 	
 	@Override
 	public void keyTyped(KeyEvent e) {
