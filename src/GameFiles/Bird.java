@@ -15,9 +15,8 @@ public class Bird extends Controllable{
 	 */
 	Type type; 
 	
-	final private int INIT_BIRD_SPEED = 10;
 	final private int MOVE_AMOUNT = 10;
-	private int birdSpeed;
+	
 	
 	/**
 	 * @param y
@@ -39,16 +38,12 @@ public class Bird extends Controllable{
 	
 
 	
-
 	public Bird(int x, int y, int width, int height, Polygon hitbox, BufferedImage img) {
 		super(x,y,width, height, hitbox, img);
-		birdSpeed = INIT_BIRD_SPEED;
+		
 	}
 	
 	
-	public void move() {
-		x = x + birdSpeed; 
-	}
 
 	public Type getType() {
 		return type;
@@ -57,12 +52,7 @@ public class Bird extends Controllable{
 	public void setType(Type type) {
 		this.type = type;
 	}
-	public int getBirdSpeed() {
-		return birdSpeed;
-	}
-	public void setBirdSpeed(int birdSpeed) {
-		this.birdSpeed = birdSpeed;
-	}
+	
 
 
 	/**
