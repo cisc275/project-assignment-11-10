@@ -18,16 +18,11 @@ public class Trash extends Collectable {
 	/**
 	 * @param y
 	 * @param x
-	 * @param imgPose
 	 * @param width
 	 * @param height
-	 * @param xMin
-	 * @param xMax
-	 * @param yMin
-	 * @param yMax
-	 * @param id
-	 * @param benefit
-	 * @param type
+	 * @param hitbox
+	 * @param img
+	 * @param xSpeed
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
@@ -38,18 +33,6 @@ public class Trash extends Collectable {
 		this.setType(Type.TRASH);
 	}
 	
-	public void move() {
-		this.hitbox.translate(this.xSpeed, 0);
-		if((this.hitbox.xpoints[3] <= 0)) {
-			this.hitbox.reset();
-			this.hitbox.addPoint(x, y);
-			this.hitbox.addPoint(x, y + height);
-			this.hitbox.addPoint(x + width, y + height);
-			this.hitbox.addPoint(x + width, y);
-			System.out.println(this.hitbox.getBounds());
-				
-		}
-	}
 	
 	@Override
 	public void handleCollision(Osprey o) {

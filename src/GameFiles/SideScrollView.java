@@ -80,7 +80,7 @@ public class SideScrollView extends View{
 		
 	    	for (GameObject thing : game) {
 	    		g.setClip(thing.hitbox);
-		    	g.drawImage(thing.getImage(),thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], Color.gray, this);
+		    	g.drawImage(thing.getScaledImg(), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], Color.gray, this);
 	    	}
 		}
 			else {
