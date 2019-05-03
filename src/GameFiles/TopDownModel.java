@@ -23,28 +23,7 @@ public class TopDownModel extends Model {
     final int RIGHT_BOUND = 800;
     final int CLOCK_TICK_CHECK = 100;
     
-    /**
-     * 
-     * @return a random integer from 1 to 5
-     * calculates a random integer for the foxes movement on the x axis
-     */
-    public int foxxDirection() {
-    	Random rand = new Random();
-    	return rand.nextInt(5);
-    }
-    
-    
-    /**
-     * 
-     * @return a random integer from 1 to 5
-     * calculates a random integer for the foxes movement on the y axis
-     */
-    public int foxyDirection() {
-    	Random rand = new Random();
-    	return rand.nextInt(5);
-    }
-
-
+   
     
     public TopDownModel() {
     	cr = new ClapperRail(400,200,100,300,new Polygon(),super.createImage2(), 0, 0);

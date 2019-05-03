@@ -13,14 +13,8 @@ public class SelectionModel extends Model {
 		
 	}
 	
-	public void whatGame(String game) {
-		if (game.equals(game1)) {	
-			scroll = true;
-			td = false;
-		}
-		if (game.equals(game2)) {
-			td = true;
-			scroll = false;
-		}
+	
+	public static void main(String[] args) {
+		Controller c = new Controller("sel");	
 	}
 }

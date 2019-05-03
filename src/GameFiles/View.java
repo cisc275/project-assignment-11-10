@@ -27,7 +27,13 @@ public class View extends JFrame {
 	public void updateView(ArrayList<GameObject> game) {
 		
 	}
-	public void addKeyListener(Controller c) {}
+	public void addKeyListener(Controller c) {
+		
+	}
+	
+	public void addActionListener(Controller c) {
+		
+	}
 
 	
 }

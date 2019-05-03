@@ -20,7 +20,7 @@ import javax.swing.Timer;
 
 
 
-public class Controller implements KeyListener{
+public class Controller implements KeyListener, ActionListener{
 	private Model model;
 	private View view;
 	private Timer time;
@@ -28,11 +28,19 @@ public class Controller implements KeyListener{
 	String selected;
 	ArrayList<GameObject> game;
 	Osprey o;
-	//ClapperRail c;
-
+	boolean cr = false;
+	boolean os = false;
 	
 	public Controller(String selection) {
+		
 		selected = selection;
+		
+		if (selected.equals("sel")){
+			view = new SelectionView();
+			view.addActionListener(this);
+		}
+
+		
 		if(selected.equals("topDown")) {
 			game = new ArrayList<GameObject>();
 			model = new TopDownModel();
@@ -44,6 +52,7 @@ public class Controller implements KeyListener{
 			game.add(new Bush(0, -60,100,300,new Polygon(),model.createImage2()));
 			view = new TopDownView(game);
 			view.addKeyListener(this);
+			this.topDownStart();
 
 		}
 		else if(selected.equals("sideScroll")) {
@@ -66,15 +75,8 @@ public class Controller implements KeyListener{
 			view = new SideScrollView(game, backOne, backTwo);
 			view.addKeyListener(this);
 			
-			
-		}
-		for(GameObject g:game) {
-			System.out.println(g);
 		}
 	}
-	
-	
-	
 	
 	/**
 	 * starts timers and actions for topDown
@@ -91,9 +93,7 @@ public class Controller implements KeyListener{
     	time.start();
 	}
 	
-	
-	
-	
+		
 	/**
 	 * starts timers and actions for sideScroll
 	 */
@@ -110,6 +110,18 @@ public class Controller implements KeyListener{
 	}
 
 	
+	@Override 
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == SelectionView.clapperRail) {
+			Controller c = new Controller("topDown");
+		}
+		else {
+        	Controller c = new Controller("sideScroll");
+			c.sideScrollStart();
+			
+        }
+		
+	}
 	
 	
 	@Override
