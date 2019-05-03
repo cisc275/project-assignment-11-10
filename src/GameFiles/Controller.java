@@ -60,16 +60,26 @@ public class Controller implements KeyListener, ActionListener{
 			Background backTwo = new Background(backOne.getImageWidth(), 0);
 			o = new Osprey(100, 100, 50, 50, new Polygon(), null, -5, 0, false);
 			Trash t = new Trash(850, 650, 50, 50, new Polygon(), null,  -4);
+			Trash t2 = new Trash(900, 650, 50, 50, new Polygon(), null,  -8);
 			Fish f = new Fish(800, 650, 50, 50, new Polygon(), null, -10);
+			Fish f2 = new Fish(1000, 650, 50, 50, new Polygon(), null, -5);
+			Fish f3 = new Fish(1200, 650, 50, 50, new Polygon(), null, -8);
 			AirCurrent a = new AirCurrent(900, 150, 50, 50, new Polygon(), null, -3);
+			AirCurrent a2 = new AirCurrent(1500, 300, 50, 50, new Polygon(), null, -8);
+			AirCurrent a3 = new AirCurrent(1300, 420, 50, 50, new Polygon(), null, -6);
 			Mate m = new Mate(1000, 200, 50, 50, new Polygon(), null, -1, false);
 			game = new ArrayList<GameObject>();
 			game.add(o);
 			game.add(f);
+			game.add(f2);
+			game.add(f3);
 			game.add(t);
+			game.add(t2);
 			game.add(a);
+			game.add(a2);
+			game.add(a3);
 			game.add(m);
-			
+	
 			model = new SideScrollModel();
 			
 			view = new SideScrollView(game, backOne, backTwo);
