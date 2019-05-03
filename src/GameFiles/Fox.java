@@ -90,15 +90,12 @@ public class Fox extends Controllable {
 
 	@Override
 	public void move() {
+		this.hitbox.translate((int) this.xSpeed, (int) this.ySpeed);
 		this.xSpeed = ((c.hitbox.xpoints[0] - this.hitbox.xpoints[0]) * 
 				(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());
 		this.ySpeed = ((c.hitbox.ypoints[0] - this.hitbox.ypoints[0]) * 
 				(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());
 		
-		this.hitbox.translate((int) this.xSpeed, (int) this.ySpeed);
-
-		
-
 	}
 	
 	/**
