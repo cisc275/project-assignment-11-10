@@ -36,23 +36,6 @@ public class AirCurrent extends Collectable {
 		this.setType(Type.AIRCURRENT);
 	}
 	
-	/**
-	 * moves aircurrent according to it's xSpeed and loops it back around if it goes
-	 * off screen
-	 * @author tim Mazzarelli
-	 */
-	
-	public void move() {
-		this.hitbox.translate(this.xSpeed, 0);
-		if((this.hitbox.xpoints[3] <= 0)) {
-			this.hitbox.reset();
-			this.hitbox.addPoint(x, y);
-			this.hitbox.addPoint(x, y + height);
-			this.hitbox.addPoint(x + width, y + height);
-			this.hitbox.addPoint(x + width, y);
-			
-		}
-	}
 	
 	/**
 	 * handles collision with osprey

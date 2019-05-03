@@ -44,7 +44,7 @@ public class Bush extends NonControllable {
 	/**
 	 * handles collision with fox (prevents it from entering
 	 * @param f
-	 * @author Tim 
+	 * @author Tim Mazzarelli
 	 */
 	
 	@Override

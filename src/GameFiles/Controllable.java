@@ -10,8 +10,6 @@ import java.io.File;
  */
 public class Controllable extends GameObject {
 	
-
-	
 	/**
 	 * @param y
 	 * @param x

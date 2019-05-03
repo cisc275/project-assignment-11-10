@@ -25,17 +25,15 @@ public class Bird extends Controllable{
 	 * @param height
 	 * @param hitbox
 	 * @param img
+	 * 
+	 * constructor
 	 */
-	
-
 	
 	public Bird(int x, int y, int width, int height, Polygon hitbox, BufferedImage img) {
 		super(x,y,width, height, hitbox, img);
 		
 	}
 	
-	
-
 	public Type getType() {
 		return type;
 	}
@@ -43,7 +41,6 @@ public class Bird extends Controllable{
 	public void setType(Type type) {
 		this.type = type;
 	}
-	
 
 
 	/**

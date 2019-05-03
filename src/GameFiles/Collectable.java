@@ -34,6 +34,19 @@ public class Collectable extends GameObject {
 		super(x,y,width,height, hitbox, img);
 		this.xSpeed = xSpeed;
 	}
+	
+	// all collectables move according to xSpeed and will loop back around if need be
+	
+	public void move() {
+		this.hitbox.translate(this.xSpeed, 0);
+		if((this.hitbox.xpoints[3] <= 0)) {
+			this.hitbox.reset();
+			this.hitbox.addPoint(x, y);
+			this.hitbox.addPoint(x, y + height);
+			this.hitbox.addPoint(x + width, y + height);
+			this.hitbox.addPoint(x + width, y);
+		}
+	}
 
 
 	public void handleCollision(Osprey o) {

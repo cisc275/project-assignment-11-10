@@ -41,6 +41,7 @@ public class Controller implements KeyListener, ActionListener{
 
 		
 		if(selected.equals("topDown")) {
+			// clapper rail game
 			game = new ArrayList<GameObject>();
 			model = new TopDownModel();
 			//c = ((TopDownModel)model).cr;
@@ -54,6 +55,7 @@ public class Controller implements KeyListener, ActionListener{
 			this.topDownStart();
 
 		}
+		// sideScroll game
 		else if(selected.equals("sideScroll")) {
 			Background backOne = new Background();
 			Background backTwo = new Background(backOne.getImageWidth(), 0);
@@ -79,8 +81,7 @@ public class Controller implements KeyListener, ActionListener{
 			game.add(a3);
 			game.add(m);
 	
-			model = new SideScrollModel();
-			
+			model = new SideScrollModel();		
 			view = new SideScrollView(game, backOne, backTwo);
 			view.addKeyListener(this);
 			this.sideScrollStart();
@@ -119,9 +120,15 @@ public class Controller implements KeyListener, ActionListener{
     	time.start();
 	}
 
+	/**
+	 * decides which button to follow
+	 * @param e
+	 * @author Tim Mazzarelli
+	 */
 	
 	@Override 
 	public void actionPerformed(ActionEvent e) {
+		
 		if (e.getSource() == SelectionView.clapperRail) {
 			new Controller("topDown");
 		}
@@ -137,6 +144,8 @@ public class Controller implements KeyListener, ActionListener{
 		
 	}
 
+	// sets speed according to game input
+	
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode() == 39) { //right arrow key
@@ -179,7 +188,6 @@ public class Controller implements KeyListener, ActionListener{
 				o.dive();
 			}
 
-		
 	}
 	}	
 

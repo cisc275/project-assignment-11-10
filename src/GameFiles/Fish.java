@@ -18,16 +18,11 @@ public class Fish extends Collectable {
 	/**
 	 * @param y
 	 * @param x
-	 * @param imgPose
 	 * @param width
 	 * @param height
-	 * @param xMin
-	 * @param xMax
-	 * @param yMin
-	 * @param yMax
-	 * @param id
-	 * @param benefit
-	 * @param type
+	 * @param hitbox
+	 * @param img
+	 * @param xSpeed
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
@@ -38,16 +33,7 @@ public class Fish extends Collectable {
 		this.setType(Type.FISH);
 	}
 	
-	public void move() {
-		this.hitbox.translate(this.xSpeed, 0);
-		if((this.hitbox.xpoints[3] <= 0)) {
-			this.hitbox.reset();
-			this.hitbox.addPoint(x, y);
-			this.hitbox.addPoint(x, y + height);
-			this.hitbox.addPoint(x + width, y + height);
-			this.hitbox.addPoint(x + width, y);
-		}
-	}
+
 	/**
 	 * calls ClapperRail handleCollision passing in this
 	 * @param cr
@@ -57,7 +43,10 @@ public class Fish extends Collectable {
 		cr.handleCollision(this);
 	}
 
-	
+	/** handles fish collision with osprey
+	 * @param o
+	 * @author Timothy Mazzarelli
+	 */
 	
 	@Override
 	public void handleCollision(Osprey o) {
@@ -71,6 +60,8 @@ public class Fish extends Collectable {
 		}
 			else {};
 		}
+	
+	// creates image for fish
 	
 	private BufferedImage createImage(){
 		BufferedImage bufferedImage;

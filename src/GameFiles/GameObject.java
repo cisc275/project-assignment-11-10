@@ -48,17 +48,10 @@ public class GameObject {
 	/**
 	 * @param y
 	 * @param x
-	 * @param imgPose
 	 * @param width
 	 * @param height
-	 * @param xMin
-	 * @param xMax
-	 * @param yMin
-	 * @param yMaxa
-	 * @param isDiving
-	 * @param currY
-	 * @param xSpeed
-	 * @param ySpeed
+	 * @param hitbox
+	 * @param img
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
@@ -78,26 +71,6 @@ public class GameObject {
 	
 	
 	/**
-	 * @param imgFileName
-	 * @param hitBox
-	 * @param img
-	 * @param y
-	 * @param x
-	 * @param imgPose
-	 * @param width
-	 * @param height
-	 * @param xMin
-	 * @param xMax
-	 * @param yMin
-	 * @param yMax
-	 * @param isDiving
-	 * @param currY
-	 * @param xSpeed
-	 * @param ySpeed
-	 */
-	
-
-	/**
 	 * 
 	 * @param a
 	 * @return true if there's a collision false otherwise
@@ -106,13 +79,18 @@ public class GameObject {
 	 * taking into consideration each ones width and heights to check whether 
 	 * or not there has been a collision
 	 * 
+	 * @author Timothy Mazzarelli
 	 */
-	
-	public void move() {};
 	
 	public boolean collidesWith(GameObject a) {
 		return this.hitbox.getBounds2D().intersects(a.hitbox.getBounds2D());
 		}
+	
+	/**
+	 * will be defined in subclasses and tell each object how to move
+	 */
+	
+	public void move() {};
 	/**
 	 * 
 	 * parameters: None

@@ -10,16 +10,23 @@ public class Background {
 	 
     private int x;
     private int y;
- 
+    
+   
     public Background() {
         this(0,0);
-    
     }
+    
+    /**
+     * @param x
+     * @param y
+     * 
+     * constructor for Background
+     */
  
     public Background(int x, int y) {
         this.x = x;
         this.y = y;
-       
+        
         // Try to open the image file background.png
         try {
             image = ImageIO.read(new File("background.png"));
@@ -31,23 +38,15 @@ public class Background {
     /**
      * Method that draws the image onto the Graphics object passed
      * @param window
+     * @author Tim Mazzarelli
      */
     public void draw(Graphics window) {
     	
     	if (this.x <= -1 * image.getWidth()) {
-    		 
-            // If it has, line it back up so that its left edge is
-            // lined up to the right side of the other background image
             this.x = this.x + image.getWidth() * 2;
         }
- 
-        // Draw the image onto the Graphics reference
-        window.drawImage(image, getX(), getY(), image.getWidth(), image.getHeight(), null);
- 
-        // Move the x position left for next time
-       
- 
-        
+
+        window.drawImage(image, getX(), getY(), image.getWidth(), image.getHeight(), null);        
  
     }
     
