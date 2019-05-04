@@ -87,7 +87,6 @@ public class Osprey extends Bird {
 	public void move() {
 		this.hitbox.translate(0, this.ySpeed);
 		distance -= Osprey.xSpeed; 
-		System.out.println(distance);
 		if (this.hitbox.ypoints[0] >= 600) {
 			this.ySpeed = -DIVESPEED;
 		}
@@ -124,7 +123,7 @@ public class Osprey extends Bird {
 	private BufferedImage createImage(){
 		BufferedImage bufferedImage;
 		try {
-			bufferedImage = ImageIO.read(new File("birdImage.jpg"));
+			bufferedImage = ImageIO.read(new File("Osprey.jpg"));
 			return bufferedImage;
 		} catch (IOException e) {
 			e.printStackTrace();

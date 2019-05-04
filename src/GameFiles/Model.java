@@ -45,7 +45,7 @@ public class Model {
     	//System.out.println("Im about to try");
     	try {
     		//System.out.println("im trying");
-    		bufferedImage = ImageIO.read(new File("red_square.png"));
+    		bufferedImage = ImageIO.read(new File("cr.png"));
     		
     		//System.out.println("I succeded");
     		return bufferedImage;
@@ -56,17 +56,7 @@ public class Model {
     	return null;
     }
 	
-	public BufferedImage createImage2(){
-		BufferedImage bufferedImage;
-		//System.out.println("i am running");
-    	try {
-    		bufferedImage = ImageIO.read(new File("blue_square.png"));
-    		return bufferedImage;
-    	} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-    	return null;
-	}
+	
 	public BufferedImage createImage3(){
 		BufferedImage bufferedImage;
 		//System.out.println("i am running");

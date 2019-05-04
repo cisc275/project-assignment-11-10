@@ -69,7 +69,7 @@ public class SideScrollView extends View{
 		protected void paintComponent(Graphics g) {
 			if (Mate.caughtUp == false) {
 			super.paintComponent(g);
-			g.setColor(Color.gray);
+			g.setColor(Color.BLUE);
 			Graphics2D twoD = (Graphics2D)g;
 			back = (BufferedImage)(createImage(getWidth(), getHeight()));
 			Graphics buffer = back.createGraphics();
@@ -79,7 +79,7 @@ public class SideScrollView extends View{
 			
 		
 	    	for (GameObject thing : game) {
-	    		g.setClip(thing.hitbox);
+	    		g.setColor(Color.RED);
 		    	g.drawImage(thing.getScaledImg(), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], Color.gray, this);
 	    	}
 		}
