@@ -57,6 +57,9 @@ public class ClapperRail extends Bird {
 	 */
   
 	public void move() {
+		if (this.hitbox.xpoints[0] <= 0) {
+			this.xSpeed = 0;
+		}
 		this.hitbox.translate(this.xSpeed, this.ySpeed);
 	}
 	

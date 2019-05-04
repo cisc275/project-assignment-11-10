@@ -27,7 +27,7 @@ public class TopDownModel extends Model {
     
     public TopDownModel() {
     	cr = new ClapperRail(400,200,100,100,new Polygon(),super.createImage(), 0, 0);
-    	f = new Fox(200,200,100,100,new Polygon(), super.createImage3(), 3, 3, cr);
+    	f = new Fox(200,200,100,100,new Polygon(), null, 3, 3, cr);
 		game = new ArrayList<GameObject>();
 		game.add(cr);
 		game.add(f);
@@ -65,8 +65,8 @@ public class TopDownModel extends Model {
 	 * runs the top down
 	 */
 	public static void main(String[] args) {
-		Controller theControl = new Controller("topDown");
-		theControl.topDownStart();
+		new Controller("topDown");
+		
 	}
 
 	

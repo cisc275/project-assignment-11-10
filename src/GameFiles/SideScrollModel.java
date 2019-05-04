@@ -48,8 +48,8 @@ public class SideScrollModel extends Model {
 	}
 	
 	public static void main(String[] args) {
-		Controller controller = new Controller("sideScroll");
-		controller.sideScrollStart();
+		new Controller("sideScroll");
+		
 		
 	}
 }

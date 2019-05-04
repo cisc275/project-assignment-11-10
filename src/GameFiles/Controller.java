@@ -44,12 +44,14 @@ public class Controller implements KeyListener, ActionListener{
 			// clapper rail game
 			game = new ArrayList<GameObject>();
 			model = new TopDownModel();
-			//c = ((TopDownModel)model).cr;
 			game.add(((TopDownModel)model).cr);
 			game.add(((TopDownModel)model).f);
-			game.add(new Stick(300,300,20,40,new Polygon(),model.createImage4(), 0, 0));
-			game.add(new Bush(500, 550,100,100,new Polygon(),model.createImage3()));
-			game.add(new Bush(0, -60,100,100,new Polygon(),model.createImage3()));
+			game.add(new Stick(300,300,40,80,new Polygon(),model.createImage4(), 0, 0));
+			game.add(new Stick(500, 50 ,40,40,new Polygon(),model.createImage4(), 0, 0));
+			game.add(new Stick(700, 700 ,80,40,new Polygon(),model.createImage4(), 0, 0));
+			game.add(new Bush(500, 550,150,150,new Polygon(),model.createImage3()));
+			game.add(new Bush(600, 20,150,150,new Polygon(),model.createImage3()));
+			game.add(new Bush(20, 450,175,175,new Polygon(),model.createImage3()));
 			view = new TopDownView(game);
 			view.addKeyListener(this);
 			this.topDownStart();

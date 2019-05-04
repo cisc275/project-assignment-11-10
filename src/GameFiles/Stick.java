@@ -44,7 +44,7 @@ public class Stick extends Collectable{
 	
 	
 	public void handleCollision(ClapperRail cr) {
-		if (this.hitbox.xpoints[0] <= 20 && this.hitbox.ypoints[0] <= 20) {
+		if (this.hitbox.xpoints[0] <= 50 && this.hitbox.ypoints[0] <= 50) {
 			this.hitbox.translate(0, 0);
 		}
 		else {
