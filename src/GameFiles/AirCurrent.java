@@ -61,7 +61,7 @@ public class AirCurrent extends Collectable {
 		BufferedImage bufferedImage;
 		//System.out.println("i am running");
     	try {
-    		bufferedImage = ImageIO.read(new File("brown_square.png"));
+    		bufferedImage = ImageIO.read(new File("aircurrent.png"));
     		return bufferedImage;
     	} catch (IOException e) {
     		e.printStackTrace();

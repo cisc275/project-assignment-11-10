@@ -67,7 +67,7 @@ public class Fish extends Collectable {
 		BufferedImage bufferedImage;
 		//System.out.println("i am running");
     	try {
-    		bufferedImage = ImageIO.read(new File("blue_square.png"));
+    		bufferedImage = ImageIO.read(new File("fish_west1.png"));
     		return bufferedImage;
     	} catch (IOException e) {
     		e.printStackTrace();

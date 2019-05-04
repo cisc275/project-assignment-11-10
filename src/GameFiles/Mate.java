@@ -74,7 +74,7 @@ private BufferedImage createImage(){
 	BufferedImage bufferedImage;
 	//System.out.println("i am running");
 	try {
-		bufferedImage = ImageIO.read(new File("red_square.png"));
+		bufferedImage = ImageIO.read(new File("birdImage.jpg"));
 		return bufferedImage;
 	} catch (IOException e) {
 		e.printStackTrace();
