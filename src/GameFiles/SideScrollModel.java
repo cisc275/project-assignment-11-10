@@ -1,8 +1,10 @@
 package GameFiles;
+import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import javax.imageio.ImageIO;
 
@@ -12,16 +14,20 @@ import javax.imageio.ImageIO;
  *
  */
 public class SideScrollModel extends Model {
-		
+	
 	/**
 	 * a list of the buttons in our game
 	 */
 	
 	Background backOne;
 	Background backTwo;
+	Osprey o;
 
 	
 	public SideScrollModel() {
+		o = new Osprey(100, 100, 50, 50, new Polygon(), null, -5, 0, false);
+		game = new ArrayList<GameObject>();
+		game.add(o);
 	}
 	
 	
@@ -31,6 +37,30 @@ public class SideScrollModel extends Model {
 			a.collision(g);
 		}
 		
+	}
+	@Override
+	public void handleMove(HashSet<Integer> keyPresses) {
+		for(Integer key: keyPresses) {
+			if(key.equals(38)) { //up arrow key
+				if ((o.hitbox.xpoints[0] == 0) ||  (o.hitbox.xpoints[0] == 450)) {
+					o.setYSpeed(0);
+				}
+				else {
+					o.setYSpeed(-5);
+				}
+			}
+			else if(key.equals(40)) { //down arrow key
+				if ((o.hitbox.xpoints[0] == 0) ||  (o.hitbox.xpoints[0] == 450)) {
+					o.setYSpeed(0);
+				}
+				else {
+					o.setYSpeed(5);
+				}
+			}
+			else if(key.equals(32)) { //space bar
+				o.dive();
+			}
+		}
 	}
 	/**
 	 * 

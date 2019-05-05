@@ -28,16 +28,16 @@ public class TopDownModel extends Model {
     public void handleMove(HashSet<Integer> keyPresses) {
     	for(Integer key: keyPresses) {
 	    	if(key.equals(39)) { //right arrow key
-					cr.setxSpeed(cr.getMOVE_AMOUNT());
+				cr.setxSpeed(cr.getMOVE_AMOUNT());
 			}
 			else if(key.equals(37)) { //left arrow key
-					cr.setxSpeed(-1*cr.getMOVE_AMOUNT());
+				cr.setxSpeed(-1*cr.getMOVE_AMOUNT());
 			}
 			else if(key.equals(38)) { //up arrow key
-					cr.setySpeed(-1*cr.getMOVE_AMOUNT());
+				cr.setySpeed(-1*cr.getMOVE_AMOUNT());
 			}
 			else if(key.equals(40)) { //down arrow key
-					cr.setySpeed(cr.getMOVE_AMOUNT());
+				cr.setySpeed(cr.getMOVE_AMOUNT());
 			}
     	}
     }

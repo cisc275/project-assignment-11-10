@@ -62,7 +62,6 @@ public class Controller implements KeyListener, ActionListener{
 		else if(selected.equals("sideScroll")) {
 			Background backOne = new Background();
 			Background backTwo = new Background(backOne.getImageWidth(), 0);
-			o = new Osprey(100, 100, 50, 50, new Polygon(), null, -5, 0, false);
 			Trash t = new Trash(850, 650, 50, 50, new Polygon(), null,  -8);
 			Trash t2 = new Trash(900, 650, 50, 50, new Polygon(), null,  -16);
 			Fish f = new Fish(800, 650, 50, 50, new Polygon(), null, -20);
@@ -73,7 +72,8 @@ public class Controller implements KeyListener, ActionListener{
 			AirCurrent a3 = new AirCurrent(1300, 200, 50, 50, new Polygon(), null, -12);
 			Mate m = new Mate(1000, 200, 50, 50, new Polygon(), null, -1, false);
 			game = new ArrayList<GameObject>();
-			game.add(o);
+			model = new SideScrollModel();	
+			game.add(((SideScrollModel)model).o);
 			game.add(f);
 			game.add(f2);
 			game.add(f3);
@@ -83,8 +83,7 @@ public class Controller implements KeyListener, ActionListener{
 			game.add(a2);
 			game.add(a3);
 			game.add(m);
-	
-			model = new SideScrollModel();		
+		
 			view = new SideScrollView(game, backOne, backTwo);
 			view.addKeyListener(this);
 			this.sideScrollStart();
@@ -200,12 +199,14 @@ public class Controller implements KeyListener, ActionListener{
 	@Override
 	public synchronized void keyReleased(KeyEvent e) {
 		keyPresses.remove(e.getKeyCode());
+		System.out.println(keyPresses);
 		model.handleMove(keyPresses);
+		
 		// TODO Auto-generated method stub
-		if(selected.equals("topDown")) {
-			((TopDownModel)model).cr.setxSpeed(0);
-			((TopDownModel)model).cr.setySpeed(0);
-		}
+//		if(selected.equals("topDown")) {
+//			((TopDownModel)model).cr.setxSpeed(0);
+//			((TopDownModel)model).cr.setySpeed(0);
+//		}
 	}
 
 	
