@@ -94,7 +94,7 @@ public class Osprey extends Bird {
 			this.isDiving = !this.isDiving;
 			this.ySpeed = 0;
 		}
-		if ((this.hitbox.ypoints[0] == 480) && (this.isDiving == false)) {
+		if ((this.hitbox.ypoints[0] == 350) && (this.isDiving == false)) {
 			this.ySpeed = 0;
 			
 		}
