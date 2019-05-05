@@ -17,6 +17,8 @@ import javax.swing.Action;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import javafx.scene.layout.Background;
+
 /**
  * View that scrolls sideways for the Osprey game 
  */
