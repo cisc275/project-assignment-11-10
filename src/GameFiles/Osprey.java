@@ -98,8 +98,8 @@ public class Osprey extends Bird {
 			this.ySpeed = 0;
 			
 		}
-		if ((this.hitbox.ypoints[0] == 0)) {
-			this.ySpeed = 0;
+		if ((this.hitbox.ypoints[0] <= 0)) {
+			this.ySpeed = -2 * this.ySpeed;
 		}
 		
 	}
