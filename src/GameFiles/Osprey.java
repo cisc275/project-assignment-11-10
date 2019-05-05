@@ -26,6 +26,7 @@ public class Osprey extends Bird {
 	final int DIVESPEED = 50;
 	static int distance;
 	
+	
 	/**
 	 * @param y
 	 * @param x
@@ -71,11 +72,15 @@ public class Osprey extends Bird {
 	 * @author tim Mazzarelli
 	 */
 	public void dive() {
+		if (this.hitbox.xpoints[0] >= 350) {
+		}
+		else {
 		this.isDiving = !this.isDiving;
 		this.ySpeed = DIVESPEED;
 		this.currY = this.hitbox.ypoints[0];
 		this.hitbox.translate(0, this.ySpeed);
 		}
+	}
 	
 	/**
 	 * moves the osprey according to location and ySpeed determined by key inputs
