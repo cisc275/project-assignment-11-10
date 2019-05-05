@@ -26,6 +26,7 @@ public class Osprey extends Bird {
 	final int DIVESPEED = 50;
 	static int distance;
 	
+	
 	/**
 	 * @param y
 	 * @param x
