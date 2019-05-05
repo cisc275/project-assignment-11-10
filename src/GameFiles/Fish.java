@@ -56,9 +56,10 @@ public class Fish extends Collectable {
 		this.hitbox.addPoint(x + width, y + height);
 		this.hitbox.addPoint(x + width, y);
 		if (Osprey.xSpeed >= -10) {
-			o.setXSpeed(Osprey.getXSpeed() - AC);
+			o.setXSpeed((Osprey.getXSpeed() - AC));
 		}
-			else {};
+			else {o.setXSpeed(-10);
+			};
 		}
 	
 	// creates image for fish

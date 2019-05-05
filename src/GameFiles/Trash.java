@@ -42,9 +42,9 @@ public class Trash extends Collectable {
 		this.hitbox.addPoint(x + width, y + height);
 		this.hitbox.addPoint(x + width, y);
 		if (Osprey.xSpeed <= -2) {
-		o.setXSpeed(Osprey.getXSpeed() + AC);
+		o.setXSpeed((Osprey.getXSpeed() + AC));
 		}
-		else {};
+		else {o.setXSpeed(-2);};
 	}
 	
 	private BufferedImage createImage(){
