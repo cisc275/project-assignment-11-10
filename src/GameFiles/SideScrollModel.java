@@ -6,8 +6,6 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
-import javafx.scene.layout.Background;
-
 
 /**
  * all logic for the side scroll game
