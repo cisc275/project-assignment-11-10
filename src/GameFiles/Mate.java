@@ -43,7 +43,7 @@ public class Mate extends Bird {
 	 */
 
 	public void move() {
-		if (Osprey.distance >= 500) {
+		if (Osprey.distance >= 2000) {
 			this.hitbox.translate(this.xSpeed, 0);
 		}
 		else {
