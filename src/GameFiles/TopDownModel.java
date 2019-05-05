@@ -16,6 +16,7 @@ import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
 public class TopDownModel extends Model {
 	public ClapperRail cr;
     public Fox f;
+    public Nest n;
 
     int count = 0; // used to check clock
     
@@ -45,6 +46,7 @@ public class TopDownModel extends Model {
     public TopDownModel() {
     	cr = new ClapperRail(400,200,100,100,new Polygon(),super.createImage(), 0, 0);
     	f = new Fox(200,200,100,100,new Polygon(), null, 3, 3, cr);
+    	n = new Nest(100, 100, 75, 75, new Polygon(), null, 0);
 		game = new ArrayList<GameObject>();
 		game.add(cr);
 		game.add(f);
