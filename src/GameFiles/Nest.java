@@ -8,11 +8,13 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
+
 
 
 public class Nest extends GameObject{
 	
-	protected int numSticks;
+	protected int numSticks = 0;
 	
 	public Nest(int x, int y, int width, int height, Polygon hitbox, BufferedImage img, int sticks) {
 		super(x,y,width,height,hitbox,img);
@@ -38,6 +40,35 @@ public class Nest extends GameObject{
 		}		
 	}
 	
+	
+	
+	
+	public void drawSticks() {
+		if(numSticks == 1) {
+			try {
+	    		BufferedImage b = ImageIO.read(new File("brown_square.png"));
+	    		super.img = b;
+	    	} catch (IOException e) {
+	    		e.printStackTrace();
+	    	}
+		}
+		else if(numSticks == 2) {
+			try {
+	    		BufferedImage b = ImageIO.read(new File("Trash.png"));
+	    		super.img = b;
+	    	} catch (IOException e) {
+	    		e.printStackTrace();
+	    	}
+		}
+		else if(numSticks == 3) {
+			try {
+	    		BufferedImage b = ImageIO.read(new File("Winner.png"));
+	    		super.img = b;
+	    	} catch (IOException e) {
+	    		e.printStackTrace();
+	    	}
+		}
+	}
 	
 	
 	/**

@@ -61,10 +61,11 @@ public class Stick extends Collectable{
 	
 	
 	public void handleCollision(GameObject n) {
-		System.out.println("*****************************************************stick collide");
-		System.out.println("*****************************************************nest collide");
+		//System.out.println("*****************************************************stick collide");
+		//System.out.println("*****************************************************nest collide");
 		((Nest)n).numSticks += 1;
 		hitbox.reset();
+		((Nest)n).drawSticks();
 	}
 	
 	
