@@ -153,47 +153,7 @@ public class Controller implements KeyListener, ActionListener{
 		keyPresses.add(e.getKeyCode());
 		model.handleMove(keyPresses);
 		System.out.println(keyPresses);
-//		if(e.getKeyCode() == 39) { //right arrow key
-//			if(selected.equals("topDown")) {
-//				((TopDownModel)model).cr.setxSpeed(((TopDownModel)model).cr.getMOVE_AMOUNT());
-//			}
-//		}
-//		else if(e.getKeyCode() == 37) { //left arrow key
-//			if(selected.equals("topDown")) {
-//				((TopDownModel)model).cr.setxSpeed(-((TopDownModel)model).cr.getMOVE_AMOUNT());
-//			}
-//		}
-//		else if(e.getKeyCode() == 38) { //up arrow key
-//			if(selected.equals("topDown")) {
-//				((TopDownModel)model).cr.setySpeed(-((TopDownModel)model).cr.getMOVE_AMOUNT());
-//			}
-//			else if(selected.equals("sideScroll")) {
-//				if ((o.hitbox.xpoints[0] == 0) ||  (o.hitbox.xpoints[0] == 450))
-//				 o.setYSpeed(0);
-//				else {
-//				o.setYSpeed(-5);
-//			}
-//		}
-//		}
-//		else if(e.getKeyCode() == 40) { //down arrow key
-//			if(selected.equals("topDown")) {
-//				((TopDownModel)model).cr.setySpeed(((TopDownModel)model).cr.getMOVE_AMOUNT());
-//			}
-//			else if(selected.equals("sideScroll"))  {
-//				if ((o.hitbox.xpoints[0] == 0) ||  (o.hitbox.xpoints[0] == 450))
-//					 o.setYSpeed(0);
-//					else {
-//					o.setYSpeed(5);
-//				}
-//			}
-//		}
-//		
-//		else if (e.getKeyCode() == 32) {
-//			if (selected.equals("sideScroll")){
-//				o.dive();
-//			}
-//
-//	}
+
 	}	
 
 	@Override
@@ -202,11 +162,7 @@ public class Controller implements KeyListener, ActionListener{
 		System.out.println(keyPresses);
 		model.handleMove(keyPresses);
 		
-		// TODO Auto-generated method stub
-//		if(selected.equals("topDown")) {
-//			((TopDownModel)model).cr.setxSpeed(0);
-//			((TopDownModel)model).cr.setySpeed(0);
-//		}
+		
 	}
 
 	
