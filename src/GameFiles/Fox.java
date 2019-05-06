@@ -101,10 +101,35 @@ public class Fox extends Controllable {
 	@Override
 	public void move() {
 		this.hitbox.translate(2 * (int) this.xSpeed, 2 * (int) this.ySpeed);
-		this.xSpeed = ((c.hitbox.xpoints[0] - this.hitbox.xpoints[0]) * 
+		if(!c.hidden) {
+			this.xSpeed = ((c.hitbox.xpoints[0] - this.hitbox.xpoints[0]) * 
 				(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());
-		this.ySpeed = ((c.hitbox.ypoints[0] - this.hitbox.ypoints[0]) * 
+			this.ySpeed = ((c.hitbox.ypoints[0] - this.hitbox.ypoints[0]) * 
 				(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());	
+		}
+		else {
+			int multX = (int) (Math.random() * 2);
+			int multY = (int) (Math.random() * 2);
+			switch(multX) {
+			case 0 :
+				this.xSpeed *= -1;
+				break;
+			case 1 :
+				break;
+			default :
+				System.out.println("I dont know how random works");
+			}
+			
+			switch(multY) {
+			case 0 :
+				this.ySpeed *= -1;
+				break;
+			case 1 :
+				break;
+			default :
+				System.out.println("I dont know how random works");
+			}
+		}
 	}
 
 	/**
