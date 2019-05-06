@@ -41,7 +41,7 @@ public class Nest extends GameObject{
 	private BufferedImage createImage(){
 		BufferedImage bufferedImage;
     	try {
-    		bufferedImage = ImageIO.read(new File("img/brown_square.png"));
+    		bufferedImage = ImageIO.read(new File("img/nest.png"));
     		return bufferedImage;
     	} catch (IOException e) {
     		e.printStackTrace();
