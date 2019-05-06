@@ -10,11 +10,24 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 /**
  * Super class for every object in the game  
- *
+ * @author wolginm
  */
+
 public class GameObject {
+	
+	/**
+	 *  The string of the file where the image is located
+	 */
 	protected String imgFileName;
+	
+	/**
+	 * The objects hit box
+	 */
 	protected Polygon hitbox;
+	
+	/**
+	 *  The image to be displayed
+	 */
 	protected BufferedImage img;
 	
 	
@@ -101,6 +114,11 @@ public class GameObject {
 	public void collision(ArrayList<GameObject> gameObjects) {}
 	
 	
+	/**
+	 * GameObjects version of this method has no effects.
+	 * 
+	 * @param g Takes the GameObject to handle its collison.
+	 */
 	public void handleCollision(GameObject g) {
 		/*
 		 * There is nothing here.
