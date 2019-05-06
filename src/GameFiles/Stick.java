@@ -71,7 +71,7 @@ public class Stick extends Collectable{
 		BufferedImage bufferedImage;
 		//System.out.println("i am running");
     	try {
-    		bufferedImage = ImageIO.read(new File("img/stick.png"));
+    		bufferedImage = ImageIO.read(new File("img/Stick.png"));
     		return bufferedImage;
     	} catch (IOException e) {
     		e.printStackTrace();
