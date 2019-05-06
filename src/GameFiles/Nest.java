@@ -18,5 +18,32 @@ public class Nest extends GameObject{
 		super(x,y,width,height,hitbox,img);
 		this.numSticks = sticks;
 	}
+	
+	
+	/**
+	 * checks for collisions
+	 * @param an arrayList of GameObjects
+	 * @author Peter Jenny
+	 */
+	public void collision(ArrayList<GameObject> g) {
+		for (GameObject a : g) {
+			if (this.collidesWith(a)){
+				a.handleCollision(this);
+			}
+		}		
+	}
+	
+	
+	
+	/**
+	 * handles collision with stick
+	 * @param a stick
+	 * @author Peter Jenny
+	 */
+	
+	public void handleCollision(Stick s) {
+		numSticks += 1;
+		s.hitbox.reset();
+	}
 
 }

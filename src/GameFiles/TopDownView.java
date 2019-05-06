@@ -22,7 +22,7 @@ import javax.swing.JPanel;
 public class TopDownView extends View{
     DrawPanel drawPanel = new DrawPanel();
     JFrame frame;
-	
+	BufferedImage background = createImage();
     /**
      * 
      * @param Array list of GameObjects
@@ -56,7 +56,8 @@ public class TopDownView extends View{
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			g.setColor(Color.gray);
-			
+			g.drawImage(background, 0, 0, this);
+		
 			for (GameObject hing : game) {	
 				g.setClip(hing.hitbox);
 				g.drawImage(hing.getScaledImg(),hing.hitbox.xpoints[0] ,hing.hitbox.ypoints[0] , Color.gray, this);
@@ -78,6 +79,17 @@ public class TopDownView extends View{
 			public Dimension getPreferredSize() {
 			return new Dimension(frameSize, frameSize);
 		}
+	}
+	
+	private BufferedImage createImage(){
+		BufferedImage bufferedImage;
+		try {
+			bufferedImage = ImageIO.read(new File("cBackground.png"));
+			return bufferedImage;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	/**
