@@ -1,5 +1,7 @@
 package GameFiles;
+import java.awt.Dimension;
 import java.awt.Polygon;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -26,6 +28,12 @@ public class TopDownModel extends Model {
    
     
     public TopDownModel() {
+    	Dimension test = Toolkit.getDefaultToolkit().getScreenSize();
+    	int xtest = test.width;
+    	int ytest = test.height;
+    	System.out.println(test);
+    	System.out.println(xtest);
+    	System.out.println(ytest);
     	cr = new ClapperRail(400,200,100,100,new Polygon(),super.createImage(), 0, 0);
     	f = new Fox(200,200,100,100,new Polygon(), null, 3, 3, cr);
 		game = new ArrayList<GameObject>();

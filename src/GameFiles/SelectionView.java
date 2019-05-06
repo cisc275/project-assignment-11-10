@@ -38,10 +38,13 @@ public class SelectionView extends View {
 		this.setVisible(true);
 	}
 	
-	public void addActionListener(Controller controller) {
-		osprey.addActionListener(controller);
-		clapperRail.addActionListener(controller);
+
+	
+	public void addKeyListener(Controller controller) {
+		osprey.addKeyListener(controller);
+		clapperRail.addKeyListener(controller);
 	}
+	
 	public static void main(String[] args) {
 		View sv = new SelectionView();
 	}

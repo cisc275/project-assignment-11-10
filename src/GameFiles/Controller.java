@@ -20,7 +20,7 @@ import javax.swing.Timer;
 
 
 
-public class Controller implements KeyListener, ActionListener{
+public class Controller implements KeyListener{
 	private Model model;
 	private View view;
 	private Timer time;
@@ -36,7 +36,7 @@ public class Controller implements KeyListener, ActionListener{
 		
 		if (selected.equals("sel")){
 			view = new SelectionView();
-			view.addActionListener(this);
+			view.addKeyListener(this);
 		}
 
 		
@@ -128,22 +128,10 @@ public class Controller implements KeyListener, ActionListener{
 	 * @author Tim Mazzarelli
 	 */
 	
-	@Override 
-	public void actionPerformed(ActionEvent e) {
-		
-		if (e.getSource() == SelectionView.clapperRail) {
-			new Controller("topDown");
-		}
-		else {
-        	new Controller("sideScroll");
-			
-        }
-		
-	}
+
 	
 	@Override
 	public void keyTyped(KeyEvent e) {
-		
 	}
 
 	// sets speed according to game input
@@ -154,10 +142,18 @@ public class Controller implements KeyListener, ActionListener{
 			if(selected.equals("topDown")) {
 				((TopDownModel)model).cr.setxSpeed(((TopDownModel)model).cr.getMOVE_AMOUNT());
 			}
+			else if (selected.equals("sel")) {
+				new Controller("topDown");
+				view.dispose();
+			}
 		}
 		else if(e.getKeyCode() == 37) { //left arrow key
 			if(selected.equals("topDown")) {
 				((TopDownModel)model).cr.setxSpeed(-((TopDownModel)model).cr.getMOVE_AMOUNT());
+			}
+			else if(selected.equals("sel")) {
+	        	new Controller("sideScroll");
+				view.dispose();
 			}
 		}
 		else if(e.getKeyCode() == 38) { //up arrow key
@@ -195,6 +191,8 @@ public class Controller implements KeyListener, ActionListener{
 
 	@Override
 	public void keyReleased(KeyEvent e) {
+		//System.out.println("anything?");
+
 		// TODO Auto-generated method stub
 		if(selected.equals("topDown")) {
 			((TopDownModel)model).cr.setxSpeed(0);
