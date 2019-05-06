@@ -14,10 +14,7 @@ import javax.imageio.ImageIO;
  *
  */
 public class SideScrollModel extends Model {
-	
-	/**
-	 * a list of the buttons in our game
-	 */
+
 	
 	Background backOne;
 	Background backTwo;
