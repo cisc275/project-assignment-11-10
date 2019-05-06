@@ -76,7 +76,7 @@ public class Bush extends NonControllable {
 	public BufferedImage getImage() {
 		BufferedImage buffImg;
 		try {
-    		buffImg = ImageIO.read(new File("img/bush.jpg"));
+    		buffImg = ImageIO.read(new File("img/bush.png"));
     		return buffImg;
 		} catch (IOException e) {
     		e.printStackTrace();
