@@ -74,7 +74,7 @@ private BufferedImage createImage(){
 	BufferedImage bufferedImage;
 	//System.out.println("i am running");
 	try {
-		bufferedImage = ImageIO.read(new File("img/Tharvey.png"));
+		bufferedImage = ImageIO.read(new File("img/PolyHarvey.png"));
 		return bufferedImage;
 	} catch (IOException e) {
 		e.printStackTrace();
