@@ -17,7 +17,7 @@ public class Stick extends Collectable{
 	/**
 	 * the number of sticks the that have been collected
 	 */
-	static int count; 
+	static int count = 0; 
 	/**
 	 * whether or not the bird is holding the stick
 	 */
@@ -58,12 +58,14 @@ public class Stick extends Collectable{
 		if (this.collidesWith(n)) {
 			this.hitbox.reset();
 			n.hitbox.reset();
+			count++;
 			n.height = n.height + 30;
 			n.width = n.width + 30;
 			n.hitbox.addPoint(n.x, n.y);
 			n.hitbox.addPoint(n.x , n.y + n.height);
 			n.hitbox.addPoint(n.x + n.width,n.y + n.height);
 			n.hitbox.addPoint(n.x + n.width, n.y);
+			
 		}
 	}
 	

@@ -107,6 +107,11 @@ public class Controller implements KeyListener, ActionListener{
     		public void actionPerformed(ActionEvent e){
     			model.updateLocation(game);
     			view.updateView(game);
+    			
+    			if (Model.gameOver) {
+    				time.stop();
+    			}
+    		
     		
     			
     		}

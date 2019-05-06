@@ -65,9 +65,12 @@ public class TopDownModel extends Model {
     public void updateLocation(ArrayList<GameObject> g) {
     	for (GameObject a : g) {
 			a.move();
-			a.collision(g);		
-			
+			a.collision(g);			
 		}
+    	
+    	if (Stick.count == 3) {
+    		Model.gameOver = true;
+    	}
     }
     
     
