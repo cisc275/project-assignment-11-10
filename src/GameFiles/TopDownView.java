@@ -85,7 +85,7 @@ public class TopDownView extends View{
 	private BufferedImage createImage(){
 		BufferedImage bufferedImage;
 		try {
-			bufferedImage = ImageIO.read(new File("cBackground.png"));
+			bufferedImage = ImageIO.read(new File("img/cBackground.png"));
 			return bufferedImage;
 		} catch (IOException e) {
 			e.printStackTrace();
