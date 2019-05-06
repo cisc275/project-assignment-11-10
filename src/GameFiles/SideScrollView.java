@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -34,6 +36,8 @@ public class SideScrollView extends View{
     final int numOfMaps = 10;
     BufferedImage[] miniMaps = initMaps();
     int mapNum = 0;
+    JButton right;
+    JButton wrong;
     
     public SideScrollView(ArrayList<GameObject> g, Background backOne, Background backTwo){
 		frame = new JFrame();
@@ -97,8 +101,8 @@ public class SideScrollView extends View{
 		}
 			else {
 				super.paintComponent(g);
-				g.setColor(Color.gray);
-				g.drawImage(youWin, 0, 0, this);
+				new Quiz();
+				
 				
 			}
 		}
