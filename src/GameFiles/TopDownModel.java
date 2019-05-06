@@ -49,6 +49,7 @@ public class TopDownModel extends Model {
     public TopDownModel() {
     	cr = new ClapperRail(400,200,100,100,new Polygon(),super.createImage(), 0, 0);
     	f = new Fox(200,200,100,100,new Polygon(), null, 3, 3, cr);
+    	nest = new Nest(100, 100, 50, 50, new Polygon(), null);
 		game = new ArrayList<GameObject>();
 		game.add(cr);
 		game.add(f);

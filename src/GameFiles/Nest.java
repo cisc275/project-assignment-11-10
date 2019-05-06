@@ -48,9 +48,8 @@ public class Nest extends GameObject{
 	 * @author Peter Jenny
 	 */
 	
-	
+	@Override
 	 public void handleCollision(Stick s) { 
-		 System.out.println("*****************************************************nest collide");
 		 numSticks += 1; 
 		 s.hitbox.reset(); }
 	 

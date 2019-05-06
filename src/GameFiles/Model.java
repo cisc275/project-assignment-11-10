@@ -47,7 +47,7 @@ public class Model {
     	//System.out.println("Im about to try");
     	try {
     		//System.out.println("im trying");
-    		bufferedImage = ImageIO.read(new File("img/cr.png"));
+    		bufferedImage = ImageIO.read(new File("img/THarvey.png"));
     		
     		//System.out.println("I succeded");
     		return bufferedImage;
