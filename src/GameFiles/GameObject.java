@@ -100,8 +100,38 @@ public class GameObject {
 	 */
 	public void collision(ArrayList<GameObject> gameObjects) {}
 	
+	
 	public void handleCollision(GameObject g) {
-		
+		/*
+		 * There is nothing here.
+		 * 
+		 * To entertain you dear reader, please enjoy this,
+		 * 
+		 * 	SIR BEDEVERE: And that, my liege, is how we know the earth to be banana-shaped.
+			ARTHUR: This new learning amazes me, Sir Bedevere. Explain again how sheep's bladders may be employed to prevent earthquakes.
+			BEDEVERE: Oh, certainly, sir.
+			SIR LANCELOT: Look, my liege!
+			[trumpets]
+			ARTHUR: Camelot!
+			SIR GALAHAD: Camelot!
+			LANCELOT: Camelot!
+			PATSY: It's only a model.
+			ARTHUR: Shh! Knights, I bid you welcome to your new home. Let us ride... to... Camelot!
+			[in medieval hall]
+			KNIGHTS: We're Knights of the Round Table. We dance whene'er we're able. We do routines and chorus scenes With footwork impeccable. We dine well here in Camelot. We eat ham and jam and spam a lot.
+			[dancing]
+			We're Knights of the Round Table. Our shows are formidable, But many times we're given rhymes That are quite unsingable. We're opera mad in Camelot. We sing from the diaphragm a lot.
+			[in dungeon]
+			PRISONER: [clap clap clap clap]
+			[in medieval hall]
+			KNIGHTS: [tap-dancing]
+			In war we're tough and able, Quite indefatigable. Between our quests we sequin vests and impersonate Clark Gable. It's a busy life in Camelot.
+			MAN: I have to push the pram a lot.
+			[outdoors]
+			ARTHUR: Well, on second thought, let's not go to Camelot. It is a silly place.
+			KNIGHTS: Right. Right.
+		 * 
+		 */
 	}
 	
 	public BufferedImage createImage(File path) {
