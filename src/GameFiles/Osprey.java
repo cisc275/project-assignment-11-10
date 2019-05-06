@@ -25,7 +25,7 @@ public class Osprey extends Bird {
 	final double AC = 1;
 	final int DIVESPEED = 50;
 	static double distance;
-	static double maxDistance = 2000;
+	static double maxDistance = 500;
 	
 	
 	/**

@@ -1,72 +1,54 @@
 package GameFiles;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Polygon;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 /**
  * represents the quiz at the end of each game 
  *
  */
-public class Quiz extends Controllable {
+public class Quiz extends View {
 	/**
-	 * button that will allow the user to select the correct answer
+	 * button that will allow user to select the osprey game
 	 */
-	JButton answer; 
+	JButton right; 
 	/**
-	 * button that will allow the user to select incorrect answer(s)
+	 * button that will allow user to select the clapperrail game
 	 */
-	JButton bad; 
-	/**
-	 * string that will contain the question being asked during the quiz
-	 */
-	String question;
+	JButton wrong;
+	JButton moreWrong;
+	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	public Quiz() {
+		
+		
+		right = new JButton("Tall nest on a pole");
+		wrong = new JButton("Low nest on the ground");
+		moreWrong = new JButton ("Ospreys don't make nests");
+		this.setLayout(new FlowLayout());
+		this.add(right);
+		this.add(wrong);
+		this.add(moreWrong);
 	
-	/**
-	 * @param y
-	 * @param x
-	 * @param imgPose
-	 * @param width
-	 * @param height
-	 * @param xMin
-	 * @param xMax
-	 * @param yMin
-	 * @param yMax
-	 * @param speed
-	 * @param answer
-	 * @param bad
-	 * @param question
-	 * 
-	 * a constructor that takes values for all fields as input parameters
-	 */
-	/*
-	 * (int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, 
-			int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed) {
-	 */
-//	public Quiz(int y, int x, File imgPose, int width, int height, int xMin, int xMax, int yMin, 
-//			int yMax, boolean isDiving, int currY, int xSpeed, int ySpeed, 
-//			JButton answer, JButton bad, String question) {
-//		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, isDiving, currY, xSpeed, ySpeed);
-//	}
-	public Quiz(int x, int y, int width, int height,Polygon hitbox, BufferedImage img) {
-		super(x,y,width,height, hitbox, img);
+		this.setSize(screenSize.getSize());
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		this.setResizable(false);
+		this.pack();
+		this.setVisible(true);
 	}
 	
-	public JButton getAnswer() {
-		return answer;
+	public void addActionListener(Controller controller) {
+		right.addActionListener(controller);
+		wrong.addActionListener(controller);
+		moreWrong.addActionListener(controller);
+		}
+	public static void main(String[] args) {
+		Quiz sv = new Quiz();
 	}
-	public void setAnswer(JButton answer) {
-		this.answer = answer;
-	}
-	public JButton getBad() {
-		return bad;
-	}
-	public void setBad(JButton bad) {
-		this.bad = bad;
-	}
-	public String getQuestion() {
-		return question;
-	}
-	public void setQuestion(String question) {
-		this.question = question;
-	} 
 }
