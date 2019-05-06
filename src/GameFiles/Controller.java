@@ -45,7 +45,7 @@ public class Controller implements KeyListener, ActionListener{
 			game = new ArrayList<GameObject>();
 			model = new TopDownModel();
 			game.add(((TopDownModel)model).cr);
-	//		game.add(((TopDownModel)model).f);
+			game.add(((TopDownModel)model).f);
 			game.add(((TopDownModel)model).nest);
 			game.add(new Fish(3000, 700, 50, 50, new Polygon(), null, -16));
 			game.add(new Stick(300,300,40,80,new Polygon(),model.createImage4(), 0, 0));

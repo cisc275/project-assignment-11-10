@@ -53,6 +53,13 @@ public class Stick extends Collectable{
 	public void handleCollision(Nest n) {
 		if (this.collidesWith(n)) {
 			this.hitbox.reset();
+			n.hitbox.reset();
+			n.height = n.height + 30;
+			n.width = n.width + 30;
+			n.hitbox.addPoint(n.x, n.y);
+			n.hitbox.addPoint(n.x , n.y + n.height);
+			n.hitbox.addPoint(n.x + n.width,n.y + n.height);
+			n.hitbox.addPoint(n.x + n.width, n.y);
 	}
 	}
 	

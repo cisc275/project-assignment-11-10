@@ -15,7 +15,7 @@ import javax.imageio.ImageIO;
  *
  */
 public class Fox extends Controllable {
-	static String fileName="img/fox.png";
+	static String fileName="img/ee.png";
 	double xSpeed;
 	double ySpeed;
 	double speed;
