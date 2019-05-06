@@ -3,7 +3,10 @@ package GameFiles;
 import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 
 /**
  * attributes for all sticks in the game
@@ -35,6 +38,7 @@ public class Stick extends Collectable{
 	public Stick(int x, int y, int width, int height, Polygon hitbox, BufferedImage img, int xSpeed, int ySpeed) {
 		super(x,y,width,height, hitbox, img, xSpeed);
 		this.ySpeed = ySpeed;
+		this.img = createImage();
 		this.setType(Type.STICK);
 		
 	}
@@ -60,7 +64,19 @@ public class Stick extends Collectable{
 			n.hitbox.addPoint(n.x , n.y + n.height);
 			n.hitbox.addPoint(n.x + n.width,n.y + n.height);
 			n.hitbox.addPoint(n.x + n.width, n.y);
+		}
 	}
+	
+	public BufferedImage createImage() {
+		BufferedImage bufferedImage;
+		//System.out.println("i am running");
+    	try {
+    		bufferedImage = ImageIO.read(new File("img/stick.png"));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
 	}
 	
 	

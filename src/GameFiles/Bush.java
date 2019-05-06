@@ -27,6 +27,7 @@ public class Bush extends NonControllable {
 	
 	public Bush(int x, int y, int width, int height,Polygon hitbox, BufferedImage img) {
 		super(x,y,width,height, hitbox, img);
+		this.img = createImage();
 		this.setType(Type.BUSH);
 	}
 	
@@ -53,6 +54,18 @@ public class Bush extends NonControllable {
 		f.ySpeed = -f.ySpeed;
 		
 		
+	}
+	
+	public BufferedImage createImage() {
+		BufferedImage bufferedImage;
+		//System.out.println("i am running");
+    	try {
+    		bufferedImage = ImageIO.read(new File("img/brown_square.png"));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
 	}
 	
 	/**

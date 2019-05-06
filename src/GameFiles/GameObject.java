@@ -46,16 +46,15 @@ public class GameObject {
 	private Type type;
 
 	/**
-	 * @param y
 	 * @param x
+	 * @param y 
 	 * @param width
 	 * @param height
 	 * @param hitbox
 	 * @param img
 	 * 
-	 * a constructor that takes values for all fields as input parameters
+	 * A constructor that takes values for all fields as input parameters
 	 */
-
 	public GameObject(int x, int y, int width, int height, Polygon hitbox, BufferedImage img) {
 		this.x = x;
 		this.y = y;
@@ -104,6 +103,7 @@ public class GameObject {
 	public void handleCollision(GameObject g) {
 		
 	}
+	
 	public BufferedImage createImage(File path) {
 		BufferedImage g;
 		try {
