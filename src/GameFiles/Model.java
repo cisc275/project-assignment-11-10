@@ -47,7 +47,7 @@ public class Model {
     	//System.out.println("Im about to try");
     	try {
     		//System.out.println("im trying");
-    		bufferedImage = ImageIO.read(new File("cr.png"));
+    		bufferedImage = ImageIO.read(new File("img/cr.png"));
     		
     		//System.out.println("I succeded");
     		return bufferedImage;
@@ -63,7 +63,7 @@ public class Model {
 		BufferedImage bufferedImage;
 		//System.out.println("i am running");
     	try {
-    		bufferedImage = ImageIO.read(new File("green_square.png"));
+    		bufferedImage = ImageIO.read(new File("img/brown_square.png"));
     		return bufferedImage;
     	} catch (IOException e) {
     		e.printStackTrace();
@@ -75,7 +75,7 @@ public class Model {
 		BufferedImage bufferedImage;
 		//System.out.println("i am running");
     	try {
-    		bufferedImage = ImageIO.read(new File("stick.png"));
+    		bufferedImage = ImageIO.read(new File("img/stick.png"));
     		return bufferedImage;
     	} catch (IOException e) {
     		e.printStackTrace();

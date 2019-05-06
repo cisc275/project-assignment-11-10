@@ -24,8 +24,8 @@ public class SelectionView extends View {
 	public SelectionView() {
 		
 		
-		osprey = new JButton(new ImageIcon("selectOsprey.png"));
-		clapperRail = new JButton(new ImageIcon("selectCR.png"));
+		osprey = new JButton(new ImageIcon("img/selectOsprey.png"));
+		clapperRail = new JButton(new ImageIcon("img/selectCR.png"));
 		this.setLayout(new FlowLayout());
 		this.add(osprey);
 		this.add(clapperRail);
