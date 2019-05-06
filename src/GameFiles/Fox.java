@@ -18,6 +18,7 @@ public class Fox extends Controllable {
 	private double xSpeed;
 	private double ySpeed;
 	private double speed;
+	private int randSmooth;
 	private ClapperRail c;
 	
 	/**
@@ -93,7 +94,8 @@ public class Fox extends Controllable {
 		
 	/**
 	 * moves the fox according to calculated xSpeed and ySpeed 
-	 * based on clapperrail position
+	 * based on clapperrail position, assigns random movement if 
+	 * CR is hidden
 	 * @param g
 	 * @author tim Mazzarelli
 	 */
@@ -108,26 +110,35 @@ public class Fox extends Controllable {
 				(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());	
 		}
 		else {
+			int smoother = randSmooth/50;
 			int multX = (int) (Math.random() * 2);
-			int multY = (int) (Math.random() * 2);
-			switch(multX) {
-			case 0 :
-				this.xSpeed *= -1;
-				break;
+			int multY = (int) (Math.random() * 2);	
+			System.out.println(smoother);
+			switch(smoother) {
 			case 1 :
+				randSmooth = 0;
+				switch(multX) {
+				case 0 :
+					xSpeed *= -1;
+					break;
+				case 1 :
+					break;
+				default :
+					System.out.println("bad rand");
+				}
+				switch(multY) {
+				case 0 :
+					ySpeed *= -1;
+					break;
+				case 1 :
+					break;
+				default :
+					System.out.println("bad rand");
+				}
 				break;
-			default :
-				System.out.println("I dont know how random works");
-			}
-			
-			switch(multY) {
 			case 0 :
-				this.ySpeed *= -1;
-				break;
-			case 1 :
-				break;
-			default :
-				System.out.println("I dont know how random works");
+				System.out.println("----------------------------------smooth working");
+				randSmooth += 1;
 			}
 		}
 	}
