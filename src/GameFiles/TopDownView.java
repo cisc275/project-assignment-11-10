@@ -61,6 +61,7 @@ public class TopDownView extends View{
 			for (GameObject hing : game) {	
 				g.setClip(hing.hitbox);
 				g.drawImage(hing.getScaledImg(),hing.hitbox.xpoints[0] ,hing.hitbox.ypoints[0] , Color.gray, this);
+				//g.drawPolygon(hing.hitbox);
 			}
 	/*		
 			for(GameObject thing : game) {

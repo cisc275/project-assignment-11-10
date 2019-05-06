@@ -53,6 +53,20 @@ public class Stick extends Collectable{
 	}
 	
 	
+	/**
+	 * calls Nest handleCollision passing in this
+	 * @param a nest
+	 * @author Peter Jenny
+	 */
+	
+	
+	public void handleCollision(Nest n) {
+		System.out.println("*****************************************************stick collide");
+		n.handleCollision(this);
+	}
+	
+	
+	
 	public static int getCount() {
 		return count;
 	}

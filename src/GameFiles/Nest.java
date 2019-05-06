@@ -26,6 +26,8 @@ public class Nest extends GameObject{
 	 * @author Peter Jenny
 	 */
 	public void collision(ArrayList<GameObject> g) {
+		//System.out.println("checking nest");
+		//System.out.println("hitbox " + this.hitbox.getBounds());
 		for (GameObject a : g) {
 			if (this.collidesWith(a)){
 				a.handleCollision(this);
@@ -42,6 +44,7 @@ public class Nest extends GameObject{
 	 */
 	
 	public void handleCollision(Stick s) {
+		System.out.println("*****************************************************nest collide");
 		numSticks += 1;
 		s.hitbox.reset();
 	}
