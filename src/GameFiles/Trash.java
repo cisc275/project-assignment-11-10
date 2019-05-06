@@ -14,7 +14,6 @@ import javax.imageio.ImageIO;
  */
 public class Trash extends Collectable {
 	
-	final static int AC = 1;
 	/**
 	 * @param y
 	 * @param x
@@ -42,7 +41,7 @@ public class Trash extends Collectable {
 		this.hitbox.addPoint(x + width, y + height);
 		this.hitbox.addPoint(x + width, y);
 		if (Osprey.xSpeed <= -2) {
-		o.setXSpeed((Osprey.getXSpeed() + AC));
+		o.setXSpeed((Osprey.getXSpeed() + Constants.TRASH_AC));
 		}
 		else {o.setXSpeed(-2);};
 	}
@@ -51,7 +50,7 @@ public class Trash extends Collectable {
 		BufferedImage bufferedImage;
 		//System.out.println("i am running");
     	try {
-    		bufferedImage = ImageIO.read(new File("img/Trash.png"));
+    		bufferedImage = ImageIO.read(new File(Constants.IMG_TRASH));
     		return bufferedImage;
     	} catch (IOException e) {
     		e.printStackTrace();

@@ -21,10 +21,14 @@ public class Constants implements Serializable {
 	public final static int OSPREY_MAX_HEIGHT = 600;
 	public final static int OSPREY_WATER_LEVEL = 350;
 	
+	public final static int STICK_HANDLECOLLISION_OFFSET = 30;
+	
+	public final static int TRASH_AC = 1;
+	
 	/// Strings
 	public final static String IMG_AIRCURRENT = "img/aircurrent.png";
 	public final static String IMG_BACKGROUND = "img/background.png";
-	public final static String IMG_C_BACKGROUND = "img/cBackground.png";
+	public final static String IMG_CLAPPER_RAIL_BACKGROUND = "img/cBackground.png";
 	public final static String IMG_BROWN_SQUARE = "img/brown_square.png";
 	public final static String IMG_BUSH = "img/bush.png";
 	public final static String IMG_FISH = "img/fish_west1.png";
@@ -35,7 +39,9 @@ public class Constants implements Serializable {
 	public final static String IMG_POLY_HARVEY = "img/PolyHarvey.png";
 	public final static String IMG_SELECT_CLAPPER_RAIL = "img/selectCR.png";
 	public final static String IMG_SELECT_OSPREY = "img/selectOsprey.png";
+	public final static String IMG_STICK = "img/Stick.png";
 	public final static String IMG_THARVEY = "img/Tharvey.png";
+	public final static String IMG_TRASH = "img/Trash.png";
 	
 
 }

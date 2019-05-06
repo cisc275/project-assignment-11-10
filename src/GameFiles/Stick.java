@@ -59,8 +59,8 @@ public class Stick extends Collectable{
 			this.hitbox.reset();
 			n.hitbox.reset();
 			count++;
-			n.height = n.height + 30;
-			n.width = n.width + 30;
+			n.height = n.height + Constants.STICK_HANDLECOLLISION_OFFSET;
+			n.width = n.width + Constants.STICK_HANDLECOLLISION_OFFSET;
 			n.hitbox.addPoint(n.x, n.y);
 			n.hitbox.addPoint(n.x , n.y + n.height);
 			n.hitbox.addPoint(n.x + n.width,n.y + n.height);
@@ -73,7 +73,7 @@ public class Stick extends Collectable{
 		BufferedImage bufferedImage;
 		//System.out.println("i am running");
     	try {
-    		bufferedImage = ImageIO.read(new File("img/Stick.png"));
+    		bufferedImage = ImageIO.read(new File(Constants.IMG_STICK));
     		return bufferedImage;
     	} catch (IOException e) {
     		e.printStackTrace();
