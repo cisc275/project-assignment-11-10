@@ -52,9 +52,15 @@ public class Controller implements KeyListener, ActionListener{
 			game.add(new Stick(300,300,40,80,new Polygon(),null , 0, 0));
 			game.add(new Stick(500, 250 ,40,40,new Polygon(),null , 0, 0));
 			game.add(new Stick(400, 400 ,80,40,new Polygon(),null , 0, 0));
-			game.add(new Bush(500, 500,150,150,new Polygon(), null));
-			game.add(new Bush(600, 20,150,150,new Polygon(),null));
-			game.add(new Bush(20, 450,175,175,new Polygon(),null));
+			Bush b1 = new Bush(500, 500,150,150,new Polygon(), null);
+			game.add(b1);
+			((TopDownModel)model).cr.bushArr.add(b1);
+			Bush b2 = new Bush(600, 20,150,150,new Polygon(),null);
+			game.add(b2);
+			((TopDownModel)model).cr.bushArr.add(b2);
+			Bush b3 = new Bush(20, 450,175,175,new Polygon(),null);
+			game.add(b3);
+			((TopDownModel)model).cr.bushArr.add(b3);
 			
 			view = new TopDownView(game);
 			view.addKeyListener(this);

@@ -25,6 +25,8 @@ public class ClapperRail extends Bird {
 	
 	int xSpeed;
 	int ySpeed;
+	Bush closestBush;
+	ArrayList<Bush> bushArr = new ArrayList<Bush>();
 	
 	
 	final private int MOVE_AMOUNT = 10;
@@ -65,6 +67,8 @@ public class ClapperRail extends Bird {
 		}
 		
 		this.hitbox.translate(this.xSpeed, this.ySpeed);
+		x += xSpeed;
+		y += ySpeed;
 	}
 	
 	
@@ -108,11 +112,52 @@ public class ClapperRail extends Bird {
 		for (GameObject a : g) {
 			if (this.collidesWith(a)){
 				a.handleCollision(this);
-			
 			}
 		}
+		findClosestBush();
+		stillHiding();
 		
 	}
+	
+	
+	/**
+	 * searches through the bushArr for the closest, sets result as closestBush
+	 * @author Peter Jenny
+	 */
+	public void findClosestBush() {
+		double d = 0;
+		Bush close = null;
+		for(Bush b : bushArr) {
+			double tmp;
+			// distance formula
+			double i = Math.pow(b.getX() - x, 2.0) + Math.pow((b.getY() - y), 2.0);
+			tmp = Math.sqrt(i);
+			System.out.println("Bush: " + b + ", x: " + b.getX() + ", y: " + b.getY() + " ,dist: " + tmp);
+			if(tmp < d || d == 0) {
+				d = tmp;
+				close = b;
+			}
+		}
+		closestBush = close;
+		System.out.println("X: " + x + ", Y: " + y);
+		System.out.println(closestBush);
+	}
+	
+	
+	/**
+	 * checks to see if the CR is still hiding in the nearest bush
+	 */
+	public void stillHiding(){
+		if (!this.collidesWith(closestBush)){
+			System.out.println("not in bush");
+			hidden = false;
+		}
+		else {
+			System.out.println("!!!!! in bush !!!!");
+		}
+	}
+	
+	
 	
 	/**
 	 * @return the xSpeed
