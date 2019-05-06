@@ -29,6 +29,10 @@ public class SideScrollView extends View{
     Background backTwo;
     BufferedImage back;
     BufferedImage youWin;
+    BufferedImage currentMap;
+    final int numOfMaps = 10;
+    BufferedImage[] miniMaps = initMaps();
+    int mapNum = 0;
     
     public SideScrollView(ArrayList<GameObject> g, Background backOne, Background backTwo){
 		frame = new JFrame();
@@ -47,6 +51,7 @@ public class SideScrollView extends View{
     	game = g;
     	backOne.setX(backOne.getX() + (int)Osprey.xSpeed);
     	backTwo.setX(backTwo.getX() + (int)Osprey.xSpeed);
+    	mapNum = (int)((Osprey.distance/Osprey.maxDistance)*numOfMaps);
     	drawPanel.repaint();
     	
     }
@@ -82,6 +87,7 @@ public class SideScrollView extends View{
 	    	for (GameObject thing : game) {
 		    	g.drawImage(thing.getScaledImg(), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], Color.gray, this);
 	    	}
+	    	g.drawImage(miniMaps[mapNum], frameSize-miniMaps[mapNum].getWidth(), 0, Color.gray,this);
 		}
 			else {
 				super.paintComponent(g);
@@ -99,6 +105,20 @@ public class SideScrollView extends View{
     public void addKeyListener(Controller controller) {
 		frame.addKeyListener(controller);
 	}
+    
+    public BufferedImage[] initMaps() {
+    	BufferedImage[] maps = new BufferedImage[numOfMaps];
+    	for(int i=0;i<numOfMaps;i++) {
+    		BufferedImage map = null;
+	    	try {
+	    		map = ImageIO.read(new File("oMap"+i+".png"));
+	    	}catch(IOException e) {
+	    		e.printStackTrace();
+	    	}
+	    	maps[i] = map;
+    	}
+    	return maps;
+    }
     
     
     /*
