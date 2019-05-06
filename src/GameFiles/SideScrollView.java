@@ -39,6 +39,7 @@ public class SideScrollView extends View{
 		frame = new JFrame();
 		game = g;
     	frame.add(drawPanel);
+    	drawPanel.setOpaque(true);
     	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	frame.setSize(frameSize, frameSize);
     	frame.setVisible(true);
@@ -77,7 +78,7 @@ public class SideScrollView extends View{
 		protected void paintComponent(Graphics g) {
 			if (Mate.caughtUp == false) {
 			super.paintComponent(g);
-			Color transparent = new Color(0, 0, 0, 100);
+			Color transparent = new Color(1f,0f,0f,.5f );
 			g.setColor(transparent);
 			Graphics2D twoD = (Graphics2D)g;
 			back = (BufferedImage)(createImage(getWidth(), getHeight()));
