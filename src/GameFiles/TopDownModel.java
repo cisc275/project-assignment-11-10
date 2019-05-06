@@ -27,6 +27,9 @@ public class TopDownModel extends Model {
     
     @Override
     public void handleMove(HashSet<Integer> keyPresses) {
+    	cr.setxSpeed(0);
+    	cr.setySpeed(0);
+    	
     	for(Integer key: keyPresses) {
 	    	if(key.equals(39)) { //right arrow key
 				cr.setxSpeed(cr.getMOVE_AMOUNT());

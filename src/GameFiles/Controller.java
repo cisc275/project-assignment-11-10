@@ -149,6 +149,10 @@ public class Controller implements KeyListener, ActionListener{
 
 	// sets speed according to game input
 	
+	/**
+	 * adds keypress to set of currently pressed keys, gives set to model to handle
+	 * @author andrew thompson
+	 */
 	@Override
 	public synchronized void keyPressed(KeyEvent e) {
 		keyPresses.add(e.getKeyCode());
@@ -156,11 +160,12 @@ public class Controller implements KeyListener, ActionListener{
 		System.out.println(keyPresses);
 
 	}	
-
+	/**
+	 * removes keypress to set of currently pressed keys, gives set to model to handle
+	 * @author andrew thompson
+	 */
 	@Override
 	public synchronized void keyReleased(KeyEvent e) {
-		((TopDownModel)model).cr.setxSpeed(0);
-		((TopDownModel)model).cr.setySpeed(0);
 		keyPresses.remove(e.getKeyCode());
 		System.out.println(keyPresses);
 		model.handleMove(keyPresses);
