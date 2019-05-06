@@ -37,9 +37,7 @@ public class Controller implements KeyListener, ActionListener{
 		
 		if (selected.equals("sel")){
 			view = new SelectionView();
-			view.addActionListener(this);
-			
-			
+			view.addActionListener(this);	
 		}
 
 		
@@ -69,15 +67,15 @@ public class Controller implements KeyListener, ActionListener{
 			
 			Background backOne = new Background();
 			Background backTwo = new Background(backOne.getImageWidth(), 0);
-			Trash t = new Trash(850, 650, 50, 50, new Polygon(), null,  -8);
+			Trash t = new Trash(850, 490, 50, 50, new Polygon(), null,  -8);
 			Trash t2 = new Trash(900, 650, 50, 50, new Polygon(), null,  -16);
-			Fish f = new Fish(800, 650, 50, 50, new Polygon(), null, -20);
-			Fish f2 = new Fish(1000, 650, 50, 50, new Polygon(), null, -10);
+			Fish f = new Fish(800, 550, 50, 50, new Polygon(), null, -20);
+			Fish f2 = new Fish(1000, 600, 50, 50, new Polygon(), null, -10);
 			Fish f3 = new Fish(1200, 650, 50, 50, new Polygon(), null, -16);
 			AirCurrent a = new AirCurrent(900, 95, 50, 50, new Polygon(), null, -6);
 			AirCurrent a2 = new AirCurrent(1500, 300, 50, 50, new Polygon(), null, -16);
 			AirCurrent a3 = new AirCurrent(1300, 200, 50, 50, new Polygon(), null, -12);
-			Mate m = new Mate(1000, 200, 200, 50, new Polygon(), null, -5, false); // suposed to be 50 50, this is for the memes
+			Mate m = new Mate(1000, 200, 200, 50, new Polygon(), null, -1, false); // suposed to be 50 50, this is for the memes
 			game = new ArrayList<GameObject>();
 			model = new SideScrollModel();	
 			game.add(((SideScrollModel)model).o);
