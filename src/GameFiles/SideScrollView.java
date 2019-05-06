@@ -102,6 +102,7 @@ public class SideScrollView extends View{
 		    	for (GameObject thing : game) {
 					//((Graphics2D) g).setComposite(ac);
 			    	g.drawImage(thing.getScaledImg(), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
+		    	
 		    	}
 		    	g.drawImage(miniMaps[mapNum], frameSize-miniMaps[mapNum].getWidth(), 0, Color.gray,this);
 				}
