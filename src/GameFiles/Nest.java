@@ -29,8 +29,11 @@ public class Nest extends GameObject{
 		//System.out.println("checking nest");
 		//System.out.println("hitbox " + this.hitbox.getBounds());
 		for (GameObject a : g) {
-			if (this.collidesWith(a)){
-				a.handleCollision(this);
+			if(this != a) {
+				if (this.collidesWith(a)){
+					System.out.println("there is coll: " + numSticks + " A " + a + " : this " + this);
+					a.handleCollision(this);
+				}
 			}
 		}		
 	}
@@ -43,10 +46,10 @@ public class Nest extends GameObject{
 	 * @author Peter Jenny
 	 */
 	
-	public void handleCollision(Stick s) {
-		System.out.println("*****************************************************nest collide");
-		numSticks += 1;
-		s.hitbox.reset();
-	}
+	/*
+	 * public void handleCollision(Stick s) { System.out.
+	 * println("*****************************************************nest collide");
+	 * numSticks += 1; s.hitbox.reset(); }
+	 */
 
 }

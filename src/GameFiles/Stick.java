@@ -60,9 +60,11 @@ public class Stick extends Collectable{
 	 */
 	
 	
-	public void handleCollision(Nest n) {
+	public void handleCollision(GameObject n) {
 		System.out.println("*****************************************************stick collide");
-		n.handleCollision(this);
+		System.out.println("*****************************************************nest collide");
+		((Nest)n).numSticks += 1;
+		hitbox.reset();
 	}
 	
 	
