@@ -73,7 +73,7 @@ public class TopDownModel extends Model {
     	}
     }
     
-    
+ 
     /**
      * 
      * @param an array list of GameObjects
