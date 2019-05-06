@@ -12,9 +12,7 @@ import javax.imageio.ImageIO;
  * represents air currents that osprey can use to fly faster 
  *
  */
-public class AirCurrent extends Collectable {
-	private static final int AC = 1;
-	 
+public class AirCurrent extends Collectable {	 
 	
 	
 	/**
@@ -51,7 +49,7 @@ public class AirCurrent extends Collectable {
 		this.hitbox.addPoint(x + width, y + height);
 		this.hitbox.addPoint(x + width, y);
 		if (Osprey.xSpeed <= -2) {
-		o.setXSpeed((Osprey.getXSpeed() + AC));
+		o.setXSpeed((Osprey.getXSpeed() + Constants.FISH_AC));
 		}
 		else {o.setXSpeed(-2);};
 	}
