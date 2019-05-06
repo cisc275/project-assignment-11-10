@@ -3,6 +3,7 @@ package GameFiles;
 import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  * attributes for all sticks in the game
@@ -35,6 +36,7 @@ public class Stick extends Collectable{
 		super(x,y,width,height, hitbox, img, xSpeed);
 		this.ySpeed = ySpeed;
 		this.setType(Type.STICK);
+		
 	}
 	/**
 	 * calls ClapperRail handleCollision passing in this
@@ -44,30 +46,16 @@ public class Stick extends Collectable{
 	
 	
 	public void handleCollision(ClapperRail cr) {
-		if (this.hitbox.xpoints[0] <= 50 && this.hitbox.ypoints[0] <= 50) {
-			this.hitbox.translate(0, 0);
-		}
-		else {
 		this.hitbox.translate(cr.xSpeed, cr.ySpeed);
 	}
+		
+	
+	@Override
+	public void collision(ArrayList<GameObject> g) {
+		for (GameObject a : g) {
+			a.handleCollision(this);
+		}
 	}
-	
-	
-	/**
-	 * calls Nest handleCollision passing in this
-	 * @param a nest
-	 * @author Peter Jenny
-	 */
-	
-	
-	public void handleCollision(GameObject n) {
-		//System.out.println("*****************************************************stick collide");
-		//System.out.println("*****************************************************nest collide");
-		((Nest)n).numSticks += 1;
-		hitbox.reset();
-		((Nest)n).drawSticks();
-	}
-	
 	
 	
 	public static int getCount() {
