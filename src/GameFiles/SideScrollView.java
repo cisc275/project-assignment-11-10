@@ -80,7 +80,6 @@ public class SideScrollView extends View{
     private class DrawPanel extends JPanel {
 
 		protected void paintComponent(Graphics g) {
-			if (Mate.caughtUp == false) {
 			super.paintComponent(g);
 			Color transparent = new Color(1f,0f,0f,.5f );
 			g.setColor(transparent);
@@ -99,18 +98,13 @@ public class SideScrollView extends View{
 	    	}
 	    	g.drawImage(miniMaps[mapNum], frameSize-miniMaps[mapNum].getWidth(), 0, Color.gray,this);
 		}
-			else {
-				super.paintComponent(g);
-				new Quiz();
-				
-				
-			}
+			
 		}
 
 		public Dimension getPreferredSize() {
 			return new Dimension(frameSize, frameSize);
 		}
-	}
+	
 	
     public void addKeyListener(Controller controller) {
 		frame.addKeyListener(controller);

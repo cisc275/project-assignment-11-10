@@ -36,6 +36,7 @@ public class SelectionView extends View {
 		this.setResizable(false);
 		this.pack();
 		this.setVisible(true);
+		
 	}
 	
 	public void addActionListener(Controller controller) {

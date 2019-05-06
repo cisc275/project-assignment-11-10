@@ -9,5 +9,6 @@ public class SelectionModel extends Model {
 	
 	public static void main(String[] args) {
 		new Controller("sel");	
+
 	}
 }

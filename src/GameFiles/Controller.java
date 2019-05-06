@@ -37,6 +37,7 @@ public class Controller implements KeyListener, ActionListener{
 		if (selected.equals("sel")){
 			view = new SelectionView();
 			view.addActionListener(this);
+			
 		}
 
 		
@@ -54,6 +55,7 @@ public class Controller implements KeyListener, ActionListener{
 			game.add(new Bush(500, 500,150,150,new Polygon(), null));
 			game.add(new Bush(600, 20,150,150,new Polygon(),null));
 			game.add(new Bush(20, 450,175,175,new Polygon(),null));
+			
 			view = new TopDownView(game);
 			view.addKeyListener(this);
 			this.topDownStart();
@@ -71,7 +73,7 @@ public class Controller implements KeyListener, ActionListener{
 			AirCurrent a = new AirCurrent(900, 95, 50, 50, new Polygon(), null, -6);
 			AirCurrent a2 = new AirCurrent(1500, 300, 50, 50, new Polygon(), null, -16);
 			AirCurrent a3 = new AirCurrent(1300, 200, 50, 50, new Polygon(), null, -12);
-			Mate m = new Mate(1000, 200, 200, 50, new Polygon(), null, -1, false); // suposed to be 50 50, this is for the memes
+			Mate m = new Mate(1000, 200, 200, 50, new Polygon(), null, -5, false); // suposed to be 50 50, this is for the memes
 			game = new ArrayList<GameObject>();
 			model = new SideScrollModel();	
 			game.add(((SideScrollModel)model).o);
@@ -90,6 +92,7 @@ public class Controller implements KeyListener, ActionListener{
 			this.sideScrollStart();
 			
 		}
+		
 	}
 	
 	/**
@@ -114,13 +117,25 @@ public class Controller implements KeyListener, ActionListener{
 	public void sideScrollStart() {
 		drawAction = new AbstractAction(){
     		public void actionPerformed(ActionEvent e){
+    	
     			model.advanceWorld(game);
     			view.updateView(game);
+    			
+    			if (Model.gameOver) {
+    	    		System.out.println("hi");
+    	    		time.stop();
+    	    		new Quiz();
+    	    	}
+    		
     		}
     	};
     	
+    	
     	time = new Timer(50, drawAction);
     	time.start();
+    	
+    	
+    	
 	}
 
 	/**
