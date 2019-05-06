@@ -15,11 +15,10 @@ import javax.imageio.ImageIO;
  *
  */
 public class Fox extends Controllable {
-	static String fileName="img/ee.png";
-	double xSpeed;
-	double ySpeed;
-	double speed;
-	ClapperRail c;
+	private double xSpeed;
+	private double ySpeed;
+	private double speed;
+	private ClapperRail c;
 	
 	/**
 	 * @param y
@@ -43,7 +42,7 @@ public class Fox extends Controllable {
 		this.ySpeed = ySpeed;
 		this.c = c;
 		try {
-    		this.img = ImageIO.read(new File(fileName));
+    		this.img = ImageIO.read(new File(Constants.IMG_FOX));
 		} catch (IOException e) {
     		e.printStackTrace();
     	}
@@ -107,4 +106,61 @@ public class Fox extends Controllable {
 		this.ySpeed = ((c.hitbox.ypoints[0] - this.hitbox.ypoints[0]) * 
 				(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());	
 	}
+
+	/**
+	 * @return the xSpeed
+	 */
+	public double getxSpeed() {
+		return xSpeed;
+	}
+
+	/**
+	 * @param xSpeed the xSpeed to set
+	 */
+	public void setxSpeed(double xSpeed) {
+		this.xSpeed = xSpeed;
+	}
+
+	/**
+	 * @return the ySpeed
+	 */
+	public double getySpeed() {
+		return ySpeed;
+	}
+
+	/**
+	 * @param ySpeed the ySpeed to set
+	 */
+	public void setySpeed(double ySpeed) {
+		this.ySpeed = ySpeed;
+	}
+
+	/**
+	 * @return the speed
+	 */
+	public double getSpeed() {
+		return speed;
+	}
+
+	/**
+	 * @param speed the speed to set
+	 */
+	public void setSpeed(double speed) {
+		this.speed = speed;
+	}
+
+	/**
+	 * @return the c
+	 */
+	public ClapperRail getC() {
+		return c;
+	}
+
+	/**
+	 * @param c the c to set
+	 */
+	public void setC(ClapperRail c) {
+		this.c = c;
+	}
+	
 }	

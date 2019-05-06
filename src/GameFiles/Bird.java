@@ -15,8 +15,6 @@ public class Bird extends Controllable{
 	 */
 	Type type; 
 	
-	final private int MOVE_AMOUNT = 10;
-	
 	
 	/**
 	 * @param y
@@ -47,7 +45,7 @@ public class Bird extends Controllable{
 	 * @return the mOVE_AMOUNT
 	 */
 	public int getMOVE_AMOUNT() {
-		return MOVE_AMOUNT;
+		return Constants.BIRD_MOVE_AMOUNT;
 	}
 	
 	

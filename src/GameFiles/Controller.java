@@ -117,7 +117,7 @@ public class Controller implements KeyListener, ActionListener{
     		}
     	};
     	
-    	time = new Timer(50, drawAction);
+    	time = new Timer(Constants.TIMER_TICK_RATE, drawAction);
     	time.start();
 	}
 	
@@ -143,7 +143,7 @@ public class Controller implements KeyListener, ActionListener{
     	};
     	
     	
-    	time = new Timer(50, drawAction);
+    	time = new Timer(Constants.TIMER_TICK_RATE, drawAction);
     	time.start();
     	
     	

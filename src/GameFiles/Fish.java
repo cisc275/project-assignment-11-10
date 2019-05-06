@@ -13,8 +13,6 @@ import javax.imageio.ImageIO;
  */
 public class Fish extends Collectable {
 	
-	final int AC = 1;
-	
 	/**
 	 * @param y
 	 * @param x
@@ -47,10 +45,10 @@ public class Fish extends Collectable {
 		this.hitbox.addPoint(x, y + height);
 		this.hitbox.addPoint(x + width, y + height);
 		this.hitbox.addPoint(x + width, y);
-		if (Osprey.xSpeed >= -10) {
-			o.setXSpeed((Osprey.getXSpeed() - AC));
+		if (Osprey.xSpeed >= Constants.FISH_X_SPEED_TEST) {
+			o.setXSpeed((Osprey.getXSpeed() - Constants.FISH_AC));
 		}
-			else {o.setXSpeed(-10);
+			else {o.setXSpeed(Constants.FISH_X_SPEED_TEST);
 			};
 		}
 	
@@ -70,7 +68,7 @@ public class Fish extends Collectable {
 		BufferedImage bufferedImage;
 		//System.out.println("i am running");
     	try {
-    		bufferedImage = ImageIO.read(new File("img/fish_west1.png"));
+    		bufferedImage = ImageIO.read(new File(Constants.IMG_FISH));
     		return bufferedImage;
     	} catch (IOException e) {
     		e.printStackTrace();

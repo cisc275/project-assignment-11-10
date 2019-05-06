@@ -26,9 +26,6 @@ public class ClapperRail extends Bird {
 	int xSpeed;
 	int ySpeed;
 	
-	
-	final private int MOVE_AMOUNT = 10;
-	
 	/**
 	 * @param y
 	 * @param x

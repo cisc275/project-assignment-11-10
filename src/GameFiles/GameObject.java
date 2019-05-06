@@ -185,51 +185,121 @@ public class GameObject {
 	    g2.dispose();
 	    return resizedImg;
 	}
-	public void setImage(BufferedImage pic) {
-		this.img = pic;
+
+
+	
+
+	/**
+	 * @return the hitbox
+	 */
+	public Polygon getHitbox() {
+		return hitbox;
 	}
 
+
+	/**
+	 * @param hitbox the hitbox to set
+	 */
+	public void setHitbox(Polygon hitbox) {
+		this.hitbox = hitbox;
+	}
+
+
+	/**
+	 * @return the img
+	 */
+	public BufferedImage getImg() {
+		return img;
+	}
+
+
+	/**
+	 * @param img the img to set
+	 */
+	public void setImg(BufferedImage img) {
+		this.img = img;
+	}
+
+
+	/**
+	 * @return the y
+	 */
 	public int getY() {
 		return y;
 	}
 
+
+	/**
+	 * @param y the y to set
+	 */
 	public void setY(int y) {
 		this.y = y;
 	}
 
+
+	/**
+	 * @return the x
+	 */
 	public int getX() {
 		return x;
 	}
 
+
+	/**
+	 * @param x the x to set
+	 */
 	public void setX(int x) {
 		this.x = x;
 	}
 
+
+	/**
+	 * @return the imgPose
+	 */
 	public File getImgPose() {
 		return imgPose;
 	}
 
+
+	/**
+	 * @param imgPose the imgPose to set
+	 */
 	public void setImgPose(File imgPose) {
 		this.imgPose = imgPose;
 	}
 
+
+	/**
+	 * @return the width
+	 */
 	public int getWidth() {
 		return width;
 	}
 
+
+	/**
+	 * @param width the width to set
+	 */
 	public void setWidth(int width) {
 		this.width = width;
 	}
 
+
+	/**
+	 * @return the height
+	 */
 	public int getHeight() {
 		return height;
 	}
 
+
+	/**
+	 * @param height the height to set
+	 */
 	public void setHeight(int height) {
 		this.height = height;
 	}
 
-	
 
 	/**
 	 * @return the imgFileName

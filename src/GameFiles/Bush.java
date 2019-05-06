@@ -50,8 +50,8 @@ public class Bush extends NonControllable {
 	
 	@Override
 	public void handleCollision(Fox f) {
-		f.xSpeed = -f.xSpeed;
-		f.ySpeed = -f.ySpeed;
+		f.setxSpeed(-f.getxSpeed());
+		f.setySpeed(-f.getySpeed());
 		
 		
 	}
@@ -60,7 +60,7 @@ public class Bush extends NonControllable {
 		BufferedImage bufferedImage;
 		//System.out.println("i am running");
     	try {
-    		bufferedImage = ImageIO.read(new File("img/brown_square.png"));
+    		bufferedImage = ImageIO.read(new File(Constants.IMG_BROWN_SQUARE));
     		return bufferedImage;
     	} catch (IOException e) {
     		e.printStackTrace();
@@ -76,7 +76,7 @@ public class Bush extends NonControllable {
 	public BufferedImage getImage() {
 		BufferedImage buffImg;
 		try {
-    		buffImg = ImageIO.read(new File("img/bush.png"));
+    		buffImg = ImageIO.read(new File(Constants.IMG_BUSH));
     		return buffImg;
 		} catch (IOException e) {
     		e.printStackTrace();

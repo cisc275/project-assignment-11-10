@@ -74,7 +74,8 @@ private BufferedImage createImage(){
 	BufferedImage bufferedImage;
 	//System.out.println("i am running");
 	try {
-		bufferedImage = ImageIO.read(new File("img/PolyHarvey.png"));
+		if (Constants.BOOL_HARVEY) bufferedImage = ImageIO.read(new File(Constants.IMG_MATE));
+		else bufferedImage = ImageIO.read(new File(Constants.IMG_POLY_HARVEY));
 		return bufferedImage;
 	} catch (IOException e) {
 		e.printStackTrace();

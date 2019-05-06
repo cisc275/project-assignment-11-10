@@ -14,7 +14,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 
-
 /**
  * Top down view for clapperrail
  *
@@ -87,7 +86,7 @@ public class TopDownView extends View{
 	private BufferedImage createImage(){
 		BufferedImage bufferedImage;
 		try {
-			bufferedImage = ImageIO.read(new File("img/cBackground.png"));
+			bufferedImage = ImageIO.read(new File(Constants.IMG_C_BACKGROUND));
 			return bufferedImage;
 		} catch (IOException e) {
 			e.printStackTrace();
