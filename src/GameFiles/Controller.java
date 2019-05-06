@@ -27,7 +27,6 @@ public class Controller implements KeyListener, ActionListener{
 	private Action drawAction;
 	String selected;
 	ArrayList<GameObject> game;
-	Osprey o;
 	HashSet<Integer> keyPresses = new HashSet<>();
 	
 	
@@ -47,6 +46,7 @@ public class Controller implements KeyListener, ActionListener{
 			model = new TopDownModel();
 			game.add(((TopDownModel)model).cr);
 			game.add(((TopDownModel)model).f);
+			game.add(((TopDownModel)model).nest);
 			game.add(new Stick(300,300,40,80,new Polygon(),model.createImage4(), 0, 0));
 			game.add(new Stick(500, 50 ,40,40,new Polygon(),model.createImage4(), 0, 0));
 			game.add(new Stick(700, 700 ,80,40,new Polygon(),model.createImage4(), 0, 0));
