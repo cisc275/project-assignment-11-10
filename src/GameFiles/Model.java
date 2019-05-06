@@ -49,7 +49,7 @@ public class Model {
     	//System.out.println("Im about to try");
     	try {
     		//System.out.println("im trying");
-    		bufferedImage = ImageIO.read(new File("img/Tharvey.png"));
+    		bufferedImage = ImageIO.read(new File(Constants.IMG_THARVEY));
     		
     		//System.out.println("I succeded");
     		return bufferedImage;

@@ -26,6 +26,8 @@ public class Constants implements Serializable {
 	public final static String IMG_FISH = "img/fish_west1.png";
 	public final static String IMG_FOX = "img/ee.png";
 	public final static String IMG_MATE = "img/cr.png";
+	public final static String IMG_NEST = "img/nest.png";
 	public final static String IMG_POLY_HARVEY = "img/PolyHarvey.png";;
+	public final static String IMG_THARVEY = "img/Tharvey.png";
 
 }
