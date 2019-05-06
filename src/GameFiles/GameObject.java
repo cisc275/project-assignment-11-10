@@ -247,7 +247,7 @@ public class GameObject {
 	}
 
 
-	public void handleCollision(Stick s) {
+	public void handleCollision(Nest n) {
 		// TODO Auto-generated method stub
 		
 	}
