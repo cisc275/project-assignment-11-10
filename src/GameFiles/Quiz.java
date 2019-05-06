@@ -3,6 +3,8 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Polygon;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -13,7 +15,7 @@ import javax.swing.JFrame;
  * represents the quiz at the end of each game 
  *
  */
-public class Quiz extends View {
+public class Quiz extends View implements ActionListener{
 	/**
 	 * button that will allow user to select the osprey game
 	 */
@@ -41,16 +43,26 @@ public class Quiz extends View {
 		this.setResizable(false);
 		this.pack();
 		this.setVisible(true);
+		addActionListener(this);
 	}
 	
-	public void addActionListener(Controller controller) {
-		right.addActionListener(controller);
-		wrong.addActionListener(controller);
-		moreWrong.addActionListener(controller);
-		System.out.println("hi");
+	public void addActionListener(Quiz q) {
+		right.addActionListener(q);
+		wrong.addActionListener(q);
+		moreWrong.addActionListener(q);
+	
+		
 		}
 	
 	public static void main(String[] args) {
 		Quiz sv = new Quiz();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == Quiz.right) {
+			SideScrollModel.right = true;
+		}
+		
 	}
 }

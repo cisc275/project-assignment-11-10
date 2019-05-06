@@ -36,9 +36,7 @@ public class SideScrollModel extends Model {
 			a.collision(g);
 		}
 		if (Mate.caughtUp) {
-			
-			gameOver = true;
-			
+			Model.gameOver = true;
 		}
 		
 	}

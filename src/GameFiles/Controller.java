@@ -109,6 +109,8 @@ public class Controller implements KeyListener, ActionListener{
     		public void actionPerformed(ActionEvent e){
     			model.updateLocation(game);
     			view.updateView(game);
+    		
+    			
     		}
     	};
     	
@@ -127,13 +129,12 @@ public class Controller implements KeyListener, ActionListener{
     	
     			model.advanceWorld(game);
     			view.updateView(game);
-    		
     			
     			if (Model.gameOver) {
-    	    		new Quiz();
-    	    		time.stop();
-    	    		
-    	    	}
+    				new Quiz();
+    				time.stop();
+    			}
+    		
     		
     		}
     	};
@@ -154,18 +155,13 @@ public class Controller implements KeyListener, ActionListener{
 	
 	@Override 
 	public void actionPerformed(ActionEvent e) {
-		
-		view.dispose();
+	
 		if (e.getSource() == SelectionView.clapperRail) {
 			view.dispose();
 			new Controller("topDown");
 			
 		}
 		
-		if (e.getSource() == Quiz.right) {
-			SideScrollModel.right = true;
-			System.out.println("hi");
-		}
 		
 		
 		else if (e.getSource() == SelectionView.osprey){
