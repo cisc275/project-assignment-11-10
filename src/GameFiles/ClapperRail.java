@@ -25,6 +25,7 @@ public class ClapperRail extends Bird {
 	
 	int xSpeed;
 	int ySpeed;
+	ArrayList<Bush> bushArr = new ArrayList<Bush>();
 	
 	
 	final private int MOVE_AMOUNT = 10;
