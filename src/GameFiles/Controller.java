@@ -24,6 +24,7 @@ public class Controller implements KeyListener, ActionListener{
 	private Model model;
 	private View view;
 	private Timer time;
+
 	private Action drawAction;
 	String selected;
 	ArrayList<GameObject> game;
@@ -37,6 +38,7 @@ public class Controller implements KeyListener, ActionListener{
 		if (selected.equals("sel")){
 			view = new SelectionView();
 			view.addActionListener(this);
+			
 			
 		}
 
@@ -63,6 +65,8 @@ public class Controller implements KeyListener, ActionListener{
 		}
 		// sideScroll game
 		else if(selected.equals("sideScroll")) {
+			
+			
 			Background backOne = new Background();
 			Background backTwo = new Background(backOne.getImageWidth(), 0);
 			Trash t = new Trash(850, 650, 50, 50, new Polygon(), null,  -8);
@@ -87,8 +91,10 @@ public class Controller implements KeyListener, ActionListener{
 			game.add(a3);
 			game.add(m);
 		
-			view = new SideScrollView(game, backOne, backTwo);
+			view = new SideScrollView(game, backOne, backTwo, new Quiz());
 			view.addKeyListener(this);
+			view.addActionListener(this);
+		
 			this.sideScrollStart();
 			
 		}
@@ -115,16 +121,18 @@ public class Controller implements KeyListener, ActionListener{
 	 * starts timers and actions for sideScroll
 	 */
 	public void sideScrollStart() {
+
 		drawAction = new AbstractAction(){
     		public void actionPerformed(ActionEvent e){
     	
     			model.advanceWorld(game);
     			view.updateView(game);
+    		
     			
     			if (Model.gameOver) {
-    	    		System.out.println("hi");
-    	    		time.stop();
     	    		new Quiz();
+    	    		time.stop();
+    	    		
     	    	}
     		
     		}
@@ -147,10 +155,21 @@ public class Controller implements KeyListener, ActionListener{
 	@Override 
 	public void actionPerformed(ActionEvent e) {
 		
+		view.dispose();
 		if (e.getSource() == SelectionView.clapperRail) {
+			view.dispose();
 			new Controller("topDown");
+			
 		}
-		else {
+		
+		if (e.getSource() == Quiz.right) {
+			SideScrollModel.right = true;
+			System.out.println("hi");
+		}
+		
+		
+		else if (e.getSource() == SelectionView.osprey){
+			view.dispose();
         	new Controller("sideScroll");
 			
         }

@@ -38,8 +38,9 @@ public class SideScrollView extends View{
     int mapNum = 0;
     JButton right;
     JButton wrong;
+    Quiz q;
     
-    public SideScrollView(ArrayList<GameObject> g, Background backOne, Background backTwo){
+    public SideScrollView(ArrayList<GameObject> g, Background backOne, Background backTwo, Quiz q){
 		frame = new JFrame();
 		game = g;
     	frame.add(drawPanel);
@@ -51,6 +52,7 @@ public class SideScrollView extends View{
     	this.backOne = backOne;
     	this.backTwo = backTwo;
     	youWin = createImage();
+    	this.q = q;
     }
     
     public void updateView(ArrayList<GameObject> g) {
@@ -60,7 +62,8 @@ public class SideScrollView extends View{
     	mapNum = (int)((Osprey.distance/Osprey.maxDistance)*numOfMaps/2);
     	if(mapNum>numOfMaps-1)
     		mapNum = numOfMaps-1;
-    	drawPanel.repaint();
+    	
+    		drawPanel.repaint();
     	
     }
     
@@ -80,26 +83,34 @@ public class SideScrollView extends View{
     private class DrawPanel extends JPanel {
 
 		protected void paintComponent(Graphics g) {
-			super.paintComponent(g);
-			Color transparent = new Color(1f,0f,0f,.5f );
-			g.setColor(transparent);
-			Graphics2D twoD = (Graphics2D)g;
-			back = (BufferedImage)(createImage(getWidth(), getHeight()));
-			Graphics buffer = back.createGraphics();
-			backOne.draw(buffer);
-		    backTwo.draw(buffer);
-		    twoD.drawImage(back, null, 0, 0);
-		    AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, .5f);
-		    
-		    
-	    	for (GameObject thing : game) {
-				//((Graphics2D) g).setComposite(ac);
-		    	g.drawImage(thing.getScaledImg(), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
-	    	}
-	    	g.drawImage(miniMaps[mapNum], frameSize-miniMaps[mapNum].getWidth(), 0, Color.gray,this);
+				if (!Mate.caughtUp) {
+				super.paintComponent(g);
+				Color transparent = new Color(1f,0f,0f,.5f );
+				g.setColor(transparent);
+				Graphics2D twoD = (Graphics2D)g;
+				back = (BufferedImage)(createImage(getWidth(), getHeight()));
+				Graphics buffer = back.createGraphics();
+				backOne.draw(buffer);
+			    backTwo.draw(buffer);
+			    twoD.drawImage(back, null, 0, 0);
+			    AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, .5f);
+			    
+			    
+		    	for (GameObject thing : game) {
+					//((Graphics2D) g).setComposite(ac);
+			    	g.drawImage(thing.getScaledImg(), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
+		    	}
+		    	g.drawImage(miniMaps[mapNum], frameSize-miniMaps[mapNum].getWidth(), 0, Color.gray,this);
+				}
+				else if (SideScrollModel.right == true) {
+					g.drawImage(youWin, 0, 0, this);
+					
+				}
+				
+				
 		}
 			
-		}
+    }
 
 		public Dimension getPreferredSize() {
 			return new Dimension(frameSize, frameSize);
@@ -109,6 +120,11 @@ public class SideScrollView extends View{
     public void addKeyListener(Controller controller) {
 		frame.addKeyListener(controller);
 	}
+    
+    public void addActionListener(Controller controller) {
+    	q.addActionListener(controller);
+
+    }
     
     public BufferedImage[] initMaps() {
     	BufferedImage[] maps = new BufferedImage[numOfMaps];

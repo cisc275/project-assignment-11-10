@@ -33,15 +33,7 @@ public class Fish extends Collectable {
 		this.setType(Type.FISH);
 	}
 	
-
-	/**
-	 * calls ClapperRail handleCollision passing in this
-	 * @param cr
-	 * @author andrew thompson
-	 */
-	public void handleCollision(ClapperRail cr) {
-		cr.handleCollision(this);
-	}
+	
 
 	/** handles fish collision with osprey
 	 * @param o
@@ -61,6 +53,16 @@ public class Fish extends Collectable {
 			else {o.setXSpeed(-10);
 			};
 		}
+	
+	@Override
+	public void handleCollision(ClapperRail c) {
+		this.hitbox.reset();
+		this.hitbox.addPoint(x, y);
+		this.hitbox.addPoint(x, y + height);
+		this.hitbox.addPoint(x + width, y + height);
+		this.hitbox.addPoint(x + width, y);
+	}
+	
 	
 	// creates image for fish
 	

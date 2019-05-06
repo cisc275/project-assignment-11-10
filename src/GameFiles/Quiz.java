@@ -17,7 +17,7 @@ public class Quiz extends View {
 	/**
 	 * button that will allow user to select the osprey game
 	 */
-	JButton right; 
+	 static JButton right; 
 	/**
 	 * button that will allow user to select the clapperrail game
 	 */
@@ -34,7 +34,7 @@ public class Quiz extends View {
 		this.add(right);
 		this.add(wrong);
 		this.add(moreWrong);
-	
+		this.setTitle("Where should you put your nest?");
 		this.setSize(screenSize.getSize());
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -47,7 +47,9 @@ public class Quiz extends View {
 		right.addActionListener(controller);
 		wrong.addActionListener(controller);
 		moreWrong.addActionListener(controller);
+		System.out.println("hi");
 		}
+	
 	public static void main(String[] args) {
 		Quiz sv = new Quiz();
 	}

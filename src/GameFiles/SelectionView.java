@@ -42,6 +42,7 @@ public class SelectionView extends View {
 	public void addActionListener(Controller controller) {
 		osprey.addActionListener(controller);
 		clapperRail.addActionListener(controller);
+		
 	}
 	public static void main(String[] args) {
 		View sv = new SelectionView();

@@ -19,6 +19,7 @@ public class SideScrollModel extends Model {
 	Background backOne;
 	Background backTwo;
 	Osprey o;
+	static boolean right;
 	
 
 	
@@ -35,6 +36,7 @@ public class SideScrollModel extends Model {
 			a.collision(g);
 		}
 		if (Mate.caughtUp) {
+			
 			gameOver = true;
 			
 		}
