@@ -63,7 +63,7 @@ public class SideScrollView extends View{
 		BufferedImage bufferedImage;
 		//System.out.println("i am running");
     	try {
-    		bufferedImage = ImageIO.read(new File("Winner.png"));
+    		bufferedImage = ImageIO.read(new File("img/Winner.png"));
     		return bufferedImage;
     	} catch (IOException e) {
     		e.printStackTrace();
@@ -113,7 +113,7 @@ public class SideScrollView extends View{
     	for(int i=0;i<numOfMaps;i++) {
     		BufferedImage map = null;
 	    	try {
-	    		map = ImageIO.read(new File("oMap"+i+".png"));
+	    		map = ImageIO.read(new File("img/oMap"+i+".png"));
 	    	}catch(IOException e) {
 	    		e.printStackTrace();
 	    	}

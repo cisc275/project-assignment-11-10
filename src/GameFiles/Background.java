@@ -29,7 +29,7 @@ public class Background{
         
         // Try to open the image file background.png
         try {
-            image = ImageIO.read(new File("background.png"));
+            image = ImageIO.read(new File("img/background.png"));
         }
         catch (Exception e) { System.out.println(e); }
  

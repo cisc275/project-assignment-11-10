@@ -51,7 +51,7 @@ public class Trash extends Collectable {
 		BufferedImage bufferedImage;
 		//System.out.println("i am running");
     	try {
-    		bufferedImage = ImageIO.read(new File("Trash.png"));
+    		bufferedImage = ImageIO.read(new File("img/Trash.png"));
     		return bufferedImage;
     	} catch (IOException e) {
     		e.printStackTrace();

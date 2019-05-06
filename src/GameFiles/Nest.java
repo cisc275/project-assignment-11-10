@@ -46,7 +46,7 @@ public class Nest extends GameObject{
 	public void drawSticks() {
 		if(numSticks == 1) {
 			try {
-	    		BufferedImage b = ImageIO.read(new File("brown_square.png"));
+	    		BufferedImage b = ImageIO.read(new File("img/brown_square.png"));
 	    		super.img = b;
 	    	} catch (IOException e) {
 	    		e.printStackTrace();
@@ -54,7 +54,7 @@ public class Nest extends GameObject{
 		}
 		else if(numSticks == 2) {
 			try {
-	    		BufferedImage b = ImageIO.read(new File("Trash.png"));
+	    		BufferedImage b = ImageIO.read(new File("img/Trash.png"));
 	    		super.img = b;
 	    	} catch (IOException e) {
 	    		e.printStackTrace();
@@ -62,7 +62,7 @@ public class Nest extends GameObject{
 		}
 		else if(numSticks == 3) {
 			try {
-	    		BufferedImage b = ImageIO.read(new File("Winner.png"));
+	    		BufferedImage b = ImageIO.read(new File("img/Winner.png"));
 	    		super.img = b;
 	    	} catch (IOException e) {
 	    		e.printStackTrace();
