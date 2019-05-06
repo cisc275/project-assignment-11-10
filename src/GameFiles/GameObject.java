@@ -30,6 +30,7 @@ public class GameObject {
 	 */
 	protected BufferedImage img;
 	
+	protected BufferedImage scaledImg;
 	
 	/**
 	 * y coordinate for this gameObject on screen
@@ -75,6 +76,7 @@ public class GameObject {
 		this.height = height;
 		this.hitbox = hitbox;
 		this.img = img;
+		this.scaledImg = null;
 		this.hitbox.addPoint(x, y);
 		this.hitbox.addPoint(x, y + height);
 		this.hitbox.addPoint(x + width, y + height);
@@ -173,17 +175,22 @@ public class GameObject {
 		}
 		return img;
 	}
+	
+	
 	/**used to scale the assigned buffered image to the width and height of the object
 	 * @return buffered image that is the same size ass the object
 	 * @author andrew thompson
+	 * @author Mark Wolgin
 	 */
 	public BufferedImage getScaledImg(){
-	    BufferedImage resizedImg = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TRANSLUCENT);
-	    Graphics2D g2 = resizedImg.createGraphics();
-	    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-	    g2.drawImage(this.getImage(), 0, 0, this.getWidth(), this.getHeight(), null);
-	    g2.dispose();
-	    return resizedImg;
+		if (scaledImg == null) {
+			scaledImg = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TRANSLUCENT);
+		    Graphics2D g2 = scaledImg.createGraphics();
+		    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+		    g2.drawImage(this.getImage(), 0, 0, this.getWidth(), this.getHeight(), null);
+		    g2.dispose();
+		}
+	    return scaledImg;
 	}
 
 
