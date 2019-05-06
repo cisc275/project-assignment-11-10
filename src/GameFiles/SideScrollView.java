@@ -57,7 +57,7 @@ public class SideScrollView extends View{
     	game = g;
     	backOne.setX(backOne.getX() + (int)Osprey.xSpeed);
     	backTwo.setX(backTwo.getX() + (int)Osprey.xSpeed);
-    	mapNum = (int)((Osprey.distance/Osprey.maxDistance)*numOfMaps);
+    	mapNum = (int)((Osprey.distance/Osprey.maxDistance)*numOfMaps/2);
     	if(mapNum>numOfMaps-1)
     		mapNum = numOfMaps-1;
     	drawPanel.repaint();
