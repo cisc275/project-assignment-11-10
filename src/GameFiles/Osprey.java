@@ -22,8 +22,6 @@ public class Osprey extends Bird {
 	// for storing y before diving
 	int currY;
 	boolean isDiving;
-	final double AC = 1;
-	final int DIVESPEED = 50;
 	static double distance;
 	static double maxDistance = 1500;
 	
@@ -77,7 +75,7 @@ public class Osprey extends Bird {
 		}
 		else {
 		this.isDiving = !this.isDiving;
-		this.ySpeed = DIVESPEED;
+		this.ySpeed = Constants.OSPREY_DIVESPEED;
 		this.currY = this.hitbox.ypoints[0];
 		this.hitbox.translate(0, this.ySpeed);
 		}
@@ -94,19 +92,19 @@ public class Osprey extends Bird {
 		this.hitbox.translate(0, this.ySpeed);
 		
 		distance -= Osprey.xSpeed; 
-		if (this.hitbox.ypoints[0] >= 600) {
-			this.ySpeed = -DIVESPEED;
+		if (this.hitbox.ypoints[0] >= Constants.OSPREY_MAX_HEIGHT) {
+			this.ySpeed = -Constants.OSPREY_DIVESPEED;
 		}
 		if ((this.hitbox.ypoints[0] == this.currY) && (this.isDiving == true)) {
 			this.isDiving = !this.isDiving;
 			this.ySpeed = 0;
 		}
-		if ((this.hitbox.ypoints[0] >= 350) && (this.isDiving == false)) {
+		if ((this.hitbox.ypoints[0] >= Constants.OSPREY_WATER_LEVEL) && (this.isDiving == false)) {
 			this.hitbox.reset();
-			this.hitbox.addPoint(this.x, 350);
-			this.hitbox.addPoint(x, 350 + height);
-			this.hitbox.addPoint(x + width, 350 + height);
-			this.hitbox.addPoint(x + width, 350);
+			this.hitbox.addPoint(this.x, Constants.OSPREY_WATER_LEVEL);
+			this.hitbox.addPoint(x, Constants.OSPREY_WATER_LEVEL + height);
+			this.hitbox.addPoint(x + width, Constants.OSPREY_WATER_LEVEL + height);
+			this.hitbox.addPoint(x + width, Constants.OSPREY_WATER_LEVEL);
 			
 			
 			
@@ -142,7 +140,8 @@ public class Osprey extends Bird {
 	private BufferedImage createImage(){
 		BufferedImage bufferedImage;
 		try {
-			bufferedImage = ImageIO.read(new File("img/Tharvey.png"));
+			if (Constants.BOOL_HARVEY) bufferedImage = ImageIO.read(new File(Constants.IMG_THARVEY));
+			else  bufferedImage = ImageIO.read(new File(Constants.IMG_OSPREY));
 			return bufferedImage;
 		} catch (IOException e) {
 			e.printStackTrace();
