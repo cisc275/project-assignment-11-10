@@ -45,7 +45,7 @@ public class Controller implements KeyListener, ActionListener{
 			game = new ArrayList<GameObject>();
 			model = new TopDownModel();
 			game.add(((TopDownModel)model).cr);
-			game.add(((TopDownModel)model).f);
+			//game.add(((TopDownModel)model).f);
 			game.add(((TopDownModel)model).nest);
 			game.add(new Stick(300,300,40,80,new Polygon(),model.createImage4(), 0, 0));
 			game.add(new Stick(500, 50 ,40,40,new Polygon(),model.createImage4(), 0, 0));
@@ -158,6 +158,8 @@ public class Controller implements KeyListener, ActionListener{
 
 	@Override
 	public synchronized void keyReleased(KeyEvent e) {
+		((TopDownModel)model).cr.setxSpeed(0);
+		((TopDownModel)model).cr.setySpeed(0);
 		keyPresses.remove(e.getKeyCode());
 		System.out.println(keyPresses);
 		model.handleMove(keyPresses);
