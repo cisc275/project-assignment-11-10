@@ -1,5 +1,6 @@
 package GameFiles;
 
+import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -76,7 +77,7 @@ public class SideScrollView extends View{
 		protected void paintComponent(Graphics g) {
 			if (Mate.caughtUp == false) {
 			super.paintComponent(g);
-			Color transparent = new Color(0, 0, 0, 0);
+			Color transparent = new Color(0, 0, 0, 100);
 			g.setColor(transparent);
 			Graphics2D twoD = (Graphics2D)g;
 			back = (BufferedImage)(createImage(getWidth(), getHeight()));
@@ -84,10 +85,12 @@ public class SideScrollView extends View{
 			backOne.draw(buffer);
 		    backTwo.draw(buffer);
 		    twoD.drawImage(back, null, 0, 0);
-			
-		
+		    AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, .5f);
+		    
+		    
 	    	for (GameObject thing : game) {
-		    	g.drawImage(thing.getScaledImg(), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], Color.gray, this);
+				//((Graphics2D) g).setComposite(ac);
+		    	g.drawImage(thing.getScaledImg(), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], transparent, this);
 	    	}
 	    	g.drawImage(miniMaps[mapNum], frameSize-miniMaps[mapNum].getWidth(), 0, Color.gray,this);
 		}
