@@ -16,9 +16,9 @@ public class Nest extends GameObject{
 	
 	protected int numSticks = 0;
 	
-	public Nest(int x, int y, int width, int height, Polygon hitbox, BufferedImage img, int sticks) {
+	public Nest(int x, int y, int width, int height, Polygon hitbox, BufferedImage img) {
 		super(x,y,width,height,hitbox,img);
-		this.numSticks = sticks;
+		this.img = createImage();
 	}
 	
 	
@@ -30,34 +30,17 @@ public class Nest extends GameObject{
 	
 	
 	
-	
-	public void drawSticks() {
-		if(numSticks == 1) {
-			try {
-	    		BufferedImage b = ImageIO.read(new File("img/brown_square.png"));
-	    		super.img = b;
-	    	} catch (IOException e) {
-	    		e.printStackTrace();
-	    	}
-		}
-		else if(numSticks == 2) {
-			try {
-	    		BufferedImage b = ImageIO.read(new File("img/Trash.png"));
-	    		super.img = b;
-	    	} catch (IOException e) {
-	    		e.printStackTrace();
-	    	}
-		}
-		else if(numSticks == 3) {
-			try {
-	    		BufferedImage b = ImageIO.read(new File("img/Winner.png"));
-	    		super.img = b;
-	    	} catch (IOException e) {
-	    		e.printStackTrace();
-	    	}
-		}
+
+	private BufferedImage createImage(){
+		BufferedImage bufferedImage;
+    	try {
+    		bufferedImage = ImageIO.read(new File("img/brown_square.png"));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
 	}
-	
 	
 	/**
 	 * handles collision with stick
@@ -65,10 +48,11 @@ public class Nest extends GameObject{
 	 * @author Peter Jenny
 	 */
 	
-	/*
-	 * public void handleCollision(Stick s) { System.out.
-	 * println("*****************************************************nest collide");
-	 * numSticks += 1; s.hitbox.reset(); }
-	 */
+	
+	 public void handleCollision(Stick s) { 
+		 System.out.println("*****************************************************nest collide");
+		 numSticks += 1; 
+		 s.hitbox.reset(); }
+	 
 
 }

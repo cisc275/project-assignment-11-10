@@ -46,7 +46,8 @@ public class Controller implements KeyListener, ActionListener{
 			model = new TopDownModel();
 			game.add(((TopDownModel)model).cr);
 			game.add(((TopDownModel)model).f);
-			game.add(((TopDownModel)model).nest);
+	//		game.add(((TopDownModel)model).nest);
+			game.add(new Nest(100, 100, 80, 80, new Polygon(), null));
 			game.add(new Fish(3000, 700, 50, 50, new Polygon(), null, -16));
 			game.add(new Stick(300,300,40,80,new Polygon(),model.createImage4(), 0, 0));
 			game.add(new Stick(500, 250 ,40,40,new Polygon(),model.createImage4(), 0, 0));
@@ -157,7 +158,6 @@ public class Controller implements KeyListener, ActionListener{
 	public synchronized void keyPressed(KeyEvent e) {
 		keyPresses.add(e.getKeyCode());
 		model.handleMove(keyPresses);
-		System.out.println(keyPresses);
 
 	}	
 	/**
@@ -167,7 +167,6 @@ public class Controller implements KeyListener, ActionListener{
 	@Override
 	public synchronized void keyReleased(KeyEvent e) {
 		keyPresses.remove(e.getKeyCode());
-		System.out.println(keyPresses);
 		model.handleMove(keyPresses);
 		
 		
