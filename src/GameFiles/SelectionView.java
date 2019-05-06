@@ -20,12 +20,13 @@ public class SelectionView extends View {
 	 * button that will allow user to select the clapperrail game
 	 */
 	static JButton clapperRail;
+	
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	public SelectionView() {
 		
 		
-		osprey = new JButton(new ImageIcon("img/selectOsprey.png"));
-		clapperRail = new JButton(new ImageIcon("img/selectCR.png"));
+		osprey = new JButton(new ImageIcon(Constants.IMG_SELECT_OSPREY));
+		clapperRail = new JButton(new ImageIcon(Constants.IMG_SELECT_CLAPPER_RAIL));
 		this.setLayout(new FlowLayout());
 		this.add(osprey);
 		this.add(clapperRail);
