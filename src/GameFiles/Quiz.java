@@ -41,6 +41,7 @@ public class Quiz extends View implements ActionListener{
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		this.setResizable(false);
+		this.setFocusable(true);
 		this.pack();
 		this.setVisible(true);
 		addActionListener(this);
