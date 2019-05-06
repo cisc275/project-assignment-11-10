@@ -28,6 +28,13 @@ public class Nest extends GameObject{
 	 * @author Peter Jenny
 	 */
 	
+	@Override
+	public void collision(ArrayList<GameObject> g) {
+		for (GameObject a : g) {
+			a.handleCollision(this);
+		}
+	}
+	
 	
 	
 
@@ -41,17 +48,7 @@ public class Nest extends GameObject{
     	}
     	return null;
 	}
-	
-	/**
-	 * handles collision with stick
-	 * @param a stick
-	 * @author Peter Jenny
-	 */
-	
-	@Override
-	 public void handleCollision(Stick s) { 
-		 numSticks += 1; 
-		 s.hitbox.reset(); }
-	 
-
 }
+	
+	
+	

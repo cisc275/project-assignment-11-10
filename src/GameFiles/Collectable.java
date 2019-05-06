@@ -53,5 +53,10 @@ public class Collectable extends GameObject {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public void handleCollision(Nest n) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

@@ -49,12 +49,11 @@ public class Stick extends Collectable{
 		this.hitbox.translate(cr.xSpeed, cr.ySpeed);
 	}
 		
-	
 	@Override
-	public void collision(ArrayList<GameObject> g) {
-		for (GameObject a : g) {
-			a.handleCollision(this);
-		}
+	public void handleCollision(Nest n) {
+		if (this.collidesWith(n)) {
+			this.hitbox.reset();
+	}
 	}
 	
 	
