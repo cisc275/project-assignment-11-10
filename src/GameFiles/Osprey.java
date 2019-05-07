@@ -105,9 +105,7 @@ public class Osprey extends Bird {
 			this.hitbox.addPoint(x, Constants.OSPREY_WATER_LEVEL + height);
 			this.hitbox.addPoint(x + width, Constants.OSPREY_WATER_LEVEL + height);
 			this.hitbox.addPoint(x + width, Constants.OSPREY_WATER_LEVEL);
-			
-			
-			
+						
 		}
 		if ((this.hitbox.ypoints[0] <= 0)) {
 			this.hitbox.reset();

@@ -113,7 +113,6 @@ public class Fox extends Controllable {
 			int smoother = randSmooth/50;
 			int multX = (int) (Math.random() * 2);
 			int multY = (int) (Math.random() * 2);	
-			System.out.println(smoother);
 			switch(smoother) {
 			case 1 :
 				randSmooth = 0;
@@ -137,7 +136,7 @@ public class Fox extends Controllable {
 				}
 				break;
 			case 0 :
-				System.out.println("----------------------------------smooth working");
+				
 				randSmooth += 1;
 			}
 		}

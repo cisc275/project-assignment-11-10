@@ -59,14 +59,59 @@ public class ClapperRail extends Bird {
 	 */
   
 	public void move() {
-		if (this.hitbox.xpoints[0] <= 0 || this.hitbox.xpoints[3] >= 770) {
-			this.xSpeed = -2 * this.xSpeed;
-		}
-		if (this.hitbox.ypoints[0] <= 0 || this.hitbox.ypoints[2] >= 770) {
-			this.ySpeed = -2 * this.ySpeed;
+		this.hitbox.translate(this.xSpeed, this.ySpeed);
+		if (this.hitbox.ypoints[0] <= 0) {
+			int x1 = this.hitbox.xpoints[0];
+			int x2 = this.hitbox.xpoints[1];
+			int x3 = this.hitbox.xpoints[2];
+			int x4 = this.hitbox.xpoints[3];
+			
+			this.hitbox.reset();
+			this.hitbox.addPoint(x1, 0);
+			this.hitbox.addPoint(x2, height);
+			this.hitbox.addPoint(x3, height);
+			this.hitbox.addPoint(x4, 0);
+							
 		}
 		
-		this.hitbox.translate(this.xSpeed, this.ySpeed);
+		if (this.hitbox.ypoints[1] >= 760) {
+			int x1 = this.hitbox.xpoints[0];
+			int x2 = this.hitbox.xpoints[1];
+			int x3 = this.hitbox.xpoints[2];
+			int x4 = this.hitbox.xpoints[3];
+			
+			this.hitbox.reset();
+			this.hitbox.addPoint(x1, 760 - height);
+			this.hitbox.addPoint(x2, 760);
+			this.hitbox.addPoint(x3, 760);
+			this.hitbox.addPoint(x4, 760 - height);			
+		}
+		if (this.hitbox.xpoints[3] >= 780) {
+			int y1 = this.hitbox.ypoints[0];
+			int y2 = this.hitbox.ypoints[1];
+			int y3 = this.hitbox.ypoints[2];
+			int y4 = this.hitbox.ypoints[3];
+			
+			this.hitbox.reset();
+			this.hitbox.addPoint(780 - width, y1);
+			this.hitbox.addPoint(780 - width, y2);
+			this.hitbox.addPoint(780, y3);
+			this.hitbox.addPoint(780, y4);		
+		}
+		
+		if (this.hitbox.xpoints[0] <= 0) {
+			int y1 = this.hitbox.ypoints[0];
+			int y2 = this.hitbox.ypoints[1];
+			int y3 = this.hitbox.ypoints[2];
+			int y4 = this.hitbox.ypoints[3];
+			
+			this.hitbox.reset();
+			this.hitbox.addPoint(0, y1);
+			this.hitbox.addPoint(0, y2);
+			this.hitbox.addPoint(width, y3);
+			this.hitbox.addPoint(width, y4);		
+		}
+		
 		x += xSpeed;
 		y += ySpeed;
 	}
@@ -132,15 +177,13 @@ public class ClapperRail extends Bird {
 			// distance formula
 			double i = Math.pow(b.getX() - x, 2.0) + Math.pow((b.getY() - y), 2.0);
 			tmp = Math.sqrt(i);
-			System.out.println("Bush: " + b + ", x: " + b.getX() + ", y: " + b.getY() + " ,dist: " + tmp);
 			if(tmp < d || d == 0) {
 				d = tmp;
 				close = b;
 			}
 		}
 		closestBush = close;
-		System.out.println("X: " + x + ", Y: " + y);
-		System.out.println(closestBush);
+		
 	}
 	
 	
@@ -149,11 +192,11 @@ public class ClapperRail extends Bird {
 	 */
 	public void stillHiding(){
 		if (!this.collidesWith(closestBush)){
-			System.out.println("not in bush");
+			
 			hidden = false;
 		}
 		else {
-			System.out.println("!!!!! in bush !!!!");
+			
 		}
 	}
 	
