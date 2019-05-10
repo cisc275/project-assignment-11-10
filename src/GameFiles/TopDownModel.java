@@ -31,17 +31,19 @@ public class TopDownModel extends Model {
     	cr.setySpeed(0);
     	
     	for(Integer key: keyPresses) {
-	    	if(key.equals(39)) { //right arrow key
+	    	switch(key) {
+	    	case 39: //right arrow key
 				cr.setxSpeed(cr.getMOVE_AMOUNT());
-			}
-			else if(key.equals(37)) { //left arrow key
+				break;
+	    	case 37: //left arrow key
 				cr.setxSpeed(-cr.getMOVE_AMOUNT());
-			}
-			else if(key.equals(38)) { //up arrow key
+				break;
+	    	case 38: //up arrow key
 				cr.setySpeed(-cr.getMOVE_AMOUNT());
-			}
-			else if(key.equals(40)) { //down arrow key
+				break;
+	    	case 40: //down arrow key
 				cr.setySpeed(cr.getMOVE_AMOUNT());
+				break;
 			}
     	}
     }
