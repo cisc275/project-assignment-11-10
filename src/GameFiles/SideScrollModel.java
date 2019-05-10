@@ -43,23 +43,24 @@ public class SideScrollModel extends Model {
 	@Override
 	public void handleMove(HashSet<Integer> keyPresses) {
 		for(Integer key: keyPresses) {
-			if(key.equals(38)) { //up arrow key
+			switch(key) {
+			case 38: //up arrow key
 				if ((o.hitbox.xpoints[0] == 0) ||  (o.hitbox.xpoints[0] == 450)) {
 					o.setYSpeed(0);
 				}
 				else {
 					o.setYSpeed(-5);
 				}
-			}
-			else if(key.equals(40)) { //down arrow key
+				break;
+			case 40: //down arrow key
 				if ((o.hitbox.xpoints[0] == 0) ||  (o.hitbox.xpoints[0] == 450)) {
 					o.setYSpeed(0);
 				}
 				else {
 					o.setYSpeed(5);
 				}
-			}
-			else if(key.equals(32)) { //space bar
+				break;
+			case 32: //space bar
 				o.dive();
 			}
 		}
