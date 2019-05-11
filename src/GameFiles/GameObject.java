@@ -1,6 +1,7 @@
 package GameFiles;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
+import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -189,6 +190,20 @@ public class GameObject {
 		    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
 		    g2.drawImage(this.getImage(), 0, 0, this.getWidth(), this.getHeight(), null);
 		    g2.dispose();
+		}
+		else {
+			int d_x, d_y;
+			d_x = scaledImg.getWidth() - this.hitbox.getBounds().width;
+			d_y = scaledImg.getHeight() - this.hitbox.getBounds().height;
+			Rectangle hb = hitbox.getBounds();
+			if ((hb.width != 0) && (hb.height != 0) && (d_x != 0 || d_y != 0 )) {
+				System.out.println( " Height: " + scaledImg.getHeight() + " Width: " + scaledImg.getWidth() + " HitBoxHeight: " + hitbox.getBounds().height + " HitBoxWidth: " + hitbox.getBounds().width);
+				scaledImg = new BufferedImage(this.hitbox.getBounds().width, this.hitbox.getBounds().height, BufferedImage.TRANSLUCENT);
+			    Graphics2D g2 = scaledImg.createGraphics();
+			    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+			    g2.drawImage(this.getImage(), 0, 0, this.getWidth(), this.getHeight(), null);
+			    g2.dispose();
+			}
 		}
 	    return scaledImg;
 	}

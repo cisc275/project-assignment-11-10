@@ -12,6 +12,7 @@ public enum Type {
 	GAMEOBJECT,
 	INVISIBLEWALL,
 	OSPREY,
+	NEST,
 	STICK,
 	TRASH;
 	
@@ -38,6 +39,8 @@ public enum Type {
 			return "Invisible Wall";
 		case OSPREY:
 			return "Osprey";
+		case NEST:
+			return "Nest";
 		case STICK:
 			return "Stick";
 		case TRASH:
@@ -70,6 +73,8 @@ public enum Type {
 			return INVISIBLEWALL;
 		case "Osprey":
 			return OSPREY;
+		case "Nest":
+			return NEST;
 		case "Stick":
 			return STICK;
 		case "Trash":
