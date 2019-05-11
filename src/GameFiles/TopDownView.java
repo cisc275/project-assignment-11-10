@@ -32,6 +32,13 @@ public class TopDownView extends View{
 		setUpScreen(frame);
 		game = g;
     	frame.add(drawPanel);
+    	drawPanel.setOpaque(true);
+    	pack();
+    	this.setSize(frame.getWidth(), frame.getHeight());
+    	
+    	
+    	
+    	
 	}
 	
 	
@@ -53,7 +60,7 @@ public class TopDownView extends View{
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			g.setColor(Color.gray);
-			g.drawImage(background, 0, 0, this);
+			g.drawImage(background, 0, 0, Constants.FRAME_X, Constants.FRAME_Y, this);
 		
 			for (GameObject hing : game) {	
 				g.setClip(hing.hitbox);

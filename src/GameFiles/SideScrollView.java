@@ -36,9 +36,8 @@ public class SideScrollView extends View{
     final int numOfMaps = 10;
     BufferedImage[] miniMaps = initMaps();
     int mapNum = 0;
-    JButton right;
-    JButton wrong;
-    
+   
+ 
     
     public SideScrollView(ArrayList<GameObject> g, Background backOne, Background backTwo){
 		frame = new JFrame();
@@ -50,6 +49,7 @@ public class SideScrollView extends View{
     	this.backOne = backOne;
     	this.backTwo = backTwo;
     	youWin = createImage();
+    	
     	
     }
     

@@ -45,12 +45,13 @@ public class Controller implements KeyListener, ActionListener{
 			// clapper rail game
 		
 			game = new ArrayList<GameObject>();
+			view = new TopDownView(game);
 			model = new TopDownModel();
-			System.out.println(((TopDownModel)model).cr.hitbox.getBounds());
 			game.add(((TopDownModel)model).cr);
 	//		game.add(((TopDownModel)model).f);
 			game.add(((TopDownModel)model).nest);
-			game.add(new Fish(3000, 700, 50, 50));
+			System.out.println((view.getHeight() * (9/10)));
+			game.add(new Fish(3000, view.getHeight() - (view.getHeight() * (9/10)), 50, 50));
 			game.add(new Stick(300,300,40,80));
 			game.add(new Stick(500, 250 ,40,40));
 			game.add(new Stick(400, 400 ,80,40));
@@ -64,22 +65,21 @@ public class Controller implements KeyListener, ActionListener{
 			game.add(b3);
 			((TopDownModel)model).cr.bushArr.add(b3);
 			
-			view = new TopDownView(game);
+			
 			view.addKeyListener(this);
 			this.topDownStart();
 
 		}
 		// sideScroll game
 		else if(selected.equals("sideScroll")) {
-			
 			game = new ArrayList<GameObject>();
 			Background backOne = new Background();
 			Background backTwo = new Background(backOne.getImageWidth(), 0);
 			view = new SideScrollView(game, backOne, backTwo);
-
-			Trash t = new Trash(view.getWidth() + 200, view.getHeight() - (view.getHeight() / 20), 
+			
+			Trash t = new Trash(view.getWidth() + 200, view.getHeight() - (view.getHeight() / 4), 
 					view.getWidth() / 20, view.getHeight()/ 15);
-			Trash t2 = new Trash(view.getWidth() + 300, view.getHeight() - (view.getHeight() / 50), 
+			Trash t2 = new Trash(view.getWidth() + 300, view.getHeight() - (view.getHeight() / 8), 
 					view.getWidth() / 20, view.getHeight()/ 15);
 			Fish f = new Fish(view.getWidth(), 550, 50, 50);
 			Fish f2 = new Fish(view.getWidth() + 20, 600, 50, 50);
