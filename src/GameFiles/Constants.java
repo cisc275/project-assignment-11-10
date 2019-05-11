@@ -24,17 +24,10 @@ public class Constants implements Serializable {
 	public final static int STICK_HANDLECOLLISION_OFFSET = 30;
 	
 	public final static int TRASH_AC = 1;
-<<<<<<< HEAD
-=======
-
-	public static int FRAME_X;
-	public static int FRAME_Y;
 	
 	public static int COLLECTABLE_WIDTH = FRAME_X/10;
 	public static int COLLECTABLE_HEIGHT = FRAME_Y/10;
-	
->>>>>>> branch 'master' of https://github.com/cisc275/project-assignment-11-10.git
-	
+
 	/// Strings
 	public final static String IMG_AIRCURRENT = "img/aircurrent.png";
 	public final static String IMG_BACKGROUND = "img/background.png";
@@ -58,13 +51,9 @@ public class Constants implements Serializable {
 	private static double FRAME_Y;
 	
 
-<<<<<<< HEAD
+
 	public static void setFrameX(double d) { FRAME_X = d; }
 	public static void setFrameY(double y) { FRAME_Y = y; }
 	public static double getFRAME_X() { return FRAME_X; }
 	public static double getFRAME_Y() { return FRAME_Y; }
-=======
-	public static void setFrameX(int x) { FRAME_X = x; }
-	public static void setFrameY(int y) { FRAME_Y = y; }
->>>>>>> branch 'master' of https://github.com/cisc275/project-assignment-11-10.git
 }
