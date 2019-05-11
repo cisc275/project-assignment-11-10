@@ -47,6 +47,9 @@ public class ClapperRail extends Bird {
 	public ClapperRail(int x, int y, int width, int height) {
 		super(x,y,width, height);
 		this.setType(Type.CLAPPERRAIL);
+		this.xSpeed = 0;
+		this.ySpeed = 0;
+		this.img = createImage();
 	}
 	
 	/**
@@ -192,6 +195,17 @@ public class ClapperRail extends Bird {
 			
 		}
 	}
+	
+	private BufferedImage createImage(){
+    	BufferedImage bufferedImage;
+    	try {
+    		bufferedImage = ImageIO.read(new File(Constants.IMG_THARVEY));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
+    }
 	
 	
 	

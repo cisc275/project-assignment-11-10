@@ -37,6 +37,8 @@ public class Stick extends Collectable{
 	
 	public Stick(int x, int y, int width, int height) {
 		super(x,y,width,height);
+		this.xSpeed = 0;
+		this.ySpeed = 0;
 		this.img = createImage();
 		this.setType(Type.STICK);
 		
@@ -47,9 +49,11 @@ public class Stick extends Collectable{
 	 * @author andrew thompson
 	 */
 	
-	
+	@Override
 	public void handleCollision(ClapperRail cr) {
+	
 		this.hitbox.translate(cr.xSpeed, cr.ySpeed);
+		
 	}
 		
 	@Override

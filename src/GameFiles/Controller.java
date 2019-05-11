@@ -43,8 +43,10 @@ public class Controller implements KeyListener, ActionListener{
 		
 		if(selected.equals("topDown")) {
 			// clapper rail game
+		
 			game = new ArrayList<GameObject>();
 			model = new TopDownModel();
+			System.out.println(((TopDownModel)model).cr.hitbox.getBounds());
 			game.add(((TopDownModel)model).cr);
 	//		game.add(((TopDownModel)model).f);
 			game.add(((TopDownModel)model).nest);
@@ -75,8 +77,10 @@ public class Controller implements KeyListener, ActionListener{
 			Background backTwo = new Background(backOne.getImageWidth(), 0);
 			view = new SideScrollView(game, backOne, backTwo);
 
-			Trash t = new Trash(view.getWidth() + 200, 490, 50, 50);
-			Trash t2 = new Trash(view.getWidth() + 20, 650, 50, 50);
+			Trash t = new Trash(view.getWidth() + 200, view.getHeight() - (view.getHeight() / 20), 
+					view.getWidth() / 20, view.getHeight()/ 15);
+			Trash t2 = new Trash(view.getWidth() + 300, view.getHeight() - (view.getHeight() / 50), 
+					view.getWidth() / 20, view.getHeight()/ 15);
 			Fish f = new Fish(view.getWidth(), 550, 50, 50);
 			Fish f2 = new Fish(view.getWidth() + 20, 600, 50, 50);
 			Fish f3 = new Fish(view.getWidth() + 100, 650, 50, 50);
