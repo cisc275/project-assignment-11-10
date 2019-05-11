@@ -50,7 +50,8 @@ public class Constants implements Serializable {
 	public final static String IMG_TRASH = "img/Trash.png";
 	
 	/// Doubles
-	
+	public final static double IMG_SCALE_RATIO_X = FRAME_X/800;
+	public final static double IMG_SCALE_RATIO_Y = FRAME_Y/600;
 
 
 	public static void setFrameX(int d) { FRAME_X = d; }
