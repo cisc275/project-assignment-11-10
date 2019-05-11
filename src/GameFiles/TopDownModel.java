@@ -49,8 +49,9 @@ public class TopDownModel extends Model {
     }
     
     public TopDownModel() {
-    	cr = new ClapperRail(Constants.CLAPPERRAIL_START_LOC_X, Constants.CLAPPERRAIL_START_LOC_Y, Constants.CLAPPERRAIL_START_SIZE_X, Constants.CLAPPERRAIL_START_SIZE_Y);
-    	f = new Fox(200,400,100,100, cr);
+    	cr = new ClapperRail(Constants.CLAPPER_RAIL_START_LOC_X, Constants.CLAPPER_RAIL_START_LOC_Y,
+    			Constants.CLAPPER_RAIL_START_SIZE_X, Constants.CLAPPER_RAIL_START_SIZE_Y);
+    	f = new Fox(Constants.FOX_START_LOC_X, Constants.FOX_START_LOC_Y, Constants.FOX_START_SIZE_X, Constants.FOX_START_SIZE_Y, cr);
     	nest = new Nest(25, 25, 50, 50);
 		game = new ArrayList<GameObject>();
 		game.add(cr);
