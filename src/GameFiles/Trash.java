@@ -28,8 +28,8 @@ public class Trash extends Collectable {
 	
 	
 	
-	public Trash(int x, int y, int width, int height, Polygon hitbox, BufferedImage img, int xSpeed) {
-		super(x,y,width,height, hitbox, img, xSpeed);
+	public Trash(int x, int y, int width, int height) {
+		super(x,y,width,height);
 		this.img = createImage();
 		this.setType(Type.TRASH);
 	}
@@ -37,11 +37,7 @@ public class Trash extends Collectable {
 	
 	@Override
 	public void handleCollision(Osprey o) {
-		this.hitbox.reset();
-		this.hitbox.addPoint(x, y);
-		this.hitbox.addPoint(x, y + height);
-		this.hitbox.addPoint(x + width, y + height);
-		this.hitbox.addPoint(x + width, y);
+		resetPoly();
 		if (Osprey.xSpeed <= -2) {
 		o.setXSpeed((Osprey.getXSpeed() + Constants.TRASH_AC));
 		}

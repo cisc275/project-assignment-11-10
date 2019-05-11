@@ -25,8 +25,8 @@ public class Bush extends NonControllable {
 	 * a constructor that takes values for all fields as input parameters
 	 */
 	
-	public Bush(int x, int y, int width, int height,Polygon hitbox, BufferedImage img) {
-		super(x,y,width,height, hitbox, img);
+	public Bush(int x, int y, int width, int height) {
+		super(x,y,width,height);
 		this.img = createImage();
 		this.setType(Type.BUSH);
 	}

@@ -28,7 +28,7 @@ public class InvisibleWall extends NonControllable {
 //		super(y, x, imgPose, width, height, xMin, xMax, yMin, yMax, isDiving, currY, xSpeed, ySpeed);
 //	}
 	public InvisibleWall(int x, int y, int width, int height, Polygon hitbox, BufferedImage img) {
-		super(x,y,width,height,hitbox,img);
+		super(x,y,width,height);
 	}
 
 }

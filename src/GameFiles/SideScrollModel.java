@@ -24,7 +24,7 @@ public class SideScrollModel extends Model {
 
 	
 	public SideScrollModel() {
-		o = new Osprey(100, 100, 50, 50, new Polygon(), null, -5, 0, false);
+		o = new Osprey(100, 100, 50, 50);
 		game = new ArrayList<GameObject>();
 		game.add(o);
 	}

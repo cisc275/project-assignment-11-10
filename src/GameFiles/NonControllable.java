@@ -21,8 +21,8 @@ public class NonControllable extends GameObject {
 	 */
 	
 
-	public NonControllable(int x, int y, int width, int height,Polygon hitbox, BufferedImage img) {
-		super(x,y,width,height,hitbox,img);
+	public NonControllable(int x, int y, int width, int height) {
+		super(x,y,width,height);
 	}
 
 }

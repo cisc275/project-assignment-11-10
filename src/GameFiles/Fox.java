@@ -15,8 +15,8 @@ import javax.imageio.ImageIO;
  *
  */
 public class Fox extends Controllable {
-	private double xSpeed;
-	private double ySpeed;
+	private double xSpeed = 0;
+	private double ySpeed = 0;
 	private double speed;
 	private int randSmooth;
 	private ClapperRail c;
@@ -35,12 +35,9 @@ public class Fox extends Controllable {
 	 * a constructor that takes values for all fields as input parameters
 	 */
 	
-	public Fox(int x, int y, int width, int height, Polygon hitbox, BufferedImage img, 
-			double xSpeed, double ySpeed, ClapperRail c) {
-		super(x,y,width,height,hitbox, img);
+	public Fox(int x, int y, int width, int height, ClapperRail c) {
+		super(x,y,width,height);
 		this.setType(Type.FOX);
-		this.xSpeed = xSpeed;
-		this.ySpeed = ySpeed;
 		this.c = c;
 		try {
     		this.img = ImageIO.read(new File(Constants.IMG_FOX));
@@ -72,11 +69,7 @@ public class Fox extends Controllable {
 	 */
 	
 	public void handleCollision(ClapperRail c) {
-		c.hitbox.reset();
-		c.hitbox.addPoint(x, y);
-		c.hitbox.addPoint(x, y + height);
-		c.hitbox.addPoint(x + width, y + height);
-		c.hitbox.addPoint(x + width, y);
+		c.resetPoly();
 	
 	}
 	

@@ -48,17 +48,17 @@ public class Controller implements KeyListener, ActionListener{
 			game.add(((TopDownModel)model).cr);
 	//		game.add(((TopDownModel)model).f);
 			game.add(((TopDownModel)model).nest);
-			game.add(new Fish(3000, 700, 50, 50, new Polygon(), null, -16));
-			game.add(new Stick(300,300,40,80,new Polygon(),null , 0, 0));
-			game.add(new Stick(500, 250 ,40,40,new Polygon(),null , 0, 0));
-			game.add(new Stick(400, 400 ,80,40,new Polygon(),null , 0, 0));
-			Bush b1 = new Bush(500, 500,150,150,new Polygon(), null);
+			game.add(new Fish(3000, 700, 50, 50));
+			game.add(new Stick(300,300,40,80));
+			game.add(new Stick(500, 250 ,40,40));
+			game.add(new Stick(400, 400 ,80,40));
+			Bush b1 = new Bush(500, 500,150,150);
 			game.add(b1);
 			((TopDownModel)model).cr.bushArr.add(b1);
-			Bush b2 = new Bush(600, 20,150,150,new Polygon(),null);
+			Bush b2 = new Bush(600, 20,150,150);
 			game.add(b2);
 			((TopDownModel)model).cr.bushArr.add(b2);
-			Bush b3 = new Bush(20, 450,175,175,new Polygon(),null);
+			Bush b3 = new Bush(20, 450,175,175);
 			game.add(b3);
 			((TopDownModel)model).cr.bushArr.add(b3);
 			
@@ -75,16 +75,15 @@ public class Controller implements KeyListener, ActionListener{
 			Background backTwo = new Background(backOne.getImageWidth(), 0);
 			view = new SideScrollView(game, backOne, backTwo);
 
-			
-			Trash t = new Trash(view.getWidth() + 200, 490, view.getWidth()/20, view.getHeight()/20, new Polygon(), null,  -8);
-			Trash t2 = new Trash(view.getWidth() + 20, 650, 50, 50, new Polygon(), null,  -16);
-			Fish f = new Fish(view.getWidth(), 550, 50, 50, new Polygon(), null, -20);
-			Fish f2 = new Fish(view.getWidth() + 20, 600, 50, 50, new Polygon(), null, -10);
-			Fish f3 = new Fish(view.getWidth() + 100, 650, 50, 50, new Polygon(), null, -16);
-			AirCurrent a = new AirCurrent(view.getWidth() + 20, 95, 50, 50, new Polygon(), null, -6);
-			AirCurrent a2 = new AirCurrent(view.getWidth()  + 100, 300, 50, 50, new Polygon(), null, -16);
-			AirCurrent a3 = new AirCurrent(view.getWidth()  + 500, 200, 50, 50, new Polygon(), null, -12);
-			Mate m = new Mate(view.getWidth() + 400, 200, 200, 50, new Polygon(), null, -10, false); // suposed to be 50 50, this is for the memes
+			Trash t = new Trash(view.getWidth() + 200, 490, 50, 50);
+			Trash t2 = new Trash(view.getWidth() + 20, 650, 50, 50);
+			Fish f = new Fish(view.getWidth(), 550, 50, 50);
+			Fish f2 = new Fish(view.getWidth() + 20, 600, 50, 50);
+			Fish f3 = new Fish(view.getWidth() + 100, 650, 50, 50);
+			AirCurrent a = new AirCurrent(view.getWidth() + 20, 95, 50, 50);
+			AirCurrent a2 = new AirCurrent(view.getWidth()  + 100, 300, 50, 50);
+			AirCurrent a3 = new AirCurrent(view.getWidth()  + 500, 200, 50, 50);
+			Mate m = new Mate(view.getWidth() + 400, 200, 200, 50); // suposed to be 50 50, this is for the memes
 			model = new SideScrollModel();	
 			game.add(((SideScrollModel)model).o);
 			game.add(f);

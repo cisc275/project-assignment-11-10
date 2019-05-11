@@ -70,14 +70,28 @@ public class GameObject {
 	 * 
 	 * A constructor that takes values for all fields as input parameters
 	 */
-	public GameObject(int x, int y, int width, int height, Polygon hitbox, BufferedImage img) {
+	public GameObject(int x, int y, int width, int height) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
-		this.hitbox = hitbox;
-		this.img = img;
+		this.hitbox = new Polygon();
+		this.img = null;
 		this.scaledImg = null;
+		resetPoly();
+	}
+	
+	
+	/**
+	 * 
+	 *  resets Polygon
+	 * 
+	 * @author Timothy Mazzarelli
+	 */
+	
+	
+	public void resetPoly() {
+		this.hitbox.reset();
 		this.hitbox.addPoint(x, y);
 		this.hitbox.addPoint(x, y + height);
 		this.hitbox.addPoint(x + width, y + height);

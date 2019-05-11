@@ -25,8 +25,8 @@ public class Fish extends Collectable {
 	 * a constructor that takes values for all fields as input parameters
 	 */
 
-	public Fish(int x, int y, int width, int height, Polygon hitbox, BufferedImage img, int xSpeed) {
-		super(x,y,width,height, hitbox, img, xSpeed);
+	public Fish(int x, int y, int width, int height) {
+		super(x,y,width,height);
 		this.img = createImage();
 		this.setType(Type.FISH);
 	}
@@ -40,11 +40,7 @@ public class Fish extends Collectable {
 	
 	@Override
 	public void handleCollision(Osprey o) {
-		this.hitbox.reset();
-		this.hitbox.addPoint(x, y);
-		this.hitbox.addPoint(x, y + height);
-		this.hitbox.addPoint(x + width, y + height);
-		this.hitbox.addPoint(x + width, y);
+		resetPoly();
 		
 		if (Osprey.xSpeed >= Constants.FISH_X_SPEED_TEST) {
 			o.setXSpeed((Osprey.getXSpeed() - Constants.FISH_AC));
@@ -55,11 +51,7 @@ public class Fish extends Collectable {
 	
 	@Override
 	public void handleCollision(ClapperRail c) {
-		this.hitbox.reset();
-		this.hitbox.addPoint(x, y);
-		this.hitbox.addPoint(x, y + height);
-		this.hitbox.addPoint(x + width, y + height);
-		this.hitbox.addPoint(x + width, y);
+		resetPoly();
 	}
 	
 	

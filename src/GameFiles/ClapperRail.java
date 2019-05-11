@@ -44,11 +44,8 @@ public class ClapperRail extends Bird {
 	 * a constructor that takes values for all fields as input parameters
 	 */
 	
-	public ClapperRail(int x, int y, int width, int height, Polygon hitbox, BufferedImage img, 
-			int xSpeed, int ySpeed) {
-		super(x,y,width,height,hitbox,img);
-		this.xSpeed = xSpeed;
-		this.ySpeed = ySpeed;
+	public ClapperRail(int x, int y, int width, int height) {
+		super(x,y,width, height);
 		this.setType(Type.CLAPPERRAIL);
 	}
 	
@@ -139,11 +136,7 @@ public class ClapperRail extends Bird {
 	 */
 	
 	public void handleCollision(Fox f) {
-		this.hitbox.reset();
-		this.hitbox.addPoint(x, y);
-		this.hitbox.addPoint(x, y + height);
-		this.hitbox.addPoint(x + width, y + height);
-		this.hitbox.addPoint(x + width, y);
+		resetPoly();
 	
 	}
 	
