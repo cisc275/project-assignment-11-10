@@ -1,6 +1,7 @@
 package GameFiles;
 
 import java.awt.Component;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -43,9 +44,9 @@ public class View extends JFrame {
     	frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
     	frame.setUndecorated(true);
     	frame.setVisible(true);
-    	Constants.setFrameX(frame.getWidth());
-    	Constants.setFrameY(frame.getHeight());
-    	System.out.println(" " + Constants.FRAME_X  + " " + Constants.FRAME_X );
+    	Rectangle r = frame.getBounds();
+    	Constants.setFrameX(r.getWidth());
+    	Constants.setFrameY(r.getHeight());
 	}
 
 	
