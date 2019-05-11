@@ -32,18 +32,10 @@ public class TopDownView extends View{
 		setUpScreen(frame);
 		game = g;
     	frame.add(drawPanel);
-<<<<<<< HEAD
-    	System.out.println(drawPanel.getWidth());
-=======
     	drawPanel.setOpaque(true);
     	pack();
     	this.setSize(frame.getWidth(), frame.getHeight());
-    	
-    	
-    	
-    	
->>>>>>> branch 'master' of https://github.com/cisc275/project-assignment-11-10.git
-	}
+    	}
 	
 	
 	

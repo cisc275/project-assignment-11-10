@@ -25,6 +25,9 @@ public class Constants implements Serializable {
 	
 	public final static int TRASH_AC = 1;
 	
+	public static int FRAME_X;
+	public static int FRAME_Y;
+	
 	public static int COLLECTABLE_WIDTH = FRAME_X/10;
 	public static int COLLECTABLE_HEIGHT = FRAME_Y/10;
 
@@ -47,13 +50,11 @@ public class Constants implements Serializable {
 	public final static String IMG_TRASH = "img/Trash.png";
 	
 	/// Doubles
-	private static double FRAME_X;
-	private static double FRAME_Y;
 	
 
 
-	public static void setFrameX(double d) { FRAME_X = d; }
-	public static void setFrameY(double y) { FRAME_Y = y; }
-	public static double getFRAME_X() { return FRAME_X; }
-	public static double getFRAME_Y() { return FRAME_Y; }
+	public static void setFrameX(int d) { FRAME_X = d; }
+	public static void setFrameY(int y) { FRAME_Y = y; }
+	public static int getFRAME_X() { return FRAME_X; }
+	public static int getFRAME_Y() { return FRAME_Y; }
 }

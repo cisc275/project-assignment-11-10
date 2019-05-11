@@ -45,14 +45,8 @@ public class View extends JFrame {
     	frame.setUndecorated(true);
     	frame.pack();
     	frame.setVisible(true);
-<<<<<<< HEAD
-    	Rectangle r = frame.getBounds();
-    	Constants.setFrameX(r.getWidth());
-    	Constants.setFrameY(r.getHeight());
-=======
     	Constants.setFrameX(frame.getWidth());
     	Constants.setFrameY(frame.getHeight());
->>>>>>> branch 'master' of https://github.com/cisc275/project-assignment-11-10.git
 	}
 
 	
