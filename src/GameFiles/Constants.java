@@ -51,7 +51,7 @@ public class Constants implements Serializable {
 	public final static String IMG_FOX = "img/ee.png";
 	public final static String IMG_MATE = "img/cr.png";
 	public final static String IMG_NEST = "img/nest.png";
-	public final static String IMG_OSPREY = "img/Osprey.png";
+	public final static String IMG_OSPREY = "img/osprey_right.png";
 	public final static String IMG_POLY_HARVEY = "img/PolyHarvey.png";
 	public final static String IMG_SELECT_CLAPPER_RAIL = "img/selectCR.png";
 	public final static String IMG_SELECT_OSPREY = "img/selectOsprey.png";
