@@ -1,6 +1,7 @@
 package GameFiles;
 
 import java.awt.Component;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;

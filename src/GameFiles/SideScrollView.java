@@ -102,7 +102,7 @@ public class SideScrollView extends View{
 			    	g.drawImage(thing.getScaledImg(), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
 		    	
 		    	}
-		    	g.drawImage(miniMaps[mapNum], Constants.FRAME_X-miniMaps[mapNum].getWidth(), 0, Color.gray,this);
+		    	g.drawImage(miniMaps[mapNum], (int)Constants.getFRAME_X()-miniMaps[mapNum].getWidth(), 0, Color.gray,this);
 				}
 				else if (Mate.caughtUp) {
 					g.dispose();
@@ -115,7 +115,7 @@ public class SideScrollView extends View{
     }
 
 		public Dimension getPreferredSize() {
-			return new Dimension(Constants.FRAME_X, Constants.FRAME_Y);
+			return new Dimension((int)Constants.getFRAME_X(), (int)Constants.getFRAME_Y());
 		}
 	
 	

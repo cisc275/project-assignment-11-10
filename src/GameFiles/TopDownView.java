@@ -35,11 +35,7 @@ public class TopDownView extends View{
     	drawPanel.setOpaque(true);
     	pack();
     	this.setSize(frame.getWidth(), frame.getHeight());
-    	
-    	
-    	
-    	
-	}
+    	}
 	
 	
 	
@@ -51,6 +47,8 @@ public class TopDownView extends View{
 	public void updateView(ArrayList<GameObject> g) {
 		game = g; 
 		drawPanel.repaint();
+    	//System.out.println(" " + Constants.getFRAME_X()  + " " + Constants.getFRAME_Y() );
+
 	}
 	
 	
@@ -70,7 +68,7 @@ public class TopDownView extends View{
 	
 		}
 			public Dimension getPreferredSize() {
-			return new Dimension(Constants.FRAME_X, Constants.FRAME_Y);
+			return new Dimension((int)Constants.getFRAME_X(), (int)Constants.getFRAME_Y());
 		}
 	}
 	
