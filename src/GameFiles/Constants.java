@@ -14,6 +14,11 @@ public class Constants implements Serializable {
 	
 	public final static int BIRD_MOVE_AMOUNT = 10;
 	
+	public final static int CLAPPERRAIL_START_LOC_X = 400;
+	public final static int CLAPPERRAIL_START_LOC_Y = 200;
+	public final static int CLAPPERRAIL_START_SIZE_X = 100;
+	public final static int CLAPPERRAIL_START_SIZE_Y = 100;
+	
 	public final static int FISH_AC = 1;
 	public final static int FISH_X_SPEED_TEST = -10;
 	

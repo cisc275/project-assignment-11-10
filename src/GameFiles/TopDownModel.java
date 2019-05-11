@@ -49,7 +49,7 @@ public class TopDownModel extends Model {
     }
     
     public TopDownModel() {
-    	cr = new ClapperRail(400,200,100,100);
+    	cr = new ClapperRail(Constants.CLAPPERRAIL_START_LOC_X, Constants.CLAPPERRAIL_START_LOC_Y, Constants.CLAPPERRAIL_START_SIZE_X, Constants.CLAPPERRAIL_START_SIZE_Y);
     	f = new Fox(200,400,100,100, cr);
     	nest = new Nest(25, 25, 50, 50);
 		game = new ArrayList<GameObject>();
