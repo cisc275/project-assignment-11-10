@@ -15,7 +15,6 @@ import javax.swing.JPanel;
 public class View extends JFrame {
 
 	ArrayList<GameObject> game;
-	int frameSize = 800;
 
 	public ArrayList<GameObject> getGame() {
 		return game;
@@ -33,6 +32,20 @@ public class View extends JFrame {
 	
 	public void addActionListener(Controller c) {
 		
+	}
+	
+	/**
+	 * Default setup and full screen.
+	 * @param frame JFrame item passed from the View Object
+	 */
+	public void setUpScreen(JFrame frame) {
+    	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+    	frame.setUndecorated(true);
+    	frame.setVisible(true);
+    	Constants.setFrameX(frame.getWidth());
+    	Constants.setFrameY(frame.getHeight());
+    	System.out.println(" " + Constants.FRAME_X  + " " + Constants.FRAME_X );
 	}
 
 	

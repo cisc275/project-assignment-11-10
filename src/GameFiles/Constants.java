@@ -24,6 +24,9 @@ public class Constants implements Serializable {
 	public final static int STICK_HANDLECOLLISION_OFFSET = 30;
 	
 	public final static int TRASH_AC = 1;
+
+	public static int FRAME_X = 1;
+	public static int FRAME_Y = 1;
 	
 	/// Strings
 	public final static String IMG_AIRCURRENT = "img/aircurrent.png";
@@ -44,4 +47,6 @@ public class Constants implements Serializable {
 	public final static String IMG_TRASH = "img/Trash.png";
 	
 
+	public static void setFrameX(int x) { FRAME_X = 1; }
+	public static void setFrameY(int y) { FRAME_Y = 1; }
 }

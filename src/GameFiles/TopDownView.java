@@ -29,11 +29,9 @@ public class TopDownView extends View{
      */
 	public TopDownView(ArrayList<GameObject> g) {
 		frame = new JFrame();
+		setUpScreen(frame);
 		game = g;
     	frame.add(drawPanel);
-    	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    	frame.setSize(frameSize, frameSize);
-    	frame.setVisible(true);
 	}
 	
 	
@@ -65,7 +63,7 @@ public class TopDownView extends View{
 	
 		}
 			public Dimension getPreferredSize() {
-			return new Dimension(frameSize, frameSize);
+			return new Dimension(Constants.FRAME_X, Constants.FRAME_Y);
 		}
 	}
 	

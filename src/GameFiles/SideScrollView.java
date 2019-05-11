@@ -42,12 +42,10 @@ public class SideScrollView extends View{
     
     public SideScrollView(ArrayList<GameObject> g, Background backOne, Background backTwo, Quiz q){
 		frame = new JFrame();
+		setUpScreen(frame);
 		game = g;
     	frame.add(drawPanel);
     	drawPanel.setOpaque(true);
-    	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    	frame.setSize(frameSize, frameSize);
-    	frame.setVisible(true);
     	pack();
     	this.backOne = backOne;
     	this.backTwo = backTwo;
@@ -104,7 +102,7 @@ public class SideScrollView extends View{
 			    	g.drawImage(thing.getScaledImg(), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
 		    	
 		    	}
-		    	g.drawImage(miniMaps[mapNum], frameSize-miniMaps[mapNum].getWidth(), 0, Color.gray,this);
+		    	g.drawImage(miniMaps[mapNum], Constants.FRAME_X-miniMaps[mapNum].getWidth(), 0, Color.gray,this);
 				}
 				else if (SideScrollModel.right == true) {
 					g.drawImage(youWin, 0, 0, this);
@@ -117,7 +115,7 @@ public class SideScrollView extends View{
     }
 
 		public Dimension getPreferredSize() {
-			return new Dimension(frameSize, frameSize);
+			return new Dimension(Constants.FRAME_X, Constants.FRAME_Y);
 		}
 	
 	
