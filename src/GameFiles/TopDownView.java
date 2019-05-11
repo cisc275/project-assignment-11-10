@@ -59,8 +59,13 @@ public class TopDownView extends View{
 			super.paintComponent(g);
 			g.setColor(Color.gray);
 			g.drawImage(background, 0, 0, Constants.FRAME_X, Constants.FRAME_Y, this);
-		
-			for (GameObject hing : game) {	
+			
+			
+			for (GameObject hing : game) {
+				if (hing.getType() == GameFiles.Type.CLAPPERRAIL) {
+					g.drawRect(hing.x, hing.y, hing.width, hing.height);
+					System.out.println(hing);
+				}
 				g.setClip(hing.hitbox);
 				g.drawImage(hing.getScaledImg(),hing.hitbox.xpoints[0] ,hing.hitbox.ypoints[0], this);
 				

@@ -78,6 +78,7 @@ public class GameObject {
 		this.hitbox = new Polygon();
 		this.img = null;
 		this.scaledImg = null;
+		this.setType(Type.GAMEOBJECT);
 		resetPoly();
 	}
 	
@@ -404,6 +405,10 @@ public class GameObject {
 	public void handleCollision(Nest n) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public String toString() {
+		return  " X: " + x + " Y: " + y;
 	}
 
 
