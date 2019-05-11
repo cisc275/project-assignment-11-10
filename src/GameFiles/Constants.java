@@ -25,8 +25,11 @@ public class Constants implements Serializable {
 	
 	public final static int TRASH_AC = 1;
 
-	public static int FRAME_X = 1;
-	public static int FRAME_Y = 1;
+	public static int FRAME_X;
+	public static int FRAME_Y;
+	
+	public static int COLLECTABLE_WIDTH = FRAME_X/10;
+	public static int COLLECTABLE_HEIGHT = FRAME_Y/10;
 	
 	
 	/// Strings

@@ -74,9 +74,9 @@ public class Controller implements KeyListener, ActionListener{
 			Background backOne = new Background();
 			Background backTwo = new Background(backOne.getImageWidth(), 0);
 			view = new SideScrollView(game, backOne, backTwo);
-			view.getWidth();
-			view.getHeight();
-			Trash t = new Trash(view.getWidth() + 200, 490, 50, 50, new Polygon(), null,  -8);
+
+			
+			Trash t = new Trash(view.getWidth() + 200, 490, view.getWidth()/20, view.getHeight()/20, new Polygon(), null,  -8);
 			Trash t2 = new Trash(view.getWidth() + 20, 650, 50, 50, new Polygon(), null,  -16);
 			Fish f = new Fish(view.getWidth(), 550, 50, 50, new Polygon(), null, -20);
 			Fish f2 = new Fish(view.getWidth() + 20, 600, 50, 50, new Polygon(), null, -10);
