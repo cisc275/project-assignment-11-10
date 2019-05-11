@@ -27,8 +27,8 @@ public class Bird extends Controllable{
 	 * constructor
 	 */
 	
-	public Bird(int x, int y, int width, int height, Polygon hitbox, BufferedImage img) {
-		super(x,y,width, height, hitbox, img);
+	public Bird(int x, int y, int width, int height) {
+		super(x,y,width, height);
 		
 	}
 	

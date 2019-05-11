@@ -36,11 +36,10 @@ public class SideScrollView extends View{
     final int numOfMaps = 10;
     BufferedImage[] miniMaps = initMaps();
     int mapNum = 0;
-    JButton right;
-    JButton wrong;
-    Quiz q;
+   
+ 
     
-    public SideScrollView(ArrayList<GameObject> g, Background backOne, Background backTwo, Quiz q){
+    public SideScrollView(ArrayList<GameObject> g, Background backOne, Background backTwo){
 		frame = new JFrame();
 		setUpScreen(frame);
 		game = g;
@@ -50,7 +49,8 @@ public class SideScrollView extends View{
     	this.backOne = backOne;
     	this.backTwo = backTwo;
     	youWin = createImage();
-    	this.q = q;
+    	
+    	
     }
     
     public void updateView(ArrayList<GameObject> g) {
@@ -89,7 +89,7 @@ public class SideScrollView extends View{
 				Color transparent = new Color(1f,0f,0f,.5f );
 				g.setColor(transparent);
 				Graphics2D twoD = (Graphics2D)g;
-				back = (BufferedImage)(createImage(getWidth(), getHeight()));
+				back = (BufferedImage)(createImage(Constants.FRAME_X, Constants.FRAME_Y));
 				Graphics buffer = back.createGraphics();
 				backOne.draw(buffer);
 			    backTwo.draw(buffer);
@@ -104,8 +104,8 @@ public class SideScrollView extends View{
 		    	}
 		    	g.drawImage(miniMaps[mapNum], (int)Constants.getFRAME_X()-miniMaps[mapNum].getWidth(), 0, Color.gray,this);
 				}
-				else if (SideScrollModel.right == true) {
-					g.drawImage(youWin, 0, 0, this);
+				else if (Mate.caughtUp) {
+					g.dispose();
 					
 				}
 				
@@ -123,10 +123,7 @@ public class SideScrollView extends View{
 		frame.addKeyListener(controller);
 	}
     
-    public void addActionListener(Controller controller) {
-    	q.addActionListener(controller);
-
-    }
+   
     
     public BufferedImage[] initMaps() {
     	BufferedImage[] maps = new BufferedImage[numOfMaps];

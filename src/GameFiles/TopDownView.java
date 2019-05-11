@@ -32,7 +32,17 @@ public class TopDownView extends View{
 		setUpScreen(frame);
 		game = g;
     	frame.add(drawPanel);
+<<<<<<< HEAD
     	System.out.println(drawPanel.getWidth());
+=======
+    	drawPanel.setOpaque(true);
+    	pack();
+    	this.setSize(frame.getWidth(), frame.getHeight());
+    	
+    	
+    	
+    	
+>>>>>>> branch 'master' of https://github.com/cisc275/project-assignment-11-10.git
 	}
 	
 	
@@ -56,7 +66,7 @@ public class TopDownView extends View{
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			g.setColor(Color.gray);
-			g.drawImage(background, 0, 0, this);
+			g.drawImage(background, 0, 0, Constants.FRAME_X, Constants.FRAME_Y, this);
 		
 			for (GameObject hing : game) {	
 				g.setClip(hing.hitbox);

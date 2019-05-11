@@ -1,8 +1,10 @@
 package GameFiles;
 
 import java.awt.Polygon;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.Random;
 
 /**
  * 
@@ -30,21 +32,18 @@ public class Collectable extends GameObject {
   
 	//a constructor that takes values for all fields as input parameters
 	 
-	public Collectable(int x, int y, int width, int height, Polygon hitbox, BufferedImage img, int xSpeed) {
-		super(x,y,width,height, hitbox, img);
-		this.xSpeed = xSpeed;
+	public Collectable(int x, int y, int width, int height) {
+		super(x,y,width,height);
+		Random r = new Random();
+		this.xSpeed = -r.nextInt(10) - 10;
 	}
 	
 	// all collectables move according to xSpeed and will loop back around if need be
 	
 	public void move() {
 		this.hitbox.translate(this.xSpeed, 0);
-		if((this.hitbox.xpoints[3] <= 0)) {
-			this.hitbox.reset();
-			this.hitbox.addPoint(x, y);
-			this.hitbox.addPoint(x, y + height);
-			this.hitbox.addPoint(x + width, y + height);
-			this.hitbox.addPoint(x + width, y);
+		if(this.hitbox.xpoints[3] <= 0) {
+			resetPoly();
 		}
 	}
 

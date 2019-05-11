@@ -33,32 +33,5 @@ public class Model {
 	} 
 	
 	
-	public void collide(ArrayList<GameObject> arr) {
-		for(int i = 0; i < arr.size(); i++) {
-			if(arr.get(i).getType().equals(Type.CLAPPERRAIL) || arr.get(i).getType().equals(Type.OSPREY) || arr.get(i).getType().equals(Type.FOX)) {
-				for(int j = i+1; j < arr.size(); j++) {
-					System.out.println("Collision found between " + i + " and " + j);
-					arr.get(i).collidesWith(arr.get(j));
-				}
-			}
-		}
-	}
-	public BufferedImage createImage(){
-		//System.out.println("Start of createImage");
-    	BufferedImage bufferedImage;
-    	//System.out.println("Im about to try");
-    	try {
-    		//System.out.println("im trying");
-    		bufferedImage = ImageIO.read(new File(Constants.IMG_THARVEY));
-    		
-    		//System.out.println("I succeded");
-    		return bufferedImage;
-    	} catch (IOException e) {
-    		//System.out.println("im being caught");
-    		e.printStackTrace();
-    	}
-    	return null;
-    }
-	
 	
 }

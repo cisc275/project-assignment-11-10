@@ -44,12 +44,12 @@ public class ClapperRail extends Bird {
 	 * a constructor that takes values for all fields as input parameters
 	 */
 	
-	public ClapperRail(int x, int y, int width, int height, Polygon hitbox, BufferedImage img, 
-			int xSpeed, int ySpeed) {
-		super(x,y,width,height,hitbox,img);
-		this.xSpeed = xSpeed;
-		this.ySpeed = ySpeed;
+	public ClapperRail(int x, int y, int width, int height) {
+		super(x,y,width, height);
 		this.setType(Type.CLAPPERRAIL);
+		this.xSpeed = 0;
+		this.ySpeed = 0;
+		this.img = createImage();
 	}
 	
 	/**
@@ -74,29 +74,29 @@ public class ClapperRail extends Bird {
 							
 		}
 		
-		if (this.hitbox.ypoints[1] >= 760) {
+		if (this.hitbox.ypoints[1] >= Constants.FRAME_Y) {
 			int x1 = this.hitbox.xpoints[0];
 			int x2 = this.hitbox.xpoints[1];
 			int x3 = this.hitbox.xpoints[2];
 			int x4 = this.hitbox.xpoints[3];
 			
 			this.hitbox.reset();
-			this.hitbox.addPoint(x1, 760 - height);
-			this.hitbox.addPoint(x2, 760);
-			this.hitbox.addPoint(x3, 760);
-			this.hitbox.addPoint(x4, 760 - height);			
+			this.hitbox.addPoint(x1, Constants.FRAME_Y - height);
+			this.hitbox.addPoint(x2, Constants.FRAME_Y);
+			this.hitbox.addPoint(x3, Constants.FRAME_Y);
+			this.hitbox.addPoint(x4, Constants.FRAME_Y - height);			
 		}
-		if (this.hitbox.xpoints[3] >= 780) {
+		if (this.hitbox.xpoints[3] >= Constants.FRAME_X) {
 			int y1 = this.hitbox.ypoints[0];
 			int y2 = this.hitbox.ypoints[1];
 			int y3 = this.hitbox.ypoints[2];
 			int y4 = this.hitbox.ypoints[3];
 			
 			this.hitbox.reset();
-			this.hitbox.addPoint(780 - width, y1);
-			this.hitbox.addPoint(780 - width, y2);
-			this.hitbox.addPoint(780, y3);
-			this.hitbox.addPoint(780, y4);		
+			this.hitbox.addPoint(Constants.FRAME_X - width, y1);
+			this.hitbox.addPoint(Constants.FRAME_X - width, y2);
+			this.hitbox.addPoint(Constants.FRAME_X, y3);
+			this.hitbox.addPoint(Constants.FRAME_X, y4);		
 		}
 		
 		if (this.hitbox.xpoints[0] <= 0) {
@@ -139,11 +139,7 @@ public class ClapperRail extends Bird {
 	 */
 	
 	public void handleCollision(Fox f) {
-		this.hitbox.reset();
-		this.hitbox.addPoint(x, y);
-		this.hitbox.addPoint(x, y + height);
-		this.hitbox.addPoint(x + width, y + height);
-		this.hitbox.addPoint(x + width, y);
+		resetPoly();
 	
 	}
 	
@@ -199,6 +195,17 @@ public class ClapperRail extends Bird {
 			
 		}
 	}
+	
+	private BufferedImage createImage(){
+    	BufferedImage bufferedImage;
+    	try {
+    		bufferedImage = ImageIO.read(new File(Constants.IMG_THARVEY));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
+    }
 	
 	
 	

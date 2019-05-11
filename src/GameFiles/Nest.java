@@ -16,8 +16,8 @@ public class Nest extends GameObject{
 	
 	protected int numSticks = 0;
 	
-	public Nest(int x, int y, int width, int height, Polygon hitbox, BufferedImage img) {
-		super(x,y,width,height,hitbox,img);
+	public Nest(int x, int y, int width, int height) {
+		super(x,y,width,height);
 		this.img = createImage();
 		this.setType(Type.NEST);
 	}

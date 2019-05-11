@@ -29,10 +29,9 @@ public class Mate extends Bird {
 	 * a constructor that takes values for all fields as input parameters
 	 */
 	
-	public Mate(int x, int y, int width, int height, Polygon hitbox, BufferedImage img, int xSpeed, boolean caughtUp) {
-		super(x,y,width,height, hitbox, img);
+	public Mate(int x, int y, int width, int height) {
+		super(x,y,width,height);
 		this.img = createImage();
-		this.xSpeed = xSpeed;
 		Mate.caughtUp = false;
 	
 	}
@@ -45,6 +44,7 @@ public class Mate extends Bird {
 	public void move() {
 		if (Osprey.distance >= Osprey.maxDistance) {
 			this.hitbox.translate(this.xSpeed, 0);
+			
 		}
 		else {
 			this.hitbox.translate(0, 0);
@@ -60,12 +60,9 @@ public class Mate extends Bird {
 
 @Override
 public void handleCollision(Osprey o) {
-	this.hitbox.reset();
-	this.hitbox.addPoint(x, y);
-	this.hitbox.addPoint(x, y + height);
-	this.hitbox.addPoint(x + width, y + height);
-	this.hitbox.addPoint(x + width, y);
+	resetPoly();
 	Mate.caughtUp = true;
+	new Quiz();
 }
 
 // draw the mate

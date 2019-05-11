@@ -23,7 +23,7 @@ public class Osprey extends Bird {
 	int currY;
 	boolean isDiving;
 	static double distance;
-	static double maxDistance = 1500;
+	static double maxDistance = 500;
 	
 	
 	/**
@@ -41,13 +41,12 @@ public class Osprey extends Bird {
 	 * a constructor that takes values for all fields except currY as input parameters
 	 */
 
-	public Osprey(int x, int y, int width, int height, Polygon hitbox, BufferedImage img, double xSpeed, 
-			int ySpeed, boolean isDiving) {
-		super(x, y, width, height, hitbox, img);
+	public Osprey(int x, int y, int width, int height) {
+		super(x, y, width, height);
 		this.img = createImage();
-		Osprey.xSpeed = xSpeed;
-		this.ySpeed = ySpeed;
-		this.isDiving = isDiving;
+		Osprey.xSpeed = -5;
+		this.ySpeed = 0;
+		this.isDiving = false;
 		distance = 0;
 		this.setType(Type.OSPREY);
 	}
@@ -71,7 +70,7 @@ public class Osprey extends Bird {
 	 * @author tim Mazzarelli
 	 */
 	public void dive() {
-		if (this.hitbox.xpoints[0] >= 350) {
+		if (this.hitbox.ypoints[0] >= 350) {
 		}
 		else {
 		this.isDiving = !this.isDiving;

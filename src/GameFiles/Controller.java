@@ -43,46 +43,51 @@ public class Controller implements KeyListener, ActionListener{
 		
 		if(selected.equals("topDown")) {
 			// clapper rail game
+		
 			game = new ArrayList<GameObject>();
+			view = new TopDownView(game);
 			model = new TopDownModel();
 			game.add(((TopDownModel)model).cr);
 	//		game.add(((TopDownModel)model).f);
 			game.add(((TopDownModel)model).nest);
-			game.add(new Fish(3000, 700, 50, 50, new Polygon(), null, -16));
-			game.add(new Stick(300,300,40,80,new Polygon(),null , 0, 0));
-			game.add(new Stick(500, 250 ,40,40,new Polygon(),null , 0, 0));
-			game.add(new Stick(400, 400 ,80,40,new Polygon(),null , 0, 0));
-			Bush b1 = new Bush(500, 500,150,150,new Polygon(), null);
+			System.out.println((view.getHeight() * (9/10)));
+			game.add(new Fish(3000, view.getHeight() - (view.getHeight() * (9/10)), 50, 50));
+			game.add(new Stick(300,300,40,80));
+			game.add(new Stick(500, 250 ,40,40));
+			game.add(new Stick(400, 400 ,80,40));
+			Bush b1 = new Bush(500, 500,150,150);
 			game.add(b1);
 			((TopDownModel)model).cr.bushArr.add(b1);
-			Bush b2 = new Bush(600, 20,150,150,new Polygon(),null);
+			Bush b2 = new Bush(600, 20,150,150);
 			game.add(b2);
 			((TopDownModel)model).cr.bushArr.add(b2);
-			Bush b3 = new Bush(20, 450,175,175,new Polygon(),null);
+			Bush b3 = new Bush(20, 450,175,175);
 			game.add(b3);
 			((TopDownModel)model).cr.bushArr.add(b3);
 			
-			view = new TopDownView(game);
+			
 			view.addKeyListener(this);
 			this.topDownStart();
 
 		}
 		// sideScroll game
 		else if(selected.equals("sideScroll")) {
-			
-			
+			game = new ArrayList<GameObject>();
 			Background backOne = new Background();
 			Background backTwo = new Background(backOne.getImageWidth(), 0);
-			Trash t = new Trash(850, 490, 50, 50, new Polygon(), null,  -8);
-			Trash t2 = new Trash(900, 650, 50, 50, new Polygon(), null,  -16);
-			Fish f = new Fish(800, 550, 50, 50, new Polygon(), null, -20);
-			Fish f2 = new Fish(1000, 600, 50, 50, new Polygon(), null, -10);
-			Fish f3 = new Fish(1200, 650, 50, 50, new Polygon(), null, -16);
-			AirCurrent a = new AirCurrent(900, 95, 50, 50, new Polygon(), null, -6);
-			AirCurrent a2 = new AirCurrent(1500, 300, 50, 50, new Polygon(), null, -16);
-			AirCurrent a3 = new AirCurrent(1300, 200, 50, 50, new Polygon(), null, -12);
-			Mate m = new Mate(1000, 200, 200, 50, new Polygon(), null, -1, false); // suposed to be 50 50, this is for the memes
-			game = new ArrayList<GameObject>();
+			view = new SideScrollView(game, backOne, backTwo);
+			
+			Trash t = new Trash(view.getWidth() + 200, view.getHeight() - (view.getHeight() / 4), 
+					view.getWidth() / 20, view.getHeight()/ 15);
+			Trash t2 = new Trash(view.getWidth() + 300, view.getHeight() - (view.getHeight() / 8), 
+					view.getWidth() / 20, view.getHeight()/ 15);
+			Fish f = new Fish(view.getWidth(), 550, 50, 50);
+			Fish f2 = new Fish(view.getWidth() + 20, 600, 50, 50);
+			Fish f3 = new Fish(view.getWidth() + 100, 650, 50, 50);
+			AirCurrent a = new AirCurrent(view.getWidth() + 20, 95, 50, 50);
+			AirCurrent a2 = new AirCurrent(view.getWidth()  + 100, 300, 50, 50);
+			AirCurrent a3 = new AirCurrent(view.getWidth()  + 500, 200, 50, 50);
+			Mate m = new Mate(view.getWidth() + 400, 200, 200, 50); // suposed to be 50 50, this is for the memes
 			model = new SideScrollModel();	
 			game.add(((SideScrollModel)model).o);
 			game.add(f);
@@ -95,7 +100,6 @@ public class Controller implements KeyListener, ActionListener{
 			game.add(a3);
 			game.add(m);
 		
-			view = new SideScrollView(game, backOne, backTwo, new Quiz());
 			view.addKeyListener(this);
 			view.addActionListener(this);
 		
@@ -114,8 +118,8 @@ public class Controller implements KeyListener, ActionListener{
     			model.updateLocation(game);
     			view.updateView(game);
     			
-    			if (Model.gameOver) {
-    				time.stop();
+    			if (Mate.caughtUp) {
+    				view.dispose();
     			}
     		
     		
@@ -140,8 +144,7 @@ public class Controller implements KeyListener, ActionListener{
     			view.updateView(game);
     			
     			if (Model.gameOver) {
-    				new Quiz();
-    				time.stop();
+    				
     			}
     		
     		
