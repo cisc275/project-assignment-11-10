@@ -70,19 +70,21 @@ public class Controller implements KeyListener, ActionListener{
 		// sideScroll game
 		else if(selected.equals("sideScroll")) {
 			
-			
+			game = new ArrayList<GameObject>();
 			Background backOne = new Background();
 			Background backTwo = new Background(backOne.getImageWidth(), 0);
+			view = new SideScrollView(game, backOne, backTwo);
+			view.getWidth();
+			view.getHeight();
 			Trash t = new Trash(850, 490, 50, 50, new Polygon(), null,  -8);
 			Trash t2 = new Trash(900, 650, 50, 50, new Polygon(), null,  -16);
 			Fish f = new Fish(800, 550, 50, 50, new Polygon(), null, -20);
 			Fish f2 = new Fish(1000, 600, 50, 50, new Polygon(), null, -10);
 			Fish f3 = new Fish(1200, 650, 50, 50, new Polygon(), null, -16);
-			AirCurrent a = new AirCurrent(900, 95, 50, 50, new Polygon(), null, -6);
+			AirCurrent a = new AirCurrent(view.getWidth() * 12, 95, 50, 50, new Polygon(), null, -6);
 			AirCurrent a2 = new AirCurrent(1500, 300, 50, 50, new Polygon(), null, -16);
 			AirCurrent a3 = new AirCurrent(1300, 200, 50, 50, new Polygon(), null, -12);
 			Mate m = new Mate(1000, 200, 200, 50, new Polygon(), null, -1, false); // suposed to be 50 50, this is for the memes
-			game = new ArrayList<GameObject>();
 			model = new SideScrollModel();	
 			game.add(((SideScrollModel)model).o);
 			game.add(f);
@@ -95,7 +97,6 @@ public class Controller implements KeyListener, ActionListener{
 			game.add(a3);
 			game.add(m);
 		
-			view = new SideScrollView(game, backOne, backTwo, new Quiz());
 			view.addKeyListener(this);
 			view.addActionListener(this);
 		
@@ -140,8 +141,7 @@ public class Controller implements KeyListener, ActionListener{
     			view.updateView(game);
     			
     			if (Model.gameOver) {
-    				new Quiz();
-    				time.stop();
+    				
     			}
     		
     		

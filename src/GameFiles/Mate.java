@@ -45,6 +45,7 @@ public class Mate extends Bird {
 	public void move() {
 		if (Osprey.distance >= Osprey.maxDistance) {
 			this.hitbox.translate(this.xSpeed, 0);
+			new Quiz();
 		}
 		else {
 			this.hitbox.translate(0, 0);

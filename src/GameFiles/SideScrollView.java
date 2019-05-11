@@ -40,7 +40,7 @@ public class SideScrollView extends View{
     JButton wrong;
     Quiz q;
     
-    public SideScrollView(ArrayList<GameObject> g, Background backOne, Background backTwo, Quiz q){
+    public SideScrollView(ArrayList<GameObject> g, Background backOne, Background backTwo){
 		frame = new JFrame();
 		setUpScreen(frame);
 		game = g;
@@ -50,7 +50,7 @@ public class SideScrollView extends View{
     	this.backOne = backOne;
     	this.backTwo = backTwo;
     	youWin = createImage();
-    	this.q = q;
+    	
     }
     
     public void updateView(ArrayList<GameObject> g) {
@@ -123,10 +123,7 @@ public class SideScrollView extends View{
 		frame.addKeyListener(controller);
 	}
     
-    public void addActionListener(Controller controller) {
-    	q.addActionListener(controller);
-
-    }
+   
     
     public BufferedImage[] initMaps() {
     	BufferedImage[] maps = new BufferedImage[numOfMaps];
