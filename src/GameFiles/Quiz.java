@@ -11,6 +11,7 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -33,28 +34,46 @@ public class Quiz extends JDialog implements KeyListener{
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	public Quiz() {
-		
+		JPanel p = new JPanel();
+		BoxLayout g = new BoxLayout(p, 3);
+		p.setLayout(g);
+		this.setResizable(false);
+		this.setModal(true);
+		JLabel question = new JLabel("Where would you like to make your nest?");
+		JLabel wrong = new JLabel("A. In the tall nest"); 
+        JLabel right = new JLabel("B. Osprey's done make nests");
+        JLabel mW = new JLabel("C. Low on the ground by water");
+        p.add(question);
+        p.add(wrong);
+        p.add(right);
+        p.add(mW);
+        this.addKeyListener(this);
+        this.add(p);
+        this.setSize(300, 200);
+        this.setVisible(true);
 	}
 
 	
 	
 	public static void main(String[] args) {
 		JPanel p = new JPanel();
-		p.setLayout(new GridLayout(3, 1));
+		BoxLayout g = new BoxLayout(p, 3);
+		p.setLayout(g);
 		Quiz q = new Quiz();
+		q.setResizable(false);
 		q.setModal(true);
-		JLabel wrong = new JLabel("this is a dialog box \n yes"); 
-        JLabel right = new JLabel("this is the right answer");
-        JLabel mW = new JLabel("more wrong");
+		JLabel question = new JLabel("Where would you like to make your nest?");
+		JLabel wrong = new JLabel("A. In the tall nest"); 
+        JLabel right = new JLabel("B. Osprey's done make nests");
+        JLabel mW = new JLabel("C. Low on the ground by water");
+        p.add(question);
         p.add(wrong);
         p.add(right);
-        q.addKeyListener(q);
         p.add(mW);
+        q.addKeyListener(q);
         q.add(p);
-        q.setSize(200, 200);
+        q.setSize(300, 200);
         q.setVisible(true);
-		
-		
 	}
 
 
@@ -62,16 +81,16 @@ public class Quiz extends JDialog implements KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		String s = KeyEvent.getKeyText(e.getKeyCode());
-		 System.out.println(s);
+			String s = KeyEvent.getKeyText(e.getKeyCode());
 	        if (s.equals("A")) { 
 	            // create a dialog Box 
 	            System.out.println("Hooray");
-	            this.setVisible(false);
+	            this.dispose();
+	            this.setModal(false);
 	        }
 	        if(s.equals("B")){
-	        	System.out.println("bitch");
-	        	this.setEnabled(false);
+	        	this.dispose();
+	        	
 	        }
 	        if (s.equals("C")) {
 	        	System.out.println("cat");

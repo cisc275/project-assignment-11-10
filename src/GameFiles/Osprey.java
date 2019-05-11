@@ -23,7 +23,7 @@ public class Osprey extends Bird {
 	int currY;
 	boolean isDiving;
 	static double distance;
-	static double maxDistance = 1500;
+	static double maxDistance = 500;
 	
 	
 	/**

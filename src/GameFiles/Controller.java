@@ -84,7 +84,7 @@ public class Controller implements KeyListener, ActionListener{
 			AirCurrent a = new AirCurrent(view.getWidth() * 12, 95, 50, 50, new Polygon(), null, -6);
 			AirCurrent a2 = new AirCurrent(1500, 300, 50, 50, new Polygon(), null, -16);
 			AirCurrent a3 = new AirCurrent(1300, 200, 50, 50, new Polygon(), null, -12);
-			Mate m = new Mate(1000, 200, 200, 50, new Polygon(), null, -1, false); // suposed to be 50 50, this is for the memes
+			Mate m = new Mate(1000, 200, 200, 50, new Polygon(), null, -10, false); // suposed to be 50 50, this is for the memes
 			model = new SideScrollModel();	
 			game.add(((SideScrollModel)model).o);
 			game.add(f);
@@ -115,8 +115,8 @@ public class Controller implements KeyListener, ActionListener{
     			model.updateLocation(game);
     			view.updateView(game);
     			
-    			if (Model.gameOver) {
-    				time.stop();
+    			if (Mate.caughtUp) {
+    				view.dispose();
     			}
     		
     		

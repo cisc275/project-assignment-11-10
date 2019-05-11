@@ -38,7 +38,7 @@ public class SideScrollView extends View{
     int mapNum = 0;
     JButton right;
     JButton wrong;
-    Quiz q;
+    
     
     public SideScrollView(ArrayList<GameObject> g, Background backOne, Background backTwo){
 		frame = new JFrame();
@@ -104,8 +104,8 @@ public class SideScrollView extends View{
 		    	}
 		    	g.drawImage(miniMaps[mapNum], Constants.FRAME_X-miniMaps[mapNum].getWidth(), 0, Color.gray,this);
 				}
-				else if (SideScrollModel.right == true) {
-					g.drawImage(youWin, 0, 0, this);
+				else if (Mate.caughtUp) {
+					g.dispose();
 					
 				}
 				
