@@ -26,6 +26,8 @@ public class Trash extends Collectable {
 	 * a constructor that takes values for all fields as input parameters
 	 */
 	
+	
+	
 	public Trash(int x, int y, int width, int height, Polygon hitbox, BufferedImage img, int xSpeed) {
 		super(x,y,width,height, hitbox, img, xSpeed);
 		this.img = createImage();

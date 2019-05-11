@@ -89,7 +89,7 @@ public class SideScrollView extends View{
 				Color transparent = new Color(1f,0f,0f,.5f );
 				g.setColor(transparent);
 				Graphics2D twoD = (Graphics2D)g;
-				back = (BufferedImage)(createImage(getWidth(), getHeight()));
+				back = (BufferedImage)(createImage(Constants.FRAME_X, Constants.FRAME_Y));
 				Graphics buffer = back.createGraphics();
 				backOne.draw(buffer);
 			    backTwo.draw(buffer);

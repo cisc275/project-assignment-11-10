@@ -76,15 +76,15 @@ public class Controller implements KeyListener, ActionListener{
 			view = new SideScrollView(game, backOne, backTwo);
 			view.getWidth();
 			view.getHeight();
-			Trash t = new Trash(850, 490, 50, 50, new Polygon(), null,  -8);
-			Trash t2 = new Trash(900, 650, 50, 50, new Polygon(), null,  -16);
-			Fish f = new Fish(800, 550, 50, 50, new Polygon(), null, -20);
-			Fish f2 = new Fish(1000, 600, 50, 50, new Polygon(), null, -10);
-			Fish f3 = new Fish(1200, 650, 50, 50, new Polygon(), null, -16);
-			AirCurrent a = new AirCurrent(view.getWidth() * 12, 95, 50, 50, new Polygon(), null, -6);
-			AirCurrent a2 = new AirCurrent(1500, 300, 50, 50, new Polygon(), null, -16);
-			AirCurrent a3 = new AirCurrent(1300, 200, 50, 50, new Polygon(), null, -12);
-			Mate m = new Mate(1000, 200, 200, 50, new Polygon(), null, -10, false); // suposed to be 50 50, this is for the memes
+			Trash t = new Trash(view.getWidth() + 200, 490, 50, 50, new Polygon(), null,  -8);
+			Trash t2 = new Trash(view.getWidth() + 20, 650, 50, 50, new Polygon(), null,  -16);
+			Fish f = new Fish(view.getWidth(), 550, 50, 50, new Polygon(), null, -20);
+			Fish f2 = new Fish(view.getWidth() + 20, 600, 50, 50, new Polygon(), null, -10);
+			Fish f3 = new Fish(view.getWidth() + 100, 650, 50, 50, new Polygon(), null, -16);
+			AirCurrent a = new AirCurrent(view.getWidth() + 20, 95, 50, 50, new Polygon(), null, -6);
+			AirCurrent a2 = new AirCurrent(view.getWidth()  + 100, 300, 50, 50, new Polygon(), null, -16);
+			AirCurrent a3 = new AirCurrent(view.getWidth()  + 500, 200, 50, 50, new Polygon(), null, -12);
+			Mate m = new Mate(view.getWidth() + 400, 200, 200, 50, new Polygon(), null, -10, false); // suposed to be 50 50, this is for the memes
 			model = new SideScrollModel();	
 			game.add(((SideScrollModel)model).o);
 			game.add(f);

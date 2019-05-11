@@ -45,6 +45,7 @@ public class Fish extends Collectable {
 		this.hitbox.addPoint(x, y + height);
 		this.hitbox.addPoint(x + width, y + height);
 		this.hitbox.addPoint(x + width, y);
+		
 		if (Osprey.xSpeed >= Constants.FISH_X_SPEED_TEST) {
 			o.setXSpeed((Osprey.getXSpeed() - Constants.FISH_AC));
 		}

@@ -42,10 +42,11 @@ public class View extends JFrame {
     	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
     	frame.setUndecorated(true);
+    	frame.pack();
     	frame.setVisible(true);
     	Constants.setFrameX(frame.getWidth());
     	Constants.setFrameY(frame.getHeight());
-    	System.out.println(" " + Constants.FRAME_X  + " " + Constants.FRAME_X );
+   
 	}
 
 	

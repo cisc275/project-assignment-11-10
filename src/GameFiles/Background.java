@@ -32,6 +32,7 @@ public class Background{
             image = ImageIO.read(new File(Constants.IMG_BACKGROUND));
         }
         catch (Exception e) { System.out.println(e); }
+     
  
     }
  
@@ -46,7 +47,7 @@ public class Background{
             this.x = this.x + image.getWidth() * 2;
         }
 
-        window.drawImage(image, getX(), getY(), image.getWidth(), image.getHeight(), null);        
+        window.drawImage(image, getX(), getY(), Constants.FRAME_X, Constants.FRAME_Y, null);        
  
     }
     
