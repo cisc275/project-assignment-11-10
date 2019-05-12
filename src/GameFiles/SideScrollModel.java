@@ -44,7 +44,7 @@ public class SideScrollModel extends Model {
 	public void handleMove(HashSet<Integer> keyPresses) {
 		for(Integer key: keyPresses) {
 			switch(key) {
-			case 38: //up arrow key
+			case UP:
 				if ((o.hitbox.xpoints[0] == 0) ||  (o.hitbox.xpoints[0] == 450)) {
 					o.setYSpeed(0);
 				}
@@ -52,7 +52,7 @@ public class SideScrollModel extends Model {
 					o.setYSpeed(-5);
 				}
 				break;
-			case 40: //down arrow key
+			case DOWN:
 				if ((o.hitbox.xpoints[0] == 0) ||  (o.hitbox.xpoints[0] == 450)) {
 					o.setYSpeed(0);
 				}
@@ -60,7 +60,7 @@ public class SideScrollModel extends Model {
 					o.setYSpeed(5);
 				}
 				break;
-			case 32: //space bar
+			case SPACE:
 				o.dive();
 			}
 		}
