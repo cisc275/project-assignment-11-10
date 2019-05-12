@@ -28,17 +28,17 @@ public class TopDownModel extends Model {
     	
     	for(Integer key: keyPresses) {
 	    	switch(key) {
-	    	case 39: //right arrow key
+	    	case RIGHT:
 				cr.setxSpeed(cr.getMOVE_AMOUNT());
 				break;
-	    	case 37: //left arrow key
+	    	case LEFT:
 				cr.setxSpeed(-cr.getMOVE_AMOUNT());
 				break;
-	    	case 38: //up arrow key
+	    	case UP:
 				cr.setySpeed(-cr.getMOVE_AMOUNT());
 				break;
-	    	case 40: //down arrow key
-				cr.setySpeed(cr.getMOVE_AMOUNT());
+	    	case DOWN:
+	    		cr.setySpeed(cr.getMOVE_AMOUNT());
 				break;
 			}
     	}
