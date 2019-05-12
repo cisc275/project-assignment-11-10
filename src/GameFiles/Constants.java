@@ -9,8 +9,6 @@ public class Constants implements Serializable {
 	
 	/// ints
 	public final static int g = 10;
-	public final static int TIMER_TICK_RATE = 50;
-	public final static int TDM_UPDATELOCATION_STICK_COUNT = 3;
 	
 	public final static int BIRD_MOVE_AMOUNT = 10;
 	
@@ -32,6 +30,14 @@ public class Constants implements Serializable {
 	public final static int OSPREY_WATER_LEVEL = 350;
 	
 	public final static int STICK_HANDLECOLLISION_OFFSET = 30;
+	
+    public final static int TDM_BOUND_OFFSET = 134;
+    public final static int TDM_CLOCK_TICK_CHECK = 100;
+	public final static int TDM_LEFT_BOUND = 0;
+    public final static int TDM_RIGHT_BOUND = 800;
+	public final static int TDM_UPDATELOCATION_STICK_COUNT = 3;
+	
+	public final static int TIMER_TICK_RATE = 50;
 	
 	public final static int TRASH_AC = 1;
 	

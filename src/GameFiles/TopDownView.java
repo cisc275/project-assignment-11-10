@@ -63,7 +63,7 @@ public class TopDownView extends View{
 			
 			for (GameObject hing : game) {
 				if (hing.getType() == GameFiles.Type.CLAPPERRAIL) {
-					//g.drawRect(hing.x, hing.y, hing.width, hing.height);
+					g.drawRect(hing.x, hing.y, hing.width, hing.height);
 					System.out.println(hing + " HUh, " + hing.hitbox.xpoints[0] +  " uhuh," + hing.hitbox.ypoints[0]);
 				}
 				g.setClip(hing.hitbox);

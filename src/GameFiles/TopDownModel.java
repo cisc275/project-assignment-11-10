@@ -20,11 +20,7 @@ public class TopDownModel extends Model {
 
     int count = 0; // used to check clock
     
-    final int LEFT_BOUND = 0;
-    final int BOUND_OFFSET = 134;
-    final int RIGHT_BOUND = 800;
-    final int CLOCK_TICK_CHECK = 100;
-    
+
     @Override
     public void handleMove(HashSet<Integer> keyPresses) {
     	cr.setxSpeed(0);
