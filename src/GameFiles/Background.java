@@ -1,6 +1,7 @@
 package GameFiles;
 
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
@@ -30,6 +31,7 @@ public class Background{
         // Try to open the image file background.png
         try {
             image = ImageIO.read(new File(Constants.IMG_BACKGROUND));
+            image = (BufferedImage) image.getScaledInstance(Constants.FRAME_X, Constants.FRAME_Y, Image.SCALE_SMOOTH);
         }
         catch (Exception e) { System.out.println(e); }
      
@@ -43,10 +45,11 @@ public class Background{
      */
     public void draw(Graphics window) {
     	
-    	if (this.x <= -1 * image.getWidth()) {
-            this.x = this.x + image.getWidth() * 2;
+    	if (this.x <= -image.getWidth()) {
+            this.x += image.getWidth() * 2;
         }
-
+    	
+    	System.out.println(image.getWidth());
         window.drawImage(image, getX(), getY(), Constants.FRAME_X, Constants.FRAME_Y, null);        
  
     }

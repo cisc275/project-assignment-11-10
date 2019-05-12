@@ -46,7 +46,7 @@ public class Osprey extends Bird {
 		super(x, y, width, height);
 		createImage();
 		this.img = imgs[0];
-		Osprey.xSpeed = -5;
+		Osprey.xSpeed = -10;
 		this.ySpeed = 0;
 		this.isDiving = false;
 		distance = 0;

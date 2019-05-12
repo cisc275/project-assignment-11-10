@@ -15,8 +15,8 @@ import javax.imageio.ImageIO;
  *
  */
 public class Fox extends Controllable {
-	private double xSpeed = 0;
-	private double ySpeed = 0;
+	private double xSpeed;
+	private double ySpeed;
 	private double speed;
 	private int randSmooth;
 	private ClapperRail c;
@@ -39,6 +39,8 @@ public class Fox extends Controllable {
 		super(x,y,width,height);
 		this.setType(Type.FOX);
 		this.c = c;
+		this.xSpeed = 1;
+		this.ySpeed = -2;
 		try {
     		this.img = ImageIO.read(new File(Constants.IMG_FOX));
 		} catch (IOException e) {
@@ -95,14 +97,16 @@ public class Fox extends Controllable {
 	
 	@Override
 	public void move() {
-		this.hitbox.translate(2 * (int) this.xSpeed, 2 * (int) this.ySpeed);
+		
 		if(!c.hidden) {
 			this.xSpeed = ((c.hitbox.xpoints[0] - this.hitbox.xpoints[0]) * 
 				(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());
 			this.ySpeed = ((c.hitbox.ypoints[0] - this.hitbox.ypoints[0]) * 
 				(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());	
+			this.hitbox.translate(3 *(int) this.xSpeed,3 * (int) this.ySpeed);
 		}
 		else {
+			
 			int smoother = randSmooth/50;
 			int multX = (int) (Math.random() * 2);
 			int multY = (int) (Math.random() * 2);	
