@@ -6,17 +6,14 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
 
-public class Background{
+public class Background extends GameObject{
 	private BufferedImage image;
 	 
     private int x;
     private int y;
-    
    
-    public Background() {
-        this(0,0);
-    }
-    
+  
+   
     /**
      * @param x
      * @param y
@@ -24,14 +21,14 @@ public class Background{
      * constructor for Background
      */
  
-    public Background(int x, int y) {
-        this.x = x;
-        this.y = y;
+    public Background(int x, int y, int width, int height) {
+    	super(x, y, width, height);
+    	
         
         // Try to open the image file background.png
         try {
-            image = ImageIO.read(new File(Constants.IMG_BACKGROUND));
-            image = (BufferedImage) image.getScaledInstance(Constants.FRAME_X, Constants.FRAME_Y, Image.SCALE_SMOOTH);
+            this.img = ImageIO.read(new File(Constants.IMG_BACKGROUND));
+           
         }
         catch (Exception e) { System.out.println(e); }
      
@@ -43,14 +40,20 @@ public class Background{
      * @param window
      * @author Tim Mazzarelli
      */
-    public void draw(Graphics window) {
-    	
-    	if (this.x <= -image.getWidth()) {
-            this.x += image.getWidth() * 2;
+    public void move() {
+    	if (this.hitbox.xpoints[0] > -Constants.FRAME_X){
+    	this.hitbox.translate((int)Osprey.xSpeed, 0);     
         }
+    	else {
+    		this.hitbox.reset();
+    		this.hitbox.addPoint(this.width, this.y);
+    		this.hitbox.addPoint(this.width, this.y + this.height);
+    		this.hitbox.addPoint(2 * this.width, this.y + this.height);
+    		this.hitbox.addPoint(2 * this.width, this.y);
+    	}
     	
-    	System.out.println(image.getWidth());
-        window.drawImage(image, getX(), getY(), Constants.FRAME_X, Constants.FRAME_Y, null);        
+    	  
+      
  
     }
     

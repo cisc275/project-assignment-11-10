@@ -35,7 +35,7 @@ public class Collectable extends GameObject {
 	public Collectable(int x, int y, int width, int height) {
 		super(x,y,width,height);
 		Random r = new Random();
-		this.xSpeed = -r.nextInt(10) - 10;
+		this.xSpeed = -r.nextInt(10) - 15;
 	}
 	
 	// all collectables move according to xSpeed and will loop back around if need be

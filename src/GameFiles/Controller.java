@@ -73,10 +73,14 @@ public class Controller implements KeyListener, ActionListener{
 		// sideScroll game
 		else if(selected.equals("sideScroll")) {
 			game = new ArrayList<GameObject>();
-			Background backOne = new Background();
-			Background backTwo = new Background(backOne.getImageWidth(), 0);
-			view = new SideScrollView(game, backOne, backTwo);
 			
+			view = new SideScrollView(game);
+			
+			Background backOne = new Background(0, 0, view.getWidth(), view.getHeight());
+			Background backTwo = new Background(view.getWidth(), 0, 
+					view.getWidth(), view.getHeight());
+			System.out.println(backOne.hitbox.getBounds());
+			System.out.println(backTwo.hitbox.getBounds());
 			Trash t = new Trash(view.getWidth() + 200, view.getHeight() - (view.getHeight() / 3), 
 					view.getWidth() / 20, view.getHeight()/ 15);
 			Trash t2 = new Trash(view.getWidth() + 20, view.getHeight() - (view.getHeight() / 9), 
@@ -85,11 +89,13 @@ public class Controller implements KeyListener, ActionListener{
 					(int) (view.getWidth() * 0.05), (int) (view.getHeight() * 0.05));
 			Fish f2 = new Fish(view.getWidth() + 250, 600, 50, 50);
 			Fish f3 = new Fish(view.getWidth() + 100, 650, 50, 50);
-			AirCurrent a = new AirCurrent(view.getWidth() + 20, 95, 50, 50);
-			AirCurrent a2 = new AirCurrent(view.getWidth()  + 100, 300, 50, 50);
-			AirCurrent a3 = new AirCurrent(view.getWidth()  + 500, 200, 50, 50);
+			AirCurrent a = new AirCurrent(view.getWidth() + 20, 55, 250, 250);
+			AirCurrent a2 = new AirCurrent(view.getWidth()  + 100, 100, 200, 200);
+			AirCurrent a3 = new AirCurrent(view.getWidth()  + 500, 200, 200, 200);
 			Mate m = new Mate(view.getWidth() + 400, 200, 200, 50); // suposed to be 50 50, this is for the memes
 			model = new SideScrollModel();	
+			game.add(backOne);
+			game.add(backTwo);
 			game.add(((SideScrollModel)model).o);
 			game.add(f);
 			game.add(f2);
