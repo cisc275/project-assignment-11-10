@@ -64,6 +64,9 @@ public class Osprey extends Bird {
 	public void setYSpeed(int ySpeed) {
 		this.ySpeed = ySpeed;
 	}
+	public int getYSpeed() {
+		return this.ySpeed;
+	}
 	
 	/**
 	 * this method will be called whenever the user presses the dive button
