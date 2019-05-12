@@ -77,12 +77,13 @@ public class Controller implements KeyListener, ActionListener{
 			Background backTwo = new Background(backOne.getImageWidth(), 0);
 			view = new SideScrollView(game, backOne, backTwo);
 			
-			Trash t = new Trash(view.getWidth() + 200, view.getHeight() - (view.getHeight() / 4), 
+			Trash t = new Trash(view.getWidth() + 200, view.getHeight() - (view.getHeight() / 3), 
 					view.getWidth() / 20, view.getHeight()/ 15);
-			Trash t2 = new Trash(view.getWidth() + 300, view.getHeight() - (view.getHeight() / 8), 
+			Trash t2 = new Trash(view.getWidth() + 20, view.getHeight() - (view.getHeight() / 9), 
 					view.getWidth() / 20, view.getHeight()/ 15);
-			Fish f = new Fish(view.getWidth(), 550, 50, 50);
-			Fish f2 = new Fish(view.getWidth() + 20, 600, 50, 50);
+			Fish f = new Fish(view.getWidth() + 400, (int) (view.getHeight() * 0.87), 
+					(int) (view.getWidth() * 0.05), (int) (view.getHeight() * 0.05));
+			Fish f2 = new Fish(view.getWidth() + 250, 600, 50, 50);
 			Fish f3 = new Fish(view.getWidth() + 100, 650, 50, 50);
 			AirCurrent a = new AirCurrent(view.getWidth() + 20, 95, 50, 50);
 			AirCurrent a2 = new AirCurrent(view.getWidth()  + 100, 300, 50, 50);
