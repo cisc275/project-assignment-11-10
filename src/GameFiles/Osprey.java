@@ -25,6 +25,7 @@ public class Osprey extends Bird {
 	static double distance;
 	static double maxDistance = 500;
 	BufferedImage[] imgs = new BufferedImage[3];
+	final int MAX_Y_SPEED;
 	
 	
 	/**
@@ -50,6 +51,7 @@ public class Osprey extends Bird {
 		this.ySpeed = 0;
 		this.isDiving = false;
 		distance = 0;
+		MAX_Y_SPEED = (int)(height/3);
 		this.setType(Type.OSPREY);
 	}
 
@@ -66,6 +68,9 @@ public class Osprey extends Bird {
 	}
 	public int getYSpeed() {
 		return this.ySpeed;
+	}
+	public int getMaxYSpeed() {
+		return MAX_Y_SPEED;
 	}
 	
 	/**

@@ -49,7 +49,7 @@ public class SideScrollModel extends Model {
 					o.setYSpeed(0);
 				}
 				else {
-					o.setYSpeed(-5);
+					o.setYSpeed(-o.getMaxYSpeed());
 				}
 				break;
 			case DOWN:
@@ -57,7 +57,7 @@ public class SideScrollModel extends Model {
 					o.setYSpeed(0);
 				}
 				else {
-					o.setYSpeed(5);
+					o.setYSpeed(o.getMaxYSpeed());
 				}
 				break;
 			case SPACE:
