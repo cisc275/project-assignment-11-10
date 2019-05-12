@@ -48,8 +48,10 @@ public class Background extends GameObject{
     		this.hitbox.reset();
     		this.hitbox.addPoint(this.width, this.y);
     		this.hitbox.addPoint(this.width, this.y + this.height);
-    		this.hitbox.addPoint(2 * this.width, this.y + this.height);
-    		this.hitbox.addPoint(2 * this.width, this.y);
+    		this.hitbox.addPoint(this.width + this.width, this.y + this.height);
+    		this.hitbox.addPoint(this.width, this.y);
+    		this.hitbox.translate((int)Osprey.xSpeed, 0); 
+    		
     	}
     	
     	  
