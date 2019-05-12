@@ -24,6 +24,7 @@ public class Osprey extends Bird {
 	boolean isDiving;
 	static double distance;
 	static double maxDistance = 500;
+	BufferedImage[] imgs = new BufferedImage[3];
 	
 	
 	/**
@@ -43,7 +44,8 @@ public class Osprey extends Bird {
 
 	public Osprey(int x, int y, int width, int height) {
 		super(x, y, width, height);
-		this.img = createImage();
+		createImage();
+		this.img = imgs[0];
 		Osprey.xSpeed = -5;
 		this.ySpeed = 0;
 		this.isDiving = false;
@@ -73,6 +75,7 @@ public class Osprey extends Bird {
 		if (this.hitbox.ypoints[0] >= 350) {
 		}
 		else {
+		this.img = imgs[1];
 		this.isDiving = !this.isDiving;
 		this.ySpeed = Constants.OSPREY_DIVESPEED;
 		this.currY = this.hitbox.ypoints[0];
@@ -134,12 +137,15 @@ public class Osprey extends Bird {
 	}
 	
 	// creates image for Osprey
-	private BufferedImage createImage(){
-		BufferedImage bufferedImage;
+	private BufferedImage[] createImage(){
+		
 		try {
-			if (Constants.BOOL_HARVEY) bufferedImage = ImageIO.read(new File(Constants.IMG_THARVEY));
-			else  bufferedImage = ImageIO.read(new File(Constants.IMG_OSPREY));
-			return bufferedImage;
+			if (Constants.BOOL_HARVEY) imgs[2] = ImageIO.read(new File(Constants.IMG_THARVEY));
+			else {  
+				imgs[0] = ImageIO.read(new File(Constants.IMG_OSPREY));
+				imgs[1] = ImageIO.read(new File(Constants.IMG_OSPREY_DIVE));
+			}
+			return imgs;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
