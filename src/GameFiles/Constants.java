@@ -60,6 +60,7 @@ public class Constants implements Serializable {
 	public final static String IMG_CLAPPER_RAIL_BACKGROUND = "img/cBackground.png";
 	public final static String IMG_BROWN_SQUARE = "img/brown_square.png";
 	public final static String IMG_BUSH = "img/bush.png";
+	public final static String IMG_DOWN_KEY = "img/down.png";
 	public final static String IMG_FISH = "img/fish_west1.png";
 	public final static String IMG_FOX = "img/ee.png";
 	public final static String IMG_MATE = "img/cr.png";
@@ -69,9 +70,11 @@ public class Constants implements Serializable {
 	public final static String IMG_POLY_HARVEY = "img/PolyHarvey.png";
 	public final static String IMG_SELECT_CLAPPER_RAIL = "img/selectCR.png";
 	public final static String IMG_SELECT_OSPREY = "img/selectOsprey.png";
+	public final static String IMG_SPACEBAR = "img/spacebar.png";
 	public final static String IMG_STICK = "img/Stick.png";
 	public final static String IMG_THARVEY = "img/Tharvey.png";
 	public final static String IMG_TRASH = "img/Trash.png";
+	public final static String IMG_UP_KEY = "img/up.png";
 	
 	/// Doubles
 	public final static double IMG_SCALE_RATIO_X = FRAME_X/800;
