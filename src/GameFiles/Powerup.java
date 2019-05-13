@@ -32,7 +32,7 @@ public class Powerup extends Collectable {
 	@Override
 	public void handleCollision(ClapperRail cr) {
 		this.hitbox.reset();
-		new Quiz();
+		new Quiz("td");
 	}
 
 	private BufferedImage createImage(){

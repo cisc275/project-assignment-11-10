@@ -40,6 +40,7 @@ public class Quiz extends JDialog implements ActionListener{
 	 JLabel question;
 	 JButton right;
 	 JButton wrong;
+	 JButton moreWrong;
 	 ArrayList<JButton> buttons;
 	 JPanel p;
 	
@@ -49,8 +50,7 @@ public class Quiz extends JDialog implements ActionListener{
 
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
-	public Quiz() {
-		
+	public Quiz(String game) {
 		
 		p = new JPanel();
 		p.setOpaque(true);
@@ -58,26 +58,52 @@ public class Quiz extends JDialog implements ActionListener{
 		p.setLayout(new BoxLayout(p, 3));
 		this.setResizable(false);
 		this.setModal(true);
-		image = createImage();
-        buttons = new ArrayList<>();
-        question = new JLabel("Where would you like to make your nest?");
-        question.setOpaque(false);
+		this.questionHandling(game);
+        this.buttonHandling(game);
+        this.imageHandling(game);
+        this.add(p);
+        this.setSize(1920, 1080);
+        this.setVisible(true);
+        addActionListener(this);
+		
+
+	}
+
+	
+	public void questionHandling(String game) {
+		if (game.equals("sides")) {
+			 question = new JLabel("Where would you like to make your nest?");
+		}
+		if (game.equals("td")) {
+			question = new JLabel("What is the natural predator of the ClapperRail?");
+		}
+		question.setOpaque(false);
         question.setFont(new Font("Serif", Font.BOLD, 30));
         question.setMinimumSize(new Dimension(550, 50));
         question.setPreferredSize(new Dimension(550, 50));
         question.setMaximumSize(new Dimension(550, 50));
         question.setAlignmentX(JLabel.CENTER_ALIGNMENT);
         question.setAlignmentY(JLabel.TOP_ALIGNMENT);
-        
-        right = new JButton("A. in the tall nest");
+		p.add(question);
+	}
+	
+	public void buttonHandling(String game) {
+		buttons = new ArrayList<JButton>();
+		if (game.equals("sides")){
+		right = new JButton("A. in the tall nest");
         wrong = new JButton("B. Osprey don't make nests");
-        p.add(question);
+        moreWrong = new JButton("C. On the water, low ground");
+		}
+		if (game.equals("td")) {
+			right = new JButton("A. red fox");
+			wrong = new JButton("B. snails");
+			moreWrong = new JButton("C. people");
+		}
         buttons.add(right);
         buttons.add(wrong);
-        buttons.add(new JButton("C. Low on the ground by water"));
-       
-        for (JButton b : buttons) {
-        	b.setMinimumSize(new Dimension(500, 50));
+        buttons.add(moreWrong);
+		for (JButton b :buttons) {
+			b.setMinimumSize(new Dimension(500, 50));
             b.setPreferredSize(new Dimension(500, 50));
             b.setMaximumSize(new Dimension(500, 50));
         	b.setFocusPainted(false);
@@ -88,21 +114,21 @@ public class Quiz extends JDialog implements ActionListener{
         	b.setFont(new Font("Serif", Font.BOLD, 30));
         	b.setBorderPainted(false);
         	p.add(b);
-        }
-        JLabel img = new JLabel(new ImageIcon(image));
-        img.setAlignmentX(JLabel.CENTER_ALIGNMENT);
-        img.setAlignmentY(JLabel.TOP_ALIGNMENT);
-        p.add(img);
-        addActionListener(this);
-        this.add(p);
-        this.setSize(1920, 1080);
-        this.setVisible(true);
+		}
 	}
-
 	
+	public void imageHandling(String game) {
+		if (game.equals("sides")){
+			image = createImage();
+			JLabel img = new JLabel(new ImageIcon(image));
+	        img.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+	        img.setAlignmentY(JLabel.TOP_ALIGNMENT);
+	        p.add(img);
+		}
+	}
 	
 	public static void main(String[] args) {
-		new Quiz();
+		new Quiz("sides");
 	}
 	
 	private void paintComponent(Graphics g) {

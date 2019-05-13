@@ -125,7 +125,7 @@ public class Controller implements KeyListener, ActionListener{
     			view.updateView(game);
     			if (Mate.caughtUp) {
     				View.frame.dispose();
-    				new Quiz();
+    				new Quiz("sides");
     				time.stop();
     			}
     		}
