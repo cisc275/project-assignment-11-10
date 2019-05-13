@@ -6,6 +6,7 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
@@ -14,7 +15,7 @@ import javax.imageio.ImageIO;
  * @author wolginm
  */
 
-public class GameObject {
+public class GameObject implements Serializable{
 	
 	/**
 	 *  The string of the file where the image is located
