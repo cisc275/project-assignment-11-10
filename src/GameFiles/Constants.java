@@ -62,7 +62,6 @@ public class Constants implements Serializable {
 	public final static String IMG_AIRCURRENT = "img/aircurrent.png";
 	public final static String IMG_BACKGROUND = "img/background.png";
 	public final static String IMG_CLAPPER_RAIL_BACKGROUND = "img/cBackground.png";
-	public final static String IMG_BROWN_SQUARE = "img/brown_square.png";
 	public final static String IMG_BUSH = "img/bush.png";
 	public final static String IMG_DOWN_KEY = "img/down.png";
 	public final static String IMG_FISH = "img/fish_west1.png";
@@ -79,6 +78,29 @@ public class Constants implements Serializable {
 	public final static String IMG_THARVEY = "img/Tharvey.png";
 	public final static String IMG_TRASH = "img/Trash.png";
 	public final static String IMG_UP_KEY = "img/up.png";
+	
+	// Arrays of String file paths
+	
+	public final static String[] ANIMATION_AIRCURRENT = {IMG_AIRCURRENT};
+	public final static String[] ANIMATION_BACKGROUND = {IMG_BACKGROUND};
+	public final static String[] ANIMATION_CRBACKGROUND = {IMG_CLAPPER_RAIL_BACKGROUND};
+	public final static String[] ANIMATION_BUSH = {IMG_BUSH};
+	public final static String[] ANIMATION_DOWNKEY= {IMG_DOWN_KEY};
+	public final static String[] ANIMATION_FOX = {IMG_FOX};
+	public final static String[] ANIMATION_FISH = {IMG_FISH};
+	public final static String[] ANIMATION_MATE = {IMG_MATE};
+	public final static String[] ANIMATION_NEST = {IMG_NEST};
+	public final static String[] ANIMATION_OSPREY = {IMG_OSPREY};
+	public final static String[] ANIMATION_OSPREYDIVE = {IMG_OSPREY_DIVE};
+	public final static String[] ANIMATION_POLY_HARVEY = {IMG_POLY_HARVEY};
+	public final static String[] ANIMATION_SPACEBAR = {IMG_SPACEBAR};
+	public final static String[] ANIMATION_STICK = {IMG_STICK};
+	public final static String[] ANIMATION_THARVEY= {IMG_THARVEY};
+	public final static String[] ANIMATION_TRASH = {IMG_TRASH};
+	public final static String[] ANIMATION_UP_KEY = {IMG_UP_KEY};
+	
+	
+	
 	
 	/// Doubles
 	public final static double IMG_SCALE_RATIO_X = FRAME_X/800;
