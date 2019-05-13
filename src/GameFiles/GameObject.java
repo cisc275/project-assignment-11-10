@@ -35,9 +35,9 @@ public class GameObject implements Serializable{
 	/**
 	 *  The image to be displayed
 	 */
-	protected BufferedImage img;
+	protected String img;
 	
-	protected BufferedImage scaledImg;
+	protected String scaledImg;
 	
 	/**
 	 * y coordinate for this gameObject on screen
@@ -82,8 +82,6 @@ public class GameObject implements Serializable{
 		this.width = width;
 		this.height = height;
 		this.hitbox = new Polygon();
-		this.img = null;
-		this.scaledImg = null;
 		this.setType(Type.GAMEOBJECT);
 		resetPoly();
 	}
@@ -196,10 +194,8 @@ public class GameObject implements Serializable{
 	}
 	
 	
-	public BufferedImage getImage() {
-		if (img != null) {
-			//System.out.println("GameObject doesn't hold the answers");
-		}
+	public String getImage() {
+		
 		return img;
 	}
 	
@@ -209,6 +205,9 @@ public class GameObject implements Serializable{
 	 * @author andrew thompson
 	 * @author Mark Wolgin
 	 */
+	
+	
+	/*
 	public BufferedImage getScaledImg(){
 		if (scaledImg == null) {
 			scaledImg = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TRANSLUCENT);
@@ -233,7 +232,7 @@ public class GameObject implements Serializable{
 	    return scaledImg;
 	}
 
-
+*/
 	
 
 	/**
@@ -255,7 +254,7 @@ public class GameObject implements Serializable{
 	/**
 	 * @return the img
 	 */
-	public BufferedImage getImg() {
+	public String getImg() {
 		return img;
 	}
 
@@ -263,7 +262,7 @@ public class GameObject implements Serializable{
 	/**
 	 * @param img the img to set
 	 */
-	public void setImg(BufferedImage img) {
+	public void setImg(String img) {
 		this.img = img;
 	}
 
