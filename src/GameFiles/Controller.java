@@ -180,9 +180,6 @@ public class Controller implements KeyListener, ActionListener{
 			new Controller("topDown");
 			
 		}
-		
-		
-		
 		else if (e.getSource() == SelectionView.osprey){
 			view.dispose();
         	new Controller("sideScroll");
