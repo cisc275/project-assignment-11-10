@@ -19,7 +19,7 @@ public class TutorialObject extends NonControllable {
 	 * @param width
 	 * @param height
 	 */
-	public TutorialObject(int x, int y, int w, int h, String img) {
+	public TutorialObject(int x, int y, int w, int h, String[] img) {
 		super(x, y, 0, 0);
 		this.width = w;
 		this.height = h;
