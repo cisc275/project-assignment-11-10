@@ -20,7 +20,7 @@ import javax.swing.JPanel;
  */
 public class TopDownView extends View{
     DrawPanel drawPanel = new DrawPanel();
-    JFrame frame;
+    
 	BufferedImage background = createImage();
     /**
      * 
@@ -28,13 +28,13 @@ public class TopDownView extends View{
      * constructs a view based on the array list it is given
      */
 	public TopDownView(ArrayList<GameObject> g) {
-		frame = new JFrame();
-		setUpScreen(frame);
+		View.frame = new JFrame();
+		setUpScreen(View.frame);
 		game = g;
-    	frame.add(drawPanel);
+    	View.frame.add(drawPanel);
     	drawPanel.setOpaque(true);
     	pack();
-    	this.setSize(frame.getWidth(), frame.getHeight());
+    	this.setSize(View.frame.getWidth(), View.frame.getHeight());
     	}
 	
 	
@@ -58,7 +58,7 @@ public class TopDownView extends View{
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			g.setColor(Color.gray);
-			g.drawImage(background, 0, 0, Constants.FRAME_X, Constants.FRAME_Y, this);
+			g.drawImage(background, 0, 0, frame.getWidth(), frame.getHeight(), this);
 			
 			
 			for (GameObject hing : game) {

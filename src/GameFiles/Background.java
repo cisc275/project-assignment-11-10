@@ -41,16 +41,17 @@ public class Background extends GameObject{
      * @author Tim Mazzarelli
      */
     public void move() {
-    	if (this.hitbox.xpoints[0] > -Constants.FRAME_X){
-    	this.hitbox.translate((int)Osprey.xSpeed, 0);     
+    	this.hitbox.translate((int)Osprey.xSpeed, 0); 
+    	if (this.hitbox.xpoints[0] > -View.frame.getWidth()){
+    		  
         }
     	else {
+    		
     		this.hitbox.reset();
     		this.hitbox.addPoint(this.width, this.y);
     		this.hitbox.addPoint(this.width, this.y + this.height);
     		this.hitbox.addPoint(this.width + this.width, this.y + this.height);
     		this.hitbox.addPoint(this.width, this.y);
-    		this.hitbox.translate((int)Osprey.xSpeed, 0); 
     		
     	}
     	

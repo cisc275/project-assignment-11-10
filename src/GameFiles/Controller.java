@@ -46,6 +46,8 @@ public class Controller implements KeyListener, ActionListener{
 		
 			game = new ArrayList<GameObject>();
 			view = new TopDownView(game);
+			System.out.println(view.getWidth());
+			System.out.println(view.getHeight());
 			model = new TopDownModel();
 			game.add(((TopDownModel)model).cr);
 	//		game.add(((TopDownModel)model).f);
@@ -75,24 +77,27 @@ public class Controller implements KeyListener, ActionListener{
 			game = new ArrayList<GameObject>();
 			
 			view = new SideScrollView(game);
+			System.out.println(view.frame.getWidth());
+			System.out.println(view.frame.getHeight());
 			
-			Background backOne = new Background(0, 0, view.getWidth(), view.getHeight());
-			Background backTwo = new Background(view.getWidth(), 0, 
-					view.getWidth(), view.getHeight());
-			System.out.println(backOne.hitbox.getBounds());
-			System.out.println(backTwo.hitbox.getBounds());
-			Trash t = new Trash(view.getWidth() + 200, view.getHeight() - (view.getHeight() / 3), 
-					view.getWidth() / 20, view.getHeight()/ 15);
-			Trash t2 = new Trash(view.getWidth() + 20, view.getHeight() - (view.getHeight() / 9), 
-					view.getWidth() / 20, view.getHeight()/ 15);
-			Fish f = new Fish(view.getWidth() + 400, (int) (view.getHeight() * 0.87), 
-					(int) (view.getWidth() * 0.05), (int) (view.getHeight() * 0.05));
-			Fish f2 = new Fish(view.getWidth() + 250, 600, 50, 50);
-			Fish f3 = new Fish(view.getWidth() + 100, 650, 50, 50);
-			AirCurrent a = new AirCurrent(view.getWidth() + 20, 55, 250, 250);
-			AirCurrent a2 = new AirCurrent(view.getWidth()  + 100, 100, 200, 200);
-			AirCurrent a3 = new AirCurrent(view.getWidth()  + 500, 200, 200, 200);
-			Mate m = new Mate(view.getWidth() + 400, 200, 200, 50); // suposed to be 50 50, this is for the memes
+			Background backOne = new Background(0, 0, view.frame.getWidth(), view.frame.getHeight());
+			Background backTwo = new Background(view.frame.getWidth(), 0, 
+					view.frame.getWidth(), view.frame.getHeight());
+			System.out.println(backOne.getX());
+			System.out.println(backTwo.getX());
+			
+			Trash t = new Trash(view.frame.getWidth() + 200, view.frame.getHeight() - (view.frame.getHeight() / 3), 
+					view.frame.getWidth() / 20, view.frame.getHeight()/ 15);
+			Trash t2 = new Trash(view.frame.getWidth() + 20, view.frame.getHeight() - (view.frame.getHeight() / 9), 
+					view.frame.getWidth() / 20, view.frame.getHeight()/ 15);
+			Fish f = new Fish(view.frame.getWidth() + 400, (int) (view.frame.getHeight() * 0.87), 
+					(int) (view.frame.getWidth() * 0.05), (int) (view.frame.getHeight() * 0.05));
+			Fish f2 = new Fish(view.frame.getWidth() + 250, 600, 50, 50);
+			Fish f3 = new Fish(view.frame.getWidth() + 100, 650, 50, 50);
+			AirCurrent a = new AirCurrent(view.frame.getWidth() + 20, 55, 250, 250);
+			AirCurrent a2 = new AirCurrent(view.frame.getWidth()  + 100, 100, 200, 200);
+			AirCurrent a3 = new AirCurrent(view.frame.getWidth()  + 500, 200, 200, 200);
+			Mate m = new Mate(view.frame.getWidth() + 400, 200, 200, 50); // suposed to be 50 50, this is for the memes
 			model = new SideScrollModel();	
 			game.add(backOne);
 			game.add(backTwo);

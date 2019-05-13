@@ -74,29 +74,29 @@ public class ClapperRail extends Bird {
 							
 		}
 		
-		if (this.hitbox.ypoints[1] >= Constants.FRAME_Y) {
+		if (this.hitbox.ypoints[1] >= View.frame.getHeight()) {
 			int x1 = this.hitbox.xpoints[0];
 			int x2 = this.hitbox.xpoints[1];
 			int x3 = this.hitbox.xpoints[2];
 			int x4 = this.hitbox.xpoints[3];
 			
 			this.hitbox.reset();
-			this.hitbox.addPoint(x1, Constants.FRAME_Y - height);
-			this.hitbox.addPoint(x2, Constants.FRAME_Y);
-			this.hitbox.addPoint(x3, Constants.FRAME_Y);
-			this.hitbox.addPoint(x4, Constants.FRAME_Y - height);			
+			this.hitbox.addPoint(x1, View.frame.getHeight() - height);
+			this.hitbox.addPoint(x2, View.frame.getHeight());
+			this.hitbox.addPoint(x3, View.frame.getHeight());
+			this.hitbox.addPoint(x4, View.frame.getHeight() - height);			
 		}
-		if (this.hitbox.xpoints[3] >= Constants.FRAME_X) {
+		if (this.hitbox.xpoints[3] >= View.frame.getWidth()) {
 			int y1 = this.hitbox.ypoints[0];
 			int y2 = this.hitbox.ypoints[1];
 			int y3 = this.hitbox.ypoints[2];
 			int y4 = this.hitbox.ypoints[3];
 			
 			this.hitbox.reset();
-			this.hitbox.addPoint(Constants.FRAME_X - width, y1);
-			this.hitbox.addPoint(Constants.FRAME_X - width, y2);
-			this.hitbox.addPoint(Constants.FRAME_X, y3);
-			this.hitbox.addPoint(Constants.FRAME_X, y4);		
+			this.hitbox.addPoint(View.frame.getWidth() - width, y1);
+			this.hitbox.addPoint(View.frame.getWidth() - width, y2);
+			this.hitbox.addPoint(View.frame.getWidth(), y3);
+			this.hitbox.addPoint(View.frame.getWidth(), y4);		
 		}
 		
 		if (this.hitbox.xpoints[0] <= 0) {

@@ -27,7 +27,7 @@ import javax.swing.JPanel;
 public class SideScrollView extends View{
     DrawPanel drawPanel = new DrawPanel();
     ArrayList<GameObject> game;
-    JFrame frame;
+   
     Background backOne;
     Background backTwo;
     BufferedImage back;
@@ -40,10 +40,10 @@ public class SideScrollView extends View{
  
     
     public SideScrollView(ArrayList<GameObject> g){
-		frame = new JFrame();
-		setUpScreen(frame);
+		this.frame = new JFrame();
+		setUpScreen(this.frame);
 		game = g;
-    	frame.add(drawPanel);
+    	this.frame.add(drawPanel);
     	drawPanel.setOpaque(true);
     	pack();
     	youWin = createImage();
@@ -86,8 +86,7 @@ public class SideScrollView extends View{
 				Color transparent = new Color(1f,0f,0f,.5f );
 				g.setColor(transparent);
 				Graphics2D twoD = (Graphics2D)g;
-				back = (BufferedImage)(createImage(Constants.FRAME_X, Constants.FRAME_Y));
-				Graphics buffer = back.createGraphics();
+		//		
 			    twoD.drawImage(back, null, 0, 0);
 			    AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, .5f);
 			    

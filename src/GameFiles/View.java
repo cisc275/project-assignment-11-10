@@ -16,6 +16,9 @@ import javax.swing.JPanel;
 public class View extends JFrame {
 
 	ArrayList<GameObject> game;
+	static JFrame frame; 
+	
+	
 
 	public ArrayList<GameObject> getGame() {
 		return game;
