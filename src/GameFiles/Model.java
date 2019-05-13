@@ -2,12 +2,19 @@ package GameFiles;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 
 import javax.imageio.ImageIO;
 
-public class Model {
+public class Model implements Serializable {
+	
+	/**
+	 * serialVersionUID auto genorated
+	 */
+	private static final long serialVersionUID = 1344012034511117384L;
+
 	/**
 	 * a list of the objects in our game
 	 */

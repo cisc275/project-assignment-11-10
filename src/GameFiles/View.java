@@ -2,6 +2,7 @@ package GameFiles;
 
 import java.awt.Component;
 import java.awt.Rectangle;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -15,8 +16,13 @@ import org.junit.jupiter.api.condition.OS;
  */
 
 
-public class View extends JFrame {
+public class View extends JFrame implements Serializable {
 
+	/**
+	 * serialVersionUID auto genorated
+	 */
+	private static final long serialVersionUID = 1055664864359735273L;
+	
 	ArrayList<GameObject> game;
 	static JFrame frame; 
 	
