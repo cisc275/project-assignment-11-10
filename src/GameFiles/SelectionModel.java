@@ -1,4 +1,7 @@
 package GameFiles;
+
+import java.util.HashSet;
+
 /**
  * 
  * Model for the selection screen

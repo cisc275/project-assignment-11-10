@@ -29,8 +29,12 @@ public class SideScrollModel extends Model {
 		game.add(o);
 	}
 	
-	
-	public void advanceWorld(ArrayList<GameObject> g) {
+	 /**
+     * takes an ArrayList of GameObjects and moves them while checking for collision
+     * @param g
+     * @author Tim Mazzarelli
+     */
+	public void updateLocation(ArrayList<GameObject> g) {
 		for (GameObject a : g) {
 			a.move();
 			a.collision(g);
@@ -40,11 +44,17 @@ public class SideScrollModel extends Model {
 		}
 		
 	}
+	
+	 /**
+     * takes a hashset of integers and moves osprey accordingly
+     * @param HashSet<Integer> keyPresses
+     * @author andrew thompson
+     */
 	@Override
 	public void handleMove(HashSet<Integer> keyPresses) {
 		for(Integer key: keyPresses) {
 			switch(key) {
-			case UP:
+			case Constants.UP:
 				if ((o.hitbox.xpoints[0] == 0) ||  (o.hitbox.xpoints[0] == 450)) {
 					o.setYSpeed(0);
 				}
@@ -52,7 +62,7 @@ public class SideScrollModel extends Model {
 					o.setYSpeed(-o.getMaxYSpeed());
 				}
 				break;
-			case DOWN:
+			case Constants.DOWN:
 				if ((o.hitbox.xpoints[0] == 0) ||  (o.hitbox.xpoints[0] == 450)) {
 					o.setYSpeed(0);
 				}
@@ -60,7 +70,7 @@ public class SideScrollModel extends Model {
 					o.setYSpeed(o.getMaxYSpeed());
 				}
 				break;
-			case SPACE:
+			case Constants.SPACE:
 				o.dive();
 			}
 		}

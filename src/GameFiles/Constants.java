@@ -1,5 +1,6 @@
 package GameFiles;
 
+import java.awt.Rectangle;
 import java.io.Serializable;
 
 public class Constants implements Serializable {
@@ -7,10 +8,18 @@ public class Constants implements Serializable {
 	/// Booleans
 	public static boolean BOOL_HARVEY = false;
 	
+	
 	/// ints
 	public final static int g = 10;
 	
 	public final static int BIRD_MOVE_AMOUNT = 10;
+
+	public final static int RIGHT = 39;
+	public final static int LEFT = 37;
+	public final static int UP = 38;
+	public final static int DOWN = 40;
+	public final static int SPACE = 32;
+	public final static int ESCAPE = 27;
 	
 	public final static int CLAPPER_RAIL_START_LOC_X = 400;
 	public final static int CLAPPER_RAIL_START_LOC_Y = 200;
@@ -75,4 +84,7 @@ public class Constants implements Serializable {
 	public static void setFrameY(int y) { FRAME_Y = 1; }
 	public static int getFRAME_X() { return FRAME_X; }
 	public static int getFRAME_Y() { return FRAME_Y; }
+	
+	//other
+	public static Rectangle SCREEN = new Rectangle(0,0,FRAME_X,FRAME_Y);
 }

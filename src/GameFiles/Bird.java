@@ -21,8 +21,6 @@ public class Bird extends Controllable{
 	 * @param x
 	 * @param width
 	 * @param height
-	 * @param hitbox
-	 * @param img
 	 * 
 	 * constructor
 	 */
@@ -31,10 +29,20 @@ public class Bird extends Controllable{
 		super(x,y,width, height);		
 	}
 	
+
+    
+    /**
+     * getter for type
+     */
 	public Type getType() {
 		return type;
 	}
-
+	
+    /**
+     * setter for type
+     * @param type,
+     * 
+     */
 	public void setType(Type type) {
 		this.type = type;
 	}

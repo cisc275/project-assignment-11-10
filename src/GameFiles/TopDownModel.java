@@ -19,8 +19,11 @@ public class TopDownModel extends Model {
     public Nest nest;
 
     int count = 0; // used to check clock
-    
-
+    /**
+     * takes a hashset of integers and moves clapper rail accordingly
+     * @param HashSet<Integer> keyPresses
+     * @author andrew thompson
+     */
     @Override
     public void handleMove(HashSet<Integer> keyPresses) {
     	cr.setxSpeed(0);
@@ -28,22 +31,25 @@ public class TopDownModel extends Model {
     	
     	for(Integer key: keyPresses) {
 	    	switch(key) {
-	    	case RIGHT:
+	    	case Constants.RIGHT:
 				cr.setxSpeed(cr.getMOVE_AMOUNT());
 				break;
-	    	case LEFT:
+	    	case Constants.LEFT:
 				cr.setxSpeed(-cr.getMOVE_AMOUNT());
 				break;
-	    	case UP:
+	    	case Constants.UP:
 				cr.setySpeed(-cr.getMOVE_AMOUNT());
 				break;
-	    	case DOWN:
+	    	case Constants.DOWN:
 	    		cr.setySpeed(cr.getMOVE_AMOUNT());
 				break;
 			}
     	}
     }
-    
+    /**
+     * initializes new TopDownModel and creates an ArrayList of GameObject
+     * @author Tim Mazzarelli
+     */
     public TopDownModel() {
     	cr = new ClapperRail(Constants.CLAPPER_RAIL_START_LOC_X, Constants.CLAPPER_RAIL_START_LOC_Y,
     			Constants.CLAPPER_RAIL_START_SIZE_X, Constants.CLAPPER_RAIL_START_SIZE_Y);
@@ -60,29 +66,17 @@ public class TopDownModel extends Model {
      * 
      * @param array list of GameObjects
      * updates the location of all moving objects and then calls the collision method
+     * @author Tim Mazzarelli
      */
     public void updateLocation(ArrayList<GameObject> g) {
     	for (GameObject a : g) {
 			a.move();
 			a.collision(g);			
 		}
-    	
     	if (Stick.count == Constants.TDM_UPDATELOCATION_STICK_COUNT) {
     		Model.gameOver = true;
     	}
     }
-    
- 
-    /**
-     * 
-     * @param an array list of GameObjects
-     * 
-     * checks all Game objects against all others in the game, calls polymorphic collision expressions 
-     * when there is an intersection (not implemented yet)
-     */
-    
-    
-  
     /**
 	 * 
 	 * @param args

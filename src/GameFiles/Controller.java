@@ -50,7 +50,7 @@ public class Controller implements KeyListener, ActionListener{
 			System.out.println(view.getHeight());
 			model = new TopDownModel();
 			game.add(((TopDownModel)model).cr);
-	//		game.add(((TopDownModel)model).f);
+//			game.add(((TopDownModel)model).f);
 			game.add(((TopDownModel)model).nest);
 			
 			game.add(new Fish(3000, (int) (view.getHeight() * 0.91), 50, 50));
@@ -69,7 +69,7 @@ public class Controller implements KeyListener, ActionListener{
 			
 			
 			view.addKeyListener(this);
-			this.topDownStart();
+			this.start();
 
 		}
 		// sideScroll game
@@ -115,60 +115,28 @@ public class Controller implements KeyListener, ActionListener{
 			view.addKeyListener(this);
 			view.addActionListener(this);
 		
-			this.sideScrollStart();
+			this.start();
 			
 		}
 		
 	}
-	
-	/**
-	 * starts timers and actions for topDown
-	 */
-	public void topDownStart() {
-		drawAction = new AbstractAction(){
-    		public void actionPerformed(ActionEvent e){
-    			model.updateLocation(game);
-    			view.updateView(game);
-    			
-    			if (Mate.caughtUp) {
-    				view.dispose();
-    			}
-    		
-    		
-    			
-    		}
-    	};
-    	
-    	time = new Timer(Constants.TIMER_TICK_RATE, drawAction);
-    	time.start();
-	}
-	
 		
 	/**
 	 * starts timers and actions for sideScroll
 	 */
-	public void sideScrollStart() {
+	public void start() {
 
 		drawAction = new AbstractAction(){
     		public void actionPerformed(ActionEvent e){
-    	
-    			model.advanceWorld(game);
+    			model.updateLocation(game);
     			view.updateView(game);
-    			
     			if (Model.gameOver) {
-    				
+    				view.dispose();
     			}
-    		
-    		
     		}
     	};
-    	
-    	
     	time = new Timer(Constants.TIMER_TICK_RATE, drawAction);
     	time.start();
-    	
-    	
-    	
 	}
 
 	/**
@@ -179,21 +147,14 @@ public class Controller implements KeyListener, ActionListener{
 	
 	@Override 
 	public void actionPerformed(ActionEvent e) {
-	
 		if (e.getSource() == SelectionView.clapperRail) {
 			view.dispose();
 			new Controller("topDown");
-			
 		}
-		
-		
-		
 		else if (e.getSource() == SelectionView.osprey){
 			view.dispose();
         	new Controller("sideScroll");
-			
         }
-		
 	}
 	
 	@Override

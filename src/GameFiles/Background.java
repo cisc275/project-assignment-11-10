@@ -8,7 +8,6 @@ import javax.imageio.ImageIO;
 
 public class Background extends GameObject{
 	private BufferedImage image;
-	 
     private int x;
     private int y;
    
@@ -20,19 +19,14 @@ public class Background extends GameObject{
      * 
      * constructor for Background
      */
- 
     public Background(int x, int y, int width, int height) {
     	super(x, y, width, height);
-    	
-        
-        // Try to open the image file background.png
         try {
             this.img = ImageIO.read(new File(Constants.IMG_BACKGROUND));
-           
         }
-        catch (Exception e) { System.out.println(e); }
-     
- 
+        catch (Exception e) { 
+        	System.out.println(e); 
+        }
     }
  
     /**
@@ -41,10 +35,11 @@ public class Background extends GameObject{
      * @author Tim Mazzarelli
      */
     public void move() {
+
     	this.hitbox.translate((int)Osprey.xSpeed, 0); 
-    	if (this.hitbox.xpoints[0] > -View.frame.getWidth()){
-    		  
-        }
+    	if (this.hitbox.xpoints[0] > -View.frame.getWidth()){	  
+
+    	}
     	else {
     		
     		this.hitbox.reset();
@@ -52,27 +47,47 @@ public class Background extends GameObject{
     		this.hitbox.addPoint(this.width, this.y + this.height);
     		this.hitbox.addPoint(this.width + this.width, this.y + this.height);
     		this.hitbox.addPoint(this.width, this.y);
-    		
     	}
-    	
-    	  
-      
- 
-    }
+    	}
     
+    		
+
+    	
+    
+    /**
+     * setter for x pos
+     * @param x,
+     */
     public void setX(int x) {
         this.x = x;
     }
+    
+    /**
+     * getter for x pos
+     */
     public int getX() {
         return this.x;
     }
+    
+    /**
+     * setter for y pos
+     * @param y,
+     */
+    public void setY(int y) {
+    	this.y = y;
+    }
+    
+    /**
+     * getter for y pos
+     */
     public int getY() {
         return this.y;
     }
+    
+    /**
+     * getter for image width
+     */
     public int getImageWidth() {
         return image.getWidth();
     }
-
-	
- 
 }

@@ -24,9 +24,6 @@ public class Collectable extends GameObject {
 	 * @param x
 	 * @param width
 	 * @param height
-	 * @param hitbox
-	 * @param img
-	 * @param xSpeed
 	 * 
 	 **/
   

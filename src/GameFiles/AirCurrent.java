@@ -20,10 +20,6 @@ public class AirCurrent extends Collectable {
 	 * @param x
 	 * @param width
 	 * @param height
-	 * @param hitbox
-	 * @param img
-	 * @param xSpeed
-	 
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
@@ -50,10 +46,12 @@ public class AirCurrent extends Collectable {
 		else {o.setXSpeed(-2);};
 	}
 	
-	
+	/**
+     * returns a BufferedImage that is unscaled
+     * @author andrew thompson
+     */
 	private BufferedImage createImage(){
 		BufferedImage bufferedImage;
-		//System.out.println("i am running");
     	try {
     		bufferedImage = ImageIO.read(new File(Constants.IMG_AIRCURRENT));
     		return bufferedImage;
