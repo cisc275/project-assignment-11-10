@@ -37,11 +37,10 @@ public class Fox extends Controllable {
 	
 	public Fox(int x, int y, int width, int height, ClapperRail c) {
 		super(x,y,width,height);
-		this.setType(Type.FOX);
 		this.c = c;
 		this.xSpeed = 1;
 		this.ySpeed = -2;
-		this.imgFileName = Constants.IMG_FOX;
+		this.imgFileName = Constants.ANIMATION_FOX;
 		//try {
     	//	this.img = ImageIO.read(new File(Constants.IMG_FOX));
 		//} catch (IOException e) {

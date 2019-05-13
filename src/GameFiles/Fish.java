@@ -28,8 +28,7 @@ public class Fish extends Collectable {
 	public Fish(int x, int y, int width, int height) {
 		super(x,y,width,height);
 		//this.img = createImage();
-		this.imgFileName = Constants.IMG_FISH;
-		this.setType(Type.FISH);
+		this.imgFileName = Constants.ANIMATION_FISH;
 	}
 	
 	

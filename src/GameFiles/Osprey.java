@@ -24,7 +24,6 @@ public class Osprey extends Bird {
 	boolean isDiving;
 	static double distance;
 	static double maxDistance = 500;
-	BufferedImage[] imgs = new BufferedImage[3];
 	final int MAX_Y_SPEED;
 	
 	
@@ -46,7 +45,7 @@ public class Osprey extends Bird {
 	public Osprey(int x, int y, int width, int height) {
 		super(x, y, width, height);
 		//createImage();
-		this.imgFileName = Constants.IMG_OSPREY;
+		this.imgFileName = Constants.ANIMATION_OSPREY;
 	//	this.img = imgs[0];
 		Osprey.xSpeed = -10;
 		this.ySpeed = 0;

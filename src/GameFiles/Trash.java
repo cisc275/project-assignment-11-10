@@ -31,7 +31,7 @@ public class Trash extends Collectable {
 	public Trash(int x, int y, int width, int height) {
 		super(x,y,width,height);
 		//this.img = createImage();
-		this.imgFileName = Constants.IMG_TRASH;
+		this.imgFileName = Constants.ANIMATION_TRASH;
 		this.setType(Type.TRASH);
 	}
 	

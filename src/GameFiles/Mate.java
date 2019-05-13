@@ -31,7 +31,7 @@ public class Mate extends Bird {
 	
 	public Mate(int x, int y, int width, int height) {
 		super(x,y,width,height);
-		this.imgFileName = Constants.IMG_MATE;
+		this.imgFileName = Constants.ANIMATION_MATE;
 		Mate.caughtUp = false;
 		this.xSpeed = -10;
 	
