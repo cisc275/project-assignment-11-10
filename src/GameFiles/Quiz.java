@@ -1,7 +1,10 @@
 package GameFiles;
+import java.awt.Color;
 import java.awt.Dimension;
+
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Polygon;
@@ -13,6 +16,7 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
@@ -22,16 +26,23 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 /**
  * represents the quiz at the end of each game 
  *
  */
-public class Quiz extends JDialog implements KeyListener{
+public class Quiz extends JDialog implements ActionListener{
 	/**
 	 * button that will allow user to select the osprey game
 	 */
-	 static JFrame f; 
+	
 	 Image image;
+	 JLabel question;
+	 JButton right;
+	 JButton wrong;
+	 ArrayList<JButton> buttons;
+	 JPanel p;
+	
 	/**
 	 * button that will allow user to select the clapperrail game
 	 */
@@ -39,100 +50,103 @@ public class Quiz extends JDialog implements KeyListener{
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	public Quiz() {
-		JPanel p = new JPanel();
-		BoxLayout g = new BoxLayout(p, 3);
-		p.setLayout(g);
+		
+		
+		p = new JPanel();
+		p.setOpaque(true);
+		p.setBackground(Color.WHITE);
+		p.setLayout(new BoxLayout(p, 3));
 		this.setResizable(false);
 		this.setModal(true);
-		try {
-			image = ImageIO.read(new File("img/Winner.png"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		image = image.getScaledInstance(View.frame.getWidth(), View.frame.getHeight(), Image.SCALE_SMOOTH);
-		JLabel pic = new JLabel(new ImageIcon(image));
-        p.add(pic);
-    
-		JLabel question = new JLabel("Where would you like to make your nest?");
-		JLabel wrong = new JLabel("A. In the tall nest"); 
-        JLabel right = new JLabel("B. Osprey's done make nests");
-        JLabel mW = new JLabel("C. Low on the ground by water");
-        question.setFont(new Font("Serif", Font.PLAIN, 20));
+		image = createImage();
+        buttons = new ArrayList<>();
+        question = new JLabel("Where would you like to make your nest?");
+        question.setOpaque(false);
+        question.setFont(new Font("Serif", Font.BOLD, 30));
+        question.setMinimumSize(new Dimension(550, 50));
+        question.setPreferredSize(new Dimension(550, 50));
+        question.setMaximumSize(new Dimension(550, 50));
+        question.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+        question.setAlignmentY(JLabel.TOP_ALIGNMENT);
+        
+        right = new JButton("A. in the tall nest");
+        wrong = new JButton("B. Osprey don't make nests");
         p.add(question);
-        p.add(wrong);
-        p.add(right);
-        p.add(mW);
-        p.add(pic);
-		
-        this.addKeyListener(this);
+        buttons.add(right);
+        buttons.add(wrong);
+   //     buttons.add(new JButton("C. Low on the ground by water"));
+       
+        for (JButton b : buttons) {
+        	b.setMinimumSize(new Dimension(500, 50));
+            b.setPreferredSize(new Dimension(500, 50));
+            b.setMaximumSize(new Dimension(500, 50));
+        	b.setFocusPainted(false);
+        	b.setBackground(Color.WHITE);
+        	b.setAlignmentX(JButton.CENTER_ALIGNMENT);
+        	b.setAlignmentY(TOP_ALIGNMENT);
+        	b.setOpaque(true);
+        	b.setFont(new Font("Serif", Font.BOLD, 30));
+        	b.setBorderPainted(false);
+        	p.add(b);
+        }
+      
+        p.add(new JLabel(new ImageIcon(image)));
+        addActionListener(this);
         this.add(p);
-        this.setSize(View.frame.getWidth(), View.frame.getHeight());
+        this.setSize(1920, 1080);
         this.setVisible(true);
 	}
 
-
 	
 	
-	/*
 	public static void main(String[] args) {
-		JPanel p = new JPanel();
-		BoxLayout g = new BoxLayout(p, 3);
-		p.setLayout(g);
-		Quiz q = new Quiz();
-		q.setResizable(false);
-		q.setModal(true);
-		JLabel question = new JLabel("Where would you like to make your nest?");
-		JLabel wrong = new JLabel("A. In the tall nest"); 
-        JLabel right = new JLabel("B. Osprey's done make nests");
-        JLabel mW = new JLabel("C. Low on the ground by water");
-        p.add(question);
-        p.add(wrong);
-        p.add(right);
-        p.add(mW);
-        q.addKeyListener(q);
-        q.add(p);
-        q.setSize(300, 200);
-        q.setVisible(true);
+		new Quiz();
+	}
+	
+	private void paintComponent(Graphics g) {
+		super.paintComponents(g);
+		g.drawImage(image, 0, 0, this);
 	}
 
-*/
 
 	@Override
-	public void keyPressed(KeyEvent e) {
+	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-			String s = KeyEvent.getKeyText(e.getKeyCode());
-	        if (s.equals("A")) { 
+			
+	        if (e.getSource() == right) { 
 	            // create a dialog Box 
 	            System.out.println("Hooray");
-	         
+	            this.dispose();
 	            this.setModal(false);
 	        }
-	        if(s.equals("B")){
+	
+	   /*     if(s.equals("B")){
 	        	this.dispose();
 	        	
 	        }
 	        if (s.equals("C")) {
 	        	System.out.println("cat");
 	        }
-
+*/
+	}
+	
+	public void addActionListener(Quiz q) {
+		right.addActionListener(q);
+		wrong.addActionListener(q);
 	}
 
-
-
-	@Override
-	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	private Image createImage() {
+		try {
+			image = ImageIO.read(new File("img/Winner.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		image = image.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+		return image;
 	}
 
-
-
-	@Override
-	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 
 	

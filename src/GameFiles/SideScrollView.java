@@ -100,7 +100,8 @@ public class SideScrollView extends View{
 		    	}
 		    	g.drawImage(miniMaps[mapNum], View.frame.getWidth() -miniMaps[mapNum].getWidth(), 0, Color.gray,this);
 				}
-				else if (Mate.caughtUp) {
+				else {
+					
 					g.dispose();
 					
 				}

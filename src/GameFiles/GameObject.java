@@ -58,9 +58,9 @@ public class GameObject {
 	 */
 	
 	
-	protected Type type;
+	private Type type;
 
-	protected Polygon scroll;
+	
 
 	/**
 	 * @param x
