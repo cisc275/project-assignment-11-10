@@ -45,7 +45,8 @@ public class Osprey extends Bird {
 
 	public Osprey(int x, int y, int width, int height) {
 		super(x, y, width, height);
-		createImage();
+		//createImage();
+		this.imgFileName = Constants.IMG_OSPREY;
 		this.img = imgs[0];
 		Osprey.xSpeed = -10;
 		this.ySpeed = 0;

@@ -41,11 +41,12 @@ public class Fox extends Controllable {
 		this.c = c;
 		this.xSpeed = 1;
 		this.ySpeed = -2;
-		try {
-    		this.img = ImageIO.read(new File(Constants.IMG_FOX));
-		} catch (IOException e) {
-    		e.printStackTrace();
-    	}
+		this.imgFileName = Constants.IMG_FOX;
+		//try {
+    	//	this.img = ImageIO.read(new File(Constants.IMG_FOX));
+		//} catch (IOException e) {
+    	//	e.printStackTrace();
+    	//}
 	}
 	
 	/**

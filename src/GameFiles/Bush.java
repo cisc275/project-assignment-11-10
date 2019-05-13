@@ -25,7 +25,8 @@ public class Bush extends NonControllable {
 	
 	public Bush(int x, int y, int width, int height) {
 		super(x,y,width,height);
-		this.img = createImage();
+		//this.img = createImage();
+		this.imgFileName = Constants.IMG_BUSH;
 		this.setType(Type.BUSH);
 	}
 	
