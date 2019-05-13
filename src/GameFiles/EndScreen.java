@@ -40,7 +40,7 @@ public class EndScreen extends JDialog implements ActionListener {
 		p.setLayout(new BoxLayout(p, 3));
 		this.setResizable(false);
 		this.setModal(true);
-		image = createImage();
+	//	image = createImage();
 		congrats = new JLabel("Congradulations! You Win!");
 		congrats.setOpaque(false);
         congrats.setFont(new Font("Serif", Font.BOLD, 30));
@@ -86,16 +86,5 @@ public class EndScreen extends JDialog implements ActionListener {
 
 	}
 	
-	
-	private Image createImage() {
-		try {
-			image = ImageIO.read(new File("img/Winner.png"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		image = image.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
-		return image;
-	}
 
 }
