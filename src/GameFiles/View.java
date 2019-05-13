@@ -49,8 +49,7 @@ public class View extends JFrame {
 	public void setUpScreen(JFrame frame) {
     	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	if (System.getProperty("os.name").equals("Linux")) {
-    		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        	frame.setSize(Constants.LINUX_SCREEN_SIZE, Constants.LINUX_SCREEN_SIZE);
+        	frame.setSize(Constants.LINUX_SCREEN_SCALE_X * Constants.LINUX_SCREEN_SIZE, Constants.LINUX_SCREEN_SCALE_Y * Constants.LINUX_SCREEN_SIZE);
         	frame.setVisible(true);
     	}
     	else {
