@@ -112,7 +112,12 @@ public class Controller implements KeyListener, ActionListener{
 			this.start();
 			
 		}
-		
+		try {
+			Serialize.dumpGame(game);
+		} catch (Exception e) {
+			System.out.println("Couldn't Dump File");
+			e.printStackTrace();
+		}
 		
 	}
 		
