@@ -130,6 +130,7 @@ public class Controller implements KeyListener, ActionListener{
     			}
     			else if(Stick.count == 3) {
     				View.frame.dispose();
+    				new EndScreen();
     				time.stop();
     			}
     		}
