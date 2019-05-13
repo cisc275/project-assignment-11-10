@@ -62,7 +62,6 @@ public class Quiz extends JDialog implements ActionListener{
 		this.setModal(true);
 		this.questionHandling(game);
         this.buttonHandling(game);
-       
         this.add(p);
         this.setSize(350, 200);
         this.setVisible(true);
@@ -74,7 +73,6 @@ public class Quiz extends JDialog implements ActionListener{
 		
 		if (game.equals("sides")) {
 			 question = new JLabel("Where would you like to make your nest?");
-			 
 		}
 		if (game.equals("td")) {
 			question = new JLabel("What is the natural predator of the Clapper Rail?");
@@ -89,7 +87,6 @@ public class Quiz extends JDialog implements ActionListener{
         question.setMinimumSize(new Dimension(200, 5));
         question.setPreferredSize(new Dimension(200, 5));
         question.setMaximumSize(new Dimension(200, 5));
-        
 		p.add(question);
 	}
 	
