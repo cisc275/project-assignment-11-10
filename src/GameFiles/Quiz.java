@@ -51,39 +51,45 @@ public class Quiz extends JDialog implements ActionListener{
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	public Quiz(String game) {
-		
 		p = new JPanel();
-		p.setOpaque(true);
-		p.setBackground(Color.WHITE);
-		p.setLayout(new BoxLayout(p, 3));
+		GridLayout g = new GridLayout(0,1);
+		g.setVgap(0);
+		p.setLayout(g);
+		p.setAlignmentX(CENTER_ALIGNMENT);
+		p.setAlignmentY(TOP_ALIGNMENT);
+//		this.imageHandling(game);
 		this.setResizable(false);
 		this.setModal(true);
 		this.questionHandling(game);
         this.buttonHandling(game);
-        this.imageHandling(game);
+       
         this.add(p);
-        this.setSize(1920, 1080);
+        this.setSize(350, 200);
         this.setVisible(true);
         addActionListener(this);
-		
-
 	}
 
 	
 	public void questionHandling(String game) {
+		
 		if (game.equals("sides")) {
 			 question = new JLabel("Where would you like to make your nest?");
+			 
 		}
 		if (game.equals("td")) {
-			question = new JLabel("What is the natural predator of the ClapperRail?");
+			question = new JLabel("What is the natural predator of the Clapper Rail?");
+			 
 		}
-		question.setOpaque(false);
-        question.setFont(new Font("Serif", Font.BOLD, 30));
-        question.setMinimumSize(new Dimension(550, 50));
-        question.setPreferredSize(new Dimension(550, 50));
-        question.setMaximumSize(new Dimension(550, 50));
-        question.setAlignmentX(JLabel.CENTER_ALIGNMENT);
-        question.setAlignmentY(JLabel.TOP_ALIGNMENT);
+	    
+		question.setHorizontalAlignment(JLabel.CENTER);
+		question.setVerticalAlignment(JLabel.TOP);
+		question.setOpaque(true);
+        question.setFont(new Font("Serif", Font.BOLD, 15));
+        question.setBackground(Color.WHITE);
+        question.setMinimumSize(new Dimension(200, 5));
+        question.setPreferredSize(new Dimension(200, 5));
+        question.setMaximumSize(new Dimension(200, 5));
+        
 		p.add(question);
 	}
 	
@@ -103,74 +109,72 @@ public class Quiz extends JDialog implements ActionListener{
         buttons.add(wrong);
         buttons.add(moreWrong);
 		for (JButton b :buttons) {
-			b.setMinimumSize(new Dimension(500, 50));
-            b.setPreferredSize(new Dimension(500, 50));
-            b.setMaximumSize(new Dimension(500, 50));
+			b.setOpaque(true);
+			b.setBackground(Color.WHITE);
+			b.setMinimumSize(new Dimension(300, 20));
+            b.setPreferredSize(new Dimension(300, 20));
+            b.setMaximumSize(new Dimension(300, 20));
         	b.setFocusPainted(false);
-        	b.setBackground(Color.WHITE);
-        	b.setAlignmentX(JButton.CENTER_ALIGNMENT);
-        	b.setAlignmentY(TOP_ALIGNMENT);
-        	b.setOpaque(true);
-        	b.setFont(new Font("Serif", Font.BOLD, 30));
+        	b.setVerticalAlignment(JButton.TOP);
+        	b.setHorizontalAlignment(JButton.CENTER);
+        	b.setFont(new Font("Serif", Font.BOLD, 15));
         	b.setBorderPainted(false);
+        	b.addActionListener(this);
         	p.add(b);
 		}
 	}
 	
+	protected void paintComponent(Graphics g) {
+		super.paintComponents(g);
+		g.drawImage(image, 0, 0, this);
+	}
+	
 	public void imageHandling(String game) {
-		if (game.equals("sides")){
+	
 			image = createImage();
 			JLabel img = new JLabel(new ImageIcon(image));
 	        img.setAlignmentX(JLabel.CENTER_ALIGNMENT);
 	        img.setAlignmentY(JLabel.TOP_ALIGNMENT);
 	        p.add(img);
-		}
+		
 	}
 	
 	public static void main(String[] args) {
-		new Quiz("sides");
+		new Quiz("td");
 	}
 	
-	private void paintComponent(Graphics g) {
-		super.paintComponents(g);
-		g.drawImage(image, 0, 0, this);
-	}
-
-
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-			
-	        if (e.getSource() == right) { 
-	            // create a dialog Box 
+	        if (e.getSource().equals(right)) { 
 	            System.out.println("Hooray");
-	            this.dispose();
-	            this.setModal(false);
 	        }
 	
-	   /*     if(s.equals("B")){
-	        	this.dispose();
+	        if(e.getSource().equals(wrong)){
+	        	System.out.println("Boo");
+	        	
 	        	
 	        }
-	        if (s.equals("C")) {
+	        if (e.getSource().equals(moreWrong)){
 	        	System.out.println("cat");
+	        	
 	        }
-*/
+	        this.dispose();
 	}
+
+	
 	
 	public void addActionListener(Quiz q) {
-		right.addActionListener(q);
-		wrong.addActionListener(q);
 	}
 
 	private Image createImage() {
 		try {
-			image = ImageIO.read(new File("img/Winner.png"));
+			image = ImageIO.read(new File(Constants.IMG_CLAPPER_RAIL_BACKGROUND));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		image = image.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+		image = image.getScaledInstance(400, 300, Image.SCALE_SMOOTH);
 		return image;
 	}
 
