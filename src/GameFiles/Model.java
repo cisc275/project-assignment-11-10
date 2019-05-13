@@ -19,9 +19,6 @@ public class Model {
 		// TODO Auto-generated method stub
 		
 	}
-	public void advanceWorld(ArrayList<GameObject> game) {
-		
-	}
 
 	public ArrayList<GameObject> getGame() {
 		return game;

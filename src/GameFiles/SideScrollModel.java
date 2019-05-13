@@ -34,7 +34,7 @@ public class SideScrollModel extends Model {
      * @param g
      * @author Tim Mazzarelli
      */
-	public void advanceWorld(ArrayList<GameObject> g) {
+	public void updateLocation(ArrayList<GameObject> g) {
 		for (GameObject a : g) {
 			a.move();
 			a.collision(g);
