@@ -21,6 +21,7 @@ import javax.swing.JPanel;
 public class TopDownView extends View{
     DrawPanel drawPanel = new DrawPanel();
     
+    // The shit bit.
     TopDownView tdv = this;
     
 	BufferedImage background = createImage();
@@ -61,7 +62,6 @@ public class TopDownView extends View{
 			super.paintComponent(g);
 			g.setColor(Color.gray);
 			g.drawImage(background, 0, 0, frame.getWidth(), frame.getHeight(), this);
-			
 			
 			for (GameObject thing : game) {
 				g.setClip(thing.hitbox);
