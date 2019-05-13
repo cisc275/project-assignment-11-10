@@ -74,6 +74,7 @@ public class TopDownModel extends Model {
 			a.collision(g);			
 		}
     	if (Stick.count == Constants.TDM_UPDATELOCATION_STICK_COUNT) {
+    		System.out.println("game over");
     		Model.gameOver = true;
     	}
     }

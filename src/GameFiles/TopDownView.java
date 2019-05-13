@@ -56,16 +56,22 @@ public class TopDownView extends View{
 	private class DrawPanel extends JPanel {
 
 		protected void paintComponent(Graphics g) {
-			super.paintComponent(g);
-			g.setColor(Color.gray);
-			g.drawImage(background, 0, 0, frame.getWidth(), frame.getHeight(), this);
-			
-			
-			for (GameObject thing : game) {
-				g.setClip(thing.hitbox);
-				g.drawImage(thing.getScaledImg(),thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
+			if(Stick.count != 3) {
+				super.paintComponent(g);
+				g.setColor(Color.gray);
+				g.drawImage(background, 0, 0, frame.getWidth(), frame.getHeight(), this);
 				
-			}		
+				
+				for (GameObject thing : game) {
+					g.setClip(thing.hitbox);
+					g.drawImage(thing.getScaledImg(),thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
+					
+				}	
+			}
+			else {
+				g.dispose();
+			}
+				
 	
 		}
 			public Dimension getPreferredSize() {

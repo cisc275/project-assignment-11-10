@@ -66,6 +66,7 @@ public class Stick extends Collectable{
 			n.height = n.height + 30;
 			n.width = n.width + 30;
 			n.resetPoly();
+			System.out.println(count);
 		
 
 			
