@@ -49,15 +49,18 @@ public class View extends JFrame {
 	public void setUpScreen(JFrame frame) {
     	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	if (System.getProperty("os.name").equals("Linux")) {
-    		frame.setSize(800, 600);
+    		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        	frame.setSize(Constants.LINUX_SCREEN_SIZE, Constants.LINUX_SCREEN_SIZE);
+        	frame.setVisible(true);
     	}
     	else {
         	frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         	frame.setUndecorated(true);
+        	frame.pack();
+        	frame.setVisible(true);
     	}
     	//System.out.println(System.getProperty("os.name"));
-    	frame.pack();
-    	frame.setVisible(true);
+
     	Constants.setFrameX(frame.getWidth());
     	Constants.setFrameY(frame.getHeight());
     	System.out.println(frame.getWidth());

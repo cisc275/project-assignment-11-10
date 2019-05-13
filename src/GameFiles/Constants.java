@@ -34,6 +34,8 @@ public class Constants implements Serializable {
 	public final static int FOX_START_SIZE_X = 100;
 	public final static int FOX_START_SIZE_Y = 100;
 	
+	public final static int LINUX_SCREEN_SIZE = 800;
+	
 	public final static int OSPREY_DIVESPEED = 50;
 	public final static int OSPREY_MAX_HEIGHT = 600;
 	public final static int OSPREY_WATER_LEVEL = 350;
