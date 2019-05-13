@@ -80,6 +80,7 @@ public class EndScreen extends JDialog implements ActionListener {
             System.out.println("send to menu");
             this.dispose();
             this.setModal(false);
+            Stick.count = 0;
             Controller c = new Controller("sel");
         }
 

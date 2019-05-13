@@ -71,6 +71,7 @@ public class Fox extends Controllable {
 	 */
 	
 	public void handleCollision(ClapperRail c) {
+		System.out.println("should reset");
 		c.resetPoly();
 	
 	}
