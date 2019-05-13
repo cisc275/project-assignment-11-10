@@ -18,7 +18,7 @@ public class Nest extends GameObject{
 	
 	public Nest(int x, int y, int width, int height) {
 		super(x,y,width,height);
-		this.img = createImage();
+		this.imgFileName = Constants.IMG_NEST;
 		this.setType(Type.NEST);
 	}
 	

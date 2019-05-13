@@ -47,7 +47,7 @@ public class Osprey extends Bird {
 		super(x, y, width, height);
 		//createImage();
 		this.imgFileName = Constants.IMG_OSPREY;
-		this.img = imgs[0];
+	//	this.img = imgs[0];
 		Osprey.xSpeed = -10;
 		this.ySpeed = 0;
 		this.isDiving = false;
@@ -82,7 +82,7 @@ public class Osprey extends Bird {
 	 */
 	public void dive() {
 		if (this.hitbox.ypoints[0] <= Constants.OSPREY_WATER_LEVEL) {
-		this.img = imgs[1];
+	//	this.img = imgs[1];
 		this.isDiving = !this.isDiving;
 		this.ySpeed = Constants.OSPREY_DIVESPEED;
 		this.currY = this.hitbox.ypoints[0];
