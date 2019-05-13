@@ -40,10 +40,10 @@ public class SideScrollView extends View{
  
     
     public SideScrollView(ArrayList<GameObject> g){
-		View.frame = new JFrame();
-		setUpScreen(View.frame);
+		frame = new JFrame();
+		setUpScreen(frame);
 		game = g;
-    	View.frame.add(drawPanel);
+    	frame.add(drawPanel);
     	drawPanel.setOpaque(true);
     	pack();
     	youWin = createImage();
@@ -54,7 +54,6 @@ public class SideScrollView extends View{
     
     public void updateView(ArrayList<GameObject> g) {
     	game = g;
- 
     	mapNum = (int)((Osprey.distance/Osprey.maxDistance)*numOfMaps/2);
     	if(mapNum>numOfMaps-1)
     		mapNum = numOfMaps-1;
@@ -93,7 +92,6 @@ public class SideScrollView extends View{
 			    
 			    
 		    	for (GameObject thing : game) {
-					//((Graphics2D) g).setComposite(ac);
 			    	g.drawImage(thing.getScaledImg(), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
 		    	
 		    	}

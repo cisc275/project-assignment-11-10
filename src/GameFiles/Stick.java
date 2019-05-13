@@ -59,6 +59,7 @@ public class Stick extends Collectable{
 	@Override
 	public void handleCollision(Nest n) {
 		if (this.collidesWith(n)) {
+			
 			this.hitbox.reset();
 			n.hitbox.reset();
 			count++;
@@ -66,7 +67,7 @@ public class Stick extends Collectable{
 			n.width = n.width + 30;
 			n.resetPoly();
 		
-		
+
 			
 		}
 	}

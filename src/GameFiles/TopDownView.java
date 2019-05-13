@@ -61,13 +61,9 @@ public class TopDownView extends View{
 			g.drawImage(background, 0, 0, frame.getWidth(), frame.getHeight(), this);
 			
 			
-			for (GameObject hing : game) {
-				if (hing.getType() == GameFiles.Type.CLAPPERRAIL) {
-					g.drawPolygon(hing.hitbox);
-					System.out.println(hing + " HUh, " + hing.hitbox.xpoints[0] +  " uhuh," + hing.hitbox.ypoints[0]);
-				}
-				g.setClip(hing.hitbox);
-				g.drawImage(hing.getScaledImg(),hing.hitbox.xpoints[0] ,hing.hitbox.ypoints[0], this);
+			for (GameObject thing : game) {
+				g.setClip(thing.hitbox);
+				g.drawImage(thing.getScaledImg(),thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
 				
 			}		
 	

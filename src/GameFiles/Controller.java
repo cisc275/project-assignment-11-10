@@ -46,8 +46,6 @@ public class Controller implements KeyListener, ActionListener{
 		
 			game = new ArrayList<GameObject>();
 			view = new TopDownView(game);
-			System.out.println(view.getWidth());
-			System.out.println(view.getHeight());
 			model = new TopDownModel();
 			game.add(((TopDownModel)model).cr);
 //			game.add(((TopDownModel)model).f);
@@ -77,14 +75,11 @@ public class Controller implements KeyListener, ActionListener{
 			game = new ArrayList<GameObject>();
 			
 			view = new SideScrollView(game);
-			System.out.println(view.getWidth());
-			System.out.println(view.getHeight());
+			
 			
 			Background backOne = new Background(0, 0, view.getWidth(), view.getHeight());
 			Background backTwo = new Background(view.getWidth(), 0, 
 					view.getWidth(), view.getHeight());
-			System.out.println(backOne.getX());
-			System.out.println(backTwo.getX());
 			
 			Trash t = new Trash(view.getWidth() + 200, view.getHeight() - (view.getHeight() / 3), 
 					view.getWidth() / 20, view.getHeight()/ 15);
