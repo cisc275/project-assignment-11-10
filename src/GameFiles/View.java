@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import org.junit.jupiter.api.condition.OS;
+
 /**
  * super class for all view objects  
  *
@@ -46,8 +48,14 @@ public class View extends JFrame {
 	 */
 	public void setUpScreen(JFrame frame) {
     	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    	frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-    	frame.setUndecorated(true);
+    	if (System.getProperty("os.name").equals("Linux")) {
+    		frame.setSize(800, 600);
+    	}
+    	else {
+        	frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        	frame.setUndecorated(true);
+    	}
+    	//System.out.println(System.getProperty("os.name"));
     	frame.pack();
     	frame.setVisible(true);
     	Constants.setFrameX(frame.getWidth());
