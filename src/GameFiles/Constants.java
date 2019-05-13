@@ -6,6 +6,12 @@ public class Constants implements Serializable {
 
 	/// Booleans
 	public static boolean BOOL_HARVEY = false;
+
+	public final static int RIGHT = 39;
+	public final static int LEFT = 37;
+	public final static int UP = 38;
+	public final static int DOWN = 40;
+	public final static int SPACE = 32;
 	
 	/// ints
 	public final static int g = 10;
