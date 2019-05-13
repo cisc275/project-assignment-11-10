@@ -31,16 +31,16 @@ public class TopDownModel extends Model {
     	
     	for(Integer key: keyPresses) {
 	    	switch(key) {
-	    	case RIGHT:
+	    	case Constants.RIGHT:
 				cr.setxSpeed(cr.getMOVE_AMOUNT());
 				break;
-	    	case LEFT:
+	    	case Constants.LEFT:
 				cr.setxSpeed(-cr.getMOVE_AMOUNT());
 				break;
-	    	case UP:
+	    	case Constants.UP:
 				cr.setySpeed(-cr.getMOVE_AMOUNT());
 				break;
-	    	case DOWN:
+	    	case Constants.DOWN:
 	    		cr.setySpeed(cr.getMOVE_AMOUNT());
 				break;
 			}
