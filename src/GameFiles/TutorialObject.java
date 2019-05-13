@@ -21,10 +21,7 @@ public class TutorialObject extends NonControllable {
 	 */
 	public TutorialObject(int x, int y, String img) {
 		super(x, y, 0, 0);
-		this.img = this.createImage(new File(img));
-		this.img.getWidth();
-		this.setWidth(this.img.getWidth());
-		this.setHeight(this.img.getHeight());
+		this.imgFileName = img;
 		this.resetPoly();
 	}
 
