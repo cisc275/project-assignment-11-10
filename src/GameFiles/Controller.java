@@ -48,7 +48,7 @@ public class Controller implements KeyListener, ActionListener{
 			view = new TopDownView(game);
 			model = new TopDownModel();
 			game.add(((TopDownModel)model).cr);
-//			game.add(((TopDownModel)model).f);
+			game.add(((TopDownModel)model).f);
 			game.add(((TopDownModel)model).nest);
 			
 			game.add(new Powerup(view.getWidth() * 2, (int) (view.getHeight() * 0.91), 50, 50));
