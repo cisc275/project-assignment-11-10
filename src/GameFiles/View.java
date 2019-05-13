@@ -52,6 +52,7 @@ public class View extends JFrame {
     	frame.setVisible(true);
     	Constants.setFrameX(frame.getWidth());
     	Constants.setFrameY(frame.getHeight());
+    	System.out.println(frame.getWidth());
 	}
 
 	
