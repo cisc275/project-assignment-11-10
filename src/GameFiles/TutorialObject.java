@@ -3,6 +3,7 @@
  */
 package GameFiles;
 
+import java.awt.Polygon;
 import java.io.File;
 
 /**
@@ -23,6 +24,7 @@ public class TutorialObject extends NonControllable {
 		this.img.getWidth();
 		this.setWidth(this.img.getWidth());
 		this.setHeight(this.img.getHeight());
+		this.hitbox = new Polygon();
 
 		// TODO Auto-generated constructor stub
 	}
