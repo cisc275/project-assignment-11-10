@@ -74,7 +74,7 @@ public class Bush extends NonControllable {
 	 * creates bush image
 	 * 
 	 */
-	
+	/*
 	public BufferedImage getImage() {
 		BufferedImage buffImg;
 		try {
@@ -85,5 +85,5 @@ public class Bush extends NonControllable {
     	}
 		return null;
 	}
-
+*/
 }
