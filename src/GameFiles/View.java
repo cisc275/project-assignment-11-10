@@ -1,10 +1,17 @@
 package GameFiles;
 
 import java.awt.Component;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Hashtable;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -25,6 +32,7 @@ public class View extends JFrame implements Serializable {
 	
 	ArrayList<GameObject> game;
 	static JFrame frame; 
+	Hashtable<GameObject, ArrayList<BufferedImage>> imgTable;
 	
 	
 
@@ -70,6 +78,37 @@ public class View extends JFrame implements Serializable {
     	Constants.setFrameY(frame.getHeight());
     	System.out.println(frame.getWidth());
 	}
-
+	
+	public void initTable(ArrayList<GameObject> objects) {
+		imgTable = new Hashtable<GameObject, ArrayList<BufferedImage>>();
+		for (GameObject g: objects) {
+			imgTable.put(g, getScaledImgs(g));
+		}
+	}
+	
+	public ArrayList<BufferedImage> getScaledImgs(GameObject g) {
+		ArrayList<BufferedImage> toReturn = new ArrayList<BufferedImage>();
+		BufferedImage ig, scaledImg;
+		try {
+			for (String s : g.imgFileName) {
+				ig = ImageIO.read(new File(s));
+	    		scaledImg = new BufferedImage(g.getWidth(), g.getHeight(), BufferedImage.TRANSLUCENT);
+			    Graphics2D g2 = scaledImg.createGraphics();
+			    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+			    g2.drawImage(ig, 0, 0, g.getWidth(), g.getHeight(), null);
+			    g2.dispose();
+			    toReturn.add(scaledImg);
+			}
+    	} catch (IOException e) {
+    		System.out.println("Image Load Failed " + g.imgFileName);
+    		e.printStackTrace();
+    	}
+		
+		return toReturn;
+	}
+	
+	public BufferedImage getImg(GameObject g, int i) {
+		return imgTable.get(g).get(i);
+	}
 	
 }
