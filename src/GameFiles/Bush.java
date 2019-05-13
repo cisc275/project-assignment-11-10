@@ -19,8 +19,6 @@ public class Bush extends NonControllable {
 	 * @param x
 	 * @param width
 	 * @param height
-	 * @param hitbox
-	 * @param img
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
@@ -56,9 +54,12 @@ public class Bush extends NonControllable {
 		
 	}
 	
+	/**
+     * returns a BufferedImage that is unscaled
+     * @author Mark Wolgin
+     */
 	public BufferedImage createImage() {
 		BufferedImage bufferedImage;
-		//System.out.println("i am running");
     	try {
     		bufferedImage = ImageIO.read(new File(Constants.IMG_BROWN_SQUARE));
     		return bufferedImage;

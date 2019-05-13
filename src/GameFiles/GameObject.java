@@ -65,8 +65,6 @@ public class GameObject {
 	 * @param y 
 	 * @param width
 	 * @param height
-	 * @param hitbox
-	 * @param img
 	 * 
 	 * A constructor that takes values for all fields as input parameters
 	 */
