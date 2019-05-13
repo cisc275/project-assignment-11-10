@@ -25,7 +25,7 @@ public class GameObject implements Serializable{
 	/**
 	 *  The string of the file where the image is located
 	 */
-	protected String imgFileName;
+	protected String[] imgFileName;
 	
 	/**
 	 * The objects hit box
@@ -350,14 +350,14 @@ public class GameObject implements Serializable{
 	/**
 	 * @return the imgFileName
 	 */
-	public String getImgFileName() {
+	public String[] getImgFileName() {
 		return imgFileName;
 	}
 
 	/**
 	 * @param imgFileName the imgFileName to set
 	 */
-	public void setImgFileName(String imgFileName) {
+	public void setImgFileName(String[] imgFileName) {
 		this.imgFileName = imgFileName;
 	}
 

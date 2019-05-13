@@ -27,7 +27,7 @@ public class AirCurrent extends Collectable {
 	public AirCurrent(int x, int y, int width, int height) {
 		super(x,y,width,height);
 		this.hitbox = acReset();
-		this.imgFileName = Constants.IMG_AIRCURRENT;
+		this.imgFileName = Constants.ANIMATION_AIRCURRENT;
 		this.setType(Type.AIRCURRENT);
 	}
 	
