@@ -128,6 +128,10 @@ public class Controller implements KeyListener, ActionListener{
     				new Quiz();
     				time.stop();
     			}
+    			else if(Stick.count == 3) {
+    				View.frame.dispose();
+    				time.stop();
+    			}
     		}
     	};
     	time = new Timer(Constants.TIMER_TICK_RATE, drawAction);

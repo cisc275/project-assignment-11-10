@@ -46,7 +46,12 @@ public class TopDownView extends View{
 	 */
 	public void updateView(ArrayList<GameObject> g) {
 		game = g; 
+		if(Stick.count != 3) {
 		drawPanel.repaint();
+		}
+		else {
+	    		this.dispose();
+		}
     	//System.out.println(" " + Constants.getFRAME_X()  + " " + Constants.getFRAME_Y() );
 
 	}
