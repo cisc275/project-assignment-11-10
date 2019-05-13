@@ -63,7 +63,7 @@ public class Mate extends Bird {
 public void handleCollision(Osprey o) {
 	resetPoly();
 	Mate.caughtUp = true;
-	new Quiz();
+	
 }
 
 // draw the mate

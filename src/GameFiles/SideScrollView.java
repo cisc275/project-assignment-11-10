@@ -86,14 +86,17 @@ public class SideScrollView extends View{
 				Color transparent = new Color(1f,0f,0f,.5f );
 				g.setColor(transparent);
 				Graphics2D twoD = (Graphics2D)g;
-		//		
+				
 			    twoD.drawImage(back, null, 0, 0);
 			    AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, .5f);
 			    
 			    
 		    	for (GameObject thing : game) {
-			    	g.drawImage(thing.getScaledImg(), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
-		    	
+
+		    		g.drawImage(thing.getScaledImg(), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
+		    		if (thing.hitbox.npoints > 4) {
+		    		g.drawImage(thing.getScaledImg(), thing.hitbox.xpoints[4], thing.hitbox.ypoints[4], this);
+		    		}
 		    	}
 		    	g.drawImage(miniMaps[mapNum], View.frame.getWidth() -miniMaps[mapNum].getWidth(), 0, Color.gray,this);
 				}

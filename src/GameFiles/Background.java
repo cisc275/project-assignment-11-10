@@ -2,8 +2,11 @@ package GameFiles;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+
 import javax.imageio.ImageIO;
 
 public class Background extends GameObject{
@@ -11,6 +14,7 @@ public class Background extends GameObject{
     private int x;
     private int y;
    
+ 
   
    
     /**
@@ -21,12 +25,12 @@ public class Background extends GameObject{
      */
     public Background(int x, int y, int width, int height) {
     	super(x, y, width, height);
-        try {
-            this.img = ImageIO.read(new File(Constants.IMG_BACKGROUND));
-        }
-        catch (Exception e) { 
-        	System.out.println(e); 
-        }
+    	this.hitbox.addPoint(width, 0);
+    	this.hitbox.addPoint(width, height);
+    	this.hitbox.addPoint(width + width, height);
+    	this.hitbox.addPoint(width + width, 0);
+        this.img = createImage();
+        this.setType(Type.BACKGROUND);
     }
  
     /**
@@ -35,18 +39,38 @@ public class Background extends GameObject{
      * @author Tim Mazzarelli
      */
     public void move() {
-    	this.hitbox.translate((int)Osprey.xSpeed, 0); 
-    	if (this.hitbox.xpoints[0] <= -View.frame.getWidth()){	
-    		this.hitbox.translate((int)Osprey.xSpeed, 0); 
+    	this.hitbox.translate(Osprey.xSpeed, 0);
+    
+    	
+    	if (this.hitbox.xpoints[0] <= -View.frame.getWidth()){	 
     		this.hitbox.reset();
-    		this.hitbox.addPoint(this.width, this.y);
-    		this.hitbox.addPoint(this.width, this.y + this.height);
-    		this.hitbox.addPoint(this.width + this.width, this.y + this.height);
-    		this.hitbox.addPoint(this.width, this.y);
+    		this.hitbox.addPoint(0, this.y);
+    		this.hitbox.addPoint(0, this.y + this.height);
+    		this.hitbox.addPoint(width, this.y + this.height);
+    		this.hitbox.addPoint(width, this.y);
+    		this.hitbox.addPoint(width, 0);
+        	this.hitbox.addPoint(width, height);
+        	this.hitbox.addPoint(width + width, height);
+        	this.hitbox.addPoint(width + width, 0);
+    		
+    		
     	}
-    	}
+    	
+    	
+    	
+    }
     
     		
+    private BufferedImage createImage(){
+		BufferedImage bufferedImage;
+    	try {
+    		bufferedImage =  ImageIO.read(new File(Constants.IMG_BACKGROUND));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
+	}
 
     	
     

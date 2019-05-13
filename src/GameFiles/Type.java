@@ -5,6 +5,7 @@ package GameFiles;
  */
 public enum Type {
 	AIRCURRENT,
+	BACKGROUND,
 	BUSH,
 	CLAPPERRAIL,
 	FISH,
@@ -15,6 +16,7 @@ public enum Type {
 	NEST,
 	STICK,
 	TRASH;
+	
 	
 	/**
 	 * @return String
@@ -27,6 +29,8 @@ public enum Type {
 			return "Air Current";
 		case BUSH:
 			return "Bush";
+		case BACKGROUND:
+			return "Background";
 		case CLAPPERRAIL:
 			return "Clapper Rail";
 		case FISH:
@@ -61,6 +65,8 @@ public enum Type {
 			return AIRCURRENT;
 		case "Bush":
 			return BUSH;
+		case "Background":
+			return BACKGROUND;
 		case "Clapper Rail":
 			return CLAPPERRAIL;
 		case "Fish":

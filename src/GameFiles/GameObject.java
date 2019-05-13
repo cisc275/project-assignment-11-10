@@ -58,7 +58,9 @@ public class GameObject {
 	 */
 	
 	
-	private Type type;
+	protected Type type;
+
+	protected Polygon scroll;
 
 	/**
 	 * @param x
@@ -209,8 +211,7 @@ public class GameObject {
 			d_x = scaledImg.getWidth() - this.hitbox.getBounds().width;
 			d_y = scaledImg.getHeight() - this.hitbox.getBounds().height;
 			Rectangle hb = hitbox.getBounds();
-			if ((hb.width != 0) && (hb.height != 0) && (d_x != 0 || d_y != 0 )) {
-				System.out.println( " Height: " + scaledImg.getHeight() + " Width: " + scaledImg.getWidth() + " HitBoxHeight: " + hitbox.getBounds().height + " HitBoxWidth: " + hitbox.getBounds().width);
+			if ((hb.width != 0) && (hb.height != 0) && (d_x != 0 || d_y != 0 )) { 
 				scaledImg = new BufferedImage(this.hitbox.getBounds().width, this.hitbox.getBounds().height, BufferedImage.TRANSLUCENT);
 			    Graphics2D g2 = scaledImg.createGraphics();
 			    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);

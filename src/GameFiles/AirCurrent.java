@@ -26,9 +26,27 @@ public class AirCurrent extends Collectable {
 	
 	public AirCurrent(int x, int y, int width, int height) {
 		super(x,y,width,height);
+		this.hitbox = acReset();
 		this.img = createImage();
 		this.setType(Type.AIRCURRENT);
 	}
+	
+	public Polygon acReset() {
+		this.hitbox.reset();
+		this.hitbox.addPoint(x, y);
+		this.hitbox.addPoint(x + width, y);
+		this.hitbox.addPoint(width/ 2 + x, y + height);
+		return this.hitbox;
+	}
+	
+	@Override
+	public void move() {
+		this.hitbox.translate(this.xSpeed, 0);
+			if(this.hitbox.xpoints[1] <= 0) {
+				acReset();
+			}
+		}
+	
 	
 	
 	/**
@@ -39,7 +57,7 @@ public class AirCurrent extends Collectable {
 	
 	@Override
 	public void handleCollision(Osprey o) {
-		resetPoly();
+		acReset();
 		if (Osprey.xSpeed <= -2) {
 		o.setXSpeed((Osprey.getXSpeed() + Constants.FISH_AC));
 		}

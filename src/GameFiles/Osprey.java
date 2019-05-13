@@ -17,7 +17,7 @@ import javax.imageio.ImageIO;
  */
 public class Osprey extends Bird {
 	
-	static double xSpeed;
+	static int xSpeed;
 	int ySpeed;
 	// for storing y before diving
 	int currY;
@@ -47,7 +47,7 @@ public class Osprey extends Bird {
 		super(x, y, width, height);
 		createImage();
 		this.img = imgs[0];
-		Osprey.xSpeed = -20;
+		Osprey.xSpeed = -10;
 		this.ySpeed = 0;
 		this.isDiving = false;
 		distance = 0;
@@ -55,11 +55,11 @@ public class Osprey extends Bird {
 		this.setType(Type.OSPREY);
 	}
 
-	public static double getXSpeed() {
+	public static int getXSpeed() {
 		return Osprey.xSpeed;
 	}
 
-	public void setXSpeed(double xSpeed) {
+	public void setXSpeed(int xSpeed) {
 		Osprey.xSpeed = xSpeed;
 	}
 	
@@ -80,9 +80,7 @@ public class Osprey extends Bird {
 	 * @author tim Mazzarelli
 	 */
 	public void dive() {
-		if (this.hitbox.ypoints[0] >= 350) {
-		}
-		else {
+		if (this.hitbox.ypoints[0] <= Constants.OSPREY_WATER_LEVEL) {
 		this.img = imgs[1];
 		this.isDiving = !this.isDiving;
 		this.ySpeed = Constants.OSPREY_DIVESPEED;

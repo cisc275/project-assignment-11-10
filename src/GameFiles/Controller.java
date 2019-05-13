@@ -78,8 +78,6 @@ public class Controller implements KeyListener, ActionListener{
 			
 			
 			Background backOne = new Background(0, 0, view.getWidth(), view.getHeight());
-			Background backTwo = new Background(view.getWidth(), 0, 
-					view.getWidth(), view.getHeight());
 			
 			Trash t = new Trash(view.getWidth() + 200, view.getHeight() - (view.getHeight() / 3), 
 					view.getWidth() / 20, view.getHeight()/ 15);
@@ -95,7 +93,7 @@ public class Controller implements KeyListener, ActionListener{
 			Mate m = new Mate(view.getWidth() + 400, 200, 200, 50); // suposed to be 50 50, this is for the memes
 			model = new SideScrollModel();	
 			game.add(backOne);
-			game.add(backTwo);
+		
 			game.add(((SideScrollModel)model).o);
 			game.add(f);
 			game.add(f2);
@@ -125,8 +123,10 @@ public class Controller implements KeyListener, ActionListener{
     		public void actionPerformed(ActionEvent e){
     			model.updateLocation(game);
     			view.updateView(game);
-    			if (Model.gameOver) {
-    				view.dispose();
+    			if (Mate.caughtUp) {
+    				View.frame.dispose();
+    				new Quiz();
+    				time.stop();
     			}
     		}
     	};
