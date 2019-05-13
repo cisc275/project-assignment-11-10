@@ -27,6 +27,7 @@ import javax.swing.JPanel;
 public class SideScrollView extends View{
     DrawPanel drawPanel = new DrawPanel();
     ArrayList<GameObject> game;
+    SideScrollView ssv = this;
    
     Background backOne;
     Background backTwo;
@@ -93,9 +94,9 @@ public class SideScrollView extends View{
 			    
 		    	for (GameObject thing : game) {
 
-		    		g.drawImage(thing.getScaledImg(), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
+		    		g.drawImage(ssv.getImg(thing, 0), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
 		    		if (thing.hitbox.npoints > 4) {
-		    		g.drawImage(thing.getScaledImg(), thing.hitbox.xpoints[4], thing.hitbox.ypoints[4], this);
+		    		g.drawImage(ssv.getImg(thing, 0), thing.hitbox.xpoints[4], thing.hitbox.ypoints[4], this);
 		    		}
 		    	}
 		    	g.drawImage(miniMaps[mapNum], View.frame.getWidth() -miniMaps[mapNum].getWidth(), 0, Color.gray,this);
