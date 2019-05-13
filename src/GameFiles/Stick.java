@@ -39,7 +39,7 @@ public class Stick extends Collectable{
 		super(x,y,width,height);
 		this.xSpeed = 0;
 		this.ySpeed = 0;
-		this.imgFileName = Constants.IMG_STICK;
+		this.imgFileName = Constants.ANIMATION_STICK;
 		this.setType(Type.STICK);
 		
 	}

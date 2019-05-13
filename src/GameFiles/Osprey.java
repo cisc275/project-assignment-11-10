@@ -143,19 +143,19 @@ public class Osprey extends Bird {
 	}
 	
 	// creates image for Osprey
-	private BufferedImage[] createImage(){
-		
-		try {
-			if (Constants.BOOL_HARVEY) imgs[2] = ImageIO.read(new File(Constants.IMG_THARVEY));
-			else {  
-				imgs[0] = ImageIO.read(new File(Constants.IMG_OSPREY));
-				imgs[1] = ImageIO.read(new File(Constants.IMG_OSPREY_DIVE));
-			}
-			return imgs;
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+//	private BufferedImage[] createImage(){
+//		
+//		try {
+//			if (Constants.BOOL_HARVEY) imgs[2] = ImageIO.read(new File(Constants.IMG_THARVEY));
+//			else {  
+//			//	imgs[0] = ImageIO.read(new File(Constants.IMG_OSPREY));
+//			//	imgs[1] = ImageIO.read(new File(Constants.IMG_OSPREY_DIVE));
+//			}
+//			return imgs;
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		return null;
+//	}
 
 }
