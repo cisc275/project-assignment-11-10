@@ -170,6 +170,12 @@ public class GameObject {
 		 */
 	}
 	
+	
+	/**
+	 * Creates a BufferedImage for our GameObject
+	 * @param path Takes the File of an Image
+	 * @return
+	 */
 	public BufferedImage createImage(File path) {
 		BufferedImage g;
 		try {
@@ -184,6 +190,7 @@ public class GameObject {
     	}
 		return null;
 	}
+	
 	
 	public BufferedImage getImage() {
 		if (img != null) {
