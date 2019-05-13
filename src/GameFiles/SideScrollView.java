@@ -40,13 +40,14 @@ public class SideScrollView extends View{
  
     
     public SideScrollView(ArrayList<GameObject> g){
-		this.frame = new JFrame();
-		setUpScreen(this.frame);
+		View.frame = new JFrame();
+		setUpScreen(View.frame);
 		game = g;
-    	this.frame.add(drawPanel);
+    	View.frame.add(drawPanel);
     	drawPanel.setOpaque(true);
     	pack();
     	youWin = createImage();
+    	this.setSize(frame.getWidth(), frame.getHeight());
     	
     	
     }
@@ -96,7 +97,7 @@ public class SideScrollView extends View{
 			    	g.drawImage(thing.getScaledImg(), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
 		    	
 		    	}
-		    	g.drawImage(miniMaps[mapNum], (int)Constants.getFRAME_X()-miniMaps[mapNum].getWidth(), 0, Color.gray,this);
+		    	g.drawImage(miniMaps[mapNum], View.frame.getWidth() -miniMaps[mapNum].getWidth(), 0, Color.gray,this);
 				}
 				else if (Mate.caughtUp) {
 					g.dispose();

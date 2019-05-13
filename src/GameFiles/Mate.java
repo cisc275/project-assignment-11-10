@@ -33,6 +33,7 @@ public class Mate extends Bird {
 		super(x,y,width,height);
 		this.img = createImage();
 		Mate.caughtUp = false;
+		this.xSpeed = -10;
 	
 	}
 	
