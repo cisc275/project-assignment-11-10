@@ -36,10 +36,6 @@ public class ClapperRail extends Bird {
 	 * @param x
 	 * @param width
 	 * @param height
-	 * @param hitbox
-	 * @param img
-	 * @param xSpeed
-	 * @param ySpeed
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
