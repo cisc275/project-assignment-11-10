@@ -74,7 +74,7 @@ public class Quiz extends JDialog implements ActionListener{
         p.add(question);
         buttons.add(right);
         buttons.add(wrong);
-   //     buttons.add(new JButton("C. Low on the ground by water"));
+        buttons.add(new JButton("C. Low on the ground by water"));
        
         for (JButton b : buttons) {
         	b.setMinimumSize(new Dimension(500, 50));

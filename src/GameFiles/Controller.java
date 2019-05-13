@@ -51,7 +51,7 @@ public class Controller implements KeyListener, ActionListener{
 //			game.add(((TopDownModel)model).f);
 			game.add(((TopDownModel)model).nest);
 			
-			game.add(new Fish(3000, (int) (view.getHeight() * 0.91), 50, 50));
+			game.add(new Powerup(view.getWidth() * 2, (int) (view.getHeight() * 0.91), 50, 50));
 			game.add(new Stick(300,300,40,80));
 			game.add(new Stick(500, 250 ,40,40));
 			game.add(new Stick(400, 400 ,80,40));
