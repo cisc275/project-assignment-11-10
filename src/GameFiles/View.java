@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import org.junit.jupiter.api.condition.OS;
+//import org.junit.jupiter.api.condition.OS;
 
 /**
  * super class for all view objects  

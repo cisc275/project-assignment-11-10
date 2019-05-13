@@ -69,7 +69,7 @@ public class Fox extends Controllable {
 	 * @param c
 	 * @author tim Mazzarelli
 	 */
-	
+	@Override
 	public void handleCollision(ClapperRail c) {
 		c.resetPoly();
 	
