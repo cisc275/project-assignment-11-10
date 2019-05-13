@@ -89,8 +89,10 @@ public class Quiz extends JDialog implements ActionListener{
         	b.setBorderPainted(false);
         	p.add(b);
         }
-      
-        p.add(new JLabel(new ImageIcon(image)));
+        JLabel img = new JLabel(new ImageIcon(image));
+        img.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+        img.setAlignmentY(JLabel.TOP_ALIGNMENT);
+        p.add(img);
         addActionListener(this);
         this.add(p);
         this.setSize(1920, 1080);

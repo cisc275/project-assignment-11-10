@@ -78,8 +78,8 @@ public class Constants implements Serializable {
 	public final static double IMG_SCALE_RATIO_Y = FRAME_Y/600;
 
 
-	public static void setFrameX(int d) { FRAME_X = 1; }
-	public static void setFrameY(int y) { FRAME_Y = 1; }
+	public static void setFrameX(int d) { FRAME_X = d; }
+	public static void setFrameY(int y) { FRAME_Y = y; }
 	public static int getFRAME_X() { return FRAME_X; }
 	public static int getFRAME_Y() { return FRAME_Y; }
 	
