@@ -85,12 +85,10 @@ public class GameObject {
 	
 	/**
 	 * 
-	 *  resets Polygon
+	 *  Resets Polygon with its origin at x, y and its size to be its width and height
 	 * 
 	 * @author Timothy Mazzarelli
 	 */
-	
-	
 	public void resetPoly() {
 		this.hitbox.reset();
 		this.hitbox.addPoint(x, y);

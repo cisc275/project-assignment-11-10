@@ -55,6 +55,7 @@ public class Controller implements KeyListener, ActionListener{
 			game.add(new Stick(300,300,40,80));
 			game.add(new Stick(500, 250 ,40,40));
 			game.add(new Stick(400, 400 ,80,40));
+			game.add(new TutorialObject(300, 150, Constants.IMG_SPACEBAR));
 			Bush b1 = new Bush(500, 500,150,150);
 			game.add(b1);
 			((TopDownModel)model).cr.bushArr.add(b1);

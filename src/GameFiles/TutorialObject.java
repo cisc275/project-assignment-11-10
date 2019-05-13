@@ -13,6 +13,7 @@ import java.io.File;
 public class TutorialObject extends NonControllable {
 
 	/**
+	 * Creates a Tutorial Object with a hitbox of 0,0 and an img.
 	 * @param x
 	 * @param y
 	 * @param width
@@ -24,9 +25,7 @@ public class TutorialObject extends NonControllable {
 		this.img.getWidth();
 		this.setWidth(this.img.getWidth());
 		this.setHeight(this.img.getHeight());
-		this.hitbox = new Polygon();
-
-		// TODO Auto-generated constructor stub
+		this.resetPoly();
 	}
 
 }
