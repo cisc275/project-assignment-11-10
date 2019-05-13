@@ -1,22 +1,16 @@
+package GameFiles;
+
 import java.io.*;
+import java.util.ArrayList;
 //import com.tedneward.*;
 
 public class Serialize
 {
-    public static void main(String[] args)
-        throws Exception
+    public static void dumpGame(ArrayList<GameObject> game) throws Exception
     {
-        Person ted = new Person("Ted", "Neward", 39);
-        Person charl = new Person("Charlotte", "Neward", 38);
-        ted.setSpouse(charl); charl.setSpouse(ted);
-        
-        System.out.println(ted);
-	System.out.println(charl);
-        
-        FileOutputStream fos = new FileOutputStream(args[0]);
+        FileOutputStream fos = new FileOutputStream("/dump/gameDump.txt");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(ted);
-	oos.writeObject(charl);
+        oos.writeObject(game);
         oos.close();
     }
 }

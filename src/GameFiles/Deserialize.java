@@ -1,18 +1,17 @@
+package GameFiles;
+
 import java.io.*;
-//import com.tedneward.*;
+import java.util.ArrayList;
 
 public class Deserialize
 {
-    public static void main(String[] args)
-        throws Exception
+    public static void grabGame() throws Exception
     {
-        FileInputStream fis = new FileInputStream(args[0]);
+        FileInputStream fis = new FileInputStream("/dump/gameDump.txt");
         ObjectInputStream ois = new ObjectInputStream(fis);
-        Person ted = (Person) ois.readObject();
-	Person charl = (Person) ois.readObject();
+        ArrayList<GameObject> game = (ArrayList<GameObject>) ois.readObject();
         ois.close();
         
-        System.out.println(ted);
-	System.out.println(charl);
+        System.out.println(game);
     }
 }
