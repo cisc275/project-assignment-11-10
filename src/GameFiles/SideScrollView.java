@@ -49,6 +49,7 @@ public class SideScrollView extends View{
     	pack();
     	youWin = createImage();
     	this.setSize(frame.getWidth(), frame.getHeight());
+    	this.initTable(g);
     	
     	
     }

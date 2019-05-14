@@ -30,6 +30,8 @@ public class View extends JFrame implements Serializable {
 	 */
 	private static final long serialVersionUID = 1055664864359735273L;
 	
+	
+	
 	ArrayList<GameObject> game;
 	static JFrame frame; 
 	Hashtable<GameObject, ArrayList<BufferedImage>> imgTable;

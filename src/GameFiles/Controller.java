@@ -45,13 +45,12 @@ public class Controller implements KeyListener, ActionListener{
 			// clapper rail game
 		
 			game = new ArrayList<GameObject>();
-			view = new TopDownView(game);
 			model = new TopDownModel();
 			game.add(((TopDownModel)model).cr);
 			game.add(((TopDownModel)model).f);
 			game.add(((TopDownModel)model).nest);
 			
-			game.add(new Powerup(view.getWidth() * 2, (int) (view.getHeight() * 0.91), 50, 50));
+			game.add(new Powerup(10 * 2, (int) (10 * 0.91), 50, 50));
 			game.add(new Stick(300,300,40,40));
 			game.add(new Stick(500, 250 ,40,40));
 			game.add(new Stick(400, 400 ,40,40));
@@ -66,7 +65,7 @@ public class Controller implements KeyListener, ActionListener{
 			game.add(b3);
 			((TopDownModel)model).cr.bushArr.add(b3);
 			
-			
+			view = new TopDownView(game);
 			view.addKeyListener(this);
 			this.start();
 
@@ -75,24 +74,25 @@ public class Controller implements KeyListener, ActionListener{
 		else if(selected.equals("sideScroll")) {
 			game = new ArrayList<GameObject>();
 			
-			view = new SideScrollView(game);
 			
 			
-			Background backOne = new Background(0, 0, view.getWidth(), view.getHeight());
 			
-			Trash t = new Trash(view.getWidth() + 200, view.getHeight() - (view.getHeight() / 3), 
-					view.getWidth() / 20, view.getHeight()/ 15);
-			Trash t2 = new Trash(view.getWidth() + 20, view.getHeight() - (view.getHeight() / 9), 
-					view.getWidth() / 20, view.getHeight()/ 15);
-			Fish f = new Fish(view.getWidth() + 400, (int) (view.getHeight() * 0.87), 
-					(int) (view.getWidth() * 0.05), (int) (view.getHeight() * 0.05));
-			Fish f2 = new Fish(view.getWidth() + 250, 600, 50, 50);
-			Fish f3 = new Fish(view.getWidth() + 100, 650, 50, 50);
-			AirCurrent a = new AirCurrent(view.getWidth() + 20, 55, 250, 250);
-			AirCurrent a2 = new AirCurrent(view.getWidth()  + 100, 100, 200, 200);
-			AirCurrent a3 = new AirCurrent(view.getWidth()  + 500, 200, 200, 200);
-			Mate m = new Mate(view.getWidth() + 400, 200, 200, 50); // suposed to be 50 50, this is for the memes
+			Background backOne = new Background(0, 0, 1920, 1080);
+			
+			Trash t = new Trash(1920 + 200, 1080 - (1080 / 3), 
+					1920 / 20, 1080/ 15);
+			Trash t2 = new Trash(1920 + 20, 1080 - (1080 / 9), 
+					1920 / 20, 1080/ 15);
+			Fish f = new Fish(1920 + 400, (int) (1080 * 0.87), 
+					(int) (1920 * 0.05), (int) (1080 * 0.05));
+			Fish f2 = new Fish(1920 + 250, 600, 50, 50);
+			Fish f3 = new Fish(1920 + 100, 650, 50, 50);
+			AirCurrent a = new AirCurrent(1920 + 20, 55, 250, 250);
+			AirCurrent a2 = new AirCurrent(1920  + 100, 100, 200, 200);
+			AirCurrent a3 = new AirCurrent(1920  + 500, 200, 200, 200);
+			Mate m = new Mate(1920 + 400, 200, 200, 50); // suposed to be 50 50, this is for the memes
 			model = new SideScrollModel();	
+			
 			game.add(backOne);
 		
 			game.add(((SideScrollModel)model).o);
@@ -105,7 +105,7 @@ public class Controller implements KeyListener, ActionListener{
 			game.add(a2);
 			game.add(a3);
 			game.add(m);
-		
+			view = new SideScrollView(game);
 			view.addKeyListener(this);
 			view.addActionListener(this);
 		
