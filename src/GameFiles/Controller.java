@@ -112,19 +112,6 @@ public class Controller implements KeyListener, ActionListener{
 			this.start();
 			
 		}
-		try {
-			Serialize.dumpGame(model);
-		} catch (Exception e) {
-			System.out.println("Couldn't Dump File");
-			e.printStackTrace();
-		}
-		
-		try {
-			System.out.println(Deserialize.grabGame());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 	}
 		
@@ -181,13 +168,15 @@ public class Controller implements KeyListener, ActionListener{
 	public synchronized void keyPressed(KeyEvent e) {
 		keyPresses.add(e.getKeyCode());
 		model.handleMove(keyPresses);
-		if (e.getKeyCode() == 192)
-			try {
-				Serialize.dumpGame(model);
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+		switch (e.getKeyCode()) {
+			case 192:
+				try {
+					Serialize.dumpGame(model);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+		}
 	}	
 	/**
 	 * removes keypress to set of currently pressed keys, gives set to model to handle
