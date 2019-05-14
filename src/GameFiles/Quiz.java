@@ -17,6 +17,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
@@ -38,11 +40,15 @@ public class Quiz extends JDialog implements ActionListener{
 	
 	 Image image;
 	 JLabel question;
-	 JButton right;
-	 JButton wrong;
-	 JButton moreWrong;
-	 ArrayList<JButton> buttons;
+	 JButton right, wrong, mW;
+	 ArrayList<JLabel> questions;
+	 ArrayList<JButton> rightAnswers;
+	 ArrayList<JButton> wrongAnswers;
+	 ArrayList<JButton> mWAnswers;
+	 ArrayList<Integer> previousNumbers = new ArrayList<Integer>();
+	 int qNumber;
 	 JPanel p;
+	
 	
 	/**
 	 * button that will allow user to select the clapperrail game
@@ -52,33 +58,113 @@ public class Quiz extends JDialog implements ActionListener{
 	
 	public Quiz(String game) {
 		p = new JPanel();
-		GridLayout g = new GridLayout(0,1);
-		g.setVgap(0);
-		p.setLayout(g);
+		p.setLayout(new GridLayout(0,1));
 		p.setAlignmentX(CENTER_ALIGNMENT);
 		p.setAlignmentY(TOP_ALIGNMENT);
 //		this.imageHandling(game);
+		
+		questionNumber();
+		initQuestions(game);
+		initAnswers(game);
 		this.setResizable(false);
 		this.setModal(true);
-		this.questionHandling(game);
-        this.buttonHandling(game);
         this.add(p);
         this.setSize(350, 200);
         this.setVisible(true);
         addActionListener(this);
 	}
-
 	
-	public void questionHandling(String game) {
+	/**
+	 * @param none
+	 * 
+	 * gives us the random number to choose our when we make a quiz
+	 * 
+	 * @author tim mazzarelli
+	 */
+	
+	public int questionNumber() {
+		Random r = new Random();
+		qNumber = r.nextInt(10);
+		System.out.println(qNumber);
 		
+		return qNumber;
+	}
+	
+	/**
+	 * @param String game
+	 * 
+	 * Depending on whichever game you're in
+	 * we will access our array of questions
+	 * if it's null it creates it, if it's not it 
+	 * just return the array
+	 * 
+	 * @author tim mazzarelli
+	 */
+	
+	public void initQuestions(String game) {
 		if (game.equals("sides")) {
-			 question = new JLabel("Where would you like to make your nest?");
+			if (questions != null) {
+				
+			}
+			else {
+				questions = new ArrayList<JLabel>();
+				questions.add(Constants.OSPREY_1);
+				questions.add(Constants.OSPREY_2);
+				questions.add(Constants.OSPREY_3);
+				questions.add(Constants.OSPREY_4);
+				questions.add(Constants.OSPREY_5);
+				questions.add(Constants.OSPREY_6);
+				questions.add(Constants.OSPREY_7);
+				questions.add(Constants.OSPREY_8);
+				questions.add(Constants.OSPREY_9);
+				questions.add(Constants.OSPREY_10);
+			}
 		}
 		if (game.equals("td")) {
-			question = new JLabel("What is the natural predator of the Clapper Rail?");
-			 
+			if (questions != null) {}
+			else {
+				questions = new ArrayList<JLabel>();
+				questions.add(Constants.CR_1);
+				questions.add(Constants.CR_2);
+				questions.add(Constants.CR_3);
+				questions.add(Constants.CR_4);
+				questions.add(Constants.CR_5);
+				questions.add(Constants.CR_6);
+				questions.add(Constants.CR_7);
+				questions.add(Constants.CR_8);
+				questions.add(Constants.CR_9);
+				questions.add(Constants.CR_10);
+			}
 		}
-	    
+		getQuestion(questions);
+	}
+	
+	
+	/**
+	 * @param ArrayList<JLabel> ourQuestion
+	 * 
+	 * takes an arrayList of questions and based on the number 
+	 * chosen at beginning takes that question and removes it from the list
+	 * so it can't be accessed again in the same game
+	 * 
+	 * @author tim mazzarelli
+	 */
+	
+	public void getQuestion(ArrayList<JLabel> ourQuestions) {
+		question = ourQuestions.get(qNumber);
+		ourQuestions.remove(qNumber);
+		questionHandling();	
+	}
+	
+	/**
+	 * @param none
+	 * 
+	 * sets up the label in an appealing way
+	 * 
+	 * @author tim mazzarelli
+	 */
+	
+	public void questionHandling() {
 		question.setHorizontalAlignment(JLabel.CENTER);
 		question.setVerticalAlignment(JLabel.TOP);
 		question.setOpaque(true);
@@ -90,89 +176,273 @@ public class Quiz extends JDialog implements ActionListener{
 		p.add(question);
 	}
 	
-	public void buttonHandling(String game) {
-		buttons = new ArrayList<JButton>();
+	
+	/**
+	 * @param String game
+	 * 
+	 * initializes the arrayLists of answers depending on
+	 * whether or not you are playing the clapperrail or osprey game
+	 * 
+	 * @author tim mazzarelli
+	 */
+	
+	public void initAnswers(String game) {
+		getAnswer(initRightAnswers(game), initWrongAnswers(game), initMWAnswers(game));
+	}
+	
+	/**
+	 * @param String game
+	 * 
+	 * gets the arrayList of correct answers depending on game
+	 * being played
+	 * 
+	 * @return ArrayList<Jbutton>
+	 * 
+	 * @author tim mazzarelli
+	 */
+	
+	public ArrayList<JButton> initRightAnswers(String game) {
 		if (game.equals("sides")){
-		right = new JButton("A. in the tall nest");
-        wrong = new JButton("B. Osprey don't make nests");
-        moreWrong = new JButton("C. On the water, low ground");
+			if (rightAnswers != null) { return rightAnswers;}
+			else {
+				rightAnswers = new ArrayList<JButton>();
+				rightAnswers.add(Constants.OSPREY_CORRECT1);
+				rightAnswers.add(Constants.OSPREY_CORRECT2);
+				rightAnswers.add(Constants.OSPREY_CORRECT3);
+				rightAnswers.add(Constants.OSPREY_CORRECT4);
+				rightAnswers.add(Constants.OSPREY_CORRECT5);
+				rightAnswers.add(Constants.OSPREY_CORRECT6);
+				rightAnswers.add(Constants.OSPREY_CORRECT7);
+				rightAnswers.add(Constants.OSPREY_CORRECT8);
+				rightAnswers.add(Constants.OSPREY_CORRECT9);
+				rightAnswers.add(Constants.OSPREY_CORRECT10);
+				
+			}
 		}
 		if (game.equals("td")) {
-			right = new JButton("A. red fox");
-			wrong = new JButton("B. snails");
-			moreWrong = new JButton("C. people");
+			if (rightAnswers != null) {}
+			else {
+				rightAnswers = new ArrayList<JButton>();
+				rightAnswers.add(Constants.CR_CORRECT1);
+				rightAnswers.add(Constants.CR_CORRECT2);
+				rightAnswers.add(Constants.CR_CORRECT3);
+				rightAnswers.add(Constants.CR_CORRECT4);
+				rightAnswers.add(Constants.CR_CORRECT5);
+				rightAnswers.add(Constants.CR_CORRECT6);
+				rightAnswers.add(Constants.CR_CORRECT7);
+				rightAnswers.add(Constants.CR_CORRECT8);
+				rightAnswers.add(Constants.CR_CORRECT9);
+				rightAnswers.add(Constants.CR_CORRECT10);
+			}
 		}
-        buttons.add(right);
-        buttons.add(wrong);
-        buttons.add(moreWrong);
+		return rightAnswers;
+	}
+	
+	/**
+	 * @param String game
+	 * 
+	 * gets the arrayList of incorrect answers depending on game
+	 * being played
+	 * 
+	 * 
+	 * @return ArrayList<Jbutton>
+	 * 
+	 * @author tim mazzarelli
+	 */
+	
+	public ArrayList<JButton> initWrongAnswers(String game) {
+		if (game.equals("sides")) {
+			if (wrongAnswers != null) {return wrongAnswers;}
+			else {
+				wrongAnswers = new ArrayList<JButton>();
+				wrongAnswers.add(Constants.OSPREY_INCORRECT1);
+				wrongAnswers.add(Constants.OSPREY_INCORRECT2);
+				wrongAnswers.add(Constants.OSPREY_INCORRECT3);
+				wrongAnswers.add(Constants.OSPREY_INCORRECT4);
+				wrongAnswers.add(Constants.OSPREY_INCORRECT5);
+				wrongAnswers.add(Constants.OSPREY_INCORRECT6);
+				wrongAnswers.add(Constants.OSPREY_INCORRECT7);
+				wrongAnswers.add(Constants.OSPREY_INCORRECT8);
+				wrongAnswers.add(Constants.OSPREY_INCORRECT9);
+				wrongAnswers.add(Constants.OSPREY_INCORRECT10);
+			}
+		}
+		if (game.equals("td")) {
+			if (wrongAnswers != null) {}
+			else {
+				wrongAnswers = new ArrayList<JButton>();
+				wrongAnswers.add(Constants.CR_INCORRECT1);
+				wrongAnswers.add(Constants.CR_INCORRECT2);
+				wrongAnswers.add(Constants.CR_INCORRECT3);
+				wrongAnswers.add(Constants.CR_INCORRECT4);
+				wrongAnswers.add(Constants.CR_INCORRECT5);
+				wrongAnswers.add(Constants.CR_INCORRECT6);
+				wrongAnswers.add(Constants.CR_INCORRECT7);
+				wrongAnswers.add(Constants.CR_INCORRECT8);
+				wrongAnswers.add(Constants.CR_INCORRECT9);
+				wrongAnswers.add(Constants.CR_INCORRECT10);
+			}
+		}
+		return wrongAnswers;
+	}
+	
+	/**
+	 * @param String game
+	 * 
+	 * gets the arrayList of more incorrect answers depending on game
+	 * being played
+	 * 
+	 * @return ArrayList<Jbutton>
+	 * 
+	 * @author tim mazzarelli
+	 */
+	
+	public ArrayList<JButton> initMWAnswers(String game) {
+		if (game.equals("sides")) {
+			if (mWAnswers != null) {return mWAnswers;}
+			else {
+				mWAnswers = new ArrayList<JButton>();
+				mWAnswers.add(Constants.OSPREY_WRONG1);
+				mWAnswers.add(Constants.OSPREY_WRONG2);
+				mWAnswers.add(Constants.OSPREY_WRONG3);
+				mWAnswers.add(Constants.OSPREY_WRONG4);
+				mWAnswers.add(Constants.OSPREY_WRONG5);
+				mWAnswers.add(Constants.OSPREY_WRONG6);
+				mWAnswers.add(Constants.OSPREY_WRONG7);
+				mWAnswers.add(Constants.OSPREY_WRONG8);
+				mWAnswers.add(Constants.OSPREY_WRONG9);
+				mWAnswers.add(Constants.OSPREY_WRONG10);
+			}
+		}
+		if (game.equals("td")) {
+			if (mWAnswers != null) {return mWAnswers;}
+			else {
+				mWAnswers = new ArrayList<JButton>();
+				mWAnswers.add(Constants.CR_WRONG1);
+				mWAnswers.add(Constants.CR_WRONG2);
+				mWAnswers.add(Constants.CR_WRONG3);
+				mWAnswers.add(Constants.CR_WRONG4);
+				mWAnswers.add(Constants.CR_WRONG5);
+				mWAnswers.add(Constants.CR_WRONG6);
+				mWAnswers.add(Constants.CR_WRONG7);
+				mWAnswers.add(Constants.CR_WRONG8);
+				mWAnswers.add(Constants.CR_WRONG9);
+				mWAnswers.add(Constants.CR_WRONG10);
+			}
+		}
+		return mWAnswers;
+		
+	}
+	
+	/**
+	 * @param ArrayList<Jbutton> right, ArrayList<Jbutton> wrong, ArrayList<Jbutton> moreWrong
+	 * 
+	 * gets the proper answers based on the question number
+	 * and then passes onto button handling
+	 * 
+	 * @author tim mazzarelli
+	 */
+
+	public void getAnswer(ArrayList<JButton> rightAnswer, ArrayList<JButton> wrongAnswer, ArrayList<JButton> moreWrong) {
+		right = rightAnswer.get(qNumber);
+		rightAnswer.remove(qNumber);
+		wrong = wrongAnswer.get(qNumber);
+		wrongAnswer.remove(qNumber);
+		mW = moreWrong.get(qNumber);
+		moreWrong.remove(qNumber);
+		buttonHandling(right, wrong, mW);
+		
+	}
+	
+	/**
+	 * @param Jbutton correct, Jbutton incorrect, Jbutton veryWrong
+	 * 
+	 * sets up each JButton in a nice way, 
+	 * in a random order so the right answer is not always the first choice, 
+	 * or second, or third etc.
+	 * 
+	 * @author tim mazzarelli
+	 */
+	
+	public void buttonHandling(JButton correct, JButton incorrect, JButton veryWrong) {
+		ArrayList<JButton> buttons = new ArrayList<JButton>();
+		Random l = new Random();
+		int answerOrder = l.nextInt(6);
+		switch(answerOrder) {
+			case 0: buttons.add(correct);
+					buttons.add(incorrect);
+					buttons.add(veryWrong);
+					break;
+			case 1: buttons.add(correct);
+					buttons.add(veryWrong);
+					buttons.add(incorrect);
+					break;
+			case 2: buttons.add(incorrect);
+					buttons.add(correct);
+					buttons.add(veryWrong);
+					break;
+			case 3: buttons.add(incorrect);
+					buttons.add(veryWrong);
+					buttons.add(correct);
+					break;
+			case 4: buttons.add(veryWrong);
+					buttons.add(incorrect);
+					buttons.add(correct);
+					break;
+			case 5: buttons.add(veryWrong);
+					buttons.add(correct);
+					buttons.add(incorrect);
+					break;
+			
+		}
+			
 		for (JButton b :buttons) {
 			b.setOpaque(true);
 			b.setBackground(Color.WHITE);
 			b.setMinimumSize(new Dimension(300, 20));
             b.setPreferredSize(new Dimension(300, 20));
             b.setMaximumSize(new Dimension(300, 20));
-        	b.setFocusPainted(false);
         	b.setVerticalAlignment(JButton.TOP);
         	b.setHorizontalAlignment(JButton.CENTER);
         	b.setFont(new Font("Serif", Font.BOLD, 15));
-        	b.setBorderPainted(false);
-        	b.addActionListener(this);
         	p.add(b);
 		}
 	}
 	
-	protected void paintComponent(Graphics g) {
-		super.paintComponents(g);
-		g.drawImage(image, 0, 0, this);
-	}
 	
-	public void imageHandling(String game) {
 	
-			image = createImage();
-			JLabel img = new JLabel(new ImageIcon(image));
-	        img.setAlignmentX(JLabel.CENTER_ALIGNMENT);
-	        img.setAlignmentY(JLabel.TOP_ALIGNMENT);
-	        p.add(img);
-		
-	}
+	
 	
 	public static void main(String[] args) {
-		new Quiz("td");
+		new Quiz("sides");
 	}
 	
 	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-	        if (e.getSource().equals(right)) { 
-	            System.out.println("Hooray");
-	        }
-	
-	        if(e.getSource().equals(wrong)){
-	        	System.out.println("Boo");
-	        	
-	        	
-	        }
-	        if (e.getSource().equals(moreWrong)){
-	        	System.out.println("cat");
-	        	
-	        }
-	        this.dispose();
-	}
-
+	/**
+	 * @param none
+	 * 
+	 * adds an ActionListener to each JButton 
+	 *  
+	 * 
+	 * @author tim mazzarelli
+	 */
 	
 	
 	public void addActionListener(Quiz q) {
+		right.addActionListener(this);
+		wrong.addActionListener(this);
+		mW.addActionListener(this);
 	}
+	
 
-	private Image createImage() {
-		try {
-			image = ImageIO.read(new File(Constants.IMG_CLAPPER_RAIL_BACKGROUND));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		image = image.getScaledInstance(400, 300, Image.SCALE_SMOOTH);
-		return image;
+	
+
+
+	
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

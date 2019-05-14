@@ -18,7 +18,7 @@ public class Powerup extends Collectable {
 	 */
 	public Powerup(int x, int y, int width, int height) {
 		super(x, y, width, height);
-		this.xSpeed = -60;
+		this.xSpeed = 0;
 		this.imgFileName = Constants.ANIMATION_FISH;
 	}
 
@@ -31,9 +31,16 @@ public class Powerup extends Collectable {
 	 */
 	@Override
 	public void handleCollision(ClapperRail cr) {
-		this.hitbox.reset();
+		this.resetPoly();
 		new Quiz("td");
 	}
+	
+	@Override
+	public void handleCollision(Osprey o) {
+		resetPoly();
+		new Quiz("sides");
+	}
+
 
 	private BufferedImage createImage(){
 		BufferedImage bufferedImage;

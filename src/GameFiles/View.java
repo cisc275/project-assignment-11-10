@@ -78,7 +78,7 @@ public class View extends JFrame implements Serializable {
 
     	Constants.setFrameX(frame.getWidth());
     	Constants.setFrameY(frame.getHeight());
-    	System.out.println(frame.getWidth());
+    	
 	}
 	
 	public void initTable(ArrayList<GameObject> objects) {
