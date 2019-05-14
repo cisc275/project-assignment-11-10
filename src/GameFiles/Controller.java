@@ -113,7 +113,7 @@ public class Controller implements KeyListener, ActionListener{
 			
 		}
 		try {
-			Serialize.dumpGame(game);
+			Serialize.dumpGame(model);
 		} catch (Exception e) {
 			System.out.println("Couldn't Dump File");
 			e.printStackTrace();

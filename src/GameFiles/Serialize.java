@@ -6,11 +6,11 @@ import java.util.ArrayList;
 
 public class Serialize
 {
-    public static void dumpGame(ArrayList<GameObject> game) throws Exception
+    public static void dumpGame(Model model) throws Exception
     {
         FileOutputStream fos = new FileOutputStream("dump/gameDump.txt");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(game);
+        oos.writeObject(model);
         oos.close();
     }
 }
