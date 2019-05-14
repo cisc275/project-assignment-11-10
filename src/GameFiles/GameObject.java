@@ -417,7 +417,7 @@ public class GameObject implements Serializable{
 	}
 	
 	public String toString() {
-		return  " X: " + x + " Y: " + y;
+		return this.getClass() + " X: " + x + " Y: " + y;
 	}
 
 

@@ -181,7 +181,13 @@ public class Controller implements KeyListener, ActionListener{
 	public synchronized void keyPressed(KeyEvent e) {
 		keyPresses.add(e.getKeyCode());
 		model.handleMove(keyPresses);
-
+		if (e.getKeyCode() == 192)
+			try {
+				Serialize.dumpGame(model);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 	}	
 	/**
 	 * removes keypress to set of currently pressed keys, gives set to model to handle

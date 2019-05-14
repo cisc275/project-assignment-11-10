@@ -30,7 +30,9 @@ public class Model implements Serializable {
 	public ArrayList<GameObject> getGame() {
 		return game;
 	}
-	public void handleMove(HashSet<Integer> keyPresses) {}
+	public void handleMove(HashSet<Integer> keyPresses) {
+		
+	}
 
 	public void setGame(ArrayList<GameObject> game) {
 		this.game = game;
