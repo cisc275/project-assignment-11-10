@@ -36,6 +36,11 @@ public class Model implements Serializable {
 		this.game = game;
 	} 
 	
+	@Override
+	public String toString() {
+		return "Game Over: " + gameOver + "\n" + game;
+		
+	}
 	
 	
 }

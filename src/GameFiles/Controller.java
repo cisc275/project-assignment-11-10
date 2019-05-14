@@ -119,6 +119,13 @@ public class Controller implements KeyListener, ActionListener{
 			e.printStackTrace();
 		}
 		
+		try {
+			System.out.println(Deserialize.grabGame());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 		
 	/**
