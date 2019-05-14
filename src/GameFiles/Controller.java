@@ -172,6 +172,11 @@ public class Controller implements KeyListener, ActionListener{
 			case 192:
 				try {
 					Serialize.dumpGame(model);
+				/*
+				 * NonControllable nc = new NonControllable(1200, 50, 552, 31);
+				 * nc.setImgFileName(Constants.ANIMATION_MODEL_DUMP_STATUS_MSG);
+				 * model.game.add(nc);
+				 */
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
