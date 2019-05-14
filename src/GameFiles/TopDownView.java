@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
@@ -37,8 +38,9 @@ public class TopDownView extends View{
     	View.frame.add(drawPanel);
     	drawPanel.setOpaque(true);
     	pack();
+    	this.initTable(g);
     	this.setSize(View.frame.getWidth(), View.frame.getHeight());
-    	}
+	}
 	
 	
 	
