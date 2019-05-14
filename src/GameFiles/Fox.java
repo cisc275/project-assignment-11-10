@@ -102,8 +102,7 @@ public class Fox extends Controllable {
 			this.xSpeed = ((c.hitbox.xpoints[0] - this.hitbox.xpoints[0]) * 
 				(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());
 			this.ySpeed = ((c.hitbox.ypoints[0] - this.hitbox.ypoints[0]) * 
-				(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());	
-			this.hitbox.translate(3 *(int) this.xSpeed,3 * (int) this.ySpeed);
+				(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());
 		}
 		else {
 			
@@ -136,7 +135,8 @@ public class Fox extends Controllable {
 				
 				randSmooth += 1;
 			}
-		}
+		}	
+		this.hitbox.translate(3 *(int) this.xSpeed,3 * (int) this.ySpeed);
 	}
 
 	/**
