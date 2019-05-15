@@ -27,7 +27,6 @@ public class Controller implements KeyListener, ActionListener{
 
 	private Action drawAction;
 	String selected;
-	ArrayList<GameObject> game;
 	HashSet<Integer> keyPresses = new HashSet<>();
 	
 	
@@ -43,35 +42,37 @@ public class Controller implements KeyListener, ActionListener{
 		
 		if(selected.equals("topDown")) {
 			// clapper rail game
-		
-			game = new ArrayList<GameObject>();
-			model = new TopDownModel();
-			game.add(((TopDownModel)model).cr);
-			game.add(((TopDownModel)model).f);
-			game.add(((TopDownModel)model).nest);
 			
-			game.add(new Powerup(1920, 1000, 50, 50));
-			game.add(new Stick(300,300,40,40));
-			game.add(new Stick(500, 250 ,40,40)); 
-			game.add(new Stick(400, 400 ,40,40));
+			model = new TopDownModel();
+			model.game = new ArrayList<GameObject>();
+			model = new TopDownModel();
+			model.game.add(((TopDownModel)model).cr);
+			model.game.add(((TopDownModel)model).f);
+			model.game.add(((TopDownModel)model).nest);
+			
+			model.game.add(new Powerup(1920, 1000, 50, 50));
+			model.game.add(new Stick(300,300,40,40));
+			model.game.add(new Stick(500, 250 ,40,40)); 
+			model.game.add(new Stick(400, 400 ,40,40));
 			//game.add(new TutorialObject(300, 150, 50, 50, Constants.ANIMATION_SPACEBAR));
 			Bush b1 = new Bush(500, 500,150,150);
-			game.add(b1);
+			model.game.add(b1);
 			((TopDownModel)model).cr.bushArr.add(b1);
 			Bush b2 = new Bush(600, 20,150,150);
-			game.add(b2);
+			model.game.add(b2);
 			((TopDownModel)model).cr.bushArr.add(b2);
 			Bush b3 = new Bush(20, 450,175,175);
-			game.add(b3);
+			model.game.add(b3);
 			((TopDownModel)model).cr.bushArr.add(b3);
+			view = new TopDownView(model.game);
 			
-			view = new TopDownView(game);
 			view.addKeyListener(this);
 			this.start();
 		}
 		// sideScroll game
 		else if(selected.equals("sideScroll")) {
-			game = new ArrayList<GameObject>();
+			model = new SideScrollModel();	
+			model.game = new ArrayList<GameObject>();
 			
 			
 			
@@ -91,22 +92,22 @@ public class Controller implements KeyListener, ActionListener{
 			AirCurrent a2 = new AirCurrent(1920  + 100, 100, 200, 200);
 			AirCurrent a3 = new AirCurrent(1920  + 500, 200, 200, 200);
 			Mate m = new Mate(1920 + 400, 200, 200, 50); // suposed to be 50 50, this is for the memes
-			model = new SideScrollModel();	
 			
-			game.add(backOne);
-			game.add(p);
-			game.add(((SideScrollModel)model).o);
+			
+			model.game.add(backOne);
+			model.game.add(p);
+			model.game.add(((SideScrollModel)model).o);
 	
-			game.add(f);
-			game.add(f2);
-			game.add(f3);
-			game.add(t);
-			game.add(t2);
-			game.add(a);
-			game.add(a2);
-			game.add(a3);
-			game.add(m);
-			view = new SideScrollView(game);
+			model.game.add(f);
+			model.game.add(f2);
+			model.game.add(f3);
+			model.game.add(t);
+			model.game.add(t2);
+			model.game.add(a);
+			model.game.add(a2);
+			model.game.add(a3);
+			model.game.add(m);
+			view = new SideScrollView(model.game);
 			view.addKeyListener(this);
 			view.addActionListener(this);
 			this.start();
@@ -122,8 +123,8 @@ public class Controller implements KeyListener, ActionListener{
 
 		drawAction = new AbstractAction(){
     		public void actionPerformed(ActionEvent e){
-    			model.updateLocation(game);
-    			view.updateView(game);
+    			model.updateLocation(model.game);
+    			view.updateView(model.game);
     			if (Mate.caughtUp) {
     				View.frame.dispose();
     				new Quiz("sides");
@@ -184,7 +185,7 @@ public class Controller implements KeyListener, ActionListener{
 					Serialize.dumpGame(model);
 				
 					TutorialObject nc = new TutorialObject(1200, 50, 352, 18, Constants.ANIMATION_MODEL_DUMP_STATUS_MSG);
-					game.add(nc);
+					model.game.add(nc);
 				
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
