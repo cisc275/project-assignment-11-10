@@ -25,7 +25,7 @@ public class ClapperRail extends Bird {
 	
 	int xSpeed;
 	int ySpeed;
-	int lives = Constants.CLAPPER_RAIL_INIT_LIVES;
+	static int lives = Constants.CLAPPER_RAIL_INIT_LIVES;
 	Bush closestBush;
 	ArrayList<Bush> bushArr = new ArrayList<Bush>();
 	

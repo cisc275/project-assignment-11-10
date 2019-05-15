@@ -135,6 +135,11 @@ public class Controller implements KeyListener, ActionListener{
     				new EndScreen();
     				time.stop();
     			}
+    			else if(ClapperRail.lives == 0) {
+    				View.frame.dispose();
+    				new EndScreen();
+    				time.stop();
+    			}
     		}
     	};
     	time = new Timer(Constants.TIMER_TICK_RATE, drawAction);
