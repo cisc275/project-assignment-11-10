@@ -49,6 +49,21 @@ public class ClapperRail extends Bird {
 		//this.img = createImage();
 	}
 	
+	
+	/**
+	 * 
+	 *  Resets the ClapperRails location and hitbox with its origin at x, y and its size to be its width and height
+	 * 
+	 * @author Peter Jenny
+	 */
+	public void resetPoly() {
+		this.hitbox.reset();
+		this.hitbox.addPoint(Constants.CLAPPER_RAIL_START_LOC_X, Constants.CLAPPER_RAIL_START_LOC_Y);
+		this.hitbox.addPoint(Constants.CLAPPER_RAIL_START_LOC_X, Constants.CLAPPER_RAIL_START_LOC_Y + Constants.CLAPPER_RAIL_START_SIZE_Y);
+		this.hitbox.addPoint(Constants.CLAPPER_RAIL_START_LOC_X + Constants.CLAPPER_RAIL_START_SIZE_X, Constants.CLAPPER_RAIL_START_LOC_Y + Constants.CLAPPER_RAIL_START_SIZE_Y);
+		this.hitbox.addPoint(Constants.CLAPPER_RAIL_START_LOC_X + Constants.CLAPPER_RAIL_START_SIZE_X, Constants.CLAPPER_RAIL_START_LOC_Y);
+	}
+	
 	/**
 	 * moves clapperrail according to x and y speed
 	 * @param g
