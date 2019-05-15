@@ -52,7 +52,7 @@ public class Controller implements KeyListener, ActionListener{
 			
 			game.add(new Powerup(1920, 1000, 50, 50));
 			game.add(new Stick(300,300,40,40));
-			game.add(new Stick(500, 250 ,40,40));
+			game.add(new Stick(500, 250 ,40,40)); 
 			game.add(new Stick(400, 400 ,40,40));
 			//game.add(new TutorialObject(300, 150, 50, 50, Constants.ANIMATION_SPACEBAR));
 			Bush b1 = new Bush(500, 500,150,150);
