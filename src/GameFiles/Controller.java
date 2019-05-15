@@ -44,7 +44,7 @@ public class Controller implements KeyListener, ActionListener{
 			// clapper rail game
 			
 			model = new TopDownModel();
-			model.game = new ArrayList<GameObject>();
+			model.game = new ArrayList<GameObject>(); 
 			model = new TopDownModel();
 			model.game.add(((TopDownModel)model).cr);
 			model.game.add(((TopDownModel)model).f);
