@@ -68,7 +68,12 @@ public class TopDownView extends View{
 			for (GameObject thing : game) {
 				g.setClip(thing.hitbox);
 				g.drawImage(tdv.getImg(thing, 0),thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
-			}		
+			}	
+			// trying to draw life counter
+			for (int i = 0; i < ClapperRail.lives; i++) {
+				g.drawImage(createLives(), View.frame.getWidth() - (View.frame.getWidth() - i), 0, this);
+			}
+			
 	
 		}
 			public Dimension getPreferredSize() {
@@ -76,10 +81,30 @@ public class TopDownView extends View{
 		}
 	}
 	
+	/**
+	 * creates buffered image for background
+	 * @return
+	 */
 	private BufferedImage createImage(){
 		BufferedImage bufferedImage;
 		try {
 			bufferedImage = ImageIO.read(new File(Constants.IMG_CLAPPER_RAIL_BACKGROUND));
+			return bufferedImage;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
+	/**
+	 * creates buffered image for life display
+	 * @return
+	 */
+	private BufferedImage createLives(){
+		BufferedImage bufferedImage;
+		try {
+			bufferedImage = ImageIO.read(new File(Constants.IMG_THARVEY));
 			return bufferedImage;
 		} catch (IOException e) {
 			e.printStackTrace();

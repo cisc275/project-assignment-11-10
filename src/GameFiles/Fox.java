@@ -71,6 +71,7 @@ public class Fox extends Controllable {
 	 */
 	@Override
 	public void handleCollision(ClapperRail c) {
+		ClapperRail.lives -= 1;
 		c.resetPoly();
 		this.resetPoly();
 	

@@ -80,6 +80,7 @@ public class EndScreen extends JDialog implements ActionListener {
             this.dispose();
             this.setModal(false);
             Stick.count = 0;
+            ClapperRail.lives = 3;
             Controller c = new Controller("sel");
         }
 
