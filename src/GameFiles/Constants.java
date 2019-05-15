@@ -113,11 +113,11 @@ public class Constants implements Serializable {
 	
 	// Osprey Questions
 	
-	public final static JLabel OSPREY_1 = new JLabel("1");
-	public final static JLabel OSPREY_2 = new JLabel("2");
-	public final static JLabel OSPREY_3 = new JLabel("3");
-	public final static JLabel OSPREY_4 = new JLabel("4");
-	public final static JLabel OSPREY_5 = new JLabel("5");
+	public final static JLabel OSPREY_1 = new JLabel("How do ospreys like to get their food?");
+	public final static JLabel OSPREY_2 = new JLabel("How big are osprey flocks?");
+	public final static JLabel OSPREY_3 = new JLabel("Where do ospreys migrate to?");
+	public final static JLabel OSPREY_4 = new JLabel("What is NOT a predator of the osprey?");
+	public final static JLabel OSPREY_5 = new JLabel("What are the colors of the Osprey?");
 	public final static JLabel OSPREY_6 = new JLabel("6");
 	public final static JLabel OSPREY_7 = new JLabel("7");
 	public final static JLabel OSPREY_8 = new JLabel("8");
@@ -126,11 +126,11 @@ public class Constants implements Serializable {
 	
 	// Osprey right answers
 	
-	public final static JButton OSPREY_CORRECT1 = new JButton("1r");
-	public final static JButton OSPREY_CORRECT2 = new JButton("2r");
-	public final static JButton OSPREY_CORRECT3 = new JButton("3r");
-	public final static JButton OSPREY_CORRECT4 = new JButton("4r");
-	public final static JButton OSPREY_CORRECT5 = new JButton("5r");
+	public final static JButton OSPREY_CORRECT1 = new JButton("By diving into water");
+	public final static JButton OSPREY_CORRECT2 = new JButton("Ospreys usually don't travel in flocks");
+	public final static JButton OSPREY_CORRECT3 = new JButton("Central and South America");
+	public final static JButton OSPREY_CORRECT4 = new JButton("Fox");
+	public final static JButton OSPREY_CORRECT5 = new JButton("Brown and white");
 	public final static JButton OSPREY_CORRECT6 = new JButton("6r");
 	public final static JButton OSPREY_CORRECT7 = new JButton("7r");
 	public final static JButton OSPREY_CORRECT8 = new JButton("8r");
@@ -139,11 +139,11 @@ public class Constants implements Serializable {
 	
 	// Osprey Wrong answers
 	
-	public final static JButton OSPREY_INCORRECT1 = new JButton("1w");
-	public final static JButton OSPREY_INCORRECT2 = new JButton("2w");
-	public final static JButton OSPREY_INCORRECT3 = new JButton("3w");
-	public final static JButton OSPREY_INCORRECT4 = new JButton("4w");
-	public final static JButton OSPREY_INCORRECT5 = new JButton("5w");
+	public final static JButton OSPREY_INCORRECT1 = new JButton("By hiding and catching prey by surprise");
+	public final static JButton OSPREY_INCORRECT2 = new JButton("20 birds");
+	public final static JButton OSPREY_INCORRECT3 = new JButton("Europe");
+	public final static JButton OSPREY_INCORRECT4 = new JButton("Owl");
+	public final static JButton OSPREY_INCORRECT5 = new JButton("Black and red");
 	public final static JButton OSPREY_INCORRECT6 = new JButton("6w");
 	public final static JButton OSPREY_INCORRECT7 = new JButton("7w");
 	public final static JButton OSPREY_INCORRECT8 = new JButton("8w");
@@ -153,11 +153,11 @@ public class Constants implements Serializable {
 	// Osprey moreWrong answers
 	
 
-	public final static JButton OSPREY_WRONG1 = new JButton("1m");
-	public final static JButton OSPREY_WRONG2 = new JButton("2m");
-	public final static JButton OSPREY_WRONG3 = new JButton("3m");
-	public final static JButton OSPREY_WRONG4 = new JButton("4m");
-	public final static JButton OSPREY_WRONG5 = new JButton("5m");
+	public final static JButton OSPREY_WRONG1 = new JButton("Ospreys do not eat food");
+	public final static JButton OSPREY_WRONG2 = new JButton("1 million birds");
+	public final static JButton OSPREY_WRONG3 = new JButton("Antartica");
+	public final static JButton OSPREY_WRONG4 = new JButton("Eagle");
+	public final static JButton OSPREY_WRONG5 = new JButton("Blue and gold");
 	public final static JButton OSPREY_WRONG6 = new JButton("6m");
 	public final static JButton OSPREY_WRONG7 = new JButton("7m");
 	public final static JButton OSPREY_WRONG8 = new JButton("8m");
