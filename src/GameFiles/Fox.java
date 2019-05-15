@@ -71,11 +71,8 @@ public class Fox extends Controllable {
 	 */
 	@Override
 	public void handleCollision(ClapperRail c) {
-		System.out.println("fox hit cr");
-		System.out.println("pre: " + c.hitbox.getBounds());
 		c.resetPoly();
 		this.resetPoly();
-		System.out.println(" post: " + c.hitbox.getBounds());
 	
 	}
 	

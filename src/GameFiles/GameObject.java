@@ -94,15 +94,11 @@ public class GameObject implements Serializable{
 	 * @author Timothy Mazzarelli
 	 */
 	public void resetPoly() {
-		System.out.println("resetpoly");
-		System.out.println("pre reset: " + this.hitbox.getBounds());
 		this.hitbox.reset();
-		System.out.println("post reset: " + this.hitbox.getBounds());
 		this.hitbox.addPoint(x, y);
 		this.hitbox.addPoint(x, y + height);
 		this.hitbox.addPoint(x + width, y + height);
 		this.hitbox.addPoint(x + width, y);
-		System.out.println("post assignment: " + this.hitbox.getBounds());
 	}
 	
 	
