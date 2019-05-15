@@ -184,8 +184,8 @@ public class Controller implements KeyListener, ActionListener{
 				try {
 					Serialize.dumpGame(model);
 				
-					TutorialObject nc = new TutorialObject(1200, 50, 552, 31, Constants.ANIMATION_MODEL_DUMP_STATUS_MSG);
-					model.game.add(nc);
+					TutorialObject nc = new TutorialObject(1200, 50, 352, 18, Constants.ANIMATION_MODEL_DUMP_STATUS_MSG);
+					game.add(nc);
 				
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
