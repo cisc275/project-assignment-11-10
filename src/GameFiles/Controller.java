@@ -137,7 +137,7 @@ public class Controller implements KeyListener, ActionListener{
     			}
     			else if(ClapperRail.lives == 0) {
     				View.frame.dispose();
-    				new EndScreen();
+    				new LoseScreen();
     				time.stop();
     			}
     		}
