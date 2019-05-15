@@ -25,11 +25,12 @@ public class ClapperRail extends Bird {
 	
 	int xSpeed;
 	int ySpeed;
+	int lives = Constants.CLAPPER_RAIL_INIT_LIVES;
 	Bush closestBush;
 	ArrayList<Bush> bushArr = new ArrayList<Bush>();
 	
 	
-	final private int MOVE_AMOUNT = 10;
+	
 	
 	/**
 	 * @param y

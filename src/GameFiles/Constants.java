@@ -30,6 +30,8 @@ public class Constants implements Serializable {
 	public final static int CLAPPER_RAIL_START_SIZE_X = 100;
 	public final static int CLAPPER_RAIL_START_SIZE_Y = 100;
 	
+	public final static int CLAPPER_RAIL_INIT_LIVES = 3;
+	
 	public final static int FISH_AC = 1;
 	public final static int FISH_X_SPEED_TEST = -50;
 	
