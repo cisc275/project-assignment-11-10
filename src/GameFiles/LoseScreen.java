@@ -81,7 +81,7 @@ public class LoseScreen extends JDialog implements ActionListener {
         
         menu.addActionListener(this);
         this.add(p);
-        this.setSize(1920, 1080);
+        this.setSize(screenSize);
         this.setVisible(true);
         
 	}
