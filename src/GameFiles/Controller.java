@@ -97,6 +97,7 @@ public class Controller implements KeyListener, ActionListener{
 			game.add(backOne);
 			game.add(p);
 			game.add(((SideScrollModel)model).o);
+	
 			game.add(f);
 			game.add(f2);
 			game.add(f3);
@@ -109,7 +110,6 @@ public class Controller implements KeyListener, ActionListener{
 			view = new SideScrollView(game);
 			view.addKeyListener(this);
 			view.addActionListener(this);
-		
 			this.start();
 			
 		}

@@ -97,6 +97,7 @@ public class Osprey extends Bird {
 	
 	@Override
 	public void move() {
+		
 		this.hitbox.translate(0, this.ySpeed);
 		
 		distance -= Osprey.xSpeed; 
@@ -121,9 +122,9 @@ public class Osprey extends Bird {
 			this.hitbox.addPoint(x, height);
 			this.hitbox.addPoint(x + width, height);
 			this.hitbox.addPoint(x + width, 0);
-		
-			
 		}
+		
+		
 		
 	}
 	

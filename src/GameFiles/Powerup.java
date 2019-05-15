@@ -32,31 +32,23 @@ public class Powerup extends Collectable {
 	@Override
 	public void handleCollision(ClapperRail cr) {
 		resetPoly();
-		new Quiz("td");
-		cr.xSpeed = 0;
-		cr.ySpeed = 0;
-		System.out.println(cr.xSpeed);
-		
+		new Quiz("td");		
 	}
+	
+	/**
+	 * @param Osprey o
+	 * 
+	 * deals with collision with respect to Osprey
+	 * @author tim mazzarelli
+	 */
 	
 	@Override
 	public void handleCollision(Osprey o) {
 		resetPoly();
 		new Quiz("sides");
-		o.setYSpeed(o.ySpeed);
-		System.out.println(o.ySpeed);
+	
 	}
 
 
-	private BufferedImage createImage(){
-		BufferedImage bufferedImage;
-    	try {
-    		bufferedImage = ImageIO.read(new File(Constants.IMG_FISH));
-    		return bufferedImage;
-    	} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-    	return null;
-	}
 
 }

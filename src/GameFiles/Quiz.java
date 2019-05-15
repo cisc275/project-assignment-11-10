@@ -50,6 +50,7 @@ public class Quiz extends JDialog implements ActionListener{
 	 static Hashtable<Integer, Integer> previousNumbers;
 	 int qNumber;
 	 JPanel p;
+	 Osprey o;
 	
 	
 	/**
@@ -475,11 +476,7 @@ public class Quiz extends JDialog implements ActionListener{
 	 */
 	
 	
-	public void addActionListener(Quiz q) {
-		right.addActionListener(this);
-		wrong.addActionListener(this);
-		mW.addActionListener(this);
-		
+	public void addActionListener(Quiz q) {	
 	}
 	
 
@@ -487,19 +484,20 @@ public class Quiz extends JDialog implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == right) {
-			System.out.println("hi");
-			this.setModal(false);
-			this.dispose();
+			System.out.println("right");
+			
 		}
 		if (e.getSource() == wrong) {
-			this.setModal(false);
-			this.dispose();
+			System.out.println("wrong");
 			
 		}
 		if (e.getSource() == mW) {
-			this.setModal(false);
-			this.dispose();
+			System.out.println("mW");
+			
 		}
+		
+		this.setModal(false);
+		this.dispose();
 		
 	}
 
