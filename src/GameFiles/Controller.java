@@ -68,7 +68,6 @@ public class Controller implements KeyListener, ActionListener{
 			view = new TopDownView(game);
 			view.addKeyListener(this);
 			this.start();
-
 		}
 		// sideScroll game
 		else if(selected.equals("sideScroll")) {
@@ -111,8 +110,8 @@ public class Controller implements KeyListener, ActionListener{
 			view.addKeyListener(this);
 			view.addActionListener(this);
 			this.start();
-			
 		}
+		
 		
 	}
 		
