@@ -37,6 +37,9 @@ public class Stick extends Collectable{
 	
 	public Stick(int x, int y, int width, int height) {
 		super(x,y,width,height);
+		this.hitbox.reset();
+		this.hitbox.addPoint(x, y);
+		this.hitbox.addPoint(x + width, y + height);
 		this.xSpeed = 0;
 		this.ySpeed = 0;
 		this.imgFileName = Constants.ANIMATION_STICK;
