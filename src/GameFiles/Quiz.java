@@ -47,7 +47,7 @@ public class Quiz extends JDialog implements ActionListener{
 	 ArrayList<JButton> rightAnswers;
 	 ArrayList<JButton> wrongAnswers;
 	 ArrayList<JButton> mWAnswers;
-	 static Hashtable<Integer, Integer> previousNumbers;
+	 static HashSet<Integer> previousNumbers;
 	 int qNumber;
 	 JPanel p;
 	 Osprey o;
@@ -76,38 +76,32 @@ public class Quiz extends JDialog implements ActionListener{
         addActionListener(this);
 	}
 	
+	
 	/**
 	 * @param none
-	 * 
-	 * gives us our arrayList of numbers
+	 * @return HashSet<Integer>
+	 * initializes the HashSet of integers which will prevent repeats
 	 * 
 	 * @author tim mazzarelli
 	 */
 	
-	
-	
-	/**
-	 * @param none
-	 * 
-	 * gives us the random number to choose our when we make a quiz
-	 * 
-	 * @author tim mazzarelli
-	 */
-	
-	public void initHashtable() {
-		if (previousNumbers != null) {
-			if (previousNumbers.size() == 0) { 
-				previousNumbers = new Hashtable<Integer, Integer>();
-				}
-			else {
-				
-			}
-		}
+	public HashSet<Integer> initHashtable() {
+		if (previousNumbers != null) {return previousNumbers;}
 		else {
-			previousNumbers = new Hashtable<Integer, Integer>();
-			
+			previousNumbers = new HashSet<Integer>();
 		}
+		return previousNumbers;
 	}
+	
+	/**
+	 * @param none
+	 * @return int
+	 * 
+	 * gives us the random number to choose our questions
+	 * and answers for a quiz quiz
+	 * 
+	 * @author tim mazzarelli
+	 */
 	
 	public int questionNumber() {
 		int answer = 0;
@@ -115,24 +109,17 @@ public class Quiz extends JDialog implements ActionListener{
 		qNumber = r.nextInt(10);
 		qNumber = (Integer) qNumber;
 		if (previousNumbers != null) {
-			if (previousNumbers.containsKey(qNumber)) {
-				
+			if (previousNumbers.contains(qNumber)) {
 				questionNumber();	
 			}
-		
 			else {
-				previousNumbers.put(qNumber, qNumber);
-				answer = qNumber;
-				
+				previousNumbers.add(qNumber);
+				answer = qNumber;	
 			}
 		}
 		return answer;
 	}	
 		
-	
-		
-
-	
 	
 	/**
 	 * @param String game
@@ -445,6 +432,7 @@ public class Quiz extends JDialog implements ActionListener{
 			
 		for (JButton b :buttons) {
 			b.addActionListener(this);
+			b.setFocusPainted(false);
 			b.setOpaque(true);
 			b.setBackground(Color.WHITE);
 			b.setMinimumSize(new Dimension(300, 20));
@@ -483,6 +471,8 @@ public class Quiz extends JDialog implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		this.setModal(false);
+		this.dispose();
 		if (e.getSource() == right) {
 			System.out.println("right");
 			
@@ -492,12 +482,9 @@ public class Quiz extends JDialog implements ActionListener{
 			
 		}
 		if (e.getSource() == mW) {
-			System.out.println("mW");
+			System.out.println("wrong");
 			
 		}
-		
-		this.setModal(false);
-		this.dispose();
 		
 	}
 
