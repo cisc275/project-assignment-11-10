@@ -70,9 +70,10 @@ public class TopDownView extends View{
 				g.drawImage(tdv.getImg(thing, 0),thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
 			}	
 			// trying to draw life counter
-			for (int i = 0; i < ClapperRail.lives; i++) {
-				g.drawImage(createLives(), View.frame.getWidth() - (View.frame.getWidth() - i), 0, this);
-			}
+			/*
+			 * for (int i = 0; i < ClapperRail.lives; i++) { g.drawImage(createLives(),
+			 * View.frame.getWidth() - (View.frame.getWidth() - i), 0, this); }
+			 */
 			
 	
 		}
