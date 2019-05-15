@@ -17,6 +17,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Random;
 
@@ -45,7 +47,7 @@ public class Quiz extends JDialog implements ActionListener{
 	 ArrayList<JButton> rightAnswers;
 	 ArrayList<JButton> wrongAnswers;
 	 ArrayList<JButton> mWAnswers;
-	 ArrayList<Integer> previousNumbers = new ArrayList<Integer>();
+	 static Hashtable<Integer, Integer> previousNumbers;
 	 int qNumber;
 	 JPanel p;
 	
@@ -61,8 +63,7 @@ public class Quiz extends JDialog implements ActionListener{
 		p.setLayout(new GridLayout(0,1));
 		p.setAlignmentX(CENTER_ALIGNMENT);
 		p.setAlignmentY(TOP_ALIGNMENT);
-//		this.imageHandling(game);
-		
+		initHashtable();
 		questionNumber();
 		initQuestions(game);
 		initAnswers(game);
@@ -77,18 +78,61 @@ public class Quiz extends JDialog implements ActionListener{
 	/**
 	 * @param none
 	 * 
+	 * gives us our arrayList of numbers
+	 * 
+	 * @author tim mazzarelli
+	 */
+	
+	
+	
+	/**
+	 * @param none
+	 * 
 	 * gives us the random number to choose our when we make a quiz
 	 * 
 	 * @author tim mazzarelli
 	 */
 	
+	public void initHashtable() {
+		if (previousNumbers != null) {
+			if (previousNumbers.size() == 0) { 
+				previousNumbers = new Hashtable<Integer, Integer>();
+				}
+			else {
+				System.out.println("not null and not creating");
+			}
+		}
+		else {
+			previousNumbers = new Hashtable<Integer, Integer>();
+			System.out.println("null and created");
+		}
+	}
+	
 	public int questionNumber() {
+		int answer = 0;
+	
 		Random r = new Random();
 		qNumber = r.nextInt(10);
-		System.out.println(qNumber);
+		qNumber = (Integer) qNumber;
+		if (previousNumbers != null) {
+			if (previousNumbers.containsKey(qNumber)) {
+				System.out.println("found and doing over");
+				questionNumber();	
+			}
 		
-		return qNumber;
-	}
+			else {
+				previousNumbers.put(qNumber, qNumber);
+				answer = qNumber;
+				System.out.println("put");
+			}
+		}
+		return answer;
+	}	
+		
+	
+		
+
+	
 	
 	/**
 	 * @param String game
