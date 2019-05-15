@@ -54,7 +54,7 @@ public class Controller implements KeyListener, ActionListener{
 			game.add(new Stick(300,300,40,40));
 			game.add(new Stick(500, 250 ,40,40));
 			game.add(new Stick(400, 400 ,40,40));
-			game.add(new TutorialObject(300, 150, 50, 50, Constants.ANIMATION_SPACEBAR));
+			//game.add(new TutorialObject(300, 150, 50, 50, Constants.ANIMATION_SPACEBAR));
 			Bush b1 = new Bush(500, 500,150,150);
 			game.add(b1);
 			((TopDownModel)model).cr.bushArr.add(b1);
@@ -183,11 +183,10 @@ public class Controller implements KeyListener, ActionListener{
 			case 192:
 				try {
 					Serialize.dumpGame(model);
-				/*
-				 * NonControllable nc = new NonControllable(1200, 50, 552, 31);
-				 * nc.setImgFileName(Constants.ANIMATION_MODEL_DUMP_STATUS_MSG);
-				 * model.game.add(nc);
-				 */
+				
+					TutorialObject nc = new TutorialObject(1200, 50, 552, 31, Constants.ANIMATION_MODEL_DUMP_STATUS_MSG);
+					model.game.add(nc);
+				
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

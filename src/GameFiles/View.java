@@ -110,7 +110,34 @@ public class View extends JFrame implements Serializable {
 	}
 	
 	public BufferedImage getImg(GameObject g, int i) {
-		return imgTable.get(g).get(i);
+		ArrayList<BufferedImage> LoBI = imgTable.get(g);
+		BufferedImage toReturn;
+		
+		if (LoBI == null) toReturn = this.addImage(g, i);
+		else toReturn = LoBI.get(i);
+		
+		return toReturn;
+	}
+
+	private BufferedImage addImage(GameObject g, int i) {
+		ArrayList<BufferedImage> toReturn = new ArrayList<BufferedImage>();
+		BufferedImage ig, scaledImg;
+		try {
+			for (String s : g.imgFileName) {
+				ig = ImageIO.read(new File(s));
+	    		scaledImg = new BufferedImage(g.getWidth(), g.getHeight(), BufferedImage.TRANSLUCENT);
+			    Graphics2D g2 = scaledImg.createGraphics();
+			    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+			    g2.drawImage(ig, 0, 0, g.getWidth(), g.getHeight(), null);
+			    g2.dispose();
+			    toReturn.add(scaledImg);
+			}
+    	} catch (IOException e) {
+    		System.out.println("Image Load Failed " + g.imgFileName);
+    		e.printStackTrace();
+    	}
+		imgTable.put(g, toReturn);
+		return toReturn.get(i);
 	}
 	
 }
