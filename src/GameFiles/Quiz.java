@@ -67,8 +67,8 @@ public class Quiz extends JDialog implements ActionListener{
 		questionNumber();
 		initQuestions(game);
 		initAnswers(game);
-		this.setResizable(false);
 		this.setModal(true);
+		this.setResizable(false);
         this.add(p);
         this.setSize(350, 200);
         this.setVisible(true);
@@ -99,31 +99,30 @@ public class Quiz extends JDialog implements ActionListener{
 				previousNumbers = new Hashtable<Integer, Integer>();
 				}
 			else {
-				System.out.println("not null and not creating");
+				
 			}
 		}
 		else {
 			previousNumbers = new Hashtable<Integer, Integer>();
-			System.out.println("null and created");
+			
 		}
 	}
 	
 	public int questionNumber() {
 		int answer = 0;
-	
 		Random r = new Random();
 		qNumber = r.nextInt(10);
 		qNumber = (Integer) qNumber;
 		if (previousNumbers != null) {
 			if (previousNumbers.containsKey(qNumber)) {
-				System.out.println("found and doing over");
+				
 				questionNumber();	
 			}
 		
 			else {
 				previousNumbers.put(qNumber, qNumber);
 				answer = qNumber;
-				System.out.println("put");
+				
 			}
 		}
 		return answer;
@@ -409,38 +408,42 @@ public class Quiz extends JDialog implements ActionListener{
 	 */
 	
 	public void buttonHandling(JButton correct, JButton incorrect, JButton veryWrong) {
+		right = correct;
+		wrong = incorrect;
+		mW = veryWrong;
 		ArrayList<JButton> buttons = new ArrayList<JButton>();
 		Random l = new Random();
 		int answerOrder = l.nextInt(6);
 		switch(answerOrder) {
-			case 0: buttons.add(correct);
-					buttons.add(incorrect);
-					buttons.add(veryWrong);
+			case 0: buttons.add(right);
+					buttons.add(wrong);
+					buttons.add(mW);
 					break;
-			case 1: buttons.add(correct);
-					buttons.add(veryWrong);
-					buttons.add(incorrect);
+			case 1: buttons.add(right);
+					buttons.add(mW);
+					buttons.add(wrong);
 					break;
-			case 2: buttons.add(incorrect);
-					buttons.add(correct);
-					buttons.add(veryWrong);
+			case 2: buttons.add(wrong);
+					buttons.add(right);
+					buttons.add(mW);
 					break;
-			case 3: buttons.add(incorrect);
-					buttons.add(veryWrong);
-					buttons.add(correct);
+			case 3: buttons.add(wrong);
+					buttons.add(mW);
+					buttons.add(right);
 					break;
-			case 4: buttons.add(veryWrong);
-					buttons.add(incorrect);
-					buttons.add(correct);
+			case 4: buttons.add(mW);
+					buttons.add(wrong);
+					buttons.add(right);
 					break;
-			case 5: buttons.add(veryWrong);
-					buttons.add(correct);
-					buttons.add(incorrect);
+			case 5: buttons.add(mW);
+					buttons.add(right);
+					buttons.add(wrong);
 					break;
 			
 		}
 			
 		for (JButton b :buttons) {
+			b.addActionListener(this);
 			b.setOpaque(true);
 			b.setBackground(Color.WHITE);
 			b.setMinimumSize(new Dimension(300, 20));
@@ -476,16 +479,27 @@ public class Quiz extends JDialog implements ActionListener{
 		right.addActionListener(this);
 		wrong.addActionListener(this);
 		mW.addActionListener(this);
+		
 	}
 	
 
 	
-
-
-	
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == right) {
+			System.out.println("hi");
+			this.setModal(false);
+			this.dispose();
+		}
+		if (e.getSource() == wrong) {
+			this.setModal(false);
+			this.dispose();
+			
+		}
+		if (e.getSource() == mW) {
+			this.setModal(false);
+			this.dispose();
+		}
 		
 	}
 

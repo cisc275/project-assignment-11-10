@@ -142,6 +142,27 @@ public class Osprey extends Bird {
 		}		
 	}
 	
+	/*
+	
+	@Override
+	public void resetPoly() {
+		int x1 = this.hitbox.xpoints[0];
+		int x2 = this.hitbox.xpoints[1];
+		int x3 = this.hitbox.xpoints[2];
+		int x4 = this.hitbox.xpoints[3];
+		int y1 = this.hitbox.ypoints[0];
+		int y2 = this.hitbox.ypoints[1];
+		int y3 = this.hitbox.ypoints[2];
+		int y4 = this.hitbox.ypoints[3];
+		this.hitbox.reset();
+		this.hitbox.addPoint(x1, y1);
+		this.hitbox.addPoint(x2, y2);
+		this.hitbox.addPoint(x3, y3);
+		this.hitbox.addPoint(x4, y4);
+	}
+	
+	*/
+	
 	// creates image for Osprey
 //	private BufferedImage[] createImage(){
 //		

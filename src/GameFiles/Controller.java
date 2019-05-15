@@ -50,7 +50,7 @@ public class Controller implements KeyListener, ActionListener{
 			game.add(((TopDownModel)model).f);
 			game.add(((TopDownModel)model).nest);
 			
-			game.add(new Powerup(10 * 2, (int) (10 * 0.91), 50, 50));
+			game.add(new Powerup(1920, 1000, 50, 50));
 			game.add(new Stick(300,300,40,40));
 			game.add(new Stick(500, 250 ,40,40));
 			game.add(new Stick(400, 400 ,40,40));
@@ -87,7 +87,7 @@ public class Controller implements KeyListener, ActionListener{
 					(int) (1920 * 0.05), (int) (1080 * 0.05));
 			Fish f2 = new Fish(1920 + 250, 600, 50, 50);
 			Fish f3 = new Fish(1920 + 100, 650, 50, 50);
-			Powerup p = new Powerup(100, 200, 50, 50);
+			Powerup p = new Powerup(1920, 200, 50, 50);
 			AirCurrent a = new AirCurrent(1920 + 20, 55, 250, 250);
 			AirCurrent a2 = new AirCurrent(1920  + 100, 100, 200, 200);
 			AirCurrent a3 = new AirCurrent(1920  + 500, 200, 200, 200);
