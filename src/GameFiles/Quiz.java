@@ -205,15 +205,21 @@ public class Quiz extends JDialog implements KeyListener{
 	 */
 	
 	public void questionHandling() {
-		question.setHorizontalAlignment(JLabel.CENTER);
-		question.setVerticalAlignment(JLabel.TOP);
-		question.setOpaque(true);
-        question.setFont(new Font("Serif", Font.BOLD, 15));
-        question.setBackground(Color.WHITE);
-        question.setMinimumSize(new Dimension(200, 5));
-        question.setPreferredSize(new Dimension(200, 5));
-        question.setMaximumSize(new Dimension(200, 5));
-		p.add(question);
+		JLabel instruction = new JLabel("Press the key listed next to your answer.");
+		ArrayList<JLabel> templist = new ArrayList<>();
+		templist.add(question);
+		templist.add(instruction);
+		for (JLabel l : templist) {
+			l.setHorizontalAlignment(JLabel.CENTER);
+			l.setVerticalAlignment(JLabel.TOP);
+			l.setOpaque(true);
+	        l.setFont(new Font("Serif", Font.BOLD, 15));
+	        l.setBackground(Color.WHITE);
+	        l.setMinimumSize(new Dimension(200, 5));
+	        l.setPreferredSize(new Dimension(200, 5));
+	        l.setMaximumSize(new Dimension(200, 5));
+			p.add(l);
+		}
 	}
 	
 	
@@ -448,7 +454,7 @@ public class Quiz extends JDialog implements KeyListener{
 		}
 		
 		first.setText("UP. " + first.getText());
-		second.setText("RIGHT. " + second.getText());
+		second.setText("LEFT. " + second.getText());
 		third.setText("DOWN. " + third.getText());
 		buttons.add(first);
 		buttons.add(second);
@@ -475,7 +481,7 @@ public class Quiz extends JDialog implements KeyListener{
 	
 	
 	public static void main(String[] args) {
-		new Quiz("sides");
+		new Quiz("td");
 	}
 	
 	
@@ -538,7 +544,7 @@ public class Quiz extends JDialog implements KeyListener{
 		keyAction rA = new keyAction();
 		rA.setEnabled(true);
 		  
-		imap.put(KeyStroke.getKeyStroke("RIGHT"), "second");
+		imap.put(KeyStroke.getKeyStroke("LEFT"), "second");
 		ActionMap amap = second.getActionMap();
 		amap.put("second", new keyAction());
 	}

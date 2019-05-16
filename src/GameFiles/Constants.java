@@ -171,56 +171,56 @@ public class Constants implements Serializable {
 	
 	// Clapper Rail Questions
 	
-	public final static JLabel CR_1 = new JLabel();
-	public final static JLabel CR_2 = new JLabel();
-	public final static JLabel CR_3 = new JLabel();
-	public final static JLabel CR_4 = new JLabel();
-	public final static JLabel CR_5 = new JLabel();
-	public final static JLabel CR_6 = new JLabel();
-	public final static JLabel CR_7 = new JLabel();
-	public final static JLabel CR_8 = new JLabel();
-	public final static JLabel CR_9 = new JLabel();
-	public final static JLabel CR_10 = new JLabel();
+	public final static JLabel CR_1 = new JLabel("What is the clapper rail's favorite food?");
+	public final static JLabel CR_2 = new JLabel("How long does the clapper rail usually live?");
+	public final static JLabel CR_3 = new JLabel("Where do clapper rails migrate to?");
+	public final static JLabel CR_4 = new JLabel("Where does the clapper rail NOT like to make their nest?");
+	public final static JLabel CR_5 = new JLabel("What is one of the main predators of the clapper rail?");
+	public final static JLabel CR_6 = new JLabel("What is the biggest threat to the clapper rail species?");
+	public final static JLabel CR_7 = new JLabel("Where do clapper rails like to live?");
+	public final static JLabel CR_8 = new JLabel("How many mates does the clapper rail have during breeding season?");
+	public final static JLabel CR_9 = new JLabel("What color are the feathers of the clapper rail?");
+	public final static JLabel CR_10 = new JLabel("When is the clapper rail's nesting season?");
 	  
 	// Clapper Rail Correct
 	
-	public final static JButton CR_CORRECT1 = new JButton();
-	public final static JButton CR_CORRECT2 = new JButton();
-	public final static JButton CR_CORRECT3 = new JButton();
-	public final static JButton CR_CORRECT4 = new JButton();
-	public final static JButton CR_CORRECT5 = new JButton();
-	public final static JButton CR_CORRECT6 = new JButton();
-	public final static JButton CR_CORRECT7 = new JButton();
-	public final static JButton CR_CORRECT8 = new JButton();
-	public final static JButton CR_CORRECT9 = new JButton();
-	public final static JButton CR_CORRECT10 = new JButton();
+	public final static JButton CR_CORRECT1 = new JButton("Crab");
+	public final static JButton CR_CORRECT2 = new JButton("2-4 years");
+	public final static JButton CR_CORRECT3 = new JButton("They don't migrate!");
+	public final static JButton CR_CORRECT4 = new JButton("Out in the open grass");
+	public final static JButton CR_CORRECT5 = new JButton("The red fox");
+	public final static JButton CR_CORRECT6 = new JButton("Habitat loss");
+	public final static JButton CR_CORRECT7 = new JButton("Swamps (like at the Delaware Estuary!)");
+	public final static JButton CR_CORRECT8 = new JButton("Only one!");
+	public final static JButton CR_CORRECT9 = new JButton("Brown, gray");
+	public final static JButton CR_CORRECT10 = new JButton("From March to June");
 	
 	
 	// Clapper Rail incorrect
 	
-	public final static JButton CR_INCORRECT1 = new JButton();
-	public final static JButton CR_INCORRECT2 = new JButton();
-	public final static JButton CR_INCORRECT3 = new JButton();
-	public final static JButton CR_INCORRECT4 = new JButton();
-	public final static JButton CR_INCORRECT5 = new JButton();
-	public final static JButton CR_INCORRECT6 = new JButton();
-	public final static JButton CR_INCORRECT7 = new JButton();
-	public final static JButton CR_INCORRECT8 = new JButton();
-	public final static JButton CR_INCORRECT9 = new JButton();
-	public final static JButton CR_INCORRECT10 = new JButton();
+	public final static JButton CR_INCORRECT1 = new JButton("Snake");
+	public final static JButton CR_INCORRECT2 = new JButton("10 years");
+	public final static JButton CR_INCORRECT3 = new JButton("South America");
+	public final static JButton CR_INCORRECT4 = new JButton("Higher grounds to avoid flooding");
+	public final static JButton CR_INCORRECT5 = new JButton("Fish");
+	public final static JButton CR_INCORRECT6 = new JButton("Clapper rails don't have any threats.");
+	public final static JButton CR_INCORRECT7 = new JButton("Deserts");
+	public final static JButton CR_INCORRECT8 = new JButton("Five");
+	public final static JButton CR_INCORRECT9 = new JButton("Blue, green");
+	public final static JButton CR_INCORRECT10 = new JButton("November to January");
 	
 	// Clapper Rail moreWrong
 	
-	public final static JButton CR_WRONG1 = new JButton();
-	public final static JButton CR_WRONG2 = new JButton();
-	public final static JButton CR_WRONG3 = new JButton();
-	public final static JButton CR_WRONG4 = new JButton();
-	public final static JButton CR_WRONG5 = new JButton();
-	public final static JButton CR_WRONG6 = new JButton();
-	public final static JButton CR_WRONG7 = new JButton();
-	public final static JButton CR_WRONG8 = new JButton();
-	public final static JButton CR_WRONG9 = new JButton();
-	public final static JButton CR_WRONG10 = new JButton();
+	public final static JButton CR_WRONG1 = new JButton("Duck");
+	public final static JButton CR_WRONG2 = new JButton("20 years");
+	public final static JButton CR_WRONG3 = new JButton("Australia");
+	public final static JButton CR_WRONG4 = new JButton("Hidden in tall grass to avoid predators");
+	public final static JButton CR_WRONG5 = new JButton("Lions");
+	public final static JButton CR_WRONG6 = new JButton("Ducks");
+	public final static JButton CR_WRONG7 = new JButton("In the ocean");
+	public final static JButton CR_WRONG8 = new JButton("Ten");
+	public final static JButton CR_WRONG9 = new JButton("Orange, yellow");
+	public final static JButton CR_WRONG10 = new JButton("July to October");
 	
 	/// Doubles
 	public final static double IMG_SCALE_RATIO_X = FRAME_X/800;
