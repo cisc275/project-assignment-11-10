@@ -123,7 +123,7 @@ public class Constants implements Serializable {
 	public final static JLabel OSPREY_7 = new JLabel("How many different mates will an osprey have in its life?");
 	public final static JLabel OSPREY_8 = new JLabel("How long does an osprey usually live?");
 	public final static JLabel OSPREY_9 = new JLabel("How much does an osprey weigh?");
-	public final static JLabel OSPREY_10 = new JLabel("10");
+	public final static JLabel OSPREY_10 = new JLabel("Where do ospreys like to live?");
 	public final static JLabel OSPREY_LAST = new JLabel("Where would you like to make your nest?");
 	
 	// Osprey right answers
@@ -137,7 +137,7 @@ public class Constants implements Serializable {
 	public final static JButton OSPREY_CORRECT7 = new JButton("Only one!");
 	public final static JButton OSPREY_CORRECT8 = new JButton("15-20 years");
 	public final static JButton OSPREY_CORRECT9 = new JButton("3-5 pounds");
-	public final static JButton OSPREY_CORRECT10 = new JButton("10r");
+	public final static JButton OSPREY_CORRECT10 = new JButton("Near water (like the Delaware Estuary!)");
 	public final static JButton OSPREY_LAST_RIGHT = new JButton("Up high off the ground");
 	
 	// Osprey Wrong answers
@@ -151,7 +151,7 @@ public class Constants implements Serializable {
 	public final static JButton OSPREY_INCORRECT7 = new JButton("Five");
 	public final static JButton OSPREY_INCORRECT8 = new JButton("One year");
 	public final static JButton OSPREY_INCORRECT9 = new JButton("10 pounds");
-	public final static JButton OSPREY_INCORRECT10 = new JButton("10w");
+	public final static JButton OSPREY_INCORRECT10 = new JButton("The desert");
 	public final static JButton OSPREY_LAST_INCORRECT = new JButton("Low down by the ground");
 	
 	// Osprey moreWrong answers
@@ -166,7 +166,7 @@ public class Constants implements Serializable {
 	public final static JButton OSPREY_WRONG7 = new JButton("Thirty");
 	public final static JButton OSPREY_WRONG8 = new JButton("50 years");
 	public final static JButton OSPREY_WRONG9 = new JButton("1 pound");
-	public final static JButton OSPREY_WRONG10 = new JButton("10m");
+	public final static JButton OSPREY_WRONG10 = new JButton("in the mountains");
 	public final static JButton OSPREY_LAST_WRONG = new JButton("Osprey don't make nests");
 	
 	// Clapper Rail Questions
