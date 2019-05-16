@@ -57,19 +57,23 @@ public class SideScrollModel extends Model {
 			for(Integer key: keyPresses) {
 				switch(key) {
 				case Constants.UP:
+					if(!o.isDiving) {
 					if ((o.hitbox.xpoints[0] == 0) ||  (o.hitbox.xpoints[0] == 450)) {
 						o.setYSpeed(0);
 					}
 					else {
 						o.setYSpeed(-o.getMaxYSpeed());
 					}
+					}
 					break;
 				case Constants.DOWN:
+					if(!o.isDiving) {
 					if ((o.hitbox.xpoints[0] == 0) ||  (o.hitbox.xpoints[0] == 450)) {
 						o.setYSpeed(0);
 					}
 					else {
 						o.setYSpeed(o.getMaxYSpeed());
+					}
 					}
 					break;
 				case Constants.SPACE:
