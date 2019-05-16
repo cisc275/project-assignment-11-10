@@ -44,6 +44,7 @@ public class Constants implements Serializable {
 	public final static int LINUX_SCREEN_SCALE_X = 16;
 	public final static int LINUX_SCREEN_SCALE_Y = 9;
 	
+	public final static int OSPREY_STARTX = 100;
 	public final static int OSPREY_DIVESPEED = 50;
 	public final static int OSPREY_MAX_HEIGHT = 600;
 	public final static int OSPREY_WATER_LEVEL = 350;
@@ -117,12 +118,13 @@ public class Constants implements Serializable {
 	public final static JLabel OSPREY_2 = new JLabel("How big are osprey flocks?");
 	public final static JLabel OSPREY_3 = new JLabel("Where do ospreys migrate to?");
 	public final static JLabel OSPREY_4 = new JLabel("What is NOT a predator of the osprey?");
-	public final static JLabel OSPREY_5 = new JLabel("What are the colors of the Osprey?");
-	public final static JLabel OSPREY_6 = new JLabel("6");
-	public final static JLabel OSPREY_7 = new JLabel("7");
-	public final static JLabel OSPREY_8 = new JLabel("8");
-	public final static JLabel OSPREY_9 = new JLabel("9");
+	public final static JLabel OSPREY_5 = new JLabel("What colors are the feathers of the osprey?");
+	public final static JLabel OSPREY_6 = new JLabel("What do ospreys usually eat?");
+	public final static JLabel OSPREY_7 = new JLabel("How many different mates will an osprey have in its life?");
+	public final static JLabel OSPREY_8 = new JLabel("How long does an osprey usually live?");
+	public final static JLabel OSPREY_9 = new JLabel("How much does an osprey weigh?");
 	public final static JLabel OSPREY_10 = new JLabel("10");
+	public final static JLabel OSPREY_LAST = new JLabel("Where would you like to make your nest?");
 	
 	// Osprey right answers
 	
@@ -131,11 +133,12 @@ public class Constants implements Serializable {
 	public final static JButton OSPREY_CORRECT3 = new JButton("Central and South America");
 	public final static JButton OSPREY_CORRECT4 = new JButton("Fox");
 	public final static JButton OSPREY_CORRECT5 = new JButton("Brown and white");
-	public final static JButton OSPREY_CORRECT6 = new JButton("6r");
-	public final static JButton OSPREY_CORRECT7 = new JButton("7r");
-	public final static JButton OSPREY_CORRECT8 = new JButton("8r");
-	public final static JButton OSPREY_CORRECT9 = new JButton("9r");
+	public final static JButton OSPREY_CORRECT6 = new JButton("Fish");
+	public final static JButton OSPREY_CORRECT7 = new JButton("Only one!");
+	public final static JButton OSPREY_CORRECT8 = new JButton("15-20 years");
+	public final static JButton OSPREY_CORRECT9 = new JButton("3-5 pounds");
 	public final static JButton OSPREY_CORRECT10 = new JButton("10r");
+	public final static JButton OSPREY_LAST_RIGHT = new JButton("Up high off the ground");
 	
 	// Osprey Wrong answers
 	
@@ -144,11 +147,12 @@ public class Constants implements Serializable {
 	public final static JButton OSPREY_INCORRECT3 = new JButton("Europe");
 	public final static JButton OSPREY_INCORRECT4 = new JButton("Owl");
 	public final static JButton OSPREY_INCORRECT5 = new JButton("Black and red");
-	public final static JButton OSPREY_INCORRECT6 = new JButton("6w");
-	public final static JButton OSPREY_INCORRECT7 = new JButton("7w");
-	public final static JButton OSPREY_INCORRECT8 = new JButton("8w");
-	public final static JButton OSPREY_INCORRECT9 = new JButton("9w");
+	public final static JButton OSPREY_INCORRECT6 = new JButton("Bobcats");
+	public final static JButton OSPREY_INCORRECT7 = new JButton("Five");
+	public final static JButton OSPREY_INCORRECT8 = new JButton("One year");
+	public final static JButton OSPREY_INCORRECT9 = new JButton("10 pounds");
 	public final static JButton OSPREY_INCORRECT10 = new JButton("10w");
+	public final static JButton OSPREY_LAST_INCORRECT = new JButton("Low down by the ground");
 	
 	// Osprey moreWrong answers
 	
@@ -158,11 +162,12 @@ public class Constants implements Serializable {
 	public final static JButton OSPREY_WRONG3 = new JButton("Antartica");
 	public final static JButton OSPREY_WRONG4 = new JButton("Eagle");
 	public final static JButton OSPREY_WRONG5 = new JButton("Blue and gold");
-	public final static JButton OSPREY_WRONG6 = new JButton("6m");
-	public final static JButton OSPREY_WRONG7 = new JButton("7m");
-	public final static JButton OSPREY_WRONG8 = new JButton("8m");
-	public final static JButton OSPREY_WRONG9 = new JButton("9m");
+	public final static JButton OSPREY_WRONG6 = new JButton("Cheetahs");
+	public final static JButton OSPREY_WRONG7 = new JButton("Thirty");
+	public final static JButton OSPREY_WRONG8 = new JButton("50 years");
+	public final static JButton OSPREY_WRONG9 = new JButton("1 pound");
 	public final static JButton OSPREY_WRONG10 = new JButton("10m");
+	public final static JButton OSPREY_LAST_WRONG = new JButton("Osprey don't make nests");
 	
 	// Clapper Rail Questions
 	

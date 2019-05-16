@@ -19,7 +19,7 @@ public class Powerup extends Collectable {
 	public Powerup(int x, int y, int width, int height) {
 		super(x, y, width, height);
 		this.xSpeed = -60;
-		this.imgFileName = Constants.ANIMATION_FISH;
+		this.imgFileName = Constants.ANIMATION_THARVEY;
 	}
 
 	/**

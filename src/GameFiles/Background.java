@@ -42,7 +42,7 @@ public class Background extends GameObject{
     	this.hitbox.translate(Osprey.xSpeed, 0);
     
     	
-    	if (this.hitbox.xpoints[0] <= -View.frame.getWidth()){	 
+    	if (this.hitbox.xpoints[3] <= 0){	 
     		this.hitbox.reset();
     		this.hitbox.addPoint(0, this.y);
     		this.hitbox.addPoint(0, this.y + this.height);

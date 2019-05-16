@@ -87,7 +87,7 @@ public class Controller implements KeyListener, ActionListener{
 					(int) (1920 * 0.05), (int) (1080 * 0.05));
 			Fish f2 = new Fish(1920 + 250, 600, 50, 50);
 			Fish f3 = new Fish(1920 + 100, 650, 50, 50);
-			Powerup p = new Powerup(1920, 200, 50, 50);
+			Powerup p = new Powerup(1920, 800, 50, 50);
 			AirCurrent a = new AirCurrent(1920 + 20, 55, 250, 250);
 			AirCurrent a2 = new AirCurrent(1920  + 100, 100, 200, 200);
 			AirCurrent a3 = new AirCurrent(1920  + 500, 200, 200, 200);
@@ -126,7 +126,7 @@ public class Controller implements KeyListener, ActionListener{
     			model.updateLocation(model.game);
     			view.updateView(model.game);
     			if (Mate.caughtUp) {
-    				View.frame.dispose();
+    				view.frame.dispose();
     				new Quiz("sides");
     				time.stop();
     			}
