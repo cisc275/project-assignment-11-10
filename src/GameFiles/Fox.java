@@ -15,10 +15,30 @@ import javax.imageio.ImageIO;
  *
  */
 public class Fox extends Controllable {
+	/**
+	 * the speed with which you move left and right
+	 */
 	private double xSpeed;
+	
+	/**
+	 * the speed with which you move up and down
+	 */
 	private double ySpeed;
+	
+	/** 
+	 * speed of fox (pythagorean theorem)
+	 */
 	private double speed;
+	
+	/**
+	 * for smoothing out the speed
+	 */
 	private int randSmooth;
+	
+	/**
+	 * used for accessing clapper rail x and y coordinates
+	 */
+	
 	private ClapperRail c;
 	
 	/**
@@ -26,10 +46,6 @@ public class Fox extends Controllable {
 	 * @param x
 	 * @param width
 	 * @param height
-	 * @param hitbox
-	 * @param img
-	 * @param xSpeed
-	 * @param ySpeed
 	 * @param c
 	 * 
 	 * a constructor that takes values for all fields as input parameters

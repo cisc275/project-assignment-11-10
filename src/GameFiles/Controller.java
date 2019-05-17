@@ -18,18 +18,48 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.Timer;
 
-
+/**
+ * main controller for the game, starts and maintains all of our models and views
+ * @author tmazz
+ *
+ */
 
 public class Controller implements KeyListener, ActionListener{
+	/**
+	 *  for whichever model you are in
+	 */
 	private Model model;
+	
+	/**
+	 * for whichever view you are in
+	 */
 	private View view;
+	
+	/**
+	 * timer for the game
+	 */
 	private Timer time;
-
+	
+	/**
+	 * action defined later for running game
+	 */
+	
 	private Action drawAction;
+	
+	/**
+	 * to determine whichever game you're in
+	 */
 	String selected;
+	
+	/**
+	 * hashset of the keys that are being pressed, for key handling
+	 */
 	HashSet<Integer> keyPresses = new HashSet<>();
 	
-	
+	/**
+	 * Picks what to draw and control depending on the string you pass in
+	 * @param selection
+	 */
 	public Controller(String selection) {
 		
 		selected = selection;
@@ -39,7 +69,6 @@ public class Controller implements KeyListener, ActionListener{
 			view.addActionListener(this);	
 		}
 
-		
 		if(selected.equals("topDown")) {
 			// clapper rail game
 			
@@ -73,12 +102,7 @@ public class Controller implements KeyListener, ActionListener{
 		else if(selected.equals("sideScroll")) {
 			model = new SideScrollModel();	
 			model.game = new ArrayList<GameObject>();
-			
-			
-			
-			
 			Background backOne = new Background(0, 0, 1920, 1080);
-			
 			Trash t = new Trash(1920 + 200, 1080 - (1080 / 3), 
 					1920 / 20, 1080/ 15);
 			Trash t2 = new Trash(1920 + 20, 1080 - (1080 / 9), 
@@ -91,9 +115,7 @@ public class Controller implements KeyListener, ActionListener{
 			AirCurrent a = new AirCurrent(1920 + 20, 55, 250, 250);
 			AirCurrent a2 = new AirCurrent(1920  + 100, 100, 200, 200);
 			AirCurrent a3 = new AirCurrent(1920  + 500, 200, 200, 200);
-			Mate m = new Mate(1920 + 400, 200, 200, 50); // suposed to be 50 50, this is for the memes
-			
-			
+			Mate m = new Mate(1920 + 400, 200, 200, 50); // suposed to be 50 50, this is for the memes	
 			model.game.add(backOne);
 			model.game.add(p);
 			model.game.add(((SideScrollModel)model).o);

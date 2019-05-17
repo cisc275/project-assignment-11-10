@@ -19,8 +19,6 @@ public class Fish extends Collectable {
 	 * @param width
 	 * @param height
 	 * @param hitbox
-	 * @param img
-	 * @param xSpeed
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
@@ -49,23 +47,18 @@ public class Fish extends Collectable {
 			};
 		}
 	
-	@Override
-	public void handleCollision(ClapperRail c) {
-		resetPoly();
-	}
 	
-	
-	// creates image for fish
-	
-	private BufferedImage createImage(){
-		BufferedImage bufferedImage;
-		//System.out.println("i am running");
-    	try {
-    		bufferedImage = ImageIO.read(new File(Constants.IMG_FISH));
-    		return bufferedImage;
-    	} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-    	return null;
-	}
+//	 creates image for fish
+//	
+//	private BufferedImage createImage(){
+//		BufferedImage bufferedImage;
+//		//System.out.println("i am running");
+//    	try {
+//    		bufferedImage = ImageIO.read(new File(Constants.IMG_FISH));
+//    		return bufferedImage;
+//    	} catch (IOException e) {
+//    		e.printStackTrace();
+//    	}
+//    	return null;
+//	}
 }

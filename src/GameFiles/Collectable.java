@@ -25,17 +25,19 @@ public class Collectable extends GameObject {
 	 * @param width
 	 * @param height
 	 * 
+	 * a constructor that takes values for all fields as input parameters
 	 **/
-  
-	//a constructor that takes values for all fields as input parameters
-	 
+ 	 
 	public Collectable(int x, int y, int width, int height) {
 		super(x,y,width,height);
 		Random r = new Random();
 		this.xSpeed = -r.nextInt(10) - 15;
 	}
 	
-	// all collectables move according to xSpeed and will loop back around if need be
+	/**
+	 * moves the aircurrent according to x speed and resets if it goes back over the left screen
+	 * @author Tim Mazzarelli
+	 */
 	
 	public void move() {
 		this.hitbox.translate(this.xSpeed, 0);
@@ -45,14 +47,6 @@ public class Collectable extends GameObject {
 	}
 
 
-	public void handleCollision(Osprey o) {
-		// TODO Auto-generated method stub
-		
-	}
 
-	public void handleCollision(Nest n) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 }

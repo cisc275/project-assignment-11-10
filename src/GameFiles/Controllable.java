@@ -10,7 +10,9 @@ import java.io.File;
  */
 public class Controllable extends GameObject {
 	
-	// speed with which you move up or down
+	/**
+	 * speed with which you move up and down
+	 */
 	
 	int ySpeed;
 	

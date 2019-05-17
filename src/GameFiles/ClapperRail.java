@@ -23,12 +23,25 @@ public class ClapperRail extends Bird {
 	 */
 	boolean carryStick; 
 	
+	/**
+	 * the speed with which the clapper rail will move left or right
+	 */
 	int xSpeed;
+	
+	/**
+	 * the number of lives the clapper rail has
+	 */
 	static int lives = Constants.CLAPPER_RAIL_INIT_LIVES;
+	
+	/**
+	 * the bush that is closest to the clapper rail
+	 */
 	Bush closestBush;
+	
+	/**
+	 * an array of Bushes
+	 */
 	ArrayList<Bush> bushArr = new ArrayList<Bush>();
-	
-	
 	
 	
 	/**
@@ -61,22 +74,6 @@ public class ClapperRail extends Bird {
 		boundaries();
 		
 	}
-	
-	
-	
-	public void setHidden(boolean hidden) {
-		
-		this.hidden = hidden;
-	}
-
-	public boolean isCarryStick() {
-		return carryStick;
-	}
-
-	public void setCarryStick(boolean carryStick) {
-		this.carryStick = carryStick;
-	}
-	
 	
 	/**
 	 * handles collision with fox f 
@@ -131,6 +128,7 @@ public class ClapperRail extends Bird {
 	
 	/**
 	 * checks to see if the CR is still hiding in the nearest bush
+	 * @author Peter Jenny
 	 */
 	public void stillHiding(){
 		if (!this.collidesWith(closestBush)){
@@ -142,18 +140,33 @@ public class ClapperRail extends Bird {
 		}
 	}
 	
-	private BufferedImage createImage(){
-    	BufferedImage bufferedImage;
-    	try {
-    		bufferedImage = ImageIO.read(new File(Constants.IMG_THARVEY));
-    		return bufferedImage;
-    	} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-    	return null;
-    }
+	/**
+	 * 
+	 * @param hidden
+	 */
 	
+	public void setHidden(boolean hidden) {
+		
+		this.hidden = hidden;
+	}
 	
+	/**
+	 * 
+	 * @return carryStick
+	 */
+
+	public boolean isCarryStick() {
+		return carryStick;
+	}
+
+	/**
+	 * 
+	 * @param carryStick
+	 */
+	public void setCarryStick(boolean carryStick) {
+		this.carryStick = carryStick;
+	}
+		
 	
 	/**
 	 * @return the xSpeed
@@ -185,4 +198,15 @@ public class ClapperRail extends Bird {
 	public void setySpeed(int ySpeed) {
 		this.ySpeed = ySpeed;
 	}
+	
+//	private BufferedImage createImage(){
+//    	BufferedImage bufferedImage;
+//    	try {
+//    		bufferedImage = ImageIO.read(new File(Constants.IMG_THARVEY));
+//    		return bufferedImage;
+//    	} catch (IOException e) {
+//    		e.printStackTrace();
+//    	}
+//    	return null;
+//    }
 }
