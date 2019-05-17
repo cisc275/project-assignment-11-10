@@ -8,8 +8,10 @@ import java.util.HashSet;
  */
 public class SelectionModel extends Model {
 	
-	// starts up the game
-	
+	/**
+	 * stars our game
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		new Controller("sel");	
 	}

@@ -17,28 +17,36 @@ import javax.imageio.ImageIO;
  */
 public class Osprey extends Bird {
 	
-	// the xSpeed which determines how fast you will travel (behind the scenes not actually)
+	/**
+	 *  the xSpeed which determines how fast you will travel (behind the scenes not actually)
+	 */
 	
 	static int xSpeed;
 	
-	// how fast you can move up and down
-	
-	int ySpeed;
-	
-	// for storing y before diving
+	/**
+	 *  for storing y before diving
+	 */
 	int currY;
 	
-	// to check if the Osprey is diving
+	/**
+	 *  to check if the Osprey is diving
+	 */
 	boolean isDiving;
 	
-	// current distance of the Osprey
+	/**
+	 * current distance of the Osprey
+	 */
 	
 	static double distance;
 	
-	// total distance the osprey can travel
+	/**
+	 *  total distance the osprey can travel
+	 */
 	static double maxDistance = 5000;
 	
-	// maximum y speed
+	/**
+	 *  maximum y speed
+	 */
 	
 	final int MAX_Y_SPEED;
 	
@@ -48,12 +56,6 @@ public class Osprey extends Bird {
 	 * @param x
 	 * @param width
 	 * @param height
-	 * @param hitbox
-	 * @param img
-	 * @param xSpeed
-	 * @param ySpeed
-	 * @param isDiving
-	 * @param currY
 	 * 
 	 * a constructor that takes values for all fields except currY as input parameters
 	 */
@@ -110,11 +112,10 @@ public class Osprey extends Bird {
 			this.ySpeed = 0;
 		}
 		boundaries();
-		
 	}
 	
 	/**
-	 * checks for collision in ArrayList of gameobjects and sends to handle accordingly
+	 * checks for collision in ArrayList of gameobjects and sends to handleCollision accordingly
 	 * @param g
 	 * @author tim Mazzarelli
 	 */
@@ -129,56 +130,82 @@ public class Osprey extends Bird {
 	}
 
 
-
+	/**
+	 * 
+	 * @return ySpeed
+	 */
 	public int getySpeed() {
 		return ySpeed;
 	}
 
 
-
+	/**
+	 * 
+	 * @param ySpeed
+	 */
 	public void setYSpeed(int ySpeed) {
 		this.ySpeed = ySpeed;
 	}
 
 
-
+	/**
+	 * 
+	 * @return currY
+	 */
 	public int getCurrY() {
 		return currY;
 	}
 
 
-
+	/**
+	 * 
+	 * @param currY
+	 */
 	public void setCurrY(int currY) {
 		this.currY = currY;
 	}
 
 
-
+	/**
+	 * 
+	 * @return isDiving
+	 */
 	public boolean isDiving() {
 		return isDiving;
 	}
 
 
-
+	/**
+	 * 
+	 * @param isDiving
+	 */
 	public void setDiving(boolean isDiving) {
 		this.isDiving = isDiving;
 	}
 
 
-
+	/**
+	 * 
+	 * @return MAX_Y_SPEED
+	 */
 	public int getMaxYSpeed() {
 		return MAX_Y_SPEED;
 	}
 
 
-
-	public void setXSpeed(int i) {
-		Osprey.xSpeed = i;
+	/**
+	 * 
+	 * @param xSpeed
+	 */
+	public void setXSpeed(int xSpeed) {
+		Osprey.xSpeed = xSpeed;
 		
 	}
 
-
-
+	
+	/**
+	 * @return Osprey.xSpeed
+	 */
 	public static int getXSpeed() {
 		// TODO Auto-generated method stub
 		return Osprey.xSpeed;

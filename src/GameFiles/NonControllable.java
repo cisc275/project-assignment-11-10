@@ -15,8 +15,6 @@ public class NonControllable extends GameObject {
 	 * @param x
 	 * @param width
 	 * @param height
-	 * @param hitbox
-	 * @param img
 	 * a constructor that takes values for all fields as input parameters
 	 */
 	

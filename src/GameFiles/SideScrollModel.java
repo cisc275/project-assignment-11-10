@@ -14,14 +14,16 @@ import javax.imageio.ImageIO;
  *
  */
 public class SideScrollModel extends Model {
-
 	
-	Background backOne;
-	Background backTwo;
+	/**
+	 * osprey used by the Model for key inputs
+	 */
 	Osprey o;
-	static boolean right;
 	
-
+	/**
+	 * to see if the final quiz question was answered correctly
+	 */
+	static boolean right;
 	
 	public SideScrollModel() {
 		o = new Osprey(Constants.OSPREY_STARTX, 100, 50, 50);
@@ -82,11 +84,6 @@ public class SideScrollModel extends Model {
 			}
 		}
 	}
-	/**
-	 * 
-	 * this method will contain the logic for moving the background image
-	 * to create the illusion that the foreground images are moving
-	 */
 	
 	/**
 	 *  

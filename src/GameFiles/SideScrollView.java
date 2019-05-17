@@ -25,17 +25,45 @@ import javax.swing.JPanel;
  */
 
 public class SideScrollView extends View{
-    DrawPanel drawPanel = new DrawPanel();
+    
+	/**
+	 * panel on which our game is drawn
+	 */
+	DrawPanel drawPanel = new DrawPanel();
+	
+	/**
+	 * array list of our game objects
+	 */
     ArrayList<GameObject> game;
+    
+    /**
+     * SideScrollView object
+     */
     SideScrollView ssv = this;
    
-    Background backOne;
-    Background backTwo;
-    BufferedImage back;
+    /**
+     * win screen image
+     */
     BufferedImage youWin;
+    
+    /**
+     * image of the current minimap
+     */
     BufferedImage currentMap;
+    
+    /**
+     * how many bufferedImages we have
+     */
     final int numOfMaps = 10;
+    
+    /**
+     * the maps all in one array
+     */
     BufferedImage[] miniMaps = initMaps();
+    
+    /**
+     * what number map we are on
+     */
     int mapNum = 0;
    
  
@@ -83,13 +111,12 @@ public class SideScrollView extends View{
     private class DrawPanel extends JPanel {
 
 		protected void paintComponent(Graphics g) {
-				if (!Mate.caughtUp) {
+			if (!Mate.caughtUp) {
 				super.paintComponent(g);
 				Color transparent = new Color(1f,0f,0f,.5f );
 				g.setColor(transparent);
 				Graphics2D twoD = (Graphics2D)g;
 				
-			    twoD.drawImage(back, null, 0, 0);
 			    AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, .5f);
 			    
 			    
@@ -102,9 +129,8 @@ public class SideScrollView extends View{
 		    	}
 		    	g.drawImage(miniMaps[mapNum], View.frame.getWidth() -miniMaps[mapNum].getWidth(), 0, Color.gray,this);
 				}
-				else {
-					
-					g.dispose();
+			else {
+				g.drawImage(youWin, 0, 0, this);
 					
 				}
 				

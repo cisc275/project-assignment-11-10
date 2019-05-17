@@ -22,9 +22,12 @@ public class SelectionView extends View {
 	static JButton clapperRail;
 	
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	
+	/**
+	 * creates the screen used as our main menu
+	 */
+	
 	public SelectionView() {
-		
-		
 		osprey = new JButton(new ImageIcon(Constants.IMG_SELECT_OSPREY));
 		clapperRail = new JButton(new ImageIcon(Constants.IMG_SELECT_CLAPPER_RAIL));
 		this.setLayout(new FlowLayout());
@@ -36,16 +39,24 @@ public class SelectionView extends View {
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		this.setResizable(false);
 		this.pack();
-		this.setVisible(true);
-		
+		this.setVisible(true);	
 	}
+	
+	/**
+	 * @param controller
+	 * adds the controller as an action listener for each button
+	 */
 	
 	public void addActionListener(Controller controller) {
 		osprey.addActionListener(controller);
 		clapperRail.addActionListener(controller);
 		
 	}
+	/**
+	 * drawing of our selection screen, does nothing
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		View sv = new SelectionView();
+		new SelectionView();
 	}
 }

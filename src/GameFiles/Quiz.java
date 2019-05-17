@@ -41,29 +41,59 @@ import javax.swing.KeyStroke;
  *
  */
 public class Quiz extends JDialog implements KeyListener{
-	/**
-	 * button that will allow user to select the osprey game
-	 */
 	
-	 Image image;
-	 JLabel question;
-	 static boolean answered = true;
-	 JButton right, wrong, mW, first, second, third;
+	/**
+	 * an array list of all the possible quiz questions
+	 */
 	 ArrayList<JLabel> questions;
-	 ArrayList<JButton> rightAnswers;
-	 ArrayList<JButton> wrongAnswers;
-	 ArrayList<JButton> mWAnswers;
-	 static HashSet<Integer> previousNumbers;
-	 int qNumber;
-	 JPanel p;
-	 Osprey o;
+	 
+	 /**
+	  * the label for the chosen question
+	  */
+	 JLabel question;
+	 
+	 /**
+	  * whether or not a question has been answered
+	  */
+	 static boolean answered = true;
 	
+	 /**
+	  * all of the Jbuttons involved in the quiz
+	  */
+	 JButton right, wrong, mW, first, second, third;
+	 
+	 /**
+	  * arraylists of each type of answer
+	  */
+	 ArrayList<JButton> rightAnswers, wrongAnswers, mWAnswers;
+	 
+	 /**
+	  * hashset of integers so that there are no duplicate questions
+	  */
+	 static HashSet<Integer> previousNumbers;
+	 
+	 /**
+	  * int used to pick random question
+	  */
+	 int qNumber;
+	 
+	 /**
+	  * panel used to draw the quiz
+	  */
+	 JPanel p;
+	
+	 /**
+	  * screen size dimensions
+	  */
+	 Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	/**
-	 * button that will allow user to select the clapperrail game
+	 * 
+	 * @param game
+	 * 
+	 * Constructs the quiz according to whatever game you're in
+	 * according to parameter game
 	 */
-
-	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	public Quiz(String game) {
 		p = new JPanel();
@@ -495,9 +525,23 @@ public class Quiz extends JDialog implements KeyListener{
 	 */
 	
 	
-	
+	/**
+	 *
+	 * class that tells us how to handle actions
+	 * 
+	 * @author tim mazzarelli
+	 */
 	
 	class keyAction extends AbstractAction{
+		
+		/**
+		 * @param ActionEvent e
+		 * 
+		 * tells us what to do when an action is performed (JButton pressed) 
+		 * 
+		 * 
+		 * @author tim mazzarelli
+		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == right) {
@@ -515,7 +559,14 @@ public class Quiz extends JDialog implements KeyListener{
 			}
 		}
 		
-	 
+	/**
+	 * @param KeyEvent e
+	 * 
+	 * handles when a key is pressed, performs the correct action
+	 * according to each button accordingly
+	 * 
+	 * @author tim mazzarelli
+	 */
 	 
 	@Override
 	public void keyPressed(KeyEvent e) {
@@ -525,30 +576,37 @@ public class Quiz extends JDialog implements KeyListener{
 		thirdButtonSetup();
 	}
 	
+	/**
+	 * sets up the correct input and action maps for the first button
+	 * @author Tim Mazzarelli
+	 */
+	
 	public void firstButtonSetup() {
 		int map = JComponent.WHEN_IN_FOCUSED_WINDOW;
 		InputMap imap = first.getInputMap(map);
-		
-		keyAction rA = new keyAction();
-		rA.setEnabled(true);
-		
 		imap.put(KeyStroke.getKeyStroke("UP"), "first");
+		
 		ActionMap amap = first.getActionMap();
 		amap.put("first", new keyAction());
 	}
 	
+	/**
+	 * sets up the correct input and action maps for the second button
+	 * @author Tim Mazzarelli
+	 */
 	public void secondButtonSetup() {
 		int map = JComponent.WHEN_IN_FOCUSED_WINDOW;
-		InputMap imap = second.getInputMap(map);
-		
-		keyAction rA = new keyAction();
-		rA.setEnabled(true);
-		  
+		InputMap imap = second.getInputMap(map);  
 		imap.put(KeyStroke.getKeyStroke("LEFT"), "second");
+		
 		ActionMap amap = second.getActionMap();
 		amap.put("second", new keyAction());
 	}
 	
+	/**
+	 * sets up the correct input and action maps for the third button
+	 * @author Tim Mazzarelli
+	 */
 	public void thirdButtonSetup() {
 		int map = JComponent.WHEN_IN_FOCUSED_WINDOW;
 		InputMap imap = third.getInputMap(map);
@@ -561,17 +619,28 @@ public class Quiz extends JDialog implements KeyListener{
 		amap.put("third", new keyAction());
 	}
 	
+	
+	/**
+	 * closes the quiz when done
+	 * @author Tim Mazzarelli
+	 */
 	public void endQuiz() {
 		this.dispose();
 	}
 	
-
+	/**
+	 * does nothing for us but here for interface purposes
+	 * @author Tim Mazzarelli
+	 */
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		
 	}
 
-
+	/**
+	 * does nothing for us but here for interface purposes
+	 * @author Tim Mazzarelli
+	 */
 	@Override
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
