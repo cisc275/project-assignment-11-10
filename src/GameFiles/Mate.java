@@ -11,9 +11,9 @@ import javax.imageio.ImageIO;
 
 public class Mate extends Bird {
 	
-	int xSpeed;
-	
-	// if the Osprey has gone far enough to catch his or her mate
+	/**
+	 * true if the Osprey's distance is equivalent to max distance
+	 */
 	static boolean caughtUp;
 	
 	/**
@@ -21,10 +21,6 @@ public class Mate extends Bird {
 	 * @param x
 	 * @param width
 	 * @param height
-	 * @param hitbox
-	 * @param img
-	 * @param xSpeed
-	 * @param caughtUp
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
@@ -38,7 +34,7 @@ public class Mate extends Bird {
 	}
 	
 	/**
-	 * handles moving when the osprey has caught up
+	 * handles moving when the osprey has caught up, stays still if not
 	 * @author tim Mazzarelli
 	 */
 
@@ -62,27 +58,29 @@ public class Mate extends Bird {
 	 * @author tim Mazzarelli
 	 */
 
-@Override
-public void handleCollision(Osprey o) {
-	resetPoly();
-	Mate.caughtUp = true;
-	
-}
-
-// draw the mate
-
-private BufferedImage createImage(){
-	BufferedImage bufferedImage;
-	//System.out.println("i am running");
-	try {
-		if (Constants.BOOL_HARVEY) bufferedImage = ImageIO.read(new File(Constants.IMG_MATE));
-		else bufferedImage = ImageIO.read(new File(Constants.IMG_POLY_HARVEY));
-		return bufferedImage;
-	} catch (IOException e) {
-		e.printStackTrace();
+	@Override
+	public void handleCollision(Osprey o) {
+		resetPoly();
+		Mate.caughtUp = true;
+		
 	}
-	return null;
-}
+
+	
+	
+// draw the mate
+//
+//private BufferedImage createImage(){
+//	BufferedImage bufferedImage;
+//	//System.out.println("i am running");
+//	try {
+//		if (Constants.BOOL_HARVEY) bufferedImage = ImageIO.read(new File(Constants.IMG_MATE));
+//		else bufferedImage = ImageIO.read(new File(Constants.IMG_POLY_HARVEY));
+//		return bufferedImage;
+//	} catch (IOException e) {
+//		e.printStackTrace();
+//	}
+//	return null;
+//}
 
 
 }

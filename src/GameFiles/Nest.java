@@ -14,8 +14,19 @@ import javax.imageio.ImageIO;
 
 public class Nest extends GameObject{
 	
+	/**
+	 * the number of sticks that have been put in the nest
+	 */
 	protected int numSticks = 0;
 	
+	/**
+	 * @param y
+	 * @param x
+	 * @param width
+	 * @param height
+	 * 
+	 * a constructor that takes values for all fields as input parameters
+	 */
 	public Nest(int x, int y, int width, int height) {
 		super(x,y,width,height);
 		this.imgFileName = Constants.ANIMATION_NEST;
@@ -39,16 +50,16 @@ public class Nest extends GameObject{
 	
 	
 
-	private BufferedImage createImage(){
-		BufferedImage bufferedImage;
-    	try {
-    		bufferedImage = ImageIO.read(new File(Constants.IMG_NEST));
-    		return bufferedImage;
-    	} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-    	return null;
-	}
+//	private BufferedImage createImage(){
+//		BufferedImage bufferedImage;
+//    	try {
+//    		bufferedImage = ImageIO.read(new File(Constants.IMG_NEST));
+//    		return bufferedImage;
+//    	} catch (IOException e) {
+//    		e.printStackTrace();
+//    	}
+//    	return null;
+//	}
 }
 	
 	

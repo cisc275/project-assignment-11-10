@@ -11,6 +11,11 @@ import java.io.File;
 public class Controllable extends GameObject {
 	
 	/**
+	 * speed with which you move left or right
+	 */
+	int xSpeed;
+	
+	/**
 	 * speed with which you move up and down
 	 */
 	

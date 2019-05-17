@@ -23,7 +23,7 @@ public class GameObject implements Serializable{
 	private static final long serialVersionUID = -333987237480412477L;
 
 	/**
-	 *  The string of the file where the image is located
+	 *  The array of strings of the file where the image is located
 	 */
 	protected String[] imgFileName;
 	
@@ -33,9 +33,13 @@ public class GameObject implements Serializable{
 	protected Polygon hitbox;
 	
 	/**
-	 *  The image to be displayed
+	 *  The file path image to be displayed
 	 */
 	protected String img;
+	
+	/**
+	 * the string for the scaled image
+	 */
 	
 	protected String scaledImg;
 	
@@ -391,30 +395,46 @@ public class GameObject implements Serializable{
 	}
 
 
-
+	/**
+	 * overwritten in subclasses to handle collision
+	 * @param o
+	 */
 
 	public void handleCollision(Osprey o) {
 		// TODO Auto-generated method stub
-		
 	}
 
-
+	/**
+	 * overwritten in subclasses to handle collision
+	 * @param cr
+	 */
 	public void handleCollision(ClapperRail cr) {
 		// TODO Auto-generated method stub
 		
 	}
 
-
+	/**
+	 * overwritten in subclasses to handle collision
+	 * @param f
+	 */
 	public void handleCollision(Fox f) {
 		// TODO Auto-generated method stub
 		
 	}
 
-
+	/**
+	 * overwritten in subclasses to handle collision
+	 * @param n
+	 */
 	public void handleCollision(Nest n) {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	/**
+	 * @return string
+	 * to string method
+	 */
 	
 	public String toString() {
 		return this.getClass() + " X: " + x + " Y: " + y;

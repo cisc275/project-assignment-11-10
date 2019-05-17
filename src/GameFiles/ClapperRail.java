@@ -24,11 +24,6 @@ public class ClapperRail extends Bird {
 	boolean carryStick; 
 	
 	/**
-	 * the speed with which the clapper rail will move left or right
-	 */
-	int xSpeed;
-	
-	/**
 	 * the number of lives the clapper rail has
 	 */
 	static int lives = Constants.CLAPPER_RAIL_INIT_LIVES;
