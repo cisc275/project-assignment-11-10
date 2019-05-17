@@ -14,11 +14,27 @@ import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
  *
  */
 public class TopDownModel extends Model {
+	/**
+	 * clapper rail used by TDM
+	 */
 	public ClapperRail cr;
+	
+	/**
+	 * fox used by TDM
+	 */
     public Fox f;
+    
+    /**
+     * nest used by TDM
+     */
     public Nest nest;
 
-    int count = 0; // used to check clock
+    /**
+     * clock checker
+     */
+    int count = 0; 
+  
+    
     /**
      * takes a hashset of integers and moves clapper rail accordingly
      * @param HashSet<Integer> keyPresses
@@ -46,6 +62,7 @@ public class TopDownModel extends Model {
 			}
     	}
     }
+  
     /**
      * initializes new TopDownModel and creates an ArrayList of GameObject
      * @author Tim Mazzarelli
@@ -77,6 +94,7 @@ public class TopDownModel extends Model {
     		Model.gameOver = true;
     	}
     }
+   
     /**
 	 * 
 	 * @param args

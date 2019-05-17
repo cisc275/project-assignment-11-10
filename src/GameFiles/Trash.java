@@ -19,15 +19,10 @@ public class Trash extends Collectable {
 	 * @param x
 	 * @param width
 	 * @param height
-	 * @param hitbox
-	 * @param img
-	 * @param xSpeed
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
-	
-	
-	
+		
 	public Trash(int x, int y, int width, int height) {
 		super(x,y,width,height);
 		//this.img = createImage();
@@ -35,6 +30,11 @@ public class Trash extends Collectable {
 		this.setType(Type.TRASH);
 	}
 	
+	/**
+	 * handles collision with the Osprey, resets and decrements Osprey speed
+	 * @param Osprey o
+	 * @author Tim Mazzarelli
+	 */
 	
 	@Override
 	public void handleCollision(Osprey o) {
@@ -45,17 +45,17 @@ public class Trash extends Collectable {
 		else {o.setXSpeed(-2);};
 	}
 	
-	private BufferedImage createImage(){
-		BufferedImage bufferedImage;
-		//System.out.println("i am running");
-    	try {
-    		bufferedImage = ImageIO.read(new File(Constants.IMG_TRASH));
-    		return bufferedImage;
-    	} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-    	return null;
-	}
+//	private BufferedImage createImage(){
+//		BufferedImage bufferedImage;
+//		//System.out.println("i am running");
+//    	try {
+//    		bufferedImage = ImageIO.read(new File(Constants.IMG_TRASH));
+//    		return bufferedImage;
+//    	} catch (IOException e) {
+//    		e.printStackTrace();
+//    	}
+//    	return null;
+//	}
 
 	
 }

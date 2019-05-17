@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 public class Model implements Serializable {
 	
 	/**
-	 * serialVersionUID auto genorated
+	 * serialVersionUID auto generated
 	 */
 	private static final long serialVersionUID = 1344012034511117384L;
 
@@ -20,24 +20,49 @@ public class Model implements Serializable {
 	 */
 	ArrayList<GameObject> game;
 	
+	/**
+	 * boolean for whether the game is over or not
+	 */
+	
 	static boolean gameOver = false;
 	
+	
+	/**
+	 * defined in subclasses, updates model
+	 * @param game
+	 */
 	public void updateLocation(ArrayList<GameObject> game) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	/**
+	 * 
+	 * @return ArrayList<GameObject>
+	 */
 	public ArrayList<GameObject> getGame() {
 		return game;
 	}
+	
+	/**
+	 * how you handle each key press, defined in submodels
+	 * @param keyPresses
+	 */
 	public void handleMove(HashSet<Integer> keyPresses) {
 		
 	}
-
+	
+	/**
+	 * 
+	 * @param game
+	 */
 	public void setGame(ArrayList<GameObject> game) {
 		this.game = game;
 	} 
 	
+	/**
+	 * @return String
+	 */
 	@Override
 	public String toString() {
 		return "Game Over: " + gameOver + "\n" + game;

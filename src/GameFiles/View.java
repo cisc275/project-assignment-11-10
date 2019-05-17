@@ -26,34 +26,67 @@ import javax.swing.JPanel;
 public class View extends JFrame implements Serializable {
 
 	/**
-	 * serialVersionUID auto genorated
+	 * serialVersionUID auto generated
 	 */
 	private static final long serialVersionUID = 1055664864359735273L;
 	
 	
-	
+	/**
+	 * array list of our game objects
+	 */
 	ArrayList<GameObject> game;
+	
+	/**
+	 * the frame upon which our game is drawn
+	 */
 	static JFrame frame; 
+	
+	/**
+	 * Hashtable that uses GameObject as a key and arraylist of BI's
+	 * as its value
+	 */
 	Hashtable<GameObject, ArrayList<BufferedImage>> imgTable;
 	
-	
+	/**
+	 * 
+	 * @return ArrayList<GameObject> game
+	 */
 
 	public ArrayList<GameObject> getGame() {
 		return game;
 	}
+	
+	/**
+	 * 
+	 * @param game
+	 */
 
 	public void setGame(ArrayList<GameObject> game) {
 		this.game = game;
 	}
 	
+	/**
+	 * overwritten in sub classes
+	 * @param game
+	 */
+	
 	public void updateView(ArrayList<GameObject> game) {
 		
 	}
+	
+	/**
+	 * overwritten in subclasses
+	 * @param c
+	 */
 	
 	public void addKeyListener(Controller c) {
 		
 	}
 	
+	/**
+	 * overwritten in subclasses
+	 * @param c
+	 */
 	public void addActionListener(Controller c) {
 		
 	}
@@ -61,6 +94,7 @@ public class View extends JFrame implements Serializable {
 	/**
 	 * Default setup and full screen.
 	 * @param frame JFrame item passed from the View Object
+	 * @author Mark Wolgin
 	 */
 	public void setUpScreen(JFrame frame) {
     	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

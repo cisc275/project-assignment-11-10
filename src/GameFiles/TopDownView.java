@@ -20,15 +20,25 @@ import javax.swing.JPanel;
  *
  */
 public class TopDownView extends View{
+	
+	/**
+	 * JPanel the game is drawn upon
+	 */
     DrawPanel drawPanel = new DrawPanel();
     
-    // The shit bit.
+    /**
+     * a Mark creation of the highest order, TDV object
+     */
     TopDownView tdv = this;
     
-	BufferedImage background = createImage();
     /**
+     * the background image
+     */
+	BufferedImage background = createImage();
+   
+	/**
      * 
-     * @param Array list of GameObjects
+     * @param g Array list of GameObjects
      * constructs a view based on the array list it is given
      */
 	public TopDownView(ArrayList<GameObject> g) {
@@ -46,7 +56,7 @@ public class TopDownView extends View{
 	
 	/**
 	 * 
-	 * @param Array list of GameObjects
+	 * @param g Array list of GameObjects
 	 * calls paint component to create images based on the current ArrayList
 	 */
 	public void updateView(ArrayList<GameObject> g) {
@@ -56,10 +66,18 @@ public class TopDownView extends View{
 
 	}
 	
-	
+	/**
+	 * the class that draws our Jpanel for our game
+	 * @author tmazz
+	 *
+	 */
 	
 	private class DrawPanel extends JPanel {
-
+		
+		/**
+		 * this method paints our game upon our Draw(J)panel
+		 * @param g
+		 */
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			g.setColor(Color.gray);
@@ -86,7 +104,7 @@ public class TopDownView extends View{
 	
 	/**
 	 * creates buffered image for background
-	 * @return
+	 * @return BufferedImage
 	 */
 	private BufferedImage createImage(){
 		BufferedImage bufferedImage;
@@ -102,7 +120,7 @@ public class TopDownView extends View{
 	
 	/**
 	 * creates buffered image for life display
-	 * @return
+	 * @return BufferedImage
 	 */
 	private BufferedImage createLives(){
 		BufferedImage bufferedImage;
