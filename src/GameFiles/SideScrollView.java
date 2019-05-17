@@ -67,7 +67,10 @@ public class SideScrollView extends View{
     int mapNum = 0;
    
  
-    
+    /**
+     * creates the view using the arraylist of game objects
+     * @param g
+     */
     public SideScrollView(ArrayList<GameObject> g){
 		frame = new JFrame();
 		setUpScreen(frame);
@@ -78,23 +81,29 @@ public class SideScrollView extends View{
     	youWin = createImage();
     	this.setSize(frame.getWidth(), frame.getHeight());
     	this.initTable(g);
-    	
-    	
+      	
     }
+    
+    /**
+     * updates the view according to our arraylist of game objects
+     * 
+     */
     
     public void updateView(ArrayList<GameObject> g) {
     	game = g;
     	mapNum = (int)((Osprey.distance/Osprey.maxDistance)*numOfMaps/2);
     	if(mapNum>numOfMaps-1)
     		mapNum = numOfMaps-1;
-    	if (!Mate.caughtUp || SideScrollModel.right) {
+    	if (!Mate.caughtUp || SideScrollModel.right || Mate.caughtUp) {
     		drawPanel.repaint();
     	}
-    	if (Mate.caughtUp) {
-    		this.dispose();
-    	}
+    	
     }
     
+    /**
+     * creates gameOver image
+     * @return BufferedImage
+     */
 	
 	private BufferedImage createImage(){
 		BufferedImage bufferedImage;
@@ -107,49 +116,57 @@ public class SideScrollView extends View{
     	}
     	return null;
 	}
+	
+	/**
+	 * class that gives us our JPanel to draw
+	 */
     
     private class DrawPanel extends JPanel {
-
+    	
+    	/**
+    	 * draws our game
+    	 * @param g
+    	 */
 		protected void paintComponent(Graphics g) {
 			if (!Mate.caughtUp) {
 				super.paintComponent(g);
 				Color transparent = new Color(1f,0f,0f,.5f );
 				g.setColor(transparent);
-				Graphics2D twoD = (Graphics2D)g;
-				
 			    AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, .5f);
-			    
-			    
 		    	for (GameObject thing : game) {
-
 		    		g.drawImage(ssv.getImg(thing, 0), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
 		    		if (thing.hitbox.npoints > 4) {
-		    		g.drawImage(ssv.getImg(thing, 0), thing.hitbox.xpoints[4], thing.hitbox.ypoints[4], this);
+		    			g.drawImage(ssv.getImg(thing, 0), thing.hitbox.xpoints[4], thing.hitbox.ypoints[4], this);
 		    		}
 		    	}
 		    	g.drawImage(miniMaps[mapNum], View.frame.getWidth() -miniMaps[mapNum].getWidth(), 0, Color.gray,this);
 				}
-			else {
-				g.drawImage(youWin, 0, 0, this);
-					
-				}
-				
-				
-		}
+			else if (Mate.caughtUp){
 			
+				g.drawImage(youWin, 0, 0, this.getWidth(), this.getHeight(), this);
+				}		
+		}
     }
-
+    	/**
+    	 * the size of our screen (full screen)
+    	 * @return Dimension
+    	 */
 		public Dimension getPreferredSize() {
 			return new Dimension((int)Constants.getFRAME_X(), (int)Constants.getFRAME_Y());
 		}
 	
-	
+	/**
+	 * adds key listener to controller to move osprey around
+	 */
     public void addKeyListener(Controller controller) {
 		frame.addKeyListener(controller);
 	}
     
-   
-    
+    /**
+     * creates the array of buffered images for the minimap
+     * @return BufferedImage[]
+     * @author Andrew Thompson
+     */
     public BufferedImage[] initMaps() {
     	BufferedImage[] maps = new BufferedImage[numOfMaps];
     	for(int i=0;i<numOfMaps;i++) {
@@ -164,10 +181,4 @@ public class SideScrollView extends View{
     	return maps;
     }
     
-    
-    /*
-    public void addActionListener(Controller controller) {
-    	frame.addActionListener(controller);
-    }
-    */
 }

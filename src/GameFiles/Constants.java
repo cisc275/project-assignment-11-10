@@ -17,7 +17,7 @@ public class Constants implements Serializable {
 	public final static int g = 10;
 	
 	public final static int BIRD_MOVE_AMOUNT = 10;
-
+	
 	public final static int RIGHT = 39;
 	public final static int LEFT = 37;
 	public final static int UP = 38;

@@ -42,7 +42,7 @@ public class Osprey extends Bird {
 	/**
 	 *  total distance the osprey can travel
 	 */
-	static double maxDistance = 5000;
+	static double maxDistance = 500;
 	
 	/**
 	 *  maximum y speed

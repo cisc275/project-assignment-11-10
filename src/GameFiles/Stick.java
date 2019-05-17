@@ -13,11 +13,18 @@ import javax.imageio.ImageIO;
  *
  */
 public class Stick extends Collectable{
+	
+	/**
+	 * ySpeed of the stick (0 or clapper rail ySpeed)
+	 */
+	
 	int ySpeed;
+	
 	/**
 	 * the number of sticks the that have been collected
 	 */
 	static int count = 0; 
+	
 	/**
 	 * whether or not the bird is holding the stick
 	 */
@@ -28,10 +35,6 @@ public class Stick extends Collectable{
 	 * @param x
 	 * @param height
 	 * @param width
-	 * @param hitbox
-	 * @param img
-	 * @param xSpeed
-	 * @param ySpeed
 	 * a constructor that takes values for all fields as input parameters
 	 */
 	
@@ -49,28 +52,39 @@ public class Stick extends Collectable{
 	/**
 	 * calls ClapperRail handleCollision passing in this
 	 * @param cr
-	 * @author andrew thompson
+	 * @author andrew thompson/ tim mazzarelli
 	 */
 	
 	@Override
 	public void handleCollision(ClapperRail cr) {
-	
+		if (this.hitbox.xpoints[1] <= Constants.STICK_HANDLECOLLISION_OFFSET 
+				|| this.hitbox.xpoints[0] >= View.frame.getWidth() - Constants.STICK_HANDLECOLLISION_OFFSET
+				|| this.hitbox.ypoints[1] <= Constants.STICK_HANDLECOLLISION_OFFSET 
+				|| this.hitbox.ypoints[0] >= View.frame.getHeight() - Constants.STICK_HANDLECOLLISION_OFFSET){
+			
+			this.hitbox.reset();
+			this.hitbox.addPoint(x, y);
+			this.hitbox.addPoint(x + width, y + height);
+		}
 		this.hitbox.translate(cr.xSpeed, cr.ySpeed);
 		
 	}
+	
+	/**
+	 * handles collision with the nest, resets itself and makes nest bigger
+	 * @param n
+	 * @author Tim Mazzarelli
+	 */
 		
 	@Override
 	public void handleCollision(Nest n) {
 		if (this.collidesWith(n)) {
-			
 			this.hitbox.reset();
 			n.hitbox.reset();
 			count++;
 			n.height = n.height + 30;
 			n.width = n.width + 30;
 			n.resetPoly();
-		
-
 			
 		}
 	}
