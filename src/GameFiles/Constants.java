@@ -32,7 +32,7 @@ public class Constants implements Serializable {
 	
 	public final static int CLAPPER_RAIL_INIT_LIVES = 3;
 	
-	public final static int FISH_AC = 1;
+	public final static int FISH_AC = 5;
 	public final static int FISH_X_SPEED_TEST = -50;
 	
 	public final static int FOX_START_LOC_X = 400;
@@ -59,7 +59,7 @@ public class Constants implements Serializable {
 	
 	public final static int TIMER_TICK_RATE = 50;
 	
-	public final static int TRASH_AC = 1;
+	public final static int TRASH_AC = 5;
 	
 	public static int FRAME_X;
 	public static int FRAME_Y;

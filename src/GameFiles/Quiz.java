@@ -483,9 +483,9 @@ public class Quiz extends JDialog implements KeyListener{
 			
 		}
 		
-		first.setText("UP. " + first.getText());
-		second.setText("LEFT. " + second.getText());
-		third.setText("DOWN. " + third.getText());
+		first.setText("A. " + first.getText());
+		second.setText("B. " + second.getText());
+		third.setText("C. " + third.getText());
 		buttons.add(first);
 		buttons.add(second);
 		buttons.add(third);
@@ -584,7 +584,7 @@ public class Quiz extends JDialog implements KeyListener{
 	public void firstButtonSetup() {
 		int map = JComponent.WHEN_IN_FOCUSED_WINDOW;
 		InputMap imap = first.getInputMap(map);
-		imap.put(KeyStroke.getKeyStroke("UP"), "first");
+		imap.put(KeyStroke.getKeyStroke('a'), "first");
 		
 		ActionMap amap = first.getActionMap();
 		amap.put("first", new keyAction());
@@ -597,7 +597,7 @@ public class Quiz extends JDialog implements KeyListener{
 	public void secondButtonSetup() {
 		int map = JComponent.WHEN_IN_FOCUSED_WINDOW;
 		InputMap imap = second.getInputMap(map);  
-		imap.put(KeyStroke.getKeyStroke("LEFT"), "second");
+		imap.put(KeyStroke.getKeyStroke('b'), "second");
 		
 		ActionMap amap = second.getActionMap();
 		amap.put("second", new keyAction());
@@ -614,7 +614,7 @@ public class Quiz extends JDialog implements KeyListener{
 		keyAction rA = new keyAction();
 		rA.setEnabled(true);
 		
-		imap.put(KeyStroke.getKeyStroke("DOWN"), "third");
+		imap.put(KeyStroke.getKeyStroke('c'), "third");
 		ActionMap amap = third.getActionMap();
 		amap.put("third", new keyAction());
 	}

@@ -85,26 +85,35 @@ public class Stick extends Collectable{
 			n.height = n.height + 30;
 			n.width = n.width + 30;
 			n.resetPoly();
-			
 		}
 	}
 	
-	public BufferedImage createImage() {
-		BufferedImage bufferedImage;
-		//System.out.println("i am running");
-    	try {
-    		bufferedImage = ImageIO.read(new File(Constants.IMG_STICK));
-    		return bufferedImage;
-    	} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-    	return null;
-	}
+//	public BufferedImage createImage() {
+//		BufferedImage bufferedImage;
+//		//System.out.println("i am running");
+//    	try {
+//    		bufferedImage = ImageIO.read(new File(Constants.IMG_STICK));
+//    		return bufferedImage;
+//    	} catch (IOException e) {
+//    		e.printStackTrace();
+//    	}
+//    	return null;
+//	}
+//	
 	
+	/**
+	 * 
+	 * @return int
+	 */
 	
 	public static int getCount() {
 		return count;
 	}
+	
+	/**
+	 * 
+	 * @param count
+	 */
 	public static void setCount(int count) {
 		Stick.count = count;
 	}
