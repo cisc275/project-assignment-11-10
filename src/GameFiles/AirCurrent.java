@@ -31,6 +31,16 @@ public class AirCurrent extends Collectable {
 		this.setType(Type.AIRCURRENT);
 	}
 	
+	/**
+	 * @param none
+	 * @return Polygon hitbox
+	 * 
+	 * specific reset for our air current
+	 * 
+	 * @author tim Mazzarelli
+	 */
+	
+	
 	public Polygon acReset() {
 		this.hitbox.reset();
 		this.hitbox.addPoint(x, y);
@@ -38,6 +48,15 @@ public class AirCurrent extends Collectable {
 		this.hitbox.addPoint(width/ 2 + x, y + height);
 		return this.hitbox;
 	}
+	
+	/**
+	 * @param none
+	 * @return none
+	 * 
+	 * moves the air current across our screen
+	 * 
+	 * @author tim Mazzarelli
+	 */
 	
 	@Override
 	public void move() {
@@ -51,7 +70,7 @@ public class AirCurrent extends Collectable {
 	
 	/**
 	 * handles collision with osprey
-	 * @param o
+	 * @param Osprey o
 	 * @author tim Mazzarelli
 	 */
 	
@@ -64,20 +83,20 @@ public class AirCurrent extends Collectable {
 		else {o.setXSpeed(-2);};
 	}
 	
-	/**
-     * returns a BufferedImage that is unscaled
-     * @author andrew thompson
-     */
-	private BufferedImage createImage(){
-		BufferedImage bufferedImage;
-    	try {
-    		bufferedImage = ImageIO.read(new File(Constants.IMG_AIRCURRENT));
-    		return bufferedImage;
-    	} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-    	return null;
-	}
+//	/**
+//     * returns a BufferedImage that is unscaled
+//     * @author andrew thompson
+//     */
+//	private BufferedImage createImage(){
+//		BufferedImage bufferedImage;
+//    	try {
+//    		bufferedImage = ImageIO.read(new File(Constants.IMG_AIRCURRENT));
+//    		return bufferedImage;
+//    	} catch (IOException e) {
+//    		e.printStackTrace();
+//    	}
+//    	return null;
+//	}
 
 	
 	

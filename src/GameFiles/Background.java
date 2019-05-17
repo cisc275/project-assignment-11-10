@@ -10,19 +10,17 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Background extends GameObject{
-	private BufferedImage image;
-    private int x;
-    private int y;
-   
- 
-  
-   
+	
     /**
+     *
      * @param x
      * @param y
+     * @param width
+     * @param height
      * 
      * constructor for Background
      */
+	
     public Background(int x, int y, int width, int height) {
     	super(x, y, width, height);
     	this.hitbox.addPoint(width, 0);
@@ -34,30 +32,33 @@ public class Background extends GameObject{
     }
  
     /**
-     * Method that draws the image onto the Graphics object passed
+     * moves the background across the screen and reset appropriately
      * @param window
      * @author Tim Mazzarelli
      */
     public void move() {
     	this.hitbox.translate(Osprey.xSpeed, 0);
-    
-    	
     	if (this.hitbox.xpoints[3] <= 0){	 
-    		this.hitbox.reset();
-    		this.hitbox.addPoint(0, this.y);
-    		this.hitbox.addPoint(0, this.y + this.height);
-    		this.hitbox.addPoint(width, this.y + this.height);
-    		this.hitbox.addPoint(width, this.y);
-    		this.hitbox.addPoint(width, 0);
-        	this.hitbox.addPoint(width, height);
-        	this.hitbox.addPoint(width + width, height);
-        	this.hitbox.addPoint(width + width, 0);
-    		
-    		
+    		bgReset();
     	}
-    	
-    	
-    	
+    }
+    
+    
+    /**
+     * resets the background to do our scroll
+     * 
+     * @author Tim Mazzarelli
+     */
+    public void bgReset() {
+    	this.hitbox.reset();
+		this.hitbox.addPoint(0, this.y);
+		this.hitbox.addPoint(0, this.y + this.height);
+		this.hitbox.addPoint(width, this.y + this.height);
+		this.hitbox.addPoint(width, this.y);
+		this.hitbox.addPoint(width, 0);
+    	this.hitbox.addPoint(width, height);
+    	this.hitbox.addPoint(width + width, height);
+    	this.hitbox.addPoint(width + width, 0);	
     }
     
     		
@@ -102,12 +103,5 @@ public class Background extends GameObject{
      */
     public int getY() {
         return this.y;
-    }
-    
-    /**
-     * getter for image width
-     */
-    public int getImageWidth() {
-        return image.getWidth();
     }
 }

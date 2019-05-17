@@ -17,13 +17,29 @@ import javax.imageio.ImageIO;
  */
 public class Osprey extends Bird {
 	
+	// the xSpeed which determines how fast you will travel (behind the scenes not actually)
+	
 	static int xSpeed;
+	
+	// how fast you can move up and down
+	
 	int ySpeed;
+	
 	// for storing y before diving
 	int currY;
+	
+	// to check if the Osprey is diving
 	boolean isDiving;
+	
+	// current distance of the Osprey
+	
 	static double distance;
+	
+	// total distance the osprey can travel
 	static double maxDistance = 5000;
+	
+	// maximum y speed
+	
 	final int MAX_Y_SPEED;
 	
 	
@@ -55,28 +71,13 @@ public class Osprey extends Bird {
 		this.setType(Type.OSPREY);
 	}
 
-	public static int getXSpeed() {
-		return Osprey.xSpeed;
-	}
-
-	public void setXSpeed(int xSpeed) {
-		Osprey.xSpeed = xSpeed;
-	}
 	
-	public void setYSpeed(int ySpeed) {
-		this.ySpeed = ySpeed;
-	}
-	public int getYSpeed() {
-		return this.ySpeed;
-	}
-	public int getMaxYSpeed() {
-		return MAX_Y_SPEED;
-	}
 	
 	/**
 	 * this method will be called whenever the user presses the dive button
 	 * at which point the bird will dive into the water and possibly collect 
 	 * fish or trash. the logic for this action will be contained here.
+	 * 
 	 * @author tim Mazzarelli
 	 */
 	public void dive() {
@@ -91,7 +92,7 @@ public class Osprey extends Bird {
 	
 	/**
 	 * moves the osprey according to location and ySpeed determined by key inputs
-	 * @param g
+	 * 
 	 * @author tim Mazzarelli
 	 */
 	
@@ -108,23 +109,7 @@ public class Osprey extends Bird {
 			this.isDiving = !this.isDiving;
 			this.ySpeed = 0;
 		}
-		if ((this.hitbox.ypoints[0] >= Constants.OSPREY_WATER_LEVEL) && (this.isDiving == false)) {
-			this.hitbox.reset();
-			this.hitbox.addPoint(this.x, Constants.OSPREY_WATER_LEVEL);
-			this.hitbox.addPoint(x, Constants.OSPREY_WATER_LEVEL + height);
-			this.hitbox.addPoint(x + width, Constants.OSPREY_WATER_LEVEL + height);
-			this.hitbox.addPoint(x + width, Constants.OSPREY_WATER_LEVEL);
-						
-		}
-		if ((this.hitbox.ypoints[0] <= 0)) {
-			this.hitbox.reset();
-			this.hitbox.addPoint(this.x, 0);
-			this.hitbox.addPoint(x, height);
-			this.hitbox.addPoint(x + width, height);
-			this.hitbox.addPoint(x + width, 0);
-		}
-		
-		
+		boundaries();
 		
 	}
 	
@@ -142,7 +127,67 @@ public class Osprey extends Bird {
 			}
 		}		
 	}
+
+
+
+	public int getySpeed() {
+		return ySpeed;
+	}
+
+
+
+	public void setYSpeed(int ySpeed) {
+		this.ySpeed = ySpeed;
+	}
+
+
+
+	public int getCurrY() {
+		return currY;
+	}
+
+
+
+	public void setCurrY(int currY) {
+		this.currY = currY;
+	}
+
+
+
+	public boolean isDiving() {
+		return isDiving;
+	}
+
+
+
+	public void setDiving(boolean isDiving) {
+		this.isDiving = isDiving;
+	}
+
+
+
+	public int getMaxYSpeed() {
+		return MAX_Y_SPEED;
+	}
+
+
+
+	public void setXSpeed(int i) {
+		Osprey.xSpeed = i;
+		
+	}
+
+
+
+	public static int getXSpeed() {
+		// TODO Auto-generated method stub
+		return Osprey.xSpeed;
+	}
+
 	
+	
+
+
 	/*
 	
 	@Override

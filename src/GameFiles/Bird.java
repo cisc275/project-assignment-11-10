@@ -9,13 +9,6 @@ import java.io.File;
  */
 public class Bird extends Controllable{
 	
-
-	/**
-	 * describes which bird has been selected
-	 */
-	Type type; 
-	
-	
 	/**
 	 * @param y
 	 * @param x
@@ -29,23 +22,6 @@ public class Bird extends Controllable{
 		super(x,y,width, height);		
 	}
 	
-
-    
-    /**
-     * getter for type
-     */
-	public Type getType() {
-		return type;
-	}
-	
-    /**
-     * setter for type
-     * @param type,
-     * 
-     */
-	public void setType(Type type) {
-		this.type = type;
-	}
 
 
 	/**

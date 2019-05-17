@@ -49,10 +49,9 @@ public class Bush extends NonControllable {
 	
 	@Override
 	public void handleCollision(Fox f) {
+		f.boundaries();
 		f.setxSpeed(-f.getxSpeed());
 		f.setySpeed(-f.getySpeed());
-		
-		
 	}
 	
 	/**

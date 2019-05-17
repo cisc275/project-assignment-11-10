@@ -139,6 +139,7 @@ public class Fox extends Controllable {
 			}
 		}	
 		this.hitbox.translate(3 *(int) this.xSpeed,3 * (int) this.ySpeed);
+		boundaries();
 	}
 
 	/**

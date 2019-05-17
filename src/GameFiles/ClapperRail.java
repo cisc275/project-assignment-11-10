@@ -24,7 +24,6 @@ public class ClapperRail extends Bird {
 	boolean carryStick; 
 	
 	int xSpeed;
-	int ySpeed;
 	static int lives = Constants.CLAPPER_RAIL_INIT_LIVES;
 	Bush closestBush;
 	ArrayList<Bush> bushArr = new ArrayList<Bush>();
@@ -53,63 +52,13 @@ public class ClapperRail extends Bird {
 	
 	/**
 	 * moves clapperrail according to x and y speed
-	 * @param g
+	 * @param none
 	 * @author tim Mazzarelli
 	 */
   
 	public void move() {
 		this.hitbox.translate(this.xSpeed, this.ySpeed);
-		if (this.hitbox.ypoints[0] <= 0) {
-			int x1 = this.hitbox.xpoints[0];
-			int x2 = this.hitbox.xpoints[1];
-			int x3 = this.hitbox.xpoints[2];
-			int x4 = this.hitbox.xpoints[3];
-			
-			this.hitbox.reset();
-			this.hitbox.addPoint(x1, 0);
-			this.hitbox.addPoint(x2, height);
-			this.hitbox.addPoint(x3, height);
-			this.hitbox.addPoint(x4, 0);
-							
-		}
-		
-		if (this.hitbox.ypoints[1] >= View.frame.getHeight()) {
-			int x1 = this.hitbox.xpoints[0];
-			int x2 = this.hitbox.xpoints[1];
-			int x3 = this.hitbox.xpoints[2];
-			int x4 = this.hitbox.xpoints[3];
-			
-			this.hitbox.reset();
-			this.hitbox.addPoint(x1, View.frame.getHeight() - height);
-			this.hitbox.addPoint(x2, View.frame.getHeight());
-			this.hitbox.addPoint(x3, View.frame.getHeight());
-			this.hitbox.addPoint(x4, View.frame.getHeight() - height);			
-		}
-		if (this.hitbox.xpoints[3] >= View.frame.getWidth()) {
-			int y1 = this.hitbox.ypoints[0];
-			int y2 = this.hitbox.ypoints[1];
-			int y3 = this.hitbox.ypoints[2];
-			int y4 = this.hitbox.ypoints[3];
-			
-			this.hitbox.reset();
-			this.hitbox.addPoint(View.frame.getWidth() - width, y1);
-			this.hitbox.addPoint(View.frame.getWidth() - width, y2);
-			this.hitbox.addPoint(View.frame.getWidth(), y3);
-			this.hitbox.addPoint(View.frame.getWidth(), y4);		
-		}
-		
-		if (this.hitbox.xpoints[0] <= 0) {
-			int y1 = this.hitbox.ypoints[0];
-			int y2 = this.hitbox.ypoints[1];
-			int y3 = this.hitbox.ypoints[2];
-			int y4 = this.hitbox.ypoints[3];
-			
-			this.hitbox.reset();
-			this.hitbox.addPoint(0, y1);
-			this.hitbox.addPoint(0, y2);
-			this.hitbox.addPoint(width, y3);
-			this.hitbox.addPoint(width, y4);		
-		}
+		boundaries();
 		
 	}
 	
