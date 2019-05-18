@@ -109,14 +109,19 @@ public class ClapperRail extends Bird {
 		for(Bush b : bushArr) {
 			double tmp;
 			// distance formula
-			double i = Math.pow(b.getX() - x, 2.0) + Math.pow((b.getY() - y), 2.0);
+			double i = Math.pow(b.getX() - hitbox.xpoints[0], 2.0) + Math.pow((b.getY() - hitbox.ypoints[0]), 2.0);
 			tmp = Math.sqrt(i);
+			System.out.print(b + ";           ");
 			if(tmp < d || d == 0) {
 				d = tmp;
 				close = b;
 			}
 		}
+		System.out.println();
+		System.out.println("CR ========== " + hitbox.getBounds());
 		closestBush = close;
+		System.out.println(close);
+		System.out.println();
 		
 	}
 	
