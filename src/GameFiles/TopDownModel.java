@@ -44,10 +44,25 @@ public class TopDownModel extends Model {
     public void handleMove(HashSet<Integer> keyPresses) {
     	cr.setxSpeed(0);
     	cr.setySpeed(0);
-    	
+    	System.out.println(cr.xSpeed);
+    	if(Quiz.answered) {
+    		System.out.println("kill");
+    		keyPresses.clear();
+    		cr.setxSpeed(0);
+        	cr.setySpeed(0);
+    		
+    	}
     	for(Integer key: keyPresses) {
 	    	switch(key) {
+	    	
 	    	case Constants.RIGHT:
+	    		if(Quiz.answered) {
+	        		System.out.println("================================kill==============================");
+	        		keyPresses.clear();
+	        		cr.setxSpeed(0);
+	            	cr.setySpeed(0);
+	        		
+	        	}
 	    		System.out.println("right pressed");
 //	    		if(Quiz.answered) {
 //					cr.setxSpeed(0);
@@ -58,12 +73,34 @@ public class TopDownModel extends Model {
 				
 				break;
 	    	case Constants.LEFT:
+	    		if(Quiz.answered) {
+	        		System.out.println("kill");
+	        		keyPresses.clear();
+	        		cr.setxSpeed(0);
+	            	cr.setySpeed(0);
+	        		
+	        	}
+	    		System.out.println("left pressed");
 				cr.setxSpeed(-cr.getMOVE_AMOUNT());
 				break;
 	    	case Constants.UP:
+	    		if(Quiz.answered) {
+	        		System.out.println("kill");
+	        		keyPresses.clear();
+	        		cr.setxSpeed(0);
+	            	cr.setySpeed(0);
+	        		
+	        	}
 				cr.setySpeed(-cr.getMOVE_AMOUNT());
 				break;
 	    	case Constants.DOWN:
+	    		if(Quiz.answered) {
+	        		System.out.println("kill");
+	        		keyPresses.clear();
+	        		cr.setxSpeed(0);
+	            	cr.setySpeed(0);
+	        		
+	        	}
 	    		cr.setySpeed(cr.getMOVE_AMOUNT());
 				break;
 			}
@@ -94,13 +131,13 @@ public class TopDownModel extends Model {
      */
     public void updateLocation(ArrayList<GameObject> g) {
     	if(Quiz.answered) {
-    		System.out.println("did the thing");
+    		//System.out.println("did the thing");
 			cr.setxSpeed(0);
 			cr.setySpeed(0);
 			Quiz.answered = false;
 		}
     	else {
-    		System.out.println("fak");
+    		//System.out.println("update answered false");
     	}
     	ArrayList<GameObject> toRemove = new ArrayList<GameObject>();
     	for (GameObject a : g) {
