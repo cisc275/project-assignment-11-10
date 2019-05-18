@@ -49,6 +49,8 @@ public class Constants implements Serializable {
 	public final static int OSPREY_MAX_HEIGHT = 600;
 	public final static int OSPREY_WATER_LEVEL = 350;
 	public final static int OSPREY_MIN_SPEED = -5;
+	public static int OSPREY_MAX_DISTANCE;
+	
 	
 	public final static int STICK_HANDLECOLLISION_OFFSET = 30;
 	
@@ -235,7 +237,10 @@ public class Constants implements Serializable {
 	public final static double IMG_SCALE_RATIO_Y = FRAME_Y/600;
 
 
-	public static void setFrameX(int d) { FRAME_X = d; }
+	public static void setFrameX(int d) { 
+		FRAME_X = d; 
+		OSPREY_MAX_DISTANCE = 3*FRAME_X;
+	}
 	public static void setFrameY(int y) { FRAME_Y = y; }
 	public static int getFRAME_X() { return FRAME_X; }
 	public static int getFRAME_Y() { return FRAME_Y; }
