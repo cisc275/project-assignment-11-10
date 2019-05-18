@@ -51,6 +51,7 @@ public class Constants implements Serializable {
 	public final static int OSPREY_MIN_SPEED = -5;
 	public static int OSPREY_MAX_DISTANCE;
 	
+	public final static int POWERUP_HEIGH = 100;
 	
 	public final static int STICK_HANDLECOLLISION_OFFSET = 30;
 	
@@ -68,6 +69,11 @@ public class Constants implements Serializable {
 	
 	public static int FRAME_X;
 	public static int FRAME_Y;
+	
+	
+	/// Doubles
+	public final static double POWERUP_HEIGH_SCALE = 2.0;
+	
 	
 
 	/// Strings

@@ -79,7 +79,7 @@ public class Controller implements KeyListener, ActionListener{
 			model.game.add(((TopDownModel)model).f);
 			model.game.add(((TopDownModel)model).nest);
 			
-			model.game.add(new Powerup(1920, 1000, 50, 50));
+			model.game.add(new Powerup(Constants.FRAME_X, Constants.FRAME_Y - (int)(Constants.POWERUP_HEIGH * Constants.POWERUP_HEIGH_SCALE), 50, 50));
 			model.game.add(new Stick(300,300,40,40));
 			model.game.add(new Stick(500, 250 ,40,40)); 
 			model.game.add(new Stick(400, 400 ,40,40));
