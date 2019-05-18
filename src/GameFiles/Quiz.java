@@ -55,7 +55,7 @@ public class Quiz extends JDialog implements KeyListener{
 	 /**
 	  * whether or not a question has been answered
 	  */
-	 static boolean answered = true;
+	 static boolean answered = false;
 	
 	 /**
 	  * all of the Jbuttons involved in the quiz
@@ -546,6 +546,8 @@ public class Quiz extends JDialog implements KeyListener{
 				if (e.getSource() == right) {
 					System.out.println("right");
 					if(Mate.caughtUp) {
+						View.frame.dispose();
+						answered = true;
 						new EndScreen();
 					}
 					
