@@ -68,7 +68,7 @@ public class ClapperRail extends Bird {
 	public void move() {
 		this.hitbox.translate(this.xSpeed, this.ySpeed);
 		boundaries();
-		
+		this.animate(Constants.CLAPPER_RAIL_ANIMATION_TICK_RATE);
 	}
 	
 	/**

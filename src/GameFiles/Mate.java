@@ -50,6 +50,7 @@ public class Mate extends Bird {
 		else {
 			this.hitbox.translate(0, 0);
 			}
+		this.animate(Constants.MATE_ANIMATION_TICK_RATE);
 	}
 
 

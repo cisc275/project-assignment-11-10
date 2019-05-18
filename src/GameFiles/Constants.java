@@ -36,6 +36,7 @@ public class Constants implements Serializable {
 	public final static int CLAPPER_RAIL_START_LOC_Y = 200;
 	public final static int CLAPPER_RAIL_START_SIZE_X = 100;
 	public final static int CLAPPER_RAIL_START_SIZE_Y = 100;
+	public final static int CLAPPER_RAIL_ANIMATION_TICK_RATE = 1;
 	
 	public final static int CLAPPER_RAIL_INIT_LIVES = 3;
 	
@@ -129,7 +130,8 @@ public class Constants implements Serializable {
 	public final static String IMG_SPACEBAR_5 = "img/spacebar/spacebar_5.png";
 	public final static String IMG_SPACEBAR_6 = "img/spacebar/spacebar_6.png";
 	public final static String IMG_STICK = "img/Stick.png";
-	public final static String IMG_THARVEY = "img/Tharvey.png";
+	public final static String IMG_THARVEY_1 = "img/cr/Tharvey1.png";
+	public final static String IMG_THARVEY_2 = "img/cr/Tharvey2.png";
 	public final static String IMG_TRASH = "img/Trash.png";
 	public final static String IMG_UP_KEY = "img/up.png";
 	
@@ -153,7 +155,7 @@ public class Constants implements Serializable {
 																		IMG_SPACEBAR_5, IMG_SPACEBAR_4, IMG_SPACEBAR_3, IMG_SPACEBAR_2};
 	public final static String[] ANIMATION_STICK = {IMG_STICK};
 	public final static String[] ANIMATION_RIGHT_KEY = {IMG_RIGHT_KEY};
-	public final static String[] ANIMATION_THARVEY= {IMG_THARVEY};
+	public final static String[] ANIMATION_THARVEY= {IMG_THARVEY_1, IMG_THARVEY_2};
 	public final static String[] ANIMATION_TRASH = {IMG_TRASH};
 	public final static String[] ANIMATION_UP_KEY = {IMG_UP_KEY};
 	

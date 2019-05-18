@@ -113,13 +113,7 @@ public class Osprey extends Bird {
 			this.ySpeed = 0;
 		}
 		boundaries();
-		this.curImgTickCount ++;
-		if (curImgTickCount == Constants.FISH_ANIMATION_TICK_RATE) {
-			curImg = (curImg + 1) % this.imgFileName.length;
-			System.out.println(curImg);
-			curImgTickCount = 0;
-			//this.visible = false;
-		}
+		this.animate(Constants.OSPREY_ANIMATION_TICK_RATE);
 	}
 	
 	/**
