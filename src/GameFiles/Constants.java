@@ -83,7 +83,13 @@ public class Constants implements Serializable {
 	public final static String IMG_RIGHT_KEY = "img/right.png";
 	public final static String IMG_SELECT_CLAPPER_RAIL = "img/selectCR.png";
 	public final static String IMG_SELECT_OSPREY = "img/selectOsprey.png";
-	public final static String IMG_SPACEBAR = "img/spacebar.png";
+	public final static String IMG_SPACEBAR = "img/spacebar/spacebar.png";
+	public final static String IMG_SPACEBAR_1 = "img/spacebar/spacebar_1.png";
+	public final static String IMG_SPACEBAR_2 = "img/spacebar/spacebar_2.png";
+	public final static String IMG_SPACEBAR_3 = "img/spacebar/spacebar_3.png";
+	public final static String IMG_SPACEBAR_4 = "img/spacebar/spacebar_4.png";
+	public final static String IMG_SPACEBAR_5 = "img/spacebar/spacebar_5.png";
+	public final static String IMG_SPACEBAR_6 = "img/spacebar/spacebar_6.png";
 	public final static String IMG_STICK = "img/Stick.png";
 	public final static String IMG_THARVEY = "img/Tharvey.png";
 	public final static String IMG_TRASH = "img/Trash.png";
@@ -105,7 +111,8 @@ public class Constants implements Serializable {
 	public final static String[] ANIMATION_OSPREY = {IMG_OSPREY};
 	public final static String[] ANIMATION_OSPREYDIVE = {IMG_OSPREY_DIVE};
 	public final static String[] ANIMATION_POLY_HARVEY = {IMG_POLY_HARVEY};
-	public final static String[] ANIMATION_SPACEBAR = {IMG_SPACEBAR};
+	public final static String[] ANIMATION_SPACEBAR = {IMG_SPACEBAR_1, IMG_SPACEBAR_2, IMG_SPACEBAR_3, IMG_SPACEBAR_4, IMG_SPACEBAR_5, IMG_SPACEBAR_6,
+																		IMG_SPACEBAR_5, IMG_SPACEBAR_4, IMG_SPACEBAR_3, IMG_SPACEBAR_2};
 	public final static String[] ANIMATION_STICK = {IMG_STICK};
 	public final static String[] ANIMATION_RIGHT_KEY = {IMG_RIGHT_KEY};
 	public final static String[] ANIMATION_THARVEY= {IMG_THARVEY};
