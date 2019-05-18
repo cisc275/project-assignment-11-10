@@ -218,7 +218,7 @@ public class GameObject implements Serializable{
 		this.curImgTickCount ++;
 		if (curImgTickCount == constant) {
 			curImg = (curImg + 1) % this.imgFileName.length;
-			System.out.println(curImg);
+			//System.out.println(curImg);
 			curImgTickCount = 0;
 			//this.visible = false;
 		}	
