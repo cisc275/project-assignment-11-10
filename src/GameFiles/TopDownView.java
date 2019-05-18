@@ -87,7 +87,7 @@ public class TopDownView extends View{
 			//	g.setClip(thing.hitbox);
 				if (thing instanceof TutorialObject) System.out.println("Hit");
 			//	g.drawPolygon(thing.hitbox);
-				g.drawImage(tdv.getImg(thing, 0),thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
+				g.drawImage(tdv.getImg(thing, thing.curImg),thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
 			}	
 			// trying to draw life counter
 			/*
