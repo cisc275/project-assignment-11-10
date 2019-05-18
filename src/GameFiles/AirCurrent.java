@@ -62,7 +62,7 @@ public class AirCurrent extends Collectable {
 	@Override
 	public void move() {
 		this.hitbox.translate(this.xSpeed, 0);
-			if(this.hitbox.xpoints[1] <= 0) {
+			if(this.hitbox.xpoints[2] <= 0) {
 				acReset();
 			}
 		}
