@@ -82,9 +82,10 @@ public class Stick extends Collectable{
 			this.hitbox.reset();
 			n.hitbox.reset();
 			count++;
-			n.height = n.height + 30;
-			n.width = n.width + 30;
+			n.height = n.height + Constants.STICK_HANDLECOLLISION_OFFSET;
+			n.width = n.width + Constants.STICK_HANDLECOLLISION_OFFSET;
 			n.resetPoly();
+			n.curImg ++;
 		}
 	}
 	
