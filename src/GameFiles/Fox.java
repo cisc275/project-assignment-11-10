@@ -128,6 +128,18 @@ public class Fox extends Controllable {
 			int smoother = randSmooth/50;
 			int multX = (int) (Math.random() * 2);
 			int multY = (int) (Math.random() * 2);	
+			// ensures non-zero random movement
+			switch((int)xSpeed) {
+			case 0 :
+				xSpeed = ySpeed;
+				break;
+			}
+			switch((int)ySpeed) {
+			case 0 :
+				ySpeed = xSpeed;
+				break;
+			}
+			// assigns random movement
 			switch(smoother) {
 			case 1 :
 				randSmooth = 0;

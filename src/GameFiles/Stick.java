@@ -46,6 +46,7 @@ public class Stick extends Collectable{
 		this.xSpeed = 0;
 		this.ySpeed = 0;
 		this.imgFileName = Constants.ANIMATION_STICK;
+		this.curImg = randy.nextInt(imgFileName.length);
 		this.setType(Type.STICK);
 		
 	}
@@ -79,7 +80,7 @@ public class Stick extends Collectable{
 	@Override
 	public void handleCollision(Nest n) {
 		if (this.collidesWith(n)) {
-			this.hitbox.reset();
+			hitbox.reset();
 			n.hitbox.reset();
 			count++;
 			n.height = n.height + Constants.STICK_HANDLECOLLISION_OFFSET;
