@@ -75,8 +75,7 @@ public class Constants implements Serializable {
 	
 	/// Doubles
 	public static double POWERUP_HEIGH_SCALE = 2.0;
-	public static double POWERUP_SCALE_X = FRAME_X/1920;
-	public static double POWERUP_SCALE_Y = FRAME_Y/1080;
+	public static double POWERUP_SCALE = 1.0;
 	
 	public static double STICK_SCALE = 1.0;
 	
