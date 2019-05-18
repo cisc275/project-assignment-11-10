@@ -39,13 +39,11 @@ public class Fish extends Collectable {
 	@Override
 	public void handleCollision(Osprey o) {
 		resetPoly();
-		
-		if (Osprey.xSpeed >= Constants.FISH_X_SPEED_TEST) {
-			o.setXSpeed((Osprey.getXSpeed() - Constants.FISH_AC));
-		}
-			else {o.setXSpeed(Constants.FISH_X_SPEED_TEST);
-			};
-		}
+		o.setXSpeed((Osprey.getXSpeed() - Constants.FISH_AC));
+		if (Osprey.xSpeed <= Constants.FISH_X_SPEED_TEST) {
+			o.setXSpeed(Constants.FISH_X_SPEED_TEST);
+			}
+	}
 	
 	
 //	 creates image for fish
