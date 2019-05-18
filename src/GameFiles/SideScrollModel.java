@@ -68,7 +68,6 @@ public class SideScrollModel extends Model {
 					break;
 				case Constants.DOWN:
 					if(!o.isDiving) {
-						
 						 o.setYSpeed(o.getMaxYSpeed());
 					}
 					

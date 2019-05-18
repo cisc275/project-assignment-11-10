@@ -92,7 +92,7 @@ public class SideScrollView extends View{
     public void updateView(ArrayList<GameObject> g) {
     	game = g;
     	mapNum = (int)((Osprey.distance/Osprey.maxDistance)*numOfMaps);
-    	System.out.println(Osprey.distance/Osprey.maxDistance);
+    //	System.out.println(Osprey.distance/Osprey.maxDistance);
     	if(mapNum>numOfMaps-1)
     		mapNum = numOfMaps-1;
     	drawPanel.repaint();
@@ -136,8 +136,9 @@ public class SideScrollView extends View{
 		    		if (thing.visible != true) {}
 			    		else {
 			    			if (ssv.debugHitBoxes)g.drawPolygon(thing.hitbox);
-			    			g.drawImage(ssv.getImg(thing, thing.curImg), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
-				    		if (thing.hitbox.npoints > 6) {
+			    			if (thing.hitbox.npoints == 5);
+			    			if (thing.hitbox.npoints != 5)	g.drawImage(ssv.getImg(thing, thing.curImg), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
+			    			if (thing.hitbox.npoints > 6) {
 				    			g.drawImage(ssv.getImg(thing, thing.curImg), thing.hitbox.xpoints[4], thing.hitbox.ypoints[4], this);
 				    		}
 		    		}
