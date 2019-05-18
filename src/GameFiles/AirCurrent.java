@@ -43,9 +43,9 @@ public class AirCurrent extends Collectable {
 	
 	public Polygon acReset() {
 		this.hitbox.reset();
-		this.hitbox.addPoint(x, y);
-		this.hitbox.addPoint(x + width, y);
-		this.hitbox.addPoint(width/ 2 + x, y + height);
+		this.hitbox.addPoint((int)(x + width/4),(int)(y + height/4));
+		this.hitbox.addPoint((int)(x + 3*width/4),(int)(y + height/4));
+		this.hitbox.addPoint((int)(width/2 + x),(int)(y + height));
 		return this.hitbox;
 	}
 	
@@ -79,7 +79,7 @@ public class AirCurrent extends Collectable {
 		acReset();
 		o.setXSpeed((Osprey.getXSpeed() + Constants.FISH_AC));
 		if (Osprey.xSpeed >= Constants.OSPREY_MIN_SPEED) {
-			o.setXSpeed(-2);
+			o.setXSpeed(Constants.OSPREY_MIN_SPEED);
 		}
 	}
 	
