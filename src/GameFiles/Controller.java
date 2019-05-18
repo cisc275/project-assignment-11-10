@@ -149,15 +149,24 @@ public class Controller implements KeyListener, ActionListener{
     			model.updateLocation(model.game);
     			view.updateView(model.game);
     			if (Mate.caughtUp) {
+    				for(GameObject g : model.game) {
+    					g.visible = false;
+    				}
     				new Quiz("sides");
     				time.stop();
     			}
     			else if(Stick.count == 3) {
+    				for(GameObject g : model.game) {
+    					g.visible = false;
+    				}
     				View.frame.dispose();
     				new EndScreen();
     				time.stop();
     			}
     			else if(ClapperRail.lives == 0) {
+    				for(GameObject g : model.game) {
+    					g.visible = false;
+    				}
     				View.frame.dispose();
     				new LoseScreen();
     				time.stop();
