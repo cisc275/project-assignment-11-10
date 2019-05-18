@@ -56,6 +56,7 @@ public class Constants implements Serializable {
 	public final static int OSPREY_WATER_LEVEL = 350;
 	public final static int OSPREY_MIN_SPEED = -5;
 	public final static int OSPREY_MAX_DISTANCE = 3000;
+	public final static int OSPREY_ANIMATION_TICK_RATE = 4;
 	
 	public final static int POWERUP_HEIGH = 100;
 	public final static int POWERUP_SIZE = 50;
@@ -108,7 +109,9 @@ public class Constants implements Serializable {
 	public final static String IMG_MATE = "img/cr.png";
 	public final static String IMG_MODEL_DUMP_STATUS_MSG = "img/modelDumpStatusMsg.png";
 	public final static String IMG_NEST = "img/nest.png";
-	public final static String IMG_OSPREY = "img/osprey_right.png";
+	public final static String IMG_OSPREY_1 = "img/osprey/osprey1.png";
+	public final static String IMG_OSPREY_2 = "img/osprey/osprey2.png";
+	public final static String IMG_OSPREY_3 = "img/osprey/osprey3.png";
 	public final static String IMG_OSPREY_DIVE = "img/osprey_dive.png";
 	public final static String IMG_POLY_HARVEY = "img/PolyHarvey.png";
 	public final static String IMG_RIGHT_KEY = "img/right.png";
@@ -139,7 +142,7 @@ public class Constants implements Serializable {
 	public final static String[] ANIMATION_MATE = {IMG_MATE};
 	public final static String[] ANIMATION_MODEL_DUMP_STATUS_MSG = {IMG_MODEL_DUMP_STATUS_MSG};
 	public final static String[] ANIMATION_NEST = {IMG_NEST};
-	public final static String[] ANIMATION_OSPREY = {IMG_OSPREY};
+	public final static String[] ANIMATION_OSPREY = {IMG_OSPREY_1,IMG_OSPREY_3,IMG_OSPREY_1,IMG_OSPREY_2};
 	public final static String[] ANIMATION_OSPREYDIVE = {IMG_OSPREY_DIVE};
 	public final static String[] ANIMATION_POLY_HARVEY = {IMG_POLY_HARVEY};
 	public final static String[] ANIMATION_SPACEBAR = {IMG_SPACEBAR_1, IMG_SPACEBAR_2, IMG_SPACEBAR_3, IMG_SPACEBAR_4, IMG_SPACEBAR_5, IMG_SPACEBAR_6,
