@@ -137,7 +137,7 @@ public class SideScrollView extends View{
 			    		else {
 			    			if (ssv.debugHitBoxes)g.drawPolygon(thing.hitbox);
 			    			g.drawImage(ssv.getImg(thing, 0), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
-				    		if (thing.hitbox.npoints > 4) {
+				    		if (thing.hitbox.npoints > 6) {
 				    			g.drawImage(ssv.getImg(thing, 0), thing.hitbox.xpoints[4], thing.hitbox.ypoints[4], this);
 				    		}
 		    		}
