@@ -86,6 +86,7 @@ public class Controller implements KeyListener, ActionListener{
 			model.game.add(new Stick(500, 250, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE))); 
 			model.game.add(new Stick(400, 400, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE)));
 			model.game.add(new TutorialObject(300, 150, 483, 110, Constants.ANIMATION_SPACEBAR));
+			model.game.add(new TutorialObject(700, 300, 122, 122, Constants.ANIMATION_UP_KEY));
 			Bush b1 = new Bush(500, 500,150,150);
 			model.game.add(b1);
 			((TopDownModel)model).cr.bushArr.add(b1);

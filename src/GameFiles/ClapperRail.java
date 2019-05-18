@@ -118,11 +118,11 @@ public class ClapperRail extends Bird {
 				close = b;
 			}
 		}
-		System.out.println();
+		/*System.out.println();
 		System.out.println("CR ========== " + hitbox.getBounds());
 		closestBush = close;
 		System.out.println(close);
-		System.out.println();
+		System.out.println();*/
 		
 	}
 	
