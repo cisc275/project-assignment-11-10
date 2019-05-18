@@ -101,12 +101,8 @@ public class Osprey extends Bird {
 	@Override
 	public void move() {
 		
-		this.hitbox.translate(0, this.ySpeed);
-		
+		this.hitbox.translate(0, this.ySpeed);		
 		distance -= Osprey.xSpeed; 
-		if (this.hitbox.ypoints[0] >= (View.frame.getHeight() * 0.9)) {
-			this.ySpeed = -Constants.OSPREY_DIVESPEED;
-		}
 		if ((this.hitbox.ypoints[0] == this.currY) && (this.isDiving == true)) {
 			this.isDiving = !this.isDiving;
 			this.ySpeed = 0;
