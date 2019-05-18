@@ -133,7 +133,13 @@ public class Constants implements Serializable {
 	public final static String IMG_THARVEY_1 = "img/cr/Tharvey1.png";
 	public final static String IMG_THARVEY_2 = "img/cr/Tharvey2.png";
 	public final static String IMG_TRASH = "img/Trash.png";
-	public final static String IMG_UP_KEY = "img/up.png";
+	public final static String IMG_UP_KEY = "img/up/up.png";
+	public final static String IMG_UP_KEY_1 = "img/up/up_1.png";
+	public final static String IMG_UP_KEY_2 = "img/up/up_2.png";
+	public final static String IMG_UP_KEY_3 = "img/up/up_3.png";
+	public final static String IMG_UP_KEY_4 = "img/up/up_4.png";
+	public final static String IMG_UP_KEY_5 = "img/up/up_5.png";
+	public final static String IMG_UP_KEY_6 = "img/up/up_6.png";
 	
 	// Arrays of String file paths
 	
@@ -157,7 +163,8 @@ public class Constants implements Serializable {
 	public final static String[] ANIMATION_RIGHT_KEY = {IMG_RIGHT_KEY};
 	public final static String[] ANIMATION_THARVEY= {IMG_THARVEY_1, IMG_THARVEY_2};
 	public final static String[] ANIMATION_TRASH = {IMG_TRASH};
-	public final static String[] ANIMATION_UP_KEY = {IMG_UP_KEY};
+	public final static String[] ANIMATION_UP_KEY = {IMG_UP_KEY_1, IMG_UP_KEY_2, IMG_UP_KEY_3, IMG_UP_KEY_4, IMG_UP_KEY_5, IMG_UP_KEY_6, 
+																	IMG_UP_KEY_5, IMG_UP_KEY_4, IMG_UP_KEY_3, IMG_UP_KEY_2};
 	
 	// Osprey Questions
 	
