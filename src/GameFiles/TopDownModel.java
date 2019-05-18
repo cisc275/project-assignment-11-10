@@ -56,51 +56,17 @@ public class TopDownModel extends Model {
 	    	switch(key) {
 	    	
 	    	case Constants.RIGHT:
-	    		if(Powerup.power) {
-	        		System.out.println("================================kill==============================");
-	        		keyPresses.clear();
-	        		cr.setxSpeed(0);
-	            	cr.setySpeed(0);
-	            	Powerup.power = false;
-	        	}
 	    		System.out.println("right pressed");
-//	    		if(Powerup.power) {
-//					cr.setxSpeed(0);
-//					cr.setySpeed(0);
-//					Powerup.power = false;
-//				}
 				cr.setxSpeed(cr.getMOVE_AMOUNT());
-				
 				break;
 	    	case Constants.LEFT:
-	    		if(Powerup.power) {
-	        		System.out.println("================================kill==============================");
-	        		keyPresses.clear();
-	        		cr.setxSpeed(0);
-	            	cr.setySpeed(0);
-	        		Powerup.power = false;
-	        	}
 	    		System.out.println("left pressed");
 				cr.setxSpeed(-cr.getMOVE_AMOUNT());
 				break;
 	    	case Constants.UP:
-	    		if(Powerup.power) {
-	        		System.out.println("================================kill==============================");
-	        		keyPresses.clear();
-	        		cr.setxSpeed(0);
-	            	cr.setySpeed(0);
-	            	Powerup.power = false;
-	        	}
 				cr.setySpeed(-cr.getMOVE_AMOUNT());
 				break;
 	    	case Constants.DOWN:
-	    		if(Powerup.power) {
-	        		System.out.println("================================kill==============================");
-	        		keyPresses.clear();
-	        		cr.setxSpeed(0);
-	            	cr.setySpeed(0);
-	            	Powerup.power = false;
-	        	}
 	    		cr.setySpeed(cr.getMOVE_AMOUNT());
 				break;
 			}
