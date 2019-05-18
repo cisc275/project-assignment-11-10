@@ -53,6 +53,8 @@ public class Constants implements Serializable {
 	public final static int LINUX_SCREEN_SCALE_X = 16;
 	public final static int LINUX_SCREEN_SCALE_Y = 9;
 	
+	public final static int INVISIBLE_WALL_POINTS = 5;
+	
 	public final static int MATE_ANIMATION_TICK_RATE = 4;
 	
 	public final static int OSPREY_STARTX = 100;
