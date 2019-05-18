@@ -120,6 +120,12 @@ public class View extends JFrame implements Serializable {
 		}
 	}
 	
+	
+	/**
+	 * @param g The GameObject to be scaled
+	 * @return 	The default scale of the image
+	 * @author Mark Wolgin
+	 */
 	public ArrayList<BufferedImage> getScaledImgs(GameObject g) {
 		ArrayList<BufferedImage> toReturn = new ArrayList<BufferedImage>();
 		BufferedImage ig, scaledImg;
@@ -154,6 +160,14 @@ public class View extends JFrame implements Serializable {
 		return toReturn;
 	}
 
+	/**
+	 * Adds the GameObject and new ArrayList to the Hashtable if it was added after initTable was called.
+	 * NOTE: This adds the image to the ArrayList.
+	 * @param g GameObject to add the image of
+	 * @param i	The location in the array that was tried.
+	 * @return	Returns the newly created image
+	 * @author Mark Wolgin
+	 */
 	private BufferedImage addImage(GameObject g, int i) {
 		ArrayList<BufferedImage> toReturn = new ArrayList<BufferedImage>();
 		BufferedImage ig, scaledImg;
@@ -175,6 +189,14 @@ public class View extends JFrame implements Serializable {
 		return toReturn.get(i);
 	}
 	
+	
+	/**
+	 * Adds an image (typicaly a new scaled version of it) to the ArrayList associated to the Hashtabele
+	 * NOTE: This adds the image to the ArrayList.
+	 * @param g GameObject to add the image of
+	 * @return	The new image
+	 * @author Mark Wolgin
+	 */
 	private BufferedImage addImageToArray(GameObject g) {
 		BufferedImage newScaled;
 		
