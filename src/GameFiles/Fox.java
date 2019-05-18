@@ -57,6 +57,7 @@ public class Fox extends Controllable {
 		this.xSpeed = 1;
 		this.ySpeed = -2;
 		this.imgFileName = Constants.ANIMATION_FOX;
+		this.curImg = randy.nextInt(imgFileName.length);
 		//try {
     	//	this.img = ImageIO.read(new File(Constants.IMG_FOX));
 		//} catch (IOException e) {

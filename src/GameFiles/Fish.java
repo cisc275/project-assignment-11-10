@@ -27,6 +27,7 @@ public class Fish extends Collectable {
 		super(x,y,width,height);
 		//this.img = createImage();
 		this.imgFileName = Constants.ANIMATION_FISH;
+		this.curImg = randy.nextInt(imgFileName.length);
 	}
 	
 	
@@ -43,6 +44,21 @@ public class Fish extends Collectable {
 		if (Osprey.xSpeed <= Constants.FISH_X_SPEED_TEST) {
 			o.setXSpeed(Constants.FISH_X_SPEED_TEST);
 			}
+	}
+	
+	@Override
+	public void move() {
+		this.hitbox.translate(this.xSpeed, 0);
+		if(this.hitbox.xpoints[3] <= 0) {
+			resetPoly();
+		}
+		this.curImgTickCount ++;
+		if (curImgTickCount == Constants.FISH_ANIMATION_TICK_RATE) {
+			curImg = (curImg + 1) % this.imgFileName.length;
+			System.out.println(curImg);
+			curImgTickCount = 0;
+			//this.visible = false;
+		}		
 	}
 	
 	

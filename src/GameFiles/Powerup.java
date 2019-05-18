@@ -23,6 +23,7 @@ public class Powerup extends Collectable {
 		super(x, y, width, height);
 		this.xSpeed = -60;
 		this.imgFileName = Constants.ANIMATION_THARVEY;
+		this.curImg = randy.nextInt(imgFileName.length);
 	}
 
 	/**

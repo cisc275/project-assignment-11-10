@@ -39,6 +39,7 @@ public class Constants implements Serializable {
 	
 	public final static int FISH_AC = 5;
 	public final static int FISH_X_SPEED_TEST = -50;
+	public final static int FISH_ANIMATION_TICK_RATE = 2;
 	
 	public final static int FOX_START_LOC_X = 400;
 	public final static int FOX_START_LOC_Y = 400;
@@ -70,6 +71,7 @@ public class Constants implements Serializable {
 	
 	public final static int TO_ANIMATION_TICK_RATE = 2;
 	
+	
 	public final static int TIMER_TICK_RATE = 50;
 	
 	public final static int TRASH_AC = 5;
@@ -92,7 +94,9 @@ public class Constants implements Serializable {
 	public final static String IMG_CLAPPER_RAIL_BACKGROUND = "img/cBackground.png";
 	public final static String IMG_BUSH = "img/bush.png";
 	public final static String IMG_DOWN_KEY = "img/down.png";
-	public final static String IMG_FISH = "img/fish_west1.png";
+	public final static String IMG_FISH_1 = "img/fish/fish_west1.png";
+	public final static String IMG_FISH_2 = "img/fish/fish_west2.png";
+	public final static String IMG_FISH_3 = "img/fish/fish_west3.png";
 	public final static String IMG_FOX = "img/ee.png";
 	public final static String IMG_LEFT_KEY = "img/left.png";
 	public final static String IMG_MATE = "img/cr.png";
@@ -124,7 +128,7 @@ public class Constants implements Serializable {
 	public final static String[] ANIMATION_BUSH = {IMG_BUSH};
 	public final static String[] ANIMATION_DOWNKEY= {IMG_DOWN_KEY};
 	public final static String[] ANIMATION_FOX = {IMG_FOX};
-	public final static String[] ANIMATION_FISH = {IMG_FISH};
+	public final static String[] ANIMATION_FISH = {IMG_FISH_1, IMG_FISH_2, IMG_FISH_1, IMG_FISH_3};
 	public final static String[] ANIMATION_LEFT_KEY = {IMG_LEFT_KEY};
 	public final static String[] ANIMATION_MATE = {IMG_MATE};
 	public final static String[] ANIMATION_MODEL_DUMP_STATUS_MSG = {IMG_MODEL_DUMP_STATUS_MSG};

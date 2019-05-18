@@ -28,6 +28,7 @@ public class Mate extends Bird {
 	public Mate(int x, int y, int width, int height) {
 		super(x,y,width,height);
 		this.imgFileName = Constants.ANIMATION_OSPREY;
+		this.curImg = randy.nextInt(imgFileName.length);
 		Mate.caughtUp = false;
 		this.xSpeed = -10;
 	
