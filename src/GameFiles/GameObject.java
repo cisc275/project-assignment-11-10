@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 /**
@@ -72,7 +73,7 @@ public class GameObject implements Serializable{
 	
 	private Type type;
 
-	
+	protected Random randy;
 
 	/**
 	 * @param x
@@ -92,6 +93,7 @@ public class GameObject implements Serializable{
 		this.curImg = 0;
 		this.curImgTickCount = 0;
 		this.visible = true;
+		randy = new Random();
 		resetPoly();
 	}
 	

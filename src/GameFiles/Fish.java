@@ -27,6 +27,7 @@ public class Fish extends Collectable {
 		super(x,y,width,height);
 		//this.img = createImage();
 		this.imgFileName = Constants.ANIMATION_FISH;
+		this.curImg = randy.nextInt(imgFileName.length);
 	}
 	
 	

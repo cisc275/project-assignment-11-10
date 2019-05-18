@@ -64,6 +64,7 @@ public class Osprey extends Bird {
 		super(x, y, width, height);
 		//createImage();
 		this.imgFileName = Constants.ANIMATION_OSPREY;
+		this.curImg = randy.nextInt(imgFileName.length);
 	//	this.img = imgs[0];
 		Osprey.xSpeed = -10;
 		this.ySpeed = 0;

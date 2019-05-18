@@ -54,6 +54,7 @@ public class ClapperRail extends Bird {
 		this.xSpeed = 0;
 		this.ySpeed = 0;
 		this.imgFileName = Constants.ANIMATION_THARVEY;
+		this.curImg = randy.nextInt(imgFileName.length);
 		//this.img = createImage();
 	}
 	
