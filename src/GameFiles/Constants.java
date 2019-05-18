@@ -52,6 +52,8 @@ public class Constants implements Serializable {
 	public final static int LINUX_SCREEN_SCALE_X = 16;
 	public final static int LINUX_SCREEN_SCALE_Y = 9;
 	
+	public final static int MATE_ANIMATION_TICK_RATE = 4;
+	
 	public final static int OSPREY_STARTX = 100;
 	public final static int OSPREY_DIVESPEED = 50;
 	public final static int OSPREY_MAX_HEIGHT = 600;
