@@ -30,6 +30,8 @@ public class Constants implements Serializable {
 	public final static int SPACE = 32;
 	public final static int ESCAPE = 27;
 	
+	public final static int AIRCURRENT_ANIMATION_TICK_RATE = 3;
+	
 	public final static int CLAPPER_RAIL_START_LOC_X = 400;
 	public final static int CLAPPER_RAIL_START_LOC_Y = 200;
 	public final static int CLAPPER_RAIL_START_SIZE_X = 100;

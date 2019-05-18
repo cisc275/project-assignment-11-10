@@ -66,7 +66,7 @@ public class AirCurrent extends Collectable {
 			if(this.hitbox.xpoints[2] <= 0) {
 				acReset();
 			}
-			animate();
+			animate(Constants.AIRCURRENT_ANIMATION_TICK_RATE);
 	}
 	
 	

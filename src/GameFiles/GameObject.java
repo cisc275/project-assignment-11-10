@@ -214,9 +214,9 @@ public class GameObject implements Serializable{
 		return img;
 	}
 	
-	public void animate() {
+	public void animate(int constant) {
 		this.curImgTickCount ++;
-		if (curImgTickCount == Constants.FISH_ANIMATION_TICK_RATE) {
+		if (curImgTickCount == constant) {
 			curImg = (curImg + 1) % this.imgFileName.length;
 			System.out.println(curImg);
 			curImgTickCount = 0;

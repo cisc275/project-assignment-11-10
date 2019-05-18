@@ -52,7 +52,7 @@ public class Fish extends Collectable {
 		if(this.hitbox.xpoints[3] <= 0) {
 			resetPoly();
 		}
-		animate();	
+		animate(Constants.FISH_ANIMATION_TICK_RATE);	
 	}
 	
 	
