@@ -122,7 +122,7 @@ public class Controller implements KeyListener, ActionListener{
 			model.game.add(backOne);
 			model.game.add(p);
 			model.game.add(((SideScrollModel)model).o);
-			model.game.add(new InvisibleWall(0, 500, 1920, 50));
+			model.game.add(new InvisibleWall(0, Constants.OSPREY_WATER_LEVEL, 1920, 50));
 			model.game.add(f);
 			model.game.add(f2);
 			model.game.add(f3);

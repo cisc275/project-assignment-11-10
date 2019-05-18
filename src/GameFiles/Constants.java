@@ -60,7 +60,7 @@ public class Constants implements Serializable {
 	public final static int OSPREY_STARTX = 100;
 	public final static int OSPREY_DIVESPEED = 50;
 	public final static int OSPREY_MAX_HEIGHT = 600;
-	public final static int OSPREY_WATER_LEVEL = 350;
+	public final static int OSPREY_WATER_LEVEL = 400;
 	public final static int OSPREY_MIN_SPEED = -5;
 	public final static int OSPREY_MAX_DISTANCE = 3000;
 	public final static int OSPREY_ANIMATION_TICK_RATE = 4;

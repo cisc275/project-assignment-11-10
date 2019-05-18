@@ -62,10 +62,8 @@ public class Osprey extends Bird {
 
 	public Osprey(int x, int y, int width, int height) {
 		super(x, y, width, height);
-		//createImage();
 		this.imgFileName = Constants.ANIMATION_OSPREY;
 		this.curImg = randy.nextInt(imgFileName.length);
-	//	this.img = imgs[0];
 		Osprey.xSpeed = -10;
 		this.ySpeed = 0;
 		this.isDiving = false;
@@ -84,15 +82,12 @@ public class Osprey extends Bird {
 	 * @author tim Mazzarelli
 	 */
 	public void dive() {
-		if (this.hitbox.ypoints[0] <= Constants.OSPREY_WATER_LEVEL) {
 			this.isDiving = !this.isDiving;
 			this.ySpeed = Constants.OSPREY_DIVESPEED;
 			this.currY = this.hitbox.ypoints[0];
 			this.hitbox.translate(0, this.ySpeed);
-			
 		}
 		
-	}
 	
 	/**
 	 * moves the osprey according to location and ySpeed determined by key inputs
@@ -108,7 +103,6 @@ public class Osprey extends Bird {
 		}	
 		distance -= Osprey.xSpeed; 
 		if ((this.hitbox.ypoints[0] <= this.currY) && (this.isDiving == true)) {
-			System.out.println("hello");
 			this.isDiving = !this.isDiving;
 			this.ySpeed = 0;
 		}

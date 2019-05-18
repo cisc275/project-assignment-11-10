@@ -448,41 +448,43 @@ public class Quiz extends JDialog implements KeyListener{
 	 */
 	
 	public void buttonHandling(JButton correct, JButton incorrect, JButton veryWrong) {
-		right = correct;
-		wrong = incorrect;
-		mW = veryWrong;
+		correct.setText(right.getText());
+		incorrect.setText(wrong.getText());
+		veryWrong.setText(mW.getText());
 		ArrayList<JButton> buttons = new ArrayList<JButton>();
-		Random l = new Random();
-		int answerOrder = l.nextInt(6);
+		first = new JButton();
+		second = new JButton();
+		third = new JButton();
+		Random r = new Random();
+		int answerOrder = r.nextInt(6);
 		switch(answerOrder) {
-			case 0: first = right;
-					second = wrong;
-					third = mW;
+			case 0: first.setText(correct.getText());
+					second.setText(incorrect.getText());
+					third.setText(veryWrong.getText());
 					break;
-			case 1: first = right;
-					second = mW;
-					third = wrong;
+			case 1: first.setText(correct.getText());
+					second.setText(veryWrong.getText());
+					third.setText(incorrect.getText());
 					break;
-			case 2: first = wrong;
-					second = right;
-					third = mW;
+			case 2: first.setText(incorrect.getText());
+					second.setText(correct.getText());
+					third.setText(veryWrong.getText());
 					break;
-			case 3: first = wrong;
-					second = mW;
-					third = right;
+			case 3: first.setText(incorrect.getText());
+					second.setText(veryWrong.getText());
+					third.setText(correct.getText());
 					break;
-			case 4: first = mW;
-					second = wrong;
-					third = right;
+			case 4: first.setText(veryWrong.getText());
+					second.setText(incorrect.getText());
+					third.setText(correct.getText());
 					break;
 			case 5: 
-					first = mW;
-					second = right;
-					third = wrong;
+					first.setText(veryWrong.getText());
+					second.setText(correct.getText());
+					third.setText(incorrect.getText());
 					break;
 			
 		}
-		
 		first.setText("A. " + first.getText());
 		second.setText("B. " + second.getText());
 		third.setText("C. " + third.getText());
@@ -503,6 +505,7 @@ public class Quiz extends JDialog implements KeyListener{
         	b.setFont(new Font("Serif", Font.BOLD, 15));
         	b.setBorderPainted(false);
         	p.add(b);
+    
 		}
 	}
 	
@@ -513,15 +516,6 @@ public class Quiz extends JDialog implements KeyListener{
 		new Quiz("td");
 	}
 	
-	
-	/**
-	 * @param none
-	 * 
-	 * adds an ActionListener to each JButton 
-	 *  
-	 * 
-	 * @author tim mazzarelli
-	 */
 	
 	
 	/**
@@ -543,22 +537,40 @@ public class Quiz extends JDialog implements KeyListener{
 		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
-				if (e.getSource() == right) {
-					System.out.println("right");
-					if(Mate.caughtUp) {
-						View.frame.dispose();
-						answered = true;
-						new EndScreen();
+				if (e.getSource() == first) {
+					if (first.getText().equals("A. " + right.getText())) {
+						if(Mate.caughtUp) {
+							View.frame.dispose();
+							answered = true;
+							new EndScreen();
+						}
+						System.out.println("right");
 					}
-					
+					else System.out.println("wrong");
 				}
-				if (e.getSource() == wrong) {
-					System.out.println("wrong");
-					
+				if (e.getSource() == second) {
+					if (second.getText().equals("B. " + right.getText())) {
+						if(Mate.caughtUp) {
+							View.frame.dispose();
+							answered = true;
+							new EndScreen();
+						}
+						System.out.println("right");
+					}
+					else System.out.println("wrong");
 				}
-				if (e.getSource() == mW) {
-					System.out.println("mW");
+				if (e.getSource() == third) {
+					if (third.getText().equals("C. " + right.getText())) {
+						if(Mate.caughtUp) {
+							View.frame.dispose();
+							answered = true;
+							new EndScreen();
+						}
+						System.out.println("right");
+					}
+					else System.out.println("wrong");
 				}
+
 				endQuiz();
 			}
 		}
