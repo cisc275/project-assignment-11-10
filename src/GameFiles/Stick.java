@@ -80,8 +80,7 @@ public class Stick extends Collectable{
 	@Override
 	public void handleCollision(Nest n) {
 		if (this.collidesWith(n)) {
-			resetPoly();
-			this.hitbox.reset();
+			hitbox.reset();
 			n.hitbox.reset();
 			count++;
 			n.height = n.height + Constants.STICK_HANDLECOLLISION_OFFSET;
