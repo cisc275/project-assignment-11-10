@@ -37,10 +37,13 @@ public class SideScrollModel extends Model {
      * @author Tim Mazzarelli
      */
 	public void updateLocation(ArrayList<GameObject> g) {
-		for (GameObject a : g) {
+    	ArrayList<GameObject> toRemove = new ArrayList<GameObject>();
+    	for (GameObject a : g) {
 			a.move();
-			a.collision(g);
+			a.collision(g);			
+			if (a.removeObject()) toRemove.add(a);
 		}
+    	g.removeAll(toRemove);
 		if (Mate.caughtUp) {
 			Model.gameOver = true;
 		}

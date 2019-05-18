@@ -182,6 +182,10 @@ public class GameObject implements Serializable{
 	}
 	
 	
+	public boolean removeObject() {
+		return !visible;
+	}
+	
 	/**
 	 * Creates a BufferedImage for our GameObject
 	 * @param path Takes the File of an Image

@@ -102,10 +102,13 @@ public class TopDownModel extends Model {
     	else {
     		System.out.println("fak");
     	}
+    	ArrayList<GameObject> toRemove = new ArrayList<GameObject>();
     	for (GameObject a : g) {
 			a.move();
 			a.collision(g);			
+			if (a.removeObject()) toRemove.add(a);
 		}
+    	g.removeAll(toRemove);
     	if (Stick.count == Constants.TDM_UPDATELOCATION_STICK_COUNT) {
     		Model.gameOver = true;
     	}

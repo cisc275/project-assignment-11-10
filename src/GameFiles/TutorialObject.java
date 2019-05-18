@@ -33,9 +33,10 @@ public class TutorialObject extends NonControllable {
 	public void move() {
 		this.curImgTickCount ++;
 		if (curImgTickCount == Constants.TO_ANIMATION_TICK_RATE) {
-			curImg = (curImg + 1) % this.imgFileName.length;
+			//curImg = (curImg + 1) % this.imgFileName.length;
 			//System.out.println(curImg);
-			curImgTickCount = 0;
+			//curImgTickCount = 0;
+			this.visible = false;
 		}
 	}
 
