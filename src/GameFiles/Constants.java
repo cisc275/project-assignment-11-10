@@ -60,7 +60,7 @@ public class Constants implements Serializable {
     public final static int TDM_RIGHT_BOUND = 800;
 	public final static int TDM_UPDATELOCATION_STICK_COUNT = 3;
 	
-	public final static int TO_ANIMATION_TICK_RATE = 5;
+	public final static int TO_ANIMATION_TICK_RATE = 2;
 	
 	public final static int TIMER_TICK_RATE = 50;
 	

@@ -42,6 +42,9 @@ public class View extends JFrame implements Serializable {
 	 * as its value
 	 */
 	Hashtable<GameObject, ArrayList<BufferedImage>> imgTable;
+
+
+	public boolean debugHitBoxes;
 	
 	/**
 	 * 

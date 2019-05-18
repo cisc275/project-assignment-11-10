@@ -200,6 +200,7 @@ public class Controller implements KeyListener, ActionListener{
 	public synchronized void keyPressed(KeyEvent e) {
 		keyPresses.add(e.getKeyCode());
 		model.handleMove(keyPresses);
+		//System.out.println(e.getKeyCode());
 		switch (e.getKeyCode()) {
 			case 192:
 				try {
@@ -212,6 +213,9 @@ public class Controller implements KeyListener, ActionListener{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				break;
+			case 49:
+					view.debugHitBoxes =  !view.debugHitBoxes;
 		}
 	}	
 	/**

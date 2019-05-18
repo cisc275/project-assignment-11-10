@@ -578,6 +578,7 @@ public class Quiz extends JDialog implements KeyListener{
 		firstButtonSetup();
 		secondButtonSetup();
 		thirdButtonSetup();
+		answered = true;
 	}
 	
 	/**

@@ -32,6 +32,8 @@ public class Powerup extends Collectable {
 	@Override
 	public void handleCollision(ClapperRail cr) {
 		resetPoly();
+		cr.xSpeed = 0;
+		cr.ySpeed = 0;
 		new Quiz("td");		
 	}
 	
