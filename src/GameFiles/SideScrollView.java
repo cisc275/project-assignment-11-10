@@ -133,10 +133,13 @@ public class SideScrollView extends View{
 				g.setColor(transparent);
 			    AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, .5f);
 		    	for (GameObject thing : game) {
-		    		g.drawPolygon(thing.hitbox);
-		    		g.drawImage(ssv.getImg(thing, 0), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
-		    		if (thing.hitbox.npoints > 4) {
-		    			g.drawImage(ssv.getImg(thing, 0), thing.hitbox.xpoints[4], thing.hitbox.ypoints[4], this);
+		    		if (thing.visible != true) {}
+			    		else {
+			    			if (ssv.debugHitBoxes)g.drawPolygon(thing.hitbox);
+			    			g.drawImage(ssv.getImg(thing, 0), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
+				    		if (thing.hitbox.npoints > 4) {
+				    			g.drawImage(ssv.getImg(thing, 0), thing.hitbox.xpoints[4], thing.hitbox.ypoints[4], this);
+				    		}
 		    		}
 		    	}
 		    	g.drawImage(miniMaps[mapNum], View.frame.getWidth() -miniMaps[mapNum].getWidth(), 0, Color.gray,this);
