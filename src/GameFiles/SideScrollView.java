@@ -95,9 +95,7 @@ public class SideScrollView extends View{
     	System.out.println(Osprey.distance/Osprey.maxDistance);
     	if(mapNum>numOfMaps-1)
     		mapNum = numOfMaps-1;
-    	if (!Mate.caughtUp || SideScrollModel.right || Mate.caughtUp) {
-    		drawPanel.repaint();
-    	}
+    	drawPanel.repaint();
     	
     }
     
