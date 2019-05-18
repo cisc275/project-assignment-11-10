@@ -84,12 +84,13 @@ public class Osprey extends Bird {
 	 */
 	public void dive() {
 		if (this.hitbox.ypoints[0] <= Constants.OSPREY_WATER_LEVEL) {
-	//	this.img = imgs[1];
 			this.isDiving = !this.isDiving;
 			this.ySpeed = Constants.OSPREY_DIVESPEED;
 			this.currY = this.hitbox.ypoints[0];
 			this.hitbox.translate(0, this.ySpeed);
+			
 		}
+		
 	}
 	
 	/**
@@ -99,14 +100,14 @@ public class Osprey extends Bird {
 	 */
 	
 	@Override
-	public void move() {
-		System.out.println(Constants.FRAME_Y);
+	public void move() {	
+		this.hitbox.translate(0, this.ySpeed);
 		if (this.hitbox.ypoints[2] >= Constants.FRAME_Y) {
 			this.ySpeed = -this.ySpeed;
-		}
-		this.hitbox.translate(0, this.ySpeed);		
+		}	
 		distance -= Osprey.xSpeed; 
-		if ((this.hitbox.ypoints[0] == this.currY) && (this.isDiving == true)) {
+		if ((this.hitbox.ypoints[0] <= this.currY) && (this.isDiving == true)) {
+			System.out.println("hello");
 			this.isDiving = !this.isDiving;
 			this.ySpeed = 0;
 		}
