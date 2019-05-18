@@ -141,7 +141,7 @@ public class Constants implements Serializable {
 	public final static String[] ANIMATION_FOX = {IMG_FOX};
 	public final static String[] ANIMATION_FISH = {IMG_FISH_1, IMG_FISH_2, IMG_FISH_1, IMG_FISH_3};
 	public final static String[] ANIMATION_LEFT_KEY = {IMG_LEFT_KEY};
-	public final static String[] ANIMATION_MATE = {IMG_MATE};
+	public final static String[] ANIMATION_MATE = {IMG_OSPREY_1,IMG_OSPREY_3,IMG_OSPREY_1,IMG_OSPREY_2};
 	public final static String[] ANIMATION_MODEL_DUMP_STATUS_MSG = {IMG_MODEL_DUMP_STATUS_MSG};
 	public final static String[] ANIMATION_NEST = {IMG_NEST};
 	public final static String[] ANIMATION_OSPREY = {IMG_OSPREY_1,IMG_OSPREY_3,IMG_OSPREY_1,IMG_OSPREY_2};
