@@ -49,12 +49,13 @@ public class TopDownModel extends Model {
 	    	switch(key) {
 	    	case Constants.RIGHT:
 	    		System.out.println("right pressed");
+//	    		if(Quiz.answered) {
+//					cr.setxSpeed(0);
+//					cr.setySpeed(0);
+//					Quiz.answered = false;
+//				}
 				cr.setxSpeed(cr.getMOVE_AMOUNT());
-				if(Quiz.answered) {
-					cr.setxSpeed(0);
-					cr.setySpeed(0);
-					Quiz.answered = false;
-				}
+				
 				break;
 	    	case Constants.LEFT:
 				cr.setxSpeed(-cr.getMOVE_AMOUNT());
@@ -92,6 +93,15 @@ public class TopDownModel extends Model {
      * @author Tim Mazzarelli
      */
     public void updateLocation(ArrayList<GameObject> g) {
+    	if(Quiz.answered) {
+    		System.out.println("did the thing");
+			cr.setxSpeed(0);
+			cr.setySpeed(0);
+			Quiz.answered = false;
+		}
+    	else {
+    		System.out.println("fak");
+    	}
     	for (GameObject a : g) {
 			a.move();
 			a.collision(g);			
