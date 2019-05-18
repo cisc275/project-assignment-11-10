@@ -91,7 +91,8 @@ public class SideScrollView extends View{
     
     public void updateView(ArrayList<GameObject> g) {
     	game = g;
-    	mapNum = (int)((Osprey.distance/Osprey.maxDistance)*numOfMaps/2);
+    	mapNum = (int)((Osprey.distance/Osprey.maxDistance)*numOfMaps);
+    	System.out.println(Osprey.distance/Osprey.maxDistance);
     	if(mapNum>numOfMaps-1)
     		mapNum = numOfMaps-1;
     	if (!Mate.caughtUp || SideScrollModel.right || Mate.caughtUp) {
@@ -134,6 +135,7 @@ public class SideScrollView extends View{
 				g.setColor(transparent);
 			    AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, .5f);
 		    	for (GameObject thing : game) {
+		    		g.drawPolygon(thing.hitbox);
 		    		g.drawImage(ssv.getImg(thing, 0), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
 		    		if (thing.hitbox.npoints > 4) {
 		    			g.drawImage(ssv.getImg(thing, 0), thing.hitbox.xpoints[4], thing.hitbox.ypoints[4], this);
