@@ -1,8 +1,6 @@
 package GameFiles;
 
-import java.awt.Component;
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -10,10 +8,8 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Hashtable;
-
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 //import org.junit.jupiter.api.condition.OS;
 
@@ -173,5 +169,4 @@ public class View extends JFrame implements Serializable {
 		imgTable.put(g, toReturn);
 		return toReturn.get(i);
 	}
-	
 }
