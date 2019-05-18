@@ -12,6 +12,8 @@ import java.io.File;
  */
 public class TutorialObject extends NonControllable {
 
+	
+	
 	/**
 	 * Creates a Tutorial Object with a hitbox of 0,0 and an img.
 	 * @param x
@@ -25,6 +27,16 @@ public class TutorialObject extends NonControllable {
 		this.height = h;
 		this.imgFileName = img;
 		this.resetPoly();
+	}
+	
+	@Override
+	public void move() {
+		this.curImgTickCount ++;
+		if (curImgTickCount == Constants.TO_ANIMATION_TICK_RATE) {
+			curImg = (curImg + 1) % this.imgFileName.length;
+			System.out.println(curImg);
+			curImgTickCount = 0;
+		}
 	}
 
 }
