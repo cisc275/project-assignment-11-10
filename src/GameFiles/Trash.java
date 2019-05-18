@@ -13,7 +13,6 @@ import javax.imageio.ImageIO;
  * represents trash that user can collect
  */
 public class Trash extends Collectable {
-	
 	/**
 	 * @param y
 	 * @param x
@@ -21,8 +20,7 @@ public class Trash extends Collectable {
 	 * @param height
 	 * 
 	 * a constructor that takes values for all fields as input parameters
-	 */
-		
+	 */	
 	public Trash(int x, int y, int width, int height) {
 		super(x,y,width,height);
 		//this.img = createImage();
@@ -56,6 +54,5 @@ public class Trash extends Collectable {
 //    	}
 //    	return null;
 //	}
-
 	
 }
