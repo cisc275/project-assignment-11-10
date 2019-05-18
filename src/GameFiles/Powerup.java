@@ -8,6 +8,9 @@ import javax.imageio.ImageIO;
 
 public class Powerup extends Collectable {
 
+	
+	
+	public static boolean power = false;
 	/**
 	 * @param x
 	 * @param y 
@@ -34,6 +37,7 @@ public class Powerup extends Collectable {
 		resetPoly();
 		cr.xSpeed = 0;
 		cr.ySpeed = 0;
+		power = true;
 		new Quiz("td");		
 	}
 	

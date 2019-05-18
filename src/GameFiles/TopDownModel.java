@@ -45,61 +45,61 @@ public class TopDownModel extends Model {
     	cr.setxSpeed(0);
     	cr.setySpeed(0);
     	System.out.println(cr.xSpeed);
-    	if(Quiz.answered) {
-    		System.out.println("kill");
+    	if(Powerup.power) {
+    		System.out.println("************************************kill***************************************");
     		keyPresses.clear();
     		cr.setxSpeed(0);
         	cr.setySpeed(0);
-    		
+        	Powerup.power = false;
     	}
     	for(Integer key: keyPresses) {
 	    	switch(key) {
 	    	
 	    	case Constants.RIGHT:
-	    		if(Quiz.answered) {
+	    		if(Powerup.power) {
 	        		System.out.println("================================kill==============================");
 	        		keyPresses.clear();
 	        		cr.setxSpeed(0);
 	            	cr.setySpeed(0);
-	        		
+	            	Powerup.power = false;
 	        	}
 	    		System.out.println("right pressed");
-//	    		if(Quiz.answered) {
+//	    		if(Powerup.power) {
 //					cr.setxSpeed(0);
 //					cr.setySpeed(0);
-//					Quiz.answered = false;
+//					Powerup.power = false;
 //				}
 				cr.setxSpeed(cr.getMOVE_AMOUNT());
 				
 				break;
 	    	case Constants.LEFT:
-	    		if(Quiz.answered) {
-	        		System.out.println("kill");
+	    		if(Powerup.power) {
+	        		System.out.println("================================kill==============================");
 	        		keyPresses.clear();
 	        		cr.setxSpeed(0);
 	            	cr.setySpeed(0);
-	        		
+	        		Powerup.power = false;
 	        	}
 	    		System.out.println("left pressed");
 				cr.setxSpeed(-cr.getMOVE_AMOUNT());
 				break;
 	    	case Constants.UP:
-	    		if(Quiz.answered) {
-	        		System.out.println("kill");
+	    		if(Powerup.power) {
+	        		System.out.println("================================kill==============================");
 	        		keyPresses.clear();
 	        		cr.setxSpeed(0);
 	            	cr.setySpeed(0);
-	        		
+	            	Powerup.power = false;
 	        	}
 				cr.setySpeed(-cr.getMOVE_AMOUNT());
 				break;
 	    	case Constants.DOWN:
-	    		if(Quiz.answered) {
-	        		System.out.println("kill");
+	    		if(Powerup.power) {
+	        		System.out.println("================================kill==============================");
 	        		keyPresses.clear();
 	        		cr.setxSpeed(0);
 	            	cr.setySpeed(0);
-	        		
+	            	Powerup.power = false;
 	        	}
 	    		cr.setySpeed(cr.getMOVE_AMOUNT());
 				break;
@@ -130,15 +130,15 @@ public class TopDownModel extends Model {
      * @author Tim Mazzarelli
      */
     public void updateLocation(ArrayList<GameObject> g) {
-    	if(Quiz.answered) {
-    		//System.out.println("did the thing");
-			cr.setxSpeed(0);
-			cr.setySpeed(0);
-			Quiz.answered = false;
-		}
-    	else {
+//    	if(Powerup.power) {
+//    		//System.out.println("did the thing");
+//			cr.setxSpeed(0);
+//			cr.setySpeed(0);
+//			Powerup.power = false;
+//		}
+    	//else {
     		//System.out.println("update answered false");
-    	}
+//    	}
     	ArrayList<GameObject> toRemove = new ArrayList<GameObject>();
     	for (GameObject a : g) {
 			a.move();
