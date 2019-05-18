@@ -34,7 +34,7 @@ public class TutorialObject extends NonControllable {
 		this.curImgTickCount ++;
 		if (curImgTickCount == Constants.TO_ANIMATION_TICK_RATE) {
 			curImg = (curImg + 1) % this.imgFileName.length;
-			System.out.println(curImg);
+			//System.out.println(curImg);
 			curImgTickCount = 0;
 		}
 	}
