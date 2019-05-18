@@ -77,10 +77,10 @@ public class AirCurrent extends Collectable {
 	@Override
 	public void handleCollision(Osprey o) {
 		acReset();
-		if (Osprey.xSpeed <= -2) {
 		o.setXSpeed((Osprey.getXSpeed() + Constants.FISH_AC));
+		if (Osprey.xSpeed >= Constants.OSPREY_MIN_SPEED) {
+			o.setXSpeed(-2);
 		}
-		else {o.setXSpeed(-2);};
 	}
 	
 //	/**

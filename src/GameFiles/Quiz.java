@@ -545,6 +545,9 @@ public class Quiz extends JDialog implements KeyListener{
 		public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == right) {
 					System.out.println("right");
+					if(Mate.caughtUp) {
+						new EndScreen();
+					}
 					
 				}
 				if (e.getSource() == wrong) {

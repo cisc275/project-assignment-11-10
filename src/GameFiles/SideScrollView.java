@@ -141,10 +141,11 @@ public class SideScrollView extends View{
 		    	}
 		    	g.drawImage(miniMaps[mapNum], View.frame.getWidth() -miniMaps[mapNum].getWidth(), 0, Color.gray,this);
 				}
-			else if (Mate.caughtUp){
-			
-				g.drawImage(youWin, 0, 0, this.getWidth(), this.getHeight(), this);
-				}		
+			/*
+			 * else if (Mate.caughtUp){
+			 * 
+			 * g.drawImage(youWin, 0, 0, this.getWidth(), this.getHeight(), this); }
+			 */	
 		}
     }
     	/**

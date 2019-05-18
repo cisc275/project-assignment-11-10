@@ -39,10 +39,10 @@ public class Trash extends Collectable {
 	@Override
 	public void handleCollision(Osprey o) {
 		resetPoly();
-		if (Osprey.xSpeed <= -2) {
 		o.setXSpeed((Osprey.getXSpeed() + Constants.TRASH_AC));
+		if (Osprey.xSpeed <= Constants.OSPREY_MIN_SPEED) {
+			o.setXSpeed(Constants.OSPREY_MIN_SPEED);
 		}
-		else {o.setXSpeed(-2);};
 	}
 	
 //	private BufferedImage createImage(){

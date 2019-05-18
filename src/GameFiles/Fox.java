@@ -154,7 +154,7 @@ public class Fox extends Controllable {
 				randSmooth += 1;
 			}
 		}	
-		this.hitbox.translate(3 *(int) this.xSpeed,3 * (int) this.ySpeed);
+		this.hitbox.translate(2 *(int) this.xSpeed,2 * (int) this.ySpeed);
 		boundaries();
 	}
 
