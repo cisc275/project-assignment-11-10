@@ -90,6 +90,12 @@ public class Constants implements Serializable {
 
 	/// Strings
 	public final static String IMG_AIRCURRENT = "img/aircurrent.png";
+	public final static String IMG_AIRCURRENT_1 = "img/aircurrent/aircurrent_1.png";
+	public final static String IMG_AIRCURRENT_2 = "img/aircurrent/aircurrent_2.png";
+	public final static String IMG_AIRCURRENT_3 = "img/aircurrent/aircurrent_3.png";
+	public final static String IMG_AIRCURRENT_4 = "img/aircurrent/aircurrent_4.png";
+	public final static String IMG_AIRCURRENT_5 = "img/aircurrent/aircurrent_5.png";
+	public final static String IMG_AIRCURRENT_6 = "img/aircurrent/aircurrent_6.png";
 	public final static String IMG_BACKGROUND = "img/background.png";
 	public final static String IMG_CLAPPER_RAIL_BACKGROUND = "img/cBackground.png";
 	public final static String IMG_BUSH = "img/bush.png";
@@ -122,7 +128,7 @@ public class Constants implements Serializable {
 	
 	// Arrays of String file paths
 	
-	public final static String[] ANIMATION_AIRCURRENT = {IMG_AIRCURRENT};
+	public final static String[] ANIMATION_AIRCURRENT = {IMG_AIRCURRENT_1, IMG_AIRCURRENT_2, IMG_AIRCURRENT_3, IMG_AIRCURRENT_4, IMG_AIRCURRENT_5, IMG_AIRCURRENT_6};
 	public final static String[] ANIMATION_BACKGROUND = {IMG_BACKGROUND};
 	public final static String[] ANIMATION_CRBACKGROUND = {IMG_CLAPPER_RAIL_BACKGROUND};
 	public final static String[] ANIMATION_BUSH = {IMG_BUSH};
