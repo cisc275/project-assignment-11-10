@@ -54,6 +54,7 @@ public class Constants implements Serializable {
 	public final static int POWERUP_HEIGH = 100;
 	
 	public final static int STICK_HANDLECOLLISION_OFFSET = 30;
+	public final static int STICK_SIZE = 40;
 	
     public final static int TDM_BOUND_OFFSET = 134;
     public final static int TDM_CLOCK_TICK_CHECK = 100;
@@ -72,7 +73,9 @@ public class Constants implements Serializable {
 	
 	
 	/// Doubles
-	public final static double POWERUP_HEIGH_SCALE = 2.0;
+	public static double POWERUP_HEIGH_SCALE = 2.0;
+	
+	public static double STICK_SCALE = 1.0;
 	
 	
 
