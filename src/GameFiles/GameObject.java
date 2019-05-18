@@ -63,9 +63,10 @@ public class GameObject implements Serializable{
 	 * height of the gameObject on screen
 	 */
 	protected int height;
-	/**
-	 * minimum x coordinate for this gameObject
-	 */
+	
+	protected int curImg;
+	
+	protected int curImgTickCount;
 	
 	
 	private Type type;
@@ -87,6 +88,8 @@ public class GameObject implements Serializable{
 		this.height = height;
 		this.hitbox = new Polygon();
 		this.setType(Type.GAMEOBJECT);
+		this.curImg = 0;
+		this.curImgTickCount = 0;
 		resetPoly();
 	}
 	
