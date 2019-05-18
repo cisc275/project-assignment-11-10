@@ -17,8 +17,6 @@ import javax.swing.JFrame;
  * super class for all view objects  
  *
  */
-
-
 public class View extends JFrame implements Serializable {
 
 	/**

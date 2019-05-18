@@ -7,6 +7,11 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+/**
+ * This contains all of our constants for the project, in on easy to edit spot.
+ * @author wolginm
+ *
+ */
 public class Constants implements Serializable {
 
 	/// Booleans
