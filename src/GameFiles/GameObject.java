@@ -68,6 +68,7 @@ public class GameObject implements Serializable{
 	
 	protected int curImgTickCount;
 	
+	protected boolean visible;
 	
 	private Type type;
 
@@ -90,6 +91,7 @@ public class GameObject implements Serializable{
 		this.setType(Type.GAMEOBJECT);
 		this.curImg = 0;
 		this.curImgTickCount = 0;
+		this.visible = true;
 		resetPoly();
 	}
 	
