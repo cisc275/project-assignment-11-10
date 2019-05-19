@@ -44,6 +44,8 @@ public class Constants implements Serializable {
 	public final static int FISH_X_SPEED_TEST = -50;
 	public final static int FISH_ANIMATION_TICK_RATE = 2;
 	
+	public final static int FOX_INIT_XSPEED = 2;
+	public final static int FOX_INIT_YSPEED = 2;
 	public final static int FOX_START_LOC_X = 400;
 	public final static int FOX_START_LOC_Y = 400;
 	public final static int FOX_START_SIZE_X = 100;
@@ -244,8 +246,8 @@ public class Constants implements Serializable {
 	
 	// Clapper Rail Information
 	
-	public final static JButton CR_I_1 = new JButton("<html> Clapper rail will eat almost anything, but they like crabs, crustaceans");
-	public final static JButton CR_I_2 = new JButton("CI2");
+	public final static JButton CR_I_1 = new JButton("<html> Clapper rail will eat almost anything, but they like crabs, crustaceans, and small fish. </html>");
+	public final static JButton CR_I_2 = new JButton("<html> Clapper rail will ");
 	public final static JButton CR_I_3 = new JButton("CI3");
 	public final static JButton CR_I_4 = new JButton("CI4");
 	public final static JButton CR_I_5 = new JButton("CI5");
