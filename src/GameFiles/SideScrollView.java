@@ -54,7 +54,7 @@ public class SideScrollView extends View{
     /**
      * how many bufferedImages we have
      */
-    final int numOfMaps = 10;
+    final int numOfMaps = 21;
     
     /**
      * the maps all in one array
@@ -179,7 +179,7 @@ public class SideScrollView extends View{
     	for(int i=0;i<numOfMaps;i++) {
     		BufferedImage map = null;
 	    	try {
-	    		map = ImageIO.read(new File("img/oMap"+i+".png"));
+	    		map = ImageIO.read(new File("img/map/oMap"+i+".png"));
 	    	}catch(IOException e) {
 	    		e.printStackTrace();
 	    	}
