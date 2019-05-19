@@ -103,35 +103,9 @@ public class Controller implements KeyListener, ActionListener{
 		// sideScroll game
 		else if(selected.equals("sideScroll")) {
 			model = new SideScrollModel();	
-			model.game = new ArrayList<GameObject>();
 			view = new SideScrollView(model.game);
-			Background backOne = new Background(0, 0, 1920, 1080);
-			Trash t = new Trash(1920 + 200, 1080 - (1080 / 3), 
-					1920 / 20, 1080/ 15);
-			Trash t2 = new Trash(1920 + 20, 1080 - (1080 / 9), 
-					1920 / 20, 1080/ 15);
-			Fish f = new Fish(1920 + 400, (int) (1080 * 0.87), 
-					(int) (1920 * 0.05), (int) (1080 * 0.05));
-			Fish f2 = new Fish(1920 + 250, 600, 50, 50);
-			Fish f3 = new Fish(1920 + 100, 650, 50, 50);
-			Powerup p = new Powerup(1920, 800, 50, 50);
-			AirCurrent a = new AirCurrent(1920 + 20, 55, 250, 250);
-			AirCurrent a2 = new AirCurrent(1920  + 100, 100, 200, 200);
-			AirCurrent a3 = new AirCurrent(1920  + 500, 200, 200, 200);
-			Mate m = new Mate(1920, 200, 200, 50); // suposed to be 50 50, this is for the memes	
-			model.game.add(backOne);
-			model.game.add(p);
-			model.game.add(((SideScrollModel)model).o);
-			model.game.add(new InvisibleWall(0, Constants.OSPREY_WATER_LEVEL, 1920, 50));
-			model.game.add(f);
-			model.game.add(f2);
-			model.game.add(f3);
-			model.game.add(t);
-			model.game.add(t2);
-			model.game.add(a);
-			model.game.add(a2);
-			model.game.add(a3);
-			model.game.add(m);
+			model.defaultSetup();
+			
 			view.addKeyListener(this);
 			view.addActionListener(this);
 			this.start();

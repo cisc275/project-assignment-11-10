@@ -26,6 +26,8 @@ public class Model implements Serializable {
 	
 	static boolean gameOver = false;
 	
+	protected boolean inTutoral = false;
+	
 	
 	/**
 	 * defined in subclasses, updates model
@@ -33,6 +35,13 @@ public class Model implements Serializable {
 	 */
 	public void updateLocation(ArrayList<GameObject> game) {
 		// TODO Auto-generated method stub
+		
+	}
+	
+	/**
+	 * All default objects that need to be setup.
+	 */
+	protected void defaultSetup() {
 		
 	}
 	

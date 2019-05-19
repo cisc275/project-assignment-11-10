@@ -25,10 +25,18 @@ public class SideScrollModel extends Model {
 	 */
 	static boolean right;
 	
+	
+	/**
+	 * The tutorial fish
+	 */
+	private Fish tfish = null;
+	
+	
 	public SideScrollModel() {
 		o = new Osprey(Constants.OSPREY_STARTX, 100, 50, 50);
 		game = new ArrayList<GameObject>();
 		game.add(o);
+		inTutoral = true;
 	}
 	
 	 /**
@@ -37,18 +45,73 @@ public class SideScrollModel extends Model {
      * @author Tim Mazzarelli
      */
 	public void updateLocation(ArrayList<GameObject> g) {
-    	ArrayList<GameObject> toRemove = new ArrayList<GameObject>();
-    	for (GameObject a : g) {
-			a.move();
-			a.collision(g);			
-			if (a.removeObject()) toRemove.add(a);
+		if (inTutoral) {
+			// Movement of the background and bird, this MUST be here.
+			for (GameObject a : g) {
+				if (!a.equals(tfish)) {
+					a.move();
+					a.collision(g);
+				}
+			}
+			
+			// Does the fish exist yet????
+			if (tfish == null) {
+				tfish = new Fish(1920, (int) (1000), (int) (1920 * 0.05), (int) (1080 * 0.05));
+				game.add(tfish);
+				System.out.println("added");
+			}
+			
+			//---------------------------------------
+			//	If we are still working with the 
+			//		fish, this will run.  Once we
+			//		are done with it, its visibility
+			//		goes false, and we skip this.
+			//---------------------------------------
+			if (tfish.visible) {
+				if (tfish.x != Constants.OSPREY_STARTX) {
+					tfish.move();
+					tfish.collision(game);
+					System.out.println(tfish);
+				}
+			}
+			
+			
+		}	
+		else {
+			ArrayList<GameObject> toRemove = new ArrayList<GameObject>();
+	    	for (GameObject a : g) {
+				a.move();
+				a.collision(g);			
+				if (a.removeObject()) toRemove.add(a);
+			}
+	    	g.removeAll(toRemove);
+			if (Mate.caughtUp) {
+				Model.gameOver = true;
+			}
 		}
-    	g.removeAll(toRemove);
-		if (Mate.caughtUp) {
-			Model.gameOver = true;
-		}
+	}
+	
+	@Override
+	protected void defaultSetup() { 
+		game.add(new Background(0, 0, 1920, 1080));
+		game.add(o);
+		game.add(new InvisibleWall(0, Constants.OSPREY_WATER_LEVEL, 1920, 50));
 		
 	}
+	
+	protected void postTutorial() {
+		game.add(new Fish(1920 + 400, (int) (1080 * 0.87), (int) (1920 * 0.05), (int) (1080 * 0.05)));
+		game.add(new Fish(1920 + 250, 600, 50, 50));
+		game.add(new Fish(1920 + 100, 650, 50, 50));
+		game.add(new Trash(1920 + 20, 1080 - (1080 / 9), 1920 / 20, 1080/ 15));
+		game.add(new Trash(1920 + 200, 1080 - (1080 / 3), 1920 / 20, 1080/ 15));
+		game.add(new AirCurrent(1920 + 20, 55, 250, 250));
+		game.add(new AirCurrent(1920  + 100, 100, 200, 200));
+		game.add(new AirCurrent(1920  + 500, 200, 200, 200));
+		game.add(new Powerup(1920, 800, 50, 50));
+		game.add(new Mate(1920, 200, 200, 50));// suposed to be 50 50, this is for the memes
+	}
+	
 	
 	 /**
      * takes a hashset of integers and moves osprey accordingly
