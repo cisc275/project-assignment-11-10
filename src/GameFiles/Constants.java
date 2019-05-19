@@ -152,7 +152,7 @@ public class Constants implements Serializable {
 	public final static String[] ANIMATION_BACKGROUND = {IMG_BACKGROUND};
 	public final static String[] ANIMATION_CRBACKGROUND = {IMG_CLAPPER_RAIL_BACKGROUND};
 	public final static String[] ANIMATION_BUSH = {IMG_BUSH};
-	public final static String[] ANIMATION_DOWNKEY= {IMG_DOWN_KEY};
+	public final static String[] ANIMATION_DOWN_KEY= {IMG_DOWN_KEY};
 	public final static String[] ANIMATION_FOX = {IMG_FOX};
 	public final static String[] ANIMATION_FISH = {IMG_FISH_1, IMG_FISH_2, IMG_FISH_1, IMG_FISH_3};
 	public final static String[] ANIMATION_LEFT_KEY = {IMG_LEFT_KEY};
@@ -246,16 +246,16 @@ public class Constants implements Serializable {
 	
 	// Clapper Rail Information
 	
-	public final static JButton CR_I_1 = new JButton("<html> Clapper rail will eat almost anything, but they like crabs, crustaceans, and small fish. </html>");
-	public final static JButton CR_I_2 = new JButton("<html> Clapper rail will ");
-	public final static JButton CR_I_3 = new JButton("CI3");
-	public final static JButton CR_I_4 = new JButton("CI4");
-	public final static JButton CR_I_5 = new JButton("CI5");
-	public final static JButton CR_I_6 = new JButton("CI6");
-	public final static JButton CR_I_7 = new JButton("CI7");
-	public final static JButton CR_I_8 = new JButton("CI8");
-	public final static JButton CR_I_9 = new JButton("CI9");
-	public final static JButton CR_I_10 = new JButton("CI10");
+	public final static JButton CR_I_1 = new JButton("<html> Clapper rails will eat almost anything, but they like crabs, crustaceans, and small fish. </html>");
+	public final static JButton CR_I_2 = new JButton("<html> The clapper rail life is short but full, as they usually live for five years. </html> ");
+	public final static JButton CR_I_3 = new JButton("<html> Clapper rails do not migrate, and will stay in the same area where they were born for their entire life. </html>");
+	public final static JButton CR_I_4 = new JButton("<html> Clapper rails like to make their nests at high elevations to avoid flooding or in tall grass to hide from predators. </html>");
+	public final static JButton CR_I_5 = new JButton("<html> The clapper rail has many predators, but it's most fearsome is the red fox. </html>");
+	public final static JButton CR_I_6 = new JButton("<html> Clapper rails face trouble from predators every day, but their biggest threats are humans and habitat loss. </html>");
+	public final static JButton CR_I_7 = new JButton("<html> Clapper rails like to live in muddy areas with tall grass like marshes in order to hide from predators. </html>");
+	public final static JButton CR_I_8 = new JButton("<html> Like the osprey, clapper rails take only one mate during breeding season. </html>");
+	public final static JButton CR_I_9 = new JButton("<html> Depending on where the clapper rail lives, the clapper rail can be a of brown and gray. </html>");
+	public final static JButton CR_I_10 = new JButton("<html> The clapper rail nesting season can go from March to June, with eggs being laid around February or March. </html>");
 	
 	// Clapper Rail Questions
 	
@@ -289,7 +289,7 @@ public class Constants implements Serializable {
 	public final static JButton CR_INCORRECT1 = new JButton("Snake");
 	public final static JButton CR_INCORRECT2 = new JButton("10 years");
 	public final static JButton CR_INCORRECT3 = new JButton("South America");
-	public final static JButton CR_INCORRECT4 = new JButton("Higher grounds to avoid flooding");
+	public final static JButton CR_INCORRECT4 = new JButton("On high grounds like hills");
 	public final static JButton CR_INCORRECT5 = new JButton("Fish");
 	public final static JButton CR_INCORRECT6 = new JButton("Clapper rails don't have any threats.");
 	public final static JButton CR_INCORRECT7 = new JButton("Deserts");
@@ -302,7 +302,7 @@ public class Constants implements Serializable {
 	public final static JButton CR_WRONG1 = new JButton("Duck");
 	public final static JButton CR_WRONG2 = new JButton("20 years");
 	public final static JButton CR_WRONG3 = new JButton("Australia");
-	public final static JButton CR_WRONG4 = new JButton("Hidden in tall grass to avoid predators");
+	public final static JButton CR_WRONG4 = new JButton("Hidden in bushes and grass");
 	public final static JButton CR_WRONG5 = new JButton("Lions");
 	public final static JButton CR_WRONG6 = new JButton("Ducks");
 	public final static JButton CR_WRONG7 = new JButton("In the ocean");
