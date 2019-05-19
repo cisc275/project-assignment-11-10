@@ -44,9 +44,9 @@ public class TopDownModel extends Model {
     public void handleMove(HashSet<Integer> keyPresses) {
     	cr.setxSpeed(0);
     	cr.setySpeed(0);
-    	System.out.println(cr.xSpeed);
+    //	System.out.println(cr.xSpeed);
     	if(Powerup.power) {
-    		System.out.println("************************************kill***************************************");
+    		//System.out.println("************************************kill***************************************");
     		keyPresses.clear();
     		cr.setxSpeed(0);
         	cr.setySpeed(0);
@@ -55,18 +55,18 @@ public class TopDownModel extends Model {
     	for(Integer key: keyPresses) {
 	    	switch(key) {
 	    	
-	    	case Constants.RIGHT:
-	    		System.out.println("right pressed");
+	    	case Constants.RIGHT_KEY_CODE:
+	    		//System.out.println("right pressed");
 				cr.setxSpeed(cr.getMOVE_AMOUNT());
 				break;
-	    	case Constants.LEFT:
-	    		System.out.println("left pressed");
+	    	case Constants.LEFT_KEY_CODE:
+	    	//	System.out.println("left pressed");
 				cr.setxSpeed(-cr.getMOVE_AMOUNT());
 				break;
-	    	case Constants.UP:
+	    	case Constants.UP_KEY_CODE:
 				cr.setySpeed(-cr.getMOVE_AMOUNT());
 				break;
-	    	case Constants.DOWN:
+	    	case Constants.DOWN_KEY_CODE:
 	    		cr.setySpeed(cr.getMOVE_AMOUNT());
 				break;
 			}

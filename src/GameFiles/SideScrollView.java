@@ -57,14 +57,25 @@ public class SideScrollView extends View{
     final int numOfMaps = 21;
     
     /**
+     * how many lightning bolts we want to draw
+     */
+    final int numOfSpeeds = 6;
+    
+    /**
      * the maps all in one array
      */
     BufferedImage[] miniMaps = initMaps();
+    /**
+     * the bolts all in one array
+     */
+    BufferedImage[] speeds = initSpeeds();
     
     /**
      * what number map we are on
      */
     int mapNum = 0;
+    
+    int speedNum = 0;
    
  
     /**
@@ -96,7 +107,11 @@ public class SideScrollView extends View{
     	if(mapNum>numOfMaps-1)
     		mapNum = numOfMaps-1;
     	drawPanel.repaint();
-    	
+    	speedNum = (int)((double)(Osprey.xSpeed)/(Constants.OSPREY_MAX_SPEED-Constants.OSPREY_MIN_SPEED)*numOfSpeeds);
+    	System.out.println("Speed Num: "+ speedNum);
+    	System.out.println("range: "+(Constants.OSPREY_MAX_SPEED-Constants.OSPREY_MIN_SPEED));
+    	System.out.println("speed: "+Osprey.xSpeed);
+    	System.out.println("speed/range: "+((double)(Osprey.xSpeed)/(Constants.OSPREY_MAX_SPEED-Constants.OSPREY_MIN_SPEED)));
     }
     
     /**
@@ -145,7 +160,11 @@ public class SideScrollView extends View{
 				    		}
 		    		}
 		    	}
-		    	g.drawImage(miniMaps[mapNum], View.frame.getWidth() -miniMaps[mapNum].getWidth(), 0, Color.gray,this);
+		    	g.drawImage(miniMaps[mapNum], View.frame.getWidth() -miniMaps[mapNum].getWidth(), 0, this);
+		    	
+		    	for(int i=speedNum;i > 0;i--) {
+		    		g.drawImage(speeds[speedNum], View.frame.getWidth()-(speeds[speedNum].getWidth()*i), miniMaps[mapNum].getHeight(), this);
+		    	}
 				}
 			/*
 			 * else if (Mate.caughtUp){
@@ -186,6 +205,19 @@ public class SideScrollView extends View{
 	    	maps[i] = map;
     	}
     	return maps;
+    }
+    public BufferedImage[] initSpeeds() {
+    	BufferedImage[] speeds = new BufferedImage[numOfSpeeds];
+    	for(int i=0;i<numOfSpeeds;i++) {
+    		BufferedImage speed = null;
+	    	try {
+	    		speed = ImageIO.read(new File("img/fish/fish_tiny.png"));
+	    	}catch(IOException e) {
+	    		e.printStackTrace();
+	    	}
+	    	speeds[i] = speed;
+    	}
+    	return speeds;
     }
     
 }
