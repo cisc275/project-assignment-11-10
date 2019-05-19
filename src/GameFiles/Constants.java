@@ -39,6 +39,7 @@ public class Constants implements Serializable {
 	public final static int CLAPPER_RAIL_START_SIZE_X = 100;
 	public final static int CLAPPER_RAIL_START_SIZE_Y = 100;
 	public final static int CLAPPER_RAIL_ANIMATION_TICK_RATE = 1;
+	public final static int CLAPPER_RAIL_LIVES_END_STATE = 0;
 	
 	public final static int CLAPPER_RAIL_INIT_LIVES = 3;
 	
@@ -75,6 +76,7 @@ public class Constants implements Serializable {
 	
 	public final static int STICK_HANDLECOLLISION_OFFSET = 30;
 	public final static int STICK_SIZE = 40;
+	public final static int STICK_END_COUNT = 3;
 	
     public final static int TDM_BOUND_OFFSET = 134;
     public final static int TDM_CLOCK_TICK_CHECK = 100;
