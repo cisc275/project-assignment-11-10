@@ -31,9 +31,19 @@ public class SideScrollModel extends Model {
 	 */
 	private Fish tfish = null;
 	
+	/**
+	 * The tutorial aircurrent
+	 */
+	private AirCurrent tair = null;
+	
+	/**
+	 * The tutorial spacebar
+	 */
+	private TutorialObject tspace = null;
+	
 	
 	public SideScrollModel() {
-		o = new Osprey(Constants.OSPREY_STARTX, 100, 50, 50);
+		o = new Osprey(Constants.OSPREY_STARTX, 150, 50, 50);
 		game = new ArrayList<GameObject>();
 		game.add(o);
 		inTutoral = true;
@@ -48,7 +58,7 @@ public class SideScrollModel extends Model {
 		if (inTutoral) {
 			// Movement of the background and bird, this MUST be here.
 			for (GameObject a : g) {
-				if (!a.equals(tfish)) {
+				if (!a.equals(tfish) && !a.equals(tair)) {
 					a.move();
 					a.collision(g);
 				}
@@ -56,9 +66,14 @@ public class SideScrollModel extends Model {
 			
 			// Does the fish exist yet????
 			if (tfish == null) {
-				tfish = new Fish(1920, (int) (1000), (int) (1920 * 0.05), (int) (1080 * 0.05));
+				tfish = new Fish(1920, (int) (700), (int) (1920 * 0.05), (int) (1080 * 0.05));
 				game.add(tfish);
-				System.out.println("added");
+			}
+			
+			// Does the aircurrent exist yet?????
+			if (tair == null) {
+				tair = new AirCurrent(1920  + 500, 150, 200, 200);
+				game.add(tair);
 			}
 			
 			//---------------------------------------
@@ -68,12 +83,26 @@ public class SideScrollModel extends Model {
 			//		goes false, and we skip this.
 			//---------------------------------------
 			if (tfish.visible) {
-				if (tfish.x != Constants.OSPREY_STARTX) {
+				if (tfish.hitbox.getBounds2D().getMinX() > Constants.OSPREY_STARTX) {
 					tfish.move();
-					tfish.collision(game);
-					System.out.println(tfish);
+					//System.out.println(tfish + " " + o);
+				}
+				else if (tspace == null) {
+					tspace = new TutorialObject(300, 300, 483, 110, Constants.ANIMATION_SPACEBAR);
+					game.add(tspace);
+				}
+				else if (tfish.hitbox.intersects(o.hitbox.getBounds2D())){
+					tfish.visible = false;
+					tspace.visible = false;
+				}
+				
+			} else if (tair.visible) {
+				if (tair.hitbox.getBounds2D().getMinX() > 500) {
+					tair.move();
+					System.out.println(tair);
 				}
 			}
+			
 			
 			
 		}	

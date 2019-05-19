@@ -49,6 +49,7 @@ public class Fish extends Collectable {
 	@Override
 	public void move() {
 		this.hitbox.translate(this.xSpeed, 0);
+		this.x = this.x + this.xSpeed;
 		if(this.hitbox.xpoints[3] <= 0) {
 			resetPoly();
 		}
