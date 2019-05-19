@@ -607,7 +607,8 @@ public class Quiz extends JDialog implements KeyListener{
 	
 	
 	public static void main(String[] args) {
-		new Quiz("sides");
+		new Quiz("td"
+				+ "");
 	}
 	
 	
@@ -642,6 +643,7 @@ public class Quiz extends JDialog implements KeyListener{
 					if (first.getText().equals("A. " + right.getText())) {
 						if(Mate.caughtUp) {
 							View.frame.dispose();
+							Mate.caughtUp = false;
 							answered = true;
 							new EndScreen();
 						}
@@ -654,6 +656,7 @@ public class Quiz extends JDialog implements KeyListener{
 					if (second.getText().equals("B. " + right.getText())) {
 						if(Mate.caughtUp) {
 							View.frame.dispose();
+							Mate.caughtUp = false;
 							answered = true;
 							new EndScreen();
 						}
@@ -665,6 +668,7 @@ public class Quiz extends JDialog implements KeyListener{
 				if (e.getSource() == third) {
 					if (third.getText().equals("C. " + right.getText())) {
 						if(Mate.caughtUp) {
+							Mate.caughtUp = false;
 							View.frame.dispose();
 							answered = true;
 							new EndScreen();

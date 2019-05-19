@@ -42,6 +42,11 @@ public class Fox extends Controllable {
 	private ClapperRail c;
 	
 	/**
+	 * used to make bushes inaccessible by the fox when clapperrail is not hidden, true when the fox is colliding with a bush
+	 */
+	public static boolean bushColl = false;
+	
+	/**
 	 * @param y
 	 * @param x
 	 * @param width
@@ -120,10 +125,15 @@ public class Fox extends Controllable {
 	public void move() {
 		
 		if(!c.hidden) {
-			this.xSpeed = ((c.hitbox.xpoints[0] - this.hitbox.xpoints[0]) * 
-				(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());
-			this.ySpeed = ((c.hitbox.ypoints[0] - this.hitbox.ypoints[0]) * 
-				(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());
+			if(!bushColl) {
+				this.xSpeed = ((c.hitbox.xpoints[0] - this.hitbox.xpoints[0]) * 
+						(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());
+				this.ySpeed = ((c.hitbox.ypoints[0] - this.hitbox.ypoints[0]) * 
+						(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());
+			}
+			else {
+				bushColl = false;
+			}
 		}
 		else {
 			
