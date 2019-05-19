@@ -43,6 +43,8 @@ public class Constants implements Serializable {
 	
 	public final static int CLAPPER_RAIL_INIT_LIVES = 3;
 	
+	public final static int CRAB_ANIMATION_TICK_RATE = 5;
+	
 	public final static int FISH_AC = 5;
 	public final static int FISH_X_SPEED_TEST = -50;
 	public final static int FISH_ANIMATION_TICK_RATE = 2;
@@ -120,6 +122,8 @@ public class Constants implements Serializable {
 	public final static String IMG_CLAPPER_RAIL_RIGHT_1 = "img/cr/cr4.png";
 	public final static String IMG_CLAPPER_RAIL_RIGHT_2 = "img/cr/cr5.png";
 	public final static String IMG_CLAPPER_RAIL_RIGHT_3 = "img/cr/cr6.png";
+	public final static String IMG_CRAB_1 = "img/crab/crab1.png";
+	public final static String IMG_CRAB_2 = "img/crab/crab2.png";
 	public final static String IMG_BUSH = "img/bush.png";
 	public final static String IMG_DOWN_KEY = "img/down/down.png";
 	public final static String IMG_DOWN_KEY_1 = "img/down/down_1.png";
@@ -182,7 +186,9 @@ public class Constants implements Serializable {
 	public final static String[] ANIMATION_BACKGROUND = {IMG_BACKGROUND};
 	public final static String[] ANIMATION_CRBACKGROUND = {IMG_CLAPPER_RAIL_BACKGROUND};
 	public final static String[] ANIMATION_CR= {IMG_CLAPPER_RAIL_LEFT_1,IMG_CLAPPER_RAIL_LEFT_2,IMG_CLAPPER_RAIL_LEFT_3,IMG_CLAPPER_RAIL_LEFT_2,IMG_CLAPPER_RAIL_RIGHT_1,IMG_CLAPPER_RAIL_RIGHT_2,IMG_CLAPPER_RAIL_RIGHT_3,IMG_CLAPPER_RAIL_RIGHT_2};
-
+	
+	public final static String[] ANIMATION_CRAB = {IMG_CRAB_1, IMG_CRAB_2};
+	
 	public final static String[] ANIMATION_BUSH = {IMG_BUSH};
 	public final static String[] ANIMATION_DOWN_KEY= {IMG_DOWN_KEY_1, IMG_DOWN_KEY_2, IMG_DOWN_KEY_3, IMG_DOWN_KEY_4, IMG_DOWN_KEY_5, IMG_DOWN_KEY_6, 
 																		IMG_DOWN_KEY_5, IMG_DOWN_KEY_4, IMG_DOWN_KEY_3, IMG_DOWN_KEY_2};
