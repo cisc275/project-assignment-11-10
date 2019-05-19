@@ -110,6 +110,19 @@ public class Controller implements KeyListener, ActionListener{
 			view.addActionListener(this);
 			this.start();
 		}
+		// sidescroll game without tutorial
+		else if(selected.equals("sideScrollNT")) {
+			model = new SideScrollModel();	
+			view = new SideScrollView(model.game);
+			
+			model.inTutoral = false;
+			model.defaultSetup();
+			model.postTutorial();
+			
+			view.addKeyListener(this);
+			view.addActionListener(this);
+			this.start();
+		}
 		
 		
 	}

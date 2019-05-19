@@ -177,7 +177,7 @@ public class LoseScreen extends JDialog implements ActionListener {
 					  this.dispose(); 
 					  this.setModal(false); 
 					  Mate.caughtUp = false;
-					  new Controller("sideScroll");}
+					  new Controller("sideScrollNT");}
 			  }
 			  
 		  }
