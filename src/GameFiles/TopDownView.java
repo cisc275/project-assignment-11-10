@@ -35,6 +35,13 @@ public class TopDownView extends View{
      * the background image
      */
 	BufferedImage background = createImage();
+	
+	/**
+     * static array of CR images for tracking lives
+     */
+	//public static BufferedImage[];
+	
+	
    
 	/**
      * 
@@ -89,10 +96,10 @@ public class TopDownView extends View{
 				if (thing.visible)  g.drawImage(tdv.getImg(thing, thing.curImg),thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
 			}	
 			// trying to draw life counter
-			/*
-			 * for (int i = 0; i < ClapperRail.lives; i++) { g.drawImage(createLives(),
-			 * View.frame.getWidth() - (View.frame.getWidth() - i), 0, this); }
-			 */
+			  for (int i = 0; i < ClapperRail.lives; i++) { 
+				  g.drawImage(createLives(), View.frame.getWidth() - 100*(i+1), 0, 100, 100, this); 
+			  }
+			 
 			
 	
 		}
