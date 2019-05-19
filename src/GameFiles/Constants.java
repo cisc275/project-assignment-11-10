@@ -155,6 +155,7 @@ public class Constants implements Serializable {
 	public final static String IMG_RIGHT_KEY_6 = "img/right/right_6.png";
 	public final static String IMG_SELECT_CLAPPER_RAIL = "img/selectCR.png";
 	public final static String IMG_SELECT_OSPREY = "img/selectOsprey.png";
+	public final static String IMG_SELECT_BG = "img/selectionBG.png";
 	public final static String IMG_SPACEBAR = "img/spacebar/spacebar.png";
 	public final static String IMG_SPACEBAR_1 = "img/spacebar/spacebar_1.png";
 	public final static String IMG_SPACEBAR_2 = "img/spacebar/spacebar_2.png";
