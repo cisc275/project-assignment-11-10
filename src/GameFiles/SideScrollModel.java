@@ -37,6 +37,11 @@ public class SideScrollModel extends Model {
 	private AirCurrent tair = null;
 	
 	/**
+	 * Tutorial powerup
+	 */
+	private Powerup tpow = null;
+	
+	/**
 	 * The tutorial spacebar
 	 */
 	private TutorialObject tspace = null;
@@ -71,7 +76,7 @@ public class SideScrollModel extends Model {
 		o = new Osprey(Constants.OSPREY_STARTX, 150, 50, 50);
 		game = new ArrayList<GameObject>();
 		game.add(o);
-		inTutoral = true;
+		Model.inTutoral = true;
 	}
 	
 	 /**
@@ -80,10 +85,10 @@ public class SideScrollModel extends Model {
      * @author Tim Mazzarelli
      */
 	public void updateLocation(ArrayList<GameObject> g) {
-		if (inTutoral) {
+		if (Model.inTutoral) {
 			// Movement of the background and bird, this MUST be here.
 			for (GameObject a : g) {
-				if (!a.equals(tfish) && !a.equals(tair)) {
+				if (!a.equals(tfish) && !a.equals(tair) && !a.equals(tpow)) {
 					a.move();
 					a.collision(g);
 				}
@@ -111,6 +116,12 @@ public class SideScrollModel extends Model {
 				game.add(twall2);
 			}
 			
+			if (tpow == null) {
+				tpow = new Powerup(1920, 700, (int) (1920 * .05), (int) (1080 * .05));
+				game.add(tpow);
+				
+			}
+			
 			//---------------------------------------
 			//	If we are still working with the 
 			//		fish, this will run.  Once we
@@ -129,16 +140,34 @@ public class SideScrollModel extends Model {
 				else if (tfish.hitbox.intersects(o.hitbox.getBounds2D())){
 					tfish.visible = false;
 					tspace.visible = false;
+					tspace = null;
 					
 				}
 				
+			}	
+			
+			else if (tpow.visible) {
+				
+				if (quizHappened) {
+					tpow.visible = false;
+					tspace.visible = false;
+				}	
+				else if (tpow.hitbox.getBounds2D().getMinX() > Constants.OSPREY_STARTX) {
+					tpow.move();
+				}
+				else if (tspace == null) {
+					tspace = new TutorialObject(300, 300, 483, 110, Constants.ANIMATION_SPACEBAR);
+					game.add(tspace);
+				}	
+			}
 				//---------------------------------------
 				//	If we are still working with the air,
 				//		this will run.  Once done, its 
 				//		visibility will be set to false
 				//		and we skip it.
 				//---------------------------------------
-			} else if (tair.visible) {
+			
+			else if (tair.visible) {
 				if (tair.hitbox.getBounds2D().getMinX() > 500) {
 					tair.move();
 					//System.out.println(tair);
@@ -168,9 +197,9 @@ public class SideScrollModel extends Model {
 					tair.visible = false;
 					game.remove(tair);
 				}
-				if (tair.visible == false && tfish.visible == false) {
+				if (tair.visible == false && tfish.visible == false && tpow.visible == false) {
 					o.setXSpeed(-10);
-					inTutoral = false;
+					Model.inTutoral = false;
 					this.postTutorial();
 				}
 			}

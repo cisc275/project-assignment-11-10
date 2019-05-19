@@ -24,6 +24,8 @@ public class Model implements Serializable {
 	 * boolean for whether the game is over or not
 	 */
 	
+	static boolean quizHappened = false;
+	
 	static boolean gameOver = false;
 	
 	public static boolean inTutoral = false;

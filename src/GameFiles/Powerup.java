@@ -43,7 +43,6 @@ public class Powerup extends Collectable {
 	}
 	
 	
-	
 	/**
 	 * 
 	 *  Resets Polygon with its origin at x, y and its size to be its width and height
@@ -69,6 +68,7 @@ public class Powerup extends Collectable {
 	
 	@Override
 	public void handleCollision(Osprey o) {
+		Model.quizHappened = true;
 		resetPoly();
 		new Quiz("sides");
 	

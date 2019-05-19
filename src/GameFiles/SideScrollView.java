@@ -158,9 +158,9 @@ public class SideScrollView extends View{
 		    	}
 		    	g.drawImage(miniMaps[mapNum], View.frame.getWidth() -miniMaps[mapNum].getWidth(), 0, this);
 		    	
-		    	for(int i=speedNum;i > 0;i--) {
-		    		g.drawImage(speeds[speedNum], View.frame.getWidth()-(speeds[speedNum].getWidth()*i), miniMaps[mapNum].getHeight(), this);
-		    	}
+	//	    	for(int i=speedNum;i > 0;i--) {
+	//	    		g.drawImage(speeds[speedNum], View.frame.getWidth()-(speeds[speedNum].getWidth()*i), miniMaps[mapNum].getHeight(), this);
+	//	    	}
 				}
 			/*
 			 * else if (Mate.caughtUp){

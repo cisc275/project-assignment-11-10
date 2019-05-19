@@ -44,6 +44,8 @@ import javax.swing.KeyStroke;
  */
 public class Quiz extends JDialog implements KeyListener{
 	
+	Image image;
+	
 	/**
 	 * Card style layout for our Quizzes
 	 */
@@ -122,22 +124,44 @@ public class Quiz extends JDialog implements KeyListener{
 		c = getContentPane();
 		card = new CardLayout();
 		c.setLayout(card);
+		card.setVgap(0);
 		panelHandling();
 		questionNumber();
 		initQuestions(game);
 		initAnswers(game);
+		initImage(game);
 	//	initInfo(game);
 	//	info.add(next);
 	//	c.add("info", info);
         c.add("qNa", p);
+        this.pack();
+        this.setLocationRelativeTo(c);
 		this.setModal(true);
 		this.setResizable(false);
-        this.setSize(400, 200);
+        this.setSize(400, 300);
         this.setVisible(true);
-   
-		
-     
+        System.out.println(card.getVgap());
+      
 	}
+	
+	public void initImage(String game) {
+		  image = createImage();
+		  image = image.getScaledInstance(100, 50,Image.SCALE_SMOOTH);
+		  p.add(new JLabel(new ImageIcon(image)));
+	   }
+	
+	private BufferedImage createImage(){
+		BufferedImage bufferedImage;
+    	try {
+    		bufferedImage = ImageIO.read(new File(Constants.IMG_STICK));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
+	}
+			
+	
 	
 	/**
 	 * handles the panels for each part of the quiz, 
@@ -158,6 +182,8 @@ public class Quiz extends JDialog implements KeyListener{
 			j.setAlignmentY(TOP_ALIGNMENT);
 		}
 	}
+	
+	
 	
 	
 	/**
@@ -343,6 +369,9 @@ public class Quiz extends JDialog implements KeyListener{
 		if (Mate.caughtUp) {
 			question = Constants.OSPREY_LAST;
 		}
+		if (Model.inTutoral == true) {
+			question = Constants.OSPREY_TUTORIAL;
+		}
 		else {
 			question = ourQuestions.get(qNumber);
 			ourQuestions.remove(qNumber);
@@ -360,14 +389,18 @@ public class Quiz extends JDialog implements KeyListener{
 	
 	public void questionHandling() {
 		ArrayList<JLabel> templist = new ArrayList<>();
+		if (Model.inTutoral == true) {
+			instruction = new JLabel("Answer correctly and you will get a speed boost!");
+		}
 		templist.add(question);
-		templist.add(instruction);
+	//	templist.add(instruction);
 		for (JLabel l : templist) {
+			
+			l.setBackground(Color.WHITE);
 			l.setHorizontalAlignment(JLabel.CENTER);
 			l.setVerticalAlignment(JLabel.TOP);
 			l.setOpaque(true);
 	        l.setFont(new Font("Serif", Font.BOLD, 15));
-	        l.setBackground(Color.WHITE);
 	        l.setMinimumSize(new Dimension(200, 5));
 	        l.setPreferredSize(new Dimension(200, 5));
 	        l.setMaximumSize(new Dimension(200, 5));
@@ -520,6 +553,11 @@ public class Quiz extends JDialog implements KeyListener{
 			wrong = Constants.OSPREY_LAST_INCORRECT;
 			mW = Constants.OSPREY_LAST_WRONG;
 		}
+		if (Model.inTutoral == true) {
+			right = Constants.OSPREY_TUTORIAL_RIGHT;
+			wrong = Constants.OSPREY_TUTORIAL_INCORRECT;
+			mW = Constants.OSPREY_TUTORIAL_WRONG;
+		}
 		else {
 			right = rightAnswer.get(qNumber);
 			rightAnswer.remove(qNumber);
@@ -579,9 +617,16 @@ public class Quiz extends JDialog implements KeyListener{
 					break;
 			
 		}
-		first.setText("A. " + first.getText());
-		second.setText("B. " + second.getText());
-		third.setText("C. " + third.getText());
+		if (Model.inTutoral == true) {
+			first.setText("Press the A key if " + first.getText());
+			second.setText("Press the B key if " + second.getText());
+			third.setText("Press the C key if " + third.getText());
+		}
+		else {
+			first.setText("A. " + first.getText());
+			second.setText("B. " + second.getText());
+			third.setText("C. " + third.getText());
+		}
 		buttons.add(first);
 		buttons.add(second);
 		buttons.add(third);
@@ -592,9 +637,9 @@ public class Quiz extends JDialog implements KeyListener{
 			b.setFocusPainted(false);
 			b.setOpaque(true);
 			b.setBackground(Color.WHITE);
-			b.setMinimumSize(new Dimension(300, 20));
-            b.setPreferredSize(new Dimension(300, 20));
-            b.setMaximumSize(new Dimension(300, 20));
+			b.setMinimumSize(new Dimension(300, 0));
+            b.setPreferredSize(new Dimension(300, 0));
+            b.setMaximumSize(new Dimension(300, 0));
         	b.setVerticalAlignment(JButton.TOP);
         	b.setHorizontalAlignment(JButton.CENTER);
         	b.setFont(new Font("Serif", Font.BOLD, 15));
@@ -607,8 +652,7 @@ public class Quiz extends JDialog implements KeyListener{
 	
 	
 	public static void main(String[] args) {
-		new Quiz("td"
-				+ "");
+		new Quiz("td" + "");
 	}
 	
 	
@@ -635,7 +679,6 @@ public class Quiz extends JDialog implements KeyListener{
 		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			System.out.println("hi");
 				if (e.getSource() == information) {
 					card.next(c);
 				}

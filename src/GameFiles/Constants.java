@@ -67,7 +67,7 @@ public class Constants implements Serializable {
 	public final static int OSPREY_MAX_HEIGHT = 600;
 	public final static int OSPREY_WATER_LEVEL = 400;
 	public final static int OSPREY_MIN_SPEED = -5;
-	public final static int OSPREY_MAX_SPEED = -50;
+	public final static int OSPREY_MAX_SPEED = -30;
 	public final static int OSPREY_MAX_DISTANCE = 3000;
 	public final static int OSPREY_ANIMATION_TICK_RATE = 4;
 	
@@ -232,6 +232,7 @@ public class Constants implements Serializable {
 	public final static JLabel OSPREY_9 = new JLabel("How much does an osprey weigh?");
 	public final static JLabel OSPREY_10 = new JLabel("Where do ospreys like to live?");
 	public final static JLabel OSPREY_LAST = new JLabel("Where would you like to make your nest?");
+	public final static JLabel OSPREY_TUTORIAL = new JLabel("If you hit a crab, a quiz like this will pop up!");
 	
 	// Osprey right answers
 	
@@ -246,6 +247,7 @@ public class Constants implements Serializable {
 	public final static JButton OSPREY_CORRECT9 = new JButton("3-5 pounds");
 	public final static JButton OSPREY_CORRECT10 = new JButton("Near water (like the Delaware Estuary!)");
 	public final static JButton OSPREY_LAST_RIGHT = new JButton("Up high off the ground");
+	public final static JButton OSPREY_TUTORIAL_RIGHT = new JButton("you understand!");
 	
 	// Osprey Wrong answers
 	
@@ -260,6 +262,7 @@ public class Constants implements Serializable {
 	public final static JButton OSPREY_INCORRECT9 = new JButton("10 pounds");
 	public final static JButton OSPREY_INCORRECT10 = new JButton("The desert");
 	public final static JButton OSPREY_LAST_INCORRECT = new JButton("Low down by the ground");
+	public final static JButton OSPREY_TUTORIAL_INCORRECT = new JButton("you understand!");
 	
 	// Osprey moreWrong answers
 	
@@ -275,7 +278,7 @@ public class Constants implements Serializable {
 	public final static JButton OSPREY_WRONG9 = new JButton("1 pound");
 	public final static JButton OSPREY_WRONG10 = new JButton("in the mountains");
 	public final static JButton OSPREY_LAST_WRONG = new JButton("Osprey don't make nests");
-	
+	public final static JButton OSPREY_TUTORIAL_WRONG = new JButton("you understand!");	
 	
 	// Clapper Rail Information
 	
