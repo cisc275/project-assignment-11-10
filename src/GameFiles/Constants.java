@@ -23,12 +23,14 @@ public class Constants implements Serializable {
 	
 	public final static int BIRD_MOVE_AMOUNT = 10;
 	
-	public final static int RIGHT = 39;
-	public final static int LEFT = 37;
-	public final static int UP = 38;
-	public final static int DOWN = 40;
-	public final static int SPACE = 32;
-	public final static int ESCAPE = 27;
+	public final static int RIGHT_KEY_CODE = 39;
+	public final static int LEFT_KEY_CODE = 37;
+	public final static int UP_KEY_CODE = 38;
+	public final static int DOWN_KEY_CODE = 40;
+	public final static int SPACE_KEY_CODE = 32;
+	public final static int ESCAPE_KEY_CODE = 27;
+	public final static int TILDA_KEY_CODE = 192;
+	public final static int ONE_KEY_CODE = 43;
 	
 	public final static int AIRCURRENT_ANIMATION_TICK_RATE = 3;
 	
