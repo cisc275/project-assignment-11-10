@@ -607,7 +607,8 @@ public class Quiz extends JDialog implements KeyListener{
 	
 	
 	public static void main(String[] args) {
-		new Quiz("sides");
+		new Quiz("td"
+				+ "");
 	}
 	
 	
