@@ -96,13 +96,13 @@ public class SideScrollModel extends Model {
 			
 			// Does the fish exist yet????
 			if (tfish == null) {
-				tfish = new TFish(1920, (int) (700), (int) (1920 * 0.05), (int) (1080 * 0.05));
+				tfish = new TFish(Constants.FRAME_X, (int) (700), (int) (Constants.FRAME_X * 0.05), (int) (Constants.FRAME_Y * 0.05));
 				game.add(tfish);
 			}
 			
 			// Does the aircurrent exist yet?????
 			if (tair == null) {
-				tair = new AirCurrent(1920  + 500, 150, 200, 200);
+				tair = new AirCurrent(Constants.FRAME_X  + 500, 150, 200, 200);
 				game.add(tair);
 			}
 			
@@ -117,7 +117,7 @@ public class SideScrollModel extends Model {
 			}
 			
 			if (tpow == null) {
-				tpow = new Powerup(1920, 700, (int) (1920 * .05), (int) (1080 * .05));
+				tpow = new Powerup(Constants.FRAME_X, 700, (int) (Constants.FRAME_X * .05), (int) (Constants.FRAME_Y * .05));
 				game.add(tpow);
 				
 			}
@@ -135,6 +135,7 @@ public class SideScrollModel extends Model {
 				}
 				else if (tspace == null) {
 					tspace = new TutorialObject(300, 300, 483, 110, Constants.ANIMATION_SPACEBAR);
+					Osprey.xSpeed = 0;
 					game.add(tspace);
 				}
 				else if (tfish.hitbox.intersects(o.hitbox.getBounds2D())){
@@ -157,6 +158,7 @@ public class SideScrollModel extends Model {
 					tpow.move();
 				}
 				else if (tspace == null) {
+					Osprey.xSpeed = 0;
 					tspace = new TutorialObject(300, 300, 483, 110, Constants.ANIMATION_SPACEBAR);
 					game.add(tspace);
 				}	
@@ -233,9 +235,9 @@ public class SideScrollModel extends Model {
 	 */
 	@Override
 	protected void defaultSetup() { 
-		game.add(new Background(0, 0, 1920, 1080));
+		game.add(new Background(0, 0, Constants.FRAME_X, Constants.FRAME_Y));
 		game.add(o);
-		game.add(new InvisibleWall(0, Constants.OSPREY_WATER_LEVEL, 1920, 50));
+		game.add(new InvisibleWall(0, (int) (Constants.FRAME_Y * .75), Constants.FRAME_X, 50));
 		
 	}
 	
@@ -244,18 +246,22 @@ public class SideScrollModel extends Model {
 	 */
 	@Override
 	protected void postTutorial() {
-		game.add(new Fish(1920 + 400, (int) (1080 * 0.87), (int) (1920 * 0.05), (int) (1080 * 0.05)));
-		game.add(new Fish(1920 + 250, 600, 50, 50));
-		game.add(new Fish(1920 + 100, 650, 50, 50));
-		game.add(new Trash(1920 + 20, 1080 - (1080 / 9), 1920 / 20, 1080/ 15));
-		game.add(new Trash(1920 + 200, 1080 - (1080 / 3), 1920 / 20, 1080/ 15));
-		game.add(new AirCurrent(1920 + 20, 55, 250, 250));
-		game.add(new AirCurrent(1920  + 100, 100, 200, 200));
-		game.add(new AirCurrent(1920  + 500, 200, 200, 200));
-		game.add(new Powerup(1920, 800, 50, 50));
-		game.add(new Mate(1920, 200, 200, 50));// suposed to be 50 50, this is for the memes
+		game.add(new Fish(Constants.FRAME_X + 100, (int) (Constants.FRAME_Y * 0.9), (int) (Constants.FRAME_X * 0.05), (int) (Constants.FRAME_Y * 0.05)));
+		game.add(new Fish(Constants.FRAME_X + 300, (int) (Constants.FRAME_Y * .88), (int) (Constants.FRAME_X * 0.05), (int) (Constants.FRAME_Y * 0.05)));
+		game.add(new Fish(Constants.FRAME_X + 500, (int) (Constants.FRAME_Y * .92), (int) (Constants.FRAME_X * 0.05), (int) (Constants.FRAME_Y * 0.05)));
+		game.add(new Fish(Constants.FRAME_X + 700, (int) (Constants.FRAME_Y * 0.91), (int) (Constants.FRAME_X * 0.05), (int) (Constants.FRAME_Y * 0.05)));
+		game.add(new Fish(Constants.FRAME_X + 900, (int) (Constants.FRAME_Y * .85), (int) (Constants.FRAME_X * 0.05), (int) (Constants.FRAME_Y * 0.05)));
+		game.add(new Fish(Constants.FRAME_X + 1100, (int) (Constants.FRAME_Y * .94), (int) (Constants.FRAME_X * 0.05), (int) (Constants.FRAME_Y * 0.05)));
+		
+		game.add(new Trash(Constants.FRAME_X + 300, (int) (Constants.FRAME_Y * .91), (int) (Constants.FRAME_X *.05), (int) (Constants.FRAME_Y * .05)));
+		game.add(new Trash(Constants.FRAME_X + 150, (int) (Constants.FRAME_Y * .86), (int) (Constants.FRAME_X *.05), (int) (Constants.FRAME_Y * .05)));
+		game.add(new AirCurrent(Constants.FRAME_X + 20, 55, 250, 250));
+		game.add(new AirCurrent(Constants.FRAME_X  + 100, 100, 200, 200));
+		game.add(new AirCurrent(Constants.FRAME_X  + 500, 200, 200, 200));
+		game.add(new Powerup(Constants.FRAME_X * 5, 800, 50, 50));
+		game.add(new Mate(Constants.FRAME_X, 200, 200, 50));// suposed to be 50 50, this is for the memes
 	}
-	
+
 	
 	 /**
      * takes a hashset of integers and moves osprey accordingly
