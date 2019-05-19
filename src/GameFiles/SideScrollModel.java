@@ -152,7 +152,7 @@ public class SideScrollModel extends Model {
 					game.remove(twall2);
 				}
 				else if (!(o.hitbox.getBounds2D().getMinY() > tair.hitbox.getBounds2D().getMaxY() 
-							|| o.hitbox.getBounds2D().getMaxY() < tair.hitbox.getBounds2D().getMinY()) || yepItsOkayToMoveTheCloudAgain) {
+							|| o.hitbox.getBounds2D().getMaxY() < tair.hitbox.getBounds2D().getMinY())) {
 					
 				}
 				else if (tair.hitbox.getBounds2D().getMaxX() > 40){
