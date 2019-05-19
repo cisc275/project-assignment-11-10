@@ -41,9 +41,29 @@ public class SideScrollModel extends Model {
 	 */
 	private TutorialObject tspace = null;
 	
+	/**
+	 * The tutorial up
+	 */
+	private TutorialObject tup = null;
+	
+	/**
+	 * The tutorial down
+	 */
+	private TutorialObject tdown = null;
+	
+	/**
+	 * The upper invisible wall to keep you from moving.
+	 */
 	private InvisibleWall twall1 = null;
 	
+	/**
+	 * The lower invisible wall to keep you from moving
+	 */
 	private InvisibleWall twall2 = null;
+	
+	private boolean yepItsOkayToMoveTheCloudAgain = false;
+	
+	private boolean onlyDoOnce = true;
 	
 	
 	
@@ -82,7 +102,7 @@ public class SideScrollModel extends Model {
 			}
 			
 			if (twall1 == null) {
-				twall1 = new InvisibleWall(0, 30, 300, 100);
+				twall1 = new InvisibleWall(0, 50, 300, 100);
 				game.add(twall1);
 			}
 			
@@ -109,17 +129,50 @@ public class SideScrollModel extends Model {
 				else if (tfish.hitbox.intersects(o.hitbox.getBounds2D())){
 					tfish.visible = false;
 					tspace.visible = false;
+					
 				}
 				
+				//---------------------------------------
+				//	If we are still working with the air,
+				//		this will run.  Once done, its 
+				//		visibility will be set to false
+				//		and we skip it.
+				//---------------------------------------
 			} else if (tair.visible) {
 				if (tair.hitbox.getBounds2D().getMinX() > 500) {
 					tair.move();
-					System.out.println(tair);
+					//System.out.println(tair);
+				}
+				else if (tup == null || tdown == null) {
+					tup = new TutorialObject(350, 100, 122, 122, Constants.ANIMATION_UP_KEY);
+					tdown = new TutorialObject(350, 200, 122, 122, Constants.ANIMATION_DOWN_KEY);
+					game.add(tup);
+					game.add(tdown);
+					game.remove(twall1);
+					game.remove(twall2);
+				}
+				else if (!(o.hitbox.getBounds2D().getMinY() > tair.hitbox.getBounds2D().getMaxY() 
+							|| o.hitbox.getBounds2D().getMaxY() < tair.hitbox.getBounds2D().getMinY())) {
+					
+				}
+				else if (tair.hitbox.getBounds2D().getMaxX() > 40){
+					tair.move();
+					if (onlyDoOnce) {
+						tup.visible = false;
+						tdown.visible = false;
+						yepItsOkayToMoveTheCloudAgain = true;
+						onlyDoOnce = false;
+					}
+				}
+				else {
+					tair.visible = false;
+					game.remove(tair);
+				}
+				if (tair.visible == false && tfish.visible == false) {
+					this.inTutoral = false;
+					this.postTutorial();
 				}
 			}
-			
-			
-			
 		}	
 		else {
 			ArrayList<GameObject> toRemove = new ArrayList<GameObject>();
