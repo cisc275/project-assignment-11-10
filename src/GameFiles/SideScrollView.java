@@ -108,10 +108,6 @@ public class SideScrollView extends View{
     		mapNum = numOfMaps-1;
     	drawPanel.repaint();
     	speedNum = (int)((double)(Osprey.xSpeed)/(Constants.OSPREY_MAX_SPEED-Constants.OSPREY_MIN_SPEED)*numOfSpeeds);
-    	System.out.println("Speed Num: "+ speedNum);
-    	System.out.println("range: "+(Constants.OSPREY_MAX_SPEED-Constants.OSPREY_MIN_SPEED));
-    	System.out.println("speed: "+Osprey.xSpeed);
-    	System.out.println("speed/range: "+((double)(Osprey.xSpeed)/(Constants.OSPREY_MAX_SPEED-Constants.OSPREY_MIN_SPEED)));
     }
     
     /**
