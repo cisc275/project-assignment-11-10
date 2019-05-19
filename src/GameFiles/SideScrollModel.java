@@ -41,6 +41,11 @@ public class SideScrollModel extends Model {
 	 */
 	private TutorialObject tspace = null;
 	
+	private InvisibleWall twall1 = null;
+	
+	private InvisibleWall twall2 = null;
+	
+	
 	
 	public SideScrollModel() {
 		o = new Osprey(Constants.OSPREY_STARTX, 150, 50, 50);
@@ -74,6 +79,16 @@ public class SideScrollModel extends Model {
 			if (tair == null) {
 				tair = new AirCurrent(1920  + 500, 150, 200, 200);
 				game.add(tair);
+			}
+			
+			if (twall1 == null) {
+				twall1 = new InvisibleWall(0, 30, 300, 100);
+				game.add(twall1);
+			}
+			
+			if (twall2 == null) {
+				twall2 = new InvisibleWall(0, 200, 300, 100);
+				game.add(twall2);
 			}
 			
 			//---------------------------------------
