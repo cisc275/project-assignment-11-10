@@ -112,6 +112,7 @@ public class Constants implements Serializable {
 	public final static String IMG_AIRCURRENT_5 = "img/aircurrent/aircurrent_5.png";
 	public final static String IMG_AIRCURRENT_6 = "img/aircurrent/aircurrent_6.png";
 	public final static String IMG_BACKGROUND = "img/background.png";
+	public final static String IMG_CR_BACKGROUND_QUIZ = "img/cBackgroundQuiz.png";
 	public final static String IMG_CLAPPER_RAIL_BACKGROUND = "img/cBackground.png";
 	public final static String IMG_CLAPPER_RAIL_LEFT_1 = "img/cr/cr1.png";
 	public final static String IMG_CLAPPER_RAIL_LEFT_2 = "img/cr/cr2.png";

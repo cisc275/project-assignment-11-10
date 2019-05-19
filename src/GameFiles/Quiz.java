@@ -151,7 +151,7 @@ public class Quiz extends JDialog implements KeyListener{
 	public void panelHandling() {
 		p = new DrawPanel();
 		p.setLayout(new GridLayout(0, 1));
-		p.setIgnoreRepaint(false);
+		p.setIgnoreRepaint(true);
 	}
 	
 	private class DrawPanel extends JPanel{
@@ -164,7 +164,7 @@ public class Quiz extends JDialog implements KeyListener{
 	    		return bufferedImage;
 	    		}
 	    		if (game.equals("td")) {
-	    		bufferedImage = ImageIO.read(new File(Constants.IMG_CLAPPER_RAIL_BACKGROUND));
+	    		bufferedImage = ImageIO.read(new File(Constants.IMG_CR_BACKGROUND_QUIZ));
 	    		return bufferedImage;
 	    		}
 	    	}
@@ -179,10 +179,12 @@ public class Quiz extends JDialog implements KeyListener{
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			image = createImage();
-			
-			g.drawImage(image, 0, 0, 400, 400, this);
+			if (game.equals("sides")) {
+			g.drawImage(image, 0, 0, 400, 350, this);
 		}
+			else g.drawImage(image, 0, 0, 400, 300, this);
 	
+	}
 	}
 	
 	
@@ -368,7 +370,6 @@ public class Quiz extends JDialog implements KeyListener{
 	 */
 	
 	public void getQuestion(ArrayList<JLabel> ourQuestions) {
-		System.out.println(Mate.caughtUp);
 		if (Mate.caughtUp == true) {
 			question = Constants.OSPREY_LAST;
 		}
@@ -391,20 +392,25 @@ public class Quiz extends JDialog implements KeyListener{
 	 */
 	
 	public void questionHandling() {
+		ArrayList<JLabel> list = new ArrayList<JLabel>();
+		list.add(question);
 		if (Model.inTutoral == true) {
 			instruction = new JLabel("Answer correctly and you will get a speed boost!");
-		}		
-			question.setForeground(Color.BLACK);
-			question.setHorizontalAlignment(JLabel.CENTER);
-			question.setVerticalAlignment(JLabel.TOP);
-			question.setOpaque(false);
-	        question.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, 15));
-	        question.setMinimumSize(new Dimension(200, 5));
-	        question.setPreferredSize(new Dimension(200, 5));
-	        question.setMaximumSize(new Dimension(200, 5));
-			p.add(question);
-			
-	        }
+		}
+		else instruction = new JLabel("Press the key listed next to your answer.");
+		list.add(instruction);
+		for (JLabel l : list) {
+			l.setForeground(Color.BLACK);
+			l.setHorizontalAlignment(JLabel.CENTER);
+			l.setVerticalAlignment(JLabel.TOP);
+			l.setOpaque(false);
+	        l.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, 15));
+	        l.setMinimumSize(new Dimension(200, 5));
+	        l.setPreferredSize(new Dimension(200, 5));
+	        l.setMaximumSize(new Dimension(200, 5));
+			p.add(l);	
+		}
+	}
 		
 	
 	
@@ -631,6 +637,8 @@ public class Quiz extends JDialog implements KeyListener{
 		buttons.add(third);
 		buttons.add(new JButton());
 		buttons.add(new JButton());
+		buttons.add(new JButton());
+		buttons.add(new JButton());
 		
 		for (JButton b :buttons) {
 			b.addKeyListener(this);
@@ -653,7 +661,7 @@ public class Quiz extends JDialog implements KeyListener{
 	
 	
 	public static void main(String[] args) {
-		new Quiz("td" + "");
+		new Quiz("td");
 	}
 	
 	
