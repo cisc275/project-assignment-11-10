@@ -18,6 +18,8 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.Timer;
 
+import com.sun.scenario.effect.Blend.Mode;
+
 /**
  * main controller for the game, starts and maintains all of our models and views
  * @author tmazz
@@ -87,6 +89,9 @@ public class Controller implements KeyListener, ActionListener{
 			model.game.add(new Stick(400, 400, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE)));
 			model.game.add(new TutorialObject(300, 150, 483, 110, Constants.ANIMATION_SPACEBAR));
 			model.game.add(new TutorialObject(700, 300, 122, 122, Constants.ANIMATION_UP_KEY));
+			model.game.add(new TutorialObject(850, 450, 122, 122, Constants.ANIMATION_RIGHT_KEY));
+			model.game.add(new TutorialObject(550, 450, 122, 122, Constants.ANIMATION_LEFT_KEY));
+			model.game.add(new TutorialObject(700, 450, 122, 122, Constants.ANIMATION_DOWN_KEY));
 			Bush b1 = new Bush(500, 500,150,150);
 			model.game.add(b1);
 			((TopDownModel)model).cr.bushArr.add(b1);

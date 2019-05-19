@@ -82,7 +82,7 @@ public class AirCurrent extends Collectable {
 		acReset();
 		o.setXSpeed((Osprey.getXSpeed() + Constants.FISH_AC));
 		if (Osprey.xSpeed >= Constants.OSPREY_MIN_SPEED) {
-			o.setXSpeed(-2);
+			o.setXSpeed(Constants.OSPREY_MIN_SPEED);
 		}
 	}
 	

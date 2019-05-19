@@ -91,8 +91,8 @@ public class Fox extends Controllable {
 		ClapperRail.lives -= 1;
 		c.resetPoly();
 		this.resetPoly();
-		xSpeed = 2;
-		ySpeed = 2;
+		xSpeed = Constants.FOX_INIT_XSPEED;
+		ySpeed = Constants.FOX_INIT_YSPEED;
 	
 	}
 	

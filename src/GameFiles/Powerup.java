@@ -42,6 +42,24 @@ public class Powerup extends Collectable {
 		new Quiz("td");		
 	}
 	
+	
+	
+	/**
+	 * 
+	 *  Resets Polygon with its origin at x, y and its size to be its width and height
+	 * 
+	 * @author Peter Jenny
+	 */
+	public void resetPoly() {
+		this.hitbox.reset();
+		this.hitbox.addPoint(x + View.frame.getWidth(), y);
+		this.hitbox.addPoint(x + View.frame.getWidth(), y + height);
+		this.hitbox.addPoint(x + View.frame.getWidth() + width, y + height);
+		this.hitbox.addPoint(x + View.frame.getWidth() + width, y);
+	}
+	
+	
+	
 	/**
 	 * @param Osprey o
 	 * 
