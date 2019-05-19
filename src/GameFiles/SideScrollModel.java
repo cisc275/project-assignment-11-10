@@ -188,6 +188,9 @@ public class SideScrollModel extends Model {
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see GameFiles.Model#defaultSetup()
+	 */
 	@Override
 	protected void defaultSetup() { 
 		game.add(new Background(0, 0, 1920, 1080));
@@ -196,6 +199,10 @@ public class SideScrollModel extends Model {
 		
 	}
 	
+	/* (non-Javadoc)
+	 * @see GameFiles.Model#postTutorial()
+	 */
+	@Override
 	protected void postTutorial() {
 		game.add(new Fish(1920 + 400, (int) (1080 * 0.87), (int) (1920 * 0.05), (int) (1080 * 0.05)));
 		game.add(new Fish(1920 + 250, 600, 50, 50));
