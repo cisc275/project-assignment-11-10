@@ -180,8 +180,8 @@ public class Quiz extends JDialog implements KeyListener{
 			super.paintComponent(g);
 			image = createImage();
 			if (game.equals("sides")) {
-			g.drawImage(image, 0, 0, 400, 350, this);
-		}
+			g.drawImage(image, 0, 0, 400, 300, this);
+			}
 			else g.drawImage(image, 0, 0, 400, 300, this);
 	
 	}
@@ -661,7 +661,7 @@ public class Quiz extends JDialog implements KeyListener{
 	
 	
 	public static void main(String[] args) {
-		new Quiz("td");
+		new Quiz("sides");
 	}
 	
 	

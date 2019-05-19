@@ -268,7 +268,7 @@ public class SideScrollModel extends Model {
 		game.add(new AirCurrent(Constants.FRAME_X  + 1200,  (int) (Constants.FRAME_Y * .55), 200, 200));
 		game.add(new AirCurrent(Constants.FRAME_X + 1800,  (int) (Constants.FRAME_Y * .4), 250, 250));
 		game.add(new AirCurrent(Constants.FRAME_X  + 1337,  (int) (Constants.FRAME_Y * .15), 200, 200));
-//		game.add(new AirCurrent(Constants.FRAME_X  + 1529,  (int) (Constants.FRAME_Y * .58), 200, 200));
+		game.add(new AirCurrent(Constants.FRAME_X  + 1529,  (int) (Constants.FRAME_Y * .58), 200, 200));
 		
 		
 		game.add(new Powerup(Constants.FRAME_X * 7, (int)(Constants.FRAME_Y * .8), 50, 50));

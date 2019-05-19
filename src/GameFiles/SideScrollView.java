@@ -59,7 +59,7 @@ public class SideScrollView extends View{
     /**
      * how many lightning bolts we want to draw
      */
-    final int numOfSpeeds = 6;
+    final int numOfSpeeds = 5;
     
     /**
      * the maps all in one array
@@ -108,6 +108,7 @@ public class SideScrollView extends View{
     		mapNum = numOfMaps-1;
     	drawPanel.repaint();
     	speedNum = (int)((double)(Osprey.xSpeed)/(Constants.OSPREY_MAX_SPEED-Constants.OSPREY_MIN_SPEED)*numOfSpeeds);
+    	System.out.println(speedNum);
    
     }
     
@@ -163,8 +164,12 @@ public class SideScrollView extends View{
 //		    	}
 
 		    	
-		    	for(int i=speedNum;i > 0;i--) {
-		    		g.drawImage(speeds[speedNum], View.frame.getWidth()-(speeds[speedNum].getWidth()*i), miniMaps[mapNum].getHeight(), this);
+		    	for(int i = speedNum - 1;i > 0;i--) {
+		    		if (speedNum > speeds.length - 1) {
+		    			speedNum = speeds.length - 1;
+		    		}
+		    			g.drawImage(speeds[speedNum], View.frame.getWidth()-(speeds[speedNum].getWidth()*i), miniMaps[mapNum].getHeight(), this);
+		    
 		    	}
 				}
 			/*
@@ -179,6 +184,8 @@ public class SideScrollView extends View{
     	 * @return Dimension
     	 */
 		public Dimension getPreferredSize() {
+
+			
 			return new Dimension((int)Constants.getFRAME_X(), (int)Constants.getFRAME_Y());
 		}
 	

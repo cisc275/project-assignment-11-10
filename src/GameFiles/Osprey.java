@@ -18,6 +18,7 @@ import javax.imageio.ImageIO;
 public class Osprey extends Bird {
 	
 	int count = 0;
+	int lowCount = 0;
 	/**
 	 *  the xSpeed which determines how fast you will travel (behind the scenes not actually)
 	 */
@@ -101,10 +102,16 @@ public class Osprey extends Bird {
 		if (Osprey.xSpeed < Constants.OSPREY_MAX_SPEED) {
 			Osprey.xSpeed = Constants.OSPREY_MAX_SPEED;
 		}
-		if (this.hitbox.ypoints[0] <= 50) {
+		if (this.hitbox.ypoints[0] <= this.height) {
 			count++;
-			if (count % 40 == 0) {
-				Osprey.xSpeed -= 5;
+			if (count % 30 == 0) {
+				Osprey.xSpeed -= 1;
+			}
+		}
+		if (this.hitbox.ypoints[1] >= Constants.FRAME_Y - this.height) {
+			lowCount++;
+			if (lowCount % 30 == 0) {
+				Osprey.xSpeed += 1;
 			}
 		}
 		this.hitbox.translate(0, this.ySpeed);
