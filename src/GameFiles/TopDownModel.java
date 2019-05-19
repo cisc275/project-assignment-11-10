@@ -55,18 +55,18 @@ public class TopDownModel extends Model {
     	for(Integer key: keyPresses) {
 	    	switch(key) {
 	    	
-	    	case Constants.RIGHT:
+	    	case Constants.RIGHT_KEY_CODE:
 	    		System.out.println("right pressed");
 				cr.setxSpeed(cr.getMOVE_AMOUNT());
 				break;
-	    	case Constants.LEFT:
+	    	case Constants.LEFT_KEY_CODE:
 	    		System.out.println("left pressed");
 				cr.setxSpeed(-cr.getMOVE_AMOUNT());
 				break;
-	    	case Constants.UP:
+	    	case Constants.UP_KEY_CODE:
 				cr.setySpeed(-cr.getMOVE_AMOUNT());
 				break;
-	    	case Constants.DOWN:
+	    	case Constants.DOWN_KEY_CODE:
 	    		cr.setySpeed(cr.getMOVE_AMOUNT());
 				break;
 			}
