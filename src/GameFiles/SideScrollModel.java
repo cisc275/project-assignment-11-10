@@ -237,7 +237,7 @@ public class SideScrollModel extends Model {
 	protected void defaultSetup() { 
 		game.add(new Background(0, 0, Constants.FRAME_X, Constants.FRAME_Y));
 		game.add(o);
-		game.add(new InvisibleWall(0, (int) (Constants.FRAME_Y * .65), Constants.FRAME_X, 50));
+		game.add(new InvisibleWall(0, (int) (Constants.FRAME_Y * .60), Constants.FRAME_X, 50));
 		
 	}
 	
@@ -271,7 +271,7 @@ public class SideScrollModel extends Model {
 		game.add(new AirCurrent(Constants.FRAME_X  + 1529,  (int) (Constants.FRAME_Y * .58), 200, 200));
 		
 		
-		game.add(new Powerup(Constants.FRAME_X * 7, (int)(Constants.FRAME_Y * .8), 50, 50));
+		game.add(new Powerup(Constants.FRAME_X * 7, (int)(Constants.FRAME_Y * .93), 50, 50));
 		game.add(new Mate(Constants.FRAME_X, 200, 75, 75));// suposed to be 50 50, this is for the memes
 	}
 
