@@ -180,6 +180,7 @@ public class SideScrollModel extends Model {
 				a.move();
 				a.collision(g);			
 				if (a.removeObject()) toRemove.add(a);
+				if (a instanceof Fish) System.out.println(a.hitbox.getBounds2D());
 			}
 	    	g.removeAll(toRemove);
 			if (Mate.caughtUp) {
