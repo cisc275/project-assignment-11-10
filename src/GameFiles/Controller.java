@@ -127,10 +127,11 @@ public class Controller implements KeyListener, ActionListener{
     				for(GameObject g : model.game) {
     					g.visible = false;
     				}
+    				View.frame.dispose();
     				new Quiz("sides");
     				time.stop();
     			}
-    			else if(Stick.count == 3) {
+    			else if(Stick.count == Constants.STICK_END_COUNT) {
     				for(GameObject g : model.game) {
     					g.visible = false;
     				}
@@ -138,7 +139,7 @@ public class Controller implements KeyListener, ActionListener{
     				new EndScreen();
     				time.stop();
     			}
-    			else if(ClapperRail.lives == 0) {
+    			else if(ClapperRail.lives == Constants.CLAPPER_RAIL_LIVES_END_STATE) {
     				for(GameObject g : model.game) {
     					g.visible = false;
     				}
