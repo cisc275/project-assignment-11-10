@@ -172,16 +172,23 @@ public class SideScrollModel extends Model {
 				if (tair.hitbox.getBounds2D().getMinX() > 500) {
 					tair.move();
 					if (tup == null || tdown == null) {
-						tup = new TutorialObject(350, 100, 122, 122, Constants.ANIMATION_UP_KEY);
-						tdown = new TutorialObject(350, 200, 122, 122, Constants.ANIMATION_DOWN_KEY);
-						game.add(tup);
-						game.add(tdown);
-						game.remove(twall1);
-						game.remove(twall2);
+					tup = new TutorialObject(350, 100, 122, 122, Constants.ANIMATION_UP_KEY);
+					tdown = new TutorialObject(350, 200, 122, 122, Constants.ANIMATION_DOWN_KEY);
+					game.add(tup);
+					game.add(tdown);
+					game.remove(twall1);
+					game.remove(twall2);
+					//System.out.println(tair);
 					}
 				}
-
-
+//				else if (tup == null || tdown == null) {
+//					tup = new TutorialObject(350, 100, 122, 122, Constants.ANIMATION_UP_KEY);
+//					tdown = new TutorialObject(350, 200, 122, 122, Constants.ANIMATION_DOWN_KEY);
+//					game.add(tup);
+//					game.add(tdown);
+//					game.remove(twall1);
+//					game.remove(twall2);
+//				}
 				else if (!(o.hitbox.getBounds2D().getMinY() > tair.hitbox.getBounds2D().getMaxY() 
 							|| o.hitbox.getBounds2D().getMaxY() < tair.hitbox.getBounds2D().getMinY())) {
 					
