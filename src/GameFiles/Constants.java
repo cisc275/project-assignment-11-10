@@ -30,7 +30,7 @@ public class Constants implements Serializable {
 	public final static int SPACE_KEY_CODE = 32;
 	public final static int ESCAPE_KEY_CODE = 27;
 	public final static int TILDA_KEY_CODE = 192;
-	public final static int ONE_KEY_CODE = 43;
+	public final static int ONE_KEY_CODE = 49;
 	
 	public final static int AIRCURRENT_ANIMATION_TICK_RATE = 3;
 	
