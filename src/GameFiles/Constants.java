@@ -168,6 +168,21 @@ public class Constants implements Serializable {
 	public final static String[] ANIMATION_UP_KEY = {IMG_UP_KEY_1, IMG_UP_KEY_2, IMG_UP_KEY_3, IMG_UP_KEY_4, IMG_UP_KEY_5, IMG_UP_KEY_6, 
 																	IMG_UP_KEY_5, IMG_UP_KEY_4, IMG_UP_KEY_3, IMG_UP_KEY_2};
 	
+	// Osprey information
+	
+	public final static JButton OSPREY_I_1 = new JButton("Ospreys like to get food by diving into shallow water and grabbing whatever they can.");
+	public final static JButton OSPREY_I_2 = new JButton("Ospreys are solitary birds, and they usually like to fly by themselves.");
+	public final static JButton OSPREY_I_3 = new JButton("North American ospreys tend to migrate to Central and South America, while European ospreys will migrate to Africa for the winter.");
+	public final static JButton OSPREY_I_4 = new JButton("Osprey predators include eagles, owls, raccoons, and snakes");
+	public final static JButton OSPREY_I_5 = new JButton("Ospreys are usually a combination of brown and white, depending on where they are born.");
+	public final static JButton OSPREY_I_6 = new JButton("Ospreys will almost always eat fish, but if they have to they can other small animals such as insects and snakes.");
+	public final static JButton OSPREY_I_7 = new JButton("Ospreys are very loyal, and will usually only take one mate in their life.");
+	public final static JButton OSPREY_I_8 = new JButton("While 50% of ospreys don't make it to adulthood, the ospreys that can live for up to 15 years, with one osprey female making it to over 20 years old");
+	public final static JButton OSPREY_I_9 = new JButton("The osprey can weigh anywhere from 2 pounds to 5 pounds, and their wingspan can be up to 5 feet.");
+	public final static JButton OSPREY_I_10 = new JButton("Ospreys mainly get their food and nutrients from fish, and because of this they like to live near water.");
+	public final static JButton OSPREY_I_LAST = new JButton("Ospreys like to be near water as that is their food source, but more importantly they like to make their nests up high to avoid predators.");
+	
+	
 	// Osprey Questions
 	
 	public final static JLabel OSPREY_1 = new JLabel("How do ospreys like to get their food?");
@@ -191,7 +206,7 @@ public class Constants implements Serializable {
 	public final static JButton OSPREY_CORRECT5 = new JButton("Brown and white");
 	public final static JButton OSPREY_CORRECT6 = new JButton("Fish");
 	public final static JButton OSPREY_CORRECT7 = new JButton("Only one!");
-	public final static JButton OSPREY_CORRECT8 = new JButton("15-20 years");
+	public final static JButton OSPREY_CORRECT8 = new JButton("10-15 years");
 	public final static JButton OSPREY_CORRECT9 = new JButton("3-5 pounds");
 	public final static JButton OSPREY_CORRECT10 = new JButton("Near water (like the Delaware Estuary!)");
 	public final static JButton OSPREY_LAST_RIGHT = new JButton("Up high off the ground");
@@ -224,6 +239,19 @@ public class Constants implements Serializable {
 	public final static JButton OSPREY_WRONG9 = new JButton("1 pound");
 	public final static JButton OSPREY_WRONG10 = new JButton("in the mountains");
 	public final static JButton OSPREY_LAST_WRONG = new JButton("Osprey don't make nests");
+	
+	// Clapper Rail Information
+	
+	public final static JButton CR_I_1 = new JButton("CI1");
+	public final static JButton CR_I_2 = new JButton("CI2");
+	public final static JButton CR_I_3 = new JButton("CI3");
+	public final static JButton CR_I_4 = new JButton("CI4");
+	public final static JButton CR_I_5 = new JButton("CI5");
+	public final static JButton CR_I_6 = new JButton("CI6");
+	public final static JButton CR_I_7 = new JButton("CI7");
+	public final static JButton CR_I_8 = new JButton("CI8");
+	public final static JButton CR_I_9 = new JButton("CI9");
+	public final static JButton CR_I_10 = new JButton("CI10");
 	
 	// Clapper Rail Questions
 	

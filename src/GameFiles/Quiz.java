@@ -1,5 +1,7 @@
 package GameFiles;
+import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Dimension;
 
 import java.awt.FlowLayout;
@@ -11,6 +13,7 @@ import java.awt.Polygon;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
@@ -31,7 +34,6 @@ import javax.swing.InputMap;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
@@ -42,15 +44,23 @@ import javax.swing.KeyStroke;
  */
 public class Quiz extends JDialog implements KeyListener{
 	
+	CardLayout card;
+	Container c;
+	
 	/**
 	 * an array list of all the possible quiz questions
 	 */
 	 ArrayList<JLabel> questions;
 	 
+	 JPanel info; 
+	 JButton information;
+	 
 	 /**
 	  * the label for the chosen question
 	  */
 	 JLabel question;
+	 JLabel instruction = new JLabel("Press the key listed next to your answer.");
+	 JLabel next = new JLabel("Press spacebar to answer a question and get a powerup.");
 	 
 	 /**
 	  * whether or not a question has been answered
@@ -65,7 +75,7 @@ public class Quiz extends JDialog implements KeyListener{
 	 /**
 	  * arraylists of each type of answer
 	  */
-	 ArrayList<JButton> rightAnswers, wrongAnswers, mWAnswers;
+	 ArrayList<JButton> rightAnswers, wrongAnswers, mWAnswers, informations;
 	 
 	 /**
 	  * hashset of integers so that there are no duplicate questions
@@ -96,20 +106,37 @@ public class Quiz extends JDialog implements KeyListener{
 	 */
 	
 	public Quiz(String game) {
-		p = new JPanel();
-		p.setLayout(new GridLayout(0,1));
-		p.setAlignmentX(CENTER_ALIGNMENT);
-		p.setAlignmentY(TOP_ALIGNMENT);
-		initHashtable();
+		c = getContentPane();
+		card = new CardLayout();
+		c.setLayout(card);
+		panelHandling();
 		questionNumber();
 		initQuestions(game);
 		initAnswers(game);
+		initInfo(game);
+		info.add(next);
+		c.add("info", info);
+        c.add("qNa", p);
 		this.setModal(true);
 		this.setResizable(false);
-        this.add(p);
         this.setSize(400, 200);
         this.setVisible(true);
+   
+		
      
+	}
+	
+	public void panelHandling() {
+		p = new JPanel();
+		info = new JPanel();
+		ArrayList<JPanel> panels = new ArrayList<JPanel>();
+		panels.add(p);
+		panels.add(info);
+		for (JPanel j : panels) {
+			j.setLayout(new GridLayout(0, 1));
+			j.setAlignmentX(CENTER_ALIGNMENT);
+			j.setAlignmentY(TOP_ALIGNMENT);
+		}
 	}
 	
 	
@@ -155,7 +182,84 @@ public class Quiz extends JDialog implements KeyListener{
 		}
 		return answer;
 	}	
+	
+	public void initInfo(String game) {
+		if (game.equals("sides")) {
+			if (informations != null) {}
+			else {
+				informations = new ArrayList<JButton>();
+				informations.add(Constants.OSPREY_I_1);
+				informations.add(Constants.OSPREY_I_2);
+				informations.add(Constants.OSPREY_I_3);
+				informations.add(Constants.OSPREY_I_4);
+				informations.add(Constants.OSPREY_I_5);
+				informations.add(Constants.OSPREY_I_6);
+				informations.add(Constants.OSPREY_I_7);
+				informations.add(Constants.OSPREY_I_8);
+				informations.add(Constants.OSPREY_I_9);
+				informations.add(Constants.OSPREY_I_10);
+				
+			}
+		}
+		if (game.equals("td")) {
+			if (informations != null) {}
+			else {
+
+				informations = new ArrayList<JButton>();
+				informations.add(Constants.CR_I_1);
+				informations.add(Constants.CR_I_2);
+				informations.add(Constants.CR_I_3);
+				informations.add(Constants.CR_I_4);
+				informations.add(Constants.CR_I_5);
+				informations.add(Constants.CR_I_6);
+				informations.add(Constants.CR_I_7);
+				informations.add(Constants.CR_I_8);
+				informations.add(Constants.CR_I_9);
+				informations.add(Constants.CR_I_10);
+			}
+		}
+		getInfo(informations);
+	}
+	
+	public void getInfo(ArrayList<JButton> inf) {
+		if (Mate.caughtUp) {
+			information = Constants.OSPREY_I_LAST;
+		}
+		else {
+			information = inf.get(qNumber);
+			inf.remove(qNumber);
+		}
+		infoPanelHandling();
+	}
+	
+	public void infoPanelHandling() {
+		information.addKeyListener(this);
+		information.setFocusPainted(false);
+		information.setOpaque(true);
+		information.setBackground(Color.WHITE);
+		information.setMinimumSize(new Dimension(300, 20));
+        information.setPreferredSize(new Dimension(300, 20));
+        information.setMaximumSize(new Dimension(300, 20));
+    	information.setVerticalAlignment(JButton.TOP);
+    	information.setHorizontalAlignment(JButton.CENTER);
+    	information.setFont(new Font("Serif", Font.BOLD, 15));
+    	information.setBorderPainted(false);	
+    	info.add(information);
+		directionHandling();
+	}
+	
+	public void directionHandling() {
+		next.setHorizontalAlignment(JLabel.CENTER);
+		next.setVerticalAlignment(JLabel.TOP);
+		next.setOpaque(true);
+        next.setFont(new Font("Serif", Font.BOLD, 15));
+        next.setBackground(Color.WHITE);
+        next.setMinimumSize(new Dimension(200, 5));
+        next.setPreferredSize(new Dimension(200, 5));
+        next.setMaximumSize(new Dimension(200, 5));
+		info.add(next);
 		
+	}
 	
 	/**
 	 * @param String game
@@ -235,7 +339,6 @@ public class Quiz extends JDialog implements KeyListener{
 	 */
 	
 	public void questionHandling() {
-		JLabel instruction = new JLabel("Press the key listed next to your answer.");
 		ArrayList<JLabel> templist = new ArrayList<>();
 		templist.add(question);
 		templist.add(instruction);
@@ -249,8 +352,9 @@ public class Quiz extends JDialog implements KeyListener{
 	        l.setPreferredSize(new Dimension(200, 5));
 	        l.setMaximumSize(new Dimension(200, 5));
 			p.add(l);
+	        }
 		}
-	}
+	
 	
 	
 	/**
@@ -491,6 +595,7 @@ public class Quiz extends JDialog implements KeyListener{
 		buttons.add(first);
 		buttons.add(second);
 		buttons.add(third);
+
 		
 		for (JButton b :buttons) {
 			b.addKeyListener(this);
@@ -504,8 +609,7 @@ public class Quiz extends JDialog implements KeyListener{
         	b.setHorizontalAlignment(JButton.CENTER);
         	b.setFont(new Font("Serif", Font.BOLD, 15));
         	b.setBorderPainted(false);
-        	p.add(b);
-    
+        	p.add(b);	
 		}
 	}
 	
@@ -525,6 +629,9 @@ public class Quiz extends JDialog implements KeyListener{
 	 * @author tim mazzarelli
 	 */
 	
+	public void addActionListener(Quiz q) {
+	}
+	
 	class keyAction extends AbstractAction{
 		
 		/**
@@ -537,6 +644,10 @@ public class Quiz extends JDialog implements KeyListener{
 		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			System.out.println("hi");
+				if (e.getSource() == information) {
+					card.next(c);
+				}
 				if (e.getSource() == first) {
 					if (first.getText().equals("A. " + right.getText())) {
 						if(Mate.caughtUp) {
@@ -547,6 +658,7 @@ public class Quiz extends JDialog implements KeyListener{
 						System.out.println("right");
 					}
 					else System.out.println("wrong");
+					endQuiz();
 				}
 				if (e.getSource() == second) {
 					if (second.getText().equals("B. " + right.getText())) {
@@ -558,6 +670,7 @@ public class Quiz extends JDialog implements KeyListener{
 						System.out.println("right");
 					}
 					else System.out.println("wrong");
+					endQuiz();
 				}
 				if (e.getSource() == third) {
 					if (third.getText().equals("C. " + right.getText())) {
@@ -569,12 +682,16 @@ public class Quiz extends JDialog implements KeyListener{
 						System.out.println("right");
 					}
 					else System.out.println("wrong");
+					endQuiz();
 				}
 
-				endQuiz();
+			
 			}
 		}
-		
+	
+	
+
+	
 	/**
 	 * @param KeyEvent e
 	 * 
@@ -587,11 +704,13 @@ public class Quiz extends JDialog implements KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		this.requestFocus();
+		firstPanelSetup();
 		firstButtonSetup();
 		secondButtonSetup();
 		thirdButtonSetup();
-	}
+		}
 	
+
 	/**
 	 * sets up the correct input and action maps for the first button
 	 * @author Tim Mazzarelli
@@ -604,6 +723,15 @@ public class Quiz extends JDialog implements KeyListener{
 		
 		ActionMap amap = first.getActionMap();
 		amap.put("first", new keyAction());
+	}
+	
+	public void firstPanelSetup() {
+		int map = JComponent.WHEN_IN_FOCUSED_WINDOW;
+		InputMap imap = information.getInputMap(map);
+		imap.put(KeyStroke.getKeyStroke("SPACE"), "information");
+		
+		ActionMap amap = information.getActionMap();
+		amap.put("information", new keyAction());
 	}
 	
 	/**
@@ -659,7 +787,6 @@ public class Quiz extends JDialog implements KeyListener{
 	 */
 	@Override
 	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
 		
 	}
 		
