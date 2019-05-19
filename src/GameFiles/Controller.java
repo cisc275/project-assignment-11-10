@@ -18,7 +18,7 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.Timer;
 
-import com.sun.scenario.effect.Blend.Mode;
+//import com.sun.scenario.effect.Blend.Mode;
 
 /**
  * main controller for the game, starts and maintains all of our models and views

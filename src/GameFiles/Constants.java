@@ -110,12 +110,12 @@ public class Constants implements Serializable {
 	public final static String IMG_BACKGROUND = "img/background.png";
 	public final static String IMG_CLAPPER_RAIL_BACKGROUND = "img/cBackground.png";
 	public final static String IMG_BUSH = "img/bush.png";
-	public final static String IMG_DOWN_KEY = "img/down.png";
+	public final static String IMG_DOWN_KEY = "img/down/down.png";
 	public final static String IMG_FISH_1 = "img/fish/fish_west1.png";
 	public final static String IMG_FISH_2 = "img/fish/fish_west2.png";
 	public final static String IMG_FISH_3 = "img/fish/fish_west3.png";
 	public final static String IMG_FOX = "img/ee.png";
-	public final static String IMG_LEFT_KEY = "img/left.png";
+	public final static String IMG_LEFT_KEY = "img/left/left.png";
 	public final static String IMG_MATE = "img/cr.png";
 	public final static String IMG_MODEL_DUMP_STATUS_MSG = "img/modelDumpStatusMsg.png";
 	public final static String IMG_NEST = "img/nest.png";
@@ -124,7 +124,7 @@ public class Constants implements Serializable {
 	public final static String IMG_OSPREY_3 = "img/osprey/osprey3.png";
 	public final static String IMG_OSPREY_DIVE = "img/osprey_dive.png";
 	public final static String IMG_POLY_HARVEY = "img/PolyHarvey.png";
-	public final static String IMG_RIGHT_KEY = "img/right.png";
+	public final static String IMG_RIGHT_KEY = "img/right/right.png";
 	public final static String IMG_SELECT_CLAPPER_RAIL = "img/selectCR.png";
 	public final static String IMG_SELECT_OSPREY = "img/selectOsprey.png";
 	public final static String IMG_SPACEBAR = "img/spacebar/spacebar.png";
