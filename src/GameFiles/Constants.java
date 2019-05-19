@@ -34,8 +34,8 @@ public class Constants implements Serializable {
 	
 	public final static int AIRCURRENT_ANIMATION_TICK_RATE = 3;
 	
-	public final static int CLAPPER_RAIL_START_LOC_X = 400;
-	public final static int CLAPPER_RAIL_START_LOC_Y = 200;
+	public final static int CLAPPER_RAIL_START_LOC_X = 800;
+	public final static int CLAPPER_RAIL_START_LOC_Y = 600;
 	public final static int CLAPPER_RAIL_START_SIZE_X = 100;
 	public final static int CLAPPER_RAIL_START_SIZE_Y = 100;
 	public final static int CLAPPER_RAIL_ANIMATION_TICK_RATE = 1;
