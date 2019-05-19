@@ -61,18 +61,18 @@ public class SideScrollModel extends Model {
 			o.setYSpeed(0);
 			for(Integer key: keyPresses) {
 				switch(key) {
-				case Constants.UP:
+				case Constants.UP_KEY_CODE:
 					if(!o.isDiving) {
 						o.setYSpeed(-o.getMaxYSpeed());
 					}
 					break;
-				case Constants.DOWN:
+				case Constants.DOWN_KEY_CODE:
 					if(!o.isDiving) {
 						 o.setYSpeed(o.getMaxYSpeed());
 					}
 					
 					break;
-				case Constants.SPACE:
+				case Constants.SPACE_KEY_CODE:
 					o.dive();
 				}
 			}
