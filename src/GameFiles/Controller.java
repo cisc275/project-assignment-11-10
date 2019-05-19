@@ -144,7 +144,7 @@ public class Controller implements KeyListener, ActionListener{
     					g.visible = false;
     				}
     				View.frame.dispose();
-    				new LoseScreen();
+    				new LoseScreen("cr");
     				time.stop();
     			}
     		}
