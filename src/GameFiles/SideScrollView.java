@@ -108,6 +108,7 @@ public class SideScrollView extends View{
     		mapNum = numOfMaps-1;
     	drawPanel.repaint();
     	speedNum = (int)((double)(Osprey.xSpeed)/(Constants.OSPREY_MAX_SPEED-Constants.OSPREY_MIN_SPEED)*numOfSpeeds);
+   
     }
     
     /**
@@ -119,7 +120,7 @@ public class SideScrollView extends View{
 		BufferedImage bufferedImage;
 		//System.out.println("i am running");
     	try {
-    		bufferedImage = ImageIO.read(new File("img/Winner.png"));
+    		bufferedImage = ImageIO.read(new File("img/wind.png"));
     		return bufferedImage;
     	} catch (IOException e) {
     		e.printStackTrace();
@@ -157,10 +158,14 @@ public class SideScrollView extends View{
 		    		}
 		    	}
 		    	g.drawImage(miniMaps[mapNum], View.frame.getWidth() -miniMaps[mapNum].getWidth(), 0, this);
+		//    	for (int i = 0; i < 10; i++) {
+	//	    		g.drawImage(youWin, 50 + (i * 50), 0, 50, 50, this);
+//		    	}
+
 		    	
-	//	    	for(int i=speedNum;i > 0;i--) {
-	//	    		g.drawImage(speeds[speedNum], View.frame.getWidth()-(speeds[speedNum].getWidth()*i), miniMaps[mapNum].getHeight(), this);
-	//	    	}
+		    	for(int i=speedNum;i > 0;i--) {
+		    		g.drawImage(speeds[speedNum], View.frame.getWidth()-(speeds[speedNum].getWidth()*i), miniMaps[mapNum].getHeight(), this);
+		    	}
 				}
 			/*
 			 * else if (Mate.caughtUp){

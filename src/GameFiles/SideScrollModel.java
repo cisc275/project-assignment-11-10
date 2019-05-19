@@ -96,7 +96,7 @@ public class SideScrollModel extends Model {
 			
 			// Does the fish exist yet????
 			if (tfish == null) {
-				tfish = new TFish(Constants.FRAME_X, (int) (700), (int) (Constants.FRAME_X * 0.05), (int) (Constants.FRAME_Y * 0.05));
+				tfish = new TFish(Constants.FRAME_X, (int) (Constants.FRAME_Y * .9), (int) (Constants.FRAME_X * 0.05), (int) (Constants.FRAME_Y * 0.05));
 				game.add(tfish);
 			}
 			
@@ -117,7 +117,7 @@ public class SideScrollModel extends Model {
 			}
 			
 			if (tpow == null) {
-				tpow = new Powerup(Constants.FRAME_X, 700, (int) (Constants.FRAME_X * .05), (int) (Constants.FRAME_Y * .05));
+				tpow = new Powerup(Constants.FRAME_X, (int) (Constants.FRAME_Y * .9), (int) (Constants.FRAME_X * .05), (int) (Constants.FRAME_Y * .05));
 				game.add(tpow);
 				
 			}
@@ -237,7 +237,7 @@ public class SideScrollModel extends Model {
 	protected void defaultSetup() { 
 		game.add(new Background(0, 0, Constants.FRAME_X, Constants.FRAME_Y));
 		game.add(o);
-		game.add(new InvisibleWall(0, (int) (Constants.FRAME_Y * .75), Constants.FRAME_X, 50));
+		game.add(new InvisibleWall(0, (int) (Constants.FRAME_Y * .65), Constants.FRAME_X, 50));
 		
 	}
 	
@@ -247,19 +247,32 @@ public class SideScrollModel extends Model {
 	@Override
 	protected void postTutorial() {
 		game.add(new Fish(Constants.FRAME_X + 100, (int) (Constants.FRAME_Y * 0.9), (int) (Constants.FRAME_X * 0.05), (int) (Constants.FRAME_Y * 0.05)));
-		game.add(new Fish(Constants.FRAME_X + 300, (int) (Constants.FRAME_Y * .88), (int) (Constants.FRAME_X * 0.05), (int) (Constants.FRAME_Y * 0.05)));
-		game.add(new Fish(Constants.FRAME_X + 500, (int) (Constants.FRAME_Y * .92), (int) (Constants.FRAME_X * 0.05), (int) (Constants.FRAME_Y * 0.05)));
-		game.add(new Fish(Constants.FRAME_X + 700, (int) (Constants.FRAME_Y * 0.91), (int) (Constants.FRAME_X * 0.05), (int) (Constants.FRAME_Y * 0.05)));
-		game.add(new Fish(Constants.FRAME_X + 900, (int) (Constants.FRAME_Y * .85), (int) (Constants.FRAME_X * 0.05), (int) (Constants.FRAME_Y * 0.05)));
-		game.add(new Fish(Constants.FRAME_X + 1100, (int) (Constants.FRAME_Y * .94), (int) (Constants.FRAME_X * 0.05), (int) (Constants.FRAME_Y * 0.05)));
+		game.add(new Fish(Constants.FRAME_X + 600, (int) (Constants.FRAME_Y * .88), (int) (Constants.FRAME_X * 0.05), (int) (Constants.FRAME_Y * 0.05)));
+		game.add(new Fish(Constants.FRAME_X + 1100, (int) (Constants.FRAME_Y * .92), (int) (Constants.FRAME_X * 0.05), (int) (Constants.FRAME_Y * 0.05)));
+		game.add(new Fish(Constants.FRAME_X + 1500, (int) (Constants.FRAME_Y * 0.91), (int) (Constants.FRAME_X * 0.05), (int) (Constants.FRAME_Y * 0.05)));
+		game.add(new Fish(Constants.FRAME_X + 1800, (int) (Constants.FRAME_Y * .83), (int) (Constants.FRAME_X * 0.05), (int) (Constants.FRAME_Y * 0.05)));
+		game.add(new Fish(Constants.FRAME_X + 2100, (int) (Constants.FRAME_Y * .94), (int) (Constants.FRAME_X * 0.05), (int) (Constants.FRAME_Y * 0.05)));
 		
-		game.add(new Trash(Constants.FRAME_X + 300, (int) (Constants.FRAME_Y * .91), (int) (Constants.FRAME_X *.05), (int) (Constants.FRAME_Y * .05)));
+		game.add(new Trash(Constants.FRAME_X, (int) (Constants.FRAME_Y * .91), (int) (Constants.FRAME_X *.05), (int) (Constants.FRAME_Y * .05)));
 		game.add(new Trash(Constants.FRAME_X + 150, (int) (Constants.FRAME_Y * .86), (int) (Constants.FRAME_X *.05), (int) (Constants.FRAME_Y * .05)));
-		game.add(new AirCurrent(Constants.FRAME_X + 20, 55, 250, 250));
-		game.add(new AirCurrent(Constants.FRAME_X  + 100, 100, 200, 200));
-		game.add(new AirCurrent(Constants.FRAME_X  + 500, 200, 200, 200));
-		game.add(new Powerup(Constants.FRAME_X * 5, 800, 50, 50));
-		game.add(new Mate(Constants.FRAME_X, 200, 200, 50));// suposed to be 50 50, this is for the memes
+		game.add(new Trash(Constants.FRAME_X + 400, (int) (Constants.FRAME_Y * .91), (int) (Constants.FRAME_X *.05), (int) (Constants.FRAME_Y * .05)));
+		game.add(new Trash(Constants.FRAME_X + 600, (int) (Constants.FRAME_Y * .86), (int) (Constants.FRAME_X *.05), (int) (Constants.FRAME_Y * .05)));
+		game.add(new Trash(Constants.FRAME_X + 1000, (int) (Constants.FRAME_Y * .91), (int) (Constants.FRAME_X *.05), (int) (Constants.FRAME_Y * .05)));
+		game.add(new Trash(Constants.FRAME_X + 1300, (int) (Constants.FRAME_Y * .86), (int) (Constants.FRAME_X *.05), (int) (Constants.FRAME_Y * .05)));
+		
+		game.add(new AirCurrent(Constants.FRAME_X + 50, (int) (Constants.FRAME_Y * .05), 250, 250));
+		game.add(new AirCurrent(Constants.FRAME_X  + 175, (int) (Constants.FRAME_Y * .25), 200, 200));
+		game.add(new AirCurrent(Constants.FRAME_X  + 400,  (int) (Constants.FRAME_Y * .5), 200, 200));
+		game.add(new AirCurrent(Constants.FRAME_X + 620,  (int) (Constants.FRAME_Y * .4), 250, 250));
+		game.add(new AirCurrent(Constants.FRAME_X  + 895,  (int) (Constants.FRAME_Y * .23), 200, 200));
+		game.add(new AirCurrent(Constants.FRAME_X  + 1200,  (int) (Constants.FRAME_Y * .55), 200, 200));
+		game.add(new AirCurrent(Constants.FRAME_X + 1800,  (int) (Constants.FRAME_Y * .4), 250, 250));
+		game.add(new AirCurrent(Constants.FRAME_X  + 1337,  (int) (Constants.FRAME_Y * .15), 200, 200));
+//		game.add(new AirCurrent(Constants.FRAME_X  + 1529,  (int) (Constants.FRAME_Y * .58), 200, 200));
+		
+		
+		game.add(new Powerup(Constants.FRAME_X * 7, (int)(Constants.FRAME_Y * .8), 50, 50));
+		game.add(new Mate(Constants.FRAME_X, 200, 75, 75));// suposed to be 50 50, this is for the memes
 	}
 
 	
