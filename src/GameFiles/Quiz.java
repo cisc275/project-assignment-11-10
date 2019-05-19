@@ -650,7 +650,7 @@ public class Quiz extends JDialog implements KeyListener{
 						System.out.println("right");
 					}
 					else System.out.println("wrong");
-					new LoseScreen();
+					new LoseScreen("os");
 					endQuiz();
 				}
 				if (e.getSource() == second) {
@@ -664,7 +664,7 @@ public class Quiz extends JDialog implements KeyListener{
 						System.out.println("right");
 					}
 					else System.out.println("wrong");
-					new LoseScreen();
+					new LoseScreen("os");
 					endQuiz();
 				}
 				if (e.getSource() == third) {
@@ -678,7 +678,7 @@ public class Quiz extends JDialog implements KeyListener{
 						System.out.println("right");
 					}
 					else System.out.println("wrong");
-					new LoseScreen();
+					new LoseScreen("os");
 					endQuiz();
 				}
 
