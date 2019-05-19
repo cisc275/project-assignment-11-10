@@ -111,11 +111,23 @@ public class Constants implements Serializable {
 	public final static String IMG_CLAPPER_RAIL_BACKGROUND = "img/cBackground.png";
 	public final static String IMG_BUSH = "img/bush.png";
 	public final static String IMG_DOWN_KEY = "img/down/down.png";
+	public final static String IMG_DOWN_KEY_1 = "img/down/down_1.png";
+	public final static String IMG_DOWN_KEY_2 = "img/down/down_2.png";
+	public final static String IMG_DOWN_KEY_3 = "img/down/down_3.png";
+	public final static String IMG_DOWN_KEY_4 = "img/down/down_4.png";
+	public final static String IMG_DOWN_KEY_5 = "img/down/down_5.png";
+	public final static String IMG_DOWN_KEY_6 = "img/down/down_6.png";
 	public final static String IMG_FISH_1 = "img/fish/fish_west1.png";
 	public final static String IMG_FISH_2 = "img/fish/fish_west2.png";
 	public final static String IMG_FISH_3 = "img/fish/fish_west3.png";
 	public final static String IMG_FOX = "img/ee.png";
 	public final static String IMG_LEFT_KEY = "img/left/left.png";
+	public final static String IMG_LEFT_KEY_1 = "img/left/left_1.png";
+	public final static String IMG_LEFT_KEY_2 = "img/left/left_2.png";
+	public final static String IMG_LEFT_KEY_3 = "img/left/left_3.png";
+	public final static String IMG_LEFT_KEY_4 = "img/left/left_4.png";
+	public final static String IMG_LEFT_KEY_5 = "img/left/left_5.png";
+	public final static String IMG_LEFT_KEY_6 = "img/left/left_6.png";
 	public final static String IMG_MATE = "img/cr.png";
 	public final static String IMG_MODEL_DUMP_STATUS_MSG = "img/modelDumpStatusMsg.png";
 	public final static String IMG_NEST = "img/nest.png";
@@ -125,6 +137,12 @@ public class Constants implements Serializable {
 	public final static String IMG_OSPREY_DIVE = "img/osprey_dive.png";
 	public final static String IMG_POLY_HARVEY = "img/PolyHarvey.png";
 	public final static String IMG_RIGHT_KEY = "img/right/right.png";
+	public final static String IMG_RIGHT_KEY_1 = "img/right/right_1.png";
+	public final static String IMG_RIGHT_KEY_2 = "img/right/right_2.png";
+	public final static String IMG_RIGHT_KEY_3 = "img/right/right_3.png";
+	public final static String IMG_RIGHT_KEY_4 = "img/right/right_4.png";
+	public final static String IMG_RIGHT_KEY_5 = "img/right/right_5.png";
+	public final static String IMG_RIGHT_KEY_6 = "img/right/right_6.png";
 	public final static String IMG_SELECT_CLAPPER_RAIL = "img/selectCR.png";
 	public final static String IMG_SELECT_OSPREY = "img/selectOsprey.png";
 	public final static String IMG_SPACEBAR = "img/spacebar/spacebar.png";
@@ -152,10 +170,12 @@ public class Constants implements Serializable {
 	public final static String[] ANIMATION_BACKGROUND = {IMG_BACKGROUND};
 	public final static String[] ANIMATION_CRBACKGROUND = {IMG_CLAPPER_RAIL_BACKGROUND};
 	public final static String[] ANIMATION_BUSH = {IMG_BUSH};
-	public final static String[] ANIMATION_DOWN_KEY= {IMG_DOWN_KEY};
+	public final static String[] ANIMATION_DOWN_KEY= {IMG_DOWN_KEY_1, IMG_DOWN_KEY_2, IMG_DOWN_KEY_3, IMG_DOWN_KEY_4, IMG_DOWN_KEY_5, IMG_DOWN_KEY_6, 
+																		IMG_DOWN_KEY_5, IMG_DOWN_KEY_4, IMG_DOWN_KEY_3, IMG_DOWN_KEY_2};
 	public final static String[] ANIMATION_FOX = {IMG_FOX};
 	public final static String[] ANIMATION_FISH = {IMG_FISH_1, IMG_FISH_2, IMG_FISH_1, IMG_FISH_3};
-	public final static String[] ANIMATION_LEFT_KEY = {IMG_LEFT_KEY};
+	public final static String[] ANIMATION_LEFT_KEY = {IMG_LEFT_KEY_1, IMG_LEFT_KEY_2, IMG_LEFT_KEY_3, IMG_LEFT_KEY_4, IMG_LEFT_KEY_5, IMG_LEFT_KEY_6, 
+																		IMG_LEFT_KEY_5, IMG_LEFT_KEY_4, IMG_LEFT_KEY_3, IMG_LEFT_KEY_2};
 	public final static String[] ANIMATION_MATE = {IMG_OSPREY_1,IMG_OSPREY_3,IMG_OSPREY_1,IMG_OSPREY_2};
 	public final static String[] ANIMATION_MODEL_DUMP_STATUS_MSG = {IMG_MODEL_DUMP_STATUS_MSG};
 	public final static String[] ANIMATION_NEST = {IMG_NEST};
@@ -165,7 +185,8 @@ public class Constants implements Serializable {
 	public final static String[] ANIMATION_SPACEBAR = {IMG_SPACEBAR_1, IMG_SPACEBAR_2, IMG_SPACEBAR_3, IMG_SPACEBAR_4, IMG_SPACEBAR_5, IMG_SPACEBAR_6,
 																		IMG_SPACEBAR_5, IMG_SPACEBAR_4, IMG_SPACEBAR_3, IMG_SPACEBAR_2};
 	public final static String[] ANIMATION_STICK = {IMG_STICK};
-	public final static String[] ANIMATION_RIGHT_KEY = {IMG_RIGHT_KEY};
+	public final static String[] ANIMATION_RIGHT_KEY = {IMG_RIGHT_KEY_1, IMG_RIGHT_KEY_2, IMG_RIGHT_KEY_3, IMG_RIGHT_KEY_4, IMG_RIGHT_KEY_5, IMG_RIGHT_KEY_6, 
+																		IMG_RIGHT_KEY_5, IMG_RIGHT_KEY_4, IMG_RIGHT_KEY_3, IMG_RIGHT_KEY_2, };
 	public final static String[] ANIMATION_THARVEY= {IMG_THARVEY_1, IMG_THARVEY_2};
 	public final static String[] ANIMATION_TRASH = {IMG_TRASH};
 	public final static String[] ANIMATION_UP_KEY = {IMG_UP_KEY_1, IMG_UP_KEY_2, IMG_UP_KEY_3, IMG_UP_KEY_4, IMG_UP_KEY_5, IMG_UP_KEY_6, 
