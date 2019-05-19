@@ -157,7 +157,7 @@ public class Fox extends Controllable {
 				randSmooth = 0;
 				switch(multX) {
 				case 0 :
-					xSpeed *= -1;
+					xSpeed = -xSpeed;
 					break;
 				case 1 :
 					break;
@@ -166,7 +166,7 @@ public class Fox extends Controllable {
 				}
 				switch(multY) {
 				case 0 :
-					ySpeed *= -1;
+					ySpeed = -ySpeed;
 					break;
 				case 1 :
 					break;
