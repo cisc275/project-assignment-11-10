@@ -113,6 +113,12 @@ public class Constants implements Serializable {
 	public final static String IMG_AIRCURRENT_6 = "img/aircurrent/aircurrent_6.png";
 	public final static String IMG_BACKGROUND = "img/background.png";
 	public final static String IMG_CLAPPER_RAIL_BACKGROUND = "img/cBackground.png";
+	public final static String IMG_CLAPPER_RAIL_LEFT_1 = "img/cr/cr1.png";
+	public final static String IMG_CLAPPER_RAIL_LEFT_2 = "img/cr/cr2.png";
+	public final static String IMG_CLAPPER_RAIL_LEFT_3 = "img/cr/cr3.png";
+	public final static String IMG_CLAPPER_RAIL_RIGHT_1 = "img/cr/cr4.png";
+	public final static String IMG_CLAPPER_RAIL_RIGHT_2 = "img/cr/cr5.png";
+	public final static String IMG_CLAPPER_RAIL_RIGHT_3 = "img/cr/cr6.png";
 	public final static String IMG_BUSH = "img/bush.png";
 	public final static String IMG_DOWN_KEY = "img/down/down.png";
 	public final static String IMG_DOWN_KEY_1 = "img/down/down_1.png";
@@ -173,6 +179,8 @@ public class Constants implements Serializable {
 	public final static String[] ANIMATION_AIRCURRENT = {IMG_AIRCURRENT_1, IMG_AIRCURRENT_2, IMG_AIRCURRENT_3, IMG_AIRCURRENT_4, IMG_AIRCURRENT_5, IMG_AIRCURRENT_6};
 	public final static String[] ANIMATION_BACKGROUND = {IMG_BACKGROUND};
 	public final static String[] ANIMATION_CRBACKGROUND = {IMG_CLAPPER_RAIL_BACKGROUND};
+	public final static String[] ANIMATION_CR= {IMG_CLAPPER_RAIL_LEFT_1,IMG_CLAPPER_RAIL_LEFT_2,IMG_CLAPPER_RAIL_LEFT_3,IMG_CLAPPER_RAIL_LEFT_2,IMG_CLAPPER_RAIL_RIGHT_1,IMG_CLAPPER_RAIL_RIGHT_2,IMG_CLAPPER_RAIL_RIGHT_3,IMG_CLAPPER_RAIL_RIGHT_2};
+
 	public final static String[] ANIMATION_BUSH = {IMG_BUSH};
 	public final static String[] ANIMATION_DOWN_KEY= {IMG_DOWN_KEY_1, IMG_DOWN_KEY_2, IMG_DOWN_KEY_3, IMG_DOWN_KEY_4, IMG_DOWN_KEY_5, IMG_DOWN_KEY_6, 
 																		IMG_DOWN_KEY_5, IMG_DOWN_KEY_4, IMG_DOWN_KEY_3, IMG_DOWN_KEY_2};
