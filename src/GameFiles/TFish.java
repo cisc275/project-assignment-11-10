@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
  * represents fish that will give both birds a boost
  *
  */
-public class Fish extends Collectable {
+public class TFish extends Collectable {
 	
 	/**
 	 * @param y
@@ -23,7 +23,7 @@ public class Fish extends Collectable {
 	 * a constructor that takes values for all fields as input parameters
 	 */
 
-	public Fish(int x, int y, int width, int height) {
+	public TFish(int x, int y, int width, int height) {
 		super(x,y,width,height);
 		//this.img = createImage();
 		this.imgFileName = Constants.ANIMATION_FISH;
@@ -49,7 +49,7 @@ public class Fish extends Collectable {
 	@Override
 	public void move() {
 		this.hitbox.translate(this.xSpeed, 0);
-	//	this.x = this.x + this.xSpeed;
+		this.x = this.x + this.xSpeed;
 		if(this.hitbox.xpoints[3] <= 0) {
 			resetPoly();
 		}

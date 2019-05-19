@@ -29,7 +29,7 @@ public class SideScrollModel extends Model {
 	/**
 	 * The tutorial fish
 	 */
-	private Fish tfish = null;
+	private TFish tfish = null;
 	
 	/**
 	 * The tutorial aircurrent
@@ -91,7 +91,7 @@ public class SideScrollModel extends Model {
 			
 			// Does the fish exist yet????
 			if (tfish == null) {
-				tfish = new Fish(1920, (int) (700), (int) (1920 * 0.05), (int) (1080 * 0.05));
+				tfish = new TFish(1920, (int) (700), (int) (1920 * 0.05), (int) (1080 * 0.05));
 				game.add(tfish);
 			}
 			
