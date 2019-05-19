@@ -44,7 +44,14 @@ import javax.swing.KeyStroke;
  */
 public class Quiz extends JDialog implements KeyListener{
 	
+	/**
+	 * Card style layout for our Quizzes
+	 */
 	CardLayout card;
+	
+	/**
+	 * Container to put our cards in
+	 */
 	Container c;
 	
 	/**
@@ -52,15 +59,21 @@ public class Quiz extends JDialog implements KeyListener{
 	 */
 	 ArrayList<JLabel> questions;
 	 
-	 JPanel info; 
-	 JButton information;
 	 
 	 /**
 	  * the label for the chosen question
 	  */
 	 JLabel question;
+	 
+	 /**
+	  * The instruction to select answer
+	  */
 	 JLabel instruction = new JLabel("Press the key listed next to your answer.");
-	 JLabel next = new JLabel("Press spacebar to answer a question and get a powerup.");
+	 
+	 /**
+	  * Telling individual how to get to actual quiz
+	  */
+	 JLabel next = new JLabel("Double tap the spacebar to answer a question and get a powerup.");
 	 
 	 /**
 	  * whether or not a question has been answered
@@ -70,7 +83,7 @@ public class Quiz extends JDialog implements KeyListener{
 	 /**
 	  * all of the Jbuttons involved in the quiz
 	  */
-	 JButton right, wrong, mW, first, second, third;
+	 JButton information, right, wrong, mW, first, second, third;
 	 
 	 /**
 	  * arraylists of each type of answer
@@ -88,9 +101,9 @@ public class Quiz extends JDialog implements KeyListener{
 	 int qNumber;
 	 
 	 /**
-	  * panel used to draw the quiz
+	  * panel used to draw the quiz and information screen
 	  */
-	 JPanel p;
+	 JPanel p, info;
 	
 	 /**
 	  * screen size dimensions
@@ -113,9 +126,9 @@ public class Quiz extends JDialog implements KeyListener{
 		questionNumber();
 		initQuestions(game);
 		initAnswers(game);
-		initInfo(game);
-		info.add(next);
-		c.add("info", info);
+	//	initInfo(game);
+	//	info.add(next);
+	//	c.add("info", info);
         c.add("qNa", p);
 		this.setModal(true);
 		this.setResizable(false);
@@ -125,6 +138,13 @@ public class Quiz extends JDialog implements KeyListener{
 		
      
 	}
+	
+	/**
+	 * handles the panels for each part of the quiz, 
+	 * the info and the actual question
+	 * 
+	 * @author Tim Mazzarelli
+	 */
 	
 	public void panelHandling() {
 		p = new JPanel();
@@ -169,7 +189,7 @@ public class Quiz extends JDialog implements KeyListener{
 	public int questionNumber() {
 		int answer = 0;
 		Random r = new Random();
-		qNumber = r.nextInt(10);
+		qNumber = r.nextInt(5);
 		qNumber = (Integer) qNumber;
 		if (previousNumbers != null) {
 			if (previousNumbers.contains(qNumber)) {
@@ -182,6 +202,11 @@ public class Quiz extends JDialog implements KeyListener{
 		}
 		return answer;
 	}	
+	
+	/**
+	 * adds in the information screen for each game
+	 * @param game
+	 */
 	
 	public void initInfo(String game) {
 		if (game.equals("sides")) {
@@ -220,6 +245,11 @@ public class Quiz extends JDialog implements KeyListener{
 		}
 		getInfo(informations);
 	}
+	
+	/**
+	 * picks the correct info according to the randomly generated 
+	 * @param inf
+	 */
 	
 	public void getInfo(ArrayList<JButton> inf) {
 		if (Mate.caughtUp) {
@@ -282,11 +312,6 @@ public class Quiz extends JDialog implements KeyListener{
 				questions.add(Constants.OSPREY_3);
 				questions.add(Constants.OSPREY_4);
 				questions.add(Constants.OSPREY_5);
-				questions.add(Constants.OSPREY_6);
-				questions.add(Constants.OSPREY_7);
-				questions.add(Constants.OSPREY_8);
-				questions.add(Constants.OSPREY_9);
-				questions.add(Constants.OSPREY_10);
 			}
 		}
 		if (game.equals("td")) {
@@ -298,11 +323,6 @@ public class Quiz extends JDialog implements KeyListener{
 				questions.add(Constants.CR_3);
 				questions.add(Constants.CR_4);
 				questions.add(Constants.CR_5);
-				questions.add(Constants.CR_6);
-				questions.add(Constants.CR_7);
-				questions.add(Constants.CR_8);
-				questions.add(Constants.CR_9);
-				questions.add(Constants.CR_10);
 			}
 		}
 		getQuestion(questions);
@@ -391,12 +411,6 @@ public class Quiz extends JDialog implements KeyListener{
 				rightAnswers.add(Constants.OSPREY_CORRECT3);
 				rightAnswers.add(Constants.OSPREY_CORRECT4);
 				rightAnswers.add(Constants.OSPREY_CORRECT5);
-				rightAnswers.add(Constants.OSPREY_CORRECT6);
-				rightAnswers.add(Constants.OSPREY_CORRECT7);
-				rightAnswers.add(Constants.OSPREY_CORRECT8);
-				rightAnswers.add(Constants.OSPREY_CORRECT9);
-				rightAnswers.add(Constants.OSPREY_CORRECT10);
-				
 			}
 		}
 		if (game.equals("td")) {
@@ -408,11 +422,7 @@ public class Quiz extends JDialog implements KeyListener{
 				rightAnswers.add(Constants.CR_CORRECT3);
 				rightAnswers.add(Constants.CR_CORRECT4);
 				rightAnswers.add(Constants.CR_CORRECT5);
-				rightAnswers.add(Constants.CR_CORRECT6);
-				rightAnswers.add(Constants.CR_CORRECT7);
-				rightAnswers.add(Constants.CR_CORRECT8);
-				rightAnswers.add(Constants.CR_CORRECT9);
-				rightAnswers.add(Constants.CR_CORRECT10);
+
 			}
 		}
 		return rightAnswers;
@@ -440,12 +450,7 @@ public class Quiz extends JDialog implements KeyListener{
 				wrongAnswers.add(Constants.OSPREY_INCORRECT3);
 				wrongAnswers.add(Constants.OSPREY_INCORRECT4);
 				wrongAnswers.add(Constants.OSPREY_INCORRECT5);
-				wrongAnswers.add(Constants.OSPREY_INCORRECT6);
-				wrongAnswers.add(Constants.OSPREY_INCORRECT7);
-				wrongAnswers.add(Constants.OSPREY_INCORRECT8);
-				wrongAnswers.add(Constants.OSPREY_INCORRECT9);
-				wrongAnswers.add(Constants.OSPREY_INCORRECT10);
-				
+
 			}
 		}
 		if (game.equals("td")) {
@@ -457,11 +462,6 @@ public class Quiz extends JDialog implements KeyListener{
 				wrongAnswers.add(Constants.CR_INCORRECT3);
 				wrongAnswers.add(Constants.CR_INCORRECT4);
 				wrongAnswers.add(Constants.CR_INCORRECT5);
-				wrongAnswers.add(Constants.CR_INCORRECT6);
-				wrongAnswers.add(Constants.CR_INCORRECT7);
-				wrongAnswers.add(Constants.CR_INCORRECT8);
-				wrongAnswers.add(Constants.CR_INCORRECT9);
-				wrongAnswers.add(Constants.CR_INCORRECT10);
 			}
 		}
 		return wrongAnswers;
@@ -488,11 +488,6 @@ public class Quiz extends JDialog implements KeyListener{
 				mWAnswers.add(Constants.OSPREY_WRONG3);
 				mWAnswers.add(Constants.OSPREY_WRONG4);
 				mWAnswers.add(Constants.OSPREY_WRONG5);
-				mWAnswers.add(Constants.OSPREY_WRONG6);
-				mWAnswers.add(Constants.OSPREY_WRONG7);
-				mWAnswers.add(Constants.OSPREY_WRONG8);
-				mWAnswers.add(Constants.OSPREY_WRONG9);
-				mWAnswers.add(Constants.OSPREY_WRONG10);
 			}
 		}
 		if (game.equals("td")) {
@@ -504,11 +499,6 @@ public class Quiz extends JDialog implements KeyListener{
 				mWAnswers.add(Constants.CR_WRONG3);
 				mWAnswers.add(Constants.CR_WRONG4);
 				mWAnswers.add(Constants.CR_WRONG5);
-				mWAnswers.add(Constants.CR_WRONG6);
-				mWAnswers.add(Constants.CR_WRONG7);
-				mWAnswers.add(Constants.CR_WRONG8);
-				mWAnswers.add(Constants.CR_WRONG9);
-				mWAnswers.add(Constants.CR_WRONG10);
 			}
 		}
 		return mWAnswers;
@@ -617,7 +607,7 @@ public class Quiz extends JDialog implements KeyListener{
 	
 	
 	public static void main(String[] args) {
-		new Quiz("td");
+		new Quiz("sides");
 	}
 	
 	
@@ -704,7 +694,7 @@ public class Quiz extends JDialog implements KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		this.requestFocus();
-		firstPanelSetup();
+	//	firstPanelSetup();
 		firstButtonSetup();
 		secondButtonSetup();
 		thirdButtonSetup();

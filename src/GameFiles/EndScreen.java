@@ -40,7 +40,7 @@ public class EndScreen extends JDialog implements ActionListener {
 		p.setLayout(new BoxLayout(p, 3));
 		this.setResizable(false);
 		this.setModal(true);
-		congrats = new JLabel("Congradulations! You Win!");
+		congrats = new JLabel("Congratulations! You Win!");
 		congrats.setOpaque(false);
         congrats.setFont(new Font("Serif", Font.BOLD, 30));
         congrats.setMinimumSize(new Dimension(550, 50));

@@ -214,7 +214,7 @@ public class Constants implements Serializable {
 	public final static JLabel OSPREY_1 = new JLabel("How do ospreys like to get their food?");
 	public final static JLabel OSPREY_2 = new JLabel("How big are osprey flocks?");
 	public final static JLabel OSPREY_3 = new JLabel("Where do ospreys migrate to?");
-	public final static JLabel OSPREY_4 = new JLabel("What is NOT a predator of the osprey?");
+	public final static JLabel OSPREY_4 = new JLabel("What is the osprey's favorite food?");
 	public final static JLabel OSPREY_5 = new JLabel("What colors are the feathers of the osprey?");
 	public final static JLabel OSPREY_6 = new JLabel("What do ospreys usually eat?");
 	public final static JLabel OSPREY_7 = new JLabel("How many different mates will an osprey have in its life?");
@@ -228,7 +228,7 @@ public class Constants implements Serializable {
 	public final static JButton OSPREY_CORRECT1 = new JButton("By diving into water");
 	public final static JButton OSPREY_CORRECT2 = new JButton("Ospreys usually don't travel in flocks");
 	public final static JButton OSPREY_CORRECT3 = new JButton("Central and South America");
-	public final static JButton OSPREY_CORRECT4 = new JButton("Fox");
+	public final static JButton OSPREY_CORRECT4 = new JButton("Fish");
 	public final static JButton OSPREY_CORRECT5 = new JButton("Brown and white");
 	public final static JButton OSPREY_CORRECT6 = new JButton("Fish");
 	public final static JButton OSPREY_CORRECT7 = new JButton("Only one!");
@@ -257,7 +257,7 @@ public class Constants implements Serializable {
 	public final static JButton OSPREY_WRONG1 = new JButton("Ospreys do not eat food");
 	public final static JButton OSPREY_WRONG2 = new JButton("1 million birds");
 	public final static JButton OSPREY_WRONG3 = new JButton("Antartica");
-	public final static JButton OSPREY_WRONG4 = new JButton("Eagle");
+	public final static JButton OSPREY_WRONG4 = new JButton("Bobcat");
 	public final static JButton OSPREY_WRONG5 = new JButton("Blue and gold");
 	public final static JButton OSPREY_WRONG6 = new JButton("Cheetahs");
 	public final static JButton OSPREY_WRONG7 = new JButton("Thirty");
@@ -283,9 +283,9 @@ public class Constants implements Serializable {
 	// Clapper Rail Questions
 	
 	public final static JLabel CR_1 = new JLabel("What is the clapper rail's favorite food?");
-	public final static JLabel CR_2 = new JLabel("How long does the clapper rail usually live?");
+	public final static JLabel CR_2 = new JLabel("Where do clapper rails like to make their nest?");
 	public final static JLabel CR_3 = new JLabel("Where do clapper rails migrate to?");
-	public final static JLabel CR_4 = new JLabel("Where does the clapper rail NOT like to make their nest?");
+	public final static JLabel CR_4 = new JLabel("");
 	public final static JLabel CR_5 = new JLabel("What is one of the main predators of the clapper rail?");
 	public final static JLabel CR_6 = new JLabel("What is the biggest threat to the clapper rail species?");
 	public final static JLabel CR_7 = new JLabel("Where do clapper rails like to live?");
@@ -296,7 +296,7 @@ public class Constants implements Serializable {
 	// Clapper Rail Correct
 	
 	public final static JButton CR_CORRECT1 = new JButton("Crab");
-	public final static JButton CR_CORRECT2 = new JButton("2-4 years");
+	public final static JButton CR_CORRECT2 = new JButton("Hidden in bushes or tall grass, or high ground like a hill");
 	public final static JButton CR_CORRECT3 = new JButton("They don't migrate!");
 	public final static JButton CR_CORRECT4 = new JButton("Out in the open grass");
 	public final static JButton CR_CORRECT5 = new JButton("The red fox");
@@ -310,7 +310,7 @@ public class Constants implements Serializable {
 	// Clapper Rail incorrect
 	
 	public final static JButton CR_INCORRECT1 = new JButton("Snake");
-	public final static JButton CR_INCORRECT2 = new JButton("10 years");
+	public final static JButton CR_INCORRECT2 = new JButton("in water");
 	public final static JButton CR_INCORRECT3 = new JButton("South America");
 	public final static JButton CR_INCORRECT4 = new JButton("On high grounds like hills");
 	public final static JButton CR_INCORRECT5 = new JButton("Fish");
@@ -323,7 +323,7 @@ public class Constants implements Serializable {
 	// Clapper Rail moreWrong
 	
 	public final static JButton CR_WRONG1 = new JButton("Duck");
-	public final static JButton CR_WRONG2 = new JButton("20 years");
+	public final static JButton CR_WRONG2 = new JButton("Clapper Rails don't make nests");
 	public final static JButton CR_WRONG3 = new JButton("Australia");
 	public final static JButton CR_WRONG4 = new JButton("Hidden in bushes and grass");
 	public final static JButton CR_WRONG5 = new JButton("Lions");
