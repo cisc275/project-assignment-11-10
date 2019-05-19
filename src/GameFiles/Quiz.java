@@ -652,6 +652,7 @@ public class Quiz extends JDialog implements KeyListener{
 					else {
 						System.out.println("wrong");
 						if(Mate.caughtUp) {
+							View.frame.dispose();
 							new LoseScreen("os");
 						}
 					}
@@ -670,6 +671,7 @@ public class Quiz extends JDialog implements KeyListener{
 					else {
 						System.out.println("wrong");
 						if(Mate.caughtUp) {
+							View.frame.dispose();
 							new LoseScreen("os");
 						}
 					}
@@ -688,6 +690,7 @@ public class Quiz extends JDialog implements KeyListener{
 					else {
 						System.out.println("wrong");
 						if(Mate.caughtUp) {
+							View.frame.dispose();
 							new LoseScreen("os");
 						}
 					}

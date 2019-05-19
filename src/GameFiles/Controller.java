@@ -140,7 +140,6 @@ public class Controller implements KeyListener, ActionListener{
     				for(GameObject g : model.game) {
     					g.visible = false;
     				}
-    				View.frame.dispose();
     				new Quiz("sides");
     				time.stop();
     			}
