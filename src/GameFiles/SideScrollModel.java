@@ -29,7 +29,7 @@ public class SideScrollModel extends Model {
 	/**
 	 * The tutorial fish
 	 */
-	private Fish tfish = null;
+	private TFish tfish = null;
 	
 	/**
 	 * The tutorial aircurrent
@@ -91,7 +91,7 @@ public class SideScrollModel extends Model {
 			
 			// Does the fish exist yet????
 			if (tfish == null) {
-				tfish = new Fish(1920, (int) (700), (int) (1920 * 0.05), (int) (1080 * 0.05));
+				tfish = new TFish(1920, (int) (700), (int) (1920 * 0.05), (int) (1080 * 0.05));
 				game.add(tfish);
 			}
 			
@@ -152,7 +152,7 @@ public class SideScrollModel extends Model {
 					game.remove(twall2);
 				}
 				else if (!(o.hitbox.getBounds2D().getMinY() > tair.hitbox.getBounds2D().getMaxY() 
-							|| o.hitbox.getBounds2D().getMaxY() < tair.hitbox.getBounds2D().getMinY()) || yepItsOkayToMoveTheCloudAgain) {
+							|| o.hitbox.getBounds2D().getMaxY() < tair.hitbox.getBounds2D().getMinY())) {
 					
 				}
 				else if (tair.hitbox.getBounds2D().getMaxX() > 40){
@@ -180,6 +180,7 @@ public class SideScrollModel extends Model {
 				a.move();
 				a.collision(g);			
 				if (a.removeObject()) toRemove.add(a);
+				if (a instanceof Fish) System.out.println(a.hitbox.getBounds2D());
 			}
 	    	g.removeAll(toRemove);
 			if (Mate.caughtUp) {
@@ -188,6 +189,9 @@ public class SideScrollModel extends Model {
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see GameFiles.Model#defaultSetup()
+	 */
 	@Override
 	protected void defaultSetup() { 
 		game.add(new Background(0, 0, 1920, 1080));
@@ -196,6 +200,10 @@ public class SideScrollModel extends Model {
 		
 	}
 	
+	/* (non-Javadoc)
+	 * @see GameFiles.Model#postTutorial()
+	 */
+	@Override
 	protected void postTutorial() {
 		game.add(new Fish(1920 + 400, (int) (1080 * 0.87), (int) (1920 * 0.05), (int) (1080 * 0.05)));
 		game.add(new Fish(1920 + 250, 600, 50, 50));

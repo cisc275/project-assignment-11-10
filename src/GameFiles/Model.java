@@ -40,8 +40,17 @@ public class Model implements Serializable {
 	
 	/**
 	 * All default objects that need to be setup.
+	 * @author Mark Wolgin
 	 */
 	protected void defaultSetup() {
+		
+	}
+	
+	/**
+	 * All default objects after the tutorial.
+	 * @author Mark Wolgin
+	 */
+	protected void postTutorial() {
 		
 	}
 	

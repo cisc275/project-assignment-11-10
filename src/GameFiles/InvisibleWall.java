@@ -41,10 +41,10 @@ public class InvisibleWall extends NonControllable {
 				o.hitbox.addPoint(o.x + o.width, this.hitbox.ypoints[0] - o.height);
 			}
 			else {
-				o.hitbox.addPoint(o.x, this.hitbox.ypoints[1]+ o.height);
-				o.hitbox.addPoint(o.x, this.hitbox.ypoints[1] );
+				o.hitbox.addPoint(o.x, this.hitbox.ypoints[1]);
+				o.hitbox.addPoint(o.x, this.hitbox.ypoints[1]  + o.height );
+				o.hitbox.addPoint(o.x + o.width, this.hitbox.ypoints[1] + o.height);
 				o.hitbox.addPoint(o.x + o.width, this.hitbox.ypoints[1]);
-				o.hitbox.addPoint(o.x + o.width, this.hitbox.ypoints[1]+ o.height);
 			}
 		}
 	}
