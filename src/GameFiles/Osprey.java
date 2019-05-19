@@ -100,8 +100,10 @@ public class Osprey extends Bird {
 		this.hitbox.translate(0, this.ySpeed);
 		if (this.hitbox.ypoints[2] >= Constants.FRAME_Y) {
 			this.ySpeed = -this.ySpeed;
-		}	
-		distance -= Osprey.xSpeed; 
+		}
+		if (Model.inTutoral == false) {
+			distance -= Osprey.xSpeed; 
+		}
 		if ((this.hitbox.ypoints[0] <= this.currY) && (this.isDiving == true)) {
 			this.isDiving = !this.isDiving;
 			this.ySpeed = 0;

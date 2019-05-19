@@ -26,7 +26,7 @@ public class Model implements Serializable {
 	
 	static boolean gameOver = false;
 	
-	protected boolean inTutoral = false;
+	public static boolean inTutoral = false;
 	
 	
 	/**
