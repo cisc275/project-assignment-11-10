@@ -89,6 +89,7 @@ public class Constants implements Serializable {
 	public final static int TDM_UPDATELOCATION_STICK_COUNT = 3;
 	
 	public final static int TO_ANIMATION_TICK_RATE = 2;
+	public final static int TO_DEFAULT_SIZE = 122;
 	
 	
 	public final static int TIMER_TICK_RATE = 50;
@@ -116,6 +117,7 @@ public class Constants implements Serializable {
 	public final static String IMG_AIRCURRENT_5 = "img/aircurrent/aircurrent_5.png";
 	public final static String IMG_AIRCURRENT_6 = "img/aircurrent/aircurrent_6.png";
 	public final static String IMG_BACKGROUND = "img/backgroundTim.png";
+	public final static String IMG_BACKGROUND_OSPREY_QUIZ = "img/backgroundTimQuiz.png";
 	public final static String IMG_CR_BACKGROUND_QUIZ = "img/cBackgroundQuiz.png";
 	public final static String IMG_CLAPPER_RAIL_BACKGROUND = "img/cBackground.png";
 	public final static String IMG_CLAPPER_RAIL_LEFT_1 = "img/cr/cr1.png";
@@ -198,6 +200,7 @@ public class Constants implements Serializable {
 	public final static String[] ANIMATION_AIRCURRENT = {IMG_AIRCURRENT_1, IMG_AIRCURRENT_2, IMG_AIRCURRENT_3, IMG_AIRCURRENT_4, IMG_AIRCURRENT_5, IMG_AIRCURRENT_6};
 	public final static String[] ANIMATION_BACKGROUND = {IMG_BACKGROUND};
 	public final static String[] ANIMATION_CRBACKGROUND = {IMG_CLAPPER_RAIL_BACKGROUND};
+	public final static String[] ANIMATION_BACKGROUND_OSPREY_QUIZ = {IMG_BACKGROUND_OSPREY_QUIZ};
 	public final static String[] ANIMATION_CR= {IMG_CLAPPER_RAIL_LEFT_1,IMG_CLAPPER_RAIL_LEFT_2,IMG_CLAPPER_RAIL_LEFT_3,IMG_CLAPPER_RAIL_LEFT_2,IMG_CLAPPER_RAIL_RIGHT_1,IMG_CLAPPER_RAIL_RIGHT_2,IMG_CLAPPER_RAIL_RIGHT_3,IMG_CLAPPER_RAIL_RIGHT_2};
 	
 	public final static String[] ANIMATION_CRAB = {IMG_CRAB_1, IMG_CRAB_2};

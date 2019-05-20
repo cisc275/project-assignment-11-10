@@ -135,10 +135,6 @@ public class Quiz extends JDialog implements KeyListener{
 	 */
 	
 	public Quiz(String game) {
-		this.game = game;
-		this.setUndecorated(true);
-
-//		this.setLocationRelativeTo(null);
 		c = getContentPane();
 		card = new CardLayout();
 		c.setLayout(card);
@@ -147,12 +143,13 @@ public class Quiz extends JDialog implements KeyListener{
 		questionNumber();
 		initQuestions(game);
 		initAnswers(game);
-		p.setLocation(500, 500);
-		c.setLocation(500, 500);
+		this.game = game;
+		this.setUndecorated(true);
+		this.setLocation(1920/2 - 1920/4, 1080/2 - 1080/4);
 		c.add(p);
 		this.setModal(true);
 		this.setResizable(false);
-        this.setSize(400, 300);
+        this.setSize(1920/2, 1080/2);
         this.setVisible(true);
 
 	}
@@ -177,7 +174,7 @@ public class Quiz extends JDialog implements KeyListener{
 			BufferedImage bufferedImage;
 	    	try {
 	    		if (game.equals("sides")){
-	    		bufferedImage = ImageIO.read(new File(Constants.IMG_BACKGROUND));
+	    		bufferedImage = ImageIO.read(new File(Constants.IMG_BACKGROUND_OSPREY_QUIZ));
 	    		return bufferedImage;
 	    		}
 	    		if (game.equals("td")) {
@@ -197,7 +194,7 @@ public class Quiz extends JDialog implements KeyListener{
 			super.paintComponent(g);
 			image = createImage();
 			if (game.equals("sides")) {
-			g.drawImage(image, 0, 0, 400, 350, this);
+			g.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), this);
 			}
 			else g.drawImage(image, 0, 0, 400, 300, this);
 	
@@ -319,7 +316,7 @@ public class Quiz extends JDialog implements KeyListener{
         information.setMaximumSize(new Dimension(300, 20));
     	information.setVerticalAlignment(JButton.TOP);
     	information.setHorizontalAlignment(JButton.CENTER);
-    	information.setFont(new Font("Serif", Font.BOLD, 15));
+    	information.setFont(new Font("Serif", Font.BOLD, 30));
     	information.setBorderPainted(false);	
     	info.add(information);
 		directionHandling();
@@ -329,7 +326,7 @@ public class Quiz extends JDialog implements KeyListener{
 		next.setHorizontalAlignment(JLabel.CENTER);
 		next.setVerticalAlignment(JLabel.TOP);
 		next.setOpaque(true);
-        next.setFont(new Font("Serif", Font.BOLD, 15));
+        next.setFont(new Font("Serif", Font.BOLD, 30));
         next.setBackground(Color.WHITE);
         next.setMinimumSize(new Dimension(200, 5));
         next.setPreferredSize(new Dimension(200, 5));
@@ -422,7 +419,7 @@ public class Quiz extends JDialog implements KeyListener{
 			l.setHorizontalAlignment(JLabel.CENTER);
 			l.setVerticalAlignment(JLabel.TOP);
 			l.setOpaque(false);
-	        l.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, 15));
+	        l.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, 30));
 	        l.setMinimumSize(new Dimension(200, 5));
 	        l.setPreferredSize(new Dimension(200, 5));
 	        l.setMaximumSize(new Dimension(200, 5));
@@ -668,7 +665,7 @@ public class Quiz extends JDialog implements KeyListener{
             b.setMaximumSize(new Dimension(300, 0));
         	b.setVerticalAlignment(JButton.TOP);
         	b.setHorizontalAlignment(JButton.CENTER);
-        	b.setFont(new Font("Serif", Font.BOLD + Font.ITALIC, 15));
+        	b.setFont(new Font("Serif", Font.BOLD + Font.ITALIC, 30));
         	b.setForeground(Color.BLACK);
         	b.setBorderPainted(false);
         	p.add(b);	

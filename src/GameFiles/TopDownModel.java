@@ -34,6 +34,18 @@ public class TopDownModel extends Model {
      */
     int count = 0; 
     
+    Powerup tpow = null;
+    
+    Stick tstick = null;
+    
+    TutorialObject tdown_key = null;
+    
+    TutorialObject tup_key = null;
+    
+    TutorialObject tleft_key = null;
+    
+    TutorialObject tright_key = null;
+    
     /*
      * checks time for active powerup
      */
@@ -88,13 +100,14 @@ public class TopDownModel extends Model {
     	f = new Fox(Constants.FOX_START_LOC_X, Constants.FOX_START_LOC_Y, Constants.FOX_START_SIZE_X, Constants.FOX_START_SIZE_Y, cr);
     	nest = new Nest(25, 25, 50, 50);
 		game = new ArrayList<GameObject>();
-		inTutoral = false;
+		inTutoral = true;
     }
     
+    
+    // No fox in by default
     @Override
     protected void defaultSetup() {
     	game.add(cr);
-		game.add(f);
 		game.add(nest);
 		
 		Bush b1 = new Bush(500, 500,150,150);
@@ -117,6 +130,7 @@ public class TopDownModel extends Model {
 		game.add(new Stick(300,300,(int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE)));
 		game.add(new Stick(500, 250, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE))); 
 		game.add(new Stick(400, 400, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE)));
+		game.add(new Stick(400, 400, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE)));
 		game.add(new TutorialObject(300, 150, 483, 110, Constants.ANIMATION_SPACEBAR));
 		game.add(new TutorialObject(700, 300, 122, 122, Constants.ANIMATION_UP_KEY));
     }
@@ -129,7 +143,32 @@ public class TopDownModel extends Model {
      */
     public void updateLocation(ArrayList<GameObject> g) {
     	if (inTutoral) {
-    		postTutorial();
+    		// This is nessasary for the game to work
+    		for (GameObject a : g) {
+				if (!a.equals(f) && !a.equals(tpow) && !a.equals(f)) {
+					a.move();
+					a.collision(g);
+				}
+			}
+    		
+    		if (tup_key == null) {
+    			tup_key = new TutorialObject(0, 0, Constants.TO_DEFAULT_SIZE, Constants.TO_DEFAULT_SIZE, Constants.ANIMATION_UP_KEY);
+    		}
+    		
+    		if (tstick == null) {
+    			tstick = new Stick(400, 400, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE));
+    			game.add(tstick);
+    		}
+    		
+    		if (tpow == null) {
+    			tpow = new Powerup(Constants.FRAME_X, Constants.FRAME_Y - (int)(Constants.POWERUP_HEIGH * Constants.POWERUP_HEIGH_SCALE),
+    					(int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE), (int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE));
+    			game.add(tpow);
+    		}
+
+    		
+    		
+    		//this.postTutorial();
     	} else {
     		ArrayList<GameObject> toRemove = new ArrayList<GameObject>();
         	for (GameObject a : g) {

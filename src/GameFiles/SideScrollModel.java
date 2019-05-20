@@ -8,6 +8,8 @@ import java.util.HashSet;
 
 import javax.imageio.ImageIO;
 
+import org.junit.jupiter.api.condition.OS;
+
 
 /**
  * all logic for the side scroll game
@@ -65,6 +67,16 @@ public class SideScrollModel extends Model {
 	 * The lower invisible wall to keep you from moving
 	 */
 	private InvisibleWall twall2 = null;
+	
+	/**
+	 * Used to track time for powerup to be active
+	 */
+	private int pwrCount = 0;
+	
+	/**
+	 * saves the speed of the osprey prior to gaining the powerup;
+	 */
+	private int prevSpeed;
 	
 	private boolean yepItsOkayToMoveTheCloudAgain = false;
 	
@@ -224,6 +236,21 @@ public class SideScrollModel extends Model {
 	//			if (a instanceof Fish) System.out.println(a.hitbox.getBounds2D());
 			}
 	    	g.removeAll(toRemove);
+	    	if(Quiz.correct) {
+	    		if(pwrCount == 0) {
+	    			prevSpeed = o.getXSpeed();
+	    			pwrCount += 1;
+	    			o.setXSpeed(Constants.OSPREY_MAX_SPEED);
+	    		}
+	    		else if(pwrCount <= 10000) {
+	    			pwrCount += 1;
+	    		}
+	    		else {
+	    			Quiz.correct = false;
+	    			o.setXSpeed(prevSpeed);
+	    			pwrCount = 0;
+	    		}
+	    	}
 			if (Mate.caughtUp) {
 				Model.gameOver = true;
 			}
