@@ -4,11 +4,14 @@ package GameFiles;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -21,70 +24,117 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class EndScreen extends JDialog implements ActionListener {
+public class EndScreen extends JDialog implements KeyListener {
 	
 	
 	Image image;
-	JLabel congrats;
+	JButton congrats;
 	JButton menu;
 	JPanel p;
+	String game;
 	
 	
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	
-	public EndScreen() {
-		p = new JPanel();
+	public EndScreen(String game) {
+		this.game = game;
+		p = new DrawPanel();
 		p.setOpaque(true);
 		p.setBackground(Color.WHITE);
-		p.setLayout(new BoxLayout(p, 3));
+		p.setLayout(new GridLayout(0, 1));
 		this.setResizable(false);
 		this.setModal(true);
-		congrats = new JLabel("Congratulations! You Win!");
+		congrats = new JButton("Congratulations! You Win!");
 		congrats.setOpaque(false);
-        congrats.setFont(new Font("Serif", Font.BOLD, 30));
-        congrats.setMinimumSize(new Dimension(550, 50));
-        congrats.setPreferredSize(new Dimension(550, 50));
-        congrats.setMaximumSize(new Dimension(550, 50));
-        congrats.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+		congrats.setFocusPainted(false);
+		congrats.setBorderPainted(false);
+		congrats.setBackground(Color.BLUE);
+        congrats.setFont(new Font("Serif", Font.BOLD, 40));
+        congrats.setMinimumSize(new Dimension(300, 0));
+        congrats.setPreferredSize(new Dimension(300, 0));
+        congrats.setMaximumSize(new Dimension(300, 0));
+        congrats.setAlignmentX(JLabel.RIGHT_ALIGNMENT);
         congrats.setAlignmentY(JLabel.TOP_ALIGNMENT);
         
-        menu = new JButton("Return to Selection Screen");
-        menu.setMinimumSize(new Dimension(500, 50));
-        menu.setPreferredSize(new Dimension(500, 50));
-        menu.setMaximumSize(new Dimension(500, 50));
+        menu = new JButton(" Press SPACEBAR to return to Main Menu");
+        menu.setMinimumSize(new Dimension(200, 0));
+        menu.setPreferredSize(new Dimension(200, 0));
+        menu.setMaximumSize(new Dimension(200, 0));
     	menu.setFocusPainted(false);
     	menu.setBackground(Color.WHITE);
     	menu.setAlignmentX(JButton.CENTER_ALIGNMENT);
     	menu.setAlignmentY(TOP_ALIGNMENT);
-    	menu.setOpaque(true);
-    	menu.setFont(new Font("Serif", Font.BOLD, 30));
+    	menu.setOpaque(false);
+    	menu.setFont(new Font("Serif", Font.BOLD, 40));
     	menu.setBorderPainted(false);
         
+    	this.setUndecorated(true);
         p.add(congrats);
         p.add(menu);
         
-        menu.addActionListener(this);
+        addKeyListener(this);
         this.add(p);
         this.setSize(screenSize);
         this.setVisible(true);
         
 	}
+	
+	private class DrawPanel extends JPanel{
+		private BufferedImage createImage(){
+			BufferedImage bufferedImage;
+	    	try {
+	    		if (game.equals("sides")){
+	    		bufferedImage = ImageIO.read(new File("img/TIM PICK ME PLEASE.png"));
+	    		return bufferedImage;
+	    		}
+	    		if (game.equals("td")) {
+	    		bufferedImage = ImageIO.read(new File(Constants.IMG_CR_BACKGROUND_QUIZ));
+	    		return bufferedImage;
+	    		}
+	    	}
+	    	catch (IOException e) {
+	    		e.printStackTrace();
+	    	}	
+	    	return null;
+		}
+			
+		
+		@Override
+		protected void paintComponent(Graphics g) {
+			super.paintComponent(g);
+			image = createImage();
+			g.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), this);
+	
+	}
+	}
+	
+	public static void main(String[] args) {
+		new EndScreen("sides");
+	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void keyPressed(KeyEvent arg0) {
+		menuButtonSetup();
+	}
+	
+	public void menuButtonSetup() {
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-		if (e.getSource() == menu) { 
-            // create a dialog Box 
-            System.out.println("send to menu");
-            this.setModal(false);
-            Stick.count = 0;
-            ClapperRail.lives = 3;
-            Controller c = new Controller("sel");
-            this.dispose();
-        }
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 	}
 	
-
-}

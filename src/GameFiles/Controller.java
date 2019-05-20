@@ -140,7 +140,7 @@ public class Controller implements KeyListener, ActionListener{
     					g.visible = false;
     				}
     				View.frame.dispose();
-    				new EndScreen();
+    				new EndScreen("topDown");
     				time.stop();
     			}
     			else if(ClapperRail.lives == Constants.CLAPPER_RAIL_LIVES_END_STATE) {

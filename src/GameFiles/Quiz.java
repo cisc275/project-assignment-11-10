@@ -742,7 +742,7 @@ public class Quiz extends JDialog implements KeyListener{
 						if(Mate.caughtUp) {
 							View.frame.dispose();
 							Mate.caughtUp = false;
-							new EndScreen();
+							new EndScreen("sides");
 						}
 						else{
 							correct = true;
@@ -765,7 +765,7 @@ public class Quiz extends JDialog implements KeyListener{
 							View.frame.dispose();
 							Mate.caughtUp = false;
 							
-							new EndScreen();
+							new EndScreen("sides");
 						}
 						else{
 							correct = true;
@@ -788,7 +788,7 @@ public class Quiz extends JDialog implements KeyListener{
 						if(Mate.caughtUp) {
 							Mate.caughtUp = false;
 							View.frame.dispose();
-							new EndScreen();
+							new EndScreen("sides");
 						}
 						else{
 							correct = true;
