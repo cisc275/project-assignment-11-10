@@ -3,6 +3,7 @@ package GameFiles;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -99,10 +100,10 @@ public class LoseScreen extends JDialog implements KeyListener {
 			p = new JPanel();
 			p.setOpaque(true);
 			p.setBackground(Color.BLUE);
-			p.setLayout(new BoxLayout(p, 3));
+			p.setLayout(new GridLayout(0, 1));
 			this.setResizable(false);
 			this.setModal(true);
-			tryAgain = new JLabel("Oh no! Thats not where Osprey's build their nests, do you want to try again?");
+			tryAgain = new JLabel("Wrong! Ospreys build their nests on high poles!");
 			tryAgain.setOpaque(false);
 			tryAgain.setFont(new Font("Serif", Font.BOLD, 30));
 			tryAgain.setMinimumSize(new Dimension(550, 50));
@@ -159,14 +160,11 @@ public class LoseScreen extends JDialog implements KeyListener {
 			  endtheScreen();
 			  if(game.equals("cr")) {
 				  if (e.getSource() == menu) { 
-					  System.out.println("send to menu"); 
 					  Stick.count = 0; 
 					  ClapperRail.lives = 3; 
 					  Controller c = new Controller("sel"); 
 				  } 
 				  else if (e.getSource() == restart) {
-					  System.out.println("restart"); 
-					  
 					  Stick.count = 0; 
 					  ClapperRail.lives = 3; 
 					  Controller c = new Controller("topDownNT");
@@ -180,14 +178,10 @@ public class LoseScreen extends JDialog implements KeyListener {
 					  
 				  } 
 				  else if (e.getSource() == restart) {
-					  System.out.println("restart");  
 					  Mate.caughtUp = false;
 					  new Controller("sideScrollNT");
 					   }
 			  }
-			  
-			  
-			  
 		  }
 	}
 	
@@ -231,9 +225,12 @@ public class LoseScreen extends JDialog implements KeyListener {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void main(String[] args) {
+		new LoseScreen("os");
+	}
+}
 		 
 
 	
 	 
-
-}

@@ -82,7 +82,10 @@ public class Stick extends Collectable{
 		if (this.collidesWith(n)) {
 			hitbox.reset();
 			n.hitbox.reset();
-			count++;
+			if (Model.inTutoral == false) {
+				count++;
+			}
+			
 			this.visible = false;
 			n.height = n.height + Constants.STICK_HANDLECOLLISION_OFFSET;
 			n.width = n.width + Constants.STICK_HANDLECOLLISION_OFFSET;

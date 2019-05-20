@@ -669,10 +669,12 @@ public class Quiz extends JDialog implements KeyListener{
 		buttons.add(new JButton());
 		
 		for (JButton b :buttons) {
-			if (Mate.caughtUp) {
-				System.out.println("yo");
-				b.setBackground(Color.BLACK);
+			if (Mate.caughtUp == true) {
+				b.setForeground(Color.YELLOW);
 			}
+			else{
+        		b.setForeground(Color.BLACK);
+        	}
 			b.addKeyListener(this);
 			b.setFocusPainted(false);
 			b.setOpaque(false);
@@ -683,7 +685,6 @@ public class Quiz extends JDialog implements KeyListener{
         	b.setVerticalAlignment(JButton.TOP);
         	b.setHorizontalAlignment(JButton.CENTER);
         	b.setFont(new Font("Serif", Font.BOLD + Font.ITALIC, 40));
-        	b.setForeground(Color.BLACK);
         	b.setBorderPainted(false);
         	p.add(b);	
 		}
