@@ -240,10 +240,11 @@ public class SideScrollModel extends Model {
 	    		if(pwrCount == 0) {
 	    			prevSpeed = o.getXSpeed();
 	    			pwrCount += 1;
-	    			o.setXSpeed(Constants.OSPREY_MAX_SPEED);
+	    			o.setXSpeed(Constants.POWERUP_SPEED);
 	    		}
-	    		else if(pwrCount <= 10000) {
+	    		else if(pwrCount <= Constants.POWERUP_DURATION) {
 	    			pwrCount += 1;
+	    			o.setXSpeed(Constants.POWERUP_SPEED);
 	    		}
 	    		else {
 	    			Quiz.correct = false;
