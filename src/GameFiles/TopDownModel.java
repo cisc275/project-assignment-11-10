@@ -159,8 +159,8 @@ public class TopDownModel extends Model {
      */
     @Override
     protected void defaultSetup() {
+    	game.add(nest);
     	game.add(cr);
-		game.add(nest);
 		
 		b1 = new Bush(500, 500,150,150);
 		game.add(b1);
