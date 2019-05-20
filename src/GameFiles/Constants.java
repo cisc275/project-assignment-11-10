@@ -55,8 +55,8 @@ public class Constants implements Serializable {
 	public final static int FOX_INIT_YSPEED = 2;
 	public final static int FOX_START_LOC_X = 400;
 	public final static int FOX_START_LOC_Y = 400;
-	public final static int FOX_START_SIZE_X = 100;
-	public final static int FOX_START_SIZE_Y = 100;
+	public final static int FOX_START_SIZE_X = 250;
+	public final static int FOX_START_SIZE_Y = 125;
 	public final static int FOX_ANIMATION_TICK_RATE = 2;
 	
 	
