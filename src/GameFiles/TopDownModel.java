@@ -192,6 +192,7 @@ public class TopDownModel extends Model {
     		
     		if (f == null) {
     			f = new Fox(Constants.FRAME_X, Constants.FRAME_Y / 2, Constants.FOX_START_SIZE_X, Constants.FOX_START_SIZE_Y, cr);
+    			game.add(f);
     		}
 
     		if (tstick.visible) {
@@ -202,9 +203,12 @@ public class TopDownModel extends Model {
     				tup_key.visible = tdown_key.visible = tright_key.visible = tleft_key.visible = false;
     				b1.imgFileName = Constants.ANIMATION_BUSH_GLOW;
     			}
-    			if (!f.hitbox.getBounds2D().intersects(b1.hitbox.getBounds2D())) {
+    			else if (!f.hitbox.getBounds2D().intersects(b1.hitbox.getBounds2D())) {
     				f.move();
     				f.collision(game);
+    			}
+    			else if (f.hitbox.getBounds2D().getMinY() > 0) {
+    				f.move();
     			}
     		}
     		

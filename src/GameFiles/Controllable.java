@@ -93,6 +93,7 @@ public class Controllable extends GameObject {
 			this.hitbox.addPoint(width, y3);
 			this.hitbox.addPoint(width, y4);		
 		}
+		
 	}
 
 	
