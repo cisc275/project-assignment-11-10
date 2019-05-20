@@ -134,6 +134,7 @@ public class Controller implements KeyListener, ActionListener{
 
 		drawAction = new AbstractAction(){
     		public void actionPerformed(ActionEvent e){
+    			model.handlePwr();
     			model.updateLocation(model.game);
     			view.updateView(model.game);
     			if (Mate.caughtUp) {

@@ -132,6 +132,15 @@ public class TopDownModel extends Model {
     		Model.gameOver = true;
     	}
     }
+    
+    
+    /**
+     * handles power up effect
+     * @author Peter Jenny
+     */
+    public void handlePwr() {
+    	
+    }
    
     /**
 	 * 

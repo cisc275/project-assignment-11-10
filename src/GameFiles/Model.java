@@ -89,5 +89,12 @@ public class Model implements Serializable {
 		
 	}
 	
+	/**
+	 * handles the power up effect
+	 * @author Peter Jenny
+	 */
+	public void handlePwr() {
+		
+	}
 	
 }
