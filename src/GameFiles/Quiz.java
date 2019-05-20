@@ -44,8 +44,14 @@ import javax.swing.KeyStroke;
  */
 public class Quiz extends JDialog implements KeyListener{
 	
+	/**
+	 * a string representing which game the quiz is for
+	 */
 	String game;
 	
+	/**
+	 * a BufferedImage for background images
+	 */
 	BufferedImage image;
 	
 	/**
@@ -113,7 +119,13 @@ public class Quiz extends JDialog implements KeyListener{
 	  * screen size dimensions
 	  */
 	 Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	 
+	 /**
+	  * static boolean representing if player has correctly answered a question
+	  */
+	 public static boolean correct = false;
 	
+	 
 	/**
 	 * 
 	 * @param game
@@ -705,6 +717,9 @@ public class Quiz extends JDialog implements KeyListener{
 							answered = true;
 							new EndScreen();
 						}
+						else{
+							correct = true;
+						}
 						System.out.println("right");
 					}
 					else {
@@ -724,6 +739,9 @@ public class Quiz extends JDialog implements KeyListener{
 							answered = true;
 							new EndScreen();
 						}
+						else{
+							correct = true;
+						}
 						System.out.println("right");
 					}
 					else {
@@ -742,6 +760,9 @@ public class Quiz extends JDialog implements KeyListener{
 							View.frame.dispose();
 							answered = true;
 							new EndScreen();
+						}
+						else{
+							correct = true;
 						}
 						System.out.println("right");
 					}
