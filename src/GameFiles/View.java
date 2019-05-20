@@ -45,7 +45,7 @@ public class View extends JFrame implements Serializable {
 	public boolean debugHitBoxes;
 	
 	/**
-	 * 
+	 * Returns the game
 	 * @return ArrayList<GameObject> game
 	 */
 
@@ -54,8 +54,8 @@ public class View extends JFrame implements Serializable {
 	}
 	
 	/**
-	 * 
-	 * @param game
+	 * Sets the game
+	 * @param game The new game
 	 */
 
 	public void setGame(ArrayList<GameObject> game) {
@@ -120,6 +120,7 @@ public class View extends JFrame implements Serializable {
 	
 	
 	/**
+	 * Returns an ArrayList<BufferedImage> of scalled images
 	 * @param g The GameObject to be scaled
 	 * @return 	The default scale of the image
 	 * @author Mark Wolgin
@@ -145,6 +146,12 @@ public class View extends JFrame implements Serializable {
 		return toReturn;
 	}
 	
+	/**
+	 * Should take a Game Object and a image number and return the relevent image.  If no image is found, it calls {@code this.addImageToArray(g)}
+	 * @param g	The Game Object
+	 * @param i	The expected number location
+	 * @return Returns a buffered image.
+	 */
 	public BufferedImage getImg(GameObject g, int i) {
 		ArrayList<BufferedImage> LoBI = imgTable.get(g.imgFileName);
 		BufferedImage toReturn;

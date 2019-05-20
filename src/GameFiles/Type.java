@@ -1,7 +1,7 @@
 package GameFiles;
 /**
  * Enumerator to select the birds 
- *
+ * @author Mark Wolgin
  */
 public enum Type {
 	AIRCURRENT,
@@ -19,7 +19,7 @@ public enum Type {
 	
 	
 	/**
-	 * @return String
+	 * @return String The String associated with the type
 	 * 
 	 * this method will be used to print out the name of the type of bird 
 	 */
@@ -54,8 +54,9 @@ public enum Type {
 		}
 	}
 	/**
-	 * @param String
-	 * @return Type
+	 * Gives the type for a string
+	 * @param s String The string to check
+	 * @return Type	The type that matches, if found.
 	 * 
 	 * this method will return the enumerated type
 	 */

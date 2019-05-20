@@ -11,13 +11,14 @@ import javax.imageio.ImageIO;
 
 /**
  * represents trash that user can collect
+ * @author Melvin Tejada
  */
 public class Trash extends Collectable {
 	/**
-	 * @param y
-	 * @param x
-	 * @param width
-	 * @param height
+	 * @param y		The y location of the object
+	 * @param x		The x location of the object
+	 * @param width	The width of the object
+	 * @param height	The height of the object
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */	
@@ -31,10 +32,9 @@ public class Trash extends Collectable {
 	
 	/**
 	 * handles collision with the Osprey, resets and decrements Osprey speed
-	 * @param Osprey o
+	 * @param o The Osprey
 	 * @author Tim Mazzarelli
 	 */
-	
 	@Override
 	public void handleCollision(Osprey o) {
 		Osprey.negHitOs = true;

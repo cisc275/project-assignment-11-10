@@ -104,7 +104,7 @@ public class TopDownModel extends Model {
     
     /**
      * takes a hashset of integers and moves clapper rail accordingly
-     * @param HashSet<Integer> keyPresses
+     * @param  keyPresses	The HashSet<Integers> of the current pressed keys.
      * @author andrew thompson
      */
     @Override
@@ -154,6 +154,9 @@ public class TopDownModel extends Model {
     
     
     // No fox in by default
+    /* (non-Javadoc)
+     * @see GameFiles.Model#defaultSetup()
+     */
     @Override
     protected void defaultSetup() {
     	game.add(cr);
@@ -172,6 +175,9 @@ public class TopDownModel extends Model {
 		cr.bushArr.add(b3);
     }
     
+    /* (non-Javadoc)
+     * @see GameFiles.Model#postTutorial()
+     */
     @Override
     protected void postTutorial() {
     	f = new Fox(Constants.FOX_START_LOC_X, Constants.FOX_START_LOC_Y, Constants.FOX_START_SIZE_X, Constants.FOX_START_SIZE_Y, cr);
@@ -186,9 +192,9 @@ public class TopDownModel extends Model {
     
     /**
      * 
-     * @param array list of GameObjects
+     * @param g Array list of GameObjects
      * updates the location of all moving objects and then calls the collision method
-     * @author Tim Mazzarelli
+     * @author Tim Mazzarelli && Mark Wolgin
      */
     public void updateLocation(ArrayList<GameObject> g) {
     	if (inTutoral) {

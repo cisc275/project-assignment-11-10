@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 
 /**
  * represents fish that will give both birds a boost
- *
+ *	@author Mark Wolgin
  */
 public class TFish extends Collectable {
 	
@@ -18,7 +18,6 @@ public class TFish extends Collectable {
 	 * @param x
 	 * @param width
 	 * @param height
-	 * @param hitbox
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
@@ -47,6 +46,9 @@ public class TFish extends Collectable {
 			}
 	}
 	
+	/* (non-Javadoc)
+	 * @see GameFiles.Collectable#move()
+	 */
 	@Override
 	public void move() {
 		this.hitbox.translate(this.xSpeed, 0);
