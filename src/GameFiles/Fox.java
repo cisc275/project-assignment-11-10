@@ -191,6 +191,12 @@ public class Fox extends Controllable {
 		this.hitbox.translate(2 *(int) this.xSpeed,2 * (int) this.ySpeed);
 		boundaries();
 		
+		if(this.xSpeed < 0) {
+			this.imgFileName = Constants.ANIMATION_FOX_LEFT;
+		}
+		else if(this.xSpeed > 0) {
+			this.imgFileName = Constants.ANIMATION_FOX_RIGHT;
+		}
 		animate(Constants.FOX_ANIMATION_TICK_RATE);
 	}
 	
