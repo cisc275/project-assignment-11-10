@@ -85,6 +85,11 @@ public class TopDownModel extends Model {
     private Bush b3 = null;
     
     /**
+     * The game first bush
+     */
+    private Bush b4 = null;
+    
+    /**
      * For comparing the Tutorial Arrows current height
      */
     private int tarrow_cur_height;
@@ -162,7 +167,7 @@ public class TopDownModel extends Model {
     	game.add(nest);
     	game.add(cr);
 		
-		b1 = new Bush(500, 500,150,150);
+		b1 = new Bush(800, 600,150,150);
 		game.add(b1);
 		cr.bushArr.add(b1);
 		
@@ -173,6 +178,10 @@ public class TopDownModel extends Model {
 		b3 = new Bush(20, 450,150,150);
 		game.add(b3);
 		cr.bushArr.add(b3);
+		
+		b4 = new Bush(1200, 300, 150, 150);
+		game.add(b4);
+		cr.bushArr.add(b4);
     }
     
     /* (non-Javadoc)
@@ -184,7 +193,7 @@ public class TopDownModel extends Model {
     	game.add(f);
     	game.add(new Powerup(Constants.FRAME_X, Constants.FRAME_Y - (int)(Constants.POWERUP_HEIGH * Constants.POWERUP_HEIGH_SCALE),
 				(int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE), (int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE)));
-		game.add(new Stick((int) (Constants.FRAME_X * .5),700,(int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE)));
+		game.add(new Stick((int) ((Constants.FRAME_X * .5)-400),700,(int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE)));
 		game.add(new Stick((int) (Constants.FRAME_X - 200), 325, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE))); 
 	//	game.add(new Stick(400, 600, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE)));
 		game.add(new Stick(700, 235, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE)));
