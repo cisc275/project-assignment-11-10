@@ -88,7 +88,7 @@ public class Quiz extends JDialog implements KeyListener{
 	 /**
 	  * whether or not a question has been answered
 	  */
-	 static boolean answered = false;
+	 static boolean answered;
 	
 	 /**
 	  * all of the Jbuttons involved in the quiz
@@ -728,7 +728,6 @@ public class Quiz extends JDialog implements KeyListener{
 						if(Mate.caughtUp) {
 							View.frame.dispose();
 							Mate.caughtUp = false;
-							answered = true;
 							new EndScreen();
 						}
 						else{
@@ -750,7 +749,7 @@ public class Quiz extends JDialog implements KeyListener{
 						if(Mate.caughtUp) {
 							View.frame.dispose();
 							Mate.caughtUp = false;
-							answered = true;
+							
 							new EndScreen();
 						}
 						else{
@@ -772,7 +771,6 @@ public class Quiz extends JDialog implements KeyListener{
 						if(Mate.caughtUp) {
 							Mate.caughtUp = false;
 							View.frame.dispose();
-							answered = true;
 							new EndScreen();
 						}
 						else{
@@ -787,6 +785,7 @@ public class Quiz extends JDialog implements KeyListener{
 							new LoseScreen("os");
 						}
 					}
+					answered = true;
 					endQuiz();
 				}
 
