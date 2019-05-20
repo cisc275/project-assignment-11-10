@@ -88,7 +88,7 @@ public class TopDownModel extends Model {
     	f = new Fox(Constants.FOX_START_LOC_X, Constants.FOX_START_LOC_Y, Constants.FOX_START_SIZE_X, Constants.FOX_START_SIZE_Y, cr);
     	nest = new Nest(25, 25, 50, 50);
 		game = new ArrayList<GameObject>();
-		
+		inTutoral = false;
     }
     
     @Override
@@ -96,14 +96,6 @@ public class TopDownModel extends Model {
     	game.add(cr);
 		game.add(f);
 		game.add(nest);
-		
-		game.add(new Powerup(Constants.FRAME_X, Constants.FRAME_Y - (int)(Constants.POWERUP_HEIGH * Constants.POWERUP_HEIGH_SCALE),
-				(int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE), (int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE)));
-		game.add(new Stick(300,300,(int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE)));
-		game.add(new Stick(500, 250, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE))); 
-		game.add(new Stick(400, 400, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE)));
-		game.add(new TutorialObject(300, 150, 483, 110, Constants.ANIMATION_SPACEBAR));
-		game.add(new TutorialObject(700, 300, 122, 122, Constants.ANIMATION_UP_KEY));
 		
 		Bush b1 = new Bush(500, 500,150,150);
 		game.add(b1);
@@ -118,6 +110,17 @@ public class TopDownModel extends Model {
 		cr.bushArr.add(b3);
     }
     
+    @Override
+    protected void postTutorial() {
+    	game.add(new Powerup(Constants.FRAME_X, Constants.FRAME_Y - (int)(Constants.POWERUP_HEIGH * Constants.POWERUP_HEIGH_SCALE),
+				(int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE), (int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE)));
+		game.add(new Stick(300,300,(int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE)));
+		game.add(new Stick(500, 250, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE))); 
+		game.add(new Stick(400, 400, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE)));
+		game.add(new TutorialObject(300, 150, 483, 110, Constants.ANIMATION_SPACEBAR));
+		game.add(new TutorialObject(700, 300, 122, 122, Constants.ANIMATION_UP_KEY));
+    }
+    
     /**
      * 
      * @param array list of GameObjects
@@ -125,24 +128,19 @@ public class TopDownModel extends Model {
      * @author Tim Mazzarelli
      */
     public void updateLocation(ArrayList<GameObject> g) {
-//    	if(Powerup.power) {
-//    		//System.out.println("did the thing");
-//			cr.setxSpeed(0);
-//			cr.setySpeed(0);
-//			Powerup.power = false;
-//		}
-    	//else {
-    		//System.out.println("update answered false");
-//    	}
-    	ArrayList<GameObject> toRemove = new ArrayList<GameObject>();
-    	for (GameObject a : g) {
-			a.move();
-			a.collision(g);			
-			if (a.removeObject()) toRemove.add(a);
-		}
-    	g.removeAll(toRemove);
-    	if (Stick.count == Constants.TDM_UPDATELOCATION_STICK_COUNT) {
-    		Model.gameOver = true;
+    	if (inTutoral) {
+    		postTutorial();
+    	} else {
+    		ArrayList<GameObject> toRemove = new ArrayList<GameObject>();
+        	for (GameObject a : g) {
+    			a.move();
+    			a.collision(g);			
+    			if (a.removeObject()) toRemove.add(a);
+    		}
+        	g.removeAll(toRemove);
+        	if (Stick.count == Constants.TDM_UPDATELOCATION_STICK_COUNT) {
+        		Model.gameOver = true;
+        	}
     	}
     }
     
