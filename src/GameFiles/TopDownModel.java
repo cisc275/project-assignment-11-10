@@ -46,11 +46,19 @@ public class TopDownModel extends Model {
     
     TutorialObject tright_key = null;
     
+    TutorialObject tarrow = null;
+    
     Bush b1 = null;
     
     Bush b2 = null;
     
     Bush b3 = null;
+    
+    int tarrow_cur_height;
+    
+    int tarrow_cur_width;
+    
+    
     
     /*
      * checks time for active powerup
@@ -194,9 +202,27 @@ public class TopDownModel extends Model {
     			f = new Fox(Constants.FRAME_X, Constants.FRAME_Y / 2, Constants.FOX_START_SIZE_X, Constants.FOX_START_SIZE_Y, cr);
     			game.add(f);
     		}
+    		
+    		if (tarrow == null) {
+    			tarrow_cur_height = (int)(tstick.hitbox.getBounds2D().getMaxY() - nest.hitbox.getBounds2D().getMaxY() - 50);
+    			tarrow_cur_width = (int)(tstick.hitbox.getBounds2D().getMaxX() - nest.hitbox.getBounds2D().getMaxX() - 50);
+    			tarrow = new TutorialObject((int)nest.hitbox.getBounds2D().getMaxX(), (int)nest.hitbox.getBounds2D().getMaxY(), 
+    					tarrow_cur_width, 
+    					tarrow_cur_height,
+    					Constants.ANIMATION_ARROW);
+    			tarrow.curImgTickCount = 0;
+				game.add(tarrow);
+    		}
 
     		if (tstick.visible) {
-    			
+    			int tarrow_new_height = (int)(tstick.hitbox.getBounds2D().getMaxY() - nest.hitbox.getBounds2D().getMaxY() - 50);
+    			int tarrow_new_width = (int)(tstick.hitbox.getBounds2D().getMaxX() - nest.hitbox.getBounds2D().getMaxX() - 50);
+    			tarrow.height = (int)(tstick.hitbox.getBounds2D().getMaxY() - nest.hitbox.getBounds2D().getMaxY() - 50);
+    			tarrow.width = (int)(tstick.hitbox.getBounds2D().getMaxX() - nest.hitbox.getBounds2D().getMaxX() - 50);
+    			tarrow.resetPoly();
+    			if (tarrow_new_height != tarrow_cur_height || tarrow_new_width != tarrow_cur_width) {
+        			tarrow.curImg ++;
+    			}
     		}
     		else if (f.visible) {
     			if (b1.imgFileName.equals(Constants.ANIMATION_BUSH)) {
