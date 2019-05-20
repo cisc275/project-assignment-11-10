@@ -207,17 +207,16 @@ public class TopDownModel extends Model {
     				game.remove(tleft_key);
     				b1.imgFileName = Constants.ANIMATION_BUSH_GLOW;
     			}
-    			else if (!f.hitbox.getBounds2D().intersects(b1.hitbox.getBounds2D())) {
+    			else if (!cr.hitbox.getBounds2D().intersects(b1.hitbox.getBounds2D()) && f.hitbox.getBounds2D().getMinY() > 0) {
     				f.move();
     				f.collision(game);
     			}
-    			else if (f.hitbox.getBounds2D().intersects(b1.hitbox.getBounds2D())) {
+    			else if (cr.hitbox.getBounds2D().intersects(b1.hitbox.getBounds2D())) {
     				f.move();
-    				System.out.println("out of bush");
-    				System.out.println(f.hitbox.getBounds2D().getMinY());
+    				//System.out.println("in bush");
+    				//System.out.println(f.hitbox.getBounds2D().getMinY());
     			}
     			else {
-    				System.out.println("hit");
     				f.visible = false;
     				game.remove(f);
     			}

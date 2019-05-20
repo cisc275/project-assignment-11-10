@@ -192,10 +192,12 @@ public class Fox extends Controllable {
 		boundaries();
 		
 		if(this.xSpeed < 0) {
-			this.imgFileName = Constants.ANIMATION_FOX_LEFT;
+			if (Model.inTutoral) this.imgFileName = Constants.ANIMATION_FOX_LEFT_BAD;
+			else this.imgFileName = Constants.ANIMATION_FOX_LEFT;
 		}
 		else if(this.xSpeed > 0) {
-			this.imgFileName = Constants.ANIMATION_FOX_RIGHT;
+			if (Model.inTutoral) this.imgFileName = Constants.ANIMATION_FOX_RIGHT_BAD;
+			else this.imgFileName = Constants.ANIMATION_FOX_RIGHT;
 		}
 		animate(Constants.FOX_ANIMATION_TICK_RATE);
 	}
