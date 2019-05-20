@@ -295,7 +295,7 @@ public class SideScrollModel extends Model {
 			g.removeAll(toRemove);
 			if (Quiz.correct) {
 				if (pwrCount == 0) {
-					prevSpeed = o.getXSpeed();
+					prevSpeed = Osprey.xSpeed;
 					pwrCount += 1;
 					o.setXSpeed(Constants.POWERUP_SPEED);
 				} else if (pwrCount <= Constants.POWERUP_DURATION) {

@@ -80,7 +80,7 @@ public class Constants implements Serializable {
 	public final static int POWERUP_HEIGH = 100;
 	public final static int POWERUP_SIZE = 50;
 	public final static int POWERUP_SPEED = -50;
-	public final static int POWERUP_DURATION = 4000;
+	public final static int POWERUP_DURATION = 100;
 	
 	public final static int STICK_ANIMATION_TICK_RATE = 2;
 	public final static int STICK_HANDLECOLLISION_OFFSET = 30;
@@ -319,7 +319,7 @@ public class Constants implements Serializable {
 	
 	public final static JLabel OSPREY_1 = new JLabel("How do ospreys like to get their food?");
 	public final static JLabel OSPREY_2 = new JLabel("How big are osprey flocks?");
-	public final static JLabel OSPREY_3 = new JLabel("Where do ospreys migrate to?");
+	public final static JLabel OSPREY_3 = new JLabel("Where do ospreys migrate from?");
 	public final static JLabel OSPREY_4 = new JLabel("What is the osprey's favorite food?");
 	public final static JLabel OSPREY_5 = new JLabel("Where do ospreys like to live?");
 	public final static JLabel OSPREY_6 = new JLabel("What do ospreys usually eat?");
