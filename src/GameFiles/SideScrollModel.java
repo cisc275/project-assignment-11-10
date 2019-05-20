@@ -161,7 +161,7 @@ public class SideScrollModel extends Model {
 			
 			else if (tpow.visible) {
 				
-				if (quizHappened) {
+				if (Powerup.power) {
 					quizHappened = false;
 					tpow.visible = false;
 					tspace.visible = false;

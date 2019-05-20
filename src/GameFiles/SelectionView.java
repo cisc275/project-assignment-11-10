@@ -38,6 +38,7 @@ public class SelectionView extends View implements KeyListener{
 	 */
 	
 	public SelectionView(ArrayList<GameObject> g) {
+		
 		game = g;
 		osprey = new JButton(new ImageIcon(Constants.IMG_SELECT_OSPREY));
 		clapperRail = new JButton(new ImageIcon(Constants.IMG_SELECT_CLAPPER_RAIL));
@@ -57,16 +58,6 @@ public class SelectionView extends View implements KeyListener{
 
 	}
 	
-	/**
-	 * @param controller
-	 * adds the controller as an action listener for each button
-	 */
-	
-	public void addActionListener(Controller controller) {
-		osprey.addActionListener(controller);
-		clapperRail.addActionListener(controller);
-		
-	}
 
 	
 	private class keyAction extends AbstractAction{
@@ -79,14 +70,18 @@ public class SelectionView extends View implements KeyListener{
 			if (e.getSource().equals(clapperRail)) {
 				new Controller("topDown");
 			}
-			
+			endSelection();
 		}
 		
+	}
+	
+	public void endSelection() {
+		this.dispose();
 	}
 
 	@Override
 	public void keyPressed(KeyEvent arg0) {
-	
+		System.out.println("hello there");
 		ospreySetup();
 		crSetup();
 	}

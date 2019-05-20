@@ -46,6 +46,12 @@ public class TopDownModel extends Model {
     
     TutorialObject tright_key = null;
     
+    Bush b1 = null;
+    
+    Bush b2 = null;
+    
+    Bush b3 = null;
+    
     /*
      * checks time for active powerup
      */
@@ -97,7 +103,6 @@ public class TopDownModel extends Model {
     public TopDownModel() {
     	cr = new ClapperRail(Constants.CLAPPER_RAIL_START_LOC_X, Constants.CLAPPER_RAIL_START_LOC_Y,
     			Constants.CLAPPER_RAIL_START_SIZE_X, Constants.CLAPPER_RAIL_START_SIZE_Y);
-    	f = new Fox(Constants.FOX_START_LOC_X, Constants.FOX_START_LOC_Y, Constants.FOX_START_SIZE_X, Constants.FOX_START_SIZE_Y, cr);
     	nest = new Nest(25, 25, 50, 50);
 		game = new ArrayList<GameObject>();
 		inTutoral = true;
@@ -110,21 +115,23 @@ public class TopDownModel extends Model {
     	game.add(cr);
 		game.add(nest);
 		
-		Bush b1 = new Bush(500, 500,150,150);
+		b1 = new Bush(500, 500,150,150);
 		game.add(b1);
 		cr.bushArr.add(b1);
 		
-		Bush b2 = new Bush(600, 20,150,150);
+		b2 = new Bush(600, 20,150,150);
 		game.add(b2);
 		cr.bushArr.add(b2);
 		
-		Bush b3 = new Bush(20, 450,175,175);
+		b3 = new Bush(20, 450,175,175);
 		game.add(b3);
 		cr.bushArr.add(b3);
     }
     
     @Override
     protected void postTutorial() {
+    	f = new Fox(Constants.FOX_START_LOC_X, Constants.FOX_START_LOC_Y, Constants.FOX_START_SIZE_X, Constants.FOX_START_SIZE_Y, cr);
+    	game.add(f);
     	game.add(new Powerup(Constants.FRAME_X, Constants.FRAME_Y - (int)(Constants.POWERUP_HEIGH * Constants.POWERUP_HEIGH_SCALE),
 				(int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE), (int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE)));
 		game.add(new Stick(300,300,(int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE)));
@@ -182,12 +189,27 @@ public class TopDownModel extends Model {
     					(int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE), (int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE));
     			game.add(tpow);
     		}
+    		
+    		if (f == null) {
+    			f = new Fox(Constants.FRAME_X, Constants.FRAME_Y / 2, Constants.FOX_START_SIZE_X, Constants.FOX_START_SIZE_Y, cr);
+    			game.add(f);
+    		}
 
     		if (tstick.visible) {
     			
     		}
     		else if (f.visible) {
-    			tup_key.visible = tdown_key.visible = tright_key.visible = tleft_key.visible = false;
+    			if (b1.imgFileName.equals(Constants.ANIMATION_BUSH)) {
+    				tup_key.visible = tdown_key.visible = tright_key.visible = tleft_key.visible = false;
+    				b1.imgFileName = Constants.ANIMATION_BUSH_GLOW;
+    			}
+    			else if (!f.hitbox.getBounds2D().intersects(b1.hitbox.getBounds2D())) {
+    				f.move();
+    				f.collision(game);
+    			}
+    			else if (f.hitbox.getBounds2D().getMinY() > 0) {
+    				f.move();
+    			}
     		}
     		
     		
