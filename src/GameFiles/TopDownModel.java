@@ -242,7 +242,7 @@ public class TopDownModel extends Model {
     		}
     		
     		if (tpow == null) {
-    			tpow = new Powerup(Constants.FRAME_X, Constants.FRAME_Y - (int)(Constants.POWERUP_HEIGH * Constants.POWERUP_HEIGH_SCALE),
+    			tpow = new Powerup(0, Constants.FRAME_Y - (int)(Constants.POWERUP_HEIGH * Constants.POWERUP_HEIGH_SCALE),
     					(int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE), (int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE));
     			tpow.imgFileName = Constants.ANIMATION_CRAB;
     			game.add(tpow);
