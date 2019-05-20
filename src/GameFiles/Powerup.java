@@ -60,10 +60,10 @@ public class Powerup extends Collectable {
 	 */
 	public void resetPoly() {
 		this.hitbox.reset();
-		this.hitbox.addPoint(x + View.frame.getWidth(), y);
-		this.hitbox.addPoint(x + View.frame.getWidth(), y + height);
-		this.hitbox.addPoint(x + View.frame.getWidth() + width, y + height);
-		this.hitbox.addPoint(x + View.frame.getWidth() + width, y);
+		this.hitbox.addPoint(x + Constants.FRAME_X, y);
+		this.hitbox.addPoint(x + Constants.FRAME_X, y + height);
+		this.hitbox.addPoint(x + Constants.FRAME_X + width, y + height);
+		this.hitbox.addPoint(x + Constants.FRAME_X + width, y);
 	}
 	
 	
