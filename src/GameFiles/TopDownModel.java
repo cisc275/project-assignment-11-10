@@ -88,27 +88,35 @@ public class TopDownModel extends Model {
     	f = new Fox(Constants.FOX_START_LOC_X, Constants.FOX_START_LOC_Y, Constants.FOX_START_SIZE_X, Constants.FOX_START_SIZE_Y, cr);
     	nest = new Nest(25, 25, 50, 50);
 		game = new ArrayList<GameObject>();
-		game.add(cr);
+		
+    }
+    
+    @Override
+    protected void defaultSetup() {
+    	game.add(cr);
 		game.add(f);
-		game.add(nest);	
+		game.add(nest);
+		
 		game.add(new Powerup(Constants.FRAME_X, Constants.FRAME_Y - (int)(Constants.POWERUP_HEIGH * Constants.POWERUP_HEIGH_SCALE),
-			(int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE), (int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE)));
+				(int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE), (int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE)));
 		game.add(new Stick(300,300,(int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE)));
 		game.add(new Stick(500, 250, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE))); 
 		game.add(new Stick(400, 400, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE)));
 		game.add(new TutorialObject(300, 150, 483, 110, Constants.ANIMATION_SPACEBAR));
 		game.add(new TutorialObject(700, 300, 122, 122, Constants.ANIMATION_UP_KEY));
+		
 		Bush b1 = new Bush(500, 500,150,150);
 		game.add(b1);
 		cr.bushArr.add(b1);
+		
 		Bush b2 = new Bush(600, 20,150,150);
 		game.add(b2);
 		cr.bushArr.add(b2);
+		
 		Bush b3 = new Bush(20, 450,175,175);
 		game.add(b3);
 		cr.bushArr.add(b3);
     }
-    
     
     /**
      * 
