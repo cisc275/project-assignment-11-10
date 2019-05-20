@@ -214,6 +214,8 @@ public class Controller implements KeyListener, ActionListener{
 				break;
 			case 49:
 					view.debugHitBoxes =  !view.debugHitBoxes;
+			case Constants.ESCAPE_KEY_CODE:
+				new Controller("sel");
 		}
 	}	
 	/**
