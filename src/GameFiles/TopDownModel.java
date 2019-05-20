@@ -211,8 +211,9 @@ public class TopDownModel extends Model {
     				f.move();
     				f.collision(game);
     			}
-    			else if (f.hitbox.getBounds2D().getMinY() > 0) {
+    			else if (f.hitbox.getBounds2D().intersects(b1.hitbox.getBounds2D())) {
     				f.move();
+    				System.out.println("out of bush");
     				System.out.println(f.hitbox.getBounds2D().getMinY());
     			}
     			else {
