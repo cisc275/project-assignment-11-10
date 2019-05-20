@@ -16,6 +16,6 @@ public class TutorialArrow extends TutorialObject {
 	
 	@Override
 	public void animate(int constant) {
-			
+		
 	}
 }

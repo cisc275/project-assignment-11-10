@@ -124,6 +124,11 @@ public class Constants implements Serializable {
 	public final static String IMG_AIRCURRENT_5 = "img/aircurrent/aircurrent_5.png";
 	public final static String IMG_AIRCURRENT_6 = "img/aircurrent/aircurrent_6.png";
 	public final static String IMG_ARROW = "img/arrow.png";
+	public final static String IMG_ARROW_1 = "img/arrow/arrow1.png";
+	public final static String IMG_ARROW_2 = "img/arrow/arrow2.png";
+	public final static String IMG_ARROW_3 = "img/arrow/arrow3.png";
+	public final static String IMG_ARROW_4 = "img/arrow/arrow4.png";
+	public final static String IMG_ARROW_5 = "img/arrow/arrow5.png";
 	public final static String IMG_BACKGROUND = "img/backgroundTim.png";
 	public final static String IMG_BACKGROUND_OSPREY_QUIZ = "img/backgroundTimQuiz.png";
 	public final static String IMG_BUSH = "img/bush.png";
@@ -231,7 +236,8 @@ public class Constants implements Serializable {
 	// Arrays of String file paths
 	
 	public final static String[] ANIMATION_AIRCURRENT = {IMG_AIRCURRENT_1, IMG_AIRCURRENT_2, IMG_AIRCURRENT_3, IMG_AIRCURRENT_4, IMG_AIRCURRENT_5, IMG_AIRCURRENT_6};
-	public final static String[] ANIMATION_ARROW = {IMG_ARROW};
+	public final static String[] ANIMATION_ARROW = {IMG_ARROW_1, IMG_ARROW_2, IMG_ARROW_3, IMG_ARROW_4, IMG_ARROW_5, IMG_ARROW_4, IMG_ARROW_3, IMG_ARROW_2};
+	public final static String[] ANIMATION_ARROW_STATIC = {IMG_ARROW};
 	public final static String[] ANIMATION_BACKGROUND = {IMG_BACKGROUND};
 	public final static String[] ANIMATION_CRBACKGROUND = {IMG_CLAPPER_RAIL_BACKGROUND};
 	public final static String[] ANIMATION_BACKGROUND_OSPREY_QUIZ = {IMG_BACKGROUND_OSPREY_QUIZ};
