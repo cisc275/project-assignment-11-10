@@ -161,6 +161,7 @@ public class EndScreen extends JDialog implements KeyListener {
 	}
 	
 	public void endScreen() {
+		Stick.count = 0;
 		this.setModal(false);
 		this.dispose();
 	}
