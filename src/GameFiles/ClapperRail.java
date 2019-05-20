@@ -53,7 +53,7 @@ public class ClapperRail extends Bird {
 		this.setType(Type.CLAPPERRAIL);
 		this.xSpeed = 0;
 		this.ySpeed = 0;
-		this.imgFileName = Constants.ANIMATION_CR;
+		this.imgFileName = Constants.ANIMATION_CR_LEFT;
 		this.curImg = randy.nextInt(imgFileName.length);
 		// this.img = createImage();
 	}
@@ -71,17 +71,11 @@ public class ClapperRail extends Bird {
 		if (!(this.xSpeed == 0 && this.ySpeed == 0)) {
 			this.animate(Constants.CLAPPER_RAIL_ANIMATION_TICK_RATE);
 		}
-	}
-
-	@Override
-	public void animate(int constant) {
-		int modifier = this.xSpeed > 0 ? this.imgFileName.length / 2 : 0;
-		this.curImgTickCount++;
-		if (curImgTickCount == constant) {
-			curImg = modifier + ((curImg + 1) % (this.imgFileName.length / 2));
-			// System.out.println(curImg);
-			curImgTickCount = 0;
-			// this.visible = false;
+		if(this.xSpeed < 0) {
+			this.imgFileName = Constants.ANIMATION_CR_LEFT;
+		}
+		else if(this.xSpeed > 0) {
+			this.imgFileName = Constants.ANIMATION_CR_RIGHT;
 		}
 	}
 

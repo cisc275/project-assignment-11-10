@@ -55,8 +55,8 @@ public class Constants implements Serializable {
 	public final static int FOX_INIT_YSPEED = 2;
 	public final static int FOX_START_LOC_X = 400;
 	public final static int FOX_START_LOC_Y = 400;
-	public final static int FOX_START_SIZE_X = 100;
-	public final static int FOX_START_SIZE_Y = 100;
+	public final static int FOX_START_SIZE_X = 250;
+	public final static int FOX_START_SIZE_Y = 125;
 	public final static int FOX_ANIMATION_TICK_RATE = 2;
 	
 	
@@ -123,6 +123,7 @@ public class Constants implements Serializable {
 	public final static String IMG_AIRCURRENT_4 = "img/aircurrent/aircurrent_4.png";
 	public final static String IMG_AIRCURRENT_5 = "img/aircurrent/aircurrent_5.png";
 	public final static String IMG_AIRCURRENT_6 = "img/aircurrent/aircurrent_6.png";
+	public final static String IMG_ARROW = "img/arrow.png";
 	public final static String IMG_BACKGROUND = "img/backgroundTim.png";
 	public final static String IMG_BACKGROUND_OSPREY_QUIZ = "img/backgroundTimQuiz.png";
 	public final static String IMG_BUSH = "img/bush.png";
@@ -230,11 +231,13 @@ public class Constants implements Serializable {
 	// Arrays of String file paths
 	
 	public final static String[] ANIMATION_AIRCURRENT = {IMG_AIRCURRENT_1, IMG_AIRCURRENT_2, IMG_AIRCURRENT_3, IMG_AIRCURRENT_4, IMG_AIRCURRENT_5, IMG_AIRCURRENT_6};
+	public final static String[] ANIMATION_ARROW = {IMG_ARROW};
 	public final static String[] ANIMATION_BACKGROUND = {IMG_BACKGROUND};
 	public final static String[] ANIMATION_CRBACKGROUND = {IMG_CLAPPER_RAIL_BACKGROUND};
 	public final static String[] ANIMATION_BACKGROUND_OSPREY_QUIZ = {IMG_BACKGROUND_OSPREY_QUIZ};
 	public final static String[] ANIMATION_BUSH_GLOW = {IMG_BUSH_1, IMG_BUSH_2, IMG_BUSH_3, IMG_BUSH_4, IMG_BUSH_5, IMG_BUSH_6, IMG_BUSH_5, IMG_BUSH_4, IMG_BUSH_3, IMG_BUSH_2};
-	public final static String[] ANIMATION_CR= {IMG_CLAPPER_RAIL_LEFT_1,IMG_CLAPPER_RAIL_LEFT_2,IMG_CLAPPER_RAIL_LEFT_3,IMG_CLAPPER_RAIL_LEFT_2,IMG_CLAPPER_RAIL_RIGHT_1,IMG_CLAPPER_RAIL_RIGHT_2,IMG_CLAPPER_RAIL_RIGHT_3,IMG_CLAPPER_RAIL_RIGHT_2};
+	public final static String[] ANIMATION_CR_LEFT= {IMG_CLAPPER_RAIL_LEFT_1,IMG_CLAPPER_RAIL_LEFT_2,IMG_CLAPPER_RAIL_LEFT_3,IMG_CLAPPER_RAIL_LEFT_2};
+	public final static String[] ANIMATION_CR_RIGHT= {IMG_CLAPPER_RAIL_RIGHT_1,IMG_CLAPPER_RAIL_RIGHT_2,IMG_CLAPPER_RAIL_RIGHT_3,IMG_CLAPPER_RAIL_RIGHT_2};
 	
 	public final static String[] ANIMATION_CRAB = {IMG_CRAB_1, IMG_CRAB_2};
 	
