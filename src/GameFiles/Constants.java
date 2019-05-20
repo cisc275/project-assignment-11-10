@@ -148,6 +148,15 @@ public class Constants implements Serializable {
 	public final static String IMG_CLAPPER_RAIL_RIGHT_3 = "img/cr/cr6.png";
 	public final static String IMG_CRAB_1 = "img/crab/crab1.png";
 	public final static String IMG_CRAB_2 = "img/crab/crab2.png";
+	public final static String IMG_CRAB_ANIMATED_1 = "img/crab/crab_1_1.png";
+	public final static String IMG_CRAB_ANIMATED_2 = "img/crab/crab_2_2.png";
+	public final static String IMG_CRAB_ANIMATED_3 = "img/crab/crab_1_3.png";
+	public final static String IMG_CRAB_ANIMATED_4 = "img/crab/crab_2_4.png";
+	public final static String IMG_CRAB_ANIMATED_5 = "img/crab/crab_1_5.png";
+	public final static String IMG_CRAB_ANIMATED_6 = "img/crab/crab_2_5.png";
+	public final static String IMG_CRAB_ANIMATED_7 = "img/crab/crab_1_4.png";
+	public final static String IMG_CRAB_ANIMATED_8 = "img/crab/crab_2_3.png";
+	public final static String IMG_CRAB_ANIMATED_9 = "img/crab/crab_1_2.png";
 	public final static String IMG_DOWN_KEY = "img/down/down.png";
 	public final static String IMG_DOWN_KEY_1 = "img/down/down_1.png";
 	public final static String IMG_DOWN_KEY_2 = "img/down/down_2.png";
@@ -245,7 +254,10 @@ public class Constants implements Serializable {
 	public final static String[] ANIMATION_CR_LEFT= {IMG_CLAPPER_RAIL_LEFT_1,IMG_CLAPPER_RAIL_LEFT_2,IMG_CLAPPER_RAIL_LEFT_3,IMG_CLAPPER_RAIL_LEFT_2};
 	public final static String[] ANIMATION_CR_RIGHT= {IMG_CLAPPER_RAIL_RIGHT_1,IMG_CLAPPER_RAIL_RIGHT_2,IMG_CLAPPER_RAIL_RIGHT_3,IMG_CLAPPER_RAIL_RIGHT_2};
 	
-	public final static String[] ANIMATION_CRAB = {IMG_CRAB_1, IMG_CRAB_2};
+	public final static String[] ANIMATION_CRAB_STATIC = {IMG_CRAB_1, IMG_CRAB_2};
+	public final static String[] ANIMATION_CRAB = {IMG_CRAB_ANIMATED_1, IMG_CRAB_ANIMATED_2, IMG_CRAB_ANIMATED_3, IMG_CRAB_ANIMATED_4, 
+																		IMG_CRAB_ANIMATED_5, IMG_CRAB_ANIMATED_6, IMG_CRAB_ANIMATED_7, 
+																		IMG_CRAB_ANIMATED_8, IMG_CRAB_ANIMATED_9};
 	
 	public final static String[] ANIMATION_BUSH = {IMG_BUSH};
 	public final static String[] ANIMATION_DOWN_KEY= {IMG_DOWN_KEY_1, IMG_DOWN_KEY_2, IMG_DOWN_KEY_3, IMG_DOWN_KEY_4, IMG_DOWN_KEY_5, IMG_DOWN_KEY_6, 
