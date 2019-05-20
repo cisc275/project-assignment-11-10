@@ -46,7 +46,7 @@ public class TopDownModel extends Model {
     
     TutorialObject tright_key = null;
     
-    TutorialObject tarrow = null;
+    TutorialArrow tarrow = null;
     
     Bush b1 = null;
     
@@ -206,7 +206,7 @@ public class TopDownModel extends Model {
     		if (tarrow == null) {
     			tarrow_cur_height = (int)(tstick.hitbox.getBounds2D().getMaxY() - nest.hitbox.getBounds2D().getMaxY() - 50);
     			tarrow_cur_width = (int)(tstick.hitbox.getBounds2D().getMaxX() - nest.hitbox.getBounds2D().getMaxX() - 50);
-    			tarrow = new TutorialObject((int)nest.hitbox.getBounds2D().getMaxX(), (int)nest.hitbox.getBounds2D().getMaxY(), 
+    			tarrow = new TutorialArrow((int)nest.hitbox.getBounds2D().getMaxX(), (int)nest.hitbox.getBounds2D().getMaxY(), 
     					tarrow_cur_width, 
     					tarrow_cur_height,
     					Constants.ANIMATION_ARROW);
@@ -217,11 +217,19 @@ public class TopDownModel extends Model {
     		if (tstick.visible) {
     			int tarrow_new_height = (int)(tstick.hitbox.getBounds2D().getMaxY() - nest.hitbox.getBounds2D().getMaxY() - 50);
     			int tarrow_new_width = (int)(tstick.hitbox.getBounds2D().getMaxX() - nest.hitbox.getBounds2D().getMaxX() - 50);
-    			tarrow.height = (int)(tstick.hitbox.getBounds2D().getMaxY() - nest.hitbox.getBounds2D().getMaxY() - 50);
-    			tarrow.width = (int)(tstick.hitbox.getBounds2D().getMaxX() - nest.hitbox.getBounds2D().getMaxX() - 50);
-    			tarrow.resetPoly();
-    			if (tarrow_new_height != tarrow_cur_height || tarrow_new_width != tarrow_cur_width) {
-        			tarrow.curImg ++;
+    			if (tarrow_new_width > 10 && tarrow_new_height > 10) {
+	    			tarrow.height = (int)(tstick.hitbox.getBounds2D().getMaxY() - nest.hitbox.getBounds2D().getMaxY() - 50);
+	    			tarrow.width = (int)(tstick.hitbox.getBounds2D().getMaxX() - nest.hitbox.getBounds2D().getMaxX() - 50);
+	    			tarrow.resetPoly();
+	    			if (tarrow_new_height != tarrow_cur_height || tarrow_new_width != tarrow_cur_width) {
+	        			tarrow.curImg ++;
+	    			}
+	    			tarrow_cur_height = tarrow_new_height;
+	    			tarrow_cur_width = tarrow_new_width;
+    			}
+    			else {
+    				tarrow.visible = false;
+    				game.remove(tarrow);
     			}
     		}
     		else if (f.visible) {
