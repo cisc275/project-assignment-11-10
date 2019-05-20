@@ -216,6 +216,7 @@ public class TopDownModel extends Model {
     			}
     			else {
     				f.visible = false;
+    				game.remove(f);
     			}
     		}
     		
