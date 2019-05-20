@@ -131,7 +131,7 @@ public class TopDownView extends View{
 	private BufferedImage createLives(){
 		BufferedImage bufferedImage;
 		try {
-			bufferedImage = ImageIO.read(new File(Constants.IMG_THARVEY_1));
+			bufferedImage = ImageIO.read(new File(Constants.IMG_CLAPPER_RAIL_LEFT_1));
 			return bufferedImage;
 		} catch (IOException e) {
 			e.printStackTrace();
