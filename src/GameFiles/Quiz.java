@@ -144,12 +144,18 @@ public class Quiz extends JDialog implements KeyListener{
 		initQuestions(game);
 		initAnswers(game);
 		this.game = game;
-		this.setUndecorated(true);
-		this.setLocation(1920/2 - 1920/4, 1080/2 - 1080/4);
+		if (Mate.caughtUp) {
+			this.setSize(Constants.FRAME_X, Constants.FRAME_Y);
+			this.setLocation(0, 0);
+		}
+		else {
+			this.setLocation(1920/2 - 1920/4, 1080/2 - 1080/4);
+			this.setSize(1920/2, 1080/2);
+		}
 		c.add(p);
 		this.setModal(true);
 		this.setResizable(false);
-        this.setSize(1920/2, 1080/2);
+		this.setUndecorated(true);
         this.setVisible(true);
 
 	}
@@ -173,6 +179,10 @@ public class Quiz extends JDialog implements KeyListener{
 		private BufferedImage createImage(){
 			BufferedImage bufferedImage;
 	    	try {
+	    		if (Mate.caughtUp) {
+	    			bufferedImage = ImageIO.read(new File("img/TIM PICK ME PLEASE.png"));
+		    		return bufferedImage;
+	    		}
 	    		if (game.equals("sides")){
 	    		bufferedImage = ImageIO.read(new File(Constants.IMG_BACKGROUND_OSPREY_QUIZ));
 	    		return bufferedImage;
@@ -415,11 +425,14 @@ public class Quiz extends JDialog implements KeyListener{
 		else instruction = new JLabel("Press the key listed next to your answer.");
 		list.add(instruction);
 		for (JLabel l : list) {
+			if (Mate.caughtUp) {
+				l.setBackground(Color.BLACK);
+			}
 			l.setForeground(Color.BLACK);
 			l.setHorizontalAlignment(JLabel.CENTER);
 			l.setVerticalAlignment(JLabel.TOP);
 			l.setOpaque(false);
-	        l.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, 30));
+	        l.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, 40));
 	        l.setMinimumSize(new Dimension(200, 5));
 	        l.setPreferredSize(new Dimension(200, 5));
 	        l.setMaximumSize(new Dimension(200, 5));
@@ -656,6 +669,10 @@ public class Quiz extends JDialog implements KeyListener{
 		buttons.add(new JButton());
 		
 		for (JButton b :buttons) {
+			if (Mate.caughtUp) {
+				System.out.println("yo");
+				b.setBackground(Color.BLACK);
+			}
 			b.addKeyListener(this);
 			b.setFocusPainted(false);
 			b.setOpaque(false);
@@ -665,7 +682,7 @@ public class Quiz extends JDialog implements KeyListener{
             b.setMaximumSize(new Dimension(300, 0));
         	b.setVerticalAlignment(JButton.TOP);
         	b.setHorizontalAlignment(JButton.CENTER);
-        	b.setFont(new Font("Serif", Font.BOLD + Font.ITALIC, 30));
+        	b.setFont(new Font("Serif", Font.BOLD + Font.ITALIC, 40));
         	b.setForeground(Color.BLACK);
         	b.setBorderPainted(false);
         	p.add(b);	
@@ -813,14 +830,14 @@ public class Quiz extends JDialog implements KeyListener{
 		amap.put("first", new keyAction());
 	}
 	
-	public void firstPanelSetup() {
-		int map = JComponent.WHEN_IN_FOCUSED_WINDOW;
-		InputMap imap = information.getInputMap(map);
-		imap.put(KeyStroke.getKeyStroke("SPACE"), "information");
-		
-		ActionMap amap = information.getActionMap();
-		amap.put("information", new keyAction());
-	}
+//	public void firstPanelSetup() {
+//		int map = JComponent.WHEN_IN_FOCUSED_WINDOW;
+//		InputMap imap = information.getInputMap(map);
+//		imap.put(KeyStroke.getKeyStroke("SPACE"), "information");
+//		
+//		ActionMap amap = information.getActionMap();
+//		amap.put("information", new keyAction());
+//	}
 	
 	/**
 	 * sets up the correct input and action maps for the second button

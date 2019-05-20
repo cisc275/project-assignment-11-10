@@ -121,7 +121,7 @@ public class SideScrollView extends View{
 		BufferedImage bufferedImage;
 		//System.out.println("i am running");
     	try {
-    		bufferedImage = ImageIO.read(new File("img/wind.png"));
+    		bufferedImage = ImageIO.read(new File("img/TIM PICK ME PLEASE.PNG"));
     		return bufferedImage;
     	} catch (IOException e) {
     		e.printStackTrace();
@@ -167,12 +167,16 @@ public class SideScrollView extends View{
 		    
 		    	}
 				}
-			/*
-			 * else if (Mate.caughtUp){
-			 * 
-			 * g.drawImage(youWin, 0, 0, this.getWidth(), this.getHeight(), this); }
-			 */	
+			
+			 else if (Mate.caughtUp){
+				 endSideScroll();
+			  }
+			 	
 		}
+    }
+    
+    public void endSideScroll() {
+    	this.dispose();
     }
     	/**
     	 * the size of our screen (full screen)

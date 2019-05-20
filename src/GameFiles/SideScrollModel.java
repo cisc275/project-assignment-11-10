@@ -152,6 +152,7 @@ public class SideScrollModel extends Model {
 				}
 				else if (tfish.hitbox.intersects(o.hitbox.getBounds2D())){
 					tfish.visible = false;
+				//	tfish.hitbox.reset();
 					tspace.visible = false;
 					tspace = null;
 					
@@ -161,19 +162,24 @@ public class SideScrollModel extends Model {
 			
 			else if (tpow.visible) {
 				
-				if (Powerup.power) {
-					quizHappened = false;
+				if (tspace == null) {
+					Osprey.xSpeed = -10;
+					tspace = new TutorialObject(300, 300, 483, 110, Constants.ANIMATION_SPACEBAR);
+					game.add(tspace);
+				}
+				else if (Powerup.power) {
+					System.out.println("hello");
+					Powerup.power = false;
 					tpow.visible = false;
 					tspace.visible = false;
 				}	
 				else if (tpow.hitbox.getBounds2D().getMinX() > Constants.OSPREY_STARTX) {
 					tpow.move();
 				}
-				else if (tspace == null) {
-					Osprey.xSpeed = 0;
-					tspace = new TutorialObject(300, 300, 483, 110, Constants.ANIMATION_SPACEBAR);
-					game.add(tspace);
-				}	
+					
+				
+				
+				
 			}
 				//---------------------------------------
 				//	If we are still working with the air,
