@@ -151,6 +151,7 @@ public class SideScrollModel extends Model {
 					game.add(tspace);
 				}
 				else if (tfish.hitbox.intersects(o.hitbox.getBounds2D())){
+					System.out.println("hi");
 					tfish.visible = false;
 				//	tfish.hitbox.reset();
 					tspace.visible = false;
@@ -162,20 +163,26 @@ public class SideScrollModel extends Model {
 			
 			else if (tpow.visible) {
 				
-				if (tspace == null) {
-					Osprey.xSpeed = -10;
+				if (tpow.hitbox.getBounds2D().getMinX() <= Constants.OSPREY_STARTX) {
+					o.setXSpeed(0);
+				}
+				
+				else if (tspace == null) {
+			//		o.setXSpeed(0);
 					tspace = new TutorialObject(300, 300, 483, 110, Constants.ANIMATION_SPACEBAR);
 					game.add(tspace);
 				}
 				else if (Powerup.power) {
 					System.out.println("hello");
 					Powerup.power = false;
+					o.setXSpeed(Constants.OSPREY_MAX_SPEED);
 					tpow.visible = false;
 					tspace.visible = false;
 				}	
 				else if (tpow.hitbox.getBounds2D().getMinX() > Constants.OSPREY_STARTX) {
 					tpow.move();
 				}
+				
 					
 				
 				

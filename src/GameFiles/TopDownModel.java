@@ -209,11 +209,14 @@ public class TopDownModel extends Model {
     			tarrow = new TutorialArrow((int)nest.hitbox.getBounds2D().getMaxX(), (int)nest.hitbox.getBounds2D().getMaxY(), 
     					tarrow_cur_width, 
     					tarrow_cur_height,
-    					Constants.ANIMATION_ARROW);
+    					Constants.ANIMATION_ARROW_STATIC);
     			tarrow.curImgTickCount = 0;
 				game.add(tarrow);
     		}
 
+    		//---------------------------------------------
+    		//	This is the code for the arrow to move well
+    		//---------------------------------------------
     		if (tstick.visible) {
     			int tarrow_new_height = (int)(tstick.hitbox.getBounds2D().getMaxY() - nest.hitbox.getBounds2D().getMaxY() - 50);
     			int tarrow_new_width = (int)(tstick.hitbox.getBounds2D().getMaxX() - nest.hitbox.getBounds2D().getMaxX() - 50);
@@ -248,12 +251,16 @@ public class TopDownModel extends Model {
     			else if (cr.hitbox.getBounds2D().intersects(b1.hitbox.getBounds2D())) {
     				f.move();
     				//System.out.println("in bush");
-    				//System.out.println(f.hitbox.getBounds2D().getMinY());
     			}
     			else {
     				f.visible = false;
     				game.remove(f);
     			}
+    		}
+    		else if (tpow.visible){
+				if (b1.imgFileName.equals(Constants.ANIMATION_BUSH_GLOW)) {
+					b1.imgFileName = Constants.ANIMATION_BUSH;
+				}
     		}
     		
     		
