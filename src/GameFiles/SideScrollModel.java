@@ -87,7 +87,7 @@ public class SideScrollModel extends Model {
 	private boolean onlyDoOnce = true;
 
 	public SideScrollModel() {
-		o = new Osprey(Constants.OSPREY_STARTX, 150, 50, 50);
+		o = new Osprey(Constants.OSPREY_STARTX, 150, 75, 75);
 		game = new ArrayList<GameObject>();
 		game.add(o);
 		Model.inTutoral = true;
@@ -181,7 +181,7 @@ public class SideScrollModel extends Model {
 			}
 
 			if (twall2 == null) {
-				twall2 = new InvisibleWall(0, 200, 300, 100);
+				twall2 = new InvisibleWall(0, 225, 300, 100);
 				game.add(twall2);
 			}
 
@@ -353,21 +353,21 @@ public class SideScrollModel extends Model {
 
 		game.add(new Trash(Constants.FRAME_X, (int) (Constants.FRAME_Y * .91), (int) (Constants.FRAME_X * .05),
 				(int) (Constants.FRAME_Y * .05)));
-		game.add(new Trash(Constants.FRAME_X + 150, (int) (Constants.FRAME_Y * .86), (int) (Constants.FRAME_X * .05),
-				(int) (Constants.FRAME_Y * .05)));
+	//	game.add(new Trash(Constants.FRAME_X + 150, (int) (Constants.FRAME_Y * .86), (int) (Constants.FRAME_X * .05),
+	//			(int) (Constants.FRAME_Y * .05)));
 		game.add(new Trash(Constants.FRAME_X + 400, (int) (Constants.FRAME_Y * .91), (int) (Constants.FRAME_X * .05),
 				(int) (Constants.FRAME_Y * .05)));
 		game.add(new Trash(Constants.FRAME_X + 600, (int) (Constants.FRAME_Y * .86), (int) (Constants.FRAME_X * .05),
 				(int) (Constants.FRAME_Y * .05)));
 		game.add(new Trash(Constants.FRAME_X + 1000, (int) (Constants.FRAME_Y * .91), (int) (Constants.FRAME_X * .05),
 				(int) (Constants.FRAME_Y * .05)));
-		game.add(new Trash(Constants.FRAME_X + 1300, (int) (Constants.FRAME_Y * .86), (int) (Constants.FRAME_X * .05),
-				(int) (Constants.FRAME_Y * .05)));
+//		game.add(new Trash(Constants.FRAME_X + 1300, (int) (Constants.FRAME_Y * .86), (int) (Constants.FRAME_X * .05),
+// 				(int) (Constants.FRAME_Y * .05)));
 
-		game.add(new AirCurrent(Constants.FRAME_X + 50, (int) (Constants.FRAME_Y * .05), 250, 250));
-		game.add(new AirCurrent(Constants.FRAME_X + 175, (int) (Constants.FRAME_Y * .25), 200, 200));
+		game.add(new AirCurrent(Constants.FRAME_X + 50, (int) (Constants.FRAME_Y * .03), 250, 250));
+	//	game.add(new AirCurrent(Constants.FRAME_X + 175, (int) (Constants.FRAME_Y * .25), 200, 200));
 		game.add(new AirCurrent(Constants.FRAME_X + 400, (int) (Constants.FRAME_Y * .5), 200, 200));
-		game.add(new AirCurrent(Constants.FRAME_X + 620, (int) (Constants.FRAME_Y * .4), 250, 250));
+	//	game.add(new AirCurrent(Constants.FRAME_X + 620, (int) (Constants.FRAME_Y * .4), 250, 250));
 		game.add(new AirCurrent(Constants.FRAME_X + 895, (int) (Constants.FRAME_Y * .23), 200, 200));
 		game.add(new AirCurrent(Constants.FRAME_X + 1200, (int) (Constants.FRAME_Y * .55), 200, 200));
 		game.add(new AirCurrent(Constants.FRAME_X + 1800, (int) (Constants.FRAME_Y * .4), 250, 250));

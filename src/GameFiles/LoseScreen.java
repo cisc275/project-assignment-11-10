@@ -68,14 +68,14 @@ public class LoseScreen extends JDialog implements KeyListener {
 			tryAgain.setAlignmentY(JLabel.TOP_ALIGNMENT);
 
 			menu = new JButton("Press LEFT ARROW KEY to return to Selection Screen");
-			menu.setMinimumSize(new Dimension(500, 100));
-			menu.setPreferredSize(new Dimension(500, 100));
-			menu.setMaximumSize(new Dimension(500, 100));
+			menu.setMinimumSize(new Dimension(1000, 100));
+			menu.setPreferredSize(new Dimension(1000, 100));
+			menu.setMaximumSize(new Dimension(1000, 100));
 			menu.setFocusPainted(false);
 			menu.setBackground(Color.WHITE);
 			menu.setAlignmentX(JButton.CENTER_ALIGNMENT);
 			menu.setAlignmentY(TOP_ALIGNMENT);
-			menu.setOpaque(true);
+			menu.setOpaque(false);
 			menu.setFont(new Font("Serif", Font.BOLD, 30));
 			menu.setBorderPainted(false);
 
@@ -87,7 +87,7 @@ public class LoseScreen extends JDialog implements KeyListener {
 			restart.setBackground(Color.GRAY);
 			restart.setAlignmentX(JButton.CENTER_ALIGNMENT);
 			restart.setAlignmentY(TOP_ALIGNMENT);
-			restart.setOpaque(true);
+			restart.setOpaque(false);
 			restart.setFont(new Font("Serif", Font.BOLD, 30));
 			restart.setBorderPainted(false);
 
@@ -97,6 +97,7 @@ public class LoseScreen extends JDialog implements KeyListener {
 
 			menu.addKeyListener(this);
 			restart.addKeyListener(this);
+			this.setUndecorated(true);
 			this.add(p);
 			this.setSize(screenSize);
 			this.setVisible(true);
