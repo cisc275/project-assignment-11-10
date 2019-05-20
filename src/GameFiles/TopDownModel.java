@@ -262,7 +262,7 @@ public class TopDownModel extends Model {
 				if (b1.imgFileName.equals(Constants.ANIMATION_BUSH_GLOW)) {
 					b1.imgFileName = Constants.ANIMATION_BUSH;
 				}
-				else if (tpow.hitbox.getBounds2D().getCenterX() < b1.hitbox.getBounds2D().getCenterX()) {
+				else if (tpow.hitbox.getBounds2D().getCenterX() > b1.hitbox.getBounds2D().getCenterX()) {
 					tpow.move();
 				}
     		}
