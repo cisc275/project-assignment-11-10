@@ -123,6 +123,10 @@ public class Quiz extends JDialog implements KeyListener{
 	 */
 	
 	public Quiz(String game) {
+		this.game = game;
+		this.setUndecorated(true);
+
+//		this.setLocationRelativeTo(null);
 		c = getContentPane();
 		card = new CardLayout();
 		c.setLayout(card);
@@ -131,13 +135,14 @@ public class Quiz extends JDialog implements KeyListener{
 		questionNumber();
 		initQuestions(game);
 		initAnswers(game);
-        c.add("qNa", p);
-        this.game = game;
+		p.setLocation(500, 500);
+		c.setLocation(500, 500);
+		c.add(p);
 		this.setModal(true);
 		this.setResizable(false);
         this.setSize(400, 300);
         this.setVisible(true);
-      
+
 	}
 	
 	
@@ -180,7 +185,7 @@ public class Quiz extends JDialog implements KeyListener{
 			super.paintComponent(g);
 			image = createImage();
 			if (game.equals("sides")) {
-			g.drawImage(image, 0, 0, 400, 300, this);
+			g.drawImage(image, 0, 0, 400, 350, this);
 			}
 			else g.drawImage(image, 0, 0, 400, 300, this);
 	
@@ -393,6 +398,7 @@ public class Quiz extends JDialog implements KeyListener{
 	
 	public void questionHandling() {
 		ArrayList<JLabel> list = new ArrayList<JLabel>();
+		list.add(new JLabel());
 		list.add(question);
 		if (Model.inTutoral == true) {
 			instruction = new JLabel("Answer correctly and you will get a speed boost!");
