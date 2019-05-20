@@ -355,11 +355,11 @@ public class SideScrollModel extends Model {
 				(int) (Constants.FRAME_Y * .05)));
 	//	game.add(new Trash(Constants.FRAME_X + 150, (int) (Constants.FRAME_Y * .86), (int) (Constants.FRAME_X * .05),
 	//			(int) (Constants.FRAME_Y * .05)));
-		game.add(new Trash(Constants.FRAME_X + 400, (int) (Constants.FRAME_Y * .91), (int) (Constants.FRAME_X * .05),
+		game.add(new Trash(Constants.FRAME_X + 700, (int) (Constants.FRAME_Y * .91), (int) (Constants.FRAME_X * .05),
 				(int) (Constants.FRAME_Y * .05)));
-		game.add(new Trash(Constants.FRAME_X + 600, (int) (Constants.FRAME_Y * .86), (int) (Constants.FRAME_X * .05),
+		game.add(new Trash(Constants.FRAME_X + 1300, (int) (Constants.FRAME_Y * .86), (int) (Constants.FRAME_X * .05),
 				(int) (Constants.FRAME_Y * .05)));
-		game.add(new Trash(Constants.FRAME_X + 1000, (int) (Constants.FRAME_Y * .91), (int) (Constants.FRAME_X * .05),
+		game.add(new Trash(Constants.FRAME_X + 1800, (int) (Constants.FRAME_Y * .91), (int) (Constants.FRAME_X * .05),
 				(int) (Constants.FRAME_Y * .05)));
 //		game.add(new Trash(Constants.FRAME_X + 1300, (int) (Constants.FRAME_Y * .86), (int) (Constants.FRAME_X * .05),
 // 				(int) (Constants.FRAME_Y * .05)));
@@ -371,8 +371,8 @@ public class SideScrollModel extends Model {
 		game.add(new AirCurrent(Constants.FRAME_X + 895, (int) (Constants.FRAME_Y * .23), 200, 200));
 		game.add(new AirCurrent(Constants.FRAME_X + 1200, (int) (Constants.FRAME_Y * .55), 200, 200));
 		game.add(new AirCurrent(Constants.FRAME_X + 1800, (int) (Constants.FRAME_Y * .4), 250, 250));
-		game.add(new AirCurrent(Constants.FRAME_X + 1337, (int) (Constants.FRAME_Y * .15), 200, 200));
-		game.add(new AirCurrent(Constants.FRAME_X + 1529, (int) (Constants.FRAME_Y * .58), 200, 200));
+		game.add(new AirCurrent(Constants.FRAME_X + 2450, (int) (Constants.FRAME_Y * .15), 200, 200));
+		game.add(new AirCurrent(Constants.FRAME_X + 2000, (int) (Constants.FRAME_Y * .58), 200, 200));
 
 		game.add(new Powerup(Constants.FRAME_X * 3, (int) (Constants.FRAME_Y * .93), 50, 50));
 		game.add(new Mate(Constants.FRAME_X, 200, 75, 75));// suposed to be 50 50, this is for the memes
