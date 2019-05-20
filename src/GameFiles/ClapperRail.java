@@ -37,6 +37,16 @@ public class ClapperRail extends Bird {
 	 * an array of Bushes
 	 */
 	ArrayList<Bush> bushArr = new ArrayList<Bush>();
+	
+	/**
+	 *  will be used to indicate if the Clapper Rail has made a negative collision
+	 */
+	static public boolean negHitCr = false;
+	
+	/**
+	 * will be used to indicate if the Clapper Rail has made a positive collision
+	 */
+	static public boolean posHitCr = false;
 
 	/**
 	 * @param y
