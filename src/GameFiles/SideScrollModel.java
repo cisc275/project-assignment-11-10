@@ -183,8 +183,9 @@ public class SideScrollModel extends Model {
 			}
 
 			if (tpow == null) {
-				tpow = new Powerup(Constants.FRAME_X, (int) (Constants.FRAME_Y * .9), (int) (Constants.FRAME_X * .05),
+				tpow = new Powerup(0, (int) (Constants.FRAME_Y * .9), (int) (Constants.FRAME_X * .05),
 						(int) (Constants.FRAME_Y * .05));
+				// Constants.FRAME_X
 				game.add(tpow);
 
 			}
@@ -215,6 +216,7 @@ public class SideScrollModel extends Model {
 			}
 
 			else if (tpow.visible) {
+				System.out.println(tpow.hitbox.getBounds());
 
 				if (tpow.hitbox.getBounds2D().getMinX() <= Constants.OSPREY_STARTX) {
 					o.setXSpeed(0);
@@ -369,7 +371,7 @@ public class SideScrollModel extends Model {
 		game.add(new AirCurrent(Constants.FRAME_X + 1337, (int) (Constants.FRAME_Y * .15), 200, 200));
 		game.add(new AirCurrent(Constants.FRAME_X + 1529, (int) (Constants.FRAME_Y * .58), 200, 200));
 
-		game.add(new Powerup(Constants.FRAME_X * 7, (int) (Constants.FRAME_Y * .93), 50, 50));
+		game.add(new Powerup(Constants.FRAME_X * 3, (int) (Constants.FRAME_Y * .93), 50, 50));
 		game.add(new Mate(Constants.FRAME_X, 200, 75, 75));// suposed to be 50 50, this is for the memes
 	}
 
