@@ -111,6 +111,7 @@ public class SideScrollModel extends Model {
 			}
 			else if (collCount <= 50) {
 				collCount += 1;
+				o.imgFileName = Constants.ANIMATION_OSPREY_BAD;
 			} 
 			else{
 				collCount = 0;
@@ -135,6 +136,7 @@ public class SideScrollModel extends Model {
 				o.imgFileName = Constants.ANIMATION_OSPREY_GOOD;
 			} else if (collCount <= 50) {
 				collCount += 1;
+				o.imgFileName = Constants.ANIMATION_OSPREY_GOOD;
 			} else {
 				collCount = 0;
 				Osprey.posHitOs = false;
