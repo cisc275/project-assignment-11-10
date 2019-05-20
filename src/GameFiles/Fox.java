@@ -47,6 +47,11 @@ public class Fox extends Controllable {
 	public static boolean bushColl = false;
 	
 	/**
+	 * used to calculate pause after collision with bush
+	 */
+	public int bushPause = 0;
+	
+	/**
 	 * @param y
 	 * @param x
 	 * @param width
@@ -132,7 +137,13 @@ public class Fox extends Controllable {
 						(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());
 			}
 			else {
-				bushColl = false;
+				if(bushPause <= 5) {
+					bushPause += 1;
+				}
+				else {
+					bushColl = false;
+					bushPause = 0;
+				}
 			}
 		}
 		else if (!Model.inTutoral){
@@ -178,9 +189,10 @@ public class Fox extends Controllable {
 				
 				randSmooth += 1;
 			}
-		}	
+		}
+		// tutorial movement
 		else {
-			this.xSpeed = 1;
+			//this.xSpeed = 1;
 			this.ySpeed = -10;
 		}
 		
