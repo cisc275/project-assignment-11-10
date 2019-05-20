@@ -5,6 +5,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
@@ -36,7 +37,8 @@ public class SelectionView extends View implements KeyListener{
 	 * creates the screen used as our main menu
 	 */
 	
-	public SelectionView() {
+	public SelectionView(ArrayList<GameObject> g) {
+		game = g;
 		osprey = new JButton(new ImageIcon(Constants.IMG_SELECT_OSPREY));
 		clapperRail = new JButton(new ImageIcon(Constants.IMG_SELECT_CLAPPER_RAIL));
 		osprey.addKeyListener(this);
@@ -65,13 +67,7 @@ public class SelectionView extends View implements KeyListener{
 		clapperRail.addActionListener(controller);
 		
 	}
-	/**
-	 * drawing of our selection screen, does nothing
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		new SelectionView();
-	}
+
 	
 	private class keyAction extends AbstractAction{
 

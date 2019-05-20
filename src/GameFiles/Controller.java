@@ -65,7 +65,7 @@ public class Controller implements KeyListener, ActionListener{
 		selected = selection;
 		
 		if (selected.equals("sel")){
-			view = new SelectionView();
+			view = new SelectionView(new ArrayList<GameObject>());
 			view.addActionListener(this);	
 		}
 
@@ -76,27 +76,6 @@ public class Controller implements KeyListener, ActionListener{
 			model.game = new ArrayList<GameObject>(); 
 //			model = new TopDownModel();
 			view = new TopDownView(model.game);
-			model.game.add(((TopDownModel)model).cr);
-			model.game.add(((TopDownModel)model).f);
-			model.game.add(((TopDownModel)model).nest);
-			
-			model.game.add(new Powerup(Constants.FRAME_X, Constants.FRAME_Y - (int)(Constants.POWERUP_HEIGH * Constants.POWERUP_HEIGH_SCALE),
-					(int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE), (int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE)));
-			model.game.add(new Stick(300,300,(int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE)));
-			model.game.add(new Stick(500, 250, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE))); 
-			model.game.add(new Stick(400, 400, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE)));
-			model.game.add(new TutorialObject(300, 150, 483, 110, Constants.ANIMATION_SPACEBAR));
-			model.game.add(new TutorialObject(700, 300, 122, 122, Constants.ANIMATION_UP_KEY));
-			Bush b1 = new Bush(500, 500,150,150);
-			model.game.add(b1);
-			((TopDownModel)model).cr.bushArr.add(b1);
-			Bush b2 = new Bush(600, 20,150,150);
-			model.game.add(b2);
-			((TopDownModel)model).cr.bushArr.add(b2);
-			Bush b3 = new Bush(20, 450,175,175);
-			model.game.add(b3);
-			((TopDownModel)model).cr.bushArr.add(b3);
-			
 			view.addKeyListener(this);
 			this.start();
 		}
