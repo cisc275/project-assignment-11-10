@@ -34,30 +34,66 @@ public class TopDownModel extends Model {
      */
     int count = 0; 
     
-    Powerup tpow = null;
+    /**
+     * The tutorial power up
+     */
+    private Powerup tpow = null;
     
-    Stick tstick = null;
+    /**
+     * The tutorial stick
+     */
+    private Stick tstick = null;
     
-    TutorialObject tdown_key = null;
+    /**
+     * The tutorial down arrow key
+     */
+    private TutorialObject tdown_key = null;
     
-    TutorialObject tup_key = null;
+    /**
+     * The tutorial up arrow key
+     */
+    private TutorialObject tup_key = null;
     
-    TutorialObject tleft_key = null;
+    /**
+     * The tutorial left arrow key
+     */
+    private TutorialObject tleft_key = null;
     
-    TutorialObject tright_key = null;
+    /**
+     * The tutorial right arrow key
+     */
+    private TutorialObject tright_key = null;
     
-    TutorialArrow tarrow = null;
+    /**
+     * The tutorial arrow
+     */
+    private TutorialArrow tarrow = null;
     
-    Bush b1 = null;
+    /**
+     * The game first bush
+     */
+    private Bush b1 = null;
     
-    Bush b2 = null;
+    /**
+     * The game first bush
+     */
+    private Bush b2 = null;
     
-    Bush b3 = null;
+    /**
+     * The game first bush
+     */
+    private Bush b3 = null;
     
-    int tarrow_cur_height;
+    /**
+     * For comparing the Tutorial Arrows current height
+     */
+    private int tarrow_cur_height;
     
-    int tarrow_cur_width;
-    
+    /**
+     * For comparing the Tutorial Arrows current width
+     */
+    private int tarrow_cur_width;
+
     
     
     /*
