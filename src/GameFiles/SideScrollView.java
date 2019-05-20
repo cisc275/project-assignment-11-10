@@ -70,6 +70,8 @@ public class SideScrollView extends View{
      */
     BufferedImage[] speeds = initSpeeds();
     
+    BufferedImage escKey = createEsc();
+    
     /**
      * what number map we are on
      */
@@ -171,6 +173,8 @@ public class SideScrollView extends View{
 			 else if (Mate.caughtUp){
 				 endSideScroll();
 			  }
+
+			 g.drawImage(escKey, frame.getWidth()-miniMaps[mapNum].getWidth()-250, 0,250,100,this);
 			 	
 		}
     }
@@ -226,5 +230,19 @@ public class SideScrollView extends View{
     	}
     	return speeds;
     }
+    /**
+	 * creates buffered image for esc button
+	 * @return BufferedImage
+	 */
+	private BufferedImage createEsc(){
+		BufferedImage bufferedImage;
+		try {
+			bufferedImage = ImageIO.read(new File(Constants.IMG_ESC_KEY));
+			return bufferedImage;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
     
 }
