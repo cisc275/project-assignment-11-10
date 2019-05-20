@@ -215,6 +215,7 @@ public class TopDownModel extends Model {
     				f.move();
     			}
     			else {
+    				System.out.println("hit");
     				f.visible = false;
     				game.remove(f);
     			}
