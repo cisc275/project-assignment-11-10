@@ -76,12 +76,13 @@ public class TopDownModel extends Model {
     	cr.setxSpeed(0);
     	cr.setySpeed(0);
     //	System.out.println(cr.xSpeed);
-    	if(Powerup.power) {
-    		//System.out.println("************************************kill***************************************");
+    //	System.out.println(keyPresses);
+    	if(Quiz.answered) {
+    		System.out.println("************************************kill***************************************");
     		keyPresses.clear();
     		cr.setxSpeed(0);
         	cr.setySpeed(0);
-        	Powerup.power = false;
+        	Quiz.answered = false;
     	}
     	for(Integer key: keyPresses) {
 	    	switch(key) {
@@ -146,8 +147,6 @@ public class TopDownModel extends Model {
 		game.add(new Stick(500, 250, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE))); 
 		game.add(new Stick(400, 400, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE)));
 		game.add(new Stick(400, 400, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE)));
-		game.add(new TutorialObject(300, 150, 483, 110, Constants.ANIMATION_SPACEBAR));
-		game.add(new TutorialObject(700, 300, 122, 122, Constants.ANIMATION_UP_KEY));
     }
     
     /**
@@ -265,10 +264,17 @@ public class TopDownModel extends Model {
 				else if (tpow.hitbox.getBounds2D().getCenterX() > b1.hitbox.getBounds2D().getCenterX()) {
 					tpow.move();
 				}
+				if (Powerup.power) {
+					Powerup.power = false;
+					tpow.visible = false;
+					game.remove(tpow);
+				}
     		}
-    		
-    		
-    		//this.postTutorial();
+    		else {
+    			//System.out.println("Hit");
+	    		this.postTutorial();
+	    		Model.inTutoral = false;
+    		}
     	} else {
     		ArrayList<GameObject> toRemove = new ArrayList<GameObject>();
         	for (GameObject a : g) {

@@ -78,6 +78,11 @@ public class SideScrollModel extends Model {
 	 */
 	private int prevSpeed;
 	
+	/**
+	 * used for giving set time for collision glows
+	 */
+	private int collCount = 0;
+	
 	private boolean yepItsOkayToMoveTheCloudAgain = false;
 	
 	private boolean onlyDoOnce = true;
@@ -97,6 +102,48 @@ public class SideScrollModel extends Model {
      * @author Tim Mazzarelli
      */
 	public void updateLocation(ArrayList<GameObject> g) {
+		if(Osprey.negHitOs) {
+			if(collCount == 0) {
+				collCount += 1;
+				//o.imgFileName = ;
+			}
+			else if(collCount <= 500){
+				collCount += 1;
+			}
+			else {
+				Osprey.posHitOs = false;
+				if(o.isDiving && o.getySpeed() < 0) {
+					o.imgFileName = Constants.ANIMATION_OSPREY;
+				}
+				else if(o.isDiving) {
+					//o.imgFileName = Constants.ANIMATION_OSPREY;
+				}
+				else {
+					o.imgFileName = Constants.ANIMATION_OSPREY;
+				}
+			}
+		}
+		else if(Osprey.posHitOs) {
+			if(collCount == 0) {
+				collCount += 1;
+				//o.imgFileName = ;
+			}
+			else if(collCount <= 500){
+				collCount += 1;
+			}
+			else {
+				Osprey.posHitOs = false;
+				if(o.isDiving && o.getySpeed() < 0) {
+					o.imgFileName = Constants.ANIMATION_OSPREY;
+				}
+				else if(o.isDiving) {
+					//o.imgFileName = Constants.ANIMATION_OSPREY;
+				}
+				else {
+					o.imgFileName = Constants.ANIMATION_OSPREY;
+				}
+			}
+		}
 		if (Model.inTutoral) {
 			// Movement of the background and bird, this MUST be here.
 			for (GameObject a : g) {
