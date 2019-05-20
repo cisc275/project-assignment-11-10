@@ -57,7 +57,7 @@ public class Constants implements Serializable {
 	public final static int FOX_START_LOC_Y = 400;
 	public final static int FOX_START_SIZE_X = 100;
 	public final static int FOX_START_SIZE_Y = 100;
-	public final static int FOX_ANIMATION_TICK_RATE = 100;
+	public final static int FOX_ANIMATION_TICK_RATE = 2;
 	
 	
 	public final static int LINUX_SCREEN_SIZE = 100;
@@ -152,18 +152,31 @@ public class Constants implements Serializable {
 	public final static String IMG_FISH_1 = "img/fish/fish_west1.png";
 	public final static String IMG_FISH_2 = "img/fish/fish_west2.png";
 	public final static String IMG_FISH_3 = "img/fish/fish_west3.png";
-	public final static String IMG_FOX_LEFT_1 = "img/fox/fox.png";
+	public final static String IMG_FOX = "img/fox/fox.png";
+	public final static String IMG_FOX_LEFT_1 = "img/fox/fox_left_1.png";
 	public final static String IMG_FOX_LEFT_2 = "img/fox/fox_left_2.png";
 	public final static String IMG_FOX_LEFT_3 = "img/fox/fox_left_3.png";
 	public final static String IMG_FOX_LEFT_4 = "img/fox/fox_left_4.png";
 	public final static String IMG_FOX_LEFT_5 = "img/fox/fox_left_5.png";
 	public final static String IMG_FOX_LEFT_6 = "img/fox/fox_left_6.png";
+	public final static String IMG_FOX_BAD_LEFT_1 = "img/fox/fox_left_1_bad.png";
+	public final static String IMG_FOX_BAD_LEFT_2 = "img/fox/fox_left_2_bad.png";
+	public final static String IMG_FOX_BAD_LEFT_3 = "img/fox/fox_left_3_bad.png";
+	public final static String IMG_FOX_BAD_LEFT_4 = "img/fox/fox_left_4_bad.png";
+	public final static String IMG_FOX_BAD_LEFT_5 = "img/fox/fox_left_5_bad.png";
+	public final static String IMG_FOX_BAD_LEFT_6 = "img/fox/fox_left_6_bad.png";
 	public final static String IMG_FOX_RIGHT_1 = "img/fox/fox_right_1.png";
 	public final static String IMG_FOX_RIGHT_2 = "img/fox/fox_right_2.png";
 	public final static String IMG_FOX_RIGHT_3 = "img/fox/fox_right_3.png";
 	public final static String IMG_FOX_RIGHT_4 = "img/fox/fox_right_4.png";
 	public final static String IMG_FOX_RIGHT_5 = "img/fox/fox_right_5.png";
 	public final static String IMG_FOX_RIGHT_6 = "img/fox/fox_right_6.png";
+	public final static String IMG_FOX_BAD_RIGHT_1 = "img/fox/fox_right_1_bad.png";
+	public final static String IMG_FOX_BAD_RIGHT_2 = "img/fox/fox_right_2_bad.png";
+	public final static String IMG_FOX_BAD_RIGHT_3 = "img/fox/fox_right_3_bad.png";
+	public final static String IMG_FOX_BAD_RIGHT_4 = "img/fox/fox_right_4_bad.png";
+	public final static String IMG_FOX_BAD_RIGHT_5 = "img/fox/fox_right_5_bad.png";
+	public final static String IMG_FOX_BAD_RIGHT_6 = "img/fox/fox_right_6_bad.png";
 	public final static String IMG_LEFT_KEY = "img/left/left.png";
 	public final static String IMG_LEFT_KEY_1 = "img/left/left_1.png";
 	public final static String IMG_LEFT_KEY_2 = "img/left/left_2.png";
@@ -228,8 +241,15 @@ public class Constants implements Serializable {
 	public final static String[] ANIMATION_BUSH = {IMG_BUSH};
 	public final static String[] ANIMATION_DOWN_KEY= {IMG_DOWN_KEY_1, IMG_DOWN_KEY_2, IMG_DOWN_KEY_3, IMG_DOWN_KEY_4, IMG_DOWN_KEY_5, IMG_DOWN_KEY_6, 
 																		IMG_DOWN_KEY_5, IMG_DOWN_KEY_4, IMG_DOWN_KEY_3, IMG_DOWN_KEY_2};
-//	public final static String[] ANIMATION_FOX = {IMG_FOX_LEFT_1,IMG_FOX_LEFT_2,IMG_FOX_LEFT_3,IMG_FOX_LEFT_4,IMG_FOX_LEFT_5,IMG_FOX_LEFT_6,IMG_FOX_RIGHT_1,IMG_FOX_RIGHT_2,IMG_FOX_RIGHT_3,IMG_FOX_RIGHT_4,IMG_FOX_RIGHT_5,IMG_FOX_RIGHT_6};
-	public final static String[] ANIMATION_FOX = {IMG_FOX_LEFT_1};
+	public final static String[] ANIMATION_FOX_LEFT = {IMG_FOX_LEFT_1, IMG_FOX_LEFT_2, IMG_FOX_LEFT_3, IMG_FOX_LEFT_4, IMG_FOX_LEFT_5, IMG_FOX_LEFT_6, 
+																		IMG_FOX_LEFT_5, IMG_FOX_LEFT_4, IMG_FOX_LEFT_3, IMG_FOX_LEFT_2};
+	public final static String[] ANIMATION_FOX_RIGHT = {IMG_FOX_RIGHT_1, IMG_FOX_RIGHT_2, IMG_FOX_RIGHT_3, IMG_FOX_RIGHT_4, IMG_FOX_RIGHT_5, IMG_FOX_RIGHT_6, 
+																		IMG_FOX_RIGHT_5, IMG_FOX_RIGHT_4, IMG_FOX_RIGHT_3, IMG_FOX_RIGHT_2};
+	public final static String[] ANIMATION_FOX_LEFT_BAD = {IMG_FOX_BAD_LEFT_1, IMG_FOX_BAD_LEFT_2, IMG_FOX_BAD_LEFT_3, IMG_FOX_BAD_LEFT_4, IMG_FOX_BAD_LEFT_5, IMG_FOX_BAD_LEFT_6,
+																		IMG_FOX_BAD_LEFT_5, IMG_FOX_BAD_LEFT_4, IMG_FOX_BAD_LEFT_3, IMG_FOX_BAD_LEFT_2};
+	public final static String[] ANIMATION_FOX_RIGHT_BAD = {IMG_FOX_BAD_RIGHT_1, IMG_FOX_BAD_RIGHT_2, IMG_FOX_BAD_RIGHT_3, IMG_FOX_BAD_RIGHT_4, IMG_FOX_BAD_RIGHT_5, IMG_FOX_BAD_RIGHT_6, 
+																		IMG_FOX_BAD_RIGHT_5, IMG_FOX_BAD_RIGHT_4, IMG_FOX_BAD_RIGHT_3, IMG_FOX_BAD_RIGHT_2};
+	public final static String[] ANIMATION_FOX_STATIC = {IMG_FOX};
 	public final static String[] ANIMATION_FISH = {IMG_FISH_1, IMG_FISH_2, IMG_FISH_1, IMG_FISH_3};
 	public final static String[] ANIMATION_LEFT_KEY = {IMG_LEFT_KEY_1, IMG_LEFT_KEY_2, IMG_LEFT_KEY_3, IMG_LEFT_KEY_4, IMG_LEFT_KEY_5, IMG_LEFT_KEY_6, 
 																		IMG_LEFT_KEY_5, IMG_LEFT_KEY_4, IMG_LEFT_KEY_3, IMG_LEFT_KEY_2};

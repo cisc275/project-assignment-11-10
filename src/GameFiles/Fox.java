@@ -61,7 +61,7 @@ public class Fox extends Controllable {
 		this.c = c;
 		this.xSpeed = 1;
 		this.ySpeed = -2;
-		this.imgFileName = Constants.ANIMATION_FOX;
+		this.imgFileName = Constants.ANIMATION_FOX_LEFT;
 		this.curImg = randy.nextInt(imgFileName.length);
 		//try {
     	//	this.img = ImageIO.read(new File(Constants.IMG_FOX));
@@ -190,6 +190,8 @@ public class Fox extends Controllable {
 		}
 		this.hitbox.translate(2 *(int) this.xSpeed,2 * (int) this.ySpeed);
 		boundaries();
+		
+		animate(Constants.FOX_ANIMATION_TICK_RATE);
 	}
 	
 	@Override
