@@ -36,8 +36,8 @@ public class Constants implements Serializable {
 	
 	public final static int BUSH_ANIMATION_TICK_RATE = 2;
 	
-	public final static int CLAPPER_RAIL_START_LOC_X = 800;
-	public final static int CLAPPER_RAIL_START_LOC_Y = 600;
+	public final static int CLAPPER_RAIL_START_LOC_X = 0;
+	public final static int CLAPPER_RAIL_START_LOC_Y = 0;
 	public final static int CLAPPER_RAIL_START_SIZE_X = 100;
 	public final static int CLAPPER_RAIL_START_SIZE_Y = 100;
 	public final static int CLAPPER_RAIL_ANIMATION_TICK_RATE = 1;
