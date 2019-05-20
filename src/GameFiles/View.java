@@ -39,7 +39,7 @@ public class View extends JFrame implements Serializable {
 	 * Hashtable that uses GameObject as a key and arraylist of BI's
 	 * as its value
 	 */
-	Hashtable<GameObject, ArrayList<BufferedImage>> imgTable;
+	Hashtable<String[], ArrayList<BufferedImage>> imgTable;
 
 
 	public boolean debugHitBoxes;
@@ -112,9 +112,9 @@ public class View extends JFrame implements Serializable {
 	}
 	
 	public void initTable(ArrayList<GameObject> objects) {
-		imgTable = new Hashtable<GameObject, ArrayList<BufferedImage>>();
+		imgTable = new Hashtable<String[], ArrayList<BufferedImage>>();
 		for (GameObject g: objects) {
-			imgTable.put(g, getScaledImgs(g));
+			imgTable.put(g.imgFileName, getScaledImgs(g));
 		}
 	}
 	
@@ -183,7 +183,7 @@ public class View extends JFrame implements Serializable {
     		System.out.println("Image Load Failed " + g.imgFileName);
     		e.printStackTrace();
     	}
-		imgTable.put(g, toReturn);
+		imgTable.put(g.imgFileName, toReturn);
 		return toReturn.get(i);
 	}
 	
