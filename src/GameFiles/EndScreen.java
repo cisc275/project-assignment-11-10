@@ -57,6 +57,9 @@ public class EndScreen extends JDialog implements KeyListener {
 		this.setResizable(false);
 		this.setModal(true);
 		congrats = new JButton("Congratulations! You Win!");
+		if (game.equals("topDown")) {
+			congrats = new JButton("You attracted a mate! Congratulations!");
+		}
 		congrats.setOpaque(false);
 		congrats.setFocusPainted(false);
 		congrats.setBorderPainted(false);
@@ -90,8 +93,9 @@ public class EndScreen extends JDialog implements KeyListener {
 	    timer.setPreferredSize(new Dimension(200, 5));
 	    timer.setMaximumSize(new Dimension(200, 5));
 	    timer.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, 30));
-    	
-    	p.add(timer);
+    	if (game.equals("sides")) {
+    		p.add(timer);
+    	}
         p.add(congrats);
         
         p.add(menu);
@@ -117,7 +121,7 @@ public class EndScreen extends JDialog implements KeyListener {
 	    		return bufferedImage;
 	    		}
 	    		if (game.equals("topDown")) {
-	    		bufferedImage = ImageIO.read(new File(Constants.IMG_CLAPPER_RAIL_BACKGROUND));
+	    		bufferedImage = ImageIO.read(new File("img/cend.png"));
 	    		return bufferedImage;
 	    		}
 	    	}
@@ -140,7 +144,7 @@ public class EndScreen extends JDialog implements KeyListener {
 
 	
 	public static void main(String[] args) {
-		new EndScreen("sides");
+		new EndScreen("topDown");
 	}
 
 	private class keyAction extends AbstractAction{

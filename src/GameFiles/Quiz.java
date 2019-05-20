@@ -431,6 +431,7 @@ public class Quiz extends JDialog implements KeyListener{
 			    l.setMaximumSize(new Dimension(100, 0));
 			    l.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, 30));
 				l.setOpaque(false);
+				
 			}
 			else {
 				l.setOpaque(false);
@@ -673,6 +674,10 @@ public class Quiz extends JDialog implements KeyListener{
 		buttons.add(new JButton());
 		buttons.add(new JButton());
 		buttons.add(new JButton());
+		if (Mate.caughtUp) {
+			buttons.add(new JButton());
+			buttons.add(new JButton());
+		}
 		
 		for (JButton b :buttons) {
 			if (Mate.caughtUp == true) {

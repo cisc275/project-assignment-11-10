@@ -278,7 +278,7 @@ public class LoseScreen extends JDialog implements KeyListener {
 	}
 	
 	public static void main(String[] args) {
-		new LoseScreen("cr");
+		new LoseScreen("os");
 	}
 }
 		 
