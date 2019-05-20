@@ -36,6 +36,8 @@ public class TopDownView extends View{
      */
 	BufferedImage background = createImage();
 	
+	BufferedImage escKey = createEsc();
+	
 	/**
      * static array of CR images for tracking lives
      */
@@ -99,7 +101,7 @@ public class TopDownView extends View{
 			  for (int i = 0; i < ClapperRail.lives; i++) { 
 				  g.drawImage(createLives(), View.frame.getWidth() - 100*(i+1), 0, 100, 100, this); 
 			  }
-			 
+			 g.drawImage(escKey, 0, frame.getHeight()-100,250,100,this);
 			
 	
 		}
@@ -138,6 +140,22 @@ public class TopDownView extends View{
 		}
 		return null;
 	}
+	/**
+	 * creates buffered image for esc button
+	 * @return BufferedImage
+	 */
+	private BufferedImage createEsc(){
+		BufferedImage bufferedImage;
+		try {
+			bufferedImage = ImageIO.read(new File(Constants.IMG_ESC_KEY));
+			return bufferedImage;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
 
 	/**
 	 * 
