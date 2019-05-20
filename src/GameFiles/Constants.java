@@ -69,7 +69,7 @@ public class Constants implements Serializable {
 	public final static int MATE_ANIMATION_TICK_RATE = 4;
 	
 	public final static int OSPREY_STARTX = 100;
-	public final static int OSPREY_DIVESPEED = 50;
+	public final static int OSPREY_DIVESPEED = 40;
 	public final static int OSPREY_MAX_HEIGHT = 600;
 	public final static int OSPREY_WATER_LEVEL = 400;
 	public final static int OSPREY_MIN_SPEED = -5;
