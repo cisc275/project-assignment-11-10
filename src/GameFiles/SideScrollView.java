@@ -83,6 +83,7 @@ public class SideScrollView extends View{
      * @param g
      */
     public SideScrollView(ArrayList<GameObject> g){
+    	frame.dispose();
 		frame = new JFrame();
 		setUpScreen(frame);
 		game = g;
