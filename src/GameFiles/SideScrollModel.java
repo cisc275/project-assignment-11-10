@@ -100,7 +100,10 @@ public class SideScrollModel extends Model {
 	 * @author Tim Mazzarelli
 	 */
 	public void updateLocation(ArrayList<GameObject> g) {
-		if (Osprey.negHitOs && Osprey.posHitOs) {
+		if(Quiz.correct) {
+			o.imgFileName = Constants.ANIMATION_OSPREY_GOOD;
+		}
+		else if (Osprey.negHitOs && Osprey.posHitOs) {
 			Osprey.negHitOs = false;
 			Osprey.posHitOs = false;
 			collCount = 0;
@@ -216,7 +219,7 @@ public class SideScrollModel extends Model {
 			}
 
 			else if (tpow.visible) {
-				System.out.println(tpow.hitbox.getBounds());
+				//System.out.println(tpow.hitbox.getBounds());
 
 				if (tpow.hitbox.getBounds2D().getMinX() <= Constants.OSPREY_STARTX) {
 					o.setXSpeed(0);
