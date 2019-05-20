@@ -100,11 +100,13 @@ public class SideScrollModel extends Model {
 	 * @author Tim Mazzarelli
 	 */
 	public void updateLocation(ArrayList<GameObject> g) {
-		if (Osprey.negHitOs) {
-			if(Osprey.posHitOs) {
-				Osprey.posHitOs = false;
-				//collCount = 0;
-			}
+		if (Osprey.negHitOs && Osprey.posHitOs) {
+			Osprey.negHitOs = false;
+			Osprey.posHitOs = false;
+			collCount = 0;
+			o.imgFileName = Constants.ANIMATION_OSPREY;
+		}
+		else if (Osprey.negHitOs && !Osprey.posHitOs) {
 			if (collCount == 0) {
 				collCount += 1;
 				o.imgFileName = Constants.ANIMATION_OSPREY_BAD;
@@ -126,10 +128,9 @@ public class SideScrollModel extends Model {
 				 * else { o.imgFileName = Constants.ANIMATION_OSPREY; }
 				 */
 			}
-		} else if (Osprey.posHitOs) {
+		} else if (Osprey.posHitOs && !Osprey.negHitOs) {
 			if(Osprey.negHitOs) {
 				Osprey.negHitOs = false;
-				//collCount = 0;
 			}
 			if (collCount == 0) {
 				collCount += 1;
@@ -224,7 +225,6 @@ public class SideScrollModel extends Model {
 					tspace = new TutorialObject(300, 300, 483, 110, Constants.ANIMATION_SPACEBAR);
 					game.add(tspace);
 				} else if (Powerup.power) {
-					System.out.println("hello");
 					Powerup.power = false;
 					o.setXSpeed(Constants.OSPREY_MAX_SPEED);
 					tpow.visible = false;
@@ -381,9 +381,8 @@ public class SideScrollModel extends Model {
 	 */
 	@Override
 	public void handleMove(HashSet<Integer> keyPresses) {
-		System.out.println(Quiz.answered);
 		if (Quiz.answered == true) {
-			System.out.println("I love keys");
+
 			keyPresses.clear();
 			Quiz.answered = false;
 		}

@@ -417,7 +417,6 @@ public class Quiz extends JDialog implements KeyListener{
 	
 	public void questionHandling() {
 		ArrayList<JLabel> list = new ArrayList<JLabel>();
-		list.add(new JLabel());
 		list.add(question);
 		if (Model.inTutoral == true) {
 			instruction = new JLabel("Answer correctly and you will get a speed boost!");
@@ -425,17 +424,24 @@ public class Quiz extends JDialog implements KeyListener{
 		else instruction = new JLabel("Press the key listed next to your answer.");
 		list.add(instruction);
 		for (JLabel l : list) {
-			if (Mate.caughtUp) {
-				l.setBackground(Color.BLACK);
+			if (Mate.caughtUp == true) {
+				l.setForeground(Color.BLACK);
+				l.setMinimumSize(new Dimension(100, 0));
+			    l.setPreferredSize(new Dimension(100, 0));
+			    l.setMaximumSize(new Dimension(100, 0));
+			    l.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, 30));
+				l.setOpaque(false);
 			}
-			l.setForeground(Color.BLACK);
+			else {
+				l.setOpaque(false);
+				l.setForeground(Color.BLACK);
+				l.setMinimumSize(new Dimension(200, 5));
+			    l.setPreferredSize(new Dimension(200, 5));
+			    l.setMaximumSize(new Dimension(200, 5));
+			    l.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, 40));
+			}
 			l.setHorizontalAlignment(JLabel.CENTER);
 			l.setVerticalAlignment(JLabel.TOP);
-			l.setOpaque(false);
-	        l.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, 40));
-	        l.setMinimumSize(new Dimension(200, 5));
-	        l.setPreferredSize(new Dimension(200, 5));
-	        l.setMaximumSize(new Dimension(200, 5));
 			p.add(l);	
 		}
 	}
@@ -670,21 +676,28 @@ public class Quiz extends JDialog implements KeyListener{
 		
 		for (JButton b :buttons) {
 			if (Mate.caughtUp == true) {
-				b.setForeground(Color.YELLOW);
+				b.setForeground(Color.BLACK);
+				b.setBackground(Color.BLACK);
+				b.setOpaque(false);
+				b.setMinimumSize(new Dimension(200, 0));
+	            b.setPreferredSize(new Dimension(200, 0));
+	            b.setMaximumSize(new Dimension(200, 0));
+	           	b.setFont(new Font("Serif", Font.BOLD + Font.ITALIC, 30));
 			}
 			else{
         		b.setForeground(Color.BLACK);
+        		b.setOpaque(false);
+        		b.setBackground(Color.WHITE);
+        		b.setMinimumSize(new Dimension(300, 0));
+                b.setPreferredSize(new Dimension(300, 0));
+                b.setMaximumSize(new Dimension(300, 0));
+               	b.setFont(new Font("Serif", Font.BOLD + Font.ITALIC, 40));
+        		
         	}
 			b.addKeyListener(this);
 			b.setFocusPainted(false);
-			b.setOpaque(false);
-			b.setBackground(Color.WHITE);
-			b.setMinimumSize(new Dimension(300, 0));
-            b.setPreferredSize(new Dimension(300, 0));
-            b.setMaximumSize(new Dimension(300, 0));
         	b.setVerticalAlignment(JButton.TOP);
         	b.setHorizontalAlignment(JButton.CENTER);
-        	b.setFont(new Font("Serif", Font.BOLD + Font.ITALIC, 40));
         	b.setBorderPainted(false);
         	p.add(b);	
 		}
@@ -734,7 +747,7 @@ public class Quiz extends JDialog implements KeyListener{
 						else{
 							correct = true;
 						}
-						System.out.println("right");
+						Osprey.posHitOs = true;
 					}
 					else {
 						System.out.println("wrong");
@@ -742,6 +755,7 @@ public class Quiz extends JDialog implements KeyListener{
 							View.frame.dispose();
 							new LoseScreen("os");
 						}
+						Osprey.negHitOs = true;
 					}
 					endQuiz();
 				}
@@ -757,6 +771,7 @@ public class Quiz extends JDialog implements KeyListener{
 							correct = true;
 						}
 						System.out.println("right");
+						Osprey.posHitOs = true;
 					}
 					else {
 						System.out.println("wrong");
@@ -764,6 +779,7 @@ public class Quiz extends JDialog implements KeyListener{
 							View.frame.dispose();
 							new LoseScreen("os");
 						}
+						Osprey.negHitOs = true;
 					}
 					endQuiz();
 				}
@@ -778,6 +794,7 @@ public class Quiz extends JDialog implements KeyListener{
 							correct = true;
 						}
 						System.out.println("right");
+						Osprey.posHitOs = true;
 					}
 					else {
 						System.out.println("wrong");
@@ -785,6 +802,7 @@ public class Quiz extends JDialog implements KeyListener{
 							View.frame.dispose();
 							new LoseScreen("os");
 						}
+						Osprey.negHitOs = true;
 					}
 					
 					endQuiz();

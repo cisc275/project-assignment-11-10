@@ -38,6 +38,7 @@ public class TFish extends Collectable {
 	
 	@Override
 	public void handleCollision(Osprey o) {
+		Osprey.posHitOs = true;
 		if (this.visible == true) {;
 			o.setXSpeed(Osprey.getXSpeed() - 15);
 		}
