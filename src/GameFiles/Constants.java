@@ -148,6 +148,15 @@ public class Constants implements Serializable {
 	public final static String IMG_CLAPPER_RAIL_RIGHT_3 = "img/cr/cr6.png";
 	public final static String IMG_CRAB_1 = "img/crab/crab1.png";
 	public final static String IMG_CRAB_2 = "img/crab/crab2.png";
+	public final static String IMG_CRAB_ANIMATED_1 = "img/crab/crab1_1.png";
+	public final static String IMG_CRAB_ANIMATED_2 = "img/crab/crab2_2.png";
+	public final static String IMG_CRAB_ANIMATED_3 = "img/crab/crab1_3.png";
+	public final static String IMG_CRAB_ANIMATED_4 = "img/crab/crab2_4.png";
+	public final static String IMG_CRAB_ANIMATED_5 = "img/crab/crab1_5.png";
+	public final static String IMG_CRAB_ANIMATED_6 = "img/crab/crab2_5.png";
+	public final static String IMG_CRAB_ANIMATED_7 = "img/crab/crab1_4.png";
+	public final static String IMG_CRAB_ANIMATED_8 = "img/crab/crab2_3.png";
+	public final static String IMG_CRAB_ANIMATED_9 = "img/crab/crab1_2.png";
 	public final static String IMG_DOWN_KEY = "img/down/down.png";
 	public final static String IMG_DOWN_KEY_1 = "img/down/down_1.png";
 	public final static String IMG_DOWN_KEY_2 = "img/down/down_2.png";
@@ -197,6 +206,12 @@ public class Constants implements Serializable {
 	public final static String IMG_OSPREY_2 = "img/osprey/osprey2.png";
 	public final static String IMG_OSPREY_3 = "img/osprey/osprey3.png";
 	public final static String IMG_OSPREY_DIVE = "img/osprey_dive.png";
+	public final static String IMG_OSPREY_BAD_1 = "img/osprey/osprey1_bad.png";
+	public final static String IMG_OSPREY_BAD_2 = "img/osprey/osprey2_bad.png";
+	public final static String IMG_OSPREY_BAD_3 = "img/osprey/osprey3_bad.png";
+	public final static String IMG_OSPREY_GOOD_1 = "img/osprey/osprey1_good.png";
+	public final static String IMG_OSPREY_GOOD_2 = "img/osprey/osprey2_good.png";
+	public final static String IMG_OSPREY_GOOD_3 = "img/osprey/osprey3_good.png";
 	public final static String IMG_POLY_HARVEY = "img/PolyHarvey.png";
 	public final static String IMG_RIGHT_KEY = "img/right/right.png";
 	public final static String IMG_RIGHT_KEY_1 = "img/right/right_1.png";
@@ -207,6 +222,7 @@ public class Constants implements Serializable {
 	public final static String IMG_RIGHT_KEY_6 = "img/right/right_6.png";
 	public final static String IMG_SELECT_CLAPPER_RAIL = "img/selectCR.png";
 	public final static String IMG_SELECT_OSPREY = "img/selectOsprey.png";
+	public final static String IMG_SELECTION_VIEW_BG = "img/estuary_meadow_with_river.png";
 	public final static String IMG_SELECT_BG = "img/selectionBG.png";
 	public final static String IMG_SPACEBAR = "img/spacebar/spacebar.png";
 	public final static String IMG_SPACEBAR_1 = "img/spacebar/spacebar_1.png";
@@ -245,7 +261,10 @@ public class Constants implements Serializable {
 	public final static String[] ANIMATION_CR_LEFT= {IMG_CLAPPER_RAIL_LEFT_1,IMG_CLAPPER_RAIL_LEFT_2,IMG_CLAPPER_RAIL_LEFT_3,IMG_CLAPPER_RAIL_LEFT_2};
 	public final static String[] ANIMATION_CR_RIGHT= {IMG_CLAPPER_RAIL_RIGHT_1,IMG_CLAPPER_RAIL_RIGHT_2,IMG_CLAPPER_RAIL_RIGHT_3,IMG_CLAPPER_RAIL_RIGHT_2};
 	
-	public final static String[] ANIMATION_CRAB = {IMG_CRAB_1, IMG_CRAB_2};
+	public final static String[] ANIMATION_CRAB_STATIC = {IMG_CRAB_1, IMG_CRAB_2};
+	public final static String[] ANIMATION_CRAB = {IMG_CRAB_ANIMATED_1, IMG_CRAB_ANIMATED_2, IMG_CRAB_ANIMATED_3, IMG_CRAB_ANIMATED_4, 
+																		IMG_CRAB_ANIMATED_5, IMG_CRAB_ANIMATED_6, IMG_CRAB_ANIMATED_7, 
+																		IMG_CRAB_ANIMATED_8, IMG_CRAB_ANIMATED_9};
 	
 	public final static String[] ANIMATION_BUSH = {IMG_BUSH};
 	public final static String[] ANIMATION_DOWN_KEY= {IMG_DOWN_KEY_1, IMG_DOWN_KEY_2, IMG_DOWN_KEY_3, IMG_DOWN_KEY_4, IMG_DOWN_KEY_5, IMG_DOWN_KEY_6, 
@@ -266,6 +285,8 @@ public class Constants implements Serializable {
 	public final static String[] ANIMATION_MODEL_DUMP_STATUS_MSG = {IMG_MODEL_DUMP_STATUS_MSG};
 	public final static String[] ANIMATION_NEST = {IMG_NEST};
 	public final static String[] ANIMATION_OSPREY = {IMG_OSPREY_1,IMG_OSPREY_3,IMG_OSPREY_1,IMG_OSPREY_2};
+	public final static String[] ANIMATION_OSPREY_BAD = {IMG_OSPREY_BAD_1,IMG_OSPREY_BAD_3,IMG_OSPREY_BAD_1,IMG_OSPREY_BAD_2};
+	public final static String[] ANIMATION_OSPREY_GOOD = {IMG_OSPREY_GOOD_1,IMG_OSPREY_GOOD_3,IMG_OSPREY_GOOD_1,IMG_OSPREY_GOOD_2};
 	public final static String[] ANIMATION_OSPREYDIVE = {IMG_OSPREY_DIVE};
 	public final static String[] ANIMATION_POLY_HARVEY = {IMG_POLY_HARVEY};
 	public final static String[] ANIMATION_SPACEBAR = {IMG_SPACEBAR_1, IMG_SPACEBAR_2, IMG_SPACEBAR_3, IMG_SPACEBAR_4, IMG_SPACEBAR_5, IMG_SPACEBAR_6,

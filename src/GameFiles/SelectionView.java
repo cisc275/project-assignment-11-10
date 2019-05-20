@@ -1,12 +1,19 @@
 package GameFiles;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
 import javax.swing.ImageIcon;
@@ -14,6 +21,7 @@ import javax.swing.InputMap;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 import GameFiles.Quiz.keyAction;
@@ -33,20 +41,35 @@ public class SelectionView extends View implements KeyListener{
 	
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
+	BufferedImage image;
+	
 	/**
 	 * creates the screen used as our main menu
 	 */
 	
 	public SelectionView(ArrayList<GameObject> g) {
-		
+		DrawPanel dp = new DrawPanel();
+		Dimension fullScreen = new Dimension(1920,1080);
+		dp.setMinimumSize(fullScreen);
+		dp.setPreferredSize(fullScreen);
+		dp.setMaximumSize(fullScreen);
 		game = g;
-		osprey = new JButton(new ImageIcon(Constants.IMG_SELECT_OSPREY));
-		clapperRail = new JButton(new ImageIcon(Constants.IMG_SELECT_CLAPPER_RAIL));
+//		osprey = new JButton(new ImageIcon(Constants.IMG_SELECT_OSPREY));
+//		clapperRail = new JButton(new ImageIcon(Constants.IMG_SELECT_CLAPPER_RAIL));
+		osprey = new JButton();
+		clapperRail = new JButton();
+		osprey.setOpaque(false);
+		osprey.setContentAreaFilled(false);
+		osprey.setBorderPainted(false);
+		clapperRail.setOpaque(false);
+		clapperRail.setContentAreaFilled(false);
+		clapperRail.setBorderPainted(false);
 		osprey.addKeyListener(this);
 		clapperRail.addKeyListener(this);
 		this.setLayout(new FlowLayout());
-		this.add(osprey);
-		this.add(clapperRail);
+		this.add(dp);
+		dp.add(osprey);
+		dp.add(clapperRail);
 	
 		this.setSize(screenSize.getSize());
 		this.setUndecorated(true);
@@ -56,6 +79,35 @@ public class SelectionView extends View implements KeyListener{
 		this.pack();
 		this.setVisible(true);	
 
+	}
+private class DrawPanel extends JPanel{
+		
+		private BufferedImage createImage(){
+			BufferedImage ig;
+			BufferedImage scaledImg;
+	    	try {
+	    		ig = ImageIO.read(new File(Constants.IMG_SELECTION_VIEW_BG));
+	    		scaledImg = new BufferedImage(this.getWidth(),this.getHeight(), BufferedImage.TRANSLUCENT);
+			    Graphics2D g2 = scaledImg.createGraphics();
+			    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+			    g2.drawImage(ig, 0, 0, this.getWidth(), this.getHeight(), null);
+			    g2.dispose();
+			    return scaledImg;
+	    	}
+	    	catch (IOException e) {
+	    		e.printStackTrace();
+	    	}	
+	    	return null;
+		}
+			
+		
+		@Override
+		protected void paintComponent(Graphics g) {
+			super.paintComponent(g);
+			image = createImage();
+			g.drawImage(image, 0, 0, this);
+	
+	}
 	}
 	
 
