@@ -28,6 +28,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
+import javax.swing.SwingConstants;
 
 import GameFiles.Quiz.keyAction;
 
@@ -48,9 +49,11 @@ public class EndScreen extends JDialog implements KeyListener {
 		this.game = game;
 		
 		p = new DrawPanel();
-		p.setOpaque(true);
 		p.setBackground(Color.WHITE);
-		p.setLayout(new GridLayout(0, 1));
+		GridLayout g = new GridLayout(0, 1);
+		g.setVgap(10);
+		p.setLayout(g);
+		
 		this.setResizable(false);
 		this.setModal(true);
 		congrats = new JButton("Congratulations! You Win!");
@@ -66,22 +69,37 @@ public class EndScreen extends JDialog implements KeyListener {
         congrats.setAlignmentY(JLabel.TOP_ALIGNMENT);
         congrats.addKeyListener(this);
         
-        menu = new JButton(" Press SPACEBAR to return to Main Menu");
-        menu.setMinimumSize(new Dimension(200, 0));
-        menu.setPreferredSize(new Dimension(200, 0));
-        menu.setMaximumSize(new Dimension(200, 0));
+        menu = new JButton(" Press UP ARROW KEY to return to Main Menu");
+//        menu.setMinimumSize(new Dimension(200, 0));
+//        menu.setPreferredSize(new Dimension(200, 0));
+//        menu.setMaximumSize(new Dimension(200, 0));
     	menu.setFocusPainted(false);
     	menu.setBackground(Color.WHITE);
     	menu.setAlignmentX(JButton.CENTER_ALIGNMENT);
     	menu.setAlignmentY(TOP_ALIGNMENT);
     	menu.setOpaque(false);
-    	menu.setFont(new Font("Serif", Font.BOLD, 40));
+    	menu.setFont(new Font("Serif", Font.BOLD, 25));
     	menu.setBorderPainted(false);
         
     	this.setUndecorated(true);
     	
+    	JLabel timer = new JLabel("You completed the game in " + (Osprey.time/50 + 10) + " seconds", SwingConstants.CENTER);
+    	timer.setOpaque(false);
+		timer.setForeground(Color.BLACK);
+		timer.setMinimumSize(new Dimension(200, 5));
+	    timer.setPreferredSize(new Dimension(200, 5));
+	    timer.setMaximumSize(new Dimension(200, 5));
+	    timer.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, 30));
+    	
+    	p.add(timer);
         p.add(congrats);
+        
         p.add(menu);
+        p.add(new JLabel());
+        p.add(new JLabel());
+        p.add(new JLabel());
+        p.add(new JLabel());
+        p.add(new JLabel());
      
         menu.addKeyListener(this);
         this.add(p);
@@ -98,8 +116,8 @@ public class EndScreen extends JDialog implements KeyListener {
 	    		bufferedImage = ImageIO.read(new File("img/TIM PICK ME PLEASE.png"));
 	    		return bufferedImage;
 	    		}
-	    		if (game.equals("td")) {
-	    		bufferedImage = ImageIO.read(new File(Constants.IMG_CR_BACKGROUND_QUIZ));
+	    		if (game.equals("topDown")) {
+	    		bufferedImage = ImageIO.read(new File(Constants.IMG_CLAPPER_RAIL_BACKGROUND));
 	    		return bufferedImage;
 	    		}
 	    	}
@@ -151,7 +169,7 @@ public class EndScreen extends JDialog implements KeyListener {
 	public void menuButtonSetup() {
 		int map = JComponent.WHEN_IN_FOCUSED_WINDOW;
 		InputMap imap = menu.getInputMap(map);  
-		imap.put(KeyStroke.getKeyStroke('a'), "second");
+		imap.put(KeyStroke.getKeyStroke("UP"), "second");
 		
 		ActionMap amap = menu.getActionMap();
 		amap.put("second", new keyAction());

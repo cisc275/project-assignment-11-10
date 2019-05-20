@@ -18,6 +18,7 @@ import javax.imageio.ImageIO;
 public class Osprey extends Bird {
 	
 	int count = 0;
+	static int time = 0;
 	int lowCount = 0;
 	/**
 	 *  the xSpeed which determines how fast you will travel (behind the scenes not actually)
@@ -82,6 +83,7 @@ public class Osprey extends Bird {
 		distance = 0;
 		MAX_Y_SPEED = (int)(height/3);
 		this.setType(Type.OSPREY);
+		Osprey.time = 0;
 	}
 
 	
@@ -130,6 +132,8 @@ public class Osprey extends Bird {
 		}
 		if (Model.inTutoral == false) {
 			distance -= Osprey.xSpeed; 
+			time++;
+			System.out.println(time);
 		}
 		if ((this.hitbox.ypoints[0] <= this.currY) && (this.isDiving == true)) {
 			this.isDiving = !this.isDiving;

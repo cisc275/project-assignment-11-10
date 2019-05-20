@@ -3,6 +3,7 @@ package GameFiles;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -38,6 +39,7 @@ public class LoseScreen extends JDialog implements KeyListener {
 	JButton restart;
 	JPanel p;
 	String game;
+	int offset = 0;
 
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -46,9 +48,11 @@ public class LoseScreen extends JDialog implements KeyListener {
 	 * keyListener
 	 */
 	public LoseScreen(String game) {
+			
+		
 		this.game = game;
 		if(game.equals("cr")) {
-			p = new JPanel();
+			p = new DrawPanel();
 			p.setOpaque(true);
 			p.setBackground(Color.GREEN);
 			p.setLayout(new BoxLayout(p, 3));
@@ -57,16 +61,16 @@ public class LoseScreen extends JDialog implements KeyListener {
 			tryAgain = new JLabel("Oh no! You ran out of Lives!", SwingConstants.CENTER);
 			tryAgain.setOpaque(false);
 			tryAgain.setFont(new Font("Serif", Font.BOLD, 30));
-			tryAgain.setMinimumSize(new Dimension(550, 50));
-			tryAgain.setPreferredSize(new Dimension(550, 50));
-			tryAgain.setMaximumSize(new Dimension(1550, 50));
+			tryAgain.setMinimumSize(new Dimension(550, 100));
+			tryAgain.setPreferredSize(new Dimension(550, 100));
+			tryAgain.setMaximumSize(new Dimension(550, 100));
 			tryAgain.setAlignmentX(JLabel.CENTER_ALIGNMENT);
 			tryAgain.setAlignmentY(JLabel.TOP_ALIGNMENT);
 
 			menu = new JButton("Press LEFT ARROW KEY to return to Selection Screen");
-			menu.setMinimumSize(new Dimension(500, 50));
-			menu.setPreferredSize(new Dimension(500, 50));
-			menu.setMaximumSize(new Dimension(500, 50));
+			menu.setMinimumSize(new Dimension(500, 100));
+			menu.setPreferredSize(new Dimension(500, 100));
+			menu.setMaximumSize(new Dimension(500, 100));
 			menu.setFocusPainted(false);
 			menu.setBackground(Color.WHITE);
 			menu.setAlignmentX(JButton.CENTER_ALIGNMENT);
@@ -98,10 +102,9 @@ public class LoseScreen extends JDialog implements KeyListener {
 			this.setVisible(true);
 		}
 		else if(game.equals("os")) {
-			p = new JPanel();
+			p = new DrawPanel();
 			p.setOpaque(true);
-			p.setBackground(Color.BLUE);
-			p.setLayout(new GridLayout(0, 1));
+			p.setLayout(new GridLayout(0,1));
 			this.setResizable(false);
 			this.setModal(true);
 			tryAgain = new JLabel("Wrong! Ospreys build their nests on high poles!", SwingConstants.CENTER);
@@ -113,7 +116,7 @@ public class LoseScreen extends JDialog implements KeyListener {
 			tryAgain.setAlignmentX(JLabel.CENTER_ALIGNMENT);
 			tryAgain.setAlignmentY(JLabel.TOP_ALIGNMENT);
 
-			menu = new JButton("Press LEFT ARROW KEY to return to Selection Screen");
+			menu = new JButton("Press LEFT ARROW KEY to return to Main Menu");
 			menu.setMinimumSize(new Dimension(500, 50));
 			menu.setPreferredSize(new Dimension(500, 50));
 			menu.setMaximumSize(new Dimension(500, 50));
@@ -121,7 +124,7 @@ public class LoseScreen extends JDialog implements KeyListener {
 			menu.setBackground(Color.WHITE);
 			menu.setAlignmentX(JButton.CENTER_ALIGNMENT);
 			menu.setAlignmentY(TOP_ALIGNMENT);
-			menu.setOpaque(true);
+			menu.setOpaque(false);
 			menu.setFont(new Font("Serif", Font.BOLD, 30));
 			menu.setBorderPainted(false);
 
@@ -133,22 +136,63 @@ public class LoseScreen extends JDialog implements KeyListener {
 			restart.setBackground(Color.GRAY);
 			restart.setAlignmentX(JButton.CENTER_ALIGNMENT);
 			restart.setAlignmentY(TOP_ALIGNMENT);
-			restart.setOpaque(true);
+			restart.setOpaque(false);
 			restart.setFont(new Font("Serif", Font.BOLD, 30));
 			restart.setBorderPainted(false);
-
+			
+			p.add(new JLabel());
 			p.add(tryAgain);
 			p.add(menu);
 			p.add(restart);
+			p.add(new JLabel());
+			p.add(new JLabel());
+			p.add(new JLabel());
+			p.add(new JLabel());
+			
 
 			menu.addKeyListener(this);
 			restart.addKeyListener(this);
+			this.setUndecorated(true);
 			this.add(p);
 			this.setSize(screenSize);
 			this.setVisible(true);
 		}
 		
+		
+	}
+	
+	private class DrawPanel extends JPanel{
 
+		private BufferedImage createImage(){
+			BufferedImage bufferedImage;
+	    	try {
+	    		if (Mate.caughtUp) {
+	    			bufferedImage = ImageIO.read(new File("img/TIM PICK ME PLEASE.png"));
+		    		return bufferedImage;
+	    		}
+	    		if (game.equals("os")){
+	    		bufferedImage = ImageIO.read(new File(Constants.IMG_BACKGROUND_OSPREY_QUIZ));
+	    		return bufferedImage;
+	    		}
+	    		if (game.equals("cr")) {
+	    		bufferedImage = ImageIO.read(new File(Constants.IMG_CR_BACKGROUND_QUIZ));
+	    		return bufferedImage;
+	    		}
+	    	}
+	    	catch (IOException e) {
+	    		e.printStackTrace();
+	    	}	
+	    	return null;
+		}
+			
+		
+		@Override
+		protected void paintComponent(Graphics g) {
+			super.paintComponent(g);
+			image = createImage();
+			g.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), this);
+	
+	}
 	}
 
 	/**
@@ -188,13 +232,18 @@ public class LoseScreen extends JDialog implements KeyListener {
 	
 	public void endtheScreen() {
 		this.dispose();
-		this.setModal(false);
 	}
 
 	@Override
 	public void keyPressed(KeyEvent arg0) {
+		int count = 0;
+		for (int i = 0; i < 100000; i++) {
+			count++;
+		}
+		if (count >= 99999){
 		menuSetup();
 		restartSetup();
+		}
 	}
 	
 	public void menuSetup() {
@@ -228,7 +277,7 @@ public class LoseScreen extends JDialog implements KeyListener {
 	}
 	
 	public static void main(String[] args) {
-		new LoseScreen("os");
+		new LoseScreen("cr");
 	}
 }
 		 
