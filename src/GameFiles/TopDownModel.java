@@ -197,9 +197,15 @@ public class TopDownModel extends Model {
 		game.add(new Stick((int) (Constants.FRAME_X - 200), 325, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE))); 
 	//	game.add(new Stick(400, 600, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE)));
 		game.add(new Stick(700, 235, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE)));
-		game.add(new Bush(0, 150, 150, 150));
-		game.add(new Bush(150, 0, 150, 150));
-		game.add(new Bush(150, 150, 150, 150));
+		Bush b4 = new Bush(0, 150, 150, 150);
+		game.add(b4);
+		cr.bushArr.add(b4);
+		Bush b5 = new Bush(150, 0, 150, 150);
+		game.add(b5);
+		cr.bushArr.add(b5);
+		Bush b6 = new Bush(150, 150, 150, 150);
+		game.add(b6);
+		cr.bushArr.add(b6);
     }
     
     /**
