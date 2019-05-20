@@ -119,11 +119,11 @@ public class TopDownModel extends Model {
 		game.add(b1);
 		cr.bushArr.add(b1);
 		
-		Bush b2 = new Bush(600, 20,150,150);
+		b2 = new Bush(600, 20,150,150);
 		game.add(b2);
 		cr.bushArr.add(b2);
 		
-		Bush b3 = new Bush(20, 450,175,175);
+		b3 = new Bush(20, 450,175,175);
 		game.add(b3);
 		cr.bushArr.add(b3);
     }
@@ -198,8 +198,14 @@ public class TopDownModel extends Model {
     			
     		}
     		else if (f.visible) {
-    			tup_key.visible = tdown_key.visible = tright_key.visible = tleft_key.visible = false;
-    			if (!f.hitbox.getBounds2D().intersects(b2.)));
+    			if (b1.imgFileName.equals(Constants.ANIMATION_BUSH)) {
+    				tup_key.visible = tdown_key.visible = tright_key.visible = tleft_key.visible = false;
+    				b1.imgFileName = Constants.ANIMATION_BUSH_GLOW;
+    			}
+    			if (!f.hitbox.getBounds2D().intersects(b1.hitbox.getBounds2D())) {
+    				f.move();
+    				f.collision(game);
+    			}
     		}
     		
     		

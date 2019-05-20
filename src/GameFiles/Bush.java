@@ -59,6 +59,11 @@ public class Bush extends NonControllable {
 	//	System.out.println("fox post speed: " + f.getxSpeed() + ", " + f.getySpeed());
 	}
 	
+	@Override
+	public void move() {
+		animate(Constants.BUSH_ANIMATION_TICK_RATE);
+	}
+	
 	/**
      * returns a BufferedImage that is unscaled
      * @author Mark Wolgin

@@ -34,6 +34,8 @@ public class Constants implements Serializable {
 	
 	public final static int AIRCURRENT_ANIMATION_TICK_RATE = 3;
 	
+	public final static int BUSH_ANIMATION_TICK_RATE = 2;
+	
 	public final static int CLAPPER_RAIL_START_LOC_X = 800;
 	public final static int CLAPPER_RAIL_START_LOC_Y = 600;
 	public final static int CLAPPER_RAIL_START_SIZE_X = 100;
@@ -78,7 +80,7 @@ public class Constants implements Serializable {
 	public final static int POWERUP_HEIGH = 100;
 	public final static int POWERUP_SIZE = 50;
 	public final static int POWERUP_SPEED = -50;
-	public final static int POWERUP_DURATION = 4;
+	public final static int POWERUP_DURATION = 4000;
 	
 	public final static int STICK_ANIMATION_TICK_RATE = 2;
 	public final static int STICK_HANDLECOLLISION_OFFSET = 30;
@@ -123,6 +125,13 @@ public class Constants implements Serializable {
 	public final static String IMG_AIRCURRENT_6 = "img/aircurrent/aircurrent_6.png";
 	public final static String IMG_BACKGROUND = "img/backgroundTim.png";
 	public final static String IMG_BACKGROUND_OSPREY_QUIZ = "img/backgroundTimQuiz.png";
+	public final static String IMG_BUSH = "img/bush.png";
+	public final static String IMG_BUSH_1 = "img/bush/bush1.png";
+	public final static String IMG_BUSH_2 = "img/bush/bush2.png";
+	public final static String IMG_BUSH_3 = "img/bush/bush3.png";
+	public final static String IMG_BUSH_4 = "img/bush/bush4.png";
+	public final static String IMG_BUSH_5 = "img/bush/bush5.png";
+	public final static String IMG_BUSH_6 = "img/bush/bush6.png";
 	public final static String IMG_CR_BACKGROUND_QUIZ = "img/cBackgroundQuiz.png";
 	public final static String IMG_CLAPPER_RAIL_BACKGROUND = "img/cBackground.png";
 	public final static String IMG_CLAPPER_RAIL_LEFT_1 = "img/cr/cr1.png";
@@ -133,7 +142,6 @@ public class Constants implements Serializable {
 	public final static String IMG_CLAPPER_RAIL_RIGHT_3 = "img/cr/cr6.png";
 	public final static String IMG_CRAB_1 = "img/crab/crab1.png";
 	public final static String IMG_CRAB_2 = "img/crab/crab2.png";
-	public final static String IMG_BUSH = "img/bush.png";
 	public final static String IMG_DOWN_KEY = "img/down/down.png";
 	public final static String IMG_DOWN_KEY_1 = "img/down/down_1.png";
 	public final static String IMG_DOWN_KEY_2 = "img/down/down_2.png";
@@ -212,6 +220,7 @@ public class Constants implements Serializable {
 	public final static String[] ANIMATION_BACKGROUND = {IMG_BACKGROUND};
 	public final static String[] ANIMATION_CRBACKGROUND = {IMG_CLAPPER_RAIL_BACKGROUND};
 	public final static String[] ANIMATION_BACKGROUND_OSPREY_QUIZ = {IMG_BACKGROUND_OSPREY_QUIZ};
+	public final static String[] ANIMATION_BUSH_GLOW = {IMG_BUSH_1, IMG_BUSH_2, IMG_BUSH_3, IMG_BUSH_4, IMG_BUSH_5, IMG_BUSH_6, IMG_BUSH_5, IMG_BUSH_4, IMG_BUSH_3, IMG_BUSH_2};
 	public final static String[] ANIMATION_CR= {IMG_CLAPPER_RAIL_LEFT_1,IMG_CLAPPER_RAIL_LEFT_2,IMG_CLAPPER_RAIL_LEFT_3,IMG_CLAPPER_RAIL_LEFT_2,IMG_CLAPPER_RAIL_RIGHT_1,IMG_CLAPPER_RAIL_RIGHT_2,IMG_CLAPPER_RAIL_RIGHT_3,IMG_CLAPPER_RAIL_RIGHT_2};
 	
 	public final static String[] ANIMATION_CRAB = {IMG_CRAB_1, IMG_CRAB_2};
