@@ -60,9 +60,9 @@ public class Constants implements Serializable {
 	public final static int FOX_ANIMATION_TICK_RATE = 2;
 	
 	
-	public final static int LINUX_SCREEN_SIZE = 100;
-	public final static int LINUX_SCREEN_SCALE_X = 16;
-	public final static int LINUX_SCREEN_SCALE_Y = 9;
+	public final static int LINUX_SCREEN_SIZE = 10;
+	public final static int LINUX_SCREEN_SCALE_X = 192;
+	public final static int LINUX_SCREEN_SCALE_Y = 108;
 	
 	public final static int INVISIBLE_WALL_POINTS = 5;
 	
