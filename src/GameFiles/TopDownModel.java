@@ -77,8 +77,7 @@ public class TopDownModel extends Model {
     	cr.setySpeed(0);
     //	System.out.println(cr.xSpeed);
     //	System.out.println(keyPresses);
-    	if(Quiz.answered) {
-    		System.out.println("************************************kill***************************************");
+    	if(Quiz.answered == true) {
     		keyPresses.clear();
     		cr.setxSpeed(0);
         	cr.setySpeed(0);

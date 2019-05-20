@@ -206,7 +206,7 @@ public class Quiz extends JDialog implements KeyListener{
 			if (game.equals("sides")) {
 			g.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), this);
 			}
-			else g.drawImage(image, 0, 0, 400, 300, this);
+			else g.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), this);
 	
 	}
 	}
@@ -785,11 +785,11 @@ public class Quiz extends JDialog implements KeyListener{
 							new LoseScreen("os");
 						}
 					}
-					answered = true;
+					
 					endQuiz();
 				}
 
-			
+			Quiz.answered = true;
 			}
 		}
 	
