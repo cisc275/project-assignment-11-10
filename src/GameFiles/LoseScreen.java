@@ -26,6 +26,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
+import javax.swing.SwingConstants;
 
 import GameFiles.Quiz.keyAction;
 
@@ -53,7 +54,7 @@ public class LoseScreen extends JDialog implements KeyListener {
 			p.setLayout(new BoxLayout(p, 3));
 			this.setResizable(false);
 			this.setModal(true);
-			tryAgain = new JLabel("Oh no! You ran out of Lives! Do you want to try again? (Do we want this to be a quiz?)");
+			tryAgain = new JLabel("Oh no! You ran out of Lives!", SwingConstants.CENTER);
 			tryAgain.setOpaque(false);
 			tryAgain.setFont(new Font("Serif", Font.BOLD, 30));
 			tryAgain.setMinimumSize(new Dimension(550, 50));
@@ -103,7 +104,7 @@ public class LoseScreen extends JDialog implements KeyListener {
 			p.setLayout(new GridLayout(0, 1));
 			this.setResizable(false);
 			this.setModal(true);
-			tryAgain = new JLabel("Wrong! Ospreys build their nests on high poles!");
+			tryAgain = new JLabel("Wrong! Ospreys build their nests on high poles!", SwingConstants.CENTER);
 			tryAgain.setOpaque(false);
 			tryAgain.setFont(new Font("Serif", Font.BOLD, 30));
 			tryAgain.setMinimumSize(new Dimension(550, 50));
@@ -226,7 +227,7 @@ public class LoseScreen extends JDialog implements KeyListener {
 		
 	}
 	
-	public void main(String[] args) {
+	public static void main(String[] args) {
 		new LoseScreen("os");
 	}
 }

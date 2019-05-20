@@ -17,12 +17,19 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.swing.ImageIcon;
+import javax.swing.InputMap;
 import javax.imageio.ImageIO;
+import javax.swing.AbstractAction;
+import javax.swing.ActionMap;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.KeyStroke;
+
+import GameFiles.Quiz.keyAction;
 
 public class EndScreen extends JDialog implements KeyListener {
 	
@@ -39,6 +46,7 @@ public class EndScreen extends JDialog implements KeyListener {
 	
 	public EndScreen(String game) {
 		this.game = game;
+		
 		p = new DrawPanel();
 		p.setOpaque(true);
 		p.setBackground(Color.WHITE);
@@ -56,6 +64,7 @@ public class EndScreen extends JDialog implements KeyListener {
         congrats.setMaximumSize(new Dimension(300, 0));
         congrats.setAlignmentX(JLabel.RIGHT_ALIGNMENT);
         congrats.setAlignmentY(JLabel.TOP_ALIGNMENT);
+        congrats.addKeyListener(this);
         
         menu = new JButton(" Press SPACEBAR to return to Main Menu");
         menu.setMinimumSize(new Dimension(200, 0));
@@ -70,10 +79,11 @@ public class EndScreen extends JDialog implements KeyListener {
     	menu.setBorderPainted(false);
         
     	this.setUndecorated(true);
+    	
         p.add(congrats);
         p.add(menu);
-        
-        addKeyListener(this);
+     
+        menu.addKeyListener(this);
         this.add(p);
         this.setSize(screenSize);
         this.setVisible(true);
@@ -106,20 +116,45 @@ public class EndScreen extends JDialog implements KeyListener {
 			image = createImage();
 			g.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), this);
 	
+		}
 	}
-	}
+	
+
 	
 	public static void main(String[] args) {
 		new EndScreen("sides");
 	}
 
+	private class keyAction extends AbstractAction{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource().equals(menu)) {
+				endScreen();
+				new Controller("sel");	
+			}
+			
+		}
+		
+	}
+	
+	public void endScreen() {
+		this.setModal(false);
+		this.dispose();
+	}
+	
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 		menuButtonSetup();
 	}
 	
 	public void menuButtonSetup() {
+		int map = JComponent.WHEN_IN_FOCUSED_WINDOW;
+		InputMap imap = menu.getInputMap(map);  
+		imap.put(KeyStroke.getKeyStroke('a'), "second");
 		
+		ActionMap amap = menu.getActionMap();
+		amap.put("second", new keyAction());
 	}
 
 	@Override
