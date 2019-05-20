@@ -79,6 +79,18 @@ public class Controller implements KeyListener, ActionListener{
 			view.addKeyListener(this);
 			this.start();
 		}
+		else if (selected.equals("topDownNT")) {
+			model = new SideScrollModel();	
+			view = new SideScrollView(model.game);
+			
+			model.inTutoral = false;
+			model.defaultSetup();
+			model.postTutorial();
+			
+			view.addKeyListener(this);
+			view.addActionListener(this);
+			this.start();
+		}
 		// sideScroll game
 		else if(selected.equals("sideScroll")) {
 			model = new SideScrollModel();	
