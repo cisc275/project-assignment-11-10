@@ -145,7 +145,7 @@ public class TopDownModel extends Model {
     	if (inTutoral) {
     		// This is nessasary for the game to work
     		for (GameObject a : g) {
-				if (!a.equals(f) && !a.equals(tpow) && !a.equals(f)) {
+				if (!a.equals(f) && !a.equals(tpow)) {
 					a.move();
 					a.collision(g);
 				}
@@ -173,6 +173,7 @@ public class TopDownModel extends Model {
     		
     		if (tstick == null) {
     			tstick = new Stick(400, 400, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE));
+    			tstick.imgFileName = Constants.ANIMATION_TO_STICK;
     			game.add(tstick);
     		}
     		

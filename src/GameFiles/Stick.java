@@ -121,5 +121,9 @@ public class Stick extends Collectable{
 		Stick.count = count;
 	}
 	
+	@Override
+	public void move() {
+		animate(Constants.STICK_ANIMATION_TICK_RATE);
+	}
 	
 }

@@ -77,7 +77,10 @@ public class Constants implements Serializable {
 	
 	public final static int POWERUP_HEIGH = 100;
 	public final static int POWERUP_SIZE = 50;
+	public final static int POWERUP_SPEED = -50;
+	public final static int POWERUP_DURATION = 4;
 	
+	public final static int STICK_ANIMATION_TICK_RATE = 2;
 	public final static int STICK_HANDLECOLLISION_OFFSET = 30;
 	public final static int STICK_SIZE = 40;
 	public final static int STICK_END_COUNT = 3;
@@ -90,6 +93,8 @@ public class Constants implements Serializable {
 	
 	public final static int TO_ANIMATION_TICK_RATE = 2;
 	public final static int TO_DEFAULT_SIZE = 122;
+	public final static int TO_SPACE_DEFAULT_WIDTH = 483;
+	public final static int TO_SPACE_DEFUALT_HEIGH = 110;
 	
 	
 	public final static int TIMER_TICK_RATE = 50;
@@ -183,7 +188,13 @@ public class Constants implements Serializable {
 	public final static String IMG_SPACEBAR_4 = "img/spacebar/spacebar_4.png";
 	public final static String IMG_SPACEBAR_5 = "img/spacebar/spacebar_5.png";
 	public final static String IMG_SPACEBAR_6 = "img/spacebar/spacebar_6.png";
-	public final static String IMG_STICK = "img/Stick.png";
+	public final static String IMG_STICK = "img/stick/Stick.png";
+	public final static String IMG_TO_STICK_1 = "img/stick/stick1.png";
+	public final static String IMG_TO_STICK_2 = "img/stick/stick2.png";
+	public final static String IMG_TO_STICK_3 = "img/stick/stick3.png";
+	public final static String IMG_TO_STICK_4 = "img/stick/stick4.png";
+	public final static String IMG_TO_STICK_5 = "img/stick/stick5.png";
+	public final static String IMG_TO_STICK_6 = "img/stick/stick6.png";
 	public final static String IMG_THARVEY_1 = "img/cr/Tharvey1.png";
 	public final static String IMG_THARVEY_2 = "img/cr/Tharvey2.png";
 	public final static String IMG_TRASH = "img/Trash.png";
@@ -224,7 +235,8 @@ public class Constants implements Serializable {
 	public final static String[] ANIMATION_STICK = {IMG_STICK};
 	public final static String[] ANIMATION_RIGHT_KEY = {IMG_RIGHT_KEY_1, IMG_RIGHT_KEY_2, IMG_RIGHT_KEY_3, IMG_RIGHT_KEY_4, IMG_RIGHT_KEY_5, IMG_RIGHT_KEY_6, 
 																		IMG_RIGHT_KEY_5, IMG_RIGHT_KEY_4, IMG_RIGHT_KEY_3, IMG_RIGHT_KEY_2, };
-	public final static String[] ANIMATION_THARVEY= {IMG_THARVEY_1, IMG_THARVEY_2};
+	public final static String[] ANIMATION_THARVEY = {IMG_THARVEY_1, IMG_THARVEY_2};
+	public final static String[] ANIMATION_TO_STICK = {IMG_TO_STICK_1, IMG_TO_STICK_2, IMG_TO_STICK_3, IMG_TO_STICK_4, IMG_TO_STICK_5, IMG_TO_STICK_6, IMG_TO_STICK_5, IMG_TO_STICK_4, IMG_TO_STICK_3, IMG_TO_STICK_2};
 	public final static String[] ANIMATION_TRASH = {IMG_TRASH};
 	public final static String[] ANIMATION_UP_KEY = {IMG_UP_KEY_1, IMG_UP_KEY_2, IMG_UP_KEY_3, IMG_UP_KEY_4, IMG_UP_KEY_5, IMG_UP_KEY_6, 
 																	IMG_UP_KEY_5, IMG_UP_KEY_4, IMG_UP_KEY_3, IMG_UP_KEY_2};
