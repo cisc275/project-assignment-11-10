@@ -40,7 +40,7 @@ public class Mate extends Bird {
 	 */
 
 	public void move() {
-		if (this.hitbox.xpoints[0] == Constants.OSPREY_STARTX) {
+		if (this.hitbox.xpoints[0] <= Constants.OSPREY_STARTX) {
 			this.hitbox.reset();
 			Mate.caughtUp = true;
 		}
