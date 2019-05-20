@@ -220,6 +220,7 @@ public class Constants implements Serializable {
 	public final static String IMG_RIGHT_KEY_4 = "img/right/right_4.png";
 	public final static String IMG_RIGHT_KEY_5 = "img/right/right_5.png";
 	public final static String IMG_RIGHT_KEY_6 = "img/right/right_6.png";
+	public final static String IMG_ESC_KEY = "img/esc.png";
 	public final static String IMG_SELECT_CLAPPER_RAIL = "img/selectCR.png";
 	public final static String IMG_SELECT_OSPREY = "img/selectOsprey.png";
 	public final static String IMG_SELECTION_VIEW_BG = "img/estuary_meadow_with_river.png";
