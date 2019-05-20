@@ -213,6 +213,7 @@ public class TopDownModel extends Model {
     			}
     			else if (f.hitbox.getBounds2D().getMinY() > 0) {
     				f.move();
+    				System.out.println(f.hitbox.getBounds2D().getMinY());
     			}
     			else {
     				System.out.println("hit");
