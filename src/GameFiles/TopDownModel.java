@@ -195,6 +195,7 @@ public class TopDownModel extends Model {
     		if (tpow == null) {
     			tpow = new Powerup(Constants.FRAME_X, Constants.FRAME_Y - (int)(Constants.POWERUP_HEIGH * Constants.POWERUP_HEIGH_SCALE),
     					(int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE), (int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE));
+    			System.out.println(tpow.hitbox.getBounds2D().getMinY()); 
     			game.add(tpow);
     		}
     		
@@ -260,6 +261,9 @@ public class TopDownModel extends Model {
     		else if (tpow.visible){
 				if (b1.imgFileName.equals(Constants.ANIMATION_BUSH_GLOW)) {
 					b1.imgFileName = Constants.ANIMATION_BUSH;
+				}
+				else if (tpow.hitbox.getBounds2D().getCenterX() < b1.hitbox.getBounds2D().getCenterX()) {
+					tpow.move();
 				}
     		}
     		
