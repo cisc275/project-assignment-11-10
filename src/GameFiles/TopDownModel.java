@@ -286,13 +286,13 @@ public class TopDownModel extends Model {
     			}
     		}
     		else if (f.visible) {
-    			if (b1.imgFileName.equals(Constants.ANIMATION_BUSH)) {
+    			if (b3.imgFileName.equals(Constants.ANIMATION_BUSH)) {
     				tup_key.visible = tdown_key.visible = tright_key.visible = tleft_key.visible = false;
     				game.remove(tup_key);
     				game.remove(tdown_key);
     				game.remove(tright_key);
     				game.remove(tleft_key);
-    				b1.imgFileName = Constants.ANIMATION_BUSH_GLOW;
+    				b3.imgFileName = Constants.ANIMATION_BUSH_GLOW;
     			}
     			else if (!cr.hitbox.getBounds2D().intersects(b1.hitbox.getBounds2D()) && f.hitbox.getBounds2D().getMinY() > 0) {
     				f.move();
@@ -308,8 +308,8 @@ public class TopDownModel extends Model {
     			}
     		}
     		else if (tpow.visible){
-				if (b1.imgFileName.equals(Constants.ANIMATION_BUSH_GLOW)) {
-					b1.imgFileName = Constants.ANIMATION_BUSH;
+				if (b3.imgFileName.equals(Constants.ANIMATION_BUSH_GLOW)) {
+					b3.imgFileName = Constants.ANIMATION_BUSH;
 				}
 				else if (tpow.hitbox.getBounds2D().getCenterX() > b1.hitbox.getBounds2D().getCenterX()) {
 					tpow.move();
