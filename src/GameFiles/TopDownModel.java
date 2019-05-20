@@ -152,7 +152,7 @@ public class TopDownModel extends Model {
 			}
     		
     		if (tup_key == null) {
-    			tup_key = new TutorialObject(0,0,122,122,)
+    			tup_key = new TutorialObject(0, 0, Constants.TO_DEFAULT_SIZE, Constants.TO_DEFAULT_SIZE, Constants.ANIMATION_UP_KEY);
     		}
     		
     		if (tstick == null) {
