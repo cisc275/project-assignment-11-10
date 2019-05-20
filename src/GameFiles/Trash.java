@@ -37,6 +37,7 @@ public class Trash extends Collectable {
 	
 	@Override
 	public void handleCollision(Osprey o) {
+		Osprey.negHitOs = true;
 		resetPoly();
 		o.setXSpeed((Osprey.getXSpeed() + Constants.TRASH_AC));
 		if (Osprey.xSpeed >= Constants.OSPREY_MIN_SPEED) {

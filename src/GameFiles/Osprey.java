@@ -52,6 +52,16 @@ public class Osprey extends Bird {
 	
 	final int MAX_Y_SPEED;
 	
+	/**
+	 *  will be used to indicate if the osprey has made a negative collision
+	 */
+	static public boolean negHitOs = false;
+	
+	/**
+	 * will be used to indicate if the osprey has made a positive collision
+	 */
+	static public boolean posHitOs = false;
+	
 	
 	/**
 	 * @param y
