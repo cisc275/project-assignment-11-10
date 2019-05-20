@@ -78,6 +78,7 @@ public class Powerup extends Collectable {
 	@Override
 	public void handleCollision(Osprey o) {
 		Model.quizHappened = true;
+		power = true;
 		resetPoly();
 		new Quiz("sides");
 	

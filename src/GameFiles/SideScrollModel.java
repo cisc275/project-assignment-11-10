@@ -283,6 +283,11 @@ public class SideScrollModel extends Model {
      */
 	@Override
 	public void handleMove(HashSet<Integer> keyPresses) {
+		if (Powerup.power) {
+			System.out.println("keyPressed");
+			keyPresses.clear();
+			Powerup.power = false;
+		}
 		if(!o.isDiving) {
 			o.setYSpeed(0);
 			for(Integer key: keyPresses) {
