@@ -196,6 +196,9 @@ public class Controller implements KeyListener, ActionListener{
 					view.debugHitBoxes =  !view.debugHitBoxes;
 					break;
 			case Constants.ESCAPE_KEY_CODE:
+				model = new Model();
+				model.setGame(new ArrayList<>());
+				view = new View();
 				new Controller("sel");
 				break;
 		}
