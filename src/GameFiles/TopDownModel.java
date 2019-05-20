@@ -152,7 +152,23 @@ public class TopDownModel extends Model {
 			}
     		
     		if (tup_key == null) {
-    			tup_key = new TutorialObject(0, 0, Constants.TO_DEFAULT_SIZE, Constants.TO_DEFAULT_SIZE, Constants.ANIMATION_UP_KEY);
+    			tup_key = new TutorialObject(1000, 300, Constants.TO_DEFAULT_SIZE, Constants.TO_DEFAULT_SIZE, Constants.ANIMATION_UP_KEY);
+    			game.add(tup_key);
+    		}
+    		
+    		if (tdown_key == null && tup_key != null) {
+    			tdown_key = new TutorialObject(tup_key.x, tup_key.y + 100, Constants.TO_DEFAULT_SIZE, Constants.TO_DEFAULT_SIZE, Constants.ANIMATION_DOWN_KEY);
+    			game.add(tdown_key);
+    		}
+    		
+    		if (tleft_key == null && tup_key != null) {
+    			tleft_key = new TutorialObject(tup_key.x - 100, tup_key.y + 100, Constants.TO_DEFAULT_SIZE, Constants.TO_DEFAULT_SIZE, Constants.ANIMATION_LEFT_KEY);
+    			game.add(tleft_key);
+    		}
+    		
+    		if (tright_key == null && tup_key != null) {
+    			tright_key = new TutorialObject(tup_key.x + 100, tup_key.y + 100, Constants.TO_DEFAULT_SIZE, Constants.TO_DEFAULT_SIZE, Constants.ANIMATION_RIGHT_KEY);
+    			game.add(tright_key);
     		}
     		
     		if (tstick == null) {
@@ -166,6 +182,12 @@ public class TopDownModel extends Model {
     			game.add(tpow);
     		}
 
+    		if (tstick.visible) {
+    			
+    		}
+    		else if (f.visible) {
+    			tup_key.visible = tdown_key.visible = tright_key.visible = tleft_key.visible = false;
+    		}
     		
     		
     		//this.postTutorial();
