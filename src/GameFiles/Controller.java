@@ -201,7 +201,7 @@ public class Controller implements KeyListener, ActionListener{
 		model.handleMove(keyPresses);
 		//System.out.println(e.getKeyCode());
 		switch (e.getKeyCode()) {
-			case 192:
+			case Constants.TILDA_KEY_CODE:
 				try {
 					Serialize.dumpGame(model);
 				
@@ -213,10 +213,12 @@ public class Controller implements KeyListener, ActionListener{
 					e1.printStackTrace();
 				}
 				break;
-			case 49:
+			case Constants.ONE_KEY_CODE:
 					view.debugHitBoxes =  !view.debugHitBoxes;
+					break;
 			case Constants.ESCAPE_KEY_CODE:
 				new Controller("sel");
+				break;
 		}
 	}	
 	/**
