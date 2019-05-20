@@ -81,7 +81,7 @@ public class Osprey extends Bird {
 		this.ySpeed = 0;
 		this.isDiving = false;
 		distance = 0;
-		MAX_Y_SPEED = (int)(height/3);
+		MAX_Y_SPEED = (int)(height/4);
 		this.setType(Type.OSPREY);
 		Osprey.time = 0;
 	}
