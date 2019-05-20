@@ -167,17 +167,18 @@ public class LoseScreen extends JDialog implements ActionListener {
 			  }
 			  if(game.equals("os")) {
 				  if (e.getSource() == menu) { 
-					  System.out.println("send to menu"); this.dispose();
+					  System.out.println("send to menu"); 
 					  this.setModal(false); 
 					  Mate.caughtUp = false;
 					  Controller c = new Controller("sel"); 
+					  this.dispose();
 				  } 
 				  else if (e.getSource() == restart) {
 					  System.out.println("restart"); 
-					  this.dispose(); 
 					  this.setModal(false); 
 					  Mate.caughtUp = false;
-					  new Controller("sideScrollNT");}
+					  new Controller("sideScrollNT");
+					  this.dispose(); }
 			  }
 			  
 		  }

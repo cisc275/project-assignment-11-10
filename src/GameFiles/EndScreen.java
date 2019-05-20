@@ -77,11 +77,11 @@ public class EndScreen extends JDialog implements ActionListener {
 		if (e.getSource() == menu) { 
             // create a dialog Box 
             System.out.println("send to menu");
-            this.dispose();
             this.setModal(false);
             Stick.count = 0;
             ClapperRail.lives = 3;
             Controller c = new Controller("sel");
+            this.dispose();
         }
 
 	}
