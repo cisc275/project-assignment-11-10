@@ -83,7 +83,7 @@ public class EndScreen extends JDialog implements KeyListener {
         
     	this.setUndecorated(true);
     	
-    	JLabel timer = new JLabel("You completed the game in " + (Osprey.time/50 + 10) + " seconds", SwingConstants.CENTER);
+    	JLabel timer = new JLabel("You completed migration in " + (10*(Osprey.time/Constants.TIMER_TICK_RATE + 10)/10 + 1)/10.0 + " weeks", SwingConstants.CENTER);
     	timer.setOpaque(false);
 		timer.setForeground(Color.BLACK);
 		timer.setMinimumSize(new Dimension(200, 5));
