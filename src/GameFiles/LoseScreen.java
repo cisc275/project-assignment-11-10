@@ -61,7 +61,7 @@ public class LoseScreen extends JDialog implements KeyListener {
 			tryAgain.setAlignmentX(JLabel.CENTER_ALIGNMENT);
 			tryAgain.setAlignmentY(JLabel.TOP_ALIGNMENT);
 
-			menu = new JButton("Press <- to return to Selection Screen");
+			menu = new JButton("Press LEFT ARROW KEY to return to Selection Screen");
 			menu.setMinimumSize(new Dimension(500, 50));
 			menu.setPreferredSize(new Dimension(500, 50));
 			menu.setMaximumSize(new Dimension(500, 50));
@@ -73,7 +73,7 @@ public class LoseScreen extends JDialog implements KeyListener {
 			menu.setFont(new Font("Serif", Font.BOLD, 30));
 			menu.setBorderPainted(false);
 
-			restart = new JButton("Press -> to Try Again");
+			restart = new JButton("Press RIGHT ARROW KEY to Try Again");
 			restart.setMinimumSize(new Dimension(1000, 100));
 			restart.setPreferredSize(new Dimension(1000, 100));
 			restart.setMaximumSize(new Dimension(1000, 100));
@@ -111,7 +111,7 @@ public class LoseScreen extends JDialog implements KeyListener {
 			tryAgain.setAlignmentX(JLabel.CENTER_ALIGNMENT);
 			tryAgain.setAlignmentY(JLabel.TOP_ALIGNMENT);
 
-			menu = new JButton("Press <- to return to Selection Screen");
+			menu = new JButton("Press LEFT ARROW KEY to return to Selection Screen");
 			menu.setMinimumSize(new Dimension(500, 50));
 			menu.setPreferredSize(new Dimension(500, 50));
 			menu.setMaximumSize(new Dimension(500, 50));
@@ -123,7 +123,7 @@ public class LoseScreen extends JDialog implements KeyListener {
 			menu.setFont(new Font("Serif", Font.BOLD, 30));
 			menu.setBorderPainted(false);
 
-			restart = new JButton("Press -> to Try Again");
+			restart = new JButton("Press RIGHT ARROW KEY to Try Again");
 			restart.setMinimumSize(new Dimension(1000, 100));
 			restart.setPreferredSize(new Dimension(1000, 100));
 			restart.setMaximumSize(new Dimension(1000, 100));
@@ -205,7 +205,7 @@ public class LoseScreen extends JDialog implements KeyListener {
 	public void menuSetup() {
 		int map = JComponent.WHEN_IN_FOCUSED_WINDOW;
 		InputMap imap = menu.getInputMap(map);
-		imap.put(KeyStroke.getKeyStroke("RIGHT"), "menu");
+		imap.put(KeyStroke.getKeyStroke("LEFT"), "menu");
 		
 		ActionMap amap = menu.getActionMap();
 		amap.put("menu", new keyAction());
@@ -214,7 +214,7 @@ public class LoseScreen extends JDialog implements KeyListener {
 	public void restartSetup() {
 		int map = JComponent.WHEN_IN_FOCUSED_WINDOW;
 		InputMap imap = restart.getInputMap(map);
-		imap.put(KeyStroke.getKeyStroke("LEFT"), "tryAgain");
+		imap.put(KeyStroke.getKeyStroke("RIGHT"), "tryAgain");
 		
 		ActionMap amap = restart.getActionMap();
 		amap.put("tryAgain", new keyAction());

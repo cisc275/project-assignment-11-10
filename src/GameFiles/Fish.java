@@ -39,6 +39,7 @@ public class Fish extends Collectable {
 	
 	@Override
 	public void handleCollision(Osprey o) {
+		Osprey.posHitOs = true;
 		resetPoly();
 		o.setXSpeed((Osprey.getXSpeed() - Constants.FISH_AC));
 		if (Osprey.xSpeed <= Constants.OSPREY_MAX_SPEED) {
