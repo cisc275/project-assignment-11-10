@@ -206,6 +206,12 @@ public class Constants implements Serializable {
 	public final static String IMG_OSPREY_2 = "img/osprey/osprey2.png";
 	public final static String IMG_OSPREY_3 = "img/osprey/osprey3.png";
 	public final static String IMG_OSPREY_DIVE = "img/osprey_dive.png";
+	public final static String IMG_OSPREY_BAD_1 = "img/osprey/osprey1_bad.png";
+	public final static String IMG_OSPREY_BAD_2 = "img/osprey/osprey2_bad.png";
+	public final static String IMG_OSPREY_BAD_3 = "img/osprey/osprey3_bad.png";
+	public final static String IMG_OSPREY_GOOD_1 = "img/osprey/osprey1_good.png";
+	public final static String IMG_OSPREY_GOOD_2 = "img/osprey/osprey2_good.png";
+	public final static String IMG_OSPREY_GOOD_3 = "img/osprey/osprey3_good.png";
 	public final static String IMG_POLY_HARVEY = "img/PolyHarvey.png";
 	public final static String IMG_RIGHT_KEY = "img/right/right.png";
 	public final static String IMG_RIGHT_KEY_1 = "img/right/right_1.png";
@@ -279,6 +285,8 @@ public class Constants implements Serializable {
 	public final static String[] ANIMATION_MODEL_DUMP_STATUS_MSG = {IMG_MODEL_DUMP_STATUS_MSG};
 	public final static String[] ANIMATION_NEST = {IMG_NEST};
 	public final static String[] ANIMATION_OSPREY = {IMG_OSPREY_1,IMG_OSPREY_3,IMG_OSPREY_1,IMG_OSPREY_2};
+	public final static String[] ANIMATION_OSPREY_BAD = {IMG_OSPREY_BAD_1,IMG_OSPREY_BAD_3,IMG_OSPREY_BAD_1,IMG_OSPREY_BAD_2};
+	public final static String[] ANIMATION_OSPREY_GOOD = {IMG_OSPREY_GOOD_1,IMG_OSPREY_GOOD_3,IMG_OSPREY_GOOD_1,IMG_OSPREY_GOOD_2};
 	public final static String[] ANIMATION_OSPREYDIVE = {IMG_OSPREY_DIVE};
 	public final static String[] ANIMATION_POLY_HARVEY = {IMG_POLY_HARVEY};
 	public final static String[] ANIMATION_SPACEBAR = {IMG_SPACEBAR_1, IMG_SPACEBAR_2, IMG_SPACEBAR_3, IMG_SPACEBAR_4, IMG_SPACEBAR_5, IMG_SPACEBAR_6,
