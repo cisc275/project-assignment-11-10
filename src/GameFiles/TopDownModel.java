@@ -33,6 +33,11 @@ public class TopDownModel extends Model {
      * clock checker
      */
     int count = 0; 
+    
+    /*
+     * checks time for active powerup
+     */
+   // int pwrCount = 0;
   
     
     /**
@@ -139,7 +144,10 @@ public class TopDownModel extends Model {
      * @author Peter Jenny
      */
     public void handlePwr() {
-    	
+    	if(Quiz.correct) {
+    		cr.lives += 1;
+    		Quiz.correct = false;
+    	}
     }
    
     /**
