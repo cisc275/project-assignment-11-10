@@ -85,7 +85,7 @@ public class ClapperRail extends Bird {
 		}
 	}
 
-	/**
+	/*
 	 * handles collision with fox f
 	 * 
 	 * @param f
