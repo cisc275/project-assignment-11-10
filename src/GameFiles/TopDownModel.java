@@ -131,7 +131,7 @@ public class TopDownModel extends Model {
 		game.add(b2);
 		cr.bushArr.add(b2);
 		
-		b3 = new Bush(20, 450,175,175);
+		b3 = new Bush(20, 450,150,150);
 		game.add(b3);
 		cr.bushArr.add(b3);
     }
