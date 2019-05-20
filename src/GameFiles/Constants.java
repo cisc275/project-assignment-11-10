@@ -135,7 +135,7 @@ public class Constants implements Serializable {
 	public final static String IMG_FISH_1 = "img/fish/fish_west1.png";
 	public final static String IMG_FISH_2 = "img/fish/fish_west2.png";
 	public final static String IMG_FISH_3 = "img/fish/fish_west3.png";
-	public final static String IMG_FOX = "img/ee.png";
+	public final static String IMG_FOX = "img/fox/fox.png";
 	public final static String IMG_LEFT_KEY = "img/left/left.png";
 	public final static String IMG_LEFT_KEY_1 = "img/left/left_1.png";
 	public final static String IMG_LEFT_KEY_2 = "img/left/left_2.png";
