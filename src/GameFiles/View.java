@@ -146,7 +146,7 @@ public class View extends JFrame implements Serializable {
 	}
 	
 	public BufferedImage getImg(GameObject g, int i) {
-		ArrayList<BufferedImage> LoBI = imgTable.get(g);
+		ArrayList<BufferedImage> LoBI = imgTable.get(g.imgFileName);
 		BufferedImage toReturn;
 		
 		if (LoBI == null) toReturn = this.addImage(g, i);
@@ -201,9 +201,9 @@ public class View extends JFrame implements Serializable {
 		newScaled = new BufferedImage(g.getWidth(), g.getHeight(), BufferedImage.TRANSLUCENT);
 	    Graphics2D g2 = newScaled.createGraphics();
 	    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-	    g2.drawImage(imgTable.get(g).get(0), 0, 0, g.getWidth(), g.getHeight(), null);
+	    g2.drawImage(imgTable.get(g.imgFileName).get(0), 0, 0, g.getWidth(), g.getHeight(), null);
 	    g2.dispose();
-	    imgTable.get(g).add(newScaled);
+	    imgTable.get(g.imgFileName).add(newScaled);
 	    return newScaled;		
 	}
 }
