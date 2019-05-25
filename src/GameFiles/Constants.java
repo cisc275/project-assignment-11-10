@@ -52,6 +52,7 @@ public class Constants implements Serializable {
 	public final static int FISH_X_SPEED_TEST = -50;
 	public final static int FISH_ANIMATION_TICK_RATE = 2;
 	
+	public final static int FOX_HEIGHT_DIVISION_FACTOR = 2;
 	public final static int FOX_INIT_XSPEED = 2;
 	public final static int FOX_INIT_YSPEED = 2;
 	public final static int FOX_START_LOC_X = 400;
@@ -104,8 +105,12 @@ public class Constants implements Serializable {
 	
 	public final static int TO_ANIMATION_TICK_RATE = 2;
 	public final static int TO_DEFAULT_SIZE = 122;
+	public final static int TO_KEY_OFFSET = 100;
 	public final static int TO_SPACE_DEFAULT_WIDTH = 483;
 	public final static int TO_SPACE_DEFUALT_HEIGH = 110;
+	public final static int TO_STICK_DEFAULT_LOCATION = 400;
+	public final static int TO_UP_KEY_DEFAULT_X = 1000;
+	public final static int TO_UP_KEY_DEFAULT_Y = 300;
 	
 	
 	public final static int TIMER_TICK_RATE = 50;

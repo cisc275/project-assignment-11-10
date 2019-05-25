@@ -226,46 +226,51 @@ public class TopDownModel extends Model {
 			}
     		
     		if (tup_key == null) {
-    			tup_key = new TutorialObject(1000, 300, Constants.TO_DEFAULT_SIZE, Constants.TO_DEFAULT_SIZE, Constants.ANIMATION_UP_KEY);
+    			tup_key = new TutorialObject(Constants.TO_UP_KEY_DEFAULT_X, Constants.TO_UP_KEY_DEFAULT_Y, 
+    						Constants.TO_DEFAULT_SIZE, Constants.TO_DEFAULT_SIZE, Constants.ANIMATION_UP_KEY);
     			game.add(tup_key);
     		}
     		
     		if (tdown_key == null && tup_key != null) {
-    			tdown_key = new TutorialObject(tup_key.x, tup_key.y + 100, Constants.TO_DEFAULT_SIZE, Constants.TO_DEFAULT_SIZE, Constants.ANIMATION_DOWN_KEY);
+    			tdown_key = new TutorialObject(tup_key.x, tup_key.y + Constants.TO_KEY_OFFSET, Constants.TO_DEFAULT_SIZE,
+    						Constants.TO_DEFAULT_SIZE, Constants.ANIMATION_DOWN_KEY);
     			game.add(tdown_key);
     		}
     		
     		if (tleft_key == null && tup_key != null) {
-    			tleft_key = new TutorialObject(tup_key.x - 100, tup_key.y + 100, Constants.TO_DEFAULT_SIZE, Constants.TO_DEFAULT_SIZE, Constants.ANIMATION_LEFT_KEY);
+    			tleft_key = new TutorialObject(tup_key.x - Constants.TO_KEY_OFFSET, tup_key.y + Constants.TO_KEY_OFFSET,
+    						Constants.TO_DEFAULT_SIZE, Constants.TO_DEFAULT_SIZE, Constants.ANIMATION_LEFT_KEY);
     			game.add(tleft_key);
     		}
     		
     		if (tright_key == null && tup_key != null) {
-    			tright_key = new TutorialObject(tup_key.x + 100, tup_key.y + 100, Constants.TO_DEFAULT_SIZE, Constants.TO_DEFAULT_SIZE, Constants.ANIMATION_RIGHT_KEY);
+    			tright_key = new TutorialObject(tup_key.x + Constants.TO_KEY_OFFSET, tup_key.y + Constants.TO_KEY_OFFSET, 
+    						Constants.TO_DEFAULT_SIZE, Constants.TO_DEFAULT_SIZE, Constants.ANIMATION_RIGHT_KEY);
     			game.add(tright_key);
     		}
     		
     		if (tstick == null) {
-    			tstick = new Stick(400, 400, (int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE));
+    			tstick = new Stick(Constants.TO_STICK_DEFAULT_LOCATION, Constants.TO_STICK_DEFAULT_LOCATION,
+    						(int)(Constants.STICK_SIZE * Constants.STICK_SCALE), (int)(Constants.STICK_SIZE * Constants.STICK_SCALE));
     			tstick.imgFileName = Constants.ANIMATION_TO_STICK;
     			game.add(tstick);
     		}
     		
     		if (tpow == null) {
     			tpow = new Powerup(0, Constants.FRAME_Y - (int)(Constants.POWERUP_HEIGH * Constants.POWERUP_HEIGH_SCALE),
-    					(int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE), (int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE));
+    						(int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE), (int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE));
     			tpow.imgFileName = Constants.ANIMATION_CRAB;
     			game.add(tpow);
     		}
     		
     		if (f == null) {
-    			f = new Fox(Constants.FRAME_X, Constants.FRAME_Y / 2, Constants.FOX_START_SIZE_X, Constants.FOX_START_SIZE_Y, cr);
+    			f = new Fox(Constants.FRAME_X, Constants.FRAME_Y / Constants.FOX_HEIGHT_DIVISION_FACTOR, Constants.FOX_START_SIZE_X, Constants.FOX_START_SIZE_Y, cr);
     			game.add(f);
     		}
     		
     		if (tarrow == null) {
-    			tarrow_cur_height = (int)(tstick.hitbox.getBounds2D().getMaxY() - nest.hitbox.getBounds2D().getMaxY() - 50);
-    			tarrow_cur_width = (int)(tstick.hitbox.getBounds2D().getMaxX() - nest.hitbox.getBounds2D().getMaxX() - 50);
+    			tarrow_cur_height = (int)(tstick.hitbox.getBounds2D().getMaxY() - nest.hitbox.getBounds2D().getMaxY() - Constants.TA_OFFSET);
+    			tarrow_cur_width = (int)(tstick.hitbox.getBounds2D().getMaxX() - nest.hitbox.getBounds2D().getMaxX() - Constants.TA_OFFSET);
     			tarrow = new TutorialArrow((int)nest.hitbox.getBounds2D().getMaxX(), (int)nest.hitbox.getBounds2D().getMaxY(), 
     					tarrow_cur_width, 
     					tarrow_cur_height,
