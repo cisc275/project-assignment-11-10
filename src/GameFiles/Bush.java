@@ -22,7 +22,6 @@ public class Bush extends NonControllable {
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 */
-	
 	public Bush(int x, int y, int width, int height) {
 		super(x,y,width,height);
 		//this.img = createImage();
@@ -46,8 +45,7 @@ public class Bush extends NonControllable {
 	 * handles collision with fox (prevents it from entering
 	 * @param f
 	 * @author Tim Mazzarelli
-	 */
-	
+	 */	
 	@Override
 	public void handleCollision(Fox f) {
 		Fox.bushColl = true;
@@ -64,35 +62,4 @@ public class Bush extends NonControllable {
 		animate(Constants.BUSH_ANIMATION_TICK_RATE);
 	}
 	
-	/**
-     * returns a BufferedImage that is unscaled
-     * @author Mark Wolgin
-     */
-	//public BufferedImage createImage() {
-	//	BufferedImage bufferedImage;
-    //	try {
-    //		bufferedImage = ImageIO.read(new File(Constants.IMG_BROWN_SQUARE));
-    //		return bufferedImage;
-    //	} catch (IOException e) {
-    //		e.printStackTrace();
-    //	}
-    //	return null;
-	//}
-	
-	/**
-	 * creates bush image
-	 * 
-	 */
-	/*
-	public BufferedImage getImage() {
-		BufferedImage buffImg;
-		try {
-    		buffImg = ImageIO.read(new File(Constants.IMG_BUSH));
-    		return buffImg;
-		} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-		return null;
-	}
-*/
 }
