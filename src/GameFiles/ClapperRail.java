@@ -31,12 +31,12 @@ public class ClapperRail extends Bird {
 	/**
 	 * the bush that is closest to the clapper rail
 	 */
-	Bush closestBush;
+	protected Bush closestBush;
 
 	/**
 	 * an array of Bushes
 	 */
-	ArrayList<Bush> bushArr = new ArrayList<Bush>();
+	protected ArrayList<Bush> bushArr = new ArrayList<Bush>();
 	
 	/**
 	 *  will be used to indicate if the Clapper Rail has made a negative collision
@@ -49,15 +49,14 @@ public class ClapperRail extends Bird {
 	static public boolean posHitCr = false;
 
 	/**
-	 * @param y
-	 * @param x
-	 * @param width
-	 * @param height
+	 * @param x			x location on screen
+	 * @param y			y location on screen
+	 * @param width		image width
+	 * @param height	image height
 	 * 
 	 *               a constructor that takes values for all fields as input
 	 *               parameters
 	 */
-
 	public ClapperRail(int x, int y, int width, int height) {
 		super(x, y, width, height);
 		this.setType(Type.CLAPPERRAIL);
@@ -65,13 +64,11 @@ public class ClapperRail extends Bird {
 		this.ySpeed = 0;
 		this.imgFileName = Constants.ANIMATION_CR_LEFT;
 		this.curImg = randy.nextInt(imgFileName.length);
-		// this.img = createImage();
 	}
 
 	/**
 	 * moves clapperrail according to x and y speed
 	 * 
-	 * @param none
 	 * @author tim Mazzarelli
 	 */
 
@@ -131,19 +128,12 @@ public class ClapperRail extends Bird {
 			// distance formula
 			double i = Math.pow(b.getX() - hitbox.xpoints[0], 2.0) + Math.pow((b.getY() - hitbox.ypoints[0]), 2.0);
 			tmp = Math.sqrt(i);
-			// System.out.print(b + "; ");
 			if (tmp < d || d == 0) {
 				d = tmp;
 				close = b;
 			}
 		}
-		/*
-		 * System.out.println(); System.out.println("CR ========== " +
-		 * hitbox.getBounds());
-		 */closestBush = close;/*
-								 * System.out.println(close); System.out.println();
-								 */
-
+		closestBush = close;
 	}
 
 	/**
@@ -161,68 +151,66 @@ public class ClapperRail extends Bird {
 	}
 
 	/**
-	 * 
-	 * @param hidden
+	 * Sets the hidden boolean
+	 * @param hidden A boolean that will be used to set the local hidden value
+	 * @author Mark Wolgin
 	 */
-
 	public void setHidden(boolean hidden) {
 
 		this.hidden = hidden;
 	}
 
 	/**
-	 * 
-	 * @return carryStick
+	 * Return true if the stick is currently being carried.
+	 * @return carryStick the boolean about carring the stick
+	 * @author Mark Wolgin
 	 */
-
 	public boolean isCarryStick() {
 		return carryStick;
 	}
 
 	/**
-	 * 
-	 * @param carryStick
+	 * Sets the carryStick boolean.
+	 * @param carryStick The boolean to be set for the carryStick
+	 * @author Mark Wolgin
 	 */
 	public void setCarryStick(boolean carryStick) {
 		this.carryStick = carryStick;
 	}
 
 	/**
+	 * Returns the xSpeed
 	 * @return the xSpeed
+	 * @author Mark Wolgin
 	 */
 	public int getxSpeed() {
 		return xSpeed;
 	}
 
 	/**
+	 * Sets the xSpeed
 	 * @param xSpeed the xSpeed to set
+	 * @author Mark Wolgin
 	 */
 	public void setxSpeed(int xSpeed) {
 		this.xSpeed = xSpeed;
 	}
 
 	/**
+	 * Gets the ySpeed
 	 * @return the ySpeed
+	 * @author Mark Wolgin
 	 */
 	public int getySpeed() {
 		return ySpeed;
 	}
 
 	/**
+	 * Sets the ySpeed
 	 * @param ySpeed the ySpeed to set
+	 * @author Mark Wolgin
 	 */
 	public void setySpeed(int ySpeed) {
 		this.ySpeed = ySpeed;
 	}
-
-//	private BufferedImage createImage(){
-//    	BufferedImage bufferedImage;
-//    	try {
-//    		bufferedImage = ImageIO.read(new File(Constants.IMG_THARVEY));
-//    		return bufferedImage;
-//    	} catch (IOException e) {
-//    		e.printStackTrace();
-//    	}
-//    	return null;
-//    }
 }
