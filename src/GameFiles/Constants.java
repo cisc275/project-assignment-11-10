@@ -113,8 +113,8 @@ public class Constants implements Serializable {
 	
 	
 	/// Ints Array
-	public final static int[] BUSH_X_ARR = {800, 600, 20, 1200};
-	public final static int[] BUSH_Y_ARR = {600, 20, 450, 300};
+	public final static int[] BUSH_X_ARR = {800, 600, 20, 1200, 0, 150, 150};
+	public final static int[] BUSH_Y_ARR = {600, 20, 450, 300, 150, 0, 150};
 	
 	
 	/// Doubles
