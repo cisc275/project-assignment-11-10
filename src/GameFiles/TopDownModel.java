@@ -356,7 +356,7 @@ public class TopDownModel extends Model {
      */
     public void handlePwr() {
     	if(Quiz.correct) {
-    		cr.lives += 1;
+    		cr.lives += Constants.POWERUP_LIFE_INCREASE_RATE;
     		Quiz.correct = false;
     	}
     }

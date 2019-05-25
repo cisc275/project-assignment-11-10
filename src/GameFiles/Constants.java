@@ -83,6 +83,7 @@ public class Constants implements Serializable {
 	public final static int OSPREY_ANIMATION_TICK_RATE = 4;
 	
 	public final static int POWERUP_HEIGH = 100;
+	public final static int POWERUP_LIFE_INCREASE_RATE = 1;
 	public final static int POWERUP_SIZE = 50;
 	public final static int POWERUP_SPEED = -50;
 	public final static int POWERUP_DURATION = 100;
