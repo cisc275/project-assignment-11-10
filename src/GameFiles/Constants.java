@@ -35,6 +35,7 @@ public class Constants implements Serializable {
 	public final static int AIRCURRENT_ANIMATION_TICK_RATE = 3;
 	
 	public final static int BUSH_ANIMATION_TICK_RATE = 2;
+	public final static int BUSH_SIZE = 150;
 	
 	public final static int CLAPPER_RAIL_START_LOC_X = 0;
 	public final static int CLAPPER_RAIL_START_LOC_Y = 0;
@@ -67,6 +68,10 @@ public class Constants implements Serializable {
 	public final static int INVISIBLE_WALL_POINTS = 5;
 	
 	public final static int MATE_ANIMATION_TICK_RATE = 4;
+	
+	public final static int NEST_START_SIZE = 50;
+	public final static int NEST_X = 25;
+	public final static int NEST_Y = 25;
 	
 	public final static int OSPREY_STARTX = 100;
 	public final static int OSPREY_DIVESPEED = 40;
@@ -105,6 +110,11 @@ public class Constants implements Serializable {
 	
 	public static int FRAME_X;
 	public static int FRAME_Y;
+	
+	
+	/// Ints Array
+	public final static int[] BUSH_X_ARR = {800, 600, 20, 1200};
+	public final static int[] BUSH_Y_ARR = {600, 20, 450, 300};
 	
 	
 	/// Doubles

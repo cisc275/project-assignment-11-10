@@ -152,7 +152,7 @@ public class TopDownModel extends Model {
     public TopDownModel() {
     	cr = new ClapperRail(Constants.CLAPPER_RAIL_START_LOC_X, Constants.CLAPPER_RAIL_START_LOC_Y,
     			Constants.CLAPPER_RAIL_START_SIZE_X, Constants.CLAPPER_RAIL_START_SIZE_Y);
-    	nest = new Nest(25, 25, 50, 50);
+    	nest = new Nest(Constants.NEST_X, Constants.NEST_Y, Constants.NEST_START_SIZE, Constants.NEST_START_SIZE);
 		game = new ArrayList<GameObject>();
 		inTutoral = true;
     }
@@ -167,19 +167,19 @@ public class TopDownModel extends Model {
     	game.add(nest);
     	game.add(cr);
 		
-		b1 = new Bush(800, 600,150,150);
+		b1 = new Bush(Constants.BUSH_X_ARR[0], Constants.BUSH_Y_ARR[0], Constants.BUSH_SIZE, Constants.BUSH_SIZE);
 		game.add(b1);
 		cr.bushArr.add(b1);
 		
-		b2 = new Bush(600, 20,150,150);
+		b2 = new Bush(Constants.BUSH_X_ARR[1], Constants.BUSH_Y_ARR[1], Constants.BUSH_SIZE, Constants.BUSH_SIZE);
 		game.add(b2);
 		cr.bushArr.add(b2);
 		
-		b3 = new Bush(20, 450,150,150);
+		b3 = new Bush(Constants.BUSH_X_ARR[2], Constants.BUSH_Y_ARR[2], Constants.BUSH_SIZE, Constants.BUSH_SIZE);
 		game.add(b3);
 		cr.bushArr.add(b3);
 		
-		b4 = new Bush(1200, 300, 150, 150);
+		b4 = new Bush(Constants.BUSH_X_ARR[3], Constants.BUSH_Y_ARR[3], Constants.BUSH_SIZE, Constants.BUSH_SIZE);
 		game.add(b4);
 		cr.bushArr.add(b4);
     }
