@@ -125,6 +125,9 @@ public class Constants implements Serializable {
 	public final static int[] BUSH_X_ARR = {800, 600, 20, 1200, 0, 150, 150};
 	public final static int[] BUSH_Y_ARR = {600, 20, 450, 300, 150, 0, 150};
 	
+	public final static int[] STICK_OFFSET_X = {0, 400, 200, 700};
+	public final static int[] STICK_OFFSET_Y = {0, 700, 325, 235};
+	
 	
 	/// Doubles
 	public static double POWERUP_HEIGH_SCALE = 2.0;
