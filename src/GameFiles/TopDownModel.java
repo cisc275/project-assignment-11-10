@@ -278,11 +278,11 @@ public class TopDownModel extends Model {
     		//	This is the code for the arrow to move well
     		//---------------------------------------------
     		if (tstick.visible) {
-    			int tarrow_new_height = (int)(tstick.hitbox.getBounds2D().getMaxY() - nest.hitbox.getBounds2D().getMaxY() - 50);
-    			int tarrow_new_width = (int)(tstick.hitbox.getBounds2D().getMaxX() - nest.hitbox.getBounds2D().getMaxX() - 50);
-    			if (tarrow_new_width > 10 && tarrow_new_height > 10) {
-	    			tarrow.height = (int)(tstick.hitbox.getBounds2D().getMaxY() - nest.hitbox.getBounds2D().getMaxY() - 50);
-	    			tarrow.width = (int)(tstick.hitbox.getBounds2D().getMaxX() - nest.hitbox.getBounds2D().getMaxX() - 50);
+    			int tarrow_new_height = (int)(tstick.hitbox.getBounds2D().getMaxY() - nest.hitbox.getBounds2D().getMaxY() - Constants.TA_OFFSET);
+    			int tarrow_new_width = (int)(tstick.hitbox.getBounds2D().getMaxX() - nest.hitbox.getBounds2D().getMaxX() - Constants.TA_OFFSET);
+    			if (tarrow_new_width > Constants.TA_IMG_SAFTEY_MARGIN && tarrow_new_height > Constants.TA_IMG_SAFTEY_MARGIN) {
+	    			tarrow.height = (int)(tstick.hitbox.getBounds2D().getMaxY() - nest.hitbox.getBounds2D().getMaxY() - Constants.TA_OFFSET);
+	    			tarrow.width = (int)(tstick.hitbox.getBounds2D().getMaxX() - nest.hitbox.getBounds2D().getMaxX() - Constants.TA_OFFSET);
 	    			tarrow.resetPoly();
 	    			if (tarrow_new_height != tarrow_cur_height || tarrow_new_width != tarrow_cur_width) {
 	        			tarrow.curImg ++;
@@ -310,8 +310,7 @@ public class TopDownModel extends Model {
     			}
     			else if (cr.hitbox.getBounds2D().intersects(b1.hitbox.getBounds2D())) {
     				f.move();
-    				//System.out.println("in bush");
-    			}
+				}
     			else {
     				f.visible = false;
     				game.remove(f);
@@ -331,7 +330,6 @@ public class TopDownModel extends Model {
 				}
     		}
     		else {
-    			//System.out.println("Hit");
 	    		this.postTutorial();
 	    		Model.inTutoral = false;
     		}
@@ -367,7 +365,7 @@ public class TopDownModel extends Model {
 	 * runs the top down
 	 */
 	public static void main(String[] args) {
-		new Controller("topDown");
+		new Controller(Constants.TOP_DOWN_STRING);
 		
 	}
 

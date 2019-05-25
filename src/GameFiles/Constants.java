@@ -99,6 +99,9 @@ public class Constants implements Serializable {
     public final static int TDM_RIGHT_BOUND = 800;
 	public final static int TDM_UPDATELOCATION_STICK_COUNT = 3;
 	
+	public final static int TA_OFFSET = 50;
+	public final static int TA_IMG_SAFTEY_MARGIN = 10;
+	
 	public final static int TO_ANIMATION_TICK_RATE = 2;
 	public final static int TO_DEFAULT_SIZE = 122;
 	public final static int TO_SPACE_DEFAULT_WIDTH = 483;
@@ -127,6 +130,8 @@ public class Constants implements Serializable {
 	
 
 	/// Strings
+	public final static String TOP_DOWN_STRING = "topDown";
+	
 	public final static String IMG_AIRCURRENT = "img/aircurrent.png";
 	public final static String IMG_AIRCURRENT_1 = "img/aircurrent/aircurrent_1.png";
 	public final static String IMG_AIRCURRENT_2 = "img/aircurrent/aircurrent_2.png";
