@@ -92,6 +92,7 @@ public class Constants implements Serializable {
 	public final static int MATE_CAUGHT_SPEED = -10;
 	
 	public final static int MIGRATION_OFFSET = 10;
+	public final static int MIGRATION_ADJUST = 1;
 	
 	public final static int NEST_START_SIZE = 50;
 	public final static int NEST_X = 25;

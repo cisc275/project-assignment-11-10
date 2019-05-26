@@ -153,7 +153,7 @@ public class EndScreen extends JDialog implements KeyListener {
 		if (game.equals(Constants.SIDE_SCROLL_STRING)){
 			timer = new JLabel("You completed migration in " + (Constants.MIGRATION_OFFSET*
 					(Osprey.time/Constants.TIMER_TICK_RATE 
-							+ Constants.MIGRATION_OFFSET)/Constants.MIGRATION_OFFSET + 1)/Constants.MIGRATION_OFFSET 
+							+ Constants.MIGRATION_OFFSET)/Constants.MIGRATION_OFFSET + Constants.MIGRATION_ADJUST)/Constants.MIGRATION_OFFSET 
 					+ " weeks", SwingConstants.CENTER);
 			timer.setOpaque(false);
 			timer.setForeground(Color.BLACK);
