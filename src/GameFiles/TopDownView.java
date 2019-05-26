@@ -86,6 +86,7 @@ public class TopDownView extends View{
 		/**
 		 * this method paints our game upon our Draw(J)panel
 		 * @param g
+		 * @author Peter Jenny
 		 */
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
@@ -113,6 +114,7 @@ public class TopDownView extends View{
 	/**
 	 * creates buffered image for background
 	 * @return BufferedImage
+	 * @author Peter Jenny
 	 */
 	private BufferedImage createImage(){
 		BufferedImage bufferedImage;
@@ -129,6 +131,7 @@ public class TopDownView extends View{
 	/**
 	 * creates buffered image for life display
 	 * @return BufferedImage
+	 * @author Peter Jenny
 	 */
 	private BufferedImage createLives(){
 		BufferedImage bufferedImage;
@@ -143,6 +146,7 @@ public class TopDownView extends View{
 	/**
 	 * creates buffered image for esc button
 	 * @return BufferedImage
+	 * @author andrew thompson
 	 */
 	private BufferedImage createEsc(){
 		BufferedImage bufferedImage;
