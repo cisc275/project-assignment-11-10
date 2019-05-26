@@ -4,7 +4,6 @@ package GameFiles;
 import java.util.ArrayList;
 
 
-
 /**
  * represents the Fox object in the clapperrail game 
  *
@@ -47,13 +46,14 @@ public class Fox extends Controllable {
 	public int bushPause = 0;
 	
 	/**
-	 * @param y
-	 * @param x
-	 * @param width
-	 * @param height
-	 * @param c
+	 * @param x			x location on screen
+	 * @param y			y location on screen
+	 * @param width		image width
+	 * @param height	image height
+	 * @param c         fox's clapper rail
 	 * 
-	 * a constructor that takes values for all fields as input parameters
+	 *               a constructor that takes values for all fields as input
+	 *               parameters
 	 */
 	
 	public Fox(int x, int y, int width, int height, ClapperRail c) {

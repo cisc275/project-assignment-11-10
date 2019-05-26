@@ -14,13 +14,13 @@ import javax.imageio.ImageIO;
 public class Fish extends Collectable {
 	
 	/**
-	 * @param y
-	 * @param x
-	 * @param width
-	 * @param height
-	 * @param hitbox
+	 * @param x			x location on screen
+	 * @param y			y location on screen
+	 * @param width		image width
+	 * @param height	image height
 	 * 
-	 * a constructor that takes values for all fields as input parameters
+	 *               a constructor that takes values for all fields as input
+	 *               parameters
 	 */
 
 	public Fish(int x, int y, int width, int height) {

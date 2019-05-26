@@ -66,12 +66,12 @@ public class GameObject implements Serializable{
 	protected int height;
 	
 	/**
-	 * 
+	 * index of Animation array
 	 */
 	protected int curImg;
 	
 	/**
-	 * 
+	 * number of ticks for the animation
 	 */
 	protected int curImgTickCount;
 	
@@ -91,12 +91,13 @@ public class GameObject implements Serializable{
 	protected Random randy;
 
 	/**
-	 * @param x
-	 * @param y 
-	 * @param width
-	 * @param height
+	 * @param x			x location on screen
+	 * @param y			y location on screen
+	 * @param width		image width
+	 * @param height	image height
 	 * 
-	 * A constructor that takes values for all fields as input parameters
+	 *               a constructor that takes values for all fields as input
+	 *               parameters
 	 */
 	public GameObject(int x, int y, int width, int height) {
 		this.x = x;
