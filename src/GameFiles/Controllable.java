@@ -15,12 +15,12 @@ public class Controllable extends GameObject {
 	 */
 	private int xSpeed;
 	
-	
 	/**
 	 * speed with which you move up and down
 	 */
 	private int ySpeed;
 		
+	
 	/**
 	 * @param x			x location on screen
 	 * @param y			y location on screen
@@ -34,13 +34,13 @@ public class Controllable extends GameObject {
 		
 	}
 	
+	
 	/**
 	 * checks for Controllable object colliding with the walls
 	 * 
 	 * @author tim mazzarelli
 	 * 
 	 */ 
-	
 	public void boundaries() {
 		// if the y is at the top of the screen
 		if (this.hitbox.getBounds2D().getMinY() <= Constants.FRAME_Y - Constants.FRAME_Y) {
@@ -56,8 +56,8 @@ public class Controllable extends GameObject {
 			this.hitbox.addPoint(x4, height - height);
 							
 		}
-		
-		if (this.hitbox.ypoints[1] >= Constants.FRAME_Y) {
+		 //  at bottom of screen
+		if (this.hitbox.getBounds2D().getMaxY() >= Constants.FRAME_Y) {
 			int x1 = (int)this.hitbox.getBounds2D().getMinX();
 			int x2 = (int)this.hitbox.getBounds2D().getMinX();
 			int x3 = (int)this.hitbox.getBounds2D().getMaxX();
@@ -69,7 +69,9 @@ public class Controllable extends GameObject {
 			this.hitbox.addPoint(x3, Constants.FRAME_Y);
 			this.hitbox.addPoint(x4, Constants.FRAME_Y - height);			
 		}
-		if (this.hitbox.xpoints[3] >= Constants.FRAME_X) {
+		
+		// at right boundary of screen
+		if (this.hitbox.getBounds2D().getMaxX() >= Constants.FRAME_X) {
 			int y1 = (int)this.hitbox.getBounds2D().getMinY();
 			int y2 = (int)this.hitbox.getBounds2D().getMaxY();
 			int y3 = (int)this.hitbox.getBounds2D().getMaxY();
@@ -81,7 +83,7 @@ public class Controllable extends GameObject {
 			this.hitbox.addPoint(Constants.FRAME_X, y3);
 			this.hitbox.addPoint(Constants.FRAME_X, y4);		
 		}
-		
+		// at left boundary of screen
 		if (this.hitbox.getBounds2D().getMinX() <= Constants.FRAME_X - Constants.FRAME_X) {
 			int y1 = (int)this.hitbox.getBounds2D().getMinY();
 			int y2 = (int)this.hitbox.getBounds2D().getMaxY();
@@ -96,6 +98,7 @@ public class Controllable extends GameObject {
 		}
 	}
 
+	
 	/**
 	 * gives you xSpeed of the controllable object
 	 * @return xSpeed 

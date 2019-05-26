@@ -208,6 +208,7 @@ public class Fox extends Controllable {
 	public void boundaries() {
 		if (Model.inTutoral) {	
 		} else {
+			// top of screen
 			if (this.hitbox.getBounds2D().getMinY() <= Constants.FRAME_Y - Constants.FRAME_Y) {
 				int x1 = (int)this.hitbox.getBounds2D().getMinX();
 				int x2 = (int)this.hitbox.getBounds2D().getMinX();
@@ -221,8 +222,8 @@ public class Fox extends Controllable {
 				this.hitbox.addPoint(x4, height - height);
 								
 			}
-			
-			if (this.hitbox.ypoints[1] >= Constants.FRAME_Y) {
+			//bottom of screen
+			if (this.hitbox.getBounds2D().getMaxY() >= Constants.FRAME_Y) {
 				int x1 = (int)this.hitbox.getBounds2D().getMinX();
 				int x2 = (int)this.hitbox.getBounds2D().getMinX();
 				int x3 = (int)this.hitbox.getBounds2D().getMaxX();
@@ -234,7 +235,8 @@ public class Fox extends Controllable {
 				this.hitbox.addPoint(x3, Constants.FRAME_Y);
 				this.hitbox.addPoint(x4, Constants.FRAME_Y - height);			
 			}
-			if (this.hitbox.xpoints[3] >= Constants.FRAME_X) {
+			// right side of screen
+			if (this.hitbox.getBounds2D().getMaxX() >= Constants.FRAME_X) {
 				int y1 = (int)this.hitbox.getBounds2D().getMinY();
 				int y2 = (int)this.hitbox.getBounds2D().getMaxY();
 				int y3 = (int)this.hitbox.getBounds2D().getMaxY();
@@ -247,6 +249,7 @@ public class Fox extends Controllable {
 				this.hitbox.addPoint(Constants.FRAME_X, y4);		
 			}
 			
+			// left of screen
 			if (this.hitbox.getBounds2D().getMinX() <= Constants.FRAME_X - Constants.FRAME_X) {
 				int y1 = (int)this.hitbox.getBounds2D().getMinY();
 				int y2 = (int)this.hitbox.getBounds2D().getMaxY();
