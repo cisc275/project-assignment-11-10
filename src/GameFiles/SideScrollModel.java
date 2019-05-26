@@ -412,15 +412,6 @@ public class SideScrollModel extends Model {
 		}
 	}
 
-	/**
-	 * 
-	 * this method will contain the logic for advancing the icon on the minimap to
-	 * show progress during the birds migration
-	 */
-	public void miniMap(ArrayList<GameObject> g) {
-		g.get(0).setY(g.get(0).getY() + 5);
-	}
-
 	public static void main(String[] args) {
 		new Controller(Constants.SIDE_SCROLL_STRING);
 

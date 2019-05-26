@@ -10,26 +10,16 @@ import java.io.File;
 public class Bird extends Controllable{
 	
 	/**
-	 * @param y
-	 * @param x
-	 * @param width
-	 * @param height
+	 * @param x			x location on screen
+	 * @param y			y location on screen
+	 * @param width		image width
+	 * @param height	image height
 	 * 
-	 * constructor
+	 *               a constructor that takes values for all fields as input
+	 *               parameters
 	 */
 	
 	public Bird(int x, int y, int width, int height) {
 		super(x,y,width, height);		
 	}
-	
-
-
-	/**
-	 * @return the mOVE_AMOUNT
-	 */
-	public int getMOVE_AMOUNT() {
-		return Constants.BIRD_MOVE_AMOUNT;
-	}
-	
-	
 }

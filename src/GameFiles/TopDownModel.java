@@ -129,17 +129,17 @@ public class TopDownModel extends Model {
 	    	
 	    	case Constants.RIGHT_KEY_CODE:
 	    		//System.out.println("right pressed");
-				cr.setxSpeed(cr.getMOVE_AMOUNT());
+				cr.setxSpeed(Constants.BIRD_MOVE_AMOUNT);
 				break;
 	    	case Constants.LEFT_KEY_CODE:
 	    	//	System.out.println("left pressed");
-				cr.setxSpeed(-cr.getMOVE_AMOUNT());
+				cr.setxSpeed(Constants.BIRD_MOVE_AMOUNT);
 				break;
 	    	case Constants.UP_KEY_CODE:
-				cr.setySpeed(-cr.getMOVE_AMOUNT());
+				cr.setySpeed(-Constants.BIRD_MOVE_AMOUNT);
 				break;
 	    	case Constants.DOWN_KEY_CODE:
-	    		cr.setySpeed(cr.getMOVE_AMOUNT());
+	    		cr.setySpeed(Constants.BIRD_MOVE_AMOUNT);
 				break;
 			}
     	}
