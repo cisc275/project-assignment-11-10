@@ -30,7 +30,7 @@ public class Mate extends Bird {
 		this.imgFileName = Constants.ANIMATION_OSPREY;
 		this.curImg = randy.nextInt(imgFileName.length);
 		Mate.caughtUp = false;
-		this.setxSpeed(-10);
+		this.setxSpeed(Constants.MATE_CAUGHT_SPEED);
 	}
 	
 	/**
@@ -39,15 +39,15 @@ public class Mate extends Bird {
 	 */
 
 	public void move() {
-		if (this.hitbox.xpoints[0] <= Constants.OSPREY_STARTX) {
+		if (this.hitbox.getBounds2D().getMaxX() <= Constants.OSPREY_STARTX) {
 			this.hitbox.reset();
 			Mate.caughtUp = true;
 		}
 		else if (Osprey.distance >= Osprey.maxDistance) {
-			this.hitbox.translate(this.getxSpeed(), 0);	
+			this.hitbox.translate(this.getxSpeed(), Constants.MATE_INIT_SPEED);	
 		}
 		else {
-			this.hitbox.translate(0, 0);
+			this.hitbox.translate(Constants.MATE_INIT_SPEED, Constants.MATE_INIT_SPEED);
 			}
 		this.animate(Constants.MATE_ANIMATION_TICK_RATE);
 	}

@@ -86,6 +86,8 @@ public class Constants implements Serializable {
 	public final static int INVISIBLE_WALL_POINTS = 5;
 	
 	public final static int MATE_ANIMATION_TICK_RATE = 4;
+	public final static int MATE_INIT_SPEED = 0;
+	public final static int MATE_CAUGHT_SPEED = -10;
 	
 	public final static int NEST_START_SIZE = 50;
 	public final static int NEST_X = 25;

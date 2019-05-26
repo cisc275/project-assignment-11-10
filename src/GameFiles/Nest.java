@@ -48,20 +48,5 @@ public class Nest extends GameObject{
 		}
 	}
 	
-	
-	
-
-//	private BufferedImage createImage(){
-//		BufferedImage bufferedImage;
-//    	try {
-//    		bufferedImage = ImageIO.read(new File(Constants.IMG_NEST));
-//    		return bufferedImage;
-//    	} catch (IOException e) {
-//    		e.printStackTrace();
-//    	}
-//    	return null;
-//	}
+		
 }
-	
-	
-	
