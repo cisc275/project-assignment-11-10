@@ -176,8 +176,20 @@ public class Quiz extends JDialog implements KeyListener{
 		p.setIgnoreRepaint(true);
 	}
 	
+	/**
+	 * class that draws our JPanel
+	 * @author Tim mazzarelli
+	 *
+	 */
 	private class DrawPanel extends JPanel{
 		
+		/**
+		 * creates the image that we want on our Quiz background
+		 * depends on what game you're in or if you
+		 * won the Osprey game
+		 * @return BufferedImage
+		 * @author Tim Mazzarelli
+		 */
 		private BufferedImage createImage(){
 			BufferedImage bufferedImage;
 	    	try {
@@ -201,6 +213,10 @@ public class Quiz extends JDialog implements KeyListener{
 		}
 			
 		
+		/**
+		 * draws our created image onto the JPanel
+		 * @param g
+		 */
 		@Override
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
@@ -242,7 +258,6 @@ public class Quiz extends JDialog implements KeyListener{
 	public void questionNumber() {
 		Random r = new Random();
 		qNumber = r.nextInt(Constants.QUIZ_QUESTIONS);
-	//	qNumber = (Integer) qNumber;
 		if (previousNumbers != null) {
 			if (previousNumbers.contains(qNumber)) {
 				questionNumber();	
@@ -614,12 +629,6 @@ public class Quiz extends JDialog implements KeyListener{
 		}
 	}
 	
-	
-	
-	
-	public static void main(String[] args) {
-		new Quiz(Constants.TOP_DOWN_STRING);
-	}
 	
 	
 	
