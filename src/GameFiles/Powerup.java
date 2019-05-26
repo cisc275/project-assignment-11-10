@@ -21,7 +21,7 @@ public class Powerup extends Collectable {
 	 */
 	public Powerup(int x, int y, int width, int height) {
 		super(x, y, width, height);
-		this.setxSpeed(-20);
+		this.setxSpeed(Constants.POWERUP_SPEED);
 		this.imgFileName = Constants.ANIMATION_CRAB;
 		this.curImg = randy.nextInt(imgFileName.length);
 	}
@@ -36,11 +36,18 @@ public class Powerup extends Collectable {
 	@Override
 	public void handleCollision(ClapperRail cr) {
 		resetPoly();
-		cr.setxSpeed(0);
-		cr.setySpeed(0);
+		cr.setxSpeed(Constants.CLAPPER_RAIL_START_XSPEED);
+		cr.setySpeed(Constants.CLAPPER_RAIL_START_YSPEED);
 		power = true;
 		new Quiz(Constants.TOP_DOWN_STRING);		
 	}
+	
+	/**
+	 * How the powerup moves, also how it animates itself
+	 * similar to all collectables
+	 * according to it's tickrate
+	 * @author Tim Mazzarelli
+	 */
 	
 	@Override
 	public void move() {
@@ -50,22 +57,6 @@ public class Powerup extends Collectable {
 		}
 		this.animate(Constants.CRAB_ANIMATION_TICK_RATE);
 	}
-	
-	
-	/**
-	 * 
-	 *  Resets Polygon with its origin at x, y and its size to be its width and height
-	 * 
-	 * @author Peter Jenny
-	 */
-	public void resetPoly() {
-		this.hitbox.reset();
-		this.hitbox.addPoint(x + Constants.FRAME_X, y);
-		this.hitbox.addPoint(x + Constants.FRAME_X, y + height);
-		this.hitbox.addPoint(x + Constants.FRAME_X + width, y + height);
-		this.hitbox.addPoint(x + Constants.FRAME_X + width, y);
-	}
-	
 	
 	
 	/**
@@ -83,7 +74,5 @@ public class Powerup extends Collectable {
 		new Quiz(Constants.SIDE_SCROLL_STRING);
 	
 	}
-
-
 
 }

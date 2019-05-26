@@ -17,9 +17,11 @@ import javax.imageio.ImageIO;
  */
 public class Osprey extends Bird {
 	
-	int count = 0;
-	static int time = 0;
-	int lowCount = 0;
+	/**
+	 * tells you how long you have played the game for
+	 */
+	static int time = Constants.OSPREY_START_TIME;
+	
 	/**
 	 *  the xSpeed which determines how fast you will travel (behind the scenes not actually)
 	 */
@@ -29,29 +31,25 @@ public class Osprey extends Bird {
 	/**
 	 *  for storing y before diving
 	 */
-	int currY;
+	private int currY;
 	
 	/**
 	 *  to check if the Osprey is diving
 	 */
-	boolean isDiving;
+	private boolean isDiving;
 	
 	/**
 	 * current distance of the Osprey
 	 */
 	
-	static double distance;
+	static double distance = Constants.OSPREY_START_DISTANCE;
 	
 	/**
 	 *  total distance the osprey can travel
 	 */
 	static double maxDistance = Constants.OSPREY_MAX_DISTANCE;
 	
-	/**
-	 *  maximum y speed
-	 */
-	
-	final int MAX_Y_SPEED;
+
 	
 	/**
 	 *  will be used to indicate if the osprey has made a negative collision
@@ -77,13 +75,9 @@ public class Osprey extends Bird {
 		super(x, y, width, height);
 		this.imgFileName = Constants.ANIMATION_OSPREY;
 		this.curImg = randy.nextInt(imgFileName.length);
-		Osprey.xSpeed = -10;
-		this.setySpeed(0);
+		Osprey.xSpeed = Constants.OSPREY_INIT_XSPEED;
+		this.setySpeed(Constants.OSPREY_INIT_YSPEED);
 		this.isDiving = false;
-		distance = 0;
-		MAX_Y_SPEED = (int)(height/4);
-		this.setType(Type.OSPREY);
-		Osprey.time = 0;
 	}
 
 	
@@ -98,8 +92,8 @@ public class Osprey extends Bird {
 	public void dive() {
 			this.isDiving = !this.isDiving;
 			this.setySpeed(Constants.OSPREY_DIVESPEED);
-			this.currY = this.hitbox.ypoints[0];
-			this.hitbox.translate(0, this.getySpeed());
+			this.currY = (int) this.hitbox.getBounds2D().getMinY();
+			this.hitbox.translate(Constants.OSPREY_INIT_XSPEED, this.getySpeed());
 		}
 		
 	
@@ -114,29 +108,17 @@ public class Osprey extends Bird {
 		if (Osprey.xSpeed < Constants.OSPREY_MAX_SPEED) {
 			Osprey.xSpeed = Constants.OSPREY_MAX_SPEED;
 		}
-		if (this.hitbox.ypoints[0] <= this.height) {
-			count++;
-			if (count % 30 == 0) {
-				Osprey.xSpeed -= 1;
-			}
-		}
-		if (this.hitbox.ypoints[1] >= Constants.FRAME_Y - this.height) {
-			lowCount++;
-			if (lowCount % 30 == 0) {
-				Osprey.xSpeed += 1;
-			}
-		}
-		this.hitbox.translate(0, this.getySpeed());
-		if (this.hitbox.ypoints[2] >= Constants.FRAME_Y) {
+		this.hitbox.translate(Constants.OSPREY_INIT_XSPEED, this.getySpeed());
+		if (this.hitbox.getBounds2D().getMaxY() >= Constants.FRAME_Y) {
 			this.setySpeed(-this.getySpeed());
 		}
 		if (Model.inTutoral == false) {
 			distance -= Osprey.xSpeed; 
 			time++;
 		}
-		if ((this.hitbox.ypoints[0] <= this.currY) && (this.isDiving == true)) {
+		if ((this.hitbox.getBounds2D().getMinY() <= this.currY) && (this.isDiving == true)) {
 			this.isDiving = !this.isDiving;
-			this.setySpeed(0);
+			this.setySpeed(Constants.OSPREY_INIT_YSPEED);
 		}
 		boundaries();
 		this.animate(Constants.OSPREY_ANIMATION_TICK_RATE);
@@ -159,8 +141,10 @@ public class Osprey extends Bird {
 
 
 	/**
-	 * 
+	 * returns the current y that you are at, will be used
+	 * to return to same place when diving
 	 * @return currY
+	 * @author Tim Mazzarelli
 	 */
 	public int getCurrY() {
 		return currY;
@@ -168,8 +152,9 @@ public class Osprey extends Bird {
 
 
 	/**
-	 * 
+	 * where you set your current y
 	 * @param currY
+	 * @author Tim Mazzarelli
 	 */
 	public void setCurrY(int currY) {
 		this.currY = currY;
@@ -177,17 +162,19 @@ public class Osprey extends Bird {
 
 
 	/**
-	 * 
+	 * tells you if the player is currently diving
 	 * @return isDiving
+	 * @author Timothy Mazzarelli
 	 */
-	public boolean isDiving() {
+	public boolean getisDiving() {
 		return isDiving;
 	}
 
 
 	/**
-	 * 
+	 * you can set whether or not the player is diving
 	 * @param isDiving
+	 * @author Timothy Mazzarelli
 	 */
 	public void setDiving(boolean isDiving) {
 		this.isDiving = isDiving;
@@ -195,16 +182,7 @@ public class Osprey extends Bird {
 
 
 	/**
-	 * 
-	 * @return MAX_Y_SPEED
-	 */
-	public int getMaxYSpeed() {
-		return MAX_Y_SPEED;
-	}
-
-
-	/**
-	 * 
+	 * you 
 	 * @param xSpeed
 	 */
 	public void setXSpeed(int xSpeed) {

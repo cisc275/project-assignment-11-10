@@ -18,7 +18,6 @@ public class NonControllable extends GameObject {
 	 * a constructor that takes values for all fields as input parameters
 	 */
 	
-
 	public NonControllable(int x, int y, int width, int height) {
 		super(x,y,width,height);
 	}

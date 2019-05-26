@@ -186,7 +186,7 @@ public class SideScrollModel extends Model {
 			}
 
 			if (tpow == null) {
-				tpow = new Powerup(0, (int) (Constants.FRAME_Y * .9), (int) (Constants.FRAME_X * .05),
+				tpow = new Powerup((int) (Constants.FRAME_X * 1.1), (int) (Constants.FRAME_Y * .9), (int) (Constants.FRAME_X * .05),
 						(int) (Constants.FRAME_Y * .05));
 				// Constants.FRAME_X
 				game.add(tpow);
@@ -390,18 +390,18 @@ public class SideScrollModel extends Model {
 			keyPresses.clear();
 			Quiz.answered = false;
 		}
-		if (!o.isDiving) {
+		if (!o.getisDiving()) {
 			o.setySpeed(0);
 			for (Integer key : keyPresses) {
 				switch (key) {
 				case Constants.UP_KEY_CODE:
-					if (!o.isDiving) {
-						o.setySpeed(-o.getMaxYSpeed());
+					if (!o.getisDiving()) {
+						o.setySpeed(-Constants.OSPREY_MAX_YSPEED);
 					}
 					break;
 				case Constants.DOWN_KEY_CODE:
-					if (!o.isDiving) {
-						o.setySpeed(o.getMaxYSpeed());
+					if (!o.getisDiving()) {
+						o.setySpeed(Constants.OSPREY_MAX_YSPEED);
 					}
 
 					break;

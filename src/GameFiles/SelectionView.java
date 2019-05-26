@@ -49,10 +49,10 @@ public class SelectionView extends View implements KeyListener{
 	
 	public SelectionView(ArrayList<GameObject> g) {
 		DrawPanel dp = new DrawPanel();
-		Dimension fullScreen = new Dimension(1920,1080);
-		dp.setMinimumSize(fullScreen);
-		dp.setPreferredSize(fullScreen);
-		dp.setMaximumSize(fullScreen);
+//		Dimension fullScreen = new Dimension(Constants.FRAME_X,1080);
+//		dp.setMinimumSize(fullScreen);
+//		dp.setPreferredSize(fullScreen);
+//		dp.setMaximumSize(fullScreen);
 		game = g;
 //		osprey = new JButton(new ImageIcon(Constants.IMG_SELECT_OSPREY));
 //		clapperRail = new JButton(new ImageIcon(Constants.IMG_SELECT_CLAPPER_RAIL));
@@ -70,7 +70,7 @@ public class SelectionView extends View implements KeyListener{
 		this.add(dp);
 		dp.add(osprey);
 		dp.add(clapperRail);
-	
+		System.out.println(screenSize);
 		this.setSize(screenSize.getSize());
 		this.setUndecorated(true);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);

@@ -45,6 +45,8 @@ public class Constants implements Serializable {
 	public final static int CLAPPER_RAIL_START_LOC_Y = 0;
 	public final static int CLAPPER_RAIL_START_SIZE_X = 100;
 	public final static int CLAPPER_RAIL_START_SIZE_Y = 100;
+	public final static int CLAPPER_RAIL_START_XSPEED = 0;
+	public final static int CLAPPER_RAIL_START_YSPEED = 0;
 	public final static int CLAPPER_RAIL_ANIMATION_TICK_RATE = 1;
 	public final static int CLAPPER_RAIL_LIVES_END_STATE = 0;
 	public final static int CLAPPER_RAIL_LIVE_LOSS = -1;
@@ -89,11 +91,15 @@ public class Constants implements Serializable {
 	public final static int MATE_INIT_SPEED = 0;
 	public final static int MATE_CAUGHT_SPEED = -10;
 	
+	public final static int MIGRATION_OFFSET = 10;
+	
 	public final static int NEST_START_SIZE = 50;
 	public final static int NEST_X = 25;
 	public final static int NEST_Y = 25;
 	
 	public final static int OSPREY_STARTX = 100;
+	public final static int OSPREY_START_DISTANCE = 0;
+	public final static int OSPREY_START_TIME = 0;
 	public final static int OSPREY_DIVESPEED = 40;
 	public final static int OSPREY_MAX_HEIGHT = 600;
 	public final static int OSPREY_WATER_LEVEL = 400;
@@ -102,11 +108,13 @@ public class Constants implements Serializable {
 	public final static int OSPREY_MAX_DISTANCE = 26000;
 	public final static int OSPREY_ANIMATION_TICK_RATE = 4;
 	public final static int OSPREY_INIT_YSPEED = 0;
+	public final static int OSPREY_INIT_XSPEED = 0;
+	public final static int OSPREY_MAX_YSPEED = 20;
 	
 	public final static int POWERUP_HEIGH = 100;
 	public final static int POWERUP_LIFE_INCREASE_RATE = 1;
 	public final static int POWERUP_SIZE = 50;
-	public final static int POWERUP_SPEED = -50;
+	public final static int POWERUP_SPEED = -30;
 	public final static int POWERUP_DURATION = 100;
 	
 	public final static int STICK_ANIMATION_TICK_RATE = 2;
@@ -131,6 +139,8 @@ public class Constants implements Serializable {
 	public final static int TO_STICK_DEFAULT_LOCATION = 400;
 	public final static int TO_UP_KEY_DEFAULT_X = 1000;
 	public final static int TO_UP_KEY_DEFAULT_Y = 300;
+	
+	public final static int TEXT_SIZE = 30;
 	
 	
 	public final static int TIMER_TICK_RATE = 50;
