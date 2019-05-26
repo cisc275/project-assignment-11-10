@@ -122,6 +122,7 @@ public class Constants implements Serializable {
 	public final static int STICK_HANDLECOLLISION_OFFSET = 30;
 	public final static int STICK_SIZE = 40;
 	public final static int STICK_END_COUNT = 3;
+	public final static int STICK_RESET = 0;
 	
     public final static int TDM_BOUND_OFFSET = 134;
     public final static int TDM_CLOCK_TICK_CHECK = 100;
@@ -485,6 +486,7 @@ public class Constants implements Serializable {
 	public final static JButton END_SCREEN_OSPREY_CONGRATS = new JButton("Congratulations! You caught your mate!");
 	public final static JButton END_SCREEN_CR_CONGRATS = new JButton("You attracted a mate! Congratulations!");
 	public final static JButton END_SCREEN_MENU = new JButton(" Press UP ARROW KEY to return to Main Menu");
+
 	
 	/// Doubles
 	public final static double IMG_SCALE_RATIO_X = FRAME_X/800;
