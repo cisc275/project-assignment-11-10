@@ -122,6 +122,7 @@ public class Controller implements KeyListener, ActionListener{
 		
 	/**
 	 * starts timers and actions for sideScroll
+	 * @author andrew thompson
 	 */
 	public void start() {
 
@@ -164,7 +165,6 @@ public class Controller implements KeyListener, ActionListener{
 	 * @param e
 	 * @author Tim Mazzarelli
 	 */
-	
 	@Override 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == SelectionView.clapperRail) {
@@ -176,11 +176,11 @@ public class Controller implements KeyListener, ActionListener{
         	new Controller("sideScroll");
         }
 	}
-	
+	/**
+	 * required method to implement, does nothing in our case
+	 */
 	@Override
-	public void keyTyped(KeyEvent e) {
-		
-	}
+	public void keyTyped(KeyEvent e) {}
 
 	// sets speed according to game input
 	
