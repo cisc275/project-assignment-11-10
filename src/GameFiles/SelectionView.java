@@ -125,7 +125,7 @@ public class SelectionView extends View implements KeyListener{
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			image = createImage();
-			g.drawImage(image, Constants.FRAME_X - Constants.FRAME_X, Constants.FRAME_Y - Constants.FRAME_Y, this);
+			g.drawImage(image, Constants.VIEW_ORIGIN, Constants.VIEW_ORIGIN, this);
 		}
 	}
 	

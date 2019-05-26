@@ -21,6 +21,7 @@ public class Constants implements Serializable {
 	/// ints
 	public final static int g = 10;
 	
+	
 	public final static int BIRD_MOVE_AMOUNT = 10;
 	
 	public final static int RIGHT_KEY_CODE = 39;
@@ -32,6 +33,7 @@ public class Constants implements Serializable {
 	public final static int TILDA_KEY_CODE = 192;
 	public final static int ONE_KEY_CODE = 49;
 	
+	public final static int AIRCURRENT_WIDTH_HEIGHT = 200;
 	public final static int AIRCURRENT_ANIMATION_TICK_RATE = 3;
 	public final static int AIRCURRENT_OFFSET = 2;
 	
@@ -89,6 +91,8 @@ public class Constants implements Serializable {
 	public final static int LINUX_SCREEN_SCALE_Y = 108;
 	
 	public final static int INVISIBLE_WALL_POINTS = 5;
+	public final static int INVISIBLE_WALL_WIDTH = 300;
+	public final static int INVISIBLE_WALL_HEIGHT = 100;
 	
 	public final static int MATE_ANIMATION_TICK_RATE = 4;
 	public final static int MATE_INIT_SPEED = 0;
@@ -101,10 +105,10 @@ public class Constants implements Serializable {
 	public final static int NEST_X = 25;
 	public final static int NEST_Y = 25;
 	
-	public final static int OSPREY_STARTX = (int) (Constants.getFRAME_X() * 0.1);
-	public final static int OSPREY_STARTY = (int) (Constants.getFRAME_Y() * 0.1);
-	public final static int OSPREY_WIDTH = (int) (Constants.getFRAME_X() * 0.1);
-	public final static int OSPREY_HEIGHT = (int) (Constants.getFRAME_Y() * 0.1);
+	public final static int OSPREY_STARTX = 100;
+	public final static int OSPREY_STARTY = 150;
+	public final static int OSPREY_WIDTH = 75;
+	public final static int OSPREY_HEIGHT = 75;
 	
 	public final static int OSPREY_START_DISTANCE = 0;
 	public final static int OSPREY_START_TIME = 0;
@@ -127,6 +131,7 @@ public class Constants implements Serializable {
 	public final static int POWERUP_SPEED = -30;
 	public final static int POWERUP_DURATION = 100;
 	public final static int POWERUP_OFFSET = 5;
+	
 
 	public final static int QUIZ_CENTER = 2;
 	public final static int QUIZ_OFFSET = 4;
@@ -160,7 +165,7 @@ public class Constants implements Serializable {
 	public final static int TO_UP_KEY_DEFAULT_Y = 300;
 	
 
-	
+	public final static int TAIR_OFFSET = 500;
 	
 	public final static int TIMER_TICK_RATE = 50;
 	
@@ -504,10 +509,33 @@ public class Constants implements Serializable {
 
 	
 	/// Doubles
+	
+	public final static double AR_Y = 0.1389;
+	public final static double AR_WIDTH = 0.1042;
+	public final static double AR_HEIGHT = 0.185;
+	
 	public final static double IMG_SCALE_RATIO_X = FRAME_X/800;
 	public final static double IMG_SCALE_RATIO_Y = FRAME_Y/600;
+	
 	public final static double ENDSCREEN_TEXT_SIZE = 0.015;
 	public final static double QUIZ_TEXT_SIZE = 0.018;
+	
+	public final static double TFISH_OFFSET = 0.9;
+	public final static double FISH_WIDTH_HEIGHT = 0.05;
+	
+	public final static double POWERUP_TUT_X = 1.1;
+	public final static double POWERUP_TUT_Y = 0.9;
+	
+	public final static double SPACE_X = 0.15625;
+	public final static double SPACE_Y = 0.28;
+	public final static double SPACE_WIDTH = 0.2515;
+	public final static double SPACE_HEIGHT = 0.1019;
+	
+	public final static double UPDOWN_WIDTH = 0.0635;
+	public final static double UPDOWN_HEIGHT = 0.1129;
+	public final static double UPDOWN_X = 0.1823;
+	public final static double UP_Y = 0.0925;
+	public final static double DOWN_Y = 0.185;
 
 	public static void setFrameX(int d) { 
 		FRAME_X = d; 

@@ -144,31 +144,42 @@ public class SideScrollModel extends Model {
 
 			// Does the fish exist yet????
 			if (tfish == null) {
-				tfish = new TFish(Constants.FRAME_X, (int) (Constants.FRAME_Y * .9), (int) (Constants.FRAME_X * 0.05),
-						(int) (Constants.FRAME_Y * 0.05));
+				tfish = new TFish(Constants.FRAME_X, (int) (Constants.FRAME_Y * Constants.TFISH_OFFSET), 
+						(int) (Constants.FRAME_X * Constants.FISH_WIDTH_HEIGHT),
+						(int) (Constants.FRAME_Y * Constants.FISH_WIDTH_HEIGHT));
 				game.add(tfish);
 			}
 
 			// Does the aircurrent exist yet?????
 			if (tair == null) {
-				tair = new AirCurrent(Constants.FRAME_X + 500, 150, 200, 200);
+				tair = new AirCurrent(Constants.FRAME_X + Constants.TAIR_OFFSET, 
+						(int) (Constants.FRAME_Y * Constants.AR_Y), 
+						(int) (Constants.FRAME_X * Constants.AR_WIDTH), 
+						(int) (Constants.FRAME_Y * Constants.AR_HEIGHT));
 				game.add(tair);
 			}
 
 			if (twall1 == null) {
-				twall1 = new InvisibleWall(0, 50, 300, 100);
+				twall1 = new InvisibleWall(Constants.VIEW_ORIGIN, 
+						Constants.OSPREY_STARTY - Constants.INVISIBLE_WALL_HEIGHT, 
+						Constants.INVISIBLE_WALL_WIDTH , 
+						Constants.INVISIBLE_WALL_HEIGHT );
 				game.add(twall1);
 			}
 
 			if (twall2 == null) {
-				twall2 = new InvisibleWall(0, 225, 300, 100);
+				twall2 = new InvisibleWall(Constants.VIEW_ORIGIN, 
+						Constants.OSPREY_STARTY + Constants.OSPREY_HEIGHT,
+						Constants.INVISIBLE_WALL_WIDTH,
+						Constants.INVISIBLE_WALL_HEIGHT);
 				game.add(twall2);
 			}
 
 			if (tpow == null) {
-				tpow = new Powerup((int) (Constants.FRAME_X * 1.1), (int) (Constants.FRAME_Y * .9), (int) (Constants.FRAME_X * .05),
-						(int) (Constants.FRAME_Y * .05));
-				// Constants.FRAME_X
+				tpow = new Powerup((int) (Constants.FRAME_X * Constants.POWERUP_TUT_X), 
+						(int) (Constants.FRAME_Y * Constants.POWERUP_TUT_Y), 
+						(int) (Constants.FRAME_X * Constants.FISH_WIDTH_HEIGHT),
+						(int) (Constants.FRAME_Y * Constants.FISH_WIDTH_HEIGHT));
 				game.add(tpow);
 
 			}
@@ -182,14 +193,16 @@ public class SideScrollModel extends Model {
 			if (tfish.visible) {
 				if (tfish.hitbox.getBounds2D().getMinX() > Constants.OSPREY_STARTX) {
 					tfish.move();
-					// System.out.println(tfish + " " + o);
 				} else if (tspace == null) {
-					tspace = new TutorialObject(300, 300, 483, 110, Constants.ANIMATION_SPACEBAR);
-					Osprey.xSpeed = 0;
+					tspace = new TutorialObject((int)(Constants.FRAME_X * Constants.SPACE_X), 
+							(int)(Constants.FRAME_Y * Constants.SPACE_Y), 
+							(int) (Constants.FRAME_X * Constants.SPACE_WIDTH), 
+							(int) (Constants.FRAME_Y * Constants.SPACE_HEIGHT), 
+							Constants.ANIMATION_SPACEBAR);
+					Osprey.xSpeed = Constants.OSPREY_INIT_XSPEED;
 					game.add(tspace);
 				} else if (tfish.hitbox.intersects(o.hitbox.getBounds2D())) {
 					tfish.visible = false;
-					// tfish.hitbox.reset();
 					tspace.visible = false;
 					tspace = null;
 
@@ -198,16 +211,17 @@ public class SideScrollModel extends Model {
 			}
 
 			else if (tpow.visible) {
-				//System.out.println(tpow.hitbox.getBounds());
-
 				if (tpow.hitbox.getBounds2D().getMinX() <= Constants.OSPREY_STARTX) {
-					o.setXSpeed(0);
+					o.setXSpeed(Constants.OSPREY_INIT_XSPEED);
 				}
 
 				else if (tspace == null) {
-					// o.setXSpeed(0);
-					tspace = new TutorialObject(300, 300, 483, 110, Constants.ANIMATION_SPACEBAR);
-					game.add(tspace);
+					tspace = new TutorialObject((int)(Constants.FRAME_X * Constants.SPACE_X), 
+							(int)(Constants.FRAME_Y * Constants.SPACE_Y), 
+							(int) (Constants.FRAME_X * Constants.SPACE_WIDTH), 
+							(int) (Constants.FRAME_Y * Constants.SPACE_HEIGHT), 
+							Constants.ANIMATION_SPACEBAR);
+							game.add(tspace);
 				} else if (Powerup.power) {
 					Powerup.power = false;
 					o.setXSpeed(Constants.OSPREY_MAX_SPEED);
@@ -229,27 +243,27 @@ public class SideScrollModel extends Model {
 				if (tair.hitbox.getBounds2D().getMinX() > 500) {
 					tair.move();
 					if (tup == null || tdown == null) {
-						tup = new TutorialObject(350, 100, 122, 122, Constants.ANIMATION_UP_KEY);
-						tdown = new TutorialObject(350, 200, 122, 122, Constants.ANIMATION_DOWN_KEY);
+						tup = new TutorialObject((int) (Constants.FRAME_X * Constants.UPDOWN_X), 
+								(int) (Constants.FRAME_Y * Constants.UP_Y), 
+								(int) (Constants.FRAME_X * Constants.UPDOWN_WIDTH), 
+								(int) (Constants.FRAME_Y * Constants.UPDOWN_HEIGHT), 
+								Constants.ANIMATION_UP_KEY);
+						tdown = new TutorialObject((int) (Constants.FRAME_X * Constants.UPDOWN_X), 
+								(int) (Constants.FRAME_Y * Constants.DOWN_Y), 
+								(int) (Constants.FRAME_X * Constants.UPDOWN_WIDTH), 
+								(int) (Constants.FRAME_Y * Constants.UPDOWN_HEIGHT), 
+								Constants.ANIMATION_DOWN_KEY);
 						game.add(tup);
 						game.add(tdown);
 						game.remove(twall1);
 						game.remove(twall2);
-						// System.out.println(tair);
 					}
 				}
-//				else if (tup == null || tdown == null) {
-//					tup = new TutorialObject(350, 100, 122, 122, Constants.ANIMATION_UP_KEY);
-//					tdown = new TutorialObject(350, 200, 122, 122, Constants.ANIMATION_DOWN_KEY);
-//					game.add(tup);
-//					game.add(tdown);
-//					game.remove(twall1);
-//					game.remove(twall2);
-//				}
+
 				else if (!(o.hitbox.getBounds2D().getMinY() > tair.hitbox.getBounds2D().getMaxY()
 						|| o.hitbox.getBounds2D().getMaxY() < tair.hitbox.getBounds2D().getMinY())) {
 
-				} else if (tair.hitbox.getBounds2D().getMaxX() > 40) {
+				} else if (tair.hitbox.getBounds2D().getMaxX() > Constants.VIEW_ORIGIN + Constants.OSPREY_WIDTH) {
 					tair.move();
 					if (onlyDoOnce) {
 						tup.visible = false;
@@ -262,7 +276,7 @@ public class SideScrollModel extends Model {
 					game.remove(tair);
 				}
 				if (tair.visible == false && tfish.visible == false && tpow.visible == false) {
-					o.setXSpeed(-10);
+					o.setXSpeed(Constants.OSPREY_MIN_SPEED);
 					Model.inTutoral = false;
 					this.postTutorial();
 				}
@@ -274,7 +288,6 @@ public class SideScrollModel extends Model {
 				a.collision(g);
 				if (a.removeObject())
 					toRemove.add(a);
-				// if (a instanceof Fish) System.out.println(a.hitbox.getBounds2D());
 			}
 			g.removeAll(toRemove);
 			if (Quiz.correct) {
@@ -332,29 +345,24 @@ public class SideScrollModel extends Model {
 
 		game.add(new Trash(Constants.FRAME_X, (int) (Constants.FRAME_Y * .91), (int) (Constants.FRAME_X * .05),
 				(int) (Constants.FRAME_Y * .05)));
-	//	game.add(new Trash(Constants.FRAME_X + 150, (int) (Constants.FRAME_Y * .86), (int) (Constants.FRAME_X * .05),
-	//			(int) (Constants.FRAME_Y * .05)));
 		game.add(new Trash(Constants.FRAME_X + 700, (int) (Constants.FRAME_Y * .91), (int) (Constants.FRAME_X * .05),
 				(int) (Constants.FRAME_Y * .05)));
 		game.add(new Trash(Constants.FRAME_X + 1300, (int) (Constants.FRAME_Y * .86), (int) (Constants.FRAME_X * .05),
 				(int) (Constants.FRAME_Y * .05)));
 		game.add(new Trash(Constants.FRAME_X + 1800, (int) (Constants.FRAME_Y * .91), (int) (Constants.FRAME_X * .05),
 				(int) (Constants.FRAME_Y * .05)));
-//		game.add(new Trash(Constants.FRAME_X + 1300, (int) (Constants.FRAME_Y * .86), (int) (Constants.FRAME_X * .05),
-// 				(int) (Constants.FRAME_Y * .05)));
 
+		
 		game.add(new AirCurrent(Constants.FRAME_X + 50, (int) (Constants.FRAME_Y * .03), 250, 250));
-	//	game.add(new AirCurrent(Constants.FRAME_X + 175, (int) (Constants.FRAME_Y * .25), 200, 200));
 		game.add(new AirCurrent(Constants.FRAME_X + 400, (int) (Constants.FRAME_Y * .5), 200, 200));
-	//	game.add(new AirCurrent(Constants.FRAME_X + 620, (int) (Constants.FRAME_Y * .4), 250, 250));
 		game.add(new AirCurrent(Constants.FRAME_X + 895, (int) (Constants.FRAME_Y * .23), 200, 200));
 		game.add(new AirCurrent(Constants.FRAME_X + 1200, (int) (Constants.FRAME_Y * .55), 200, 200));
-		game.add(new AirCurrent(Constants.FRAME_X + 1800, (int) (Constants.FRAME_Y * .4), 250, 250));
+		game.add(new AirCurrent(Constants.FRAME_X + 1800, (int) (Constants.FRAME_Y * .4), 200, 200));
 		game.add(new AirCurrent(Constants.FRAME_X + 2450, (int) (Constants.FRAME_Y * .15), 200, 200));
 		game.add(new AirCurrent(Constants.FRAME_X + 2000, (int) (Constants.FRAME_Y * .58), 200, 200));
 
 		game.add(new Powerup(Constants.FRAME_X * 3, (int) (Constants.FRAME_Y * .93), 50, 50));
-		game.add(new Mate(Constants.FRAME_X, 200, 75, 75));// suposed to be 50 50, this is for the memes
+		game.add(new Mate(Constants.FRAME_X, 200, 75, 75));
 	}
 
 	/**
