@@ -48,7 +48,6 @@ public class Bush extends NonControllable {
 	 */	
 	@Override
 	public void handleCollision(Fox f) {
-		System.out.println("hi");
 		Fox.bushColl = true;
 		f.boundaries();
 		f.setxSpeed(-f.getXSpeed());
