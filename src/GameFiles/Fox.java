@@ -119,7 +119,8 @@ public class Fox extends Controllable {
 	
 	@Override
 	public void move() {
-		
+		this.hitbox.translate((int)(Constants.FOX_SPEED_MULTIPLIER *this.xSpeed),
+				(int)(Constants.FOX_SPEED_MULTIPLIER * this.ySpeed));
 		if(!c.hidden) {
 			if(!bushColl) {
 				this.xSpeed = ((c.hitbox.getBounds2D().getMinX() - this.hitbox.getBounds2D().getMinX()) * 
@@ -190,8 +191,7 @@ public class Fox extends Controllable {
 			this.setxSpeed(Constants.FOX_INIT_XSPEED);
 			this.setySpeed(Constants.FOX_INIT_YSPEED);
 		}
-		this.hitbox.translate((int)(Constants.FOX_SPEED_MULTIPLIER *this.xSpeed),
-				(int)(Constants.FOX_SPEED_MULTIPLIER * this.ySpeed));
+		
 		boundaries();
 		
 		if(this.xSpeed < 0) {
