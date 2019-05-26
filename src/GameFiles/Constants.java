@@ -56,6 +56,9 @@ public class Constants implements Serializable {
 	public final static int COLLECTABLE_RANDOM_OFFSET = 15;
 	public final static int COLLECTABLE_YSPEED = 0;
 	
+	public final static int COLLISION_COUNT_INIT = 0;
+	public final static int COLLISION_COUNT_MAX = 50;
+	
 	public final static int CRAB_ANIMATION_TICK_RATE = 5;
 	
 	public final static int FISH_AC = 5;
@@ -98,7 +101,11 @@ public class Constants implements Serializable {
 	public final static int NEST_X = 25;
 	public final static int NEST_Y = 25;
 	
-	public final static int OSPREY_STARTX = 100;
+	public final static int OSPREY_STARTX = (int) (Constants.getFRAME_X() * 0.1);
+	public final static int OSPREY_STARTY = (int) (Constants.getFRAME_Y() * 0.1);
+	public final static int OSPREY_WIDTH = (int) (Constants.getFRAME_X() * 0.1);
+	public final static int OSPREY_HEIGHT = (int) (Constants.getFRAME_Y() * 0.1);
+	
 	public final static int OSPREY_START_DISTANCE = 0;
 	public final static int OSPREY_START_TIME = 0;
 	public final static int OSPREY_DIVESPEED = 40;
@@ -111,6 +118,8 @@ public class Constants implements Serializable {
 	public final static int OSPREY_INIT_YSPEED = 0;
 	public final static int OSPREY_INIT_XSPEED = 0;
 	public final static int OSPREY_MAX_YSPEED = 20;
+	
+	public final static int PWR_COUNT_INIT = 0;
 	
 	public final static int POWERUP_HEIGH = 100;
 	public final static int POWERUP_LIFE_INCREASE_RATE = 1;

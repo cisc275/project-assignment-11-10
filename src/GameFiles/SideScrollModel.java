@@ -70,7 +70,7 @@ public class SideScrollModel extends Model {
 	/**
 	 * Used to track time for powerup to be active
 	 */
-	private int pwrCount = 0;
+	private int pwrCount;
 
 	/**
 	 * saves the speed of the osprey prior to gaining the powerup;
@@ -80,14 +80,15 @@ public class SideScrollModel extends Model {
 	/**
 	 * used for giving set time for collision glows
 	 */
-	public int collCount = 0;
+	public int collCount;
 
 	private boolean yepItsOkayToMoveTheCloudAgain = false;
 
 	private boolean onlyDoOnce = true;
 
 	public SideScrollModel() {
-		o = new Osprey(Constants.OSPREY_STARTX, 150, 75, 75);
+		o = new Osprey(Constants.OSPREY_STARTX, Constants.OSPREY_STARTY, Constants.OSPREY_WIDTH,
+				Constants.OSPREY_HEIGHT);
 		game = new ArrayList<GameObject>();
 		game.add(o);
 		Model.inTutoral = true;
@@ -106,44 +107,30 @@ public class SideScrollModel extends Model {
 		else if (Osprey.negHitOs && Osprey.posHitOs) {
 			Osprey.negHitOs = false;
 			Osprey.posHitOs = false;
-			collCount = 0;
+			collCount = Constants.COLLISION_COUNT_INIT;
 			o.imgFileName = Constants.ANIMATION_OSPREY;
 		}
 		else if (Osprey.negHitOs && !Osprey.posHitOs) {
-			if (collCount <= 50) {
-				collCount += 1;
+			if (collCount <= Constants.COLLISION_COUNT_MAX) {
+				collCount ++;
 				o.imgFileName = Constants.ANIMATION_OSPREY_BAD;
 			} 
 			else{
-				collCount = 0;
+				collCount = Constants.COLLISION_COUNT_INIT;
 				Osprey.negHitOs = false;
 				o.imgFileName = Constants.ANIMATION_OSPREY;
-				/*
-				 * if(o.isDiving && o.getySpeed() < 0) { o.imgFileName =
-				 * Constants.ANIMATION_OSPREY; }
-				 * 
-				 * else if(o.isDiving) { //o.imgFileName = Constants.ANIMATION_OSPREY; }
-				 * 
-				 * else { o.imgFileName = Constants.ANIMATION_OSPREY; }
-				 */
 			}
 		} else if (Osprey.posHitOs && !Osprey.negHitOs) {
 			if(Osprey.negHitOs) {
 				Osprey.negHitOs = false;
 			}
-			if (collCount <= 50) {
-				collCount += 1;
+			if (collCount <= Constants.COLLISION_COUNT_MAX) {
+				collCount++;
 				o.imgFileName = Constants.ANIMATION_OSPREY_GOOD;
 			} else {
-				collCount = 0;
+				collCount = Constants.COLLISION_COUNT_INIT;
 				Osprey.posHitOs = false;
 				o.imgFileName = Constants.ANIMATION_OSPREY;
-				/*
-				 * if (o.isDiving && o.getySpeed() < 0) { o.imgFileName =
-				 * Constants.ANIMATION_OSPREY; } else if (o.isDiving) { // o.imgFileName =
-				 * Constants.ANIMATION_OSPREY; } else { o.imgFileName =
-				 * Constants.ANIMATION_OSPREY; }
-				 */
 			}
 		}
 		if (Model.inTutoral) {
@@ -291,17 +278,17 @@ public class SideScrollModel extends Model {
 			}
 			g.removeAll(toRemove);
 			if (Quiz.correct) {
-				if (pwrCount == 0) {
+				if (pwrCount == Constants.PWR_COUNT_INIT) {
 					prevSpeed = Osprey.xSpeed;
-					pwrCount += 1;
+					pwrCount ++;
 					o.setXSpeed(Constants.POWERUP_SPEED);
 				} else if (pwrCount <= Constants.POWERUP_DURATION) {
-					pwrCount += 1;
+					pwrCount++;
 					o.setXSpeed(Constants.POWERUP_SPEED);
 				} else {
 					Quiz.correct = false;
 					o.setXSpeed(prevSpeed);
-					pwrCount = 0;
+					pwrCount = Constants.PWR_COUNT_INIT;
 				}
 			}
 			if (Mate.caughtUp) {

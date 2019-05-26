@@ -100,11 +100,17 @@ public class TopDownModel extends Model {
     private int tarrow_cur_width;
 
     
-    
-    /*
-     * checks time for active powerup
+    /**
+     * initializes new TopDownModel and creates an ArrayList of GameObject
+     * @author Tim Mazzarelli
      */
-   // int pwrCount = 0;
+    public TopDownModel() {
+    	cr = new ClapperRail(Constants.CLAPPER_RAIL_START_LOC_X, Constants.CLAPPER_RAIL_START_LOC_Y,
+    			Constants.CLAPPER_RAIL_START_SIZE_X, Constants.CLAPPER_RAIL_START_SIZE_Y);
+    	nest = new Nest(Constants.NEST_X, Constants.NEST_Y, Constants.NEST_START_SIZE, Constants.NEST_START_SIZE);
+		game = new ArrayList<GameObject>();
+		inTutoral = true;
+    }
   
     
     /**
@@ -116,8 +122,6 @@ public class TopDownModel extends Model {
     public void handleMove(HashSet<Integer> keyPresses) {
     	cr.setxSpeed(Constants.CLAPPER_RAIL_START_XSPEED);
     	cr.setySpeed(Constants.CLAPPER_RAIL_START_YSPEED);
-    //	System.out.println(cr.xSpeed);
-    //	System.out.println(keyPresses);
     	if(Quiz.answered == true) {
     		keyPresses.clear();
     		cr.setxSpeed(Constants.CLAPPER_RAIL_START_XSPEED);
@@ -145,19 +149,8 @@ public class TopDownModel extends Model {
     	}
     }
   
-    /**
-     * initializes new TopDownModel and creates an ArrayList of GameObject
-     * @author Tim Mazzarelli
-     */
-    public TopDownModel() {
-    	cr = new ClapperRail(Constants.CLAPPER_RAIL_START_LOC_X, Constants.CLAPPER_RAIL_START_LOC_Y,
-    			Constants.CLAPPER_RAIL_START_SIZE_X, Constants.CLAPPER_RAIL_START_SIZE_Y);
-    	nest = new Nest(Constants.NEST_X, Constants.NEST_Y, Constants.NEST_START_SIZE, Constants.NEST_START_SIZE);
-		game = new ArrayList<GameObject>();
-		inTutoral = true;
-    }
-    
-    
+   
+     
     // No fox in by default
     /* (non-Javadoc)
      * @see GameFiles.Model#defaultSetup()
