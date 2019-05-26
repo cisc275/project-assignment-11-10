@@ -44,10 +44,10 @@ public class Controllable extends GameObject {
 	public void boundaries() {
 		// if the y is at the top of the screen
 		if (this.hitbox.getBounds2D().getMinY() <= Constants.FRAME_Y - Constants.FRAME_Y) {
-			int x1 = this.hitbox.xpoints[0];
-			int x2 = this.hitbox.xpoints[1];
-			int x3 = this.hitbox.xpoints[2];
-			int x4 = this.hitbox.xpoints[3];
+			int x1 = (int)this.hitbox.getBounds2D().getMinX();
+			int x2 = (int)this.hitbox.getBounds2D().getMinX();
+			int x3 = (int)this.hitbox.getBounds2D().getMaxX();
+			int x4 = (int)this.hitbox.getBounds2D().getMaxX();
 			
 			this.hitbox.reset();
 			this.hitbox.addPoint(x1, height - height);
@@ -57,13 +57,11 @@ public class Controllable extends GameObject {
 							
 		}
 		
-		// if object is at the bottom of the screen
-		
-		if (this.hitbox.getBounds2D().getMaxY() >= Constants.FRAME_Y) {
-			int x1 = this.hitbox.xpoints[0];
-			int x2 = this.hitbox.xpoints[1];
-			int x3 = this.hitbox.xpoints[2];
-			int x4 = this.hitbox.xpoints[3];
+		if (this.hitbox.ypoints[1] >= Constants.FRAME_Y) {
+			int x1 = (int)this.hitbox.getBounds2D().getMinX();
+			int x2 = (int)this.hitbox.getBounds2D().getMinX();
+			int x3 = (int)this.hitbox.getBounds2D().getMaxX();
+			int x4 = (int)this.hitbox.getBounds2D().getMaxX();
 			
 			this.hitbox.reset();
 			this.hitbox.addPoint(x1, Constants.FRAME_Y - height);
@@ -71,13 +69,11 @@ public class Controllable extends GameObject {
 			this.hitbox.addPoint(x3, Constants.FRAME_Y);
 			this.hitbox.addPoint(x4, Constants.FRAME_Y - height);			
 		}
-		
-		// if the object is at the right of the screen
-		if (this.hitbox.getBounds2D().getMaxX()  >= Constants.FRAME_X) {
-			int y1 = this.hitbox.ypoints[0];
-			int y2 = this.hitbox.ypoints[1];
-			int y3 = this.hitbox.ypoints[2];
-			int y4 = this.hitbox.ypoints[3];
+		if (this.hitbox.xpoints[3] >= Constants.FRAME_X) {
+			int y1 = (int)this.hitbox.getBounds2D().getMinY();
+			int y2 = (int)this.hitbox.getBounds2D().getMaxY();
+			int y3 = (int)this.hitbox.getBounds2D().getMaxY();
+			int y4 = (int)this.hitbox.getBounds2D().getMinY();
 			
 			this.hitbox.reset();
 			this.hitbox.addPoint(Constants.FRAME_X - width, y1);
@@ -86,13 +82,11 @@ public class Controllable extends GameObject {
 			this.hitbox.addPoint(Constants.FRAME_X, y4);		
 		}
 		
-		// if the object is at the left of the screen
-		
 		if (this.hitbox.getBounds2D().getMinX() <= Constants.FRAME_X - Constants.FRAME_X) {
-			int y1 = this.hitbox.ypoints[0];
-			int y2 = this.hitbox.ypoints[1];
-			int y3 = this.hitbox.ypoints[2];
-			int y4 = this.hitbox.ypoints[3];
+			int y1 = (int)this.hitbox.getBounds2D().getMinY();
+			int y2 = (int)this.hitbox.getBounds2D().getMaxY();
+			int y3 = (int)this.hitbox.getBounds2D().getMaxY();
+			int y4 = (int)this.hitbox.getBounds2D().getMinY();
 			
 			this.hitbox.reset();
 			this.hitbox.addPoint(width - width, y1);

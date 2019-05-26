@@ -1,14 +1,9 @@
 package GameFiles;
 
-import java.awt.Graphics2D;
-import java.awt.Polygon;
-import java.awt.RenderingHints;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+
 import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
+
 
 /**
  * represents the Fox object in the clapperrail game 
@@ -111,7 +106,7 @@ public class Fox extends Controllable {
 	public double distance() {	
 		int xDistance = (int) (this.hitbox.getBounds2D().getMinX() - c.hitbox.getBounds2D().getMinX());
 		int	yDistance = (int) (this.hitbox.getBounds2D().getMinY() - c.hitbox.getBounds2D().getMinY());
-		return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+		return Math.sqrt(Math.pow(xDistance, Constants.FOX_SQUARED) + Math.pow(yDistance, Constants.FOX_SQUARED));
 		}
 		
 	/**
@@ -128,25 +123,25 @@ public class Fox extends Controllable {
 		if(!c.hidden) {
 			if(!bushColl) {
 				this.xSpeed = ((c.hitbox.getBounds2D().getMinX() - this.hitbox.getBounds2D().getMinX()) * 
-						(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());
+						(Math.sqrt(Math.pow(this.xSpeed, Constants.FOX_SQUARED) + Math.pow(this.ySpeed,  Constants.FOX_SQUARED))) / distance());
 				this.ySpeed = ((c.hitbox.getBounds2D().getMinY() - this.hitbox.getBounds2D().getMinY()) * 
-						(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());
+						(Math.sqrt(Math.pow(this.xSpeed, Constants.FOX_SQUARED) + Math.pow(this.ySpeed,  Constants.FOX_SQUARED))) / distance());
 			}
 			else {
-				if(bushPause <= 5) {
-					bushPause += 1;
+				if(bushPause <= Constants.BUSH_PAUSE) {
+					bushPause++;
 				}
 				else {
 					bushColl = false;
-					bushPause = 0;
+					bushPause -= bushPause;
 				}
 			}
 		}
 		else if (!Model.inTutoral){
 			
 			int smoother = randSmooth/50;
-			int multX = (int) (Math.random() * 2);
-			int multY = (int) (Math.random() * 2);	
+			int multX = (int) (Math.random() * Constants.FOX_SQUARED);
+			int multY = (int) (Math.random() * Constants.FOX_SQUARED);	
 			// ensures non-zero random movement
 			switch((int)xSpeed) {
 			case 0 :
@@ -186,17 +181,16 @@ public class Fox extends Controllable {
 				randSmooth += 1;
 			}
 		}
-		// tutorial movement
-		else {
-			//this.xSpeed = 1;
-			this.ySpeed = -10;
+		else {	
+			this.setySpeed(Constants.FOX_T_SPEED);
 		}
 		
 		if (this.xSpeed == 0 && this.ySpeed == 0) {
-			this.xSpeed = 1;
-			this.ySpeed = 1;
+			this.setxSpeed(Constants.FOX_INIT_XSPEED);
+			this.setySpeed(Constants.FOX_INIT_YSPEED);
 		}
-		this.hitbox.translate(2 *(int) this.xSpeed,2 * (int) this.ySpeed);
+		this.hitbox.translate((int)(Constants.FOX_SPEED_MULTIPLIER *this.xSpeed),
+				(int)(Constants.FOX_SPEED_MULTIPLIER * this.ySpeed));
 		boundaries();
 		
 		if(this.xSpeed < 0) {
@@ -212,57 +206,56 @@ public class Fox extends Controllable {
 	
 	@Override
 	public void boundaries() {
-		if (Model.inTutoral) {
-			
+		if (Model.inTutoral) {	
 		} else {
-			if (this.hitbox.getBounds2D().getMinY() <= 0) {
-				int x1 = this.hitbox.xpoints[0];
-				int x2 = this.hitbox.xpoints[1];
-				int x3 = this.hitbox.xpoints[2];
-				int x4 = this.hitbox.xpoints[3];
+			if (this.hitbox.getBounds2D().getMinY() <= Constants.FRAME_Y - Constants.FRAME_Y) {
+				int x1 = (int)this.hitbox.getBounds2D().getMinX();
+				int x2 = (int)this.hitbox.getBounds2D().getMinX();
+				int x3 = (int)this.hitbox.getBounds2D().getMaxX();
+				int x4 = (int)this.hitbox.getBounds2D().getMaxX();
 				
 				this.hitbox.reset();
-				this.hitbox.addPoint(x1, 0);
+				this.hitbox.addPoint(x1, height - height);
 				this.hitbox.addPoint(x2, height);
 				this.hitbox.addPoint(x3, height);
-				this.hitbox.addPoint(x4, 0);
+				this.hitbox.addPoint(x4, height - height);
 								
 			}
 			
-			if (this.hitbox.ypoints[1] >= View.frame.getHeight()) {
-				int x1 = this.hitbox.xpoints[0];
-				int x2 = this.hitbox.xpoints[1];
-				int x3 = this.hitbox.xpoints[2];
-				int x4 = this.hitbox.xpoints[3];
+			if (this.hitbox.ypoints[1] >= Constants.FRAME_Y) {
+				int x1 = (int)this.hitbox.getBounds2D().getMinX();
+				int x2 = (int)this.hitbox.getBounds2D().getMinX();
+				int x3 = (int)this.hitbox.getBounds2D().getMaxX();
+				int x4 = (int)this.hitbox.getBounds2D().getMaxX();
 				
 				this.hitbox.reset();
-				this.hitbox.addPoint(x1, View.frame.getHeight() - height);
-				this.hitbox.addPoint(x2, View.frame.getHeight());
-				this.hitbox.addPoint(x3, View.frame.getHeight());
-				this.hitbox.addPoint(x4, View.frame.getHeight() - height);			
+				this.hitbox.addPoint(x1, Constants.FRAME_Y - height);
+				this.hitbox.addPoint(x2, Constants.FRAME_Y);
+				this.hitbox.addPoint(x3, Constants.FRAME_Y);
+				this.hitbox.addPoint(x4, Constants.FRAME_Y - height);			
 			}
-			if (this.hitbox.xpoints[3] >= View.frame.getWidth()) {
-				int y1 = this.hitbox.ypoints[0];
-				int y2 = this.hitbox.ypoints[1];
-				int y3 = this.hitbox.ypoints[2];
-				int y4 = this.hitbox.ypoints[3];
+			if (this.hitbox.xpoints[3] >= Constants.FRAME_X) {
+				int y1 = (int)this.hitbox.getBounds2D().getMinY();
+				int y2 = (int)this.hitbox.getBounds2D().getMaxY();
+				int y3 = (int)this.hitbox.getBounds2D().getMaxY();
+				int y4 = (int)this.hitbox.getBounds2D().getMinY();
 				
 				this.hitbox.reset();
-				this.hitbox.addPoint(View.frame.getWidth() - width, y1);
-				this.hitbox.addPoint(View.frame.getWidth() - width, y2);
-				this.hitbox.addPoint(View.frame.getWidth(), y3);
-				this.hitbox.addPoint(View.frame.getWidth(), y4);		
+				this.hitbox.addPoint(Constants.FRAME_X - width, y1);
+				this.hitbox.addPoint(Constants.FRAME_X - width, y2);
+				this.hitbox.addPoint(Constants.FRAME_X, y3);
+				this.hitbox.addPoint(Constants.FRAME_X, y4);		
 			}
 			
-			if (this.hitbox.getBounds2D().getMinX() <= 0) {
-				int y1 = this.hitbox.ypoints[0];
-				int y2 = this.hitbox.ypoints[1];
-				int y3 = this.hitbox.ypoints[2];
-				int y4 = this.hitbox.ypoints[3];
+			if (this.hitbox.getBounds2D().getMinX() <= Constants.FRAME_X - Constants.FRAME_X) {
+				int y1 = (int)this.hitbox.getBounds2D().getMinY();
+				int y2 = (int)this.hitbox.getBounds2D().getMaxY();
+				int y3 = (int)this.hitbox.getBounds2D().getMaxY();
+				int y4 = (int)this.hitbox.getBounds2D().getMinY();
 				
 				this.hitbox.reset();
-				this.hitbox.addPoint(0, y1);
-				this.hitbox.addPoint(0, y2);
+				this.hitbox.addPoint(width - width, y1);
+				this.hitbox.addPoint(width - width, y2);
 				this.hitbox.addPoint(width, y3);
 				this.hitbox.addPoint(width, y4);		
 			}
