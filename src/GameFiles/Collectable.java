@@ -18,14 +18,14 @@ public class Collectable extends GameObject {
 	private int xSpeed;
 	
 	/**
-	 * @param x 	x location on the screen
-	 * @param y		y location on the screen
+	 * @param x			x location on screen
+	 * @param y			y location on screen
 	 * @param width		image width
 	 * @param height	image height
 	 * 
-	 * a constructor that takes values for all fields as input parameters
-	 **/
- 	 
+	 *  a constructor that takes values for all fields as input parameters
+	 */
+	 
 	public Collectable(int x, int y, int width, int height) {
 		super(x,y,width,height);
 		this.xSpeed = -randy.nextInt(Constants.COLLECTABLE_RANDOM_SPEED) - Constants.COLLECTABLE_RANDOM_OFFSET;
@@ -42,25 +42,25 @@ public class Collectable extends GameObject {
 			resetPoly();
 		}
 	}
+	
+	
 	/**
-	 * xSpeed
-	 * @return int
+	 * gives you xSpeed of the collectable object
+	 * @return xSpeed 
+	 * @author Tim Mazzarelli
 	 */
-
 	public int getxSpeed() {
 		return xSpeed;
 	}
 	
 	/**
-	 * set xSpeed
-	 * @param xSpeed
+	 * sets your xSpeed of the collectable object
+	 * @return xSpeed 
+	 * @author Tim Mazzarelli
 	 */
 
 	public void setxSpeed(int xSpeed) {
 		this.xSpeed = xSpeed;
 	}
-
-
-
 	
 }

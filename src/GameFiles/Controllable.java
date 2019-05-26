@@ -15,20 +15,20 @@ public class Controllable extends GameObject {
 	 */
 	private int xSpeed;
 	
+	
 	/**
 	 * speed with which you move up and down
 	 */
-	
 	private int ySpeed;
-	
+		
 	/**
-	 * @param y
-	 * @param x
-	 * @param width
-	 * @param height		
-		Constructor for controllable object
-	 */ 
-
+	 * @param x			x location on screen
+	 * @param y			y location on screen
+	 * @param width		image width
+	 * @param height	image height
+	 * 
+	 *  a constructor that takes values for all fields as input parameters
+	 */
 	public Controllable(int x, int y, int width, int height) {
 		super(x,y,width,height);
 		
@@ -100,21 +100,40 @@ public class Controllable extends GameObject {
 			this.hitbox.addPoint(width, y3);
 			this.hitbox.addPoint(width, y4);		
 		}
-		
 	}
 
+	/**
+	 * gives you xSpeed of the controllable object
+	 * @return xSpeed 
+	 * @author Tim Mazzarelli
+	 */
 	public int getxSpeed() {
 		return xSpeed;
 	}
 
+	/**
+	 * sets xSpeed of the controllable object
+	 * @param xSpeed
+	 * @author Tim Mazzarelli
+	 */
 	public void setxSpeed(int xSpeed) {
 		this.xSpeed = xSpeed;
 	}
 
+	/**
+	 * gives you the ySpeed of your Controllable object
+	 * @return int ySpeed
+	 * @author Tim Mazzarelli
+	 */
 	public int getySpeed() {
 		return ySpeed;
 	}
 
+	/**
+	 * sets ySpeed of the controllable object
+	 * @param ySpeed
+	 * @author Tim Mazzarelli
+	 */
 	public void setySpeed(int ySpeed) {
 		this.ySpeed = ySpeed;
 	}
