@@ -39,7 +39,7 @@ public class TFish extends Collectable {
 	public void handleCollision(Osprey o) {
 		Osprey.posHitOs = true;
 		if (this.visible == true) {;
-			o.setXSpeed(Osprey.getXSpeed() - 15);
+			o.setXSpeed(Osprey.getXSpeed() - Constants.TFISH_SPEED_OFFSET);
 		}
 		if (Osprey.xSpeed <= Constants.OSPREY_MAX_SPEED) {
 			o.setXSpeed(Constants.OSPREY_MAX_SPEED);

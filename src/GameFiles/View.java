@@ -134,7 +134,7 @@ public class View extends JFrame implements Serializable {
 	    		scaledImg = new BufferedImage(g.getWidth(), g.getHeight(), BufferedImage.TRANSLUCENT);
 			    Graphics2D g2 = scaledImg.createGraphics();
 			    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-			    g2.drawImage(ig, 0, 0, g.getWidth(), g.getHeight(), null);
+			    g2.drawImage(ig, Constants.VIEW_ORIGIN, Constants.VIEW_ORIGIN, g.getWidth(), g.getHeight(), null);
 			    g2.dispose();
 			    toReturn.add(scaledImg);
 			}
@@ -182,7 +182,7 @@ public class View extends JFrame implements Serializable {
 	    		scaledImg = new BufferedImage(g.getWidth(), g.getHeight(), BufferedImage.TRANSLUCENT);
 			    Graphics2D g2 = scaledImg.createGraphics();
 			    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-			    g2.drawImage(ig, 0, 0, g.getWidth(), g.getHeight(), null);
+			    g2.drawImage(ig, Constants.VIEW_ORIGIN, Constants.VIEW_ORIGIN, g.getWidth(), g.getHeight(), null);
 			    g2.dispose();
 			    toReturn.add(scaledImg);
 			}
@@ -208,7 +208,7 @@ public class View extends JFrame implements Serializable {
 		newScaled = new BufferedImage(g.getWidth(), g.getHeight(), BufferedImage.TRANSLUCENT);
 	    Graphics2D g2 = newScaled.createGraphics();
 	    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-	    g2.drawImage(imgTable.get(g.imgFileName).get(0), 0, 0, g.getWidth(), g.getHeight(), null);
+	    g2.drawImage(imgTable.get(g.imgFileName).get(Constants.VIEW_ORIGIN), Constants.VIEW_ORIGIN, Constants.VIEW_ORIGIN, g.getWidth(), g.getHeight(), null);
 	    g2.dispose();
 	    imgTable.get(g.imgFileName).add(newScaled);
 	    return newScaled;		

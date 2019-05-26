@@ -132,6 +132,8 @@ public class Constants implements Serializable {
 	public final static int TA_OFFSET = 50;
 	public final static int TA_IMG_SAFTEY_MARGIN = 10;
 	
+	public final static int TFISH_SPEED_OFFSET = 15;
+	
 	public final static int TO_ANIMATION_TICK_RATE = 2;
 	public final static int TO_DEFAULT_SIZE = 122;
 	public final static int TO_KEY_OFFSET = 100;
@@ -147,6 +149,8 @@ public class Constants implements Serializable {
 	public final static int TIMER_TICK_RATE = 50;
 	
 	public final static int TRASH_AC = 5;
+	
+	public final static int VIEW_ORIGIN = 0;
 	
 	public static int FRAME_X;
 	public static int FRAME_Y;

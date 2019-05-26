@@ -95,7 +95,7 @@ public class Stick extends Collectable{
 	
 	
 	/**
-	 * 
+	 * returns how many sticks are left
 	 * @return int
 	 */
 	
@@ -104,20 +104,36 @@ public class Stick extends Collectable{
 	}
 	
 	/**
-	 * 
+	 * sets the amount of sticks left
 	 * @param count
 	 */
 	public static void setCount(int count) {
 		Stick.count = count;
 	}
 	
+	/**
+	 * for animating the stick according to it's tick rate
+	 */
 	@Override
 	public void move() {
 		animate(Constants.STICK_ANIMATION_TICK_RATE);
 	}
+	
+	/**
+	 * returns the ySpeed of the stick which will either be 0
+	 * or the ySpeed of the clapper rail
+	 * @return int
+	 * @author Tim Mazzarelli
+	 */
 	public int getySpeed() {
 		return ySpeed;
 	}
+	
+	/**
+	 * sets the ySpeed, will be either 0 or clapper rail ySpeed
+	 * @param ySpeed
+	 * @author Timothy Mazzarelli
+	 */
 	public void setySpeed(int ySpeed) {
 		this.ySpeed = ySpeed;
 	}
