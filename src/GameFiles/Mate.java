@@ -41,7 +41,7 @@ public class Mate extends Bird {
 
 	public void move() {
 		if (this.hitbox.getBounds2D().getMaxX() <= Constants.OSPREY_STARTX) {
-			this.hitbox.reset();
+			resetPoly();
 			Mate.caughtUp = true;
 		}
 		else if (Osprey.distance >= Osprey.maxDistance) {

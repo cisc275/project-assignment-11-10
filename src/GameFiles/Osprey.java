@@ -20,7 +20,7 @@ public class Osprey extends Bird {
 	/**
 	 * tells you how long you have played the game for
 	 */
-	static int time = Constants.OSPREY_START_TIME;
+	static int time;
 	
 	/**
 	 *  the xSpeed which determines how fast you will travel (behind the scenes not actually)
@@ -42,7 +42,7 @@ public class Osprey extends Bird {
 	 * current distance of the Osprey
 	 */
 	
-	static double distance = Constants.OSPREY_START_DISTANCE;
+	static double distance;
 	
 	/**
 	 *  total distance the osprey can travel
@@ -75,7 +75,9 @@ public class Osprey extends Bird {
 		super(x, y, width, height);
 		this.imgFileName = Constants.ANIMATION_OSPREY;
 		this.curImg = randy.nextInt(imgFileName.length);
-		Osprey.xSpeed = Constants.OSPREY_INIT_XSPEED;
+		distance = Constants.OSPREY_START_DISTANCE;
+		time = Constants.OSPREY_START_TIME;
+		Osprey.xSpeed = Constants.OSPREY_MIN_SPEED;
 		this.setySpeed(Constants.OSPREY_INIT_YSPEED);
 		this.isDiving = false;
 	}
