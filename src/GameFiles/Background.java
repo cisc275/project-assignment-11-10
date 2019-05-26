@@ -24,10 +24,10 @@ public class Background extends GameObject{
 	
     public Background(int x, int y, int width, int height) {
     	super(x, y, width, height);
-    	this.hitbox.addPoint(width, 0);
+    	this.hitbox.addPoint(width, height - height);
     	this.hitbox.addPoint(width, height);
     	this.hitbox.addPoint(width + width, height);
-    	this.hitbox.addPoint(width + width, 0);
+    	this.hitbox.addPoint(width + width, height - height);
         this.imgFileName = Constants.ANIMATION_BACKGROUND;
         this.curImg = randy.nextInt(imgFileName.length);
         this.setType(Type.BACKGROUND);
@@ -39,8 +39,8 @@ public class Background extends GameObject{
      * @author Tim Mazzarelli
      */
     public void move() {
-    	this.hitbox.translate(Osprey.xSpeed, 0);
-    	if (this.hitbox.getBounds2D().getCenterX() <= 0){	 
+    	this.hitbox.translate(Osprey.xSpeed, Constants.BACKGROUND_YSPEED);
+    	if (this.hitbox.getBounds2D().getCenterX() <= Constants.FRAME_X - Constants.FRAME_X){	 
     		bgReset();
     	}
     }
@@ -63,18 +63,6 @@ public class Background extends GameObject{
     	this.hitbox.addPoint(width + width, 0);	
     }
     
-    		
-    private BufferedImage createImage(){
-		BufferedImage bufferedImage;
-    	try {
-    		bufferedImage =  ImageIO.read(new File(Constants.IMG_BACKGROUND));
-    		return bufferedImage;
-    	} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-    	return null;
-	}
-
     	
     
     /**

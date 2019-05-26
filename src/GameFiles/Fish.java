@@ -48,25 +48,11 @@ public class Fish extends Collectable {
 	
 	@Override
 	public void move() {
-		this.hitbox.translate(this.getxSpeed(), 0);
-		if(this.hitbox.getBounds2D().getMaxX() <= 0) {
+		this.hitbox.translate(this.getxSpeed(), Constants.COLLECTABLE_YSPEED);
+		if(this.hitbox.getBounds2D().getMaxX() <= Constants.FRAME_X - Constants.FRAME_X) {
 			resetPoly();
 		}
 		animate(Constants.FISH_ANIMATION_TICK_RATE);	
 	}
 	
-	
-//	 creates image for fish
-//	
-//	private BufferedImage createImage(){
-//		BufferedImage bufferedImage;
-//		//System.out.println("i am running");
-//    	try {
-//    		bufferedImage = ImageIO.read(new File(Constants.IMG_FISH));
-//    		return bufferedImage;
-//    	} catch (IOException e) {
-//    		e.printStackTrace();
-//    	}
-//    	return null;
-//	}
 }

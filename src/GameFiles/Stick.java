@@ -58,10 +58,10 @@ public class Stick extends Collectable{
 	
 	@Override
 	public void handleCollision(ClapperRail cr) {
-		if (this.hitbox.xpoints[1] <= Constants.STICK_HANDLECOLLISION_OFFSET 
-				|| this.hitbox.xpoints[0] >= View.frame.getWidth() - Constants.STICK_HANDLECOLLISION_OFFSET
-				|| this.hitbox.ypoints[1] <= Constants.STICK_HANDLECOLLISION_OFFSET 
-				|| this.hitbox.ypoints[0] >= View.frame.getHeight() - Constants.STICK_HANDLECOLLISION_OFFSET){
+		if (this.hitbox.getBounds2D().getMaxX() <= Constants.STICK_HANDLECOLLISION_OFFSET 
+				|| this.hitbox.getBounds2D().getMinX() >= Constants.FRAME_X - Constants.STICK_HANDLECOLLISION_OFFSET
+				|| this.hitbox.getBounds2D().getMaxY() <= Constants.STICK_HANDLECOLLISION_OFFSET 
+				|| this.hitbox.getBounds2D().getMinY() >= Constants.FRAME_Y - Constants.STICK_HANDLECOLLISION_OFFSET){
 			
 			this.hitbox.reset();
 			this.hitbox.addPoint(x, y);

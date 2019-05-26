@@ -44,8 +44,8 @@ public class Powerup extends Collectable {
 	
 	@Override
 	public void move() {
-		this.hitbox.translate(this.getxSpeed(), 0);
-		if(this.hitbox.xpoints[3] <= 0) {
+		this.hitbox.translate(this.getxSpeed(), Constants.COLLECTABLE_YSPEED);
+		if(this.hitbox.getBounds2D().getMaxX() <= Constants.FRAME_X - Constants.FRAME_X) {
 			resetPoly();
 		}
 		this.animate(Constants.CRAB_ANIMATION_TICK_RATE);

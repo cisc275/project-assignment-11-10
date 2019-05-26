@@ -45,9 +45,9 @@ public class AirCurrent extends Collectable {
 	public Polygon acReset() {
 		this.hitbox.reset();
 		this.hitbox.addPoint(x, y);
-		this.hitbox.addPoint(x + width/2, y);
-		this.hitbox.addPoint(x + width, y + height/2);
-		this.hitbox.addPoint(x, y + height/2);
+		this.hitbox.addPoint(x + (width/Constants.AIRCURRENT_OFFSET), y);
+		this.hitbox.addPoint(x + width, y + (height/Constants.AIRCURRENT_OFFSET));
+		this.hitbox.addPoint(x, y + (height/Constants.AIRCURRENT_OFFSET));
 		return this.hitbox;
 	}
 	
@@ -62,8 +62,8 @@ public class AirCurrent extends Collectable {
 	
 	@Override
 	public void move() {
-		this.hitbox.translate(this.getxSpeed(), 0);
-			if(this.hitbox.getBounds2D().getMaxX() <= 0) {
+		this.hitbox.translate(this.getxSpeed(), Constants.COLLECTABLE_YSPEED); //ySpeed is 0 for all collectables
+			if(this.hitbox.getBounds2D().getMaxX() <= Constants.FRAME_X - Constants.FRAME_X) {
 				acReset();
 			}
 			animate(Constants.AIRCURRENT_ANIMATION_TICK_RATE);

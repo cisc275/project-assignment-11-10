@@ -24,7 +24,6 @@ public class TFish extends Collectable {
 
 	public TFish(int x, int y, int width, int height) {
 		super(x,y,width,height);
-		//this.img = createImage();
 		this.imgFileName = Constants.ANIMATION_FISH;
 		this.curImg = randy.nextInt(imgFileName.length);
 	}
@@ -52,26 +51,13 @@ public class TFish extends Collectable {
 	 */
 	@Override
 	public void move() {
-		this.hitbox.translate(this.getxSpeed(), 0);
+		this.hitbox.translate(this.getxSpeed(), Constants.COLLECTABLE_YSPEED);
 		this.x += this.getxSpeed();
-		if(this.hitbox.getBounds2D().getMinX() <= 0) {
+		if(this.hitbox.getBounds2D().getMinX() <= Constants.FRAME_X - Constants.FRAME_X) {
 			resetPoly();
 		}
 		animate(Constants.FISH_ANIMATION_TICK_RATE);	
 	}
 	
-	
-//	 creates image for fish
-//	
-//	private BufferedImage createImage(){
-//		BufferedImage bufferedImage;
-//		//System.out.println("i am running");
-//    	try {
-//    		bufferedImage = ImageIO.read(new File(Constants.IMG_FISH));
-//    		return bufferedImage;
-//    	} catch (IOException e) {
-//    		e.printStackTrace();
-//    	}
-//    	return null;
-//	}
+
 }

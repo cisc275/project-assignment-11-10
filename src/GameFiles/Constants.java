@@ -33,6 +33,9 @@ public class Constants implements Serializable {
 	public final static int ONE_KEY_CODE = 49;
 	
 	public final static int AIRCURRENT_ANIMATION_TICK_RATE = 3;
+	public final static int AIRCURRENT_OFFSET = 2;
+	
+	public final static int BACKGROUND_YSPEED = 0;
 	
 	public final static int BUSH_ANIMATION_TICK_RATE = 2;
 	public final static int BUSH_SIZE = 150;
@@ -49,6 +52,7 @@ public class Constants implements Serializable {
 	
 	public final static int COLLECTABLE_RANDOM_SPEED = 10;
 	public final static int COLLECTABLE_RANDOM_OFFSET = 15;
+	public final static int COLLECTABLE_YSPEED = 0;
 	
 	public final static int CRAB_ANIMATION_TICK_RATE = 5;
 	

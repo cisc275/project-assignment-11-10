@@ -17,6 +17,7 @@ public class Collectable extends GameObject {
 	 */	
 	private int xSpeed;
 	
+
 	/**
 	 * @param x			x location on screen
 	 * @param y			y location on screen
@@ -29,6 +30,7 @@ public class Collectable extends GameObject {
 	public Collectable(int x, int y, int width, int height) {
 		super(x,y,width,height);
 		this.xSpeed = -randy.nextInt(Constants.COLLECTABLE_RANDOM_SPEED) - Constants.COLLECTABLE_RANDOM_OFFSET;
+
 	}
 	
 	
@@ -37,8 +39,8 @@ public class Collectable extends GameObject {
 	 * @author Tim Mazzarelli
 	 */
 	public void move() {
-		this.hitbox.translate(this.xSpeed, 0);
-		if(this.hitbox.getBounds2D().getMaxX() <= 0) {
+		this.hitbox.translate(this.xSpeed, Constants.COLLECTABLE_YSPEED);
+		if(this.hitbox.getBounds2D().getMaxX() <= Constants.FRAME_X - Constants.FRAME_X) {
 			resetPoly();
 		}
 	}

@@ -22,7 +22,7 @@ public class TutorialObject extends NonControllable {
 	 * @param img Sting array of file paths
  	 */
 	public TutorialObject(int x, int y, int w, int h, String[] img) {
-		super(x, y, 0, 0);
+		super(x, y, Constants.FRAME_X - Constants.FRAME_X, Constants.FRAME_Y - Constants.FRAME_Y);
 		this.width = w;
 		this.height = h;
 		this.imgFileName = img;
