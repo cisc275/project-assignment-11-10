@@ -81,11 +81,6 @@ public class GameObject implements Serializable{
 	protected boolean visible;
 	
 	/**
-	 * unused but Types for objects
-	 */
-	private Type type;
-
-	/**
 	 * random object used randomly throughout program
 	 */
 	protected Random randy;
@@ -105,7 +100,6 @@ public class GameObject implements Serializable{
 		this.width = width;
 		this.height = height;
 		this.hitbox = new Polygon();
-		this.setType(Type.GAMEOBJECT);
 		this.curImg = Constants.GAME_OBJECT_START_IMAGE;
 		this.curImgTickCount = Constants.GAME_OBJECT_START_IMAGE;
 		this.visible = true;
@@ -356,22 +350,6 @@ public class GameObject implements Serializable{
 	public void setHitBox(Polygon hitbox) {
 		this.hitbox = hitbox;
 	}
-
-	
-	/**
-	 * @return the type
-	 */
-	public Type getType() {
-		return type;
-	}
-
-	/**
-	 * @param type the type to set
-	 */
-	public void setType(Type type) {
-		this.type = type;
-	}
-
 
 	/**
 	 * overwritten in subclasses to handle collision

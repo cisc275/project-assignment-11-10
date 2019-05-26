@@ -28,7 +28,6 @@ public class Bush extends NonControllable {
 		//this.img = createImage();
 		this.imgFileName = Constants.ANIMATION_BUSH;
 		this.curImg = randy.nextInt(imgFileName.length);
-		this.setType(Type.BUSH);
 	}
 	
 	/**

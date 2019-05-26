@@ -32,7 +32,6 @@ public class Nest extends GameObject{
 		super(x,y,width,height);
 		this.imgFileName = Constants.ANIMATION_NEST;
 		this.curImg = randy.nextInt(imgFileName.length);
-		this.setType(Type.NEST);
 	}
 	
 	

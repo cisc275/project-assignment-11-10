@@ -26,7 +26,6 @@ public class Trash extends Collectable {
 		super(x,y,width,height);
 		this.imgFileName = Constants.ANIMATION_TRASH;
 		this.curImg = randy.nextInt(imgFileName.length);
-		this.setType(Type.TRASH);
 	}
 	
 	/**

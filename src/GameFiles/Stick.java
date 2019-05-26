@@ -50,7 +50,6 @@ public class Stick extends Collectable{
 		this.setySpeed(0);
 		this.imgFileName = Constants.ANIMATION_STICK;
 		this.curImg = randy.nextInt(imgFileName.length);
-		this.setType(Type.STICK);
 		
 	}
 	/**

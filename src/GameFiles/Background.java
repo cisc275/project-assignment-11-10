@@ -30,7 +30,6 @@ public class Background extends GameObject{
     	this.hitbox.addPoint(width + width, height - height);
         this.imgFileName = Constants.ANIMATION_BACKGROUND;
         this.curImg = randy.nextInt(imgFileName.length);
-        this.setType(Type.BACKGROUND);
     }
  
     /**
