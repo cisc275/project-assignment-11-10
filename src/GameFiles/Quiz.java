@@ -280,7 +280,7 @@ public class Quiz extends JDialog implements KeyListener{
 				questions.add(Constants.OSPREY_5);
 			}
 		}
-		if (game.equals("td")) {
+		if (game.equals(Constants.TOP_DOWN_STRING)) {
 			if (questions != null) {}
 			else {
 				questions = new ArrayList<JLabel>();
@@ -313,8 +313,8 @@ public class Quiz extends JDialog implements KeyListener{
 			question = Constants.OSPREY_TUTORIAL;
 		}
 		else {
-			question = ourQuestions.get(qNumber);
-			ourQuestions.remove(qNumber);
+			question = questions.get(qNumber);
+			questions.remove(qNumber);
 		}
 		questionHandling();	
 	}
@@ -398,7 +398,7 @@ public class Quiz extends JDialog implements KeyListener{
 				rightAnswers.add(Constants.OSPREY_CORRECT5);
 			}
 		}
-		if (game.equals("td")) {
+		if (game.equals(Constants.TOP_DOWN_STRING)) {
 			if (rightAnswers != null) {}
 			else {
 				rightAnswers = new ArrayList<JButton>();
@@ -438,7 +438,7 @@ public class Quiz extends JDialog implements KeyListener{
 
 			}
 		}
-		if (game.equals("td")) {
+		if (game.equals(Constants.TOP_DOWN_STRING)) {
 			if (wrongAnswers != null) {}
 			else {
 				wrongAnswers = new ArrayList<JButton>();
@@ -475,7 +475,7 @@ public class Quiz extends JDialog implements KeyListener{
 				mWAnswers.add(Constants.OSPREY_WRONG5);
 			}
 		}
-		if (game.equals("td")) {
+		if (game.equals(Constants.TOP_DOWN_STRING)) {
 			if (mWAnswers != null) {return mWAnswers;}
 			else {
 				mWAnswers = new ArrayList<JButton>();
@@ -624,7 +624,7 @@ public class Quiz extends JDialog implements KeyListener{
 	
 	
 	public static void main(String[] args) {
-		new Quiz(Constants.SIDE_SCROLL_STRING);
+		new Quiz(Constants.TOP_DOWN_STRING);
 	}
 	
 	

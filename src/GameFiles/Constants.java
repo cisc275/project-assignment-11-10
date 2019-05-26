@@ -43,7 +43,7 @@ public class Constants implements Serializable {
 	public final static int CLAPPER_RAIL_START_SIZE_Y = 100;
 	public final static int CLAPPER_RAIL_ANIMATION_TICK_RATE = 1;
 	public final static int CLAPPER_RAIL_LIVES_END_STATE = 0;
-	
+	public final static int CLAPPER_RAIL_LIVE_LOSS = -1;
 	public final static int CLAPPER_RAIL_INIT_LIVES = 3;
 	
 	public final static int COLLECTABLE_RANDOM_SPEED = 10;
@@ -56,8 +56,8 @@ public class Constants implements Serializable {
 	public final static int FISH_ANIMATION_TICK_RATE = 2;
 	
 	public final static int FOX_HEIGHT_DIVISION_FACTOR = 2;
-	public final static int FOX_INIT_XSPEED = 2;
-	public final static int FOX_INIT_YSPEED = 2;
+	public final static int FOX_INIT_XSPEED = 1;
+	public final static int FOX_INIT_YSPEED = -2;
 	public final static int FOX_START_LOC_X = 400;
 	public final static int FOX_START_LOC_Y = 300;
 	public final static int FOX_START_SIZE_X = 250;
@@ -65,7 +65,7 @@ public class Constants implements Serializable {
 	public final static int FOX_ANIMATION_TICK_RATE = 2;
 	
 	public final static int GRID_LAYOUT_X = 0;
-	public final static int GRID_LAYOUT_Y = 0;
+	public final static int GRID_LAYOUT_Y = 1;
 	
 	
 	public final static int LINUX_SCREEN_SIZE = 10;

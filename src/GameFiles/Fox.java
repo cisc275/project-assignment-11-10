@@ -64,15 +64,10 @@ public class Fox extends Controllable {
 	public Fox(int x, int y, int width, int height, ClapperRail c) {
 		super(x,y,width,height);
 		this.c = c;
-		this.xSpeed = 1;
-		this.ySpeed = -2;
+		this.xSpeed = Constants.FOX_INIT_XSPEED;
+		this.ySpeed = Constants.FOX_INIT_YSPEED;
 		this.imgFileName = Constants.ANIMATION_FOX_LEFT;
 		this.curImg = randy.nextInt(imgFileName.length);
-		//try {
-    	//	this.img = ImageIO.read(new File(Constants.IMG_FOX));
-		//} catch (IOException e) {
-    	//	e.printStackTrace();
-    	//}
 	}
 	
 	/**
@@ -91,6 +86,7 @@ public class Fox extends Controllable {
 		}		
 	}
 	
+	
 	/**
 	 * handles collision with clapperrail
 	 * @param c
@@ -98,7 +94,7 @@ public class Fox extends Controllable {
 	 */
 	@Override
 	public void handleCollision(ClapperRail c) {
-		ClapperRail.lives -= 1;
+		ClapperRail.lives += Constants.CLAPPER_RAIL_LIVE_LOSS;
 		c.resetPoly();
 		this.resetPoly();
 		xSpeed = Constants.FOX_INIT_XSPEED;
@@ -113,8 +109,8 @@ public class Fox extends Controllable {
 	 */
 		
 	public double distance() {	
-		int xDistance = this.hitbox.xpoints[0] - c.hitbox.xpoints[0];
-		int	yDistance = this.hitbox.ypoints[0] - c.hitbox.ypoints[0];
+		int xDistance = (int) (this.hitbox.getBounds2D().getMinX() - c.hitbox.getBounds2D().getMinX());
+		int	yDistance = (int) (this.hitbox.getBounds2D().getMinY() - c.hitbox.getBounds2D().getMinY());
 		return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
 		}
 		
@@ -131,9 +127,9 @@ public class Fox extends Controllable {
 		
 		if(!c.hidden) {
 			if(!bushColl) {
-				this.xSpeed = ((c.hitbox.xpoints[0] - this.hitbox.xpoints[0]) * 
+				this.xSpeed = ((c.hitbox.getBounds2D().getMinX() - this.hitbox.getBounds2D().getMinX()) * 
 						(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());
-				this.ySpeed = ((c.hitbox.ypoints[0] - this.hitbox.ypoints[0]) * 
+				this.ySpeed = ((c.hitbox.getBounds2D().getMinY() - this.hitbox.getBounds2D().getMinY()) * 
 						(Math.sqrt(Math.pow(this.xSpeed, 2) + Math.pow(this.ySpeed,  2))) / distance());
 			}
 			else {
@@ -200,7 +196,7 @@ public class Fox extends Controllable {
 			this.xSpeed = 1;
 			this.ySpeed = 1;
 		}
-		this.hitbox.translate(3 *(int) this.xSpeed,3 * (int) this.ySpeed);
+		this.hitbox.translate(2 *(int) this.xSpeed,2 * (int) this.ySpeed);
 		boundaries();
 		
 		if(this.xSpeed < 0) {
@@ -219,7 +215,7 @@ public class Fox extends Controllable {
 		if (Model.inTutoral) {
 			
 		} else {
-			if (this.hitbox.ypoints[0] <= 0) {
+			if (this.hitbox.getBounds2D().getMinY() <= 0) {
 				int x1 = this.hitbox.xpoints[0];
 				int x2 = this.hitbox.xpoints[1];
 				int x3 = this.hitbox.xpoints[2];
@@ -258,7 +254,7 @@ public class Fox extends Controllable {
 				this.hitbox.addPoint(View.frame.getWidth(), y4);		
 			}
 			
-			if (this.hitbox.xpoints[0] <= 0) {
+			if (this.hitbox.getBounds2D().getMinX() <= 0) {
 				int y1 = this.hitbox.ypoints[0];
 				int y2 = this.hitbox.ypoints[1];
 				int y3 = this.hitbox.ypoints[2];
