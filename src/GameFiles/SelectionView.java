@@ -39,8 +39,14 @@ public class SelectionView extends View implements KeyListener{
 	 */
 	static JButton clapperRail;
 	
+	/**
+	 * the size of our screen
+	 */
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
+	/**
+	 * the image drawn on the back of the jpanel
+	 */
 	BufferedImage image;
 	
 	/**
@@ -49,13 +55,13 @@ public class SelectionView extends View implements KeyListener{
 	
 	public SelectionView(ArrayList<GameObject> g) {
 		DrawPanel dp = new DrawPanel();
-//		Dimension fullScreen = new Dimension(Constants.FRAME_X,1080);
-//		dp.setMinimumSize(fullScreen);
-//		dp.setPreferredSize(fullScreen);
-//		dp.setMaximumSize(fullScreen);
+		Dimension fullScreen = new Dimension(screenSize);
+		dp.setMinimumSize(fullScreen);
+		dp.setPreferredSize(fullScreen);
+		dp.setMaximumSize(fullScreen);
 		game = g;
-//		osprey = new JButton(new ImageIcon(Constants.IMG_SELECT_OSPREY));
-//		clapperRail = new JButton(new ImageIcon(Constants.IMG_SELECT_CLAPPER_RAIL));
+		osprey = new JButton(new ImageIcon(Constants.IMG_SELECT_OSPREY));
+		clapperRail = new JButton(new ImageIcon(Constants.IMG_SELECT_CLAPPER_RAIL));
 		osprey = new JButton();
 		clapperRail = new JButton();
 		osprey.setOpaque(false);
@@ -70,7 +76,6 @@ public class SelectionView extends View implements KeyListener{
 		this.add(dp);
 		dp.add(osprey);
 		dp.add(clapperRail);
-		System.out.println(screenSize);
 		this.setSize(screenSize.getSize());
 		this.setUndecorated(true);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -80,8 +85,19 @@ public class SelectionView extends View implements KeyListener{
 		this.setVisible(true);	
 
 	}
-private class DrawPanel extends JPanel{
+	
+	/**
+	 * the class that draws our JPanel, and its background image
+	 * @author tim mazzarelli
+	 *
+	 */
+	private class DrawPanel extends JPanel{
 		
+		/**
+		 * creates the scaled Image to place on the JPanel
+		 * @return BufferedImage
+		 * @author Andrew Thompson
+		 */
 		private BufferedImage createImage(){
 			BufferedImage ig;
 			BufferedImage scaledImg;
@@ -100,20 +116,33 @@ private class DrawPanel extends JPanel{
 	    	return null;
 		}
 			
-		
+		/**
+		 * paints our JPanel
+		 * @param g 
+		 * @author Andrew Thompson
+		 */
 		@Override
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			image = createImage();
-			g.drawImage(image, 0, 0, this);
-	
-	}
+			g.drawImage(image, Constants.FRAME_X - Constants.FRAME_X, Constants.FRAME_Y - Constants.FRAME_Y, this);
+		}
 	}
 	
 
-	
+	/**
+	 * class that handles the KeyStroke action
+	 * @author tim mazzarelli
+	 *
+	 */
 	private class keyAction extends AbstractAction{
 
+		/**
+		 * if the key stroke is related to osprey the osprey game starts
+		 * and same for clapper rail, then disposes of the screen
+		 * @param e
+		 * @author tim mazarelli
+		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource().equals(osprey)) {
@@ -127,16 +156,29 @@ private class DrawPanel extends JPanel{
 		
 	}
 	
+	/**
+	 * disposes of the selection screen
+	 * @author tim mazzarelli
+	 */
 	public void endSelection() {
 		this.dispose();
 	}
 
+	/**
+	 * when a key is pressed the buttons are setup
+	 * and ready to act
+	 * @author Tim Mazzarelli
+	 */
 	@Override
-	public void keyPressed(KeyEvent arg0) {
+	public void keyPressed(KeyEvent e) {
 		ospreySetup();
 		crSetup();
 	}
 	
+	/**
+	 * maps the osprey button to the left arrow key
+	 * @author tim mazzarelli
+	 */
 	public void ospreySetup() {
 		int map = JComponent.WHEN_IN_FOCUSED_WINDOW;
 		InputMap imap = osprey.getInputMap(map);
@@ -149,6 +191,10 @@ private class DrawPanel extends JPanel{
 		amap.put("osprey", new keyAction());
 	}
 	
+	/**
+	 * maps the clapper rail button to the right arrow key
+	 * @author Tim Mazzarelli
+	 */
 	public void crSetup() {
 		int map = JComponent.WHEN_IN_FOCUSED_WINDOW;
 		InputMap imap = clapperRail.getInputMap(map);
@@ -161,12 +207,18 @@ private class DrawPanel extends JPanel{
 		amap.put("third", new keyAction());
 	}
 
+	/**
+	 * does nothing for us, here for interface
+	 */
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/**
+	 * does nothing for us, here for interface
+	 */
 	@Override
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
