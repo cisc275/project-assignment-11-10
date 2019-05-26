@@ -80,7 +80,7 @@ public class SideScrollModel extends Model {
 	/**
 	 * used for giving set time for collision glows
 	 */
-	private int collCount = 0;
+	public int collCount = 0;
 
 	private boolean yepItsOkayToMoveTheCloudAgain = false;
 
