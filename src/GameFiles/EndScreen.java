@@ -46,7 +46,6 @@ public class EndScreen extends JDialog implements KeyListener {
 	
 	
 	public EndScreen(String game) {
-		System.out.println(game);
 		this.game = game;
 		
 		p = new DrawPanel();

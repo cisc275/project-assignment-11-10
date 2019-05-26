@@ -192,7 +192,6 @@ public class Controller implements KeyListener, ActionListener{
 	public synchronized void keyPressed(KeyEvent e) {
 		keyPresses.add(e.getKeyCode());
 		model.handleMove(keyPresses);
-		//System.out.println(e.getKeyCode());
 		switch (e.getKeyCode()) {
 			case Constants.TILDA_KEY_CODE:
 				try {
