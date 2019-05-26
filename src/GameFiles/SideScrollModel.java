@@ -110,11 +110,7 @@ public class SideScrollModel extends Model {
 			o.imgFileName = Constants.ANIMATION_OSPREY;
 		}
 		else if (Osprey.negHitOs && !Osprey.posHitOs) {
-			if (collCount == 0) {
-				collCount += 1;
-				o.imgFileName = Constants.ANIMATION_OSPREY_BAD;
-			}
-			else if (collCount <= 50) {
+			if (collCount <= 50) {
 				collCount += 1;
 				o.imgFileName = Constants.ANIMATION_OSPREY_BAD;
 			} 
@@ -135,10 +131,7 @@ public class SideScrollModel extends Model {
 			if(Osprey.negHitOs) {
 				Osprey.negHitOs = false;
 			}
-			if (collCount == 0) {
-				collCount += 1;
-				o.imgFileName = Constants.ANIMATION_OSPREY_GOOD;
-			} else if (collCount <= 50) {
+			if (collCount <= 50) {
 				collCount += 1;
 				o.imgFileName = Constants.ANIMATION_OSPREY_GOOD;
 			} else {
