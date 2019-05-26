@@ -51,7 +51,7 @@ public class LoseScreen extends JDialog implements KeyListener {
 			
 		
 		this.game = game;
-		if(game.equals("cr")) {
+		if(game.equals(Constants.TOP_DOWN_STRING)) {
 			p = new DrawPanel();
 			p.setOpaque(true);
 			p.setBackground(Color.GREEN);
@@ -102,7 +102,7 @@ public class LoseScreen extends JDialog implements KeyListener {
 			this.setSize(screenSize);
 			this.setVisible(true);
 		}
-		else if(game.equals("os")) {
+		else if(game.equals(Constants.SIDE_SCROLL_STRING)) {
 			p = new DrawPanel();
 			p.setOpaque(true);
 			p.setLayout(new GridLayout(0,1));
@@ -171,11 +171,11 @@ public class LoseScreen extends JDialog implements KeyListener {
 	    			bufferedImage = ImageIO.read(new File("img/TIM PICK ME PLEASE.png"));
 		    		return bufferedImage;
 	    		}
-	    		if (game.equals("os")){
+	    		if (game.equals(Constants.SIDE_SCROLL_STRING)){
 	    		bufferedImage = ImageIO.read(new File(Constants.IMG_BACKGROUND_OSPREY_QUIZ));
 	    		return bufferedImage;
 	    		}
-	    		if (game.equals("cr")) {
+	    		if (game.equals(Constants.TOP_DOWN_STRING)) {
 	    		bufferedImage = ImageIO.read(new File(Constants.IMG_CR_BACKGROUND_QUIZ));
 	    		return bufferedImage;
 	    		}
@@ -204,27 +204,27 @@ public class LoseScreen extends JDialog implements KeyListener {
 		  @Override 
 		  public void actionPerformed(ActionEvent e) { 
 			  endtheScreen();
-			  if(game.equals("cr")) {
+			  if(game.equals(Constants.TOP_DOWN_STRING)) {
 				  if (e.getSource() == menu) { 
 					  Stick.count = 0; 
 					  ClapperRail.lives = 3; 
-					  new Controller("sel"); 
+					  new Controller(Constants.SELECTION_STRING); 
 				  } 
 				  else if (e.getSource() == restart) {
 					  Stick.count = 0; 
 					  ClapperRail.lives = 3; 
-					  new Controller("topDownNT");
+					  new Controller(Constants.TOP_DOWN_NT_STRING);
 				  }
 			  }
-			  if(game.equals("os")) {
+			  if(game.equals(Constants.SIDE_SCROLL_STRING)) {
 				  if (e.getSource() == menu) {  
 					  Mate.caughtUp = false;
-					  new Controller("sel"); 
+					  new Controller(Constants.SELECTION_STRING); 
 					  
 				  } 
 				  else if (e.getSource() == restart) {
 					  Mate.caughtUp = false;
-					  new Controller("sideScrollNT");
+					  new Controller(Constants.SIDE_SCROLL_NT_STRING);
 					   }
 			  }
 		  }
@@ -277,7 +277,7 @@ public class LoseScreen extends JDialog implements KeyListener {
 	}
 	
 	public static void main(String[] args) {
-		new LoseScreen("os");
+		new LoseScreen(Constants.SIDE_SCROLL_STRING);
 	}
 }
 		 

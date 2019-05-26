@@ -422,7 +422,7 @@ public class SideScrollModel extends Model {
 	}
 
 	public static void main(String[] args) {
-		new Controller("sideScroll");
+		new Controller(Constants.SIDE_SCROLL_STRING);
 
 	}
 }

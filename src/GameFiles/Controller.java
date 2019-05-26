@@ -61,10 +61,10 @@ public class Controller implements KeyListener, ActionListener{
 	 * @param selection
 	 */
 	public Controller(String selection) {
-		
 		selected = selection;
 		
 		if (selected.equals(Constants.SELECTION_STRING)){
+			// selection screen
 			view = new SelectionView(new ArrayList<GameObject>());
 			view.addActionListener(this);	
 		}
@@ -213,7 +213,7 @@ public class Controller implements KeyListener, ActionListener{
 				model = new Model();
 				model.setGame(new ArrayList<>());
 				view = new View();
-				new Controller("sel");
+				new Controller(Constants.SELECTION_STRING);
 				break;
 		}
 	}	

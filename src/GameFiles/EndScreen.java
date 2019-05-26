@@ -46,6 +46,7 @@ public class EndScreen extends JDialog implements KeyListener {
 	
 	
 	public EndScreen(String game) {
+		System.out.println(game);
 		this.game = game;
 		
 		p = new DrawPanel();
@@ -116,11 +117,11 @@ public class EndScreen extends JDialog implements KeyListener {
 		private BufferedImage createImage(){
 			BufferedImage bufferedImage;
 	    	try {
-	    		if (game.equals("sides")){
+	    		if (game.equals(Constants.SIDE_SCROLL_STRING)){
 	    		bufferedImage = ImageIO.read(new File("img/TIM PICK ME PLEASE.png"));
 	    		return bufferedImage;
 	    		}
-	    		if (game.equals("topDown")) {
+	    		if (game.equals(Constants.TOP_DOWN_STRING)) {
 	    		bufferedImage = ImageIO.read(new File("img/cend.png"));
 	    		return bufferedImage;
 	    		}
@@ -136,7 +137,8 @@ public class EndScreen extends JDialog implements KeyListener {
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			image = createImage();
-			g.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), this);
+			g.drawImage(image, this.getWidth() - this.getWidth(), this.getHeight()- this.getHeight(), 
+					this.getWidth(), this.getHeight(), this);
 	
 		}
 	}
@@ -144,7 +146,7 @@ public class EndScreen extends JDialog implements KeyListener {
 
 	
 	public static void main(String[] args) {
-		new EndScreen("topDown");
+		new EndScreen(Constants.TOP_DOWN_STRING);
 	}
 
 	private class keyAction extends AbstractAction{
@@ -153,7 +155,7 @@ public class EndScreen extends JDialog implements KeyListener {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource().equals(menu)) {
 				endScreen();
-				new Controller("sel");	
+				new Controller(Constants.SELECTION_STRING);	
 			}
 			
 		}

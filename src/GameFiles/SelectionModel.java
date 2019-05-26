@@ -18,7 +18,7 @@ public class SelectionModel extends Model {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Controller c = new Controller("sel");	
+		new Controller(Constants.SELECTION_STRING);	
 	}
 	
 	/**

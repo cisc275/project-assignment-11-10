@@ -183,11 +183,11 @@ public class Quiz extends JDialog implements KeyListener{
 	    			bufferedImage = ImageIO.read(new File("img/TIM PICK ME PLEASE.png"));
 		    		return bufferedImage;
 	    		}
-	    		if (game.equals("sides")){
+	    		if (game.equals(Constants.SIDE_SCROLL_STRING)){
 	    		bufferedImage = ImageIO.read(new File(Constants.IMG_BACKGROUND_OSPREY_QUIZ));
 	    		return bufferedImage;
 	    		}
-	    		if (game.equals("td")) {
+	    		if (game.equals(Constants.TOP_DOWN_STRING)) {
 	    		bufferedImage = ImageIO.read(new File(Constants.IMG_CR_BACKGROUND_QUIZ));
 	    		return bufferedImage;
 	    		}
@@ -203,11 +203,8 @@ public class Quiz extends JDialog implements KeyListener{
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			image = createImage();
-			if (game.equals("sides")) {
-			g.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), this);
-			}
-			else g.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), this);
-	
+			g.drawImage(image, this.getWidth() - this.getWidth(), 
+					this.getHeight() - this.getHeight(), this.getWidth(), this.getHeight(), this);
 	}
 	}
 	
@@ -263,7 +260,7 @@ public class Quiz extends JDialog implements KeyListener{
 	 */
 	
 	public void initInfo(String game) {
-		if (game.equals("sides")) {
+		if (game.equals(Constants.SIDE_SCROLL_STRING)) {
 			if (informations != null) {}
 			else {
 				informations = new ArrayList<JButton>();
@@ -357,7 +354,7 @@ public class Quiz extends JDialog implements KeyListener{
 	 */
 	
 	public void initQuestions(String game) {
-		if (game.equals("sides")) {
+		if (game.equals(Constants.SIDE_SCROLL_STRING)) {
 			if (questions != null) {}
 			else {
 				questions = new ArrayList<JLabel>();
@@ -475,7 +472,7 @@ public class Quiz extends JDialog implements KeyListener{
 	 */
 	
 	public ArrayList<JButton> initRightAnswers(String game) {
-		if (game.equals("sides")){
+		if (game.equals(Constants.SIDE_SCROLL_STRING)){
 			if (rightAnswers != null) {}
 			else {
 				rightAnswers = new ArrayList<JButton>();
@@ -514,7 +511,7 @@ public class Quiz extends JDialog implements KeyListener{
 	 */
 	
 	public ArrayList<JButton> initWrongAnswers(String game) {
-		if (game.equals("sides")) {
+		if (game.equals(Constants.SIDE_SCROLL_STRING)) {
 			if (wrongAnswers != null) {}
 			else {
 				wrongAnswers = new ArrayList<JButton>();
@@ -552,7 +549,7 @@ public class Quiz extends JDialog implements KeyListener{
 	 */
 	
 	public ArrayList<JButton> initMWAnswers(String game) {
-		if (game.equals("sides")) {
+		if (game.equals(Constants.SIDE_SCROLL_STRING)) {
 			if (mWAnswers != null) {}
 			else {
 				mWAnswers = new ArrayList<JButton>();
@@ -712,7 +709,7 @@ public class Quiz extends JDialog implements KeyListener{
 	
 	
 	public static void main(String[] args) {
-		new Quiz("sides");
+		new Quiz(Constants.SIDE_SCROLL_STRING);
 	}
 	
 	
@@ -739,15 +736,12 @@ public class Quiz extends JDialog implements KeyListener{
 		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
-				if (e.getSource() == information) {
-					card.next(c);
-				}
 				if (e.getSource() == first) {
 					if (first.getText().equals("A. " + right.getText())) {
 						if(Mate.caughtUp) {
 							View.frame.dispose();
 							Mate.caughtUp = false;
-							new EndScreen("sides");
+							new EndScreen(Constants.SIDE_SCROLL_STRING);
 						}
 						else{
 							correct = true;
@@ -758,7 +752,7 @@ public class Quiz extends JDialog implements KeyListener{
 						System.out.println("wrong");
 						if(Mate.caughtUp) {
 							View.frame.dispose();
-							new LoseScreen("os");
+							new LoseScreen(Constants.SIDE_SCROLL_STRING);
 						}
 						Osprey.negHitOs = true;
 					}
@@ -769,8 +763,7 @@ public class Quiz extends JDialog implements KeyListener{
 						if(Mate.caughtUp) {
 							View.frame.dispose();
 							Mate.caughtUp = false;
-							
-							new EndScreen("sides");
+							new EndScreen(Constants.SIDE_SCROLL_STRING);
 						}
 						else{
 							correct = true;
@@ -782,7 +775,7 @@ public class Quiz extends JDialog implements KeyListener{
 						System.out.println("wrong");
 						if(Mate.caughtUp) {
 							View.frame.dispose();
-							new LoseScreen("os");
+							new LoseScreen(Constants.SIDE_SCROLL_STRING);
 						}
 						Osprey.negHitOs = true;
 					}
@@ -793,7 +786,7 @@ public class Quiz extends JDialog implements KeyListener{
 						if(Mate.caughtUp) {
 							Mate.caughtUp = false;
 							View.frame.dispose();
-							new EndScreen("sides");
+							new EndScreen(Constants.SIDE_SCROLL_STRING);
 						}
 						else{
 							correct = true;
@@ -805,7 +798,7 @@ public class Quiz extends JDialog implements KeyListener{
 						System.out.println("wrong");
 						if(Mate.caughtUp) {
 							View.frame.dispose();
-							new LoseScreen("os");
+							new LoseScreen(Constants.SIDE_SCROLL_STRING);
 						}
 						Osprey.negHitOs = true;
 					}

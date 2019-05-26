@@ -39,7 +39,7 @@ public class Powerup extends Collectable {
 		cr.setxSpeed(0);
 		cr.setySpeed(0);
 		power = true;
-		new Quiz("td");		
+		new Quiz(Constants.TOP_DOWN_STRING);		
 	}
 	
 	@Override
@@ -80,7 +80,7 @@ public class Powerup extends Collectable {
 		Model.quizHappened = true;
 		power = true;
 		resetPoly();
-		new Quiz("sides");
+		new Quiz(Constants.SIDE_SCROLL_STRING);
 	
 	}
 

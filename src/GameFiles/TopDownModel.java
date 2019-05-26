@@ -363,7 +363,7 @@ public class TopDownModel extends Model {
      */
     public void handlePwr() {
     	if(Quiz.correct) {
-    		cr.lives += Constants.POWERUP_LIFE_INCREASE_RATE;
+    		ClapperRail.lives += Constants.POWERUP_LIFE_INCREASE_RATE;
     		Quiz.correct = false;
     	}
     }
