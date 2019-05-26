@@ -277,8 +277,8 @@ public class Fox extends Controllable {
 	/**
 	 * @return the xSpeed
 	 */
-	public double getxSpeed() {
-		return xSpeed;
+	public double getXSpeed() {
+		return this.xSpeed;
 	}
 
 	/**
@@ -291,8 +291,8 @@ public class Fox extends Controllable {
 	/**
 	 * @return the ySpeed
 	 */
-	public double getySpeed() {
-		return ySpeed;
+	public double getYSpeed() {
+		return this.ySpeed;
 	}
 
 	/**

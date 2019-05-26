@@ -78,7 +78,7 @@ public class Osprey extends Bird {
 		this.imgFileName = Constants.ANIMATION_OSPREY;
 		this.curImg = randy.nextInt(imgFileName.length);
 		Osprey.xSpeed = -10;
-		this.ySpeed = 0;
+		this.setySpeed(0);
 		this.isDiving = false;
 		distance = 0;
 		MAX_Y_SPEED = (int)(height/4);
@@ -97,9 +97,9 @@ public class Osprey extends Bird {
 	 */
 	public void dive() {
 			this.isDiving = !this.isDiving;
-			this.ySpeed = Constants.OSPREY_DIVESPEED;
+			this.setySpeed(Constants.OSPREY_DIVESPEED);
 			this.currY = this.hitbox.ypoints[0];
-			this.hitbox.translate(0, this.ySpeed);
+			this.hitbox.translate(0, this.getySpeed());
 		}
 		
 	
@@ -126,9 +126,9 @@ public class Osprey extends Bird {
 				Osprey.xSpeed += 1;
 			}
 		}
-		this.hitbox.translate(0, this.ySpeed);
+		this.hitbox.translate(0, this.getySpeed());
 		if (this.hitbox.ypoints[2] >= Constants.FRAME_Y) {
-			this.ySpeed = -this.ySpeed;
+			this.setySpeed(-this.getySpeed());
 		}
 		if (Model.inTutoral == false) {
 			distance -= Osprey.xSpeed; 
@@ -137,7 +137,7 @@ public class Osprey extends Bird {
 		}
 		if ((this.hitbox.ypoints[0] <= this.currY) && (this.isDiving == true)) {
 			this.isDiving = !this.isDiving;
-			this.ySpeed = 0;
+			this.setySpeed(0);
 		}
 		boundaries();
 		this.animate(Constants.OSPREY_ANIMATION_TICK_RATE);
@@ -156,24 +156,6 @@ public class Osprey extends Bird {
 				a.handleCollision(this);
 			}
 		}		
-	}
-
-
-	/**
-	 * 
-	 * @return ySpeed
-	 */
-	public int getySpeed() {
-		return ySpeed;
-	}
-
-
-	/**
-	 * 
-	 * @param ySpeed
-	 */
-	public void setYSpeed(int ySpeed) {
-		this.ySpeed = ySpeed;
 	}
 
 
@@ -239,46 +221,5 @@ public class Osprey extends Bird {
 		// TODO Auto-generated method stub
 		return Osprey.xSpeed;
 	}
-
 	
-	
-
-
-	/*
-	
-	@Override
-	public void resetPoly() {
-		int x1 = this.hitbox.xpoints[0];
-		int x2 = this.hitbox.xpoints[1];
-		int x3 = this.hitbox.xpoints[2];
-		int x4 = this.hitbox.xpoints[3];
-		int y1 = this.hitbox.ypoints[0];
-		int y2 = this.hitbox.ypoints[1];
-		int y3 = this.hitbox.ypoints[2];
-		int y4 = this.hitbox.ypoints[3];
-		this.hitbox.reset();
-		this.hitbox.addPoint(x1, y1);
-		this.hitbox.addPoint(x2, y2);
-		this.hitbox.addPoint(x3, y3);
-		this.hitbox.addPoint(x4, y4);
-	}
-	
-	*/
-	
-	// creates image for Osprey
-//	private BufferedImage[] createImage(){
-//		
-//		try {
-//			if (Constants.BOOL_HARVEY) imgs[2] = ImageIO.read(new File(Constants.IMG_THARVEY));
-//			else {  
-//			//	imgs[0] = ImageIO.read(new File(Constants.IMG_OSPREY));
-//			//	imgs[1] = ImageIO.read(new File(Constants.IMG_OSPREY_DIVE));
-//			}
-//			return imgs;
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		return null;
-//	}
-
 }

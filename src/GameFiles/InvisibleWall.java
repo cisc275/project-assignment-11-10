@@ -34,7 +34,7 @@ public class InvisibleWall extends NonControllable {
 	public void handleCollision(Osprey o) {
 		if (!o.isDiving) {
 			o.hitbox.reset();
-			if (o.ySpeed > 0) {
+			if (o.getySpeed() > 0) {
 				o.hitbox.addPoint(o.x, this.hitbox.ypoints[0] - o.height);
 				o.hitbox.addPoint(o.x, this.hitbox.ypoints[0]);
 				o.hitbox.addPoint(o.x + o.width, this.hitbox.ypoints[0]);

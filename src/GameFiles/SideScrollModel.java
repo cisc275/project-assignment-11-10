@@ -392,17 +392,17 @@ public class SideScrollModel extends Model {
 			Quiz.answered = false;
 		}
 		if (!o.isDiving) {
-			o.setYSpeed(0);
+			o.setySpeed(0);
 			for (Integer key : keyPresses) {
 				switch (key) {
 				case Constants.UP_KEY_CODE:
 					if (!o.isDiving) {
-						o.setYSpeed(-o.getMaxYSpeed());
+						o.setySpeed(-o.getMaxYSpeed());
 					}
 					break;
 				case Constants.DOWN_KEY_CODE:
 					if (!o.isDiving) {
-						o.setYSpeed(o.getMaxYSpeed());
+						o.setySpeed(o.getMaxYSpeed());
 					}
 
 					break;

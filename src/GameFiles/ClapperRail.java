@@ -60,8 +60,8 @@ public class ClapperRail extends Bird {
 	public ClapperRail(int x, int y, int width, int height) {
 		super(x, y, width, height);
 		this.setType(Type.CLAPPERRAIL);
-		this.xSpeed = 0;
-		this.ySpeed = 0;
+		this.setxSpeed(0);
+		this.setySpeed(0);
 		this.imgFileName = Constants.ANIMATION_CR_LEFT;
 		this.curImg = randy.nextInt(imgFileName.length);
 	}
@@ -73,30 +73,19 @@ public class ClapperRail extends Bird {
 	 */
 
 	public void move() {
-		this.hitbox.translate(this.xSpeed, this.ySpeed);
+		this.hitbox.translate(this.getxSpeed(), this.getySpeed());
 		boundaries();
-		if (!(this.xSpeed == 0 && this.ySpeed == 0)) {
+		if (!(this.getxSpeed() == 0 && this.getySpeed() == 0)) {
 			this.animate(Constants.CLAPPER_RAIL_ANIMATION_TICK_RATE);
 		}
-		if(this.xSpeed < 0) {
+		if(this.getxSpeed() < 0) {
 			this.imgFileName = Constants.ANIMATION_CR_LEFT;
 		}
-		else if(this.xSpeed > 0) {
+		else if(this.getxSpeed() > 0) {
 			this.imgFileName = Constants.ANIMATION_CR_RIGHT;
 		}
 	}
-
-	/*
-	 * handles collision with fox f
-	 * 
-	 * @param f
-	 * @author tim Mazzarelli
-	 *//*
-		 * 
-		 * public void handleCollision(Fox f) { resetPoly();
-		 * 
-		 * }
-		 */
+	 
 
 	/**
 	 * @param takes an ArrayList of GameObject and checks each object (not itself)
@@ -126,7 +115,8 @@ public class ClapperRail extends Bird {
 		for (Bush b : bushArr) {
 			double tmp;
 			// distance formula
-			double i = Math.pow(b.getX() - hitbox.xpoints[0], 2.0) + Math.pow((b.getY() - hitbox.ypoints[0]), 2.0);
+			double i = Math.pow(b.getX() - this.hitbox.getBounds2D().getMinX(), 2.0) +
+					Math.pow((b.getY() - this.hitbox.getBounds2D().getMinY()), 2.0);
 			tmp = Math.sqrt(i);
 			if (tmp < d || d == 0) {
 				d = tmp;
@@ -143,7 +133,6 @@ public class ClapperRail extends Bird {
 	 */
 	public void stillHiding() {
 		if (!this.collidesWith(closestBush)) {
-
 			hidden = false;
 		} else {
 
@@ -178,39 +167,4 @@ public class ClapperRail extends Bird {
 		this.carryStick = carryStick;
 	}
 
-	/**
-	 * Returns the xSpeed
-	 * @return the xSpeed
-	 * @author Mark Wolgin
-	 */
-	public int getxSpeed() {
-		return xSpeed;
-	}
-
-	/**
-	 * Sets the xSpeed
-	 * @param xSpeed the xSpeed to set
-	 * @author Mark Wolgin
-	 */
-	public void setxSpeed(int xSpeed) {
-		this.xSpeed = xSpeed;
-	}
-
-	/**
-	 * Gets the ySpeed
-	 * @return the ySpeed
-	 * @author Mark Wolgin
-	 */
-	public int getySpeed() {
-		return ySpeed;
-	}
-
-	/**
-	 * Sets the ySpeed
-	 * @param ySpeed the ySpeed to set
-	 * @author Mark Wolgin
-	 */
-	public void setySpeed(int ySpeed) {
-		this.ySpeed = ySpeed;
-	}
-}
+}	

@@ -30,8 +30,7 @@ public class Mate extends Bird {
 		this.imgFileName = Constants.ANIMATION_OSPREY;
 		this.curImg = randy.nextInt(imgFileName.length);
 		Mate.caughtUp = false;
-		this.xSpeed = -10;
-	
+		this.setxSpeed(-10);
 	}
 	
 	/**
@@ -45,7 +44,7 @@ public class Mate extends Bird {
 			Mate.caughtUp = true;
 		}
 		else if (Osprey.distance >= Osprey.maxDistance) {
-			this.hitbox.translate(this.xSpeed, 0);	
+			this.hitbox.translate(this.getxSpeed(), 0);	
 		}
 		else {
 			this.hitbox.translate(0, 0);
@@ -66,24 +65,6 @@ public class Mate extends Bird {
 		Mate.caughtUp = true;
 		
 	}
-
-	
-	
-// draw the mate
-//
-//private BufferedImage createImage(){
-//	BufferedImage bufferedImage;
-//	//System.out.println("i am running");
-//	try {
-//		if (Constants.BOOL_HARVEY) bufferedImage = ImageIO.read(new File(Constants.IMG_MATE));
-//		else bufferedImage = ImageIO.read(new File(Constants.IMG_POLY_HARVEY));
-//		return bufferedImage;
-//	} catch (IOException e) {
-//		e.printStackTrace();
-//	}
-//	return null;
-//}
-
 
 }
 

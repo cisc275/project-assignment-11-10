@@ -12,18 +12,16 @@ import java.util.Random;
  */
 public class Collectable extends GameObject {
 	
-
 	/**
-	 * describes the speed with which collectables move, also the benefit
-	 */
-	
+	 * describes the speed with which collectables move
+	 */	
 	private int xSpeed;
 	
 	/**
-	 * @param y
-	 * @param x
-	 * @param width
-	 * @param height
+	 * @param x 	x location on the screen
+	 * @param y		y location on the screen
+	 * @param width		image width
+	 * @param height	image height
 	 * 
 	 * a constructor that takes values for all fields as input parameters
 	 **/
@@ -33,11 +31,11 @@ public class Collectable extends GameObject {
 		this.xSpeed = -randy.nextInt(Constants.COLLECTABLE_RANDOM_SPEED) - Constants.COLLECTABLE_RANDOM_OFFSET;
 	}
 	
+	
 	/**
 	 * moves the aircurrent according to x speed and resets if it goes back over the left screen
 	 * @author Tim Mazzarelli
 	 */
-	
 	public void move() {
 		this.hitbox.translate(this.xSpeed, 0);
 		if(this.hitbox.getBounds2D().getMaxX() <= 0) {

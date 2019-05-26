@@ -67,8 +67,7 @@ public class Stick extends Collectable{
 			this.hitbox.addPoint(x, y);
 			this.hitbox.addPoint(x + width, y + height);
 		}
-		this.hitbox.translate(cr.xSpeed, cr.ySpeed);
-		
+		this.hitbox.translate(cr.getxSpeed(), cr.getySpeed());
 	}
 	
 	/**

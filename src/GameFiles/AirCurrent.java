@@ -79,7 +79,7 @@ public class AirCurrent extends Collectable {
 	
 	@Override
 	public void handleCollision(Osprey o) {
-		Osprey.negHitOs = true; // for animation, negative collision
+		Osprey.negHitOs = true; // for animation, negative collision means red
 		acReset();
 		o.setXSpeed((Osprey.getXSpeed() + Constants.FISH_AC));
 		if (Osprey.xSpeed >= Constants.OSPREY_MIN_SPEED) {
