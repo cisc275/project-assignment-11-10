@@ -118,6 +118,11 @@ public class Constants implements Serializable {
 	public final static int POWERUP_SPEED = -30;
 	public final static int POWERUP_DURATION = 100;
 	public final static int POWERUP_OFFSET = 5;
+
+	public final static int QUIZ_CENTER = 2;
+	public final static int QUIZ_OFFSET = 4;
+	public final static int QUIZ_PERMS = 6;
+	public final static int QUIZ_QUESTIONS = 5;
 	
 	public final static int STICK_ANIMATION_TICK_RATE = 2;
 	public final static int STICK_HANDLECOLLISION_OFFSET = 30;
@@ -493,7 +498,7 @@ public class Constants implements Serializable {
 	public final static double IMG_SCALE_RATIO_X = FRAME_X/800;
 	public final static double IMG_SCALE_RATIO_Y = FRAME_Y/600;
 	public final static double ENDSCREEN_TEXT_SIZE = 0.015;
-
+	public final static double QUIZ_TEXT_SIZE = 0.018;
 
 	public static void setFrameX(int d) { 
 		FRAME_X = d; 

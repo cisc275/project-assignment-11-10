@@ -114,14 +114,14 @@ public class TopDownModel extends Model {
      */
     @Override
     public void handleMove(HashSet<Integer> keyPresses) {
-    	cr.setxSpeed(0);
-    	cr.setySpeed(0);
+    	cr.setxSpeed(Constants.CLAPPER_RAIL_START_XSPEED);
+    	cr.setySpeed(Constants.CLAPPER_RAIL_START_YSPEED);
     //	System.out.println(cr.xSpeed);
     //	System.out.println(keyPresses);
     	if(Quiz.answered == true) {
     		keyPresses.clear();
-    		cr.setxSpeed(0);
-        	cr.setySpeed(0);
+    		cr.setxSpeed(Constants.CLAPPER_RAIL_START_XSPEED);
+        	cr.setySpeed(Constants.CLAPPER_RAIL_START_YSPEED);
         	Quiz.answered = false;
     	}
     	for(Integer key: keyPresses) {

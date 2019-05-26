@@ -135,22 +135,24 @@ public class Quiz extends JDialog implements KeyListener{
 	 */
 	
 	public Quiz(String game) {
+		this.game = game;
+		Constants.FRAME_X = (int) screenSize.getWidth();
+		Constants.FRAME_Y = (int) screenSize.getHeight();
 		c = getContentPane();
 		card = new CardLayout();
 		c.setLayout(card);
-		card.setVgap(0);
 		panelHandling();
 		questionNumber();
 		initQuestions(game);
 		initAnswers(game);
-		this.game = game;
+		initHashSet();
 		if (Mate.caughtUp) {
 			this.setSize(Constants.FRAME_X, Constants.FRAME_Y);
-			this.setLocation(0, 0);
+			this.setLocation(Constants.VIEW_ORIGIN, Constants.VIEW_ORIGIN);
 		}
 		else {
-			this.setLocation(1920/2 - 1920/4, 1080/2 - 1080/4);
-			this.setSize(1920/2, 1080/2);
+			this.setLocation(Constants.FRAME_X/Constants.QUIZ_CENTER - Constants.FRAME_X/Constants.QUIZ_OFFSET, Constants.FRAME_Y/Constants.QUIZ_CENTER - Constants.FRAME_Y/Constants.QUIZ_OFFSET);
+			this.setSize(Constants.FRAME_X/Constants.QUIZ_CENTER, Constants.FRAME_Y/Constants.QUIZ_CENTER);
 		}
 		c.add(p);
 		this.setModal(true);
@@ -170,7 +172,7 @@ public class Quiz extends JDialog implements KeyListener{
 	
 	public void panelHandling() {
 		p = new DrawPanel();
-		p.setLayout(new GridLayout(0, 1));
+		p.setLayout(new GridLayout(Constants.GRID_LAYOUT_X, Constants.GRID_LAYOUT_Y));
 		p.setIgnoreRepaint(true);
 	}
 	
@@ -205,7 +207,7 @@ public class Quiz extends JDialog implements KeyListener{
 			image = createImage();
 			g.drawImage(image, this.getWidth() - this.getWidth(), 
 					this.getHeight() - this.getHeight(), this.getWidth(), this.getHeight(), this);
-	}
+		}
 	}
 	
 	
@@ -219,7 +221,7 @@ public class Quiz extends JDialog implements KeyListener{
 	 * @author tim mazzarelli
 	 */
 	
-	public HashSet<Integer> initHashtable() {
+	public HashSet<Integer> initHashSet() {
 		if (previousNumbers != null) {return previousNumbers;}
 		else {
 			previousNumbers = new HashSet<Integer>();
@@ -237,21 +239,18 @@ public class Quiz extends JDialog implements KeyListener{
 	 * @author tim mazzarelli
 	 */
 	
-	public int questionNumber() {
-		int answer = 0;
+	public void questionNumber() {
 		Random r = new Random();
-		qNumber = r.nextInt(5);
-		qNumber = (Integer) qNumber;
+		qNumber = r.nextInt(Constants.QUIZ_QUESTIONS);
+	//	qNumber = (Integer) qNumber;
 		if (previousNumbers != null) {
 			if (previousNumbers.contains(qNumber)) {
 				questionNumber();	
 			}
 			else {
-				previousNumbers.add(qNumber);
-				answer = qNumber;	
+				previousNumbers.add(qNumber);	
 			}
 		}
-		return answer;
 	}	
 	
 
@@ -331,27 +330,27 @@ public class Quiz extends JDialog implements KeyListener{
 		ArrayList<JLabel> list = new ArrayList<JLabel>();
 		list.add(question);
 		if (Model.inTutoral == true) {
-			instruction = new JLabel("Answer correctly and you will get a speed boost!");
+			if (game.equals(Constants.SIDE_SCROLL_STRING)) {
+				instruction = new JLabel("Answer correctly and you will get a speed boost!");
+			}
+			if (game.equals(Constants.TOP_DOWN_STRING)) {
+			instruction = new JLabel("Answer correctly and you will gain a life!");
+			}
 		}
+			
 		else instruction = new JLabel("Press the key listed next to your answer.");
 		list.add(instruction);
 		for (JLabel l : list) {
 			if (Mate.caughtUp == true) {
 				l.setForeground(Color.BLACK);
-				l.setMinimumSize(new Dimension(100, 0));
-			    l.setPreferredSize(new Dimension(100, 0));
-			    l.setMaximumSize(new Dimension(100, 0));
-			    l.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, 30));
+			    l.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, (int)(Constants.FRAME_X * Constants.ENDSCREEN_TEXT_SIZE)));
 				l.setOpaque(false);
 				
 			}
 			else {
 				l.setOpaque(false);
 				l.setForeground(Color.BLACK);
-				l.setMinimumSize(new Dimension(200, 5));
-			    l.setPreferredSize(new Dimension(200, 5));
-			    l.setMaximumSize(new Dimension(200, 5));
-			    l.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, 40));
+			    l.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, (int) (Constants.FRAME_X * Constants.QUIZ_TEXT_SIZE)));
 			}
 			l.setHorizontalAlignment(JLabel.CENTER);
 			l.setVerticalAlignment(JLabel.TOP);
@@ -540,8 +539,8 @@ public class Quiz extends JDialog implements KeyListener{
 		second = new JButton();
 		third = new JButton();
 		Random r = new Random();
-		int answerOrder = r.nextInt(6);
-		switch(answerOrder) {
+		int answerOrder = r.nextInt(Constants.QUIZ_PERMS);
+		switch(answerOrder) { // 6 permutations of button order
 			case 0: first.setText(correct.getText());
 					second.setText(incorrect.getText());
 					third.setText(veryWrong.getText());
@@ -591,24 +590,19 @@ public class Quiz extends JDialog implements KeyListener{
 			buttons.add(new JButton());
 		}
 		
+		// makes the buttons pretty
 		for (JButton b :buttons) {
 			if (Mate.caughtUp == true) {
 				b.setForeground(Color.BLACK);
 				b.setBackground(Color.BLACK);
 				b.setOpaque(false);
-				b.setMinimumSize(new Dimension(200, 0));
-	            b.setPreferredSize(new Dimension(200, 0));
-	            b.setMaximumSize(new Dimension(200, 0));
-	           	b.setFont(new Font("Serif", Font.BOLD + Font.ITALIC, 30));
+	           	b.setFont(new Font("Serif", Font.BOLD + Font.ITALIC, (int) (Constants.FRAME_X * Constants.ENDSCREEN_TEXT_SIZE)));
 			}
 			else{
         		b.setForeground(Color.BLACK);
         		b.setOpaque(false);
         		b.setBackground(Color.WHITE);
-        		b.setMinimumSize(new Dimension(300, 0));
-                b.setPreferredSize(new Dimension(300, 0));
-                b.setMaximumSize(new Dimension(300, 0));
-               	b.setFont(new Font("Serif", Font.BOLD + Font.ITALIC, 40));
+               	b.setFont(new Font("Serif", Font.BOLD + Font.ITALIC, (int) (Constants.FRAME_X * Constants.QUIZ_TEXT_SIZE)));
         		
         	}
 			b.addKeyListener(this);
@@ -636,8 +630,6 @@ public class Quiz extends JDialog implements KeyListener{
 	 * @author tim mazzarelli
 	 */
 	
-	public void addActionListener(Quiz q) {
-	}
 	
 	class keyAction extends AbstractAction{
 		
@@ -664,7 +656,6 @@ public class Quiz extends JDialog implements KeyListener{
 						Osprey.posHitOs = true;
 					}
 					else {
-						System.out.println("wrong");
 						if(Mate.caughtUp) {
 							View.frame.dispose();
 							new LoseScreen(Constants.SIDE_SCROLL_STRING);
@@ -683,11 +674,9 @@ public class Quiz extends JDialog implements KeyListener{
 						else{
 							correct = true;
 						}
-						System.out.println("right");
 						Osprey.posHitOs = true;
 					}
 					else {
-						System.out.println("wrong");
 						if(Mate.caughtUp) {
 							View.frame.dispose();
 							new LoseScreen(Constants.SIDE_SCROLL_STRING);
@@ -706,11 +695,9 @@ public class Quiz extends JDialog implements KeyListener{
 						else{
 							correct = true;
 						}
-						System.out.println("right");
 						Osprey.posHitOs = true;
 					}
 					else {
-						System.out.println("wrong");
 						if(Mate.caughtUp) {
 							View.frame.dispose();
 							new LoseScreen(Constants.SIDE_SCROLL_STRING);
