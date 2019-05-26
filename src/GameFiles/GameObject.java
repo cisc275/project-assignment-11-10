@@ -65,14 +65,29 @@ public class GameObject implements Serializable{
 	 */
 	protected int height;
 	
+	/**
+	 * 
+	 */
 	protected int curImg;
 	
+	/**
+	 * 
+	 */
 	protected int curImgTickCount;
 	
+	/**
+	 * whether or not you can see an object on the screen
+	 */
 	protected boolean visible;
 	
+	/**
+	 * unused but Types for objects
+	 */
 	private Type type;
 
+	/**
+	 * random object used randomly throughout program
+	 */
 	protected Random randy;
 
 	/**
@@ -90,8 +105,8 @@ public class GameObject implements Serializable{
 		this.height = height;
 		this.hitbox = new Polygon();
 		this.setType(Type.GAMEOBJECT);
-		this.curImg = 0;
-		this.curImgTickCount = 0;
+		this.curImg = Constants.GAME_OBJECT_START_IMAGE;
+		this.curImgTickCount = Constants.GAME_OBJECT_START_IMAGE;
 		this.visible = true;
 		randy = new Random();
 		resetPoly();
@@ -134,6 +149,7 @@ public class GameObject implements Serializable{
 	 */
 	
 	public void move() {};
+	
 	/**
 	 * 
 	 * parameters: None
@@ -146,41 +162,12 @@ public class GameObject implements Serializable{
 	
 	
 	/**
-	 * GameObjects version of this method has no effects.
+	 * GameObjects version of this method has no effects. overridden in subclasses
 	 * 
 	 * @param g Takes the GameObject to handle its collison.
 	 */
 	public void handleCollision(GameObject g) {
-		/*
-		 * There is nothing here.
-		 * 
-		 * To entertain you dear reader, please enjoy this,
-		 * 
-		 * 	SIR BEDEVERE: And that, my liege, is how we know the earth to be banana-shaped.
-			ARTHUR: This new learning amazes me, Sir Bedevere. Explain again how sheep's bladders may be employed to prevent earthquakes.
-			BEDEVERE: Oh, certainly, sir.
-			SIR LANCELOT: Look, my liege!
-			[trumpets]
-			ARTHUR: Camelot!
-			SIR GALAHAD: Camelot!
-			LANCELOT: Camelot!
-			PATSY: It's only a model.
-			ARTHUR: Shh! Knights, I bid you welcome to your new home. Let us ride... to... Camelot!
-			[in medieval hall]
-			KNIGHTS: We're Knights of the Round Table. We dance whene'er we're able. We do routines and chorus scenes With footwork impeccable. We dine well here in Camelot. We eat ham and jam and spam a lot.
-			[dancing]
-			We're Knights of the Round Table. Our shows are formidable, But many times we're given rhymes That are quite unsingable. We're opera mad in Camelot. We sing from the diaphragm a lot.
-			[in dungeon]
-			PRISONER: [clap clap clap clap]
-			[in medieval hall]
-			KNIGHTS: [tap-dancing]
-			In war we're tough and able, Quite indefatigable. Between our quests we sequin vests and impersonate Clark Gable. It's a busy life in Camelot.
-			MAN: I have to push the pram a lot.
-			[outdoors]
-			ARTHUR: Well, on second thought, let's not go to Camelot. It is a silly place.
-			KNIGHTS: Right. Right.
-		 * 
-		 */
+		
 	}
 	
 	
@@ -196,69 +183,38 @@ public class GameObject implements Serializable{
 	public BufferedImage createImage(File path) {
 		BufferedImage g;
 		try {
-    		//System.out.println("im trying");
     		g = ImageIO.read(path);
-    		
-    		//System.out.println("I succeded");
     		return g;
     	} catch (IOException e) {
-    		//System.out.println("im being caught");
     		e.printStackTrace();
     	}
 		return null;
 	}
 	
-	
+	/**
+	 * returns the String that is actually the path to each image
+	 * @return String
+	 */
 	public String getImage() {
 		
 		return img;
 	}
 	
+	/**
+	 * used to handle animation and what tick you are on
+	 * @param constant
+	 * @author Andrew Thompson
+	 * @author Mark Wolgin
+	 */
+	
 	public void animate(int constant) {
 		this.curImgTickCount ++;
 		if (curImgTickCount == constant) {
 			curImg = (curImg + 1) % this.imgFileName.length;
-			//System.out.println(curImg);
 			curImgTickCount = 0;
-			//this.visible = false;
 		}	
 	}
-	
-	
-	/**used to scale the assigned buffered image to the width and height of the object
-	 * @return buffered image that is the same size ass the object
-	 * @author andrew thompson
-	 * @author Mark Wolgin
-	 */
-	
-	
-	/*
-	public BufferedImage getScaledImg(){
-		if (scaledImg == null) {
-			scaledImg = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TRANSLUCENT);
-		    Graphics2D g2 = scaledImg.createGraphics();
-		    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-		    g2.drawImage(this.getImage(), 0, 0, this.getWidth(), this.getHeight(), null);
-		    g2.dispose();
-		}
-		else {
-			int d_x, d_y;
-			d_x = scaledImg.getWidth() - this.hitbox.getBounds().width;
-			d_y = scaledImg.getHeight() - this.hitbox.getBounds().height;
-			Rectangle hb = hitbox.getBounds();
-			if ((hb.width != 0) && (hb.height != 0) && (d_x != 0 || d_y != 0 )) { 
-				scaledImg = new BufferedImage(this.hitbox.getBounds().width, this.hitbox.getBounds().height, BufferedImage.TRANSLUCENT);
-			    Graphics2D g2 = scaledImg.createGraphics();
-			    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-			    g2.drawImage(this.getImage(), 0, 0, this.getWidth(), this.getHeight(), null);
-			    g2.dispose();
-			}
-		}
-	    return scaledImg;
-	}
-
-*/
-	
+		
 
 	/**
 	 * @return the hitbox

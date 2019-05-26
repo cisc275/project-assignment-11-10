@@ -72,6 +72,9 @@ public class Constants implements Serializable {
 	public final static int FOX_SQUARED = 2;
 	public final static int FOX_T_SPEED = -10;
 	
+	
+	public final static int GAME_OBJECT_START_IMAGE = 0;
+	
 	public final static int GRID_LAYOUT_X = 0;
 	public final static int GRID_LAYOUT_Y = 1;
 	
@@ -96,6 +99,7 @@ public class Constants implements Serializable {
 	public final static int OSPREY_MAX_SPEED = -30;
 	public final static int OSPREY_MAX_DISTANCE = 26000;
 	public final static int OSPREY_ANIMATION_TICK_RATE = 4;
+	public final static int OSPREY_INIT_YSPEED = 0;
 	
 	public final static int POWERUP_HEIGH = 100;
 	public final static int POWERUP_LIFE_INCREASE_RATE = 1;

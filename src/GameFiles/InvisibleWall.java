@@ -24,6 +24,7 @@ public class InvisibleWall extends NonControllable {
 		this.hitbox.addPoint(x, y);
 	}
 	
+	
 	/**
 	 * handles collision with Osprey, you can't go through the invisible wall unless
 	 * you are diving
@@ -34,17 +35,17 @@ public class InvisibleWall extends NonControllable {
 	public void handleCollision(Osprey o) {
 		if (!o.isDiving) {
 			o.hitbox.reset();
-			if (o.getySpeed() > 0) {
-				o.hitbox.addPoint(o.x, this.hitbox.ypoints[0] - o.height);
-				o.hitbox.addPoint(o.x, this.hitbox.ypoints[0]);
-				o.hitbox.addPoint(o.x + o.width, this.hitbox.ypoints[0]);
-				o.hitbox.addPoint(o.x + o.width, this.hitbox.ypoints[0] - o.height);
+			if (o.getySpeed() > Constants.OSPREY_INIT_YSPEED) {
+				o.hitbox.addPoint(o.x, (int) (this.hitbox.getBounds2D().getMinY() - o.height));
+				o.hitbox.addPoint(o.x, (int) this.hitbox.getBounds2D().getMinY());
+				o.hitbox.addPoint(o.x + o.width, (int) this.hitbox.getBounds2D().getMinY());
+				o.hitbox.addPoint(o.x + o.width, (int) (this.hitbox.getBounds2D().getMinY() - o.height));
 			}
 			else {
-				o.hitbox.addPoint(o.x, this.hitbox.ypoints[1]);
-				o.hitbox.addPoint(o.x, this.hitbox.ypoints[1]  + o.height );
-				o.hitbox.addPoint(o.x + o.width, this.hitbox.ypoints[1] + o.height);
-				o.hitbox.addPoint(o.x + o.width, this.hitbox.ypoints[1]);
+				o.hitbox.addPoint(o.x, (int) this.hitbox.getBounds2D().getMaxY());
+				o.hitbox.addPoint(o.x, (int) (this.hitbox.getBounds2D().getMaxY()  + o.height) );
+				o.hitbox.addPoint(o.x + o.width, (int) (this.hitbox.getBounds2D().getMaxY() + o.height));
+				o.hitbox.addPoint(o.x + o.width, (int) this.hitbox.getBounds2D().getMaxY());
 			}
 		}
 	}
