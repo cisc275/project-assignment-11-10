@@ -143,7 +143,7 @@ public class Constants implements Serializable {
 	public final static int TO_UP_KEY_DEFAULT_X = 1000;
 	public final static int TO_UP_KEY_DEFAULT_Y = 300;
 	
-	public final static int TEXT_SIZE = 30;
+
 	
 	
 	public final static int TIMER_TICK_RATE = 50;
@@ -489,6 +489,7 @@ public class Constants implements Serializable {
 	/// Doubles
 	public final static double IMG_SCALE_RATIO_X = FRAME_X/800;
 	public final static double IMG_SCALE_RATIO_Y = FRAME_Y/600;
+	public final static double ENDSCREEN_TEXT_SIZE = 0.015;
 
 
 	public static void setFrameX(int d) { 

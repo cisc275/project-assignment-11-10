@@ -170,21 +170,6 @@ public class GameObject implements Serializable{
 		return !visible;
 	}
 	
-	/**
-	 * Creates a BufferedImage for our GameObject
-	 * @param path Takes the File of an Image
-	 * @return
-	 */
-	public BufferedImage createImage(File path) {
-		BufferedImage g;
-		try {
-    		g = ImageIO.read(path);
-    		return g;
-    	} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-		return null;
-	}
 	
 	/**
 	 * returns the String that is actually the path to each image

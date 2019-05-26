@@ -80,7 +80,9 @@ public class EndScreen extends JDialog implements KeyListener {
 	 */
 	
 	public EndScreen(String game) {
-		this.game = game;		
+		this.game = game;
+		Constants.FRAME_X = (int) screenSize.getWidth();
+		Constants.FRAME_Y = (int) screenSize.getHeight();
 		panelHandling();  
 		initButtons(); 
 		labelHandling();
@@ -133,7 +135,7 @@ public class EndScreen extends JDialog implements KeyListener {
 			b.setFocusPainted(false);
 			b.setBorderPainted(false);
 			b.setBackground(Color.BLUE);
-	        b.setFont(new Font("Serif", Font.BOLD + Font.ITALIC, Constants.TEXT_SIZE));
+	        b.setFont(new Font("Serif", Font.BOLD + Font.ITALIC, (int)(Constants.FRAME_X * Constants.ENDSCREEN_TEXT_SIZE)));
 	        b.setAlignmentX(JLabel.RIGHT_ALIGNMENT);
 	        b.setAlignmentY(JLabel.TOP_ALIGNMENT);
 	        b.addKeyListener(this);
@@ -155,7 +157,7 @@ public class EndScreen extends JDialog implements KeyListener {
 					+ " weeks", SwingConstants.CENTER);
 			timer.setOpaque(false);
 			timer.setForeground(Color.BLACK);
-			timer.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, Constants.TEXT_SIZE));
+			timer.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, (int)(Constants.FRAME_X * Constants.ENDSCREEN_TEXT_SIZE)));
 			p.add(timer);
 		}
 	    p.add(new JLabel());
@@ -217,7 +219,7 @@ public class EndScreen extends JDialog implements KeyListener {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		new EndScreen(Constants.TOP_DOWN_STRING);
+		new EndScreen(Constants.SIDE_SCROLL_STRING);
 	}
 	
 	/**
