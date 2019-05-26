@@ -116,6 +116,7 @@ public class Constants implements Serializable {
 	public final static int POWERUP_SIZE = 50;
 	public final static int POWERUP_SPEED = -30;
 	public final static int POWERUP_DURATION = 100;
+	public final static int POWERUP_OFFSET = 5;
 	
 	public final static int STICK_ANIMATION_TICK_RATE = 2;
 	public final static int STICK_HANDLECOLLISION_OFFSET = 30;

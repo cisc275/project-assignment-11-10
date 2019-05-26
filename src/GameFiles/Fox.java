@@ -182,7 +182,8 @@ public class Fox extends Controllable {
 			}
 		}
 		else {	
-			this.setySpeed(Constants.FOX_T_SPEED);
+			
+			this.setYSpeed(Constants.FOX_T_SPEED);
 		}
 		
 		if (this.xSpeed == 0 && this.ySpeed == 0) {
@@ -290,7 +291,7 @@ public class Fox extends Controllable {
 	/**
 	 * @param ySpeed the ySpeed to set
 	 */
-	public void setySpeed(double ySpeed) {
+	public void setYSpeed(double ySpeed) {
 		this.ySpeed = ySpeed;
 	}
 

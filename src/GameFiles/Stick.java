@@ -18,7 +18,7 @@ public class Stick extends Collectable{
 	 * ySpeed of the stick (0 or clapper rail ySpeed)
 	 */
 	
-	int ySpeed;
+	private int ySpeed;
 	
 	/**
 	 * the number of sticks the that have been collected
@@ -44,7 +44,7 @@ public class Stick extends Collectable{
 		this.hitbox.addPoint(x, y);
 		this.hitbox.addPoint(x + width, y + height);
 		this.setxSpeed(0);
-		this.ySpeed = 0;
+		this.setySpeed(0);
 		this.imgFileName = Constants.ANIMATION_STICK;
 		this.curImg = randy.nextInt(imgFileName.length);
 		this.setType(Type.STICK);
@@ -93,18 +93,6 @@ public class Stick extends Collectable{
 		}
 	}
 	
-//	public BufferedImage createImage() {
-//		BufferedImage bufferedImage;
-//		//System.out.println("i am running");
-//    	try {
-//    		bufferedImage = ImageIO.read(new File(Constants.IMG_STICK));
-//    		return bufferedImage;
-//    	} catch (IOException e) {
-//    		e.printStackTrace();
-//    	}
-//    	return null;
-//	}
-//	
 	
 	/**
 	 * 
@@ -126,6 +114,12 @@ public class Stick extends Collectable{
 	@Override
 	public void move() {
 		animate(Constants.STICK_ANIMATION_TICK_RATE);
+	}
+	public int getySpeed() {
+		return ySpeed;
+	}
+	public void setySpeed(int ySpeed) {
+		this.ySpeed = ySpeed;
 	}
 	
 }

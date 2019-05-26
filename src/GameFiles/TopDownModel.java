@@ -191,7 +191,7 @@ public class TopDownModel extends Model {
     protected void postTutorial() {
     	f = new Fox(Constants.FOX_START_LOC_X, Constants.FOX_START_LOC_Y, Constants.FOX_START_SIZE_X, Constants.FOX_START_SIZE_Y, cr);
     	game.add(f);
-    	game.add(new Powerup(Constants.FRAME_X - Constants.STICK_OFFSET_X[0], 
+    	game.add(new Powerup(Constants.FRAME_X * Constants.POWERUP_OFFSET, 
     				Constants.FRAME_Y - (int)(Constants.POWERUP_HEIGH * Constants.POWERUP_HEIGH_SCALE) - Constants.STICK_OFFSET_Y[0],
 					(int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE), (int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE)));
 		game.add(new Stick((int) ((Constants.FRAME_X * .5) - Constants.STICK_OFFSET_X[1]), Constants.STICK_OFFSET_Y[1],
@@ -260,7 +260,7 @@ public class TopDownModel extends Model {
     		}
     		
     		if (tpow == null) {
-    			tpow = new Powerup(0, Constants.FRAME_Y - (int)(Constants.POWERUP_HEIGH * Constants.POWERUP_HEIGH_SCALE),
+    			tpow = new Powerup(Constants.FRAME_X + Constants.POWERUP_HEIGH, Constants.FRAME_Y - (int)(Constants.POWERUP_HEIGH * Constants.POWERUP_HEIGH_SCALE),
     						(int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE), (int)(Constants.POWERUP_SIZE * Constants.POWERUP_SCALE));
     			tpow.imgFileName = Constants.ANIMATION_CRAB;
     			game.add(tpow);
