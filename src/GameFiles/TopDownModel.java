@@ -133,7 +133,7 @@ public class TopDownModel extends Model {
 				break;
 	    	case Constants.LEFT_KEY_CODE:
 	    	//	System.out.println("left pressed");
-				cr.setxSpeed(Constants.BIRD_MOVE_AMOUNT);
+				cr.setxSpeed(-Constants.BIRD_MOVE_AMOUNT);
 				break;
 	    	case Constants.UP_KEY_CODE:
 				cr.setySpeed(-Constants.BIRD_MOVE_AMOUNT);

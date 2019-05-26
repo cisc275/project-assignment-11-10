@@ -30,7 +30,6 @@ public class AirCurrent extends Collectable {
 		this.hitbox = acReset();
 		this.imgFileName = Constants.ANIMATION_AIRCURRENT;
 		this.curImg = randy.nextInt(imgFileName.length);
-		this.setType(Type.AIRCURRENT);
 	}
 	
 	/**
