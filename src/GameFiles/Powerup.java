@@ -9,15 +9,19 @@ import javax.imageio.ImageIO;
 public class Powerup extends Collectable {
 
 	
-	
-	public static boolean power = false;
 	/**
-	 * @param x
-	 * @param y 
-	 * @param width
-	 * @param height
+	 * whether or not a collision with a powerup has occured
+	 */
+	public static boolean power = false;
+	
+	/**
+	 * @param x			x location on screen
+	 * @param y			y location on screen
+	 * @param width		image width
+	 * @param height	image height
 	 * 
-	 * A constructor that takes values for all fields as input parameters
+	 *               a constructor that takes values for all fields as input
+	 *               parameters
 	 */
 	public Powerup(int x, int y, int width, int height) {
 		super(x, y, width, height);
@@ -43,6 +47,22 @@ public class Powerup extends Collectable {
 	}
 	
 	/**
+	 * @param Osprey o
+	 * 
+	 * deals with collision with respect to Osprey
+	 * @author tim mazzarelli
+	 */
+	
+	@Override
+	public void handleCollision(Osprey o) {
+		Model.quizHappened = true;
+		power = true;
+		resetPoly();
+		new Quiz(Constants.SIDE_SCROLL_STRING);
+	
+	}
+	
+	/**
 	 * How the powerup moves, also how it animates itself
 	 * similar to all collectables
 	 * according to it's tickrate
@@ -58,21 +78,6 @@ public class Powerup extends Collectable {
 		this.animate(Constants.CRAB_ANIMATION_TICK_RATE);
 	}
 	
-	
-	/**
-	 * @param Osprey o
-	 * 
-	 * deals with collision with respect to Osprey
-	 * @author tim mazzarelli
-	 */
-	
-	@Override
-	public void handleCollision(Osprey o) {
-		Model.quizHappened = true;
-		power = true;
-		resetPoly();
-		new Quiz(Constants.SIDE_SCROLL_STRING);
-	
-	}
+
 
 }

@@ -10,13 +10,13 @@ package GameFiles;
 public class InvisibleWall extends NonControllable {
 
 	/**
+	 * @param x			x location on screen
+	 * @param y			y location on screen
+	 * @param width		image width
+	 * @param height	image height
 	 * 
-	 * @param x
-	 * @param y
-	 * @param width
-	 * @param height
-	 * 
-	 * Constructor for Invisible wall taking in all parameters
+	 *               a constructor that takes values for all fields as input
+	 *               parameters
 	 */
 	
 	public InvisibleWall(int x, int y, int width, int height) {

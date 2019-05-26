@@ -63,14 +63,14 @@ public class Osprey extends Bird {
 	
 	
 	/**
-	 * @param y
-	 * @param x
-	 * @param width
-	 * @param height
+	 * @param x			x location on screen
+	 * @param y			y location on screen
+	 * @param width		image width
+	 * @param height	image height
 	 * 
-	 * a constructor that takes values for all fields except currY as input parameters
+	 *               a constructor that takes values for all fields as input
+	 *               parameters
 	 */
-
 	public Osprey(int x, int y, int width, int height) {
 		super(x, y, width, height);
 		this.imgFileName = Constants.ANIMATION_OSPREY;
@@ -109,14 +109,14 @@ public class Osprey extends Bird {
 			Osprey.xSpeed = Constants.OSPREY_MAX_SPEED;
 		}
 		this.hitbox.translate(Constants.OSPREY_INIT_XSPEED, this.getySpeed());
-		if (this.hitbox.getBounds2D().getMaxY() >= Constants.FRAME_Y) {
+		if (this.hitbox.getBounds2D().getMaxY() >= Constants.FRAME_Y) { // rebounds once dive completes
 			this.setySpeed(-this.getySpeed());
 		}
-		if (Model.inTutoral == false) {
+		if (Model.inTutoral == false) { // only increments dive and time once tutorial is done
 			distance -= Osprey.xSpeed; 
 			time++;
 		}
-		if ((this.hitbox.getBounds2D().getMinY() <= this.currY) && (this.isDiving == true)) {
+		if ((this.hitbox.getBounds2D().getMinY() <= this.currY) && (this.isDiving == true)) { // stops movement once returned to current y
 			this.isDiving = !this.isDiving;
 			this.setySpeed(Constants.OSPREY_INIT_YSPEED);
 		}

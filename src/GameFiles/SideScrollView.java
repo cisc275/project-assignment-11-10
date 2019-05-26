@@ -70,12 +70,20 @@ public class SideScrollView extends View{
      */
     BufferedImage[] speeds = initSpeeds();
     
+    /**
+     * escape key image
+     */
+    
     BufferedImage escKey = createEsc();
     
     /**
      * what number map we are on
      */
     int mapNum = 0;
+    
+    /**
+     * how many fish we have and are to draw
+     */
     
     int speedNum = 0;
    
