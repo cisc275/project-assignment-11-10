@@ -17,7 +17,7 @@ public class Collectable extends GameObject {
 	 * describes the speed with which collectables move, also the benefit
 	 */
 	
-	int xSpeed;
+	private int xSpeed;
 	
 	/**
 	 * @param y
@@ -30,8 +30,7 @@ public class Collectable extends GameObject {
  	 
 	public Collectable(int x, int y, int width, int height) {
 		super(x,y,width,height);
-		Random r = new Random();
-		this.xSpeed = -r.nextInt(10) - 15;
+		this.xSpeed = -randy.nextInt(Constants.COLLECTABLE_RANDOM_SPEED) - Constants.COLLECTABLE_RANDOM_OFFSET;
 	}
 	
 	/**
@@ -41,9 +40,26 @@ public class Collectable extends GameObject {
 	
 	public void move() {
 		this.hitbox.translate(this.xSpeed, 0);
-		if(this.hitbox.xpoints[3] <= 0) {
+		if(this.hitbox.getBounds2D().getMinX() <= 0) {
 			resetPoly();
 		}
+	}
+	/**
+	 * xSpeed
+	 * @return int
+	 */
+
+	public int getxSpeed() {
+		return xSpeed;
+	}
+	
+	/**
+	 * set xSpeed
+	 * @param xSpeed
+	 */
+
+	public void setxSpeed(int xSpeed) {
+		this.xSpeed = xSpeed;
 	}
 
 

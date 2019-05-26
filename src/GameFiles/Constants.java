@@ -46,6 +46,9 @@ public class Constants implements Serializable {
 	
 	public final static int CLAPPER_RAIL_INIT_LIVES = 3;
 	
+	public final static int COLLECTABLE_RANDOM_SPEED = 10;
+	public final static int COLLECTABLE_RANDOM_OFFSET = 15;
+	
 	public final static int CRAB_ANIMATION_TICK_RATE = 5;
 	
 	public final static int FISH_AC = 5;

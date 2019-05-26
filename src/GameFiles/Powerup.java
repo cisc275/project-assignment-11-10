@@ -21,7 +21,7 @@ public class Powerup extends Collectable {
 	 */
 	public Powerup(int x, int y, int width, int height) {
 		super(x, y, width, height);
-		this.xSpeed = -20;
+		this.setxSpeed(-20);
 		this.imgFileName = Constants.ANIMATION_CRAB;
 		this.curImg = randy.nextInt(imgFileName.length);
 	}
@@ -44,7 +44,7 @@ public class Powerup extends Collectable {
 	
 	@Override
 	public void move() {
-		this.hitbox.translate(this.xSpeed, 0);
+		this.hitbox.translate(this.getxSpeed(), 0);
 		if(this.hitbox.xpoints[3] <= 0) {
 			resetPoly();
 		}

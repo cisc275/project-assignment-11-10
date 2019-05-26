@@ -52,9 +52,9 @@ public class TFish extends Collectable {
 	 */
 	@Override
 	public void move() {
-		this.hitbox.translate(this.xSpeed, 0);
-		this.x = this.x + this.xSpeed;
-		if(this.hitbox.xpoints[3] <= 0) {
+		this.hitbox.translate(this.getxSpeed(), 0);
+		this.x += this.getxSpeed();
+		if(this.hitbox.getBounds2D().getMinX() <= 0) {
 			resetPoly();
 		}
 		animate(Constants.FISH_ANIMATION_TICK_RATE);	
