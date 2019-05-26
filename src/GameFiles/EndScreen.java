@@ -215,14 +215,6 @@ public class EndScreen extends JDialog implements KeyListener {
 	
 
 	/**
-	 * main method used for testing purposes
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		new EndScreen(Constants.SIDE_SCROLL_STRING);
-	}
-	
-	/**
 	 * class that handles the KeyEvent
 	 * @author Tim Mazzarelli
 	 *
@@ -289,6 +281,13 @@ public class EndScreen extends JDialog implements KeyListener {
 		
 	}
 
+	/**
+	 * main method used for testing purposes
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		new EndScreen(Constants.TOP_DOWN_STRING);
+	}
 	
 
 	}
