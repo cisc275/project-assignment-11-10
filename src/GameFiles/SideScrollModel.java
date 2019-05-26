@@ -208,7 +208,6 @@ public class SideScrollModel extends Model {
 					Osprey.xSpeed = 0;
 					game.add(tspace);
 				} else if (tfish.hitbox.intersects(o.hitbox.getBounds2D())) {
-					System.out.println("hi");
 					tfish.visible = false;
 					// tfish.hitbox.reset();
 					tspace.visible = false;

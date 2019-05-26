@@ -133,7 +133,6 @@ public class Osprey extends Bird {
 		if (Model.inTutoral == false) {
 			distance -= Osprey.xSpeed; 
 			time++;
-			System.out.println(time);
 		}
 		if ((this.hitbox.ypoints[0] <= this.currY) && (this.isDiving == true)) {
 			this.isDiving = !this.isDiving;

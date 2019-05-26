@@ -832,7 +832,6 @@ public class Quiz extends JDialog implements KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		this.requestFocus();
-	//	firstPanelSetup();
 		firstButtonSetup();
 		secondButtonSetup();
 		thirdButtonSetup();
@@ -853,14 +852,6 @@ public class Quiz extends JDialog implements KeyListener{
 		amap.put("first", new keyAction());
 	}
 	
-//	public void firstPanelSetup() {
-//		int map = JComponent.WHEN_IN_FOCUSED_WINDOW;
-//		InputMap imap = information.getInputMap(map);
-//		imap.put(KeyStroke.getKeyStroke("SPACE"), "information");
-//		
-//		ActionMap amap = information.getActionMap();
-//		amap.put("information", new keyAction());
-//	}
 	
 	/**
 	 * sets up the correct input and action maps for the second button

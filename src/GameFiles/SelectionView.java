@@ -133,7 +133,6 @@ private class DrawPanel extends JPanel{
 
 	@Override
 	public void keyPressed(KeyEvent arg0) {
-		System.out.println("hello there");
 		ospreySetup();
 		crSetup();
 	}

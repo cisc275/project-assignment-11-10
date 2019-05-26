@@ -208,19 +208,18 @@ public class LoseScreen extends JDialog implements KeyListener {
 				  if (e.getSource() == menu) { 
 					  Stick.count = 0; 
 					  ClapperRail.lives = 3; 
-					  Controller c = new Controller("sel"); 
+					  new Controller("sel"); 
 				  } 
 				  else if (e.getSource() == restart) {
 					  Stick.count = 0; 
 					  ClapperRail.lives = 3; 
-					  Controller c = new Controller("topDownNT");
+					  new Controller("topDownNT");
 				  }
 			  }
 			  if(game.equals("os")) {
-				  if (e.getSource() == menu) { 
-					  System.out.println("send to menu"); 
+				  if (e.getSource() == menu) {  
 					  Mate.caughtUp = false;
-					  Controller c = new Controller("sel"); 
+					  new Controller("sel"); 
 					  
 				  } 
 				  else if (e.getSource() == restart) {
