@@ -64,12 +64,12 @@ public class Controller implements KeyListener, ActionListener{
 		
 		selected = selection;
 		
-		if (selected.equals("sel")){
+		if (selected.equals(Constants.SELECTION_STRING)){
 			view = new SelectionView(new ArrayList<GameObject>());
 			view.addActionListener(this);	
 		}
 
-		if(selected.equals("topDown")) {
+		if(selected.equals(Constants.TOP_DOWN_STRING)) {
 			// clapper rail game
 			
 			model = new TopDownModel();
@@ -79,11 +79,12 @@ public class Controller implements KeyListener, ActionListener{
 			view.addKeyListener(this);
 			this.start();
 		}
-		else if (selected.equals("topDownNT")) {
+		else if (selected.equals(Constants.TOP_DOWN_NT_STRING)) {
+			// skip tutorial if replaying after loss
 			model = new TopDownModel();	
 			view = new TopDownView(model.game);
 			
-			model.inTutoral = false;
+			Model.inTutoral = false;
 			model.defaultSetup();
 			model.postTutorial();
 			
@@ -91,8 +92,9 @@ public class Controller implements KeyListener, ActionListener{
 			view.addActionListener(this);
 			this.start();
 		}
+		
 		// sideScroll game
-		else if(selected.equals("sideScroll")) {
+		else if(selected.equals(Constants.SIDE_SCROLL_STRING)) {
 			model = new SideScrollModel();	
 			view = new SideScrollView(model.game);
 			model.defaultSetup();
@@ -102,11 +104,11 @@ public class Controller implements KeyListener, ActionListener{
 			this.start();
 		}
 		// sidescroll game without tutorial
-		else if(selected.equals("sideScrollNT")) {
+		else if(selected.equals(Constants.SIDE_SCROLL_NT_STRING)) {
 			model = new SideScrollModel();	
 			view = new SideScrollView(model.game);
 			
-			model.inTutoral = false;
+			Model.inTutoral = false;
 			model.defaultSetup();
 			model.postTutorial();
 			
@@ -132,7 +134,7 @@ public class Controller implements KeyListener, ActionListener{
     				for(GameObject g : model.game) {
     					g.visible = false;
     				}
-    				new Quiz("sides");
+    				new Quiz(Constants.SIDE_SCROLL_STRING);
     				time.stop();
     			}
     			else if(Stick.count == Constants.STICK_END_COUNT) {
@@ -140,7 +142,7 @@ public class Controller implements KeyListener, ActionListener{
     					g.visible = false;
     				}
     				View.frame.dispose();
-    				new EndScreen("topDown");
+    				new EndScreen(Constants.TOP_DOWN_STRING);
     				time.stop();
     			}
     			else if(ClapperRail.lives == Constants.CLAPPER_RAIL_LIVES_END_STATE) {
@@ -148,7 +150,7 @@ public class Controller implements KeyListener, ActionListener{
     					g.visible = false;
     				}
     				View.frame.dispose();
-    				new LoseScreen("cr");
+    				new LoseScreen(Constants.TOP_DOWN_STRING);
     				time.stop();
     			}
     		}

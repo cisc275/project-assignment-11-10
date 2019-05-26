@@ -142,6 +142,10 @@ public class Constants implements Serializable {
 
 	/// Strings
 	public final static String TOP_DOWN_STRING = "topDown";
+	public final static String TOP_DOWN_NT_STRING = "topDownNT";
+	public final static String SIDE_SCROLL_STRING = "sideScroll";
+	public final static String SIDE_SCROLL_NT_STRING = "sideScrollNT";
+	public final static String SELECTION_STRING = "sel";
 	
 	public final static String IMG_AIRCURRENT = "img/aircurrent.png";
 	public final static String IMG_AIRCURRENT_1 = "img/aircurrent/aircurrent_1.png";
