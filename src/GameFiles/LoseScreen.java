@@ -203,32 +203,33 @@ public class LoseScreen extends JDialog implements KeyListener {
 	private class keyAction extends AbstractAction{
 		  @Override 
 		  public void actionPerformed(ActionEvent e) { 
-			  endtheScreen();
-			  if(game.equals(Constants.TOP_DOWN_STRING)) {
-				  if (e.getSource() == menu) { 
-					  Stick.count = 0; 
-					  ClapperRail.lives = 3; 
-					  new Controller(Constants.SELECTION_STRING); 
-				  } 
-				  else if (e.getSource() == restart) {
-					  Stick.count = 0; 
-					  ClapperRail.lives = 3; 
-					  new Controller(Constants.TOP_DOWN_NT_STRING);
+				  endtheScreen();
+				  if(game.equals(Constants.TOP_DOWN_STRING)) {
+					  if (e.getSource() == menu) { 
+						  Stick.count = 0; 
+						  ClapperRail.lives = 3; 
+						  new Controller(Constants.SELECTION_STRING); 
+					  }
+					  else if (e.getSource() == restart) {
+						  Stick.count = 0; 
+						  ClapperRail.lives = 3; 
+						  new Controller(Constants.TOP_DOWN_NT_STRING);
+					  }
+				  }
+				  if(game.equals(Constants.SIDE_SCROLL_STRING)) {
+					  if (e.getSource() == menu) {  
+						  Mate.caughtUp = false;
+						  new Controller(Constants.SELECTION_STRING); 
+						  
+					  } 
+					  else if (e.getSource() == restart) {
+						  Mate.caughtUp = false;
+						  new Controller(Constants.SIDE_SCROLL_NT_STRING);
+						   }
 				  }
 			  }
-			  if(game.equals(Constants.SIDE_SCROLL_STRING)) {
-				  if (e.getSource() == menu) {  
-					  Mate.caughtUp = false;
-					  new Controller(Constants.SELECTION_STRING); 
-					  
-				  } 
-				  else if (e.getSource() == restart) {
-					  Mate.caughtUp = false;
-					  new Controller(Constants.SIDE_SCROLL_NT_STRING);
-					   }
-			  }
-		  }
 	}
+	
 	
 	public void endtheScreen() {
 		this.dispose();
@@ -236,14 +237,8 @@ public class LoseScreen extends JDialog implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent arg0) {
-		int count = 0;
-		for (int i = 0; i < 100000; i++) {
-			count++;
-		}
-		if (count >= 99999){
 		menuSetup();
 		restartSetup();
-		}
 	}
 	
 	public void menuSetup() {

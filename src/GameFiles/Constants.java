@@ -64,6 +64,9 @@ public class Constants implements Serializable {
 	public final static int FOX_START_SIZE_Y = 125;
 	public final static int FOX_ANIMATION_TICK_RATE = 2;
 	
+	public final static int GRID_LAYOUT_X = 0;
+	public final static int GRID_LAYOUT_Y = 0;
+	
 	
 	public final static int LINUX_SCREEN_SIZE = 10;
 	public final static int LINUX_SCREEN_SCALE_X = 192;
@@ -281,6 +284,7 @@ public class Constants implements Serializable {
 	public final static String IMG_UP_KEY_5 = "img/up/up_5.png";
 	public final static String IMG_UP_KEY_6 = "img/up/up_6.png";
 	
+	
 	// Arrays of String file paths
 	
 	public final static String[] ANIMATION_AIRCURRENT = {IMG_AIRCURRENT_1, IMG_AIRCURRENT_2, IMG_AIRCURRENT_3, IMG_AIRCURRENT_4, IMG_AIRCURRENT_5, IMG_AIRCURRENT_6};
@@ -331,21 +335,6 @@ public class Constants implements Serializable {
 	public final static String[] ANIMATION_TRASH = {IMG_TRASH};
 	public final static String[] ANIMATION_UP_KEY = {IMG_UP_KEY_1, IMG_UP_KEY_2, IMG_UP_KEY_3, IMG_UP_KEY_4, IMG_UP_KEY_5, IMG_UP_KEY_6, 
 																	IMG_UP_KEY_5, IMG_UP_KEY_4, IMG_UP_KEY_3, IMG_UP_KEY_2};
-	
-	// Osprey information
-	
-	public final static JButton OSPREY_I_1 = new JButton("<html>Ospreys like to get food by diving into shallow water<br>and grabbing whatever they can. </html>");
-	public final static JButton OSPREY_I_2 = new JButton("<html>Ospreys are lonely birds and <br>they usually like to fly by themselves. </html>");
-	public final static JButton OSPREY_I_3 = new JButton("<html>North American ospreys tend to migrate to Central and South America while European ospreys will migrate to Africa for the winter. </html>");
-	public final static JButton OSPREY_I_4 = new JButton("<html>Osprey predators include eagles, owls, raccoons, and snakes</html>");
-	public final static JButton OSPREY_I_5 = new JButton("<html>Ospreys are usually a combination of brown and white depending on where they are born. </html>");
-	public final static JButton OSPREY_I_6 = new JButton("<html>Ospreys will almost always eat fish but if they have to they can other small animals such as insects and snakes. </html>");
-	public final static JButton OSPREY_I_7 = new JButton("<html>Ospreys are very loyal and will usually only take one mate in their life. </html>");
-	public final static JButton OSPREY_I_8 = new JButton("<html>While 50% of ospreys don't make it to adulthood <BR> the ospreys that can live for up to 15 years, with one osprey female making it to over 20 years old.</html>");
-	public final static JButton OSPREY_I_9 = new JButton("<html>The osprey can weigh anywhere from 2 pounds to 5 pounds and their wingspan can be up to 5 feet. </html>");
-	public final static JButton OSPREY_I_10 = new JButton("<html>Ospreys mainly get their food and nutrients from fish <BR> and because of this they like to live near water. </html>");
-	public final static JButton OSPREY_I_LAST = new JButton("<html>Ospreys like to be near water as that is their food source <BR> but more importantly they like to make their nests up high to avoid predators. </html>");
-	
 	
 	// Osprey Questions
 	
@@ -408,18 +397,6 @@ public class Constants implements Serializable {
 	public final static JButton OSPREY_LAST_WRONG = new JButton("Osprey don't make nests");
 	public final static JButton OSPREY_TUTORIAL_WRONG = new JButton("you understand!");	
 	
-	// Clapper Rail Information
-	
-	public final static JButton CR_I_1 = new JButton("<html> Clapper rails will eat almost anything, but they like crabs, crustaceans, and small fish. </html>");
-	public final static JButton CR_I_2 = new JButton("<html> The clapper rail life is short but full, as they usually live for five years. </html> ");
-	public final static JButton CR_I_3 = new JButton("<html> Clapper rails do not migrate, and will stay in the same area where they were born for their entire life. </html>");
-	public final static JButton CR_I_4 = new JButton("<html> Clapper rails like to make their nests at high elevations to avoid flooding or in tall grass to hide from predators. </html>");
-	public final static JButton CR_I_5 = new JButton("<html> The clapper rail has many predators, but it's most fearsome is the red fox. </html>");
-	public final static JButton CR_I_6 = new JButton("<html> Clapper rails face trouble from predators every day, but their biggest threats are humans and habitat loss. </html>");
-	public final static JButton CR_I_7 = new JButton("<html> Clapper rails like to live in muddy areas with tall grass like marshes in order to hide from predators. </html>");
-	public final static JButton CR_I_8 = new JButton("<html> Like the osprey, clapper rails take only one mate during breeding season. </html>");
-	public final static JButton CR_I_9 = new JButton("<html> Depending on where the clapper rail lives, the clapper rail can be a of brown and gray. </html>");
-	public final static JButton CR_I_10 = new JButton("<html> The clapper rail nesting season can go from March to June, with eggs being laid around February or March. </html>");
 	
 	// Clapper Rail Questions
 	
@@ -473,6 +450,12 @@ public class Constants implements Serializable {
 	public final static JButton CR_WRONG8 = new JButton("Ten");
 	public final static JButton CR_WRONG9 = new JButton("Orange, yellow");
 	public final static JButton CR_WRONG10 = new JButton("July to October");
+	
+	// End Screen JButtons
+	
+	public final static JButton END_SCREEN_OSPREY_CONGRATS = new JButton("Congratulations! You caught your mate!");
+	public final static JButton END_SCREEN_CR_CONGRATS = new JButton("You attracted a mate! Congratulations!");
+	public final static JButton END_SCREEN_MENU = new JButton(" Press UP ARROW KEY to return to Main Menu");
 	
 	/// Doubles
 	public final static double IMG_SCALE_RATIO_X = FRAME_X/800;

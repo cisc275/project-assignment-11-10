@@ -15,6 +15,7 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.InputMap;
@@ -38,79 +39,80 @@ public class EndScreen extends JDialog implements KeyListener {
 	Image image;
 	JButton congrats;
 	JButton menu;
+	JLabel timer;
 	JPanel p;
 	String game;
+	ArrayList<JButton> buttons;
 	
 	
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	
 	public EndScreen(String game) {
-		this.game = game;
-		
-		p = new DrawPanel();
-		p.setBackground(Color.WHITE);
-		GridLayout g = new GridLayout(0, 1);
-		g.setVgap(10);
-		p.setLayout(g);
-		
-		this.setResizable(false);
-		this.setModal(true);
-		congrats = new JButton("Congratulations! You Win!");
-		if (game.equals("topDown")) {
-			congrats = new JButton("You attracted a mate! Congratulations!");
-		}
-		congrats.setOpaque(false);
-		congrats.setFocusPainted(false);
-		congrats.setBorderPainted(false);
-		congrats.setBackground(Color.BLUE);
-        congrats.setFont(new Font("Serif", Font.BOLD, 40));
-        congrats.setMinimumSize(new Dimension(300, 0));
-        congrats.setPreferredSize(new Dimension(300, 0));
-        congrats.setMaximumSize(new Dimension(300, 0));
-        congrats.setAlignmentX(JLabel.RIGHT_ALIGNMENT);
-        congrats.setAlignmentY(JLabel.TOP_ALIGNMENT);
-        congrats.addKeyListener(this);
-        
-        menu = new JButton(" Press UP ARROW KEY to return to Main Menu");
-//        menu.setMinimumSize(new Dimension(200, 0));
-//        menu.setPreferredSize(new Dimension(200, 0));
-//        menu.setMaximumSize(new Dimension(200, 0));
-    	menu.setFocusPainted(false);
-    	menu.setBackground(Color.WHITE);
-    	menu.setAlignmentX(JButton.CENTER_ALIGNMENT);
-    	menu.setAlignmentY(TOP_ALIGNMENT);
-    	menu.setOpaque(false);
-    	menu.setFont(new Font("Serif", Font.BOLD, 25));
-    	menu.setBorderPainted(false);
-        
+		this.game = game;		
+		panelHandling();  
+		initButtons(); 
+		labelHandling();
     	this.setUndecorated(true);
-    	
-    	JLabel timer = new JLabel("You completed migration in " + (10*(Osprey.time/Constants.TIMER_TICK_RATE + 10)/10 + 1)/10.0 + " weeks", SwingConstants.CENTER);
-    	timer.setOpaque(false);
-		timer.setForeground(Color.BLACK);
-		timer.setMinimumSize(new Dimension(200, 5));
-	    timer.setPreferredSize(new Dimension(200, 5));
-	    timer.setMaximumSize(new Dimension(200, 5));
-	    timer.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, 30));
-    	if (game.equals("sides")) {
-    		p.add(timer);
-    	}
-        p.add(congrats);
-        
-        p.add(menu);
-        p.add(new JLabel());
-        p.add(new JLabel());
-        p.add(new JLabel());
-        p.add(new JLabel());
-        p.add(new JLabel());
-     
-        menu.addKeyListener(this);
         this.add(p);
         this.setSize(screenSize);
         this.setVisible(true);
-        
+        this.setResizable(false);
+		this.setModal(true);
 	}
+	
+	public void panelHandling() {
+		p = new DrawPanel();
+		p.setBackground(Color.WHITE);
+		p.setLayout(new GridLayout(Constants.GRID_LAYOUT_X, Constants.GRID_LAYOUT_Y));
+	}
+	
+	public void initButtons() {
+		buttons = new ArrayList<JButton>();
+		if (game.equals(Constants.SIDE_SCROLL_STRING)){
+			congrats = Constants.END_SCREEN_OSPREY_CONGRATS;
+		}
+		if (game.equals(Constants.TOP_DOWN_STRING)) {			
+			congrats = Constants.END_SCREEN_CR_CONGRATS;
+		}
+		menu = Constants.END_SCREEN_MENU;
+		buttons.add(congrats);
+		buttons.add(menu);
+		buttonHandling();
+	}
+	
+	
+	public void buttonHandling() {
+		for (JButton b : buttons) {
+			b.setOpaque(false);
+			b.setFocusPainted(false);
+			b.setBorderPainted(false);
+			b.setBackground(Color.BLUE);
+	        b.setFont(new Font("Serif", Font.BOLD + Font.ITALIC, 30));
+	        b.setAlignmentX(JLabel.RIGHT_ALIGNMENT);
+	        b.setAlignmentY(JLabel.TOP_ALIGNMENT);
+	        b.addKeyListener(this);
+	        p.add(b);
+		}
+		
+	}
+	
+	public void labelHandling() {
+		if (game.equals(Constants.SIDE_SCROLL_STRING)){
+			timer = new JLabel("You completed migration in " + (10*(Osprey.time/Constants.TIMER_TICK_RATE + 10)/10 + 1)/10.0 + " weeks", SwingConstants.CENTER);
+			timer.setOpaque(false);
+			timer.setForeground(Color.BLACK);
+			timer.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, 30));
+			p.add(timer);
+		}
+	    p.add(new JLabel());
+        p.add(new JLabel());
+        p.add(new JLabel());
+        p.add(new JLabel());
+        p.add(new JLabel());
+        p.add(new JLabel());
+	}
+	
 	
 	private class DrawPanel extends JPanel{
 		private BufferedImage createImage(){
@@ -169,17 +171,14 @@ public class EndScreen extends JDialog implements KeyListener {
 	
 	@Override
 	public void keyPressed(KeyEvent arg0) {
-		menuButtonSetup();
-	}
-	
-	public void menuButtonSetup() {
 		int map = JComponent.WHEN_IN_FOCUSED_WINDOW;
 		InputMap imap = menu.getInputMap(map);  
-		imap.put(KeyStroke.getKeyStroke("UP"), "second");
+		imap.put(KeyStroke.getKeyStroke("UP"), "menu");
 		
 		ActionMap amap = menu.getActionMap();
-		amap.put("second", new keyAction());
+		amap.put("menu", new keyAction());
 	}
+	
 
 	@Override
 	public void keyReleased(KeyEvent arg0) {
