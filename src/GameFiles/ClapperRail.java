@@ -68,7 +68,7 @@ public class ClapperRail extends Bird {
 	/**
 	 * moves clapperrail according to x and y speed
 	 * 
-	 * @author tim Mazzarelli
+	 * @author andrew thompson
 	 */
 
 	public void move() {
