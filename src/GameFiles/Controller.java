@@ -209,6 +209,11 @@ public class Controller implements KeyListener, ActionListener{
 					view.debugHitBoxes =  !view.debugHitBoxes;
 					break;
 			case Constants.ESCAPE_KEY_CODE:
+				try {
+					Serialize.dumpGame(model);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
 				model = new Model();
 				model.setGame(new ArrayList<>());
 				view = new View();
