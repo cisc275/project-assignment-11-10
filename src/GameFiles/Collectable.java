@@ -40,7 +40,7 @@ public class Collectable extends GameObject {
 	
 	public void move() {
 		this.hitbox.translate(this.xSpeed, 0);
-		if(this.hitbox.getBounds2D().getMinX() <= 0) {
+		if(this.hitbox.getBounds2D().getMaxX() <= 0) {
 			resetPoly();
 		}
 	}

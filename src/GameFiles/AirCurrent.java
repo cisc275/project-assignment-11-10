@@ -62,8 +62,8 @@ public class AirCurrent extends Collectable {
 	
 	@Override
 	public void move() {
-		this.hitbox.translate(this.xSpeed, 0);
-			if(this.hitbox.xpoints[2] <= 0) {
+		this.hitbox.translate(this.getxSpeed(), 0);
+			if(this.hitbox.getBounds2D().getMaxX() <= 0) {
 				acReset();
 			}
 			animate(Constants.AIRCURRENT_ANIMATION_TICK_RATE);
@@ -79,30 +79,14 @@ public class AirCurrent extends Collectable {
 	
 	@Override
 	public void handleCollision(Osprey o) {
-		Osprey.negHitOs = true;
+		Osprey.negHitOs = true; // for animation, negative collision
 		acReset();
 		o.setXSpeed((Osprey.getXSpeed() + Constants.FISH_AC));
 		if (Osprey.xSpeed >= Constants.OSPREY_MIN_SPEED) {
 			o.setXSpeed(Constants.OSPREY_MIN_SPEED);
 		}
 	}
-	
-//	/**
-//     * returns a BufferedImage that is unscaled
-//     * @author andrew thompson
-//     */
-//	private BufferedImage createImage(){
-//		BufferedImage bufferedImage;
-//    	try {
-//    		bufferedImage = ImageIO.read(new File(Constants.IMG_AIRCURRENT));
-//    		return bufferedImage;
-//    	} catch (IOException e) {
-//    		e.printStackTrace();
-//    	}
-//    	return null;
-//	}
-
-	
+		
 	
 }
 

@@ -25,7 +25,6 @@ public class Fish extends Collectable {
 
 	public Fish(int x, int y, int width, int height) {
 		super(x,y,width,height);
-		//this.img = createImage();
 		this.imgFileName = Constants.ANIMATION_FISH;
 		this.curImg = randy.nextInt(imgFileName.length);
 	}
@@ -39,10 +38,10 @@ public class Fish extends Collectable {
 	
 	@Override
 	public void handleCollision(Osprey o) {
-		Osprey.posHitOs = true;
+		Osprey.posHitOs = true; // for animation, positive hit
 		resetPoly();
 		o.setXSpeed((Osprey.getXSpeed() - Constants.FISH_AC));
-		if (Osprey.xSpeed <= Constants.OSPREY_MAX_SPEED) {
+		if (Osprey.xSpeed <= Constants.OSPREY_MAX_SPEED) { // don't want osprey moving too quick;y
 			o.setXSpeed(Constants.OSPREY_MAX_SPEED);
 			}
 	}
@@ -50,8 +49,7 @@ public class Fish extends Collectable {
 	@Override
 	public void move() {
 		this.hitbox.translate(this.getxSpeed(), 0);
-	//	this.x = this.x + this.xSpeed;
-		if(this.hitbox.xpoints[3] <= 0) {
+		if(this.hitbox.getBounds2D().getMaxX() <= 0) {
 			resetPoly();
 		}
 		animate(Constants.FISH_ANIMATION_TICK_RATE);	

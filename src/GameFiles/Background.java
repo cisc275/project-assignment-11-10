@@ -40,7 +40,7 @@ public class Background extends GameObject{
      */
     public void move() {
     	this.hitbox.translate(Osprey.xSpeed, 0);
-    	if (this.hitbox.xpoints[3] <= 0){	 
+    	if (this.hitbox.getBounds2D().getCenterX() <= 0){	 
     		bgReset();
     	}
     }
