@@ -1,9 +1,5 @@
 package GameFiles;
 
-import java.awt.Polygon;
-import java.awt.image.BufferedImage;
-import java.io.File;
-
 /**
  * Objects in the game that the user will not be able to control
  *
