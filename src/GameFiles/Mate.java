@@ -56,7 +56,7 @@ public class Mate extends Bird {
 
 	/**
 	 * handles collision with osprey, game has been one and now to the quiz
-	 * @param o
+	 * @param o Game Osprey
 	 * @author tim Mazzarelli
 	 */
 

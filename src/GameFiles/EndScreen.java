@@ -200,7 +200,7 @@ public class EndScreen extends JDialog implements KeyListener {
 			
 		/**
 		 * how the panel is painted
-		 * @param g
+		 * @param g Internal graphics system
 		 * @author Tim Mazzarelli
 		 */
 		@Override
@@ -224,7 +224,7 @@ public class EndScreen extends JDialog implements KeyListener {
 		/**
 		 * tells us what to do if the menu button is clicked
 		 * return to the selection screen
-		 * @param e
+		 * @param e ActionEvent
 		 * @author Tim Mazzarelli
 		 */
 		@Override
@@ -250,7 +250,7 @@ public class EndScreen extends JDialog implements KeyListener {
 	
 	/**
 	 * connects the KeyStroke of the uparrow key to the pressing of a button
-	 * @param KeyEvent e
+	 * @param e KeyEvent
 	 * @author tim mazzarelli
 	 */
 	@Override
@@ -283,7 +283,7 @@ public class EndScreen extends JDialog implements KeyListener {
 
 	/**
 	 * main method used for testing purposes
-	 * @param args
+	 * @param args System command line arguments.
 	 */
 	public static void main(String[] args) {
 		new EndScreen(Constants.TOP_DOWN_STRING);

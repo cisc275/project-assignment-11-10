@@ -28,7 +28,7 @@ public class InvisibleWall extends NonControllable {
 	/**
 	 * handles collision with Osprey, you can't go through the invisible wall unless
 	 * you are diving
-	 * @param Osprey o
+	 * @param o Game Osprey
 	 */
 	
 	@Override

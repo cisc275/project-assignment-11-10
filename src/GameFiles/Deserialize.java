@@ -9,7 +9,7 @@ public class Deserialize
 	 * deserializes a saved game
 	 * @author mark wolgin
 	 * @return Model from disk
-	 * @throws Exception
+	 * @throws
 	 */
     public static Model grabGame() throws Exception
     {

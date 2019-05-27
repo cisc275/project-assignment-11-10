@@ -58,7 +58,7 @@ public class Controller implements KeyListener, ActionListener{
 	
 	/**
 	 * Picks what to draw and control depending on the string you pass in
-	 * @param selection
+	 * @param selection String of the current game
 	 */
 	public Controller(String selection) {
 		selected = selection;
@@ -162,7 +162,7 @@ public class Controller implements KeyListener, ActionListener{
 
 	/**
 	 * decides which button to follow
-	 * @param e
+	 * @param e ActionEvent
 	 * @author Tim Mazzarelli
 	 */
 	@Override 

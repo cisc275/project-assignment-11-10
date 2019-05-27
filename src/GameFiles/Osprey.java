@@ -154,7 +154,7 @@ public class Osprey extends Bird {
 
 	/**
 	 * where you set your current y
-	 * @param value of currY
+	 * @param currY Value of currY
 	 * @author Tim Mazzarelli
 	 */
 	public void setCurrY(int currY) {
@@ -164,7 +164,7 @@ public class Osprey extends Bird {
 
 	/**
 	 * tells you if the player is currently diving
-	 * @return value of isDiving
+	 * @return isDiving Value of isDriving
 	 * @author Timothy Mazzarelli
 	 */
 	public boolean getisDiving() {

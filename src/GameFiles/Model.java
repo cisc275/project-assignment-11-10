@@ -41,7 +41,7 @@ public class Model implements Serializable {
 	
 	/**
 	 * defined in subclasses, updates model
-	 * @param game
+	 * @param game ArrayList of GameObjects
 	 */
 	public void updateLocation(ArrayList<GameObject> game) {
 		// TODO Auto-generated method stub
@@ -66,7 +66,7 @@ public class Model implements Serializable {
 	
 	/**
 	 * 
-	 * @return ArrayList<GameObject>
+	 * @return ArrayList of GameObjects
 	 */
 	public ArrayList<GameObject> getGame() {
 		return game;
@@ -74,22 +74,23 @@ public class Model implements Serializable {
 	
 	/**
 	 * how you handle each key press, defined in submodels
-	 * @param keyPresses
+	 * @param keyPresses The ArrayList of keyPresses
 	 */
 	public void handleMove(HashSet<Integer> keyPresses) {
 		
 	}
 	
 	/**
-	 * 
-	 * @param game
+	 * Sets the new game array
+	 * @param game ArrayList of GameObjects
 	 */
 	public void setGame(ArrayList<GameObject> game) {
 		this.game = game;
 	} 
 	
 	/**
-	 * @return String
+	 * Makes the model System.out.print-able
+	 * @return The default string for the model
 	 */
 	@Override
 	public String toString() {

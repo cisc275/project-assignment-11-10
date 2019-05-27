@@ -34,7 +34,7 @@ public class Powerup extends Collectable {
 	}
 
 	/**
-	 * @param ClapperRail cr
+	 * @param cr Game ClapperRail
 	 * 
 	 * deals with collision with respect to ClapperRail
 	 * 
@@ -51,8 +51,7 @@ public class Powerup extends Collectable {
 	}
 	
 	/**
-	 * @param Osprey o
-	 * 
+	 * @param o Game Osprey
 	 * deals with collision with respect to Osprey
 	 * @author tim mazzarelli
 	 */

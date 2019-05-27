@@ -67,7 +67,7 @@ public class Fox extends Controllable {
 	
 	/**
 	 * overrides super method and checks arraylist for any possible collisions
-	 * @param g
+	 * @param g ArrayList of GameObjects
 	 * @author tim Mazzarelli
 	 */
 	
@@ -84,7 +84,7 @@ public class Fox extends Controllable {
 	
 	/**
 	 * handles collision with clapperrail
-	 * @param c
+	 * @param c Game ClapperRail
 	 * @author tim Mazzarelli
 	 */
 	@Override
@@ -99,10 +99,9 @@ public class Fox extends Controllable {
 	
 	/**
 	 * calculates distance between fox and clapperrail
-	 * @param g
+	 * @return The distance to the fox
 	 * @author tim Mazzarelli
 	 */
-		
 	public double distance() {	
 		int xDistance = (int) (this.hitbox.getBounds2D().getMinX() - c.hitbox.getBounds2D().getMinX());
 		int	yDistance = (int) (this.hitbox.getBounds2D().getMinY() - c.hitbox.getBounds2D().getMinY());
@@ -113,7 +112,6 @@ public class Fox extends Controllable {
 	 * moves the fox according to calculated xSpeed and ySpeed 
 	 * based on clapperrail position, assigns random movement if 
 	 * CR is hidden
-	 * @param g
 	 * @author tim Mazzarelli
 	 */
 	

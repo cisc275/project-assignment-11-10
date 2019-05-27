@@ -37,7 +37,7 @@ public class Nest extends GameObject{
 	
 	/**
 	 * checks for collisions
-	 * @param an arrayList of GameObjects
+	 * @param g an arrayList of GameObjects
 	 * @author Peter Jenny
 	 */
 	

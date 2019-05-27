@@ -74,6 +74,7 @@ public class LoseScreen extends JDialog implements KeyListener {
 	/**
 	 * creates a new window with 1 labels and 2 JButtons The new window is a
 	 * keyListener
+	 * @param game String of the game
 	 */
 	public LoseScreen(String game) {
 		this.game = game;

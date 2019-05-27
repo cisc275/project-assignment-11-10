@@ -32,7 +32,7 @@ public class Fish extends Collectable {
 	
 
 	/** handles fish collision with osprey
-	 * @param o
+	 * @param o Game Osprey
 	 * @author Timothy Mazzarelli
 	 */
 	

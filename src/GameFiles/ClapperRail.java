@@ -88,8 +88,8 @@ public class ClapperRail extends Bird {
 	 
 
 	/**
-	 * @param takes an ArrayList of GameObject and checks each object (not itself)
-	 *              for collisions
+	 * takes an ArrayList of GameObject and checks each object (not itself) for collisions
+	 * @param g ArrayList of GameObjects
 	 * @author andrew thompson
 	 */
 	@Override
