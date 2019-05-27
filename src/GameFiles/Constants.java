@@ -220,10 +220,19 @@ public class Constants implements Serializable {
 	
 
 	/// Strings
+	public final static String FONT_FAMILY = "Serif";
+	
+	public final static String LOSESCREEN_OUT_OF_LIVES = "Sorry! You ran out of lives!";
+	public final static String LOSESCREEN_RETURN_TO_MENU = "Press LEFT ARROW KEY to return to Main Menu";
+	public final static String LOSESCREEN_TRY_AGAIN = "Press RIGHT ARROW KEY to Try Again";
+	public final static String LOSESCREEN_WRONG_OSPREY_NEST = "Sorry! Ospreys make their nests high off the ground!";
+	
 	public final static String TOP_DOWN_STRING = "topDown";
 	public final static String TOP_DOWN_NT_STRING = "topDownNT";
+	
 	public final static String SIDE_SCROLL_STRING = "sideScroll";
 	public final static String SIDE_SCROLL_NT_STRING = "sideScrollNT";
+
 	public final static String SELECTION_STRING = "sel";
 	
 	public final static String IMG_AIRCURRENT = "img/aircurrent.png";
