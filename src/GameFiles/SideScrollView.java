@@ -30,63 +30,63 @@ public class SideScrollView extends View{
 	/**
 	 * panel on which our game is drawn
 	 */
-	DrawPanel drawPanel = new DrawPanel();
+	protected DrawPanel drawPanel = new DrawPanel();
 	
 	/**
 	 * array list of our game objects
 	 */
-    ArrayList<GameObject> game;
+	protected ArrayList<GameObject> game;
     
     /**
      * SideScrollView object
      */
-    SideScrollView ssv = this;
+	protected SideScrollView ssv = this;
    
     /**
      * win screen image
      */
-    BufferedImage youWin;
+	protected BufferedImage youWin;
     
     /**
      * image of the current minimap
      */
-    BufferedImage currentMap;
+	protected BufferedImage currentMap;
     
     /**
      * how many bufferedImages we have
      */
-    final int numOfMaps = 21;
+	protected final int numOfMaps = 21;
     
     /**
      * how many lightning bolts we want to draw
      */
-    final int numOfSpeeds = 5;
+	protected final int numOfSpeeds = 5;
     
     /**
      * the maps all in one array
      */
-    BufferedImage[] miniMaps = initMaps();
+	protected BufferedImage[] miniMaps = initMaps();
     /**
      * the bolts all in one array
      */
-    BufferedImage[] speeds = initSpeeds();
+	protected BufferedImage[] speeds = initSpeeds();
     
     /**
      * escape key image
      */
     
-    BufferedImage escKey = createEsc();
+	protected BufferedImage escKey = createEsc();
     
     /**
      * what number map we are on
      */
-    int mapNum = 0;
+	protected int mapNum = 0;
     
     /**
      * how many fish we have and are to draw
      */
     
-    int speedNum = 0;
+	protected int speedNum = 0;
    
  
     /**
@@ -132,7 +132,7 @@ public class SideScrollView extends View{
 		BufferedImage bufferedImage;
 		//System.out.println("i am running");
     	try {
-    		bufferedImage = ImageIO.read(new File("img/TIM PICK ME PLEASE.PNG"));
+    		bufferedImage = ImageIO.read(new File(Constants.IMG_TIM_PICK_ME_PLEASE));
     		return bufferedImage;
     	} catch (IOException e) {
     		e.printStackTrace();
