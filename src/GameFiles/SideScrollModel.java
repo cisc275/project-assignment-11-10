@@ -161,18 +161,21 @@ public class SideScrollModel extends Model {
 
 			if (twall1 == null) {
 				twall1 = new InvisibleWall(Constants.VIEW_ORIGIN, 
-						Constants.OSPREY_STARTY - Constants.INVISIBLE_WALL_HEIGHT, 
-						Constants.INVISIBLE_WALL_WIDTH , 
-						Constants.INVISIBLE_WALL_HEIGHT );
+						(int) (Constants.OSPREY_STARTY - (Constants.FRAME_Y * Constants.INVISIBLE_WALL_HEIGHT)), 
+						(int) (Constants.FRAME_X * Constants.INVISIBLE_WALL_WIDTH), 
+						(int) (Constants.FRAME_Y * Constants.INVISIBLE_WALL_HEIGHT));
 				game.add(twall1);
 			}
 
 			if (twall2 == null) {
 				twall2 = new InvisibleWall(Constants.VIEW_ORIGIN, 
-						Constants.OSPREY_STARTY + Constants.OSPREY_HEIGHT,
-						Constants.INVISIBLE_WALL_WIDTH,
-						Constants.INVISIBLE_WALL_HEIGHT);
-				game.add(twall2);
+						Constants.OSPREY_OFFSET + 
+						(int) (Constants.OSPREY_STARTY - (Constants.FRAME_Y * Constants.INVISIBLE_WALL_HEIGHT)) 
+						+ Constants.OSPREY_HEIGHT +
+						(int) (Constants.FRAME_Y * Constants.INVISIBLE_WALL_HEIGHT), 
+						(int) (Constants.FRAME_X * Constants.INVISIBLE_WALL_WIDTH),
+						(int) (Constants.FRAME_Y * Constants.INVISIBLE_WALL_HEIGHT));
+						game.add(twall2);
 			}
 
 			if (tpow == null) {
@@ -240,7 +243,7 @@ public class SideScrollModel extends Model {
 			// ---------------------------------------
 
 			else if (tair.visible) {
-				if (tair.hitbox.getBounds2D().getMinX() > 500) {
+				if (tair.hitbox.getBounds2D().getMinX() > Constants.OSPREY_STARTX * Constants.AIRCURRENT_STOP) {
 					tair.move();
 					if (tup == null || tdown == null) {
 						tup = new TutorialObject((int) (Constants.FRAME_X * Constants.UPDOWN_X), 
@@ -317,10 +320,12 @@ public class SideScrollModel extends Model {
 	 */
 	@Override
 	protected void defaultSetup() {
-		game.add(new Background(0, 0, Constants.FRAME_X, Constants.FRAME_Y));
+		game.add(new Background(Constants.VIEW_ORIGIN, Constants.VIEW_ORIGIN, Constants.FRAME_X, Constants.FRAME_Y));
 		game.add(o);
-		game.add(new InvisibleWall(0, (int) (Constants.FRAME_Y * .60), Constants.FRAME_X, 50));
-
+		game.add(new InvisibleWall(Constants.VIEW_ORIGIN, 
+				(int) (Constants.FRAME_Y * Constants.INVISIBLE_WALL_Y), 
+				Constants.FRAME_X, 
+				(int) (Constants.FRAME_Y * Constants.INVISIBLE_WALL_HEIGHT)));
 	}
 
 	/*
@@ -330,39 +335,45 @@ public class SideScrollModel extends Model {
 	 */
 	@Override
 	protected void postTutorial() {
-		game.add(new Fish(Constants.FRAME_X + 100, (int) (Constants.FRAME_Y * 0.9), (int) (Constants.FRAME_X * 0.05),
-				(int) (Constants.FRAME_Y * 0.05)));
-		game.add(new Fish(Constants.FRAME_X + 600, (int) (Constants.FRAME_Y * .88), (int) (Constants.FRAME_X * 0.05),
-				(int) (Constants.FRAME_Y * 0.05)));
-		game.add(new Fish(Constants.FRAME_X + 1100, (int) (Constants.FRAME_Y * .92), (int) (Constants.FRAME_X * 0.05),
-				(int) (Constants.FRAME_Y * 0.05)));
-		game.add(new Fish(Constants.FRAME_X + 1500, (int) (Constants.FRAME_Y * 0.91), (int) (Constants.FRAME_X * 0.05),
-				(int) (Constants.FRAME_Y * 0.05)));
-		game.add(new Fish(Constants.FRAME_X + 1800, (int) (Constants.FRAME_Y * .83), (int) (Constants.FRAME_X * 0.05),
-				(int) (Constants.FRAME_Y * 0.05)));
-		game.add(new Fish(Constants.FRAME_X + 2100, (int) (Constants.FRAME_Y * .94), (int) (Constants.FRAME_X * 0.05),
-				(int) (Constants.FRAME_Y * 0.05)));
+		game.add(new Fish(Constants.FRAME_X + Constants.FISH_OFFSET_1, (int) (Constants.FRAME_Y * 0.9), (int) (Constants.FRAME_X * Constants.FISH_WIDTH_HEIGHT),
+				(int) (Constants.FRAME_Y * Constants.FISH_WIDTH_HEIGHT)));
+		game.add(new Fish(Constants.FRAME_X + Constants.FISH_OFFSET_2, (int) (Constants.FRAME_Y * .88), (int) (Constants.FRAME_X * Constants.FISH_WIDTH_HEIGHT),
+				(int) (Constants.FRAME_Y * Constants.FISH_WIDTH_HEIGHT)));
+		game.add(new Fish(Constants.FRAME_X + Constants.FISH_OFFSET_3, (int) (Constants.FRAME_Y * .92), (int) (Constants.FRAME_X * Constants.FISH_WIDTH_HEIGHT),
+				(int) (Constants.FRAME_Y * Constants.FISH_WIDTH_HEIGHT)));
+		game.add(new Fish(Constants.FRAME_X + Constants.FISH_OFFSET_4, (int) (Constants.FRAME_Y * 0.91), (int) (Constants.FRAME_X * Constants.FISH_WIDTH_HEIGHT),
+				(int) (Constants.FRAME_Y * Constants.FISH_WIDTH_HEIGHT)));
+		game.add(new Fish(Constants.FRAME_X + Constants.FISH_OFFSET_5, (int) (Constants.FRAME_Y * .83), (int) (Constants.FRAME_X * Constants.FISH_WIDTH_HEIGHT),
+				(int) (Constants.FRAME_Y * Constants.FISH_WIDTH_HEIGHT)));
+		game.add(new Fish(Constants.FRAME_X + Constants.FISH_OFFSET_6, (int) (Constants.FRAME_Y * .94), (int) (Constants.FRAME_X * Constants.FISH_WIDTH_HEIGHT),
+				(int) (Constants.FRAME_Y * Constants.FISH_WIDTH_HEIGHT)));
 
-		game.add(new Trash(Constants.FRAME_X, (int) (Constants.FRAME_Y * .91), (int) (Constants.FRAME_X * .05),
-				(int) (Constants.FRAME_Y * .05)));
-		game.add(new Trash(Constants.FRAME_X + 700, (int) (Constants.FRAME_Y * .91), (int) (Constants.FRAME_X * .05),
-				(int) (Constants.FRAME_Y * .05)));
-		game.add(new Trash(Constants.FRAME_X + 1300, (int) (Constants.FRAME_Y * .86), (int) (Constants.FRAME_X * .05),
-				(int) (Constants.FRAME_Y * .05)));
-		game.add(new Trash(Constants.FRAME_X + 1800, (int) (Constants.FRAME_Y * .91), (int) (Constants.FRAME_X * .05),
-				(int) (Constants.FRAME_Y * .05)));
+		game.add(new Trash(Constants.FRAME_X, (int) (Constants.FRAME_Y * Constants.TRASH_OFFSET_Y_1), (int) (Constants.FRAME_X * Constants.TRASH_WIDTH_HEIGHT),
+				(int) (Constants.FRAME_Y * Constants.TRASH_WIDTH_HEIGHT)));
+		game.add(new Trash(Constants.FRAME_X + Constants.TRASH_OFFSET_1, (int) (Constants.FRAME_Y * Constants.TRASH_OFFSET_Y_2), (int) (Constants.FRAME_X * Constants.TRASH_WIDTH_HEIGHT),
+				(int) (Constants.FRAME_Y * Constants.TRASH_WIDTH_HEIGHT)));
+		game.add(new Trash(Constants.FRAME_X + Constants.TRASH_OFFSET_2, (int) (Constants.FRAME_Y * Constants.TRASH_OFFSET_Y_3), (int) (Constants.FRAME_X * Constants.TRASH_WIDTH_HEIGHT),
+				(int) (Constants.FRAME_Y * Constants.TRASH_WIDTH_HEIGHT)));
+		game.add(new Trash(Constants.FRAME_X + Constants.TRASH_OFFSET_3, (int) (Constants.FRAME_Y * Constants.TRASH_OFFSET_Y_4), (int) (Constants.FRAME_X * Constants.TRASH_WIDTH_HEIGHT),
+				(int) (Constants.FRAME_Y * Constants.TRASH_WIDTH_HEIGHT)));
 
 		
-		game.add(new AirCurrent(Constants.FRAME_X + 50, (int) (Constants.FRAME_Y * .03), 250, 250));
-		game.add(new AirCurrent(Constants.FRAME_X + 400, (int) (Constants.FRAME_Y * .5), 200, 200));
-		game.add(new AirCurrent(Constants.FRAME_X + 895, (int) (Constants.FRAME_Y * .23), 200, 200));
-		game.add(new AirCurrent(Constants.FRAME_X + 1200, (int) (Constants.FRAME_Y * .55), 200, 200));
-		game.add(new AirCurrent(Constants.FRAME_X + 1800, (int) (Constants.FRAME_Y * .4), 200, 200));
-		game.add(new AirCurrent(Constants.FRAME_X + 2450, (int) (Constants.FRAME_Y * .15), 200, 200));
-		game.add(new AirCurrent(Constants.FRAME_X + 2000, (int) (Constants.FRAME_Y * .58), 200, 200));
+		game.add(new AirCurrent(Constants.FRAME_X + Constants.AR_OFFSET_X_1, (int) (Constants.FRAME_Y * Constants.AR_OFFSET_Y_1), (int) (Constants.FRAME_X * Constants.AR_WIDTH), (int) (Constants.FRAME_Y * Constants.AR_HEIGHT)));
+		game.add(new AirCurrent(Constants.FRAME_X + Constants.AR_OFFSET_X_2, (int) (Constants.FRAME_Y * Constants.AR_OFFSET_Y_2), (int) (Constants.FRAME_X * Constants.AR_WIDTH), (int) (Constants.FRAME_Y * Constants.AR_HEIGHT)));
+		game.add(new AirCurrent(Constants.FRAME_X + Constants.AR_OFFSET_X_3, (int) (Constants.FRAME_Y * Constants.AR_OFFSET_Y_3), (int) (Constants.FRAME_X * Constants.AR_WIDTH), (int) (Constants.FRAME_Y * Constants.AR_HEIGHT)));
+		game.add(new AirCurrent(Constants.FRAME_X + Constants.AR_OFFSET_X_4, (int) (Constants.FRAME_Y * Constants.AR_OFFSET_Y_4), (int) (Constants.FRAME_X * Constants.AR_WIDTH), (int) (Constants.FRAME_Y * Constants.AR_HEIGHT)));
+		game.add(new AirCurrent(Constants.FRAME_X + Constants.AR_OFFSET_X_5, (int) (Constants.FRAME_Y * Constants.AR_OFFSET_Y_5), (int) (Constants.FRAME_X * Constants.AR_WIDTH), (int) (Constants.FRAME_Y * Constants.AR_HEIGHT)));
+		game.add(new AirCurrent(Constants.FRAME_X + Constants.AR_OFFSET_X_6, (int) (Constants.FRAME_Y * Constants.AR_OFFSET_Y_6), (int) (Constants.FRAME_X * Constants.AR_WIDTH), (int) (Constants.FRAME_Y * Constants.AR_HEIGHT)));
+		game.add(new AirCurrent(Constants.FRAME_X + Constants.AR_OFFSET_X_7, (int) (Constants.FRAME_Y * Constants.AR_OFFSET_Y_7), (int) (Constants.FRAME_X * Constants.AR_WIDTH), (int) (Constants.FRAME_Y * Constants.AR_HEIGHT)));
 
-		game.add(new Powerup(Constants.FRAME_X * 3, (int) (Constants.FRAME_Y * .93), 50, 50));
-		game.add(new Mate(Constants.FRAME_X, 200, 75, 75));
+		game.add(new Powerup(Constants.FRAME_X * Constants.POWERUP_OFFSET, 
+				(int) (Constants.FRAME_Y * Constants.POWERUP_Y), 
+				(int) (Constants.FRAME_X * Constants.POWERUP_WIDTH), 
+				(int) (Constants.FRAME_Y * Constants.POWERUP_HEIGHT)));
+		game.add(new Mate(Constants.FRAME_X, 
+				(int) (Constants.FRAME_Y * Constants.MATE_Y), 
+				(int)(Constants.FRAME_X * Constants.MATE_WIDTH), 
+				(int) (Constants.FRAME_Y * Constants.MATE_HEIGHT)));
 	}
 
 	/**

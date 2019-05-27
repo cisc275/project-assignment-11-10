@@ -36,6 +36,14 @@ public class Constants implements Serializable {
 	public final static int AIRCURRENT_WIDTH_HEIGHT = 200;
 	public final static int AIRCURRENT_ANIMATION_TICK_RATE = 3;
 	public final static int AIRCURRENT_OFFSET = 2;
+	public final static int AIRCURRENT_STOP = 5;
+	public final static int AR_OFFSET_X_1 = 50;
+	public final static int AR_OFFSET_X_2 = 400;
+	public final static int AR_OFFSET_X_3 = 895;
+	public final static int AR_OFFSET_X_4 = 1200;
+	public final static int AR_OFFSET_X_5 = 1800;
+	public final static int AR_OFFSET_X_6 = 2000;
+	public final static int AR_OFFSET_X_7 = 2450;
 	
 	public final static int BACKGROUND_YSPEED = 0;
 	
@@ -66,6 +74,12 @@ public class Constants implements Serializable {
 	public final static int FISH_AC = 5;
 	public final static int FISH_X_SPEED_TEST = -50;
 	public final static int FISH_ANIMATION_TICK_RATE = 2;
+	public final static int FISH_OFFSET_1 = 100;
+	public final static int FISH_OFFSET_2 = 600;
+	public final static int FISH_OFFSET_3 = 1100;
+	public final static int FISH_OFFSET_4 = 1500;
+	public final static int FISH_OFFSET_5 = 1800;
+	public final static int FISH_OFFSET_6 = 2100;
 	
 	public final static int FOX_HEIGHT_DIVISION_FACTOR = 2;
 	public final static int FOX_INIT_XSPEED = 1;
@@ -92,7 +106,6 @@ public class Constants implements Serializable {
 	
 	public final static int INVISIBLE_WALL_POINTS = 5;
 	public final static int INVISIBLE_WALL_WIDTH = 300;
-	public final static int INVISIBLE_WALL_HEIGHT = 100;
 	
 	public final static int MATE_ANIMATION_TICK_RATE = 4;
 	public final static int MATE_INIT_SPEED = 0;
@@ -122,6 +135,7 @@ public class Constants implements Serializable {
 	public final static int OSPREY_INIT_YSPEED = 0;
 	public final static int OSPREY_INIT_XSPEED = 0;
 	public final static int OSPREY_MAX_YSPEED = 20;
+	public final static int OSPREY_OFFSET = 1;
 	
 	public final static int PWR_COUNT_INIT = 0;
 	
@@ -170,6 +184,9 @@ public class Constants implements Serializable {
 	public final static int TIMER_TICK_RATE = 50;
 	
 	public final static int TRASH_AC = 5;
+	public final static int TRASH_OFFSET_1 = 700;
+	public final static int TRASH_OFFSET_2 = 1300;
+	public final static int TRASH_OFFSET_3 = 1800;
 	
 	public final static int VIEW_ORIGIN = 0;
 	
@@ -513,6 +530,13 @@ public class Constants implements Serializable {
 	public final static double AR_Y = 0.1389;
 	public final static double AR_WIDTH = 0.1042;
 	public final static double AR_HEIGHT = 0.185;
+	public final static double AR_OFFSET_Y_1 = 0.03;
+	public final static double AR_OFFSET_Y_2 = 0.5;
+	public final static double AR_OFFSET_Y_3 = 0.23;
+	public final static double AR_OFFSET_Y_4 = 0.55;
+	public final static double AR_OFFSET_Y_5 = 0.4;
+	public final static double AR_OFFSET_Y_6 = 0.15;
+	public final static double AR_OFFSET_Y_7 = 0.58;
 	
 	public final static double IMG_SCALE_RATIO_X = FRAME_X/800;
 	public final static double IMG_SCALE_RATIO_Y = FRAME_Y/600;
@@ -520,22 +544,40 @@ public class Constants implements Serializable {
 	public final static double ENDSCREEN_TEXT_SIZE = 0.015;
 	public final static double QUIZ_TEXT_SIZE = 0.018;
 	
+	public final static double MATE_Y = 1042;
+	public final static double MATE_WIDTH = 0.0390625;
+	public final static double MATE_HEIGHT = 0.06944444444;
+	
 	public final static double TFISH_OFFSET = 0.9;
 	public final static double FISH_WIDTH_HEIGHT = 0.05;
 	
 	public final static double POWERUP_TUT_X = 1.1;
 	public final static double POWERUP_TUT_Y = 0.9;
+	public final static double POWERUP_WIDTH = 0.0260417;
+	public final static double POWERUP_HEIGHT = 0.0462962;
+	public final static double POWERUP_Y = 0.93;
 	
 	public final static double SPACE_X = 0.15625;
 	public final static double SPACE_Y = 0.28;
 	public final static double SPACE_WIDTH = 0.2515;
 	public final static double SPACE_HEIGHT = 0.1019;
 	
+	public final static double TRASH_WIDTH_HEIGHT = 0.05;
+	public final static double TRASH_OFFSET_Y_1 = 0.91;
+	public final static double TRASH_OFFSET_Y_2 = 0.93;
+	public final static double TRASH_OFFSET_Y_3 = 0.86;
+	public final static double TRASH_OFFSET_Y_4 = 0.89;
+	
 	public final static double UPDOWN_WIDTH = 0.0635;
 	public final static double UPDOWN_HEIGHT = 0.1129;
 	public final static double UPDOWN_X = 0.1823;
 	public final static double UP_Y = 0.0925;
 	public final static double DOWN_Y = 0.185;
+	
+	public final static double INVISIBLE_WALL_Y = 0.60;
+	public final static double INVISIBLE_WALL_HEIGHT = 0.04629;
+	public final static double INVISIBLE_WALL_HEIGHT_1 = 0.0927;
+	public final static double INVISIBLE_WALL_HEIGHT_2 = 0.209;
 
 	public static void setFrameX(int d) { 
 		FRAME_X = d; 
