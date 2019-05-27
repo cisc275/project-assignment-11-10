@@ -335,19 +335,21 @@ public class SideScrollModel extends Model {
 	 */
 	@Override
 	protected void postTutorial() {
-		game.add(new Fish(Constants.FRAME_X + Constants.FISH_OFFSET_1, (int) (Constants.FRAME_Y * 0.9), (int) (Constants.FRAME_X * Constants.FISH_WIDTH_HEIGHT),
+		// adding in all the fish at positions according to screen
+		game.add(new Fish(Constants.FRAME_X + Constants.FISH_OFFSET_1, (int) (Constants.FRAME_Y * Constants.FISH_OFFSET_Y_1), (int) (Constants.FRAME_X * Constants.FISH_WIDTH_HEIGHT),
 				(int) (Constants.FRAME_Y * Constants.FISH_WIDTH_HEIGHT)));
-		game.add(new Fish(Constants.FRAME_X + Constants.FISH_OFFSET_2, (int) (Constants.FRAME_Y * .88), (int) (Constants.FRAME_X * Constants.FISH_WIDTH_HEIGHT),
+		game.add(new Fish(Constants.FRAME_X + Constants.FISH_OFFSET_2, (int) (Constants.FRAME_Y * Constants.FISH_OFFSET_Y_2), (int) (Constants.FRAME_X * Constants.FISH_WIDTH_HEIGHT),
 				(int) (Constants.FRAME_Y * Constants.FISH_WIDTH_HEIGHT)));
-		game.add(new Fish(Constants.FRAME_X + Constants.FISH_OFFSET_3, (int) (Constants.FRAME_Y * .92), (int) (Constants.FRAME_X * Constants.FISH_WIDTH_HEIGHT),
+		game.add(new Fish(Constants.FRAME_X + Constants.FISH_OFFSET_3, (int) (Constants.FRAME_Y * Constants.FISH_OFFSET_Y_3), (int) (Constants.FRAME_X * Constants.FISH_WIDTH_HEIGHT),
 				(int) (Constants.FRAME_Y * Constants.FISH_WIDTH_HEIGHT)));
-		game.add(new Fish(Constants.FRAME_X + Constants.FISH_OFFSET_4, (int) (Constants.FRAME_Y * 0.91), (int) (Constants.FRAME_X * Constants.FISH_WIDTH_HEIGHT),
+		game.add(new Fish(Constants.FRAME_X + Constants.FISH_OFFSET_4, (int) (Constants.FRAME_Y * Constants.FISH_OFFSET_Y_4), (int) (Constants.FRAME_X * Constants.FISH_WIDTH_HEIGHT),
 				(int) (Constants.FRAME_Y * Constants.FISH_WIDTH_HEIGHT)));
-		game.add(new Fish(Constants.FRAME_X + Constants.FISH_OFFSET_5, (int) (Constants.FRAME_Y * .83), (int) (Constants.FRAME_X * Constants.FISH_WIDTH_HEIGHT),
+		game.add(new Fish(Constants.FRAME_X + Constants.FISH_OFFSET_5, (int) (Constants.FRAME_Y * Constants.FISH_OFFSET_Y_5), (int) (Constants.FRAME_X * Constants.FISH_WIDTH_HEIGHT),
 				(int) (Constants.FRAME_Y * Constants.FISH_WIDTH_HEIGHT)));
-		game.add(new Fish(Constants.FRAME_X + Constants.FISH_OFFSET_6, (int) (Constants.FRAME_Y * .94), (int) (Constants.FRAME_X * Constants.FISH_WIDTH_HEIGHT),
+		game.add(new Fish(Constants.FRAME_X + Constants.FISH_OFFSET_6, (int) (Constants.FRAME_Y * Constants.FISH_OFFSET_Y_6), (int) (Constants.FRAME_X * Constants.FISH_WIDTH_HEIGHT),
 				(int) (Constants.FRAME_Y * Constants.FISH_WIDTH_HEIGHT)));
 
+		// adding in all the trash at positions according to screen
 		game.add(new Trash(Constants.FRAME_X, (int) (Constants.FRAME_Y * Constants.TRASH_OFFSET_Y_1), (int) (Constants.FRAME_X * Constants.TRASH_WIDTH_HEIGHT),
 				(int) (Constants.FRAME_Y * Constants.TRASH_WIDTH_HEIGHT)));
 		game.add(new Trash(Constants.FRAME_X + Constants.TRASH_OFFSET_1, (int) (Constants.FRAME_Y * Constants.TRASH_OFFSET_Y_2), (int) (Constants.FRAME_X * Constants.TRASH_WIDTH_HEIGHT),
@@ -358,6 +360,7 @@ public class SideScrollModel extends Model {
 				(int) (Constants.FRAME_Y * Constants.TRASH_WIDTH_HEIGHT)));
 
 		
+		// adding in all the Aircurrents at positions according to screen
 		game.add(new AirCurrent(Constants.FRAME_X + Constants.AR_OFFSET_X_1, (int) (Constants.FRAME_Y * Constants.AR_OFFSET_Y_1), (int) (Constants.FRAME_X * Constants.AR_WIDTH), (int) (Constants.FRAME_Y * Constants.AR_HEIGHT)));
 		game.add(new AirCurrent(Constants.FRAME_X + Constants.AR_OFFSET_X_2, (int) (Constants.FRAME_Y * Constants.AR_OFFSET_Y_2), (int) (Constants.FRAME_X * Constants.AR_WIDTH), (int) (Constants.FRAME_Y * Constants.AR_HEIGHT)));
 		game.add(new AirCurrent(Constants.FRAME_X + Constants.AR_OFFSET_X_3, (int) (Constants.FRAME_Y * Constants.AR_OFFSET_Y_3), (int) (Constants.FRAME_X * Constants.AR_WIDTH), (int) (Constants.FRAME_Y * Constants.AR_HEIGHT)));
@@ -366,10 +369,13 @@ public class SideScrollModel extends Model {
 		game.add(new AirCurrent(Constants.FRAME_X + Constants.AR_OFFSET_X_6, (int) (Constants.FRAME_Y * Constants.AR_OFFSET_Y_6), (int) (Constants.FRAME_X * Constants.AR_WIDTH), (int) (Constants.FRAME_Y * Constants.AR_HEIGHT)));
 		game.add(new AirCurrent(Constants.FRAME_X + Constants.AR_OFFSET_X_7, (int) (Constants.FRAME_Y * Constants.AR_OFFSET_Y_7), (int) (Constants.FRAME_X * Constants.AR_WIDTH), (int) (Constants.FRAME_Y * Constants.AR_HEIGHT)));
 
+		// // adding in powerup at position according to screen
 		game.add(new Powerup(Constants.FRAME_X * Constants.POWERUP_OFFSET, 
 				(int) (Constants.FRAME_Y * Constants.POWERUP_Y), 
 				(int) (Constants.FRAME_X * Constants.POWERUP_WIDTH), 
 				(int) (Constants.FRAME_Y * Constants.POWERUP_HEIGHT)));
+		
+		// adding in the Mate at positions according to screen
 		game.add(new Mate(Constants.FRAME_X, 
 				(int) (Constants.FRAME_Y * Constants.MATE_Y), 
 				(int)(Constants.FRAME_X * Constants.MATE_WIDTH), 

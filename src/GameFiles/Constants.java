@@ -544,7 +544,14 @@ public class Constants implements Serializable {
 	public final static double ENDSCREEN_TEXT_SIZE = 0.015;
 	public final static double QUIZ_TEXT_SIZE = 0.018;
 	
-	public final static double MATE_Y = 1042;
+	public final static double FISH_OFFSET_Y_1 = 0.9;
+	public final static double FISH_OFFSET_Y_2 = 0.88;
+	public final static double FISH_OFFSET_Y_3 = 0.92;
+	public final static double FISH_OFFSET_Y_4 = 0.91;
+	public final static double FISH_OFFSET_Y_5 = 0.83;
+	public final static double FISH_OFFSET_Y_6 = 0.94;
+	
+	public final static double MATE_Y = .1042;
 	public final static double MATE_WIDTH = 0.0390625;
 	public final static double MATE_HEIGHT = 0.06944444444;
 	

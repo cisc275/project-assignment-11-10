@@ -161,10 +161,10 @@ public class SideScrollView extends View{
 			    			if (ssv.debugHitBoxes)g.drawPolygon(thing.hitbox);
 			    			if (thing.hitbox.npoints == Constants.INVISIBLE_WALL_POINTS);
 			    			if (thing.hitbox.npoints != Constants.INVISIBLE_WALL_POINTS) {	
-			    				g.drawImage(ssv.getImg(thing, thing.curImg), thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
+			    				g.drawImage(ssv.getImg(thing, thing.curImg), (int)thing.hitbox.getBounds2D().getMinX() ,(int) thing.hitbox.getBounds2D().getMinY(), this);
 			    			}
 			    			if (thing.hitbox.npoints > 6) {
-				    			g.drawImage(ssv.getImg(thing, thing.curImg), thing.hitbox.xpoints[4], thing.hitbox.ypoints[4], this);
+				    			g.drawImage(ssv.getImg(thing, thing.curImg), (int)thing.hitbox.getBounds2D().getCenterX(),  (int)thing.hitbox.getBounds2D().getMinY(), this);
 				    		}
 		    		}
 		    	}

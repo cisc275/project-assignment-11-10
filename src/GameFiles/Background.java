@@ -52,14 +52,14 @@ public class Background extends GameObject{
      */
     public void bgReset() {
     	this.hitbox.reset();
-		this.hitbox.addPoint(0, this.y);
-		this.hitbox.addPoint(0, this.y + this.height);
-		this.hitbox.addPoint(width, this.y + this.height);
+		this.hitbox.addPoint(x, this.y);
+		this.hitbox.addPoint(x, this.height);
+		this.hitbox.addPoint(width, this.height);
 		this.hitbox.addPoint(width, this.y);
-		this.hitbox.addPoint(width, 0);
-    	this.hitbox.addPoint(width, height);
-    	this.hitbox.addPoint(width + width, height);
-    	this.hitbox.addPoint(width + width, 0);	
+		this.hitbox.addPoint(width, this.y);
+    	this.hitbox.addPoint(width, this.height);
+    	this.hitbox.addPoint(width + width, this.height);
+    	this.hitbox.addPoint(width + width, this.y);	
     }
     
     	
