@@ -345,7 +345,7 @@ public class Quiz extends JDialog implements KeyListener{
 		}
 			
 		else instruction = new JLabel(Constants.QUIZ_GENERIC_INSTRUCTION);
-		list.add(instruction);
+		list.add(instruction); 
 		for (JLabel l : list) {
 			if (Mate.caughtUp == true) {
 				l.setForeground(Color.BLACK);
