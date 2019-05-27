@@ -32,39 +32,39 @@ public class LoseScreen extends JDialog implements KeyListener {
 	/**
 	 * image on the back of the lose screen panel
 	 */
-	Image image;
+	protected Image image;
 	
 	/**
 	 * Label with the lost message
 	 */
-	JLabel tryAgain;
+	protected JLabel tryAgain;
 	
 	/**
 	 * button you can press to return to home screen
 	 */
-	JButton menu;
+	protected JButton menu;
 	
 	/**
 	 * button you press to restart game
 	 */
-	JButton restart;
+	protected JButton restart;
 	
 	/**
 	 * Panel we are drawing on
 	 */
-	JPanel p;
+	protected JPanel p;
 	
 	/**
 	 * String that tells us what game we are in
 	 */
-	String game;
+	protected String game;
 	
 	/**
 	 * array list of jbuttons for making the drawing of them easier
 	 */
-	ArrayList<JButton> buttons;
+	protected ArrayList<JButton> buttons;
 
-	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	protected Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
 	/**
 	 * creates a new window with 1 labels and 2 JButtons The new window is a
@@ -105,14 +105,14 @@ public class LoseScreen extends JDialog implements KeyListener {
 	 */
 	public void initLabels() {
 		if (game.equals(Constants.TOP_DOWN_STRING)) {
-			tryAgain = new JLabel("Sorry! You ran out of lives!", SwingConstants.CENTER);
+			tryAgain = new JLabel(Constants.LOSESCREEN_OUT_OF_LIVES, SwingConstants.CENTER);
 		}
 		if (game.equals(Constants.SIDE_SCROLL_STRING)) {
-			tryAgain = new JLabel("Sorry! Ospreys make their nests high off the ground!", SwingConstants.CENTER);
+			tryAgain = new JLabel(Constants.LOSESCREEN_WRONG_OSPREY_NEST, SwingConstants.CENTER);
 		}
 		
 		tryAgain.setOpaque(false);
-		tryAgain.setFont(new Font("Serif", Font.BOLD, (int)(Constants.FRAME_X * Constants.ENDSCREEN_TEXT_SIZE)));
+		tryAgain.setFont(new Font(Constants.FONT_FAMILY, Font.BOLD, (int)(Constants.FRAME_X * Constants.ENDSCREEN_TEXT_SIZE)));
 		tryAgain.setAlignmentX(JLabel.CENTER_ALIGNMENT);
 		tryAgain.setAlignmentY(JLabel.TOP_ALIGNMENT);
 		p.add(new JLabel());
@@ -126,8 +126,8 @@ public class LoseScreen extends JDialog implements KeyListener {
 	 */
 	public void initButtons() {
 		buttons = new ArrayList<JButton>();
-		menu = new JButton("Press LEFT ARROW KEY to return to Main Menu");
-		restart = new JButton("Press RIGHT ARROW KEY to Try Again");
+		menu = new JButton(Constants.LOSESCREEN_RETURN_TO_MENU);
+		restart = new JButton(Constants.LOSESCREEN_TRY_AGAIN);
 		buttons.add(menu);
 		buttons.add(restart);
 		buttonHandling();
@@ -144,7 +144,7 @@ public class LoseScreen extends JDialog implements KeyListener {
 			b.setAlignmentX(JButton.CENTER_ALIGNMENT);
 			b.setAlignmentY(TOP_ALIGNMENT);
 			b.setOpaque(false);
-			b.setFont(new Font("Serif", Font.BOLD, (int)(Constants.FRAME_X * Constants.ENDSCREEN_TEXT_SIZE)));
+			b.setFont(new Font(Constants.FONT_FAMILY, Font.BOLD, (int)(Constants.FRAME_X * Constants.ENDSCREEN_TEXT_SIZE)));
 			b.setBorderPainted(false);
 			b.addKeyListener(this);
 			p.add(b);
