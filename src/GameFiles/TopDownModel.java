@@ -364,6 +364,22 @@ public class TopDownModel extends Model {
 		
 	}
 
+
+	/**
+	 * @return the tstick
+	 */
+	public Stick getTstick() {
+		return tstick;
+	}
+
+
+	/**
+	 * @param tstick the tstick to set
+	 */
+	public void setTstick(Stick tstick) {
+		this.tstick = tstick;
+	}
+
 	
 	
 }
