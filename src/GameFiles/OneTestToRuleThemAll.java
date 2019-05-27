@@ -371,4 +371,14 @@ class OneTestToRuleThemAll {
 	}
 	
 	
+	@Test
+	void TestEndScreen() {
+		EndScreen esS1 = new EndScreen(Constants.SIDE_SCROLL_STRING);
+		assertEquals(Constants.SIDE_SCROLL_STRING, esS1.game);
+		EndScreen esT1 = new EndScreen(Constants.TOP_DOWN_STRING);
+		assertEquals(Constants.TOP_DOWN_STRING, esT1.game);
+	}
+	
 }
+
+	
