@@ -1,16 +1,9 @@
 package GameFiles;
-import java.awt.Graphics2D;
 import java.awt.Polygon;
-import java.awt.Rectangle;
-import java.awt.RenderingHints;
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
-
-import javax.imageio.ImageIO;
 /**
  * Super class for every object in the game  
  * @author wolginm
