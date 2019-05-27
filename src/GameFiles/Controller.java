@@ -233,6 +233,90 @@ public class Controller implements KeyListener, ActionListener{
 		
 	}
 
+	/**
+	 * @return the model
+	 */
+	public Model getModel() {
+		return model;
+	}
+
+	/**
+	 * @param model the model to set
+	 */
+	public void setModel(Model model) {
+		this.model = model;
+	}
+
+	/**
+	 * @return the view
+	 */
+	public View getView() {
+		return view;
+	}
+
+	/**
+	 * @param view the view to set
+	 */
+	public void setView(View view) {
+		this.view = view;
+	}
+
+	/**
+	 * @return the time
+	 */
+	public Timer getTime() {
+		return time;
+	}
+
+	/**
+	 * @param time the time to set
+	 */
+	public void setTime(Timer time) {
+		this.time = time;
+	}
+
+	/**
+	 * @return the drawAction
+	 */
+	public Action getDrawAction() {
+		return drawAction;
+	}
+
+	/**
+	 * @param drawAction the drawAction to set
+	 */
+	public void setDrawAction(Action drawAction) {
+		this.drawAction = drawAction;
+	}
+
+	/**
+	 * @return the selected
+	 */
+	public String getSelected() {
+		return selected;
+	}
+
+	/**
+	 * @param selected the selected to set
+	 */
+	public void setSelected(String selected) {
+		this.selected = selected;
+	}
+
+	/**
+	 * @return the keyPresses
+	 */
+	public HashSet<Integer> getKeyPresses() {
+		return keyPresses;
+	}
+
+	/**
+	 * @param keyPresses the keyPresses to set
+	 */
+	public void setKeyPresses(HashSet<Integer> keyPresses) {
+		this.keyPresses = keyPresses;
+	}
+
 	
 	
 }

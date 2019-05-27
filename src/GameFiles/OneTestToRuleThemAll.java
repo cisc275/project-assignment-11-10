@@ -2,6 +2,7 @@ package GameFiles;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.awt.Polygon;
+import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -268,8 +269,20 @@ class OneTestToRuleThemAll {
 	void TestController() {
 		Controller con = new Controller("topDown");
 		Controller cont = new Controller("sideScroll");
+		Controller conS = new Controller("selection");
+		
+		ActionEvent e = new ActionEvent(con, 0, null);
+		e.setSource(((SelectionView)conS.getView()).clapperRail);
+		
 		assertEquals(con.selected, "topDown");
 		assertEquals(cont.selected, "sideScroll");
+		assertEquals(conS.selected, "selection");
+		
+		conS.actionPerformed(e);
+		assertEquals(conS.selected, null);
+		
+		
+		
 	}
 	
 	@Test 
