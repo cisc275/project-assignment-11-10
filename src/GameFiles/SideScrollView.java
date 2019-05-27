@@ -6,6 +6,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -115,8 +116,8 @@ public class SideScrollView extends View{
     	game = g;
     	mapNum = (int)((Osprey.distance/Osprey.maxDistance)*numOfMaps);
     //	System.out.println(Osprey.distance/Osprey.maxDistance);
-    	if(mapNum>numOfMaps-1)
-    		mapNum = numOfMaps-1;
+    	if(mapNum> numOfMaps - Constants.MAPS_OFFSET)
+    		mapNum = numOfMaps - Constants.MAPS_OFFSET;
     	drawPanel.repaint();
     	speedNum = (int)((double)(Osprey.xSpeed)/(Constants.OSPREY_MAX_SPEED-Constants.OSPREY_MIN_SPEED)*numOfSpeeds);
    
@@ -163,26 +164,30 @@ public class SideScrollView extends View{
 			    			if (thing.hitbox.npoints != Constants.INVISIBLE_WALL_POINTS) {	
 			    				g.drawImage(ssv.getImg(thing, thing.curImg), (int)thing.hitbox.getBounds2D().getMinX() ,(int) thing.hitbox.getBounds2D().getMinY(), this);
 			    			}
-			    			if (thing.hitbox.npoints > 6) {
+			    			if (thing.hitbox.npoints >= Constants.BACKGROUND_NPOINTS) {
 				    			g.drawImage(ssv.getImg(thing, thing.curImg), (int)thing.hitbox.getBounds2D().getCenterX(),  (int)thing.hitbox.getBounds2D().getMinY(), this);
 				    		}
 		    		}
 		    	}
-		    	g.drawImage(miniMaps[mapNum], View.frame.getWidth() -miniMaps[mapNum].getWidth(), 0, this);
-		    	for(int i = speedNum - 1;i > 0;i--) {
-		    		if (speedNum > speeds.length - 1) {
-		    			speedNum = speeds.length - 1;
+		    	g.drawImage(miniMaps[mapNum], View.frame.getWidth() -miniMaps[mapNum].getWidth(), Constants.VIEW_ORIGIN, this);
+		    	for(int i = speedNum - Constants.MAPS_OFFSET;i > 0;i--) {
+		    		if (speedNum > speeds.length - Constants.MAPS_OFFSET) {
+		    			speedNum = speeds.length - Constants.MAPS_OFFSET;
 		    		}
 		    			g.drawImage(speeds[speedNum], View.frame.getWidth()-(speeds[speedNum].getWidth()*i), miniMaps[mapNum].getHeight(), this);
 		    
 		    	}
-				}
+			}
 			
 			 else if (Mate.caughtUp){
 				 endSideScroll();
 			  }
 
-			 g.drawImage(escKey, frame.getWidth()-miniMaps[mapNum].getWidth()-250, 0,250,100,this);
+			 g.drawImage(escKey, 
+					 Constants.FRAME_X -miniMaps[mapNum].getWidth()- (int)(Constants.FRAME_X * Constants.ESCAPE_KEY_X), 
+					 Constants.VIEW_ORIGIN, (int) (Constants.FRAME_X * Constants.ESCAPE_KEY_X),
+					 (int) (Constants.FRAME_Y * Constants.ESCAPE_KEY_Y),this);
+			 
 			 	
 		}
     }

@@ -46,6 +46,7 @@ public class Constants implements Serializable {
 	public final static int AR_OFFSET_X_7 = 2450;
 	
 	public final static int BACKGROUND_YSPEED = 0;
+	public final static int BACKGROUND_NPOINTS = 6;
 	
 	public final static int BUSH_ANIMATION_TICK_RATE = 2;
 	public final static int BUSH_SIZE = 150;
@@ -70,6 +71,7 @@ public class Constants implements Serializable {
 	public final static int COLLISION_COUNT_MAX = 50;
 	
 	public final static int CRAB_ANIMATION_TICK_RATE = 5;
+	
 	
 	public final static int FISH_AC = 5;
 	public final static int FISH_X_SPEED_TEST = -50;
@@ -110,6 +112,8 @@ public class Constants implements Serializable {
 	public final static int MATE_ANIMATION_TICK_RATE = 4;
 	public final static int MATE_INIT_SPEED = 0;
 	public final static int MATE_CAUGHT_SPEED = -10;
+	
+	public final static int MAPS_OFFSET = 1;
 	
 	public final static int MIGRATION_OFFSET = 10;
 	public final static int MIGRATION_ADJUST = 1;
@@ -540,6 +544,9 @@ public class Constants implements Serializable {
 	
 	public final static double IMG_SCALE_RATIO_X = FRAME_X/800;
 	public final static double IMG_SCALE_RATIO_Y = FRAME_Y/600;
+	
+	public final static double ESCAPE_KEY_X = .1302;
+	public final static double ESCAPE_KEY_Y = 0.0926;
 	
 	public final static double ENDSCREEN_TEXT_SIZE = 0.015;
 	public final static double QUIZ_TEXT_SIZE = 0.018;
