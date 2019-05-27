@@ -110,7 +110,7 @@ public class Controllable extends GameObject {
 
 	/**
 	 * sets xSpeed of the controllable object
-	 * @param xSpeed
+	 * @param xSpeed New xSpeed
 	 * @author Tim Mazzarelli
 	 */
 	public void setxSpeed(int xSpeed) {
@@ -119,7 +119,7 @@ public class Controllable extends GameObject {
 
 	/**
 	 * gives you the ySpeed of your Controllable object
-	 * @return int ySpeed
+	 * @return ySpeed Current ySpeed
 	 * @author Tim Mazzarelli
 	 */
 	public int getySpeed() {
@@ -128,7 +128,7 @@ public class Controllable extends GameObject {
 
 	/**
 	 * sets ySpeed of the controllable object
-	 * @param ySpeed
+	 * @param ySpeed New ySpeed
 	 * @author Tim Mazzarelli
 	 */
 	public void setySpeed(int ySpeed) {

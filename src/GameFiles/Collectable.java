@@ -57,7 +57,7 @@ public class Collectable extends GameObject {
 	
 	/**
 	 * sets your xSpeed of the collectable object
-	 * @return xSpeed 
+	 * @param xSpeed  New xSpeed
 	 * @author Tim Mazzarelli
 	 */
 

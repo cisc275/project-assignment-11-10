@@ -32,7 +32,7 @@ public class Bush extends NonControllable {
 	
 	/**
 	 * calls ClapperRail handleCollision passing in this
-	 * @param cr
+	 * @param cr Game ClapperRail
 	 * @author andrew thompson
 	 */
 	@Override
@@ -43,7 +43,7 @@ public class Bush extends NonControllable {
 	
 	/**
 	 * handles collision with fox (prevents it from entering
-	 * @param f
+	 * @param f Game Fox
 	 * @author Tim Mazzarelli
 	 */	
 	@Override

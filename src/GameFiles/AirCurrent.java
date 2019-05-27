@@ -33,8 +33,7 @@ public class AirCurrent extends Collectable {
 	}
 	
 	/**
-	 * @param none
-	 * @return Polygon hitbox
+	 * @return Returns the reset polygon
 	 * 
 	 * specific reset for our air current
 	 * 
@@ -52,9 +51,6 @@ public class AirCurrent extends Collectable {
 	}
 	
 	/**
-	 * @param none
-	 * @return none
-	 * 
 	 * moves the air current across our screen
 	 * 
 	 * @author tim Mazzarelli
@@ -73,7 +69,7 @@ public class AirCurrent extends Collectable {
 	
 	/**
 	 * handles collision with osprey
-	 * @param Osprey o
+	 * @param o Game Osprey
 	 * @author tim Mazzarelli
 	 */
 	

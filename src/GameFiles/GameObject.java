@@ -125,7 +125,7 @@ public class GameObject implements Serializable{
 	
 	/**
 	 * 
-	 * @param a
+	 * @param a GameObject
 	 * @return true if there's a collision false otherwise
 	 * 
 	 * this method compares the x and y coordinates of the gameObjects also 
@@ -145,13 +145,10 @@ public class GameObject implements Serializable{
 	
 	public void move() {};
 	
-	/**
-	 * 
-	 * parameters: None
-	 * returns: None
-	 *  
+	/**  
 	 *  this method will be defined in subclasses so that each object knows
 	 *  how to handle a collision in the even collidesWith returns true.
+	 * @param gameObjects ArrayList of GameObjects
 	 */
 	public void collision(ArrayList<GameObject> gameObjects) {}
 	
@@ -182,7 +179,7 @@ public class GameObject implements Serializable{
 	
 	/**
 	 * used to handle animation and what tick you are on
-	 * @param constant
+	 * @param constant The rate to change the image by
 	 * @author Andrew Thompson
 	 * @author Mark Wolgin
 	 */
@@ -330,7 +327,7 @@ public class GameObject implements Serializable{
 	}
 
 	/**
-	 * @param hitBox the hitBox to set
+	 * @param hitbox the hitBox to set
 	 */
 	public void setHitBox(Polygon hitbox) {
 		this.hitbox = hitbox;
@@ -338,7 +335,7 @@ public class GameObject implements Serializable{
 
 	/**
 	 * overwritten in subclasses to handle collision
-	 * @param o
+	 * @param o Game Osprey
 	 */
 
 	public void handleCollision(Osprey o) {
@@ -347,7 +344,7 @@ public class GameObject implements Serializable{
 
 	/**
 	 * overwritten in subclasses to handle collision
-	 * @param cr
+	 * @param cr Game ClapperRail
 	 */
 	public void handleCollision(ClapperRail cr) {
 		// TODO Auto-generated method stub
@@ -356,7 +353,7 @@ public class GameObject implements Serializable{
 
 	/**
 	 * overwritten in subclasses to handle collision
-	 * @param f
+	 * @param f Game Fox
 	 */
 	public void handleCollision(Fox f) {
 		// TODO Auto-generated method stub
@@ -365,7 +362,7 @@ public class GameObject implements Serializable{
 
 	/**
 	 * overwritten in subclasses to handle collision
-	 * @param n
+	 * @param n Game Nest
 	 */
 	public void handleCollision(Nest n) {
 		// TODO Auto-generated method stub

@@ -34,7 +34,6 @@ public class Background extends GameObject{
  
     /**
      * moves the background across the screen and reset appropriately
-     * @param window
      * @author Tim Mazzarelli
      */
     public void move() {
@@ -47,7 +46,6 @@ public class Background extends GameObject{
     
     /**
      * resets the background to do our scroll
-     * 
      * @author Tim Mazzarelli
      */
     public void bgReset() {
