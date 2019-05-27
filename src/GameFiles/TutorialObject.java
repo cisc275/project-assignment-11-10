@@ -1,10 +1,4 @@
-/**
- * 
- */
 package GameFiles;
-
-import java.awt.Polygon;
-import java.io.File;
 
 /**
  * A class for images that do not interact, used for tutorials.

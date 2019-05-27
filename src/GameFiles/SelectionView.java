@@ -23,8 +23,6 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
-
-import GameFiles.Quiz.keyAction;
 /**
  * View for the selection screen
  */
