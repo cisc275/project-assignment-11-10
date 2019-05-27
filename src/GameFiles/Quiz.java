@@ -337,14 +337,14 @@ public class Quiz extends JDialog implements KeyListener{
 		list.add(question);
 		if (Model.inTutoral == true) {
 			if (game.equals(Constants.SIDE_SCROLL_STRING)) {
-				instruction = new JLabel("Answer correctly and you will get a speed boost!");
+				instruction = new JLabel(Constants.QUIZ_SIDE_SCROLL_INSTRUCTION);
 			}
 			if (game.equals(Constants.TOP_DOWN_STRING)) {
-			instruction = new JLabel("Answer correctly and you will gain a life!");
+			instruction = new JLabel(Constants.QUIZ_TOP_DOWN_INSTRUCTION);
 			}
 		}
 			
-		else instruction = new JLabel("Press the key listed next to your answer.");
+		else instruction = new JLabel(Constants.QUIZ_GENERIC_INSTRUCTION);
 		list.add(instruction);
 		for (JLabel l : list) {
 			if (Mate.caughtUp == true) {

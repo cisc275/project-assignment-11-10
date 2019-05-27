@@ -235,6 +235,10 @@ public class Constants implements Serializable {
 
 	public final static String SELECTION_STRING = "sel";
 	
+	public final static String QUIZ_GENERIC_INSTRUCTION = "Press the key listed next to your answer.";
+	public final static String QUIZ_SIDE_SCROLL_INSTRUCTION = "Answer correctly and you will get a speed boost!";
+	public final static String QUIZ_TOP_DOWN_INSTRUCTION = "Answer correctly and you will gain a life!";
+	
 	public final static String IMG_AIRCURRENT = "img/aircurrent.png";
 	public final static String IMG_AIRCURRENT_1 = "img/aircurrent/aircurrent_1.png";
 	public final static String IMG_AIRCURRENT_2 = "img/aircurrent/aircurrent_2.png";
