@@ -342,4 +342,24 @@ class OneTestToRuleThemAll {
 		
 	}
 	
+	@Test
+	void TestQuiz() {
+		Quiz qS1 = new Quiz(Constants.SIDE_SCROLL_STRING);
+		Quiz qS2 = new Quiz(Constants.SIDE_SCROLL_STRING);
+		Quiz qS3 = new Quiz(Constants.SIDE_SCROLL_STRING);
+		//Mate.caughtUp = true;
+		//Quiz qS4 = new Quiz(Constants.SIDE_SCROLL_STRING);
+		//Quiz qS5 = new Quiz(Constants.SIDE_SCROLL_STRING);
+		//Quiz qS6 = new Quiz(Constants.SIDE_SCROLL_STRING);
+		assertEquals(Constants.SIDE_SCROLL_STRING, qS1.game);
+		Quiz qT1 = new Quiz(Constants.TOP_DOWN_STRING);
+		Quiz qT2 = new Quiz(Constants.TOP_DOWN_STRING);
+		Quiz qT3 = new Quiz(Constants.TOP_DOWN_STRING);
+		
+		assertEquals(Constants.TOP_DOWN_STRING, qT1.game);
+		
+	}
+	
+	
+	
 }
