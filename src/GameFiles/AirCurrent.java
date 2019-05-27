@@ -2,12 +2,6 @@ package GameFiles;
 
 import java.awt.Polygon;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-
 /**
  * represents air currents that osprey can use to fly faster 
  *

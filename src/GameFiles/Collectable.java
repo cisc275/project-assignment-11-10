@@ -1,11 +1,5 @@
 package GameFiles;
 
-import java.awt.Polygon;
-
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.util.Random;
-
 /**
  * 
  *represents all collectable items in both games
