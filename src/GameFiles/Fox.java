@@ -138,7 +138,7 @@ public class Fox extends Controllable {
 		}
 		else if (!Model.inTutoral){
 			
-			int smoother = randSmooth/50;
+			int smoother = randSmooth/Constants.FOX_SMOTHER_DIVISOR;
 			int multX = (int) (Math.random() * Constants.FOX_SQUARED);
 			int multY = (int) (Math.random() * Constants.FOX_SQUARED);	
 			// ensures non-zero random movement
