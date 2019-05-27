@@ -101,6 +101,7 @@ public class Constants implements Serializable {
 	public final static int GRID_LAYOUT_X = 0;
 	public final static int GRID_LAYOUT_Y = 1;
 	
+	public final static int LIVES_OFFSET = 1;
 	
 	public final static int LINUX_SCREEN_SIZE = 10;
 	public final static int LINUX_SCREEN_SCALE_X = 192;
@@ -557,6 +558,10 @@ public class Constants implements Serializable {
 	public final static double FISH_OFFSET_Y_4 = 0.91;
 	public final static double FISH_OFFSET_Y_5 = 0.83;
 	public final static double FISH_OFFSET_Y_6 = 0.94;
+	
+	public final static double LIVES_X = 0.052;
+	public final static double LIVES_Y = 0.0926;
+	
 	
 	public final static double MATE_Y = .1042;
 	public final static double MATE_WIDTH = 0.0390625;

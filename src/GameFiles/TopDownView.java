@@ -91,18 +91,22 @@ public class TopDownView extends View{
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			g.setColor(Color.gray);
-			g.drawImage(background, 0, 0, frame.getWidth(), frame.getHeight(), this);
+			g.drawImage(background, Constants.VIEW_ORIGIN, Constants.VIEW_ORIGIN, frame.getWidth(), frame.getHeight(), this);
 			
 			for (GameObject thing : game) {
-			//	g.setClip(thing.hitbox);
 				if (tdv.debugHitBoxes) g.drawPolygon(thing.hitbox);
-				if (thing.visible)  g.drawImage(tdv.getImg(thing, thing.curImg),thing.hitbox.xpoints[0] ,thing.hitbox.ypoints[0], this);
+				if (thing.visible)  g.drawImage(tdv.getImg(thing, thing.curImg),(int) thing.hitbox.getBounds2D().getMinX() ,(int) thing.hitbox.getBounds2D().getMinY(), this);
 			}	
 			// trying to draw life counter
 			  for (int i = 0; i < ClapperRail.lives; i++) { 
-				  g.drawImage(createLives(), View.frame.getWidth() - 100*(i+1), 0, 100, 100, this); 
+				  g.drawImage(createLives(), 
+						  (int)(View.frame.getWidth() - (Constants.FRAME_X * Constants.LIVES_X)*(i+Constants.LIVES_OFFSET)), 
+						  Constants.VIEW_ORIGIN, (int)(Constants.FRAME_X * Constants.LIVES_X), 
+						  (int) (Constants.FRAME_Y * Constants.LIVES_Y), this); 
 			  }
-			 g.drawImage(escKey, 0, frame.getHeight()-100,250,100,this);
+			 g.drawImage(escKey, Constants.VIEW_ORIGIN, frame.getHeight()- (int)(Constants.FRAME_Y * Constants.ESCAPE_KEY_Y),
+					 (int)(Constants.FRAME_X * Constants.ESCAPE_KEY_X),
+					 (int)(Constants.FRAME_Y * Constants.ESCAPE_KEY_Y),this);
 			
 	
 		}
