@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 
 
+/**
+ * The nest object
+ * @author Mark Wolgin
+ *
+ */
 public class Nest extends GameObject{
 	
 	/**

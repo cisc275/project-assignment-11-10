@@ -13,19 +13,19 @@ public class Model implements Serializable {
 	/**
 	 * a list of the objects in our game
 	 */
-	ArrayList<GameObject> game;
+	protected ArrayList<GameObject> game;
 	
 	/**
 	 * boolean for whether the game is over or not
 	 */
 	
-	static boolean quizHappened = false;
+	protected static boolean quizHappened = false;
 	
 	/**
 	 * boolean whether or not the game is over
 	 */
 	
-	static boolean gameOver = false;
+	protected static boolean gameOver = false;
 	
 	/**
 	 * boolean for whether or not you are in Tutorial mode
