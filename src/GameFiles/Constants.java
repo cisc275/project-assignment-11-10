@@ -10,9 +10,10 @@ import javax.swing.JLabel;
 /**
  * This contains all of our constants for the project, in on easy to edit spot.
  * @author wolginm
- *
  */
 public class Constants implements Serializable {
+	
+	// I would comment this but it is pretty obvious what each does
 
 	/// Booleans
 	public static boolean BOOL_HARVEY = false;
@@ -341,6 +342,7 @@ public class Constants implements Serializable {
 	public final static String IMG_SPACEBAR_5 = "img/spacebar/spacebar_5.png";
 	public final static String IMG_SPACEBAR_6 = "img/spacebar/spacebar_6.png";
 	public final static String IMG_STICK = "img/stick/Stick.png";
+	public final static String IMG_TIM_PICK_ME_PLEASE = "img/TIM PICK ME PLEASE.png";
 	public final static String IMG_TO_STICK_1 = "img/stick/stick1.png";
 	public final static String IMG_TO_STICK_2 = "img/stick/stick2.png";
 	public final static String IMG_TO_STICK_3 = "img/stick/stick3.png";

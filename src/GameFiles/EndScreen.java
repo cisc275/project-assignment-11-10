@@ -37,40 +37,40 @@ public class EndScreen extends JDialog implements KeyListener {
 	/**
 	 * image on each panel
 	 */
-	Image image;
+	protected Image image;
 	
 	/**
 	 * Button telling you congratulations
 	 */
-	JButton congrats;
+	protected JButton congrats;
 	
 	/**
 	 * button that returns you to main menu
 	 */
-	JButton menu;
+	protected JButton menu;
 	
 	/**
 	 * for sidescroll game tells you how long the game took you
 	 */
-	JLabel timer;
+	protected JLabel timer;
 	
 	/**
 	 * Panel to draw on
 	 */
-	JPanel p;
+	protected JPanel p;
 	
 	/**
 	 * The string that tells you what game you're in
 	 */
-	String game;
+	protected String game;
 	
 	/**
 	 * arraylist of jbuttons for buttonhandling
 	 */
-	ArrayList<JButton> buttons;
+	protected ArrayList<JButton> buttons;
 	
 	
-	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	protected Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	/**
 	 * 
@@ -184,7 +184,7 @@ public class EndScreen extends JDialog implements KeyListener {
 			BufferedImage bufferedImage;
 	    	try {
 	    		if (game.equals(Constants.SIDE_SCROLL_STRING)){
-	    		bufferedImage = ImageIO.read(new File("img/TIM PICK ME PLEASE.png"));
+	    		bufferedImage = ImageIO.read(new File(Constants.IMG_TIM_PICK_ME_PLEASE));
 	    		return bufferedImage;
 	    		}
 	    		if (game.equals(Constants.TOP_DOWN_STRING)) {

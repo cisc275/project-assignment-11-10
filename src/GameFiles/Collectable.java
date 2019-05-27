@@ -48,7 +48,7 @@ public class Collectable extends GameObject {
 	
 	/**
 	 * gives you xSpeed of the collectable object
-	 * @return xSpeed 
+	 * @return Value of xSpeed 
 	 * @author Tim Mazzarelli
 	 */
 	public int getxSpeed() {
