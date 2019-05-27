@@ -1,12 +1,5 @@
 package GameFiles;
 
-import java.awt.Polygon;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-
 /**
  * represents fish that will give both birds a boost
  *
