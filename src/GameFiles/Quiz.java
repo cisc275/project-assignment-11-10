@@ -574,14 +574,14 @@ public class Quiz extends JDialog implements KeyListener{
 			
 		}
 		if (Model.inTutoral == true) {
-			first.setText("Press the A key if " + first.getText());
-			second.setText("Press the B key if " + second.getText());
-			third.setText("Press the C key if " + third.getText());
+			first.setText(Constants.QUIZ_TO_FIRST_OPTION + first.getText());
+			second.setText(Constants.QUIZ_TO_SECOND_OPTION + second.getText());
+			third.setText(Constants.QUIZ_TO_THIRD_OPTION + third.getText());
 		}
 		else {
-			first.setText("A. " + first.getText());
-			second.setText("B. " + second.getText());
-			third.setText("C. " + third.getText());
+			first.setText(Constants.QUIZ_FIRST_OPTION + first.getText());
+			second.setText(Constants.QUIZ_SECOND_OPTION + second.getText());
+			third.setText(Constants.QUIZ_THIRD_OPTION + third.getText());
 		}
 		buttons.add(first);
 		buttons.add(second);
@@ -601,13 +601,13 @@ public class Quiz extends JDialog implements KeyListener{
 				b.setForeground(Color.BLACK);
 				b.setBackground(Color.BLACK);
 				b.setOpaque(false);
-	           	b.setFont(new Font("Serif", Font.BOLD + Font.ITALIC, (int) (Constants.FRAME_X * Constants.ENDSCREEN_TEXT_SIZE)));
+	           	b.setFont(new Font(Constants.FONT_FAMILY, Font.BOLD + Font.ITALIC, (int) (Constants.FRAME_X * Constants.ENDSCREEN_TEXT_SIZE)));
 			}
 			else{
         		b.setForeground(Color.BLACK);
         		b.setOpaque(false);
         		b.setBackground(Color.WHITE);
-               	b.setFont(new Font("Serif", Font.BOLD + Font.ITALIC, (int) (Constants.FRAME_X * Constants.QUIZ_TEXT_SIZE)));
+               	b.setFont(new Font(Constants.FONT_FAMILY, Font.BOLD + Font.ITALIC, (int) (Constants.FRAME_X * Constants.QUIZ_TEXT_SIZE)));
         		
         	}
 			b.addKeyListener(this);

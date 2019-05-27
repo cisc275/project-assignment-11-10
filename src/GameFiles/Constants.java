@@ -235,6 +235,12 @@ public class Constants implements Serializable {
 
 	public final static String SELECTION_STRING = "sel";
 	
+	public final static String QUIZ_FIRST_OPTION = "Press the A key if ";
+	public final static String QUIZ_SECOND_OPTION = "Press the B key if ";
+	public final static String QUIZ_THIRD_OPTION = "Press the C key if ";
+	public final static String QUIZ_TO_FIRST_OPTION = "A. ";
+	public final static String QUIZ_TO_SECOND_OPTION = "B. ";
+	public final static String QUIZ_TO_THIRD_OPTION = "C. ";
 	public final static String QUIZ_GENERIC_INSTRUCTION = "Press the key listed next to your answer.";
 	public final static String QUIZ_SIDE_SCROLL_INSTRUCTION = "Answer correctly and you will get a speed boost!";
 	public final static String QUIZ_TOP_DOWN_INSTRUCTION = "Answer correctly and you will gain a life!";
