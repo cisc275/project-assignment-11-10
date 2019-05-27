@@ -1,9 +1,5 @@
 package GameFiles;
 
-import java.awt.Polygon;
-import java.awt.image.BufferedImage;
-import java.io.File;
-
 /**
  * represents all objects that can be controlled by the user
  *
