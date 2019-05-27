@@ -188,7 +188,7 @@ public class EndScreen extends JDialog implements KeyListener {
 	    		return bufferedImage;
 	    		}
 	    		if (game.equals(Constants.TOP_DOWN_STRING)) {
-	    		bufferedImage = ImageIO.read(new File("img/cend.png"));
+	    		bufferedImage = ImageIO.read(new File(Constants.IMG_CEND));
 	    		return bufferedImage;
 	    		}
 	    	}
