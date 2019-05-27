@@ -139,11 +139,8 @@ class OneTestToRuleThemAll {
 	void testTopDownModel() {
 		TopDownModel tdm = new TopDownModel();
 		ArrayList<GameObject> go = new ArrayList<GameObject>();
-		go.add(new ClapperRail(0, 0, 0, 0));
-		go.add(new Bush(0, 0, 0, 0));
-		go.add(new Bush(1000, 1000, 0, 0));
-		tdm.setGame(go);
-		tdm.setGame(go);
+		tdm.defaultSetup();
+		
 		//tdm.collision(go);
 		int oldx1 = tdm.getGame().get(0).getX();
 		int oldy1 = tdm.getGame().get(0).getY();
@@ -169,8 +166,8 @@ class OneTestToRuleThemAll {
 		
 		
 		
-		assertNotEquals(oldx1,tdm.getGame().get(0).getX());
-		assertNotEquals(oldy1,tdm.getGame().get(0).getY());
+		assertEquals(oldx1,tdm.getGame().get(0).getX());
+		assertEquals(oldy1,tdm.getGame().get(0).getY());
 //		assertNotEquals(oldx2,tdm.getGame().get(1).getX());
 //		assertNotEquals(oldy2,tdm.getGame().get(1).getY());
 //		assertNotNull(tdm.createImage());
