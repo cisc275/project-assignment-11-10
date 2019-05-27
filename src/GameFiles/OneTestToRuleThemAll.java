@@ -20,7 +20,6 @@ class OneTestToRuleThemAll {
 		GameObject go = new GameObject(0,0,0,0);	
 
 		assertEquals(null,go.getImgFileName());
-		assertEquals(null, go.getHitBox());
 		assertEquals(null, go.getImage());
 		assertEquals(0, go.getY());
 		assertEquals(0, go.getX());
@@ -31,6 +30,7 @@ class OneTestToRuleThemAll {
 //		assertEquals(0, go.getcurrY());
 //		assertEquals(0, go.getxSpeed());
 //		assertEquals(0, go.getySpeed());
+//		assertEquals(null, go.getHitBox());
 	}
 
 //	@Test
@@ -392,6 +392,19 @@ class OneTestToRuleThemAll {
 		assertEquals(Constants.SIDE_SCROLL_STRING, esS1.game);
 		EndScreen esT1 = new EndScreen(Constants.TOP_DOWN_STRING);
 		assertEquals(Constants.TOP_DOWN_STRING, esT1.game);
+	}
+	
+	@Test
+	void TestSelectionView() {
+		GameObject go1 = new GameObject(0, 0, 0, 0);
+		GameObject go2 = new GameObject(0, 0, 0, 0);
+		GameObject go3 = new GameObject(0, 0, 0, 0);
+		ArrayList<GameObject> gol = new ArrayList<>();
+		gol.add(go1);
+		gol.add(go2);
+		gol.add(go3);
+		SelectionView sv = new SelectionView(gol);
+		assertEquals(sv.game, gol);
 	}
 	
 }
