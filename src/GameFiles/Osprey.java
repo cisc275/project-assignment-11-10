@@ -128,7 +128,7 @@ public class Osprey extends Bird {
 	
 	/**
 	 * checks for collision in ArrayList of gameobjects and sends to handleCollision accordingly
-	 * @param g
+	 * @param g ArrayList of GameObjects
 	 * @author tim Mazzarelli
 	 */
 	
@@ -145,7 +145,7 @@ public class Osprey extends Bird {
 	/**
 	 * returns the current y that you are at, will be used
 	 * to return to same place when diving
-	 * @return currY
+	 * @return value of currY
 	 * @author Tim Mazzarelli
 	 */
 	public int getCurrY() {
@@ -155,7 +155,7 @@ public class Osprey extends Bird {
 
 	/**
 	 * where you set your current y
-	 * @param currY
+	 * @param value of currY
 	 * @author Tim Mazzarelli
 	 */
 	public void setCurrY(int currY) {
@@ -165,7 +165,7 @@ public class Osprey extends Bird {
 
 	/**
 	 * tells you if the player is currently diving
-	 * @return isDiving
+	 * @return value of isDiving
 	 * @author Timothy Mazzarelli
 	 */
 	public boolean getisDiving() {
@@ -175,7 +175,7 @@ public class Osprey extends Bird {
 
 	/**
 	 * you can set whether or not the player is diving
-	 * @param isDiving
+	 * @param isDiving value for xSpeed
 	 * @author Timothy Mazzarelli
 	 */
 	public void setDiving(boolean isDiving) {
@@ -184,8 +184,9 @@ public class Osprey extends Bird {
 
 
 	/**
-	 * you 
-	 * @param xSpeed
+	 * Sets the xSpeed
+	 * @param xSpeed value for xSpeed
+	 * @author Mark Wolgin
 	 */
 	public void setXSpeed(int xSpeed) {
 		Osprey.xSpeed = xSpeed;
@@ -194,7 +195,9 @@ public class Osprey extends Bird {
 
 	
 	/**
-	 * @return Osprey.xSpeed
+	 * Returns xSpeed
+	 * @return value of xSpeed
+	 * @author Mark Wolgin
 	 */
 	public static int getXSpeed() {
 		// TODO Auto-generated method stub
