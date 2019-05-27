@@ -81,11 +81,21 @@ public class SideScrollModel extends Model {
 	 * used for giving set time for collision glows
 	 */
 	public int collCount;
-
+	
+	/**
+	 * can the cloud move if you aren't in the way
+	 */
 	private boolean yepItsOkayToMoveTheCloudAgain = false;
 
+	/**
+	 * makes sure to not do the cloud again
+	 */
 	private boolean onlyDoOnce = true;
 
+	/**
+	 * creates the SideScrollModel, creates an Osprey, puts into our arraylist of gameobjects
+	 * and starts the tutorial
+	 */
 	public SideScrollModel() {
 		o = new Osprey(Constants.OSPREY_STARTX, Constants.OSPREY_STARTY, Constants.OSPREY_WIDTH,
 				Constants.OSPREY_HEIGHT);
@@ -96,7 +106,7 @@ public class SideScrollModel extends Model {
 
 	/**
 	 * takes an ArrayList of GameObjects and moves them while checking for collision
-	 * 
+	 * handles tutorial now
 	 * @param g
 	 * @author Tim Mazzarelli
 	 */
@@ -159,6 +169,7 @@ public class SideScrollModel extends Model {
 				game.add(tair);
 			}
 
+			// does one wall exist
 			if (twall1 == null) {
 				twall1 = new InvisibleWall(Constants.VIEW_ORIGIN, 
 						(int) (Constants.OSPREY_STARTY - (Constants.FRAME_Y * Constants.INVISIBLE_WALL_HEIGHT)), 
@@ -167,6 +178,7 @@ public class SideScrollModel extends Model {
 				game.add(twall1);
 			}
 
+			// does the other wall exist
 			if (twall2 == null) {
 				twall2 = new InvisibleWall(Constants.VIEW_ORIGIN, 
 						Constants.OSPREY_OFFSET + 
@@ -213,6 +225,12 @@ public class SideScrollModel extends Model {
 
 			}
 
+			// ---------------------------------------
+			// If we are still working with the
+			// powerup, this will run. Once we
+			// are done with it, its visibility
+			// goes false, and we skip this.
+			// ---------------------------------------
 			else if (tpow.visible) {
 				if (tpow.hitbox.getBounds2D().getMinX() <= Constants.OSPREY_STARTX) {
 					o.setXSpeed(Constants.OSPREY_INIT_XSPEED);
@@ -278,13 +296,15 @@ public class SideScrollModel extends Model {
 					tair.visible = false;
 					game.remove(tair);
 				}
+				// game starts
 				if (tair.visible == false && tfish.visible == false && tpow.visible == false) {
 					o.setXSpeed(Constants.OSPREY_MIN_SPEED);
 					Model.inTutoral = false;
 					this.postTutorial();
 				}
 			}
-		} else {
+		}
+		else { // actual game handling
 			ArrayList<GameObject> toRemove = new ArrayList<GameObject>();
 			for (GameObject a : g) {
 				a.move();

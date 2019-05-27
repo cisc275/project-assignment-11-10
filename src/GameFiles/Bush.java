@@ -52,7 +52,6 @@ public class Bush extends NonControllable {
 		f.boundaries();
 		f.setxSpeed(-f.getXSpeed());
 		f.setYSpeed(-f.getYSpeed());
-
 	}
 	
 	@Override

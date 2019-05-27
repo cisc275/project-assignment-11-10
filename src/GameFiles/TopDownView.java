@@ -36,13 +36,10 @@ public class TopDownView extends View{
      */
 	BufferedImage background = createImage();
 	
-	BufferedImage escKey = createEsc();
-	
 	/**
-     * static array of CR images for tracking lives
-     */
-	//public static BufferedImage[];
-	
+	 * escape key image
+	 */
+	BufferedImage escKey = createEsc();
 	
    
 	/**
