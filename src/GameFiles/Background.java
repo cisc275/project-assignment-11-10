@@ -64,7 +64,7 @@ public class Background extends GameObject{
     
     /**
      * setter for x pos
-     * @param x,
+     * @param x New x value
      */
     public void setX(int x) {
         this.x = x;
@@ -79,7 +79,7 @@ public class Background extends GameObject{
     
     /**
      * setter for y pos
-     * @param y,
+     * @param y New y value
      */
     public void setY(int y) {
     	this.y = y;
