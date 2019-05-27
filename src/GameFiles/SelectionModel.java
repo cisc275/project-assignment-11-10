@@ -13,6 +13,7 @@ public class SelectionModel extends Model {
 	public SelectionModel() {
 		game = new ArrayList<>();
 	}
+	
 	/**
 	 * starts our game
 	 * @param args The system commandline arguments
