@@ -271,16 +271,22 @@ class OneTestToRuleThemAll {
 		Controller cont = new Controller("sideScroll");
 		Controller conS = new Controller("selection");
 		
-		ActionEvent e = new ActionEvent(con, 0, null);
-		e.setSource(((SelectionView)conS.getView()).clapperRail);
+		ActionEvent e1 = new ActionEvent(con, 0, null);
+		e1.setSource(((SelectionView)conS.getView()).clapperRail);
+		ActionEvent e2 = new ActionEvent(con, 0, null);
+		e2.setSource(((SelectionView)conS.getView()).osprey);
 		
 		assertEquals(con.selected, "topDown");
 		assertEquals(cont.selected, "sideScroll");
 		assertEquals(conS.selected, "selection");
 		
-		conS.actionPerformed(e);
-		assertEquals(conS.selected, null);
-		
+		// this only will run the first condition of the if/else in the method and doesn't
+		// work if you use conS, the only one that would actually use it. the assertEquals are
+		// also currently meaningless
+		con.actionPerformed(e1);
+		assertEquals(con.selected, "topDown");
+		cont.actionPerformed(e2);
+		assertEquals(cont.selected, "sideScroll");
 		
 		
 	}
