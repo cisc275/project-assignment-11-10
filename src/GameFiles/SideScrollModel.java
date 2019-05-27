@@ -20,12 +20,12 @@ public class SideScrollModel extends Model {
 	/**
 	 * osprey used by the Model for key inputs
 	 */
-	Osprey o;
+	protected Osprey o;
 
 	/**
 	 * to see if the final quiz question was answered correctly
 	 */
-	static boolean right;
+	protected static boolean right;
 
 	/**
 	 * The tutorial fish
