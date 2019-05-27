@@ -54,7 +54,7 @@ public class Stick extends Collectable{
 	}
 	/**
 	 * calls ClapperRail handleCollision passing in this
-	 * @param cr
+	 * @param cr The Game Clapper Rail
 	 * @author andrew thompson/ tim mazzarelli
 	 */
 	
@@ -74,7 +74,7 @@ public class Stick extends Collectable{
 	
 	/**
 	 * handles collision with the nest, resets itself and makes nest bigger
-	 * @param n
+	 * @param n The Game Nest
 	 * @author Tim Mazzarelli
 	 */
 		
@@ -107,7 +107,8 @@ public class Stick extends Collectable{
 	
 	/**
 	 * sets the amount of sticks left
-	 * @param count
+	 * @param count The new count of sticks
+	 * @author Mark Wolgin
 	 */
 	public static void setCount(int count) {
 		Stick.count = count;
@@ -115,6 +116,7 @@ public class Stick extends Collectable{
 	
 	/**
 	 * for animating the stick according to it's tick rate
+	 * @author Mark Wolgin
 	 */
 	@Override
 	public void move() {
@@ -124,7 +126,7 @@ public class Stick extends Collectable{
 	/**
 	 * returns the ySpeed of the stick which will either be 0
 	 * or the ySpeed of the clapper rail
-	 * @return int
+	 * @return The Current ySpeed
 	 * @author Tim Mazzarelli
 	 */
 	public int getySpeed() {
@@ -133,7 +135,7 @@ public class Stick extends Collectable{
 	
 	/**
 	 * sets the ySpeed, will be either 0 or clapper rail ySpeed
-	 * @param ySpeed
+	 * @param ySpeed The new ySpeed
 	 * @author Timothy Mazzarelli
 	 */
 	public void setySpeed(int ySpeed) {

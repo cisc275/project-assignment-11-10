@@ -107,7 +107,7 @@ public class SideScrollModel extends Model {
 	/**
 	 * takes an ArrayList of GameObjects and moves them while checking for collision
 	 * handles tutorial now
-	 * @param g
+	 * @param g ArrayList of GameObjects
 	 * @author Tim Mazzarelli
 	 */
 	public void updateLocation(ArrayList<GameObject> g) {
@@ -404,8 +404,7 @@ public class SideScrollModel extends Model {
 
 	/**
 	 * takes a hashset of integers and moves osprey accordingly
-	 * 
-	 * @param HashSet<Integer> keyPresses
+	 * @param keyPresses HashSet of keyPresses
 	 * @author andrew thompson
 	 */
 	@Override

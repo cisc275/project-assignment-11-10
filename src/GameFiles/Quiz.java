@@ -128,7 +128,7 @@ public class Quiz extends JDialog implements KeyListener{
 	 
 	/**
 	 * 
-	 * @param game
+	 * @param game The game to create
 	 * 
 	 * Constructs the quiz according to whatever game you're in
 	 * according to parameter game
@@ -169,7 +169,6 @@ public class Quiz extends JDialog implements KeyListener{
 	 * 
 	 * @author Tim Mazzarelli
 	 */
-	
 	public void panelHandling() {
 		p = new DrawPanel();
 		p.setLayout(new GridLayout(Constants.GRID_LAYOUT_X, Constants.GRID_LAYOUT_Y));
@@ -187,7 +186,7 @@ public class Quiz extends JDialog implements KeyListener{
 		 * creates the image that we want on our Quiz background
 		 * depends on what game you're in or if you
 		 * won the Osprey game
-		 * @return BufferedImage
+		 * @return New BufferedImage of what to draw
 		 * @author Tim Mazzarelli
 		 */
 		private BufferedImage createImage(){
@@ -215,7 +214,8 @@ public class Quiz extends JDialog implements KeyListener{
 		
 		/**
 		 * draws our created image onto the JPanel
-		 * @param g
+		 * @param g	Internal graphics system
+		 * @author Mark Wolgin
 		 */
 		@Override
 		protected void paintComponent(Graphics g) {
@@ -230,10 +230,8 @@ public class Quiz extends JDialog implements KeyListener{
 	
 	
 	/**
-	 * @param none
-	 * @return HashSet<Integer>
+	 * @return HashSet of Integers
 	 * initializes the HashSet of integers which will prevent repeats
-	 * 
 	 * @author tim mazzarelli
 	 */
 	
@@ -246,9 +244,6 @@ public class Quiz extends JDialog implements KeyListener{
 	}
 	
 	/**
-	 * @param none
-	 * @return int
-	 * 
 	 * gives us the random number to choose our questions
 	 * and answers for a quiz quiz
 	 * 
@@ -272,7 +267,7 @@ public class Quiz extends JDialog implements KeyListener{
 	
 	
 	/**
-	 * @param String game
+	 * @param game String of the game
 	 * 
 	 * Depending on whichever game you're in
 	 * we will access our array of questions
@@ -281,7 +276,6 @@ public class Quiz extends JDialog implements KeyListener{
 	 * 
 	 * @author tim mazzarelli
 	 */
-	
 	public void initQuestions(String game) {
 		if (game.equals(Constants.SIDE_SCROLL_STRING)) {
 			if (questions != null) {}
@@ -310,7 +304,7 @@ public class Quiz extends JDialog implements KeyListener{
 	
 	
 	/**
-	 * @param ArrayList<JLabel> ourQuestion
+	 * @param ourQuestions ArrayList of our ourQuestion
 	 * 
 	 * takes an arrayList of questions and based on the number 
 	 * chosen at beginning takes that question and removes it from the list
@@ -333,11 +327,8 @@ public class Quiz extends JDialog implements KeyListener{
 		questionHandling();	
 	}
 	
-	/**
-	 * @param none
-	 * 
+	/** 
 	 * sets up the label in an appealing way
-	 * 
 	 * @author tim mazzarelli
 	 */
 	
@@ -377,7 +368,7 @@ public class Quiz extends JDialog implements KeyListener{
 	
 	
 	/**
-	 * @param String game
+	 * @param game String of the game to play
 	 * 
 	 * initializes the arrayLists of answers depending on
 	 * whether or not you are playing the clapperrail or osprey game
@@ -390,12 +381,12 @@ public class Quiz extends JDialog implements KeyListener{
 	}
 	
 	/**
-	 * @param String game
+	 * @param game String of the game
 	 * 
 	 * gets the arrayList of correct answers depending on game
 	 * being played
 	 * 
-	 * @return ArrayList<Jbutton>
+	 * @return ArrayList of JButtons
 	 * 
 	 * @author tim mazzarelli
 	 */
@@ -428,17 +419,16 @@ public class Quiz extends JDialog implements KeyListener{
 	}
 	
 	/**
-	 * @param String game
+	 * @param game of String
 	 * 
 	 * gets the arrayList of incorrect answers depending on game
 	 * being played
 	 * 
 	 * 
-	 * @return ArrayList<Jbutton>
+	 * @return ArrayList of JButtons
 	 * 
 	 * @author tim mazzarelli
 	 */
-	
 	public ArrayList<JButton> initWrongAnswers(String game) {
 		if (game.equals(Constants.SIDE_SCROLL_STRING)) {
 			if (wrongAnswers != null) {}
@@ -467,16 +457,15 @@ public class Quiz extends JDialog implements KeyListener{
 	}
 	
 	/**
-	 * @param String game
+	 * @param game The game
 	 * 
 	 * gets the arrayList of more incorrect answers depending on game
 	 * being played
 	 * 
-	 * @return ArrayList<Jbutton>
+	 * @return ArrayList of JButtons
 	 * 
 	 * @author tim mazzarelli
 	 */
-	
 	public ArrayList<JButton> initMWAnswers(String game) {
 		if (game.equals(Constants.SIDE_SCROLL_STRING)) {
 			if (mWAnswers != null) {}
@@ -505,14 +494,14 @@ public class Quiz extends JDialog implements KeyListener{
 	}
 	
 	/**
-	 * @param ArrayList<Jbutton> right, ArrayList<Jbutton> wrong, ArrayList<Jbutton> moreWrong
-	 * 
 	 * gets the proper answers based on the question number
 	 * and then passes onto button handling
 	 * 
 	 * @author tim mazzarelli
+	 * @param rightAnswer 	ArrayList of correct JButtons
+	 * @param wrongAnswer	ArrayList of incorrect JButtons
+	 * @param moreWrong		ArrayList of very wrong JButtons
 	 */
-
 	public void getAnswer(ArrayList<JButton> rightAnswer, ArrayList<JButton> wrongAnswer, ArrayList<JButton> moreWrong) {
 		if (Mate.caughtUp == true) {
 			right = Constants.OSPREY_LAST_RIGHT;
@@ -536,15 +525,16 @@ public class Quiz extends JDialog implements KeyListener{
 	}
 	
 	/**
-	 * @param Jbutton correct, Jbutton incorrect, Jbutton veryWrong
 	 * 
 	 * sets up each JButton in a nice way, 
 	 * in a random order so the right answer is not always the first choice, 
 	 * or second, or third etc.
 	 * 
 	 * @author tim mazzarelli
+	 * @param correct 		Correct Button
+	 * @param incorrect		Incorrect Button
+	 * @param veryWrong		Very Wrong Button
 	 */
-	
 	public void buttonHandling(JButton correct, JButton incorrect, JButton veryWrong) {
 		correct.setText(right.getText());
 		incorrect.setText(wrong.getText());
@@ -643,11 +633,8 @@ public class Quiz extends JDialog implements KeyListener{
 	class keyAction extends AbstractAction{
 		
 		/**
-		 * @param ActionEvent e
-		 * 
+		 * @param e ActionListener
 		 * tells us what to do when an action is performed (JButton pressed) 
-		 * 
-		 * 
 		 * @author tim mazzarelli
 		 */
 		@Override
@@ -725,11 +712,9 @@ public class Quiz extends JDialog implements KeyListener{
 
 	
 	/**
-	 * @param KeyEvent e
-	 * 
+	 * @param e KeyEvent
 	 * handles when a key is pressed, performs the correct action
 	 * according to each button accordingly
-	 * 
 	 * @author tim mazzarelli
 	 */
 	 

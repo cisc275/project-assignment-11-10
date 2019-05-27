@@ -46,7 +46,7 @@ public class View extends JFrame implements Serializable {
 	
 	/**
 	 * Returns the game
-	 * @return ArrayList<GameObject> game
+	 * @return ArrayList game
 	 */
 
 	public ArrayList<GameObject> getGame() {
@@ -56,6 +56,7 @@ public class View extends JFrame implements Serializable {
 	/**
 	 * Sets the game
 	 * @param game The new game
+	 * @author Mark Wolgin
 	 */
 
 	public void setGame(ArrayList<GameObject> game) {
@@ -64,7 +65,8 @@ public class View extends JFrame implements Serializable {
 	
 	/**
 	 * overwritten in sub classes
-	 * @param game
+	 * @param game ArrayList of GameObjects
+	 * @author Mark Wolgin
 	 */
 	
 	public void updateView(ArrayList<GameObject> game) {
@@ -73,7 +75,8 @@ public class View extends JFrame implements Serializable {
 	
 	/**
 	 * overwritten in subclasses
-	 * @param c
+	 * @param c Controller of the game
+	 * @author Mark Wolgin
 	 */
 	
 	public void addKeyListener(Controller c) {
@@ -82,7 +85,8 @@ public class View extends JFrame implements Serializable {
 	
 	/**
 	 * overwritten in subclasses
-	 * @param c
+	 * @param c Controller of the game
+	 * @author Mark Wolgin
 	 */
 	public void addActionListener(Controller c) {
 		
@@ -120,7 +124,7 @@ public class View extends JFrame implements Serializable {
 	
 	
 	/**
-	 * Returns an ArrayList<BufferedImage> of scalled images
+	 * Returns an ArrayList of scalled images
 	 * @param g The GameObject to be scaled
 	 * @return 	The default scale of the image
 	 * @author Mark Wolgin

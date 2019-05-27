@@ -101,7 +101,6 @@ public class Osprey extends Bird {
 	
 	/**
 	 * moves the osprey according to location and ySpeed determined by key inputs
-	 * 
 	 * @author tim Mazzarelli
 	 */
 	

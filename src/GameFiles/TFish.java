@@ -32,7 +32,7 @@ public class TFish extends Collectable {
 	
 
 	/** handles fish collision with osprey
-	 * @param o
+	 * @param o Games Osprey
 	 * @author Timothy Mazzarelli
 	 */
 	

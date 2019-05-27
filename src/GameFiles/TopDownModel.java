@@ -115,7 +115,7 @@ public class TopDownModel extends Model {
     
     /**
      * takes a hashset of integers and moves clapper rail accordingly
-     * @param  keyPresses	The HashSet<Integers> of the current pressed keys.
+     * @param  keyPresses	The HashSet of the current pressed keys.
      * @author andrew thompson
      */
     @Override
@@ -206,10 +206,11 @@ public class TopDownModel extends Model {
     }
     
     /**
-     * 
-     * @param g Array list of GameObjects
+     *
      * updates the location of all moving objects and then calls the collision method
-     * @author Tim Mazzarelli && Mark Wolgin
+     * @param g Array list of GameObjects
+     * @author Tim Mazzarelli
+     * @author Mark Wolgin
      */
     public void updateLocation(ArrayList<GameObject> g) {
     	if (inTutoral) {

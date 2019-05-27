@@ -24,22 +24,22 @@ public class TopDownView extends View{
 	/**
 	 * JPanel the game is drawn upon
 	 */
-    DrawPanel drawPanel = new DrawPanel();
+    protected DrawPanel drawPanel = new DrawPanel();
     
     /**
      * a Mark creation of the highest order, TDV object
      */
-    TopDownView tdv = this;
+    protected TopDownView tdv = this;
     
     /**
      * the background image
      */
-	BufferedImage background = createImage();
+    protected BufferedImage background = createImage();
 	
 	/**
 	 * escape key image
 	 */
-	BufferedImage escKey = createEsc();
+    protected BufferedImage escKey = createEsc();
 	
    
 	/**
@@ -75,14 +75,13 @@ public class TopDownView extends View{
 	/**
 	 * the class that draws our Jpanel for our game
 	 * @author tmazz
-	 *
 	 */
 	
 	private class DrawPanel extends JPanel {
 		
 		/**
 		 * this method paints our game upon our Draw(J)panel
-		 * @param g
+		 * @param g ArrayList of GameObjects
 		 * @author Peter Jenny
 		 */
 		protected void paintComponent(Graphics g) {
@@ -114,7 +113,7 @@ public class TopDownView extends View{
 	
 	/**
 	 * creates buffered image for background
-	 * @return BufferedImage
+	 * @return New BufferedImage to draw
 	 * @author Peter Jenny
 	 */
 	private BufferedImage createImage(){
@@ -131,7 +130,7 @@ public class TopDownView extends View{
 	
 	/**
 	 * creates buffered image for life display
-	 * @return BufferedImage
+	 * @return New BufferedImage to draw
 	 * @author Peter Jenny
 	 */
 	private BufferedImage createLives(){
@@ -146,7 +145,7 @@ public class TopDownView extends View{
 	}
 	/**
 	 * creates buffered image for esc button
-	 * @return BufferedImage
+	 * @return New BufferedImage to draw
 	 * @author andrew thompson
 	 */
 	private BufferedImage createEsc(){
@@ -163,8 +162,8 @@ public class TopDownView extends View{
 	
 
 	/**
-	 * 
-	 * @param controller
+	 * Adds a KeyListener to the controller
+	 * @param controller The controller of the world.
 	 * adds the controller as a keyListener
 	 */
 	public void addKeyListener(Controller controller) {

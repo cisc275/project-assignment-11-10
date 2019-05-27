@@ -51,8 +51,8 @@ public class SelectionView extends View implements KeyListener{
 	
 	/**
 	 * creates the screen used as our main menu
+	 * @param g ArrayLust of GameObjects
 	 */
-	
 	public SelectionView(ArrayList<GameObject> g) {
 		DrawPanel dp = new DrawPanel();
 		Dimension fullScreen = new Dimension(screenSize);
@@ -118,7 +118,7 @@ public class SelectionView extends View implements KeyListener{
 			
 		/**
 		 * paints our JPanel
-		 * @param g 
+		 * @param g Internal graphics system
 		 * @author Andrew Thompson
 		 */
 		@Override
@@ -140,7 +140,7 @@ public class SelectionView extends View implements KeyListener{
 		/**
 		 * if the key stroke is related to osprey the osprey game starts
 		 * and same for clapper rail, then disposes of the screen
-		 * @param e
+		 * @param e ActionEvent
 		 * @author tim mazarelli
 		 */
 		@Override

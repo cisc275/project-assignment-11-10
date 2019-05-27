@@ -15,7 +15,7 @@ public class SelectionModel extends Model {
 	}
 	/**
 	 * starts our game
-	 * @param args
+	 * @param args The system commandline arguments
 	 */
 	public static void main(String[] args) {
 		new Controller(Constants.SELECTION_STRING);	
@@ -23,7 +23,7 @@ public class SelectionModel extends Model {
 	
 	/**
 	 * decides what to do with the user's key presses
-	 * @param a HashSet<Integer> of key presses
+	 * @param keyPresses HashSet of key presses
 	 * @author andrew thompson
 	 */
 	public void handleMove(HashSet<Integer> keyPresses) {

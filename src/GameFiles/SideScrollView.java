@@ -91,7 +91,7 @@ public class SideScrollView extends View{
  
     /**
      * creates the view using the arraylist of game objects
-     * @param g
+     * @param g ArrayList of GameObjects
      */
     public SideScrollView(ArrayList<GameObject> g){
 
@@ -148,7 +148,7 @@ public class SideScrollView extends View{
     	
     	/**
     	 * draws our game
-    	 * @param g
+    	 * @param g The internal graphics system
     	 */
 		protected void paintComponent(Graphics g) {
 			if (!Mate.caughtUp) {
