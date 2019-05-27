@@ -229,6 +229,12 @@ class OneTestToRuleThemAll {
 	void TestBush() {
 		Bush bush = new Bush(0, 0, 0, 0);
 		assertNotNull(bush.imgFileName);
+		ClapperRail cr = new ClapperRail(0, 0, 0, 0);
+		bush.handleCollision(cr);
+		assertEquals(cr.hidden, true);
+		Fox fox = new Fox(0, 0, 0, 0, cr);
+		bush.handleCollision(fox);
+		assertEquals(Fox.bushColl, true);
 	}
 	
 	@Test
@@ -371,4 +377,14 @@ class OneTestToRuleThemAll {
 	}
 	
 	
+	@Test
+	void TestEndScreen() {
+		EndScreen esS1 = new EndScreen(Constants.SIDE_SCROLL_STRING);
+		assertEquals(Constants.SIDE_SCROLL_STRING, esS1.game);
+		EndScreen esT1 = new EndScreen(Constants.TOP_DOWN_STRING);
+		assertEquals(Constants.TOP_DOWN_STRING, esT1.game);
+	}
+	
 }
+
+	
