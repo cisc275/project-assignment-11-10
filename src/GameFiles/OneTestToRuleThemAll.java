@@ -229,6 +229,12 @@ class OneTestToRuleThemAll {
 	void TestBush() {
 		Bush bush = new Bush(0, 0, 0, 0);
 		assertNotNull(bush.imgFileName);
+		ClapperRail cr = new ClapperRail(0, 0, 0, 0);
+		bush.handleCollision(cr);
+		assertEquals(cr.hidden, true);
+		Fox fox = new Fox(0, 0, 0, 0, cr);
+		bush.handleCollision(fox);
+		assertEquals(Fox.bushColl, true);
 	}
 	
 	@Test
