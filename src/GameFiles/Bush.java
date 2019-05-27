@@ -54,6 +54,11 @@ public class Bush extends NonControllable {
 		f.setYSpeed(-f.getYSpeed());
 	}
 	
+	
+	/**
+	 * bush doesn't avtually move, it just animates the bush for the tutorial
+	 * @author andrew thompson
+	 */
 	@Override
 	public void move() {
 		animate(Constants.BUSH_ANIMATION_TICK_RATE);
