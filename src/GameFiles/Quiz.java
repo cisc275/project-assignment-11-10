@@ -640,7 +640,7 @@ public class Quiz extends JDialog implements KeyListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == first) {
-					if (first.getText().equals("A. " + right.getText())) {
+					if (first.getText().equals(Constants.QUIZ_FIRST_OPTION + right.getText())) {
 						if(Mate.caughtUp) {
 							View.frame.dispose();
 							Mate.caughtUp = false;
@@ -661,7 +661,7 @@ public class Quiz extends JDialog implements KeyListener{
 					endQuiz();
 				}
 				if (e.getSource() == second) {
-					if (second.getText().equals("B. " + right.getText())) {
+					if (second.getText().equals(Constants.QUIZ_SECOND_OPTION + right.getText())) {
 						if(Mate.caughtUp) {
 							View.frame.dispose();
 							Mate.caughtUp = false;
@@ -682,7 +682,7 @@ public class Quiz extends JDialog implements KeyListener{
 					endQuiz();
 				}
 				if (e.getSource() == third) {
-					if (third.getText().equals("C. " + right.getText())) {
+					if (third.getText().equals(Constants.QUIZ_THIRD_OPTION + right.getText())) {
 						if(Mate.caughtUp) {
 							Mate.caughtUp = false;
 							View.frame.dispose();
