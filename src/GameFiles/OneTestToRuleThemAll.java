@@ -299,13 +299,76 @@ class OneTestToRuleThemAll {
 	}
 	@Test
 	void TestFox() {
-		Fox fox = new Fox(0, 0, 0, 0, null);
+		Fox fox = new Fox(0, 0, 0, 0, new ClapperRail(10, 10, 0, 0));
+		Fox fox2 = new Fox(0, 0, 0, 0, new ClapperRail(10, 10, 0, 0));
+		assertEquals(fox2.hitbox.getBounds(), fox.hitbox.getBounds());
 		fox.move();
+		fox.setxSpeed(0);
+		fox.getXSpeed();
+		assertNotEquals(fox2.hitbox.getBounds(), fox.hitbox.getBounds());
+		Fox fox3 = new Fox(0, 0, 0, 0, new ClapperRail(10, 10, 0, 0));
+		fox3.getC().hidden = true;
+		fox3.move();
+		assertNotEquals(fox2.hitbox.getBounds(), fox3.hitbox.getBounds());
+		Fox fox4 = new Fox(0, 0, 0, 0, new ClapperRail(10, 10, 0, 0));
+		fox4.setxSpeed(0);
+		fox4.bushColl = true;
+		fox4.move();
+		fox4.getSpeed();
+		assertNotEquals(fox2.hitbox.getBounds(), fox4.hitbox.getBounds());
+		Fox fox5 = new Fox(0, 0, 0, 0, new ClapperRail(10, 10, 0, 0));
+		fox5.bushPause = 999999;
+		fox5.setSpeed(-5);
+		fox5.setYSpeed(-5);
+		fox5.move();
+		assertNotEquals(fox2.hitbox.getBounds(), fox5.hitbox.getBounds());
+		Fox fox6 = new Fox(1000000, 1000000, 0, 0, new ClapperRail(10, 10, 0, 0));
+		Fox fox7 = new Fox(1000000, 1000000, 0, 0, new ClapperRail(10, 10, 0, 0));
+		fox6.move();
+		fox6.getC();
+		fox6.getYSpeed();
+		fox6.setC(new ClapperRail(0, 0, 0, 0));
+		assertNotEquals(fox7.hitbox.getBounds(), fox6.hitbox.getBounds());
+		Fox fox8 = new Fox(-1000, -1000, 0, 0, new ClapperRail(10, 10, 0, 0));
+		Fox fox9 = new Fox(-1000, -1000, 0, 0, new ClapperRail(10, 10, 0, 0));
+		fox8.move();
+		assertNotEquals(fox9.hitbox.getBounds(), fox8.hitbox.getBounds());
+		
+				
 	}
 	
 	@Test
 	void testTopDownView() {
 		
 	}
+	
+	@Test
+	void TestQuiz() {
+		Quiz qS1 = new Quiz(Constants.SIDE_SCROLL_STRING);
+		Quiz qS2 = new Quiz(Constants.SIDE_SCROLL_STRING);
+		Quiz qS3 = new Quiz(Constants.SIDE_SCROLL_STRING);
+		//Mate.caughtUp = true;
+		//Quiz qS4 = new Quiz(Constants.SIDE_SCROLL_STRING);
+		//Quiz qS5 = new Quiz(Constants.SIDE_SCROLL_STRING);
+		//Quiz qS6 = new Quiz(Constants.SIDE_SCROLL_STRING);
+		assertEquals(Constants.SIDE_SCROLL_STRING, qS1.game);
+		Quiz qT1 = new Quiz(Constants.TOP_DOWN_STRING);
+		Quiz qT2 = new Quiz(Constants.TOP_DOWN_STRING);
+		Quiz qT3 = new Quiz(Constants.TOP_DOWN_STRING);
+		
+		assertEquals(Constants.TOP_DOWN_STRING, qT1.game);
+		
+	}
+	
+	@Test
+	void TestLoseScreen() {
+		LoseScreen lsS1 = new LoseScreen(Constants.SIDE_SCROLL_STRING);
+		LoseScreen lsS2 = new LoseScreen(Constants.SIDE_SCROLL_STRING);
+		assertEquals(Constants.SIDE_SCROLL_STRING, lsS1.game);
+		LoseScreen lsT1 = new LoseScreen(Constants.TOP_DOWN_STRING);
+		LoseScreen lsT2 = new LoseScreen(Constants.TOP_DOWN_STRING);
+		assertEquals(Constants.TOP_DOWN_STRING, lsT1.game);
+	}
+	
 	
 }
