@@ -1,5 +1,9 @@
 package GameFiles;
 
+/**
+ * @author wolginm
+ *
+ */
 public class Powerup extends Collectable {
 
 	

@@ -47,78 +47,78 @@ public class Quiz extends JDialog implements KeyListener{
 	/**
 	 * a string representing which game the quiz is for
 	 */
-	String game;
+	protected String game;
 	
 	/**
 	 * a BufferedImage for background images
 	 */
-	BufferedImage image;
+	protected BufferedImage image;
 	
 	/**
 	 * Card style layout for our Quizzes
 	 */
-	CardLayout card;
+	protected CardLayout card;
 	
 	/**
 	 * Container to put our cards in
 	 */
-	Container c;
+	protected Container c;
 	
 	/**
 	 * an array list of all the possible quiz questions
 	 */
-	 ArrayList<JLabel> questions;
+	protected ArrayList<JLabel> questions;
 	 
 	 
 	 /**
 	  * the label for the chosen question
 	  */
-	 JLabel question;
+	protected JLabel question;
 	 
 	 /**
 	  * The instruction to select answer
 	  */
-	 JLabel instruction = new JLabel("Press the key listed next to your answer.");
+	protected JLabel instruction = new JLabel("Press the key listed next to your answer.");
 	 
 	 /**
 	  * Telling individual how to get to actual quiz
 	  */
-	 JLabel next = new JLabel("Double tap the spacebar to answer a question and get a powerup.");
+	protected JLabel next = new JLabel("Double tap the spacebar to answer a question and get a powerup.");
 	 
 	 /**
 	  * whether or not a question has been answered
 	  */
-	 static boolean answered;
+	protected static boolean answered;
 	
 	 /**
 	  * all of the Jbuttons involved in the quiz
 	  */
-	 JButton information, right, wrong, mW, first, second, third;
+	protected JButton information, right, wrong, mW, first, second, third;
 	 
 	 /**
 	  * arraylists of each type of answer
 	  */
-	 ArrayList<JButton> rightAnswers, wrongAnswers, mWAnswers, informations;
+	protected ArrayList<JButton> rightAnswers, wrongAnswers, mWAnswers, informations;
 	 
 	 /**
 	  * hashset of integers so that there are no duplicate questions
 	  */
-	 static HashSet<Integer> previousNumbers;
+	protected static HashSet<Integer> previousNumbers;
 	 
 	 /**
 	  * int used to pick random question
 	  */
-	 int qNumber;
+	protected int qNumber;
 	 
 	 /**
 	  * panel used to draw the quiz and information screen
 	  */
-	 JPanel p, info;
+	protected JPanel p, info;
 	
 	 /**
 	  * screen size dimensions
 	  */
-	 Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	protected Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	 
 	 /**
 	  * static boolean representing if player has correctly answered a question
@@ -193,7 +193,7 @@ public class Quiz extends JDialog implements KeyListener{
 			BufferedImage bufferedImage;
 	    	try {
 	    		if (Mate.caughtUp) {
-	    			bufferedImage = ImageIO.read(new File("img/TIM PICK ME PLEASE.png"));
+	    			bufferedImage = ImageIO.read(new File(Constants.IMG_TIM_PICK_ME_PLEASE));
 		    		return bufferedImage;
 	    		}
 	    		if (game.equals(Constants.SIDE_SCROLL_STRING)){
@@ -349,14 +349,14 @@ public class Quiz extends JDialog implements KeyListener{
 		for (JLabel l : list) {
 			if (Mate.caughtUp == true) {
 				l.setForeground(Color.BLACK);
-			    l.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, (int)(Constants.FRAME_X * Constants.ENDSCREEN_TEXT_SIZE)));
+			    l.setFont(new Font(Constants.FONT_FAMILY, Font.ITALIC + Font.BOLD, (int)(Constants.FRAME_X * Constants.ENDSCREEN_TEXT_SIZE)));
 				l.setOpaque(false);
 				
 			}
 			else {
 				l.setOpaque(false);
 				l.setForeground(Color.BLACK);
-			    l.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, (int) (Constants.FRAME_X * Constants.QUIZ_TEXT_SIZE)));
+			    l.setFont(new Font(Constants.FONT_FAMILY, Font.ITALIC + Font.BOLD, (int) (Constants.FRAME_X * Constants.QUIZ_TEXT_SIZE)));
 			}
 			l.setHorizontalAlignment(JLabel.CENTER);
 			l.setVerticalAlignment(JLabel.TOP);

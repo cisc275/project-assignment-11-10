@@ -12,13 +12,13 @@ public class Osprey extends Bird {
 	/**
 	 * tells you how long you have played the game for
 	 */
-	static int time;
+	protected static int time;
 	
 	/**
 	 *  the xSpeed which determines how fast you will travel (behind the scenes not actually)
 	 */
 	
-	static int xSpeed;
+	protected static int xSpeed;
 	
 	/**
 	 *  for storing y before diving
@@ -34,12 +34,12 @@ public class Osprey extends Bird {
 	 * current distance of the Osprey
 	 */
 	
-	static double distance;
+	protected static double distance;
 	
 	/**
 	 *  total distance the osprey can travel
 	 */
-	static double maxDistance = Constants.OSPREY_MAX_DISTANCE;
+	protected static double maxDistance = Constants.OSPREY_MAX_DISTANCE;
 	
 
 	
