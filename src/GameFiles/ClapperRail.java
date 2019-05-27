@@ -1,12 +1,6 @@
 package GameFiles;
 
-import java.awt.Polygon;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-
-import javax.imageio.ImageIO;
 
 /**
  * represents the clapperrail for the side scroll game

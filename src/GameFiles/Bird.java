@@ -1,9 +1,5 @@
 package GameFiles;
 
-import java.awt.Polygon;
-import java.awt.image.BufferedImage;
-import java.io.File;
-
 /**
  * super class for both bird objects
  */
