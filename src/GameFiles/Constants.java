@@ -208,6 +208,8 @@ public class Constants implements Serializable {
 	
 	
 	/// Doubles
+	public final static double CLAPPER_RAIL_MATH_POW_RATE = 2.0;
+	
 	public static double POWERUP_HEIGH_SCALE = 2.0;
 	public static double POWERUP_SCALE = 1.0;
 	

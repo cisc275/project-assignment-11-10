@@ -115,8 +115,8 @@ public class ClapperRail extends Bird {
 		for (Bush b : bushArr) {
 			double tmp;
 			// distance formula
-			double i = Math.pow(b.getX() - this.hitbox.getBounds2D().getMinX(), 2.0) +
-					Math.pow((b.getY() - this.hitbox.getBounds2D().getMinY()), 2.0);
+			double i = Math.pow(b.getX() - this.hitbox.getBounds2D().getMinX(), Constants.CLAPPER_RAIL_MATH_POW_RATE) +
+					Math.pow((b.getY() - this.hitbox.getBounds2D().getMinY()), Constants.CLAPPER_RAIL_MATH_POW_RATE);
 			tmp = Math.sqrt(i);
 			if (tmp < d || d == 0) {
 				d = tmp;
