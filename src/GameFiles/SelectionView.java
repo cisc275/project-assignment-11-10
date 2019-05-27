@@ -31,21 +31,21 @@ public class SelectionView extends View implements KeyListener{
 	/**
 	 * button that will allow user to select the osprey game
 	 */
-	static JButton osprey; 
+	protected static JButton osprey; 
 	/**
 	 * button that will allow user to select the clapperrail game
 	 */
-	static JButton clapperRail;
+	protected static JButton clapperRail;
 	
 	/**
 	 * the size of our screen
 	 */
-	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	protected Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	/**
 	 * the image drawn on the back of the jpanel
 	 */
-	BufferedImage image;
+	protected BufferedImage image;
 	
 	/**
 	 * creates the screen used as our main menu
@@ -144,10 +144,10 @@ public class SelectionView extends View implements KeyListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource().equals(osprey)) {
-				new Controller("sideScroll");
+				new Controller(Constants.SIDE_SCROLL_STRING);
 			}
 			if (e.getSource().equals(clapperRail)) {
-				new Controller("topDown");
+				new Controller(Constants.TOP_DOWN_STRING);
 			}
 			endSelection();
 		}
