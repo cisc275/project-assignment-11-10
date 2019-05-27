@@ -149,14 +149,23 @@ class OneTestToRuleThemAll {
 		int oldy1 = tdm.getGame().get(0).getY();
 		int oldx2 = tdm.getGame().get(1).getX();
 		int oldy2 = tdm.getGame().get(1).getY();
-		tdm.updateLocation(go);
+	//	tdm.updateLocation(go);
 //		tdm.getFrameHeight();
 //		tdm.getFrameWidth();
 		tdm.getGame();
 //		tdm.getImgHeight();
 //		tdm.setVel(2, 2);
-		tdm.updateLocation(go);
+	//	tdm.updateLocation(go);
 //		tdm.getImgWidth();
+		tdm.postTutorial();
+		tdm.f.visible = true;
+		Stick vf = new Stick(0, 0, 0, 0);
+		vf.visible = false;
+		tdm.setTstick(vf);
+		assertEquals(vf, tdm.getTstick());
+		tdm.inTutoral = false;
+		tdm.updateLocation(go);
+		
 		
 		
 		
