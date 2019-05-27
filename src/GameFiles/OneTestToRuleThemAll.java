@@ -360,6 +360,15 @@ class OneTestToRuleThemAll {
 		
 	}
 	
+	@Test
+	void TestLoseScreen() {
+		LoseScreen lsS1 = new LoseScreen(Constants.SIDE_SCROLL_STRING);
+		LoseScreen lsS2 = new LoseScreen(Constants.SIDE_SCROLL_STRING);
+		assertEquals(Constants.SIDE_SCROLL_STRING, lsS1.game);
+		LoseScreen lsT1 = new LoseScreen(Constants.TOP_DOWN_STRING);
+		LoseScreen lsT2 = new LoseScreen(Constants.TOP_DOWN_STRING);
+		assertEquals(Constants.TOP_DOWN_STRING, lsT1.game);
+	}
 	
 	
 }
