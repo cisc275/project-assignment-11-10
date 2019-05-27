@@ -132,7 +132,7 @@ public class EndScreen extends JDialog implements KeyListener {
 			b.setFocusPainted(false);
 			b.setBorderPainted(false);
 			b.setBackground(Color.BLUE);
-	        b.setFont(new Font("Serif", Font.BOLD + Font.ITALIC, (int)(Constants.FRAME_X * Constants.ENDSCREEN_TEXT_SIZE)));
+	        b.setFont(new Font(Constants.FONT_FAMILY, Font.BOLD + Font.ITALIC, (int)(Constants.FRAME_X * Constants.ENDSCREEN_TEXT_SIZE)));
 	        b.setAlignmentX(JLabel.RIGHT_ALIGNMENT);
 	        b.setAlignmentY(JLabel.TOP_ALIGNMENT);
 	        b.addKeyListener(this);
@@ -154,7 +154,7 @@ public class EndScreen extends JDialog implements KeyListener {
 					+ " weeks", SwingConstants.CENTER);
 			timer.setOpaque(false);
 			timer.setForeground(Color.BLACK);
-			timer.setFont(new Font("Serif", Font.ITALIC + Font.BOLD, (int)(Constants.FRAME_X * Constants.ENDSCREEN_TEXT_SIZE)));
+			timer.setFont(new Font(Constants.FONT_FAMILY, Font.ITALIC + Font.BOLD, (int)(Constants.FRAME_X * Constants.ENDSCREEN_TEXT_SIZE)));
 			p.add(timer);
 		}
 	    p.add(new JLabel());
