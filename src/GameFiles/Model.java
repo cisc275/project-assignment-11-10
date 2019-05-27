@@ -1,12 +1,7 @@
 package GameFiles;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
-
-import javax.imageio.ImageIO;
 
 public class Model implements Serializable {
 	
